@@ -2320,6 +2320,27 @@ html_global_direction_unit (SV *converter_in, direction_name)
     OUTPUT:
         RETVAL
 
+SV *
+html_global_direction_text (SV *converter_in, direction_name)
+        const char *direction_name = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+        CONVERTER *self;
+        int text_index = -1;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "html_global_direction_text");
+        if (self)
+          {
+            text_index
+              = html_find_direction_name_global_text (self, direction_name);
+          }
+        if (text_index >= 0)
+          RETVAL = newSViv ((IV) text_index);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
 void
 html_translate_names (SV *converter_in)
   PREINIT:

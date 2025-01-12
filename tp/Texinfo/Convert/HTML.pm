@@ -171,6 +171,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_command_description",
   "Texinfo::Convert::HTML::global_direction_unit"
    => "Texinfo::Convert::ConvertXS::html_global_direction_unit",
+  "Texinfo::Convert::HTML::global_direction_text"
+   => "Texinfo::Convert::ConvertXS::html_global_direction_text",
 
   "Texinfo::Convert::HTML::_XS_set_shared_conversion_state"
    => "Texinfo::Convert::ConvertXS::html_set_shared_conversion_state",
@@ -1660,6 +1662,13 @@ sub global_direction_unit($$)
   my $self = shift;
   my $direction = shift;
   return $self->{'global_units_directions'}->{$direction};
+}
+
+sub global_direction_text($$)
+{
+  my $self = shift;
+  my $direction = shift;
+  return $self->{'global_texts_directions'}->{$direction};
 }
 
 sub get_element_root_command_element($$)
@@ -4136,8 +4145,9 @@ sub _default_format_button($$;$)
       }
       $need_delimiter = 1;
     }
-  } elsif ($button eq 'Space') {
-    # handle space button
+    # Space
+  } elsif (defined($self->global_direction_text($button))) {
+    # handle "direction" text button without output unit (Space)
     if ($self->get_conf('ICONS')) {
       my $direction_icon;
       my $active_icons = $self->get_conf('ACTIVE_ICONS');
@@ -10447,6 +10457,11 @@ sub _prepare_output_units_global_targets($$$$)
   my $special_units = shift;
   my $associated_special_units = shift;
 
+  # value can be interpreted as an index, but there is not assocaited array
+  # as the all the values of interest can be found with calls to
+  # direction_string.
+  $self->{'global_texts_directions'}->{'Space'} = 0;
+
   $self->{'global_units_directions'}->{'First'} = $output_units->[0];
   $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
 
@@ -12162,6 +12177,8 @@ sub conversion_initialization($$;$)
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
+  # "directions" not associated to output units, but associated to text.
+  $self->{'global_texts_directions'} = {};
 
   if (not defined($self->get_conf('NODE_NAME_IN_INDEX'))) {
     $self->set_conf('NODE_NAME_IN_INDEX', $self->get_conf('USE_NODES'));

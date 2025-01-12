@@ -51,6 +51,8 @@ enum direction_unit_direction {
   #undef rud_type
 };
 
+/* "This" direction is used for the offset.  It is also supposed to be the
+   first relative direction */
 #define FIRSTINFILE_OFFSET (D_direction_This - D_direction_FirstInFileThis)
 #define FIRSTINFILE_NR (FIRSTINFILE_MAX_IDX - FIRSTINFILE_MIN_IDX +1)
 /* used for the three directions like D_direction_Next to retrieve the

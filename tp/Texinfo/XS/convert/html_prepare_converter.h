@@ -72,6 +72,8 @@ void html_register_id (CONVERTER *self, const char *string);
 
 /* called from XS only */
 void html_setup_global_units_direction_names (CONVERTER *self);
+void html_setup_global_texts_direction_names (CONVERTER *self);
+
 
 /* only called for output() */
 /* FILE_SOURCE_INFO_LIST * html_prepare_units_directions_files (CONVERTER *self,

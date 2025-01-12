@@ -468,6 +468,17 @@ typedef struct SPECIAL_UNIT_DIRECTION_LIST {
     SPECIAL_UNIT_DIRECTION *list;
 } SPECIAL_UNIT_DIRECTION_LIST;
 
+typedef struct TEXT_DIRECTION {
+    /* not sure what it is for now but could be useful */
+    int text_index;
+    const char *direction;
+} TEXT_DIRECTION;
+
+typedef struct TEXTS_DIRECTION_LIST {
+    size_t number;
+    TEXT_DIRECTION *list;
+} TEXTS_DIRECTION_LIST;
+
 typedef struct FORMATTING_REFERENCE {
 /* perl references. This should be SV *sv_*,
    but we don't want to include the Perl headers everywhere; */
@@ -891,6 +902,8 @@ typedef struct CONVERTER {
     /* both for global units associated to normal output units and
        for special output units, sorted according to direction name */
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
+    /* for global directions texts, for example Space */
+    TEXTS_DIRECTION_LIST global_texts_direction_names;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     void *registered_ids_c_hashmap;

@@ -2110,6 +2110,18 @@ unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   return (top_output_unit && top_output_unit == output_unit);
 }
 
+/* return an integer >= 0 if the direction is a global direction text,
+   not assocaited to an output unit (such as Space) */
+int
+html_global_direction_text (int direction)
+{
+  if (direction > D_direction_Last && direction < D_direction_This)
+    {
+      return direction - (D_direction_Last +1);
+    }
+  return -1;
+}
+
 /* return value to be freed by caller */
 char *
 from_element_direction (CONVERTER *self, int direction,
@@ -2139,7 +2151,7 @@ from_element_direction (CONVERTER *self, int direction,
                               self->main_units_direction_names[direction]);
    */
 
-  if (direction < D_direction_Space)
+  if (direction < D_direction_Last+1)
     target_unit = self->global_units_directions[direction];
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     {
@@ -4380,7 +4392,7 @@ html_default_format_button (CONVERTER *self,
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */
-      else if (button->b.direction == D_direction_Space)
+      else if (html_global_direction_text (button->b.direction) >= 0)
         {
           /* handle space button */
           if (self->html_active_icons

@@ -1196,6 +1196,35 @@ html_find_direction_name_global_unit (const CONVERTER *self,
   return result->output_unit;
 }
 
+static int
+compare_global_texts_direction_name (const void *a, const void *b)
+{
+  const TEXT_DIRECTION *gtdn_a = (const TEXT_DIRECTION *) a;
+  const TEXT_DIRECTION *gtdn_b = (const TEXT_DIRECTION *) b;
+
+  return strcmp (gtdn_a->direction, gtdn_b->direction);
+}
+
+/* Used from Perl through an XS override, in similar C codes the
+   direction indices are used instead of the direction names */
+int
+html_find_direction_name_global_text (const CONVERTER *self,
+                                      const char *direction_name)
+{
+  TEXT_DIRECTION *result = 0;
+  static TEXT_DIRECTION searched_direction;
+
+  searched_direction.direction = direction_name;
+  result = (TEXT_DIRECTION *) bsearch (&searched_direction,
+                self->global_texts_direction_names.list,
+                self->global_texts_direction_names.number,
+                sizeof (TEXT_DIRECTION),
+                compare_global_texts_direction_name);
+  if (!result)
+    return -1;
+  return result->text_index;
+}
+
 
 
 void

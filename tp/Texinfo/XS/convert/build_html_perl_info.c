@@ -55,7 +55,8 @@
  */
 #include "html_converter_types.h"
 /* for html_global_unit_direction_names
-   htmlxref_split_type_names html_setup_global_units_direction_names */
+   htmlxref_split_type_names html_setup_global_units_direction_names
+   html_setup_global_texts_direction_names */
 #include "html_prepare_converter.h"
 #include "build_html_perl_info.h"
 
@@ -597,6 +598,7 @@ html_pass_units_directions_files (CONVERTER *converter,
          converter->output_units_descriptors[OUDT_associated_special_units]);
 
       html_setup_global_units_direction_names (converter);
+      html_setup_global_texts_direction_names (converter);
 
       pass_html_elements_in_file_count (converter_sv,
                                         &converter->output_unit_files);
@@ -621,6 +623,7 @@ html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
         self->output_units_descriptors[OUDT_associated_special_units]);
 
       html_setup_global_units_direction_names (self);
+      html_setup_global_texts_direction_names (self);
     }
 }
 

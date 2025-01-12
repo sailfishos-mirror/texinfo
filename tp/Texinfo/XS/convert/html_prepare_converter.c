@@ -1915,7 +1915,7 @@ html_converter_customize (CONVERTER *self)
 
   /* initialization needing some information not available before.  Besides
      customized information, mainly nr_special_units, which we
-     pretend could be customize (even though it cannot for now) */
+     pretend could be customized (even though it cannot for now) */
 
   self->main_units_direction_names = (const char **) malloc
      ((nr_special_units + NON_SPECIAL_DIRECTIONS_NR +1) * sizeof (char *));
@@ -4803,7 +4803,7 @@ compare_global_units_direction_name (const void *a, const void *b)
 
 /* To find more easily a global output unit based on a direction name, for an
    XS interface, associate global output units to names and sort according
-   to names.  Only called from Perl/XS, not need to call when doing C only */
+   to names.  Only called from Perl/XS, not needed when doing C only */
 void
 html_setup_global_units_direction_names (CONVERTER *self)
 {
@@ -4851,6 +4851,59 @@ html_setup_global_units_direction_names (CONVERTER *self)
 
   self->global_units_direction_names.list = global_units_directions_list;
   self->global_units_direction_names.number = global_directions_nr;
+}
+
+static int
+compare_global_texts_direction_name (const void *a, const void *b)
+{
+  const TEXT_DIRECTION *gtdn_a = (const TEXT_DIRECTION *) a;
+  const TEXT_DIRECTION *gtdn_b = (const TEXT_DIRECTION *) b;
+
+  return strcmp (gtdn_a->direction, gtdn_b->direction);
+}
+
+/* To find more easily a global text direction index based on a direction
+   name, for an XS interface, associate global direction texts to names
+   and sort according to names.  Only called from Perl/XS, not needed when
+   doing C only */
+void
+html_setup_global_texts_direction_names (CONVERTER *self)
+{
+  TEXT_DIRECTION *global_texts_directions_list;
+  int i;
+  int global_texts_directions_nr = 0;
+  int global_texts_direction_idx = 0;
+   /*
+  const SPECIAL_UNIT_DIRECTION *special_units_direction_names
+    = self->special_units_direction_names;
+    */
+
+  for (i = D_Last+1; i < D_direction_This; i++)
+    global_texts_directions_nr++;
+
+  /*
+  for (i = 0; special_units_direction_names[i].output_unit; i++)
+    global_texts_directions_nr++;
+   */
+
+  global_texts_directions_list = (TEXT_DIRECTION *)
+   malloc (sizeof (TEXT_DIRECTION) * (global_texts_directions_nr));
+
+  for (i = D_Last+1; i < D_direction_This; i++)
+    {
+      global_texts_directions_list[global_texts_direction_idx].direction
+        = html_global_unit_direction_names[i];
+      global_texts_directions_list[global_texts_direction_idx].text_index
+        = global_texts_direction_idx;
+      global_texts_direction_idx++;
+    }
+
+  qsort (global_texts_directions_list,
+         global_texts_directions_nr,
+         sizeof (TEXT_DIRECTION), compare_global_texts_direction_name);
+
+  self->global_texts_direction_names.list = global_texts_directions_list;
+  self->global_texts_direction_names.number = global_texts_directions_nr;
 }
 
 static char *

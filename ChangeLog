@@ -1,5 +1,32 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	Consider global direction with text and no output unit as a category
+
+	* tp/Texinfo/Convert/HTML.pm (global_direction_text)
+	(_default_format_button, _prepare_output_units_global_targets)
+	(conversion_initialization), tp/Texinfo/XS/convert/format_html.c
+	(html_global_direction_text, html_default_format_button): generalize
+	the case of the Space button as a global direction with text and no
+	output unit.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_global_direction_text),
+	tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tp/Texinfo/XS/convert/build_html_perl_info.c
+	(html_pass_units_directions_files)
+	(html_pass_output_units_global_targets),
+	tp/Texinfo/XS/convert/html_conversion_state.c
+	(compare_global_texts_direction_name)
+	(html_find_direction_name_global_text),
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_reset_converter),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(compare_global_texts_direction_name)
+	(html_setup_global_texts_direction_names),
+	tp/Texinfo/XS/main/converter_types.h (TEXT_DIRECTION),
+	(TEXTS_DIRECTION_LIST, CONVERTER): add an XS interface for
+	global_direction_text.
+
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_converter_types.h
 	(global_unit_direction),
 	tp/Texinfo/XS/convert/html_prepare_converter.c
