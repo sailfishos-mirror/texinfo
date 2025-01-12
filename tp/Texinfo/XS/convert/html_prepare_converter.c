@@ -84,7 +84,7 @@ const char *html_global_unit_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
-   " ",
+   "Space",
 };
 
 const char *html_formatting_reference_names[] = {

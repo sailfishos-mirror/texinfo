@@ -57,7 +57,7 @@ sub _texi2any_tests_special_unit_add_button
 
   if (!$button_added) {
     my @section_buttons = @{$self->get_conf('SECTION_BUTTONS')};
-    push @section_buttons, (' ', 'Overview');
+    push @section_buttons, ('Space', 'Overview');
     $self->set_conf('SECTION_BUTTONS', \@section_buttons);
     $button_added = 1;
   }

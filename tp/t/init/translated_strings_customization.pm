@@ -63,14 +63,14 @@ sub _texi2any_tests_translate_add_button
   if (!$button_added) {
 
     my @section_buttons = @{$self->get_conf('SECTION_BUTTONS')};
-    push @section_buttons, (' ', 'Forward');
+    push @section_buttons, ('Space', 'Forward');
     $self->set_conf('SECTION_BUTTONS', \@section_buttons);
 
     # this allows to test whether the FirstInFileForward direction
     # strings get the customized text of 'Forward' through
     # texinfo_register_direction_string_info
     my @chapter_footer_buttons = @{$self->get_conf('CHAPTER_FOOTER_BUTTONS')};
-    push @chapter_footer_buttons, (' ', 'FirstInFileForward');
+    push @chapter_footer_buttons, ('Space', 'FirstInFileForward');
     $self->set_conf('CHAPTER_FOOTER_BUTTONS', \@chapter_footer_buttons);
 
     $button_added = 1;

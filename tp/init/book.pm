@@ -54,13 +54,13 @@ sub book_in_contents_button {
            $self->direction_string('Contents', 'text')."</a>]", 0);
 }
 
-my @book_contents_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
+my @book_contents_buttons = ('Back', 'Forward', 'Space', 'Contents', 'Index', 'About');
 
 foreach my $buttons ('TOP_BUTTONS') {
   texinfo_set_from_init_file($buttons, \@book_contents_buttons);
 }
 
-my @book_output_unit_buttons = ('Back', 'Forward', ' ',
+my @book_output_unit_buttons = ('Back', 'Forward', 'Space',
                                 ['This', \&book_in_contents_button],
                                 'Index', 'About');
 

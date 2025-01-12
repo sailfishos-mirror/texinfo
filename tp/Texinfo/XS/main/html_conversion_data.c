@@ -117,7 +117,7 @@ const char * const default_converted_directions_strings[][24] = {
     "start", /* Top */
     "index", /* Index */
     0, /* Last */
-    0, /*   */
+    0, /* Space */
     0, /* This */
     "next", /* Forward */
     "prev", /* Back */
@@ -143,7 +143,7 @@ const char * const default_converted_directions_strings[][24] = {
     0, /* Top */
     0, /* Index */
     0, /* Last */
-    0, /*   */
+    0, /* Space */
     0, /* This */
     "n", /* Forward */
     "p", /* Back */
@@ -169,7 +169,7 @@ const char * const default_converted_directions_strings[][24] = {
     " &nbsp; ", /* Top */
     " &nbsp; ", /* Index */
     "1.2.4", /* Last */
-    0, /*   */
+    0, /* Space */
     "1.2.3", /* This */
     "1.2.4", /* Forward */
     "1.2.2", /* Back */
@@ -198,7 +198,7 @@ const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED default_translated_directions_str
     {0, pgdt_noop("Top direction string", "Top")}, /* Top */
     {0, pgdt_noop("Index direction string", "Index")}, /* Index */
     {" &gt;| ", 0}, /* Last */
-    {" &nbsp; ", 0}, /*   */
+    {" &nbsp; ", 0}, /* Space */
     {0, pgdt_noop("This (current section) direction string", "current")}, /* This */
     {" &gt; ", 0}, /* Forward */
     {" &lt; ", 0}, /* Back */
@@ -224,7 +224,7 @@ const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED default_translated_directions_str
     {0, pgdt_noop("Top direction description", "Cover (top) of document")}, /* Top */
     {0, pgdt_noop("Index direction description", "Index")}, /* Index */
     {0, pgdt_noop("Last direction description", "Last section in reading order")}, /* Last */
-    {0, 0}, /*   */
+    {0, 0}, /* Space */
     {0, pgdt_noop("This (current section) direction description", "Current section")}, /* This */
     {0, pgdt_noop("Forward direction description", "Next section in reading order")}, /* Forward */
     {0, pgdt_noop("Back direction description", "Previous section in reading order")}, /* Back */
@@ -250,7 +250,7 @@ const HTML_DEFAULT_DIRECTION_STRING_TRANSLATED default_translated_directions_str
     {0, pgdt_noop("Top direction button label", "Top")}, /* Top */
     {0, pgdt_noop("Index direction button label", "Index")}, /* Index */
     {0, pgdt_noop("Last direction button label", "Last")}, /* Last */
-    {" ", 0}, /*   */
+    {" ", 0}, /* Space */
     {0, pgdt_noop("This (current section) direction button label", "This")}, /* This */
     {0, pgdt_noop("Forward direction button label", "Forward")}, /* Forward */
     {0, pgdt_noop("Back direction button label", "Back")}, /* Back */

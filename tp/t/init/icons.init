@@ -26,7 +26,7 @@ texinfo_set_from_init_file('ICONS', 1);
      'About' ,      'a_help.png',
      'First',       '',
      'Last',        '',
-     ' ',           ''
+     'Space',       ''
     );
 
 # insert here name of icon images for these, if button is inactive

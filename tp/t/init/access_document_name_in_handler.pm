@@ -12,7 +12,7 @@ sub _texi2any_tests_access_document_name_in_handler
 
   if (!$button_added) {
     my @section_buttons = @{$self->get_conf('SECTION_BUTTONS')};
-    push @section_buttons, (' ', \$document_name);
+    push @section_buttons, ('Space', \$document_name);
     $self->set_conf('SECTION_BUTTONS', \@section_buttons);
     $button_added = 1;
   }

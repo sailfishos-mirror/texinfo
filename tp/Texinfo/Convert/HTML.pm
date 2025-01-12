@@ -2553,16 +2553,16 @@ my %defaults = (
   # or USE_NODES if USE_NODE_DIRECTIONS is undefined
   'SECTION_BUTTONS'      => [[ 'Next', \&_default_panel_button_dynamic_direction ],
                              [ 'Prev', \&_default_panel_button_dynamic_direction ],
-                             [ 'Up', \&_default_panel_button_dynamic_direction ], ' ',
+                             [ 'Up', \&_default_panel_button_dynamic_direction ], 'Space',
                              'Contents', 'Index', 'About'],
   'SECTION_FOOTER_BUTTONS' => [[ 'Next', \&_default_panel_button_dynamic_direction_section_footer ],
                               [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
-                              [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], ' ',
+                              [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], 'Space',
                               'Contents', 'Index'],
   'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
-                             ' ', 'Contents', 'Index'],
+                             'Space', 'Contents', 'Index'],
 
   'LINKS_DIRECTIONS'     => ['Top', 'Index', 'Contents', 'About',
                               'NodeUp', 'NodeNext', 'NodePrev'],
@@ -4136,7 +4136,7 @@ sub _default_format_button($$;$)
       }
       $need_delimiter = 1;
     }
-  } elsif ($button eq ' ') {
+  } elsif ($button eq 'Space') {
     # handle space button
     if ($self->get_conf('ICONS')) {
       my $direction_icon;
@@ -4276,7 +4276,7 @@ sub _default_format_navigation_panel($$$$;$)
     }
     # if the first button is an empty button, pass
     if (defined($direction)
-        and $direction eq ' ' and $nr_of_buttons_shown == 0) {
+        and $direction eq 'Space' and $nr_of_buttons_shown == 0) {
       next;
     }
 
@@ -11619,7 +11619,7 @@ EOT
   }
 
   foreach my $button_spec (@{$buttons}) {
-    next if ($button_spec eq ' ' or ref($button_spec) eq 'CODE'
+    next if ($button_spec eq 'Space' or ref($button_spec) eq 'CODE'
              or ref($button_spec) eq 'SCALAR'
              or (ref($button_spec) eq 'ARRAY' and scalar(@$button_spec) != 2));
     my $direction;
@@ -13838,25 +13838,25 @@ sub _set_variables_texi2html($)
   my $options = shift;
   my @texi2html_options = (
   ['SECTION_BUTTONS', ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
-                             ' ', ' ', ' ', ' ',
+                             'Space', 'Space', 'Space', 'Space',
                              'Top', 'Contents', 'Index', 'About' ]],
-  ['TOP_BUTTONS', ['Back', 'Forward', ' ',
+  ['TOP_BUTTONS', ['Back', 'Forward', 'Space',
                              'Contents', 'Index', 'About']],
-  ['TOP_FOOTER_BUTTONS', ['Back', 'Forward', ' ',
+  ['TOP_FOOTER_BUTTONS', ['Back', 'Forward', 'Space',
                              'Contents', 'Index', 'About']],
 
   ['MISC_BUTTONS', [ 'Top', 'Contents', 'Index', 'About' ]],
-  ['CHAPTER_BUTTONS', [ 'FastBack', 'FastForward', ' ',
-                              ' ', ' ', ' ', ' ',
+  ['CHAPTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
+                              'Space', 'Space', 'Space', 'Space',
                               'Top', 'Contents', 'Index', 'About', ]],
   ['SECTION_FOOTER_BUTTONS', [ 'FastBack', 'FirstInFileBack', 'FirstInFileUp',
                                                'Forward', 'FastForward' ]],
-  ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', ' ',
-                              ' ', ' ', ' ', ' ',
+  ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
+                              'Space', 'Space', 'Space', 'Space',
                               'Top', 'Contents', 'Index', 'About', ]],
   ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back',
                                             'Up', 'Forward', 'FastForward',
-                             ' ', ' ', ' ', ' ',
+                             'Space', 'Space', 'Space', 'Space',
                              'Top', 'Contents', 'Index', 'About' ]],
   );
   my $regular_texi2html_options

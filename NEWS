@@ -12,6 +12,7 @@ See the manual for detailed information.
 * texi2any
   . remove USE_REL_REV variable; former effect is now always on
   . rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
+  . rename space direction ' ' to 'Space'
   . HTML output:
       . use last @printindex for the Index direction
 

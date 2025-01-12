@@ -1,5 +1,23 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	Rename space direction ' ' to 'Space'
+
+	* tp/Texinfo/Data/default_direction_strings.csv, NEWS,
+	doc/texi2any_api.texi (Directions), tp/Texinfo/Convert/HTML.pm
+	(%defaults, _default_format_button, _default_format_navigation_panel)
+	(_default_format_special_body_about, _set_variables_texi2html),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_global_unit_direction_names), tp/Texinfo/XS/main/utils.c
+	(html_button_direction_names), tp/init/book.pm,
+	tp/maintain/generate_code_convert_data.pl,
+	tp/t/init/access_document_name_in_handler.pm, tp/t/init/icons.init,
+	tp/t/init/special_element_customization.pm, tp/t/init/t2h_buttons.pm,
+	tp/t/init/t2h_singular.init,
+	tp/t/init/translated_strings_customization.pm: rename space direction
+	' ' to 'Space'.
+
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	Rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
 
 	* tp/Texinfo/options_data.txt, tp/Texinfo/Convert/HTML.pm (%defaults,

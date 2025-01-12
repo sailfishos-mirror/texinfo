@@ -188,7 +188,7 @@ if ($T2H_BLUE_BUTTONS) {
    'Forward',  'blue_next.png',
    'FastForward', 'blue_nnext.png',
    'About' ,    'blue_help.png',
-   ' ',        ''
+   'Space',     ''
   );
 
   %PASSIVE_ICONS =
@@ -223,7 +223,7 @@ if ($T2H_BLUE_BUTTONS) {
    'Forward',  'a_right.png',
    'FastForward', 'a_rightdouble.png',
    'About' ,    'a_help.png',
-   ' ',        'a_empty.png'
+   'Space',     'a_empty.png'
   );
 
   %PASSIVE_ICONS =

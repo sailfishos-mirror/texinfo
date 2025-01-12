@@ -947,7 +947,7 @@ specified on @code{@@node} lines or in menus (@pxref{Two Paths,,, texinfo, Texin
 Here is the list of global output units directions:
 
 @table @emph
-@item @samp{@ }
+@item Space
 An empty button.
 
 @item Top

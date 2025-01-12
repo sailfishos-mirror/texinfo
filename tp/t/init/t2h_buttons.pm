@@ -2,15 +2,15 @@
 use strict;
 
 my @SECTION_BUTTONS = ('FastBack', 'Back', 'Up', 'Forward', 'FastForward',
-                             ' ', ' ', ' ', ' ',
+                             'Space', 'Space', 'Space', 'Space',
                              'Top', 'Contents', 'Index', 'About' );
 
-my @TOP_BUTTONS = ('Back', 'Forward', ' ',
+my @TOP_BUTTONS = ('Back', 'Forward', 'Space',
                              'Contents', 'Index', 'About');
 
 my @NODE_FOOTER_BUTTONS = ('FastBack', 'Back',
                                             'Up', 'Forward', 'FastForward',
-                             ' ', ' ', ' ', ' ',
+                             'Space', 'Space', 'Space', 'Space',
                              'Top', 'Contents', 'Index', 'About');
 
 texinfo_set_from_init_file('SECTION_BUTTONS', \@SECTION_BUTTONS);

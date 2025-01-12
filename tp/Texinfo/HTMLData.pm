@@ -130,7 +130,7 @@ sub get_default_translated_special_unit_info() {
 }
 
 sub get_directions_order() {
-return [['First', 'Top', 'Index', 'Last', ' '],
+return [['First', 'Top', 'Index', 'Last', 'Space'],
 ['This', 'Forward', 'Back', 'FastForward', 'FastBack', 'Next', 'Prev', 'Up', 'NodeNext', 'NodePrev', 'NodeUp', 'NodeForward', 'NodeBack'],
 ['PrevFile', 'NextFile'],
 ];
@@ -143,7 +143,7 @@ my %default_converted_directions_strings = (
     'Top' => 'start',
     'Index' => 'index',
     'Last' => '',
-    ' ' => '',
+    'Space' => '',
     'This' => '',
     'Forward' => 'next',
     'Back' => 'prev',
@@ -169,7 +169,7 @@ my %default_converted_directions_strings = (
     'Top' => '',
     'Index' => '',
     'Last' => '',
-    ' ' => '',
+    'Space' => '',
     'This' => '',
     'Forward' => 'n',
     'Back' => 'p',
@@ -195,7 +195,7 @@ my %default_converted_directions_strings = (
     'Top' => ' &nbsp; ',
     'Index' => ' &nbsp; ',
     'Last' => '1.2.4',
-    ' ' => '',
+    'Space' => '',
     'This' => '1.2.3',
     'Forward' => '1.2.4',
     'Back' => '1.2.2',
@@ -228,7 +228,7 @@ my %default_translated_directions_strings = (
     'Top' => {'to_convert' => Texinfo::Common::pgdt('Top direction string', 'Top')},
     'Index' => {'to_convert' => Texinfo::Common::pgdt('Index direction string', 'Index')},
     'Last' => {'converted' => ' &gt;| '},
-    ' ' => {'converted' => ' &nbsp; '},
+    'Space' => {'converted' => ' &nbsp; '},
     'This' => {'to_convert' => Texinfo::Common::pgdt('This (current section) direction string', 'current')},
     'Forward' => {'converted' => ' &gt; '},
     'Back' => {'converted' => ' &lt; '},
@@ -279,7 +279,7 @@ my %default_translated_directions_strings = (
     'Top' => {'to_convert' => Texinfo::Common::pgdt('Top direction button label', 'Top')},
     'Index' => {'to_convert' => Texinfo::Common::pgdt('Index direction button label', 'Index')},
     'Last' => {'to_convert' => Texinfo::Common::pgdt('Last direction button label', 'Last')},
-    ' ' => {'converted' => ' '},
+    'Space' => {'converted' => ' '},
     'This' => {'to_convert' => Texinfo::Common::pgdt('This (current section) direction button label', 'This')},
     'Forward' => {'to_convert' => Texinfo::Common::pgdt('Forward direction button label', 'Forward')},
     'Back' => {'to_convert' => Texinfo::Common::pgdt('Back direction button label', 'Back')},

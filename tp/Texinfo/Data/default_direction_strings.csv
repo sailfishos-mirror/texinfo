@@ -3,7 +3,7 @@ First|||1.| ${bar}&lt; |||First section in reading order||First|
 Top|start|| $html_default_entity_nbsp ||Top||Cover (top) of document||Top|
 Index|index|| $html_default_entity_nbsp ||Index||Index||Index|
 Last|||1.2.4| &gt;${bar} |||Last section in reading order||Last|
- |||| $html_default_entity_nbsp |||| ||
+Space|||| $html_default_entity_nbsp |||| ||
 This|||1.2.3||current||Current section||This|
 Forward|next|n|1.2.4| &gt; |||Next section in reading order||Forward|
 Back|prev|p|1.2.2| &lt; |||Previous section in reading order||Back|
