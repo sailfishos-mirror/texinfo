@@ -28,7 +28,7 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/configure.ac, README-hacking: do not use
-	AC_LINK_IFELSE nor ready-o-use Autoconf code to test for Perl
+	AC_LINK_IFELSE nor ready-to-use Autoconf code to test for Perl
 	embedding, as it does not seems possible to avoid AC_DEFINE results
 	performed previously includes:
 	https://lists.gnu.org/archive/html/autoconf/2025-01/msg00008.html
@@ -917,7 +917,7 @@
 	(TEXT_OPTIONS): add ERROR_MESSAGE_LIST error_messages field to
 	TEXT_OPTIONS.  Use if for verbatiminclude if there is no associated
 	converter, be it text or other output converter, which means that we
-	are in C callde from Perl Text Converter.  Pass the error_messages
+	are in C called from Perl Text Converter.  Pass the error_messages
 	information back to Perl.
 
 	* tp/Texinfo/Convert/Text.pm (import): use a hash to specify overriden

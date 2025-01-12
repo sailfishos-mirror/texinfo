@@ -18,6 +18,8 @@ Move C code?
 Version libraries?
 
 use directories for files used for htmlxref.conf
+Could be a syntax with glob, like
+htmlxrefinclude dir/*.conf
 
 Add an higher level HTML customization API for buttons:
 https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00047.html
