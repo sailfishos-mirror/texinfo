@@ -113,7 +113,6 @@ enum global_unit_direction {
   #define hgdt_name(name) D_ ## name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
-   D_Space,
 };
 
 

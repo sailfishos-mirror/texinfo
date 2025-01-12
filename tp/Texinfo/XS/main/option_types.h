@@ -42,7 +42,6 @@ enum direction_unit_direction {
   #define hgdt_name(name) D_direction_ ## name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
-   D_direction_Space,
   #define rud_type(name) D_direction_ ## name,
    RUD_DIRECTIONS_TYPES_LIST
    RUD_FILE_DIRECTIONS_TYPES

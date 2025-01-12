@@ -54,6 +54,7 @@ extern const char *direction_type_translation_context[];
    hgdt_name(Top) \
    hgdt_name(Index) \
    hgdt_name(Last) \
+   hgdt_name(Space) \
 
 
 /* relative output unit directions */

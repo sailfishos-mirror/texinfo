@@ -164,7 +164,6 @@ const char *html_button_direction_names[] = {
   #define hgdt_name(name) #name,
    HTML_GLOBAL_DIRECTIONS_LIST
   #undef hgdt_name
-   "Space",
   #define rud_type(name) #name,
    RUD_DIRECTIONS_TYPES_LIST
    RUD_FILE_DIRECTIONS_TYPES

@@ -351,9 +351,7 @@ if ($perl_format) {
   print HDR "extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][$special_units_nr];\n\n";
 }
 
-my @global_directions = ('First', 'Top', 'Index', 'Last');
-# add space 'direction'
-my @ordered_global_directions = (@global_directions, 'Space');
+my @ordered_global_directions = ('First', 'Top', 'Index', 'Last', 'Space');
 my %ordered_global_directions_hash;
 foreach my $global_direction (@ordered_global_directions) {
   $ordered_global_directions_hash{$global_direction} = 1;
@@ -556,9 +554,7 @@ if ($perl_format) {
 
   print HDR "#define HTML_GLOBAL_DIRECTIONS_LIST \\\n";
   foreach my $direction (@{$direction_orders{'global'}}) {
-    if ($direction ne 'Space') {
-      print HDR "   hgdt_name(${direction}) \\\n";
-    }
+    print HDR "   hgdt_name(${direction}) \\\n";
   }
   print HDR "\n\n";
 

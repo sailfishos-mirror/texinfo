@@ -1,5 +1,16 @@
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_converter_types.h
+	(global_unit_direction),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_global_unit_direction_names), tp/Texinfo/XS/main/option_types.h
+	(direction_unit_direction), tp/Texinfo/XS/main/utils.c
+	(html_button_direction_names),
+	tp/maintain/generate_code_convert_data.pl: handle Space button as part
+	of HTML_GLOBAL_DIRECTIONS_LIST.
+
+2025-01-12  Patrice Dumas  <pertusus@free.fr>
+
 	Rename space direction ' ' to 'Space'
 
 	* tp/Texinfo/Data/default_direction_strings.csv, NEWS,
