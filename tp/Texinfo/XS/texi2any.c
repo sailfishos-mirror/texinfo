@@ -2580,7 +2580,7 @@ main (int argc, char *argv[], char *env[])
       dump_texi_option
         = GNUT_get_conf (program_options.options->DUMP_TEXI.number);
 
-      if (dump_texi_option && dump_texi_option->o.integer > 0
+      if ((dump_texi_option && dump_texi_option->o.integer > 0)
           || format_specification->flags & STTF_texi2dvi_format)
         {
           errors_count = handle_errors (errors_nr, errors_count, &opened_files);

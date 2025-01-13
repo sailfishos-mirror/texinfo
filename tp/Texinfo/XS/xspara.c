@@ -27,6 +27,8 @@
 #include <unictype.h>
 #include <unistr.h>
 #include <uchar.h>
+/* PRIuLEAST32 */
+#include <inttypes.h>
 
 #include "text.h"
 #include "base_utils.h"
@@ -611,7 +613,7 @@ xspara_add_text (char *text, int len)
     {
       if (debug)
         {
-          fprintf(stderr, "p (%d+%d) s `%s', l `%lc', w `%s'\n",
+          fprintf(stderr, "p (%d+%d) s `%s', l `%" PRIuLEAST32 "', w `%s'\n",
                     state.counter, state.word_counter,
                     state.space.end == 0 ? ""
                       : xspara__print_escaped_spaces (state.space.text,

@@ -1,3 +1,15 @@
+2025-01-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): check
+	if parent command is found (should always be).
+
+	* tp/Texinfo/XS/texi2any.c (main): fix precedence of dump_texi_option.
+
+	* tp/Texinfo/XS/xspara.c (xspara_add_text): use PRIuLEAST32 in format.
+
+	* tp/Texinfo/XS/convert/texinfo.c (txi_general_output_strings_setup):
+	free locales_dir only if it was set.
+
 2025-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	Consider global direction with text and no output unit as a category

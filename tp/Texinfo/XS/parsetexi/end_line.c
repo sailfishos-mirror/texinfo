@@ -801,7 +801,7 @@ end_line_starting_block (ELEMENT *current)
   const ELEMENT *arguments_line;
   ELEMENT *block_line_arg;
 
-  enum command_id command;
+  enum command_id command = CM_NONE;
 
   if (current->parent->flags & EF_def_line)
     command = current->parent->parent->e.c->cmd;
@@ -809,6 +809,10 @@ end_line_starting_block (ELEMENT *current)
     command = current->parent->e.c->cmd;
   else if (current->parent->parent && current->parent->parent->e.c->cmd)
     command = current->parent->parent->e.c->cmd;
+
+  /* Should never happen */
+  if (command == CM_NONE)
+    fatal ("end_line_starting_block: parent command not found");
 
   if (command_data(command).flags & CF_contain_basic_inline)
       (void) pop_command (&nesting_context.basic_inline_stack_block);

@@ -149,6 +149,7 @@ txi_general_output_strings_setup (int use_external_translate_string)
               configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
             }
+          free (locales_dir);
         }
 
       if (not_found)
@@ -160,9 +161,8 @@ txi_general_output_strings_setup (int use_external_translate_string)
                  txi_paths_info.p.installed.converterdatadir);
       configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
+      free (locales_dir);
     }
-
-  free (locales_dir);
 }
 
 /* to be called before loading init file to get the opportunity to
