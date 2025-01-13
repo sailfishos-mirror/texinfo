@@ -1,3 +1,17 @@
+2025-01-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Define NULL_DEVICE in system.h
+
+	* system.h,
+	* info/info.h,
+	* install-info/install-info.c (NULL_DEVICE): move all setting
+	of NULL_DEVICE to system.h.  Remove special case where it is
+	set to "/dev/null" for DJGPP as apparently "NUL" works as well.
+	* info/filesys.h (DEFAULT_INFOPATH) [__DJGPP__]: move override
+	of DEFAULT_INFOPATH here.
+	
+	Report from Patrice.
+
 2025-01-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block): check

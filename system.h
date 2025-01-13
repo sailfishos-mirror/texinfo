@@ -62,12 +62,12 @@
 # ifdef __CYGWIN__
 #  define PATH_SEP	":"
 #  define STRIP_DOT_EXE	0
-#  undef NULL_DEVICE
 #  define NULL_DEVICE "/dev/null"
 #  define PIPE_USE_FORK	1
 # else  /* O_BINARY && !__CYGWIN__ */
 #  define PATH_SEP	";"
 #  define STRIP_DOT_EXE	1
+#  define NULL_DEVICE "NUL"
 #  define PIPE_USE_FORK	0
 # endif /* O_BINARY && !__CYGWIN__ */
   /* Back to any O_BINARY system.  */
