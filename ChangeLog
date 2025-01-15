@@ -1027,7 +1027,7 @@
 	* doc/texinfo.tex
 	(\pdfmakeoutlines) [pdftex, xetex]: treat \idxinitialentry like
 	@section.
-	(\doinitialindexentry): New macro to create PDF target and
+	(\doindexinitialentry): New macro to create PDF target and
 	entry in .toc file for index initial.
 	(\initial): Call it.
 	
