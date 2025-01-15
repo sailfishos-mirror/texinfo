@@ -34,6 +34,7 @@ html_converter_initialize (CONVERTER *converter)
   html_converter_initialize_beginning (converter);
 
   html_converter_init_special_unit (converter);
+  html_set_main_units_direction_names (converter);
   html_converter_customize (converter);
 
   html_fill_options_directions (converter->conf, converter);

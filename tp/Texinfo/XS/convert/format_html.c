@@ -2110,16 +2110,19 @@ unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
   return (top_output_unit && top_output_unit == output_unit);
 }
 
-/* return an integer >= 0 if the direction is a global direction text,
-   not assocaited to an output unit (such as Space) */
-int
-html_global_direction_text (int direction)
+/* return 1 if the direction is a global direction text,
+   not associated to an output unit (such as Space) */
+static int
+html_global_direction_text (CONVERTER *self, int direction)
 {
-  if (direction > D_direction_Last && direction < D_direction_This)
+  if ((direction > D_direction_Last && direction < D_direction_This)
+      || (direction > NON_SPECIAL_DIRECTIONS_NR
+            + (int) self->special_unit_varieties.number
+            + (int) self->added_global_units_directions.number -1))
     {
-      return direction - (D_direction_Last +1);
+      return 1;
     }
-  return -1;
+  return 0;
 }
 
 /* return value to be freed by caller */
@@ -2147,7 +2150,8 @@ from_element_direction (CONVERTER *self, int direction,
     filename_from = self->current_filename.filename;
 
   /* To debug:
-  fprintf (stderr, "FED: %s %s\n", html_command_text_type_name[type],
+  fprintf (stderr, "FED: %d %s %s\n", direction,
+                              html_command_text_type_name[type],
                               self->main_units_direction_names[direction]);
    */
 
@@ -2155,7 +2159,7 @@ from_element_direction (CONVERTER *self, int direction,
     target_unit = self->global_units_directions[direction];
   else if (direction > NON_SPECIAL_DIRECTIONS_NR - 1)
     {
-      /* special units (global) directions */
+      /* special units (global) directions and added global directions */
       target_unit
        = self->global_units_directions
            [D_direction_Last + direction - NON_SPECIAL_DIRECTIONS_NR +1];
@@ -4392,7 +4396,7 @@ html_default_format_button (CONVERTER *self,
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */
-      else if (html_global_direction_text (button->b.direction) >= 0)
+      else if (html_global_direction_text (self, button->b.direction) > 0)
         {
           /* handle space button */
           if (self->html_active_icons

@@ -54,6 +54,8 @@
    new_htmlxref_manual_list htmlxref_split_type_names
    html_formatting_reference_names */
 #include "html_prepare_converter.h"
+/* html_set_main_units_direction_names */
+#include "html_conversion_api.h"
 /* html_special_unit_variety_direction_index html_get_target
    find_footnote_id_number
  */
@@ -261,6 +263,7 @@ html_converter_get_customization_sv (SV *converter_sv,
   HV *default_output_units_conversion_hv;
   SV **htmlxref_sv = 0;
   SV **formatting_function_sv;
+  SV **customized_global_directions_sv;
   SV **stage_handlers_sv;
   SV **special_unit_body_sv;
   SV **types_open_sv;
@@ -735,10 +738,60 @@ html_converter_get_customization_sv (SV *converter_sv,
         }
     }
 
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set */
-  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + special_unit_varieties->number;
+#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
+
+  FETCH(customized_global_directions);
+
+  if (customized_global_directions_sv)
+    {
+      I32 hv_number;
+      I32 i;
+      HV *customized_global_directions_hv
+        = (HV *) SvRV (*customized_global_directions_sv);
+
+      hv_number = hv_iterinit (customized_global_directions_hv);
+
+      if (hv_number > 0)
+        {
+          int customized_global_units_directions = 0;
+          /* if there are global text directions, some slots won't be used */
+          converter->customized_global_units_directions.list
+           = (DIRECTION_NODE_NAME *)
+            non_perl_malloc (hv_number * sizeof (DIRECTION_NODE_NAME));
+          /* FIXME useful information? */
+          converter->customized_global_units_directions.space = hv_number;
+
+          for (i = 0; i < hv_number; i++)
+            {
+              HE *next = hv_iternext (customized_global_directions_hv);
+              SV *direction_sv = hv_iterkeysv (next);
+              const char *direction = (char *) SvPVutf8_nolen (direction_sv);
+              SV *node_texi_sv = HeVAL(next);
+
+
+              if (SvOK (node_texi_sv))
+                {
+                  const char *node_texi
+                    = (char *) SvPVutf8_nolen (node_texi_sv);
+                  DIRECTION_NODE_NAME *direction_node_name
+                   = &converter->customized_global_units_directions.list[
+                                      customized_global_units_directions];
+
+                  direction_node_name->direction = strdup (direction);
+                  direction_node_name->node_name = strdup (node_texi);
+                  customized_global_units_directions++;
+                }
+              else
+                add_string (direction,
+                            &converter->customized_global_text_directions);
+            }
+          converter->customized_global_units_directions.number
+            = customized_global_units_directions;
+        }
+    }
+
+
+  nr_string_directions = html_set_main_units_direction_names (converter);
 
   if (customized_direction_strings && SvOK (customized_direction_strings))
     {
@@ -797,8 +850,11 @@ html_converter_get_customization_sv (SV *converter_sv,
                     direction_name = html_button_direction_names[i];
                   else
                     direction_name
-                      = converter->special_unit_info[SUI_type_direction]
-                                       [i - FIRSTINFILE_MIN_IDX];
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set,
+     hence the - FIRSTINFILE_MIN_IDX */
+                     = converter->main_units_direction_names[
+                        i - FIRSTINFILE_MIN_IDX + NON_SPECIAL_DIRECTIONS_NR];
 
                   spec_sv = hv_fetch (direction_hv, direction_name,
                                           strlen (direction_name), 0);
@@ -897,8 +953,8 @@ html_converter_get_customization_sv (SV *converter_sv,
         }
     }
 
-  /* Get htmlxref from Perl.
-     this is always 0 as it is not fetch so this code is never run, htmlxref
+  /* Code that could be used to get htmlxref from Perl.
+     always 0 as it is not fetched so this code is never run, htmlxref
      information is setup in C.
    */
   if (htmlxref_sv)
@@ -943,8 +999,6 @@ html_converter_get_customization_sv (SV *converter_sv,
             }
         }
     }
-
-#define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
 
   FETCH(formatting_function);
 

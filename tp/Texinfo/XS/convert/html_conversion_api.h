@@ -28,6 +28,7 @@
 /* in html_prepare_converter.c */
 void html_converter_initialize_beginning (CONVERTER *self);
 void html_converter_init_special_unit (CONVERTER *self);
+int html_set_main_units_direction_names (CONVERTER *self);
 void html_converter_customize (CONVERTER *self);
 
 /* in options_init_free.c */

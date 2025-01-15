@@ -10,6 +10,10 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Make converter_defaults conf argument optional
+
+Simplify TEXT_DIRECTION, could even be a char *
+
 Use system.h macros used in info for File::Spec replacement in C in
 texi2any too
 

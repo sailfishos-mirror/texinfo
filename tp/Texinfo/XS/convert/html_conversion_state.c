@@ -1222,7 +1222,7 @@ html_find_direction_name_global_text (const CONVERTER *self,
                 compare_global_texts_direction_name);
   if (!result)
     return -1;
-  return result->text_index;
+  return 1;
 }
 
 

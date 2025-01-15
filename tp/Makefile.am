@@ -199,11 +199,13 @@ test_files = \
  t/include/section_file_no_node.texi \
  t/include/section_file_no_node_include.texi \
  t/init/access_document_name_in_handler.pm \
+ t/init/add_directions_buttons.pm \
  t/init/button_replacement_for_special_unit_direction.pm \
  t/init/command_translation_modified.init \
  t/init/css_in_node_redirection_page.pm \
  t/init/cvs.init \
  t/init/directions_string_undef.pm \
+ t/init/directions_buttons.pm \
  t/init/footnote_mark_in_inline_content.pm \
  t/init/icons.init \
  t/init/ignore_and_comments_output.init \

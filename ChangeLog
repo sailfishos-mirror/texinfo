@@ -1,3 +1,59 @@
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
+	HTML customization API to add or replace global directions
+
+	* tp/Texinfo/Config.pm (texinfo_register_global_direction)
+	(GNUT_get_global_directions): add texinfo_register_global_direction
+	to register text global direction or output unit global direction with
+	a Texinfo node name.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_global_direction_text),
+	tp/Texinfo/Convert/HTML.pm (conversion_initialization),
+	tp/Texinfo/XS/convert/format_html.c (html_global_direction_text)
+	(from_element_direction),
+	tp/Texinfo/XS/convert/html_conversion_state.c
+	(html_find_direction_name_global_text): simply set 1 for global
+	direction text in hash or as a return value.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(conversion_initialization),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_set_main_units_direction_names, html_converter_customize)
+	(html_initialize_output_state), tp/Texinfo/XS/main/converter_types.h
+	(DIRECTION_NODE_NAME, DIRECTION_NODE_NAME_LIST, CONVERTER),
+	tp/Texinfo/XS/convert/html_converter_api.c
+	(html_converter_initialize): get customized_global_directions and
+	consider the added directions to be customizable directions, pass them
+	to C.  Separate code determining main_units_direction_names to the
+	html_set_main_units_direction_names function, call it in
+	html_converter_get_customization_sv before getting customization of
+	direction strings and in html_converter_initialize.
+
+	* tp/Texinfo/Convert/HTML.pm (conversion_initialization),
+	tp/Texinfo/XS/convert/format_html.c (html_global_direction_text)
+	(html_setup_global_texts_direction_names),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_set_main_units_direction_names): add
+	customized_global_directions text directions.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_output_units_global_targets),
+	tp/Texinfo/XS/Makefile.am (libtexinfo_convert_la_CPPFLAGS),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_converter_customize, html_initialize_output_state)
+	(html_prepare_output_units_global_targets)
+	(html_setup_global_units_direction_names): get the
+	customized_global_directions output units to replace or add to
+	global_units_directions.
+
+	* tp/Makefile.am (test_files), tp/t/init/add_directions_buttons.pm,
+	tp/t/init/directions_buttons.pm, tp/Makefile.tres,
+	tp/t/init_files_tests.t ($directions_buttons_text, directions_buttons)
+	(directions_buttons_buttons): test of the direction addition API,
+	adding directions and using in buttons.
+
 2025-01-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Define NULL_DEVICE in system.h

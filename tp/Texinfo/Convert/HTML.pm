@@ -9078,14 +9078,29 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
-  my @all_directions = @all_directions_except_special_units;
+  my %all_directions;
+  foreach my $direction (@all_directions_except_special_units) {
+    $all_directions{$direction} = 1;
+  }
+
+  $self->{'customized_global_directions'}
+    = Texinfo::Config::GNUT_get_global_directions();
+
+  if ($self->{'customized_global_directions'}) {
+    foreach my $direction (keys(%{$self->{'customized_global_directions'}})) {
+      $all_directions{$direction} = 1;
+    }
+  }
+  # customized_global_directions are not used further here, as the output
+  # unit need to be found with the document
+
   foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
     my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
     if (defined($direction)) {
-      push @all_directions, $direction;
+      $all_directions{$direction} = 1;
     }
   }
-  #print STDERR join('|', @all_directions)."\n";
+  #print STDERR join('|', sort(keys(%all_directions)))."\n";
 
   # Fill the translated direction strings information, corresponding to:
   #   - strings already converted
@@ -9097,7 +9112,7 @@ sub converter_initialize($)
   $self->{'translated_direction_strings'} = {};
   foreach my $string_type (keys(%default_translated_directions_strings)) {
     $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction (@all_directions) {
+    foreach my $direction (keys(%all_directions)) {
       if ($customized_direction_strings->{$string_type}
             and $customized_direction_strings->{$string_type}->{$direction}) {
         $self->{'translated_direction_strings'}->{$string_type}->{$direction}
@@ -10457,11 +10472,6 @@ sub _prepare_output_units_global_targets($$$$)
   my $special_units = shift;
   my $associated_special_units = shift;
 
-  # value can be interpreted as an index, but there is not assocaited array
-  # as the all the values of interest can be found with calls to
-  # direction_string.
-  $self->{'global_texts_directions'}->{'Space'} = 0;
-
   $self->{'global_units_directions'}->{'First'} = $output_units->[0];
   $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
 
@@ -10505,6 +10515,46 @@ sub _prepare_output_units_global_targets($$$$)
         }
       }
       $self->{'global_units_directions'}->{'Index'} = $document_unit;
+    }
+  }
+
+  if ($self->{'customized_global_directions'}) {
+    foreach my $direction (sort(keys(%{$self->{'customized_global_directions'}}))) {
+      my $node_texi_name
+        = $self->{'customized_global_directions'}->{$direction};
+      if (defined($node_texi_name)
+          and not defined($self->global_direction_text($direction))) {
+          # FIXME check that relative directions are not replaced by
+          # global_units_directions?  It may not be an issue.
+        my $node_element;
+        my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
+                                              'NO_USER_COMMANDS' => 1,});
+        my $tree = $parser->parse_texi_line($node_texi_name, undef, 1);
+        my ($errors, $errors_count) = $parser->errors();
+        if ($errors_count) {
+          warn "Global $direction node name parsing $errors_count error(s)\n";
+          warn "node name: $node_texi_name\n";
+          warn "Error messages: \n";
+          foreach my $error_message (@$errors) {
+            warn $error_message->{'error_line'};
+          }
+        }
+        if ($tree) {
+          my $normalized_node
+       = Texinfo::Convert::NodeNameNormalization::convert_to_identifier($tree);
+          if ($normalized_node ne '' and $normalized_node =~ /[^-]/) {
+            $node_element = $self->label_command($normalized_node);
+          }
+        }
+        if (!$node_element) {
+          $self->converter_document_warn(
+               sprintf(__("could not find %s node `%s'"),
+                       $direction, $node_texi_name));
+        } else {
+          $self->{'global_units_directions'}->{$direction}
+            = $node_element->{'associated_unit'};
+        }
+      }
     }
   }
 
@@ -12102,11 +12152,38 @@ sub conversion_initialization($$;$)
     }
   }
 
-  my @all_directions = @all_directions_except_special_units;
+  # for global directions always set, and for directions to special elements,
+  # only filled if special elements are actually used.
+  $self->{'global_units_directions'} = {};
+  # "directions" not associated to output units, but associated to text.
+  $self->{'global_texts_directions'} = {};
+  $self->{'global_texts_directions'}->{'Space'} = 1;
+
+  my %all_directions;
+  foreach my $direction (@all_directions_except_special_units) {
+    $all_directions{$direction} = 1;
+  }
+
+  if ($self->{'customized_global_directions'}) {
+    foreach my $direction (sort(keys(%{$self->{'customized_global_directions'}}))) {
+      my $node_texi_name
+        = $self->{'customized_global_directions'}->{$direction};
+      if (!defined($node_texi_name)) {
+        if (!$all_directions{$direction}) {
+          $self->{'global_texts_directions'}->{$direction} = 1;
+        }
+      }
+      # $node_texi_name output unit is determined later on
+      # after output units have been set
+
+      $all_directions{$direction} = 1;
+    }
+  }
+
   foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
     my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
     if (defined($direction)) {
-      push @all_directions, $direction;
+      $all_directions{$direction} = 1;
     }
   }
   # three types of direction strings:
@@ -12121,7 +12198,7 @@ sub conversion_initialization($$;$)
   # substitute_html_non_breaking_space is used and it depends on the document.
   foreach my $string_type (keys(%default_converted_directions_strings)) {
     $self->{'directions_strings'}->{$string_type} = {};
-    foreach my $direction (@all_directions) {
+    foreach my $direction (keys(%all_directions)) {
       $self->{'directions_strings'}->{$string_type}->{$direction} = {};
       my $string_contexts;
       if ($self->{'customized_direction_strings'}->{$string_type}
@@ -12173,12 +12250,6 @@ sub conversion_initialization($$;$)
     = $self->{'expanded_formats'};
 
   $self->{'multiple_pass'} = [];
-
-  # for global directions always set, and for directions to special elements,
-  # only filled if special elements are actually used.
-  $self->{'global_units_directions'} = {};
-  # "directions" not associated to output units, but associated to text.
-  $self->{'global_texts_directions'} = {};
 
   if (not defined($self->get_conf('NODE_NAME_IN_INDEX'))) {
     $self->set_conf('NODE_NAME_IN_INDEX', $self->get_conf('USE_NODES'));

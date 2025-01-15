@@ -798,6 +798,7 @@ html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_re
         html_converter_init_special_unit_sv (converter_in,
                                              customized_special_unit_info);
         html_converter_init_special_unit (self);
+        /* calls html_set_main_units_direction_names */
         html_converter_get_customization_sv (converter_in,
                          default_formatting_references,
                          default_css_string_formatting_references,
@@ -2334,8 +2335,8 @@ html_global_direction_text (SV *converter_in, direction_name)
             text_index
               = html_find_direction_name_global_text (self, direction_name);
           }
-        if (text_index >= 0)
-          RETVAL = newSViv ((IV) text_index);
+        if (text_index > 0)
+          RETVAL = newSViv ((IV) 1);
         else
           RETVAL = newSV (0);
     OUTPUT:

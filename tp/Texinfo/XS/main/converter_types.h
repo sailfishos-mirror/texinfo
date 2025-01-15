@@ -479,6 +479,18 @@ typedef struct TEXTS_DIRECTION_LIST {
     TEXT_DIRECTION *list;
 } TEXTS_DIRECTION_LIST;
 
+typedef struct DIRECTION_NODE_NAME {
+    char *direction;
+    char *node_name;
+    size_t direction_nr;
+} DIRECTION_NODE_NAME;
+
+typedef struct DIRECTION_NODE_NAME_LIST {
+    size_t number;
+    size_t space;
+    DIRECTION_NODE_NAME *list;
+} DIRECTION_NODE_NAME_LIST;
+
 typedef struct FORMATTING_REFERENCE {
 /* perl references. This should be SV *sv_*,
    but we don't want to include the Perl headers everywhere; */
@@ -904,6 +916,9 @@ typedef struct CONVERTER {
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
     /* for global directions texts, for example Space */
     TEXTS_DIRECTION_LIST global_texts_direction_names;
+    DIRECTION_NODE_NAME_LIST customized_global_units_directions;
+    STRING_LIST added_global_units_directions;
+    STRING_LIST customized_global_text_directions;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     void *registered_ids_c_hashmap;

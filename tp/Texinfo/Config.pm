@@ -504,6 +504,7 @@ my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 my $GNUT_accent_command_formatting_info = {};
 my $GNUT_types_formatting_info = {};
+my $GNUT_global_directions = {};
 my $GNUT_direction_string_info = {};
 my $GNUT_special_unit_info = {};
 
@@ -826,6 +827,21 @@ sub GNUT_get_types_formatting_info()
   return { %$GNUT_types_formatting_info };
 }
 
+# if $NODE_TEXI_NAME is undef, the direction is a direction text not
+# associated to an output unit
+sub texinfo_register_global_direction($;$$)
+{
+  my $direction = shift;
+  my $node_texi_name = shift;
+
+  $GNUT_global_directions->{$direction} = $node_texi_name;
+}
+
+sub GNUT_get_global_directions()
+{
+  return { %$GNUT_global_directions };
+}
+
 # no check on type and direction, but only the ones known in the HTML
 # converted will be used
 sub texinfo_register_direction_string_info($$;$$$)
@@ -893,7 +909,8 @@ sub GNUT_reinitialize_init_files()
      $GNUT_upper_case_commands,
      $GNUT_commands_conversion, $GNUT_commands_open, $GNUT_types_conversion,
      $GNUT_types_open, $GNUT_accent_command_formatting_info,
-     $GNUT_types_formatting_info, $GNUT_direction_string_info) {
+     $GNUT_types_formatting_info, $GNUT_direction_string_info,
+     $GNUT_global_directions) {
     $reference = {};
   }
   _GNUT_initialize_stage_handlers();

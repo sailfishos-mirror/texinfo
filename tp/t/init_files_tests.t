@@ -133,6 +133,22 @@ my $special_unit_direction_customization_text = '@contents
 @chapter chap
 ';
 
+my $directions_buttons_text = '@contents
+
+@node Top
+@top top
+
+@node chapter
+@chapter chap
+
+@printindex cp
+
+@node @code{append}ix
+@appendix App
+
+@cindex Here
+';
+
 my @file_tests = (
 ['customize_translations',
 '
@@ -302,6 +318,16 @@ $special_unit_direction_customization_text,
                   'button_replacement_for_special_unit_direction.pm',
                   'special_unit_direction_string_info_customization.pm']},
 ],
+['directions_buttons',
+$directions_buttons_text,
+{'init_files' => ['directions_buttons.pm']},
+],
+['directions_buttons_buttons',
+$directions_buttons_text,
+{'init_files' => ['directions_buttons.pm',
+                  'add_directions_buttons.pm']},
+],
+
 );
 
 foreach my $test (@test_cases) {
