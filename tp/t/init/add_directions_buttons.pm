@@ -3,7 +3,7 @@ use strict;
 
 use Texinfo::Convert::HTML;
 
-my $converter_defaults = Texinfo::Convert::HTML->converter_defaults(undef);
+my $converter_defaults = Texinfo::Convert::HTML->converter_defaults();
 
 my @buttons_specs = ('SECTION_BUTTONS', 'CHAPTER_BUTTONS',
                              'TOP_BUTTONS',

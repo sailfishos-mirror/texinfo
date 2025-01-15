@@ -410,7 +410,7 @@ sub pop_top_formatter($)
   return $old_context;
 }
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }

@@ -1,5 +1,17 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	Make converter_defaults conf argument optional
+
+	* tp/Texinfo/Convert/Converter.pm (converter_defaults),
+	tp/Texinfo/Convert/*.pm (converter_defaults),
+	tp/Texinfo/XS/convert/ConvertXS.xs (converter_defaults): make second
+	argument of converter_defaults optional.
+
+	* tp/Texinfo/Convert/Info.pm, tp/t/init/add_directions_buttons.pm:
+	update converter_defaults call.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/html_prepare_converter.c
 	(html_initialize_output_state): do not access special output units
 	directions outside of their range.

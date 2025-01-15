@@ -64,7 +64,7 @@ my %defaults = (
   'OUTFILE'              => '-',
 );
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }

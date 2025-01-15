@@ -200,7 +200,7 @@ foreach my $ref_cmd ('pxref', 'xref', 'ref') {
 # ok for most converters.
 
 # Functions that should be defined in specific converters
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }
@@ -2057,7 +2057,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   use Texinfo::Convert::Converter;
   @ISA = qw(Texinfo::Convert::Converter);
 
-  sub converter_defaults ($$) {
+  sub converter_defaults ($;$) {
     return \%myconverter_defaults;
   }
   sub converter_initialize($) {
@@ -2257,10 +2257,10 @@ can define two methods:
 X<C<converter_defaults>>
 
 Returns a reference on a hash with defaults for the converter module
-customization options or C<undef>.  The I<$options> hash reference holds
-options for the converter.  This method is called through a converter by L<<<
-C<converter>|/$converter = MyConverter->converter($options) >>>, but it may also
-be called through a converter module class.
+customization options or C<undef>.  The optional I<$options> hash reference
+holds options for the converter.  This method is called through a converter
+by L<<< C<converter>|/$converter = MyConverter->converter($options) >>>,
+but it may also be called through a converter module class.
 
 =item converter_initialize
 X<C<converter_initialize>>

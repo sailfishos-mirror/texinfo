@@ -272,7 +272,7 @@ my %default_context_block_commands = (
 );
 
 # converter_defaults() should be implemented by subclasses.
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return undef;
 }

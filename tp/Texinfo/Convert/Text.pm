@@ -1144,7 +1144,7 @@ sub get_converter_errors($)
   return $self->{'error_warning_messages'};
 }
 
-sub converter_defaults()
+sub converter_defaults($;$)
 {
   return undef;
 }

@@ -109,7 +109,7 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, S
 # NOTE this function is generic, but should only be overriden for formats
 # setting option defaults in C.
 SV *
-converter_defaults (SV *converter_in, SV *conf_sv)
+converter_defaults (SV *converter_in, SV *conf_sv=0)
       PREINIT:
         CONVERTER_INITIALIZATION_INFO *conf;
         CONVERTER_INITIALIZATION_INFO *format_defaults;

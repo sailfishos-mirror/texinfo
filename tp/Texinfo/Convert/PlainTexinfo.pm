@@ -60,7 +60,7 @@ my $regular_defaults
   = Texinfo::Options::get_regular_options('plaintexinfo_converter');
 my %defaults = %{$regular_defaults};
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }

@@ -50,7 +50,7 @@ my %defaults = (
   'USE_NODES'            => 1,
 );
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }

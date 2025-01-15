@@ -2753,7 +2753,7 @@ sub cdt_string($$;$$)
                                     \&html_translate_string);
 }
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   my $self = shift;
   my $conf = shift;

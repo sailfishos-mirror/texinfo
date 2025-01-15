@@ -278,7 +278,7 @@ my %docbook_preformatted_formats = (
 
 my %sectioning_commands_done;
 
-sub converter_defaults($$)
+sub converter_defaults($;$)
 {
   return \%defaults;
 }
