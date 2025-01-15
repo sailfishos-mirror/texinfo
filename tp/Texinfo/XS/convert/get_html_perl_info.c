@@ -52,7 +52,7 @@
 /* new_directions_strings_type initialize_js_categories_list
    initialize_jslicense_files new_special_unit_formatting_references
    new_htmlxref_manual_list htmlxref_split_type_names
-   html_formatting_reference_names */
+   html_formatting_reference_names html_nr_string_directions */
 #include "html_prepare_converter.h"
 /* html_set_main_units_direction_names */
 #include "html_conversion_api.h"
@@ -766,7 +766,6 @@ html_converter_get_customization_sv (SV *converter_sv,
               const char *direction = (char *) SvPVutf8_nolen (direction_sv);
               SV *node_texi_sv = HeVAL(next);
 
-
               if (SvOK (node_texi_sv))
                 {
                   const char *node_texi
@@ -1342,10 +1341,7 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
 
   dTHX;
 
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set */
-  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + converter->special_unit_varieties.number;
+  nr_string_directions = html_nr_string_directions (converter);
 
   converter_hv = (HV *)SvRV (converter_sv);
 

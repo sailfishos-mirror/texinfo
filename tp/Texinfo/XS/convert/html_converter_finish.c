@@ -35,6 +35,8 @@
    html_free_direction_icons_array
  */
 #include "convert_html.h"
+/* html_nr_string_directions */
+#include "html_prepare_converter.h"
 #include "html_converter_api.h"
 
 
@@ -320,10 +322,7 @@ html_free_converter (CONVERTER *self)
 {
   int i;
   size_t j;
-  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + self->special_unit_varieties.number
-                     + (int) self->added_global_units_directions.number
-                     + (int) self->customized_global_text_directions.number;
+  int nr_string_directions = html_nr_string_directions (self);
   int nr_dir_str_contexts = TDS_context_string + 1;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;

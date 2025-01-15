@@ -649,6 +649,17 @@ html_builtin_default_css_text (void)
    defaults based on customization variables.
    Apply specific customizations (from Perl) */
 
+int
+html_nr_string_directions (const CONVERTER *self)
+{
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set */
+  return NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+       + (int) self->special_unit_varieties.number
+       + (int) self->added_global_units_directions.number
+       + (int) self->customized_global_text_directions.number;
+}
+
 /* Also used to get htmlxref info from Perl.  Initialize in C */
 HTMLXREF_MANUAL *
 new_htmlxref_manual_list (size_t size)
@@ -1885,12 +1896,7 @@ html_converter_customize (CONVERTER *self)
   int l;
   enum direction_string_type DS_type;
   size_t nr_special_units = self->special_unit_varieties.number;
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set */
-  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                             + (int) nr_special_units
-                            + self->added_global_units_directions.number
-                         + self->customized_global_text_directions.number;
+  int nr_string_directions = html_nr_string_directions (self);
   int nr_dir_str_contexts = TDS_context_string +1;
   int *non_default_special_unit_directions =
      determine_non_default_special_unit_directions (self);
@@ -2043,7 +2049,7 @@ html_converter_customize (CONVERTER *self)
     }
 
   /* initialization needing some information not available before.  Besides
-     customized information, mainly nr_special_units, which we
+     customized information, mainly the number of special units, which we
      pretend could be customized (even though it cannot for now) */
 
   /* setup translated_direction_strings */
@@ -2676,12 +2682,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   int i;
   size_t j;
   const char *output_encoding;
-  int nr_special_units = self->special_unit_varieties.number;
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set */
-  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-        + nr_special_units + self->added_global_units_directions.number
-        + self->customized_global_text_directions.number;
+  int nr_string_directions = html_nr_string_directions (self);
   int nr_dir_str_contexts = TDS_context_string + 1;
   enum direction_string_type DS_type;
   const char *line_break_element;

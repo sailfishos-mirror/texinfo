@@ -1,5 +1,21 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(html_clear_direction_string_type),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_conversion_initialization_sv),
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_free_converter),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_nr_string_directions, html_converter_customize)
+	(html_initialize_output_state): add html_nr_string_directions and use
+	it to determine the total number of direction strings.
+
+	* tp/Texinfo/XS/convert/build_html_perl_info.c
+	(build_directions_strings): call html_nr_string_directions and use
+	converter->main_units_direction_names for directions names.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	Make converter_defaults conf argument optional
 
 	* tp/Texinfo/Convert/Converter.pm (converter_defaults),

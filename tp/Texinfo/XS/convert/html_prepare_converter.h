@@ -23,6 +23,8 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 
+int html_nr_string_directions (const CONVERTER *self);
+
 /* void html_converter_initialize_beginning (CONVERTER *self); */
 
 /* called from XS only */

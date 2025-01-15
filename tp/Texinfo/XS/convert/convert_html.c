@@ -66,6 +66,8 @@
 #include "html_conversion_state.h"
 #include "format_html.h"
 #include "convert_html.h"
+/* html_nr_string_directions */
+#include "html_prepare_converter.h"
 #include "html_conversion_api.h"
 
 const char *html_conversion_context_type_names[] = {
@@ -377,10 +379,7 @@ html_clear_direction_string_type (const CONVERTER *self,
                                   char ***type_directions_strings)
 {
   int i;
-  int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                      + self->special_unit_varieties.number
-                      + (int) self->added_global_units_directions.number
-                      + (int) self->customized_global_text_directions.number;
+  int nr_string_directions = html_nr_string_directions (self);
   int nr_dir_str_contexts = TDS_context_string + 1;
 
   for (i = 0; i < nr_string_directions; i++)

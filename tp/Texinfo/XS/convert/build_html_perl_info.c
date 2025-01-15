@@ -56,7 +56,7 @@
 #include "html_converter_types.h"
 /* for html_global_unit_direction_names
    htmlxref_split_type_names html_setup_global_units_direction_names
-   html_setup_global_texts_direction_names */
+   html_setup_global_texts_direction_names html_nr_string_directions */
 #include "html_prepare_converter.h"
 #include "build_html_perl_info.h"
 
@@ -212,8 +212,7 @@ build_directions_strings (const CONVERTER *converter)
 
   dTHX;
 
-  nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + converter->special_unit_varieties.number;
+  nr_string_directions = html_nr_string_directions (converter);
 
   directions_strings_hv = newHV ();
 
@@ -241,8 +240,11 @@ build_directions_strings (const CONVERTER *converter)
             direction_name = html_button_direction_names[i];
           else
             direction_name
-              = converter->special_unit_info[SUI_type_direction]
-                                   [i - FIRSTINFILE_MIN_IDX];
+  /* The corresponding direction without FirstInFile are used instead
+     of FirstInFile*, so the directions_strings are not set,
+     hence the - FIRSTINFILE_MIN_IDX */
+              = converter->main_units_direction_names[
+                        i - FIRSTINFILE_MIN_IDX + NON_SPECIAL_DIRECTIONS_NR];
 
           hv_store (direction_hv, direction_name, strlen (direction_name),
                     newRV_noinc ((SV *) context_hv), 0);
