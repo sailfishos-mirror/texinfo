@@ -4332,29 +4332,6 @@ html_default_format_button (CONVERTER *self,
                          button->b.button_info->bi.direction_information_type,
                                                            0, 0, element);
             }
-          else if (button->b.button_info->type
-                   == BIT_href_direction_information_type)
-            {
-              char *href = from_element_direction (self, direction,
-                                                   HTT_href, 0, 0, element);
-              if (button->b.button_info->bi.direction_information_type >= 0)
-                {
-                  char *text_formatted = from_element_direction (self,
-                                                                 direction,
-                        button->b.button_info->bi.direction_information_type,
-                                                                 0, 0, 0);
-                  if (href && text_formatted)
-                    {
-                      formatted_button->active
-                        = direction_a (self, direction, href,
-                                       text_formatted, 0);
-                      free (text_formatted);
-                    }
-                  else
-                    formatted_button->passive = text_formatted;
-                }
-              free (href);
-            }
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */

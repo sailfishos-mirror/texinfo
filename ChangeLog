@@ -1,5 +1,19 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	Remove the direction and text type for a button
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_button),
+	tp/Texinfo/XS/convert/format_html.c (html_default_format_button),
+	tp/Texinfo/XS/main/create_buttons.c (new_button_specification),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/Texinfo/XS/main/option_types.h (enum button_specification_type):
+	remove the button formatting using a two element array with direction
+	and text type.  It was already unused, undocumented and scheduled for
+	deletion.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	Remove the possibility to use a direction and scalar reference for a button
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_button),

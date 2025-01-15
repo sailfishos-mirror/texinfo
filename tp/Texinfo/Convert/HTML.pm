@@ -4114,18 +4114,6 @@ sub _default_format_button($$;$)
         # with the direction $direction
         $active = $self->from_element_direction($direction, $text,
                                                 undef, undef, $source_command);
-      } else {
-        # NOTE This buttons specification is not used anywhere in code nor
-        # tests, it is certainly not worth maintaining in the long run.
-        my $href = $self->from_element_direction($direction, 'href',
-                                                 undef, undef, $source_command);
-        my $text_formatted = $self->from_element_direction($direction, $text);
-        if (defined($href) and defined($text_formatted)) {
-          my $anchor_attributes = $self->_direction_href_attributes($direction);
-          $active = "<a href=\"$href\"${anchor_attributes}>$text_formatted</a>";
-        } else {
-          $passive = $text_formatted;
-        }
       }
       $need_delimiter = 1;
     }

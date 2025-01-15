@@ -796,12 +796,6 @@ html_get_button_specification_list (const CONVERTER *converter,
                       text_type_p = text_type_string +2;
                       text_type_p += strspn (text_type_p, whitespace_chars);
                     }
-                  else
-                    {
-                      text_type_p = text_type_string;
-                      button_spec->type
-                        = BIT_href_direction_information_type;
-                    }
                   button_spec->bi.direction_information_type = -1;
                   for (j = 0; j < HTT_section +1; j++)
                     {

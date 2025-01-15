@@ -70,8 +70,7 @@ new_button_specification (BUTTON_SPECIFICATION *button,
 
       if (info_type == BIT_function)
         button_spec->bi.button_function.type = function_type;
-      else if (info_type == BIT_selected_direction_information_type
-               || info_type == BIT_href_direction_information_type)
+      else if (info_type == BIT_selected_direction_information_type)
         button_spec->bi.direction_information_type = text_type;
     }
 }

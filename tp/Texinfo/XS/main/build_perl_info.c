@@ -2806,11 +2806,8 @@ pass_document_to_converter_sv (const CONVERTER *converter,
 /* build a Perl button data from pure C button structure.
    This is a partial implementation.
    This function can only be called for default buttons for now, so we do
-   not need to handle other types of buttons.  We could handle possibly
-   more: BST_direction_info with
-     BIT_selected_direction_information_type and
-     BIT_href_direction_information_type.
-   Other need Perl info */
+   not need to handle other types of buttons, which are either not
+   interesting to handle, or need Perl info */
 static SV *
 html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
                    int *user_function_number)

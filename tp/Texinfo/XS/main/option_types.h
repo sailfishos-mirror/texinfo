@@ -81,7 +81,6 @@ enum button_specification_type {
 enum button_information_type {
    BIT_function,
    BIT_selected_direction_information_type,
-   BIT_href_direction_information_type,
 };
 
 /* enum value corresponding to a default button formatting function
