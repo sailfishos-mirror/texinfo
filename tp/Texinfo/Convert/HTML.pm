@@ -4099,9 +4099,6 @@ sub _default_format_button($$;$)
   my ($active, $passive, $need_delimiter);
   if (ref($button) eq 'CODE') {
     ($active, $need_delimiter) = &$button($self);
-  } elsif (ref($button) eq 'SCALAR') {
-    $active = "$$button" if defined($$button);
-    $need_delimiter = 1;
   } elsif (ref($button) eq 'ARRAY' and scalar(@$button == 2)) {
     my $text = $button->[1];
     my $direction = $button->[0];
@@ -11684,7 +11681,8 @@ EOT
   }
 
   foreach my $button_spec (@{$buttons}) {
-    next if ($button_spec eq 'Space' or ref($button_spec) eq 'CODE'
+    next if (defined($self->global_direction_text($button_spec))
+             or ref($button_spec) eq 'CODE'
              or ref($button_spec) eq 'SCALAR'
              or (ref($button_spec) eq 'ARRAY' and scalar(@$button_spec) != 2));
     my $direction;

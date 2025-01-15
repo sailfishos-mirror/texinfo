@@ -359,10 +359,6 @@ copy_option (OPTION *destination, const OPTION *source)
                   button->type = s_button->type;
                   if (button->type == BST_function)
                     button->b.sv_reference = s_button->b.sv_reference;
-                  else if (button->type == BST_external_string)
-                    button->b.sv_string = s_button->b.sv_string;
-                  else if (button->type == BST_string)
-                    button->b.string = strdup (s_button->b.string);
                   else if (button->type == BST_direction)
                     {
                       button->b.direction = s_button->b.direction;

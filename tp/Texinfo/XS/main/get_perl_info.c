@@ -819,11 +819,6 @@ html_get_button_specification_list (const CONVERTER *converter,
                     }
                 }
             }
-          else
-            {
-              button->type = BST_external_string;
-              button->b.sv_string = *button_sv;
-            }
         }
       else
         {

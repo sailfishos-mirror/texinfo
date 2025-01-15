@@ -75,8 +75,6 @@ enum html_text_type {
 enum button_specification_type {
    BST_direction,
    BST_function,
-   BST_string,
-   BST_external_string,
    BST_direction_info,
 };
 
@@ -139,8 +137,6 @@ typedef struct BUTTON_SPECIFICATION {
   /* perl references. This should be SV *sv_*,
      but we don't want to include the Perl headers everywhere; */
       void *sv_reference; /* BST_function */
-      void *sv_string; /* BST_external_string scalar reference */
-      char *string; /* BST_string */
       BUTTON_SPECIFICATION_INFO *button_info; /* BST_direction_info
                                               array reference of length 2 */
     } b;

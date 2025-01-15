@@ -4317,13 +4317,7 @@ html_default_format_button (CONVERTER *self,
         malloc (sizeof (FORMATTED_BUTTON_INFO));
       memset (formatted_button, 0, sizeof (FORMATTED_BUTTON_INFO));
 
-      if (button->type == BST_external_string)
-        {
-          formatted_button->active
-            = get_perl_scalar_reference_value (button->b.sv_string);
-          formatted_button->need_delimiter = 1;
-        }
-      else if (button->type == BST_direction_info)
+      if (button->type == BST_direction_info)
         {
           int direction = button->b.button_info->direction;
           if (button->b.button_info->type == BIT_external_string
@@ -4388,11 +4382,6 @@ html_default_format_button (CONVERTER *self,
                 }
               free (href);
             }
-          formatted_button->need_delimiter = 1;
-        }
-      else if (button->type == BST_string)
-        {
-          formatted_button->active = strdup (button->b.string);
           formatted_button->need_delimiter = 1;
         }
       /* for the next cases, button->type == BST_direction */
@@ -12754,7 +12743,7 @@ html_default_format_special_body_about (CONVERTER *self,
       else if (button->type == BST_direction)
         direction = button->b.direction;
 
-      if (direction < 0 || direction == D_direction_Space)
+      if (direction < 0 || html_global_direction_text (self, direction))
         continue;
 
       text_append_n (result, "  <tr>\n    ", 11);

@@ -2021,8 +2021,6 @@ html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
                 free (button->b.button_info->bi.string);
               free (button->b.button_info);
             }
-          else if (button->type == BST_string)
-            free (button->b.string);
           if (button->sv)
             unregister_perl_data (button->sv);
         }

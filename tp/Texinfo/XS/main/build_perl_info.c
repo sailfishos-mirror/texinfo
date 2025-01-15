@@ -2807,7 +2807,7 @@ pass_document_to_converter_sv (const CONVERTER *converter,
    This is a partial implementation.
    This function can only be called for default buttons for now, so we do
    not need to handle other types of buttons.  We could handle possibly
-   more: BST_string and BST_direction_info with
+   more: BST_direction_info with
      BIT_string, BIT_selected_direction_information_type and
      BIT_href_direction_information_type.
    Other need Perl info */

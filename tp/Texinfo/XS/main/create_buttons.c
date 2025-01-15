@@ -57,12 +57,7 @@ new_button_specification (BUTTON_SPECIFICATION *button,
   button->type = type;
   button->direction_string = direction_string;
 
-  if (type == BST_string)
-    {
-      if (string)
-        button->b.string = strdup (string);
-    }
-  else if (type == BST_direction)
+  if (type == BST_direction)
     button->b.direction = direction;
   else if (type == BST_direction_info)
     {

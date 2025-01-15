@@ -1,5 +1,36 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	Remove the possibility to use a scalar reference for a button
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about),
+	tp/Texinfo/XS/convert/format_html.c
+	(html_default_format_special_body_about): do not show global direction
+	texts in about.
+
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization),
+	tp/Texinfo/Convert/HTML.pm (_default_format_button),
+	tp/Texinfo/XS/convert/format_html.c (html_default_format_button),
+	tp/Texinfo/XS/main/create_buttons.c (new_button_specification),
+	tp/Texinfo/XS/main/customization_options.c (copy_option),
+	tp/Texinfo/XS/main/get_perl_info.c
+	(html_get_button_specification_list),
+	tp/Texinfo/XS/main/option_types.h (enum button_specification_type)
+	(BUTTON_SPECIFICATION), tp/Texinfo/XS/main/utils.c
+	(html_free_button_specification_list): remove the possibility to use
+	a scalar reference as button, a function reference or global text
+	directions should be used instead.  In C remove both
+	BST_external_string and BST_string buttons types.
+
+	* tp/t/init/access_document_name_in_handler.pm
+	(_button_show_document_name)
+	(_texi2any_tests_access_document_name_in_handler): use a function
+	reference instead of a scalar reference as button.
+
+	* tp/t/init/test_directions.init: use global text directions instead
+	of scalar references as buttons.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Directions, Default Directions)
 	(Direction Strings Customization)
 	(Adding Text And Global Output Units Directions): rearrange directions

@@ -1285,9 +1285,6 @@ The functions is called with one arguments, the converter object.
 The function should return two scalars, the button text and
 a boolean set if a delimiter is desired before the button.
 
-@item scalar reference
-The scalar value is printed.
-
 @item array reference of length 2
 Here, the first array item should be a an output unit direction.
 The text of the link depends on the second array item.
