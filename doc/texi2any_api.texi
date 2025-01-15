@@ -1286,40 +1286,12 @@ The function should return two scalars, the button text and
 a boolean set if a delimiter is desired before the button.
 
 @item array reference of length 2
-Here, the first array item should be a an output unit direction.
-The text of the link depends on the second array item.
-
-@table @emph
-@item reference to a text string
-A link to the output unit associated with the output unit direction
-is generated with the corresponding text used for the text link.
-
-@item reference to a function
-The functions is called with three arguments, the converter object, the
+Here, the first array item should be a an output unit direction,
+and the second array item a reference to a function.
+The function is called with three arguments, the converter object, the
 output unit direction and the source Texinfo tree element (possibly undef).
 The function should return two scalars, the button text and
 a boolean set if a delimiter is desired before the button.
-
-@c This buttons specification is not used anywhere in code nor
-@c tests, it is certainly not worth maintaining in the long run.
-@c Do not document
-@ignore
-@item text string
-The text string is interpreted as an output unit direction information type
-and the corresponding text is used for the link.
-@xref{Output Unit Direction Information Type}.
-
-For example, if the button array item is
-@example
-[ 'Next', 'node' ]
-@end example
-
-@noindent
-Then the button will be a link to the next section with text
-based on the name of the node associated with the next section output unit.
-@end ignore
-
-@end table
 
 @end table
 

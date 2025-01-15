@@ -4320,35 +4320,8 @@ html_default_format_button (CONVERTER *self,
       if (button->type == BST_direction_info)
         {
           int direction = button->b.button_info->direction;
-          if (button->b.button_info->type == BIT_external_string
-              || button->b.button_info->type == BIT_string)
-            {
-              /* use given text */
-              char *text;
-              if (button->b.button_info->type == BIT_external_string)
-                text = get_perl_scalar_reference_value
-                                      (button->b.button_info->bi.sv_string);
-              else
-                 text = strdup (button->b.button_info->bi.string);
 
-              if (text)
-                {
-                  char *href = from_element_direction (self, direction,
-                                                HTT_href, 0, 0, element);
-                  if (href)
-                    {
-                      formatted_button->active
-                        = direction_a (self, direction, href, text, 0);
-                      free (href);
-                      free (text);
-                    }
-                  else
-                    {
-                      formatted_button->passive = text;
-                    }
-                }
-            }
-          else if (button->b.button_info->type
+          if (button->b.button_info->type
                    == BIT_selected_direction_information_type)
             {
          /* this case is mostly for tests, to test the direction type

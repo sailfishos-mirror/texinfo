@@ -781,11 +781,6 @@ html_get_button_specification_list (const CONVERTER *converter,
                       else
                         result->BIT_user_function_number++;
                     }
-                  else
-                    {
-                      button_spec->type = BIT_external_string;
-                      button_spec->bi.sv_string = *button_spec_info_type;
-                    }
                 }
               else
                 {

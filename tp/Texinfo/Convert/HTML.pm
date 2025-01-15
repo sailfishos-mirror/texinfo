@@ -4102,22 +4102,9 @@ sub _default_format_button($$;$)
   } elsif (ref($button) eq 'ARRAY' and scalar(@$button == 2)) {
     my $text = $button->[1];
     my $direction = $button->[0];
-    # $direction is simple text and $text is a reference
-    if (defined($direction) and ref($direction) eq ''
-        and defined($text) and (ref($text) eq 'SCALAR') and defined($$text)) {
-      # use given text
-      my $href = $self->from_element_direction($direction, 'href',
-                                               undef, undef, $source_command);
-      if (defined($href)) {
-        my $anchor_attributes = $self->_direction_href_attributes($direction);
-        $active = "<a href=\"$href\"${anchor_attributes}>$$text</a>";
-      } else {
-        $passive = $$text;
-      }
-      $need_delimiter = 1;
     # $direction is simple text and $text is a reference on code
-    } elsif (defined($direction) and ref($direction) eq ''
-             and defined($text) and (ref($text) eq 'CODE')) {
+    if (defined($direction) and ref($direction) eq ''
+        and defined($text) and (ref($text) eq 'CODE')) {
       ($active, $need_delimiter) = &$text($self, $direction, $source_command);
     # $direction is simple text and $text is also a simple text
     } elsif (defined($direction) and ref($direction) eq ''
@@ -4142,7 +4129,6 @@ sub _default_format_button($$;$)
       }
       $need_delimiter = 1;
     }
-    # Space
   } elsif (defined($self->global_direction_text($button))) {
     # handle "direction" text button without output unit (Space)
     if ($self->get_conf('ICONS')) {

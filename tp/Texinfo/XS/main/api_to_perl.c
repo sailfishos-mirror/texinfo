@@ -63,30 +63,6 @@ register_perl_data (void *sv)
   SvREFCNT_inc (sv);
 }
 
-char *
-get_perl_scalar_reference_value (const void *sv_string)
-{
-  const SV *string_ref_sv;
-
-  dTHX;
-
-  if (get_no_perl_interpreter ())
-    return 0;
-
-  string_ref_sv = (SV *) sv_string;
-  if (SvOK (string_ref_sv) && SvROK (string_ref_sv))
-    {
-      SV *string_sv = SvRV (string_ref_sv);
-      if (SvOK (string_sv))
-        {
-          const char *value_tmp = (char *) SvPVutf8_nolen (string_sv);
-          char *value = non_perl_strdup (value_tmp);
-          return value;
-        }
-    }
-  return 0;
-}
-
 void
 call_switch_to_global_locale (void)
 {

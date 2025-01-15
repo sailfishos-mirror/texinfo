@@ -391,12 +391,6 @@ copy_option (OPTION *destination, const OPTION *source)
                           button_spec->bi.button_function.sv_reference
                             = s_button_spec->bi.button_function.sv_reference;
                         }
-                      else if (button_spec->type == BIT_external_string)
-                        button_spec->bi.sv_string
-                          = s_button_spec->bi.sv_string;
-                      else if (button_spec->type == BIT_string)
-                        button_spec->bi.string
-                          = strdup (s_button_spec->bi.string);
                       else /* BIT_selected_direction_information_type
                             and BIT_href_direction_information_type */
                         button_spec->bi.direction_information_type

@@ -50,7 +50,6 @@ new_button_specification (BUTTON_SPECIFICATION *button,
                           enum button_specification_type type,
                           enum button_information_type info_type,
                           int direction, const char *direction_string,
-                          const char *string,
                           enum button_function_type function_type,
                           enum html_text_type text_type)
 {
@@ -69,12 +68,7 @@ new_button_specification (BUTTON_SPECIFICATION *button,
       button_spec->type = info_type;
       button_spec->direction = direction;
 
-      if (info_type == BIT_string)
-        {
-          if (string)
-            button_spec->bi.string = strdup (string);
-        }
-      else if (info_type == BIT_function)
+      if (info_type == BIT_function)
         button_spec->bi.button_function.type = function_type;
       else if (info_type == BIT_selected_direction_information_type
                || info_type == BIT_href_direction_information_type)
@@ -115,10 +109,10 @@ new_special_unit_direction_button (const CONVERTER *self,
 
   if (direction < 0)
     new_button_specification (button, BST_direction,
-                              0, -1, button_name, 0, 0, 0);
+                              0, -1, button_name, 0, 0);
   else
     new_button_specification (button, BST_direction,
-                              0, direction, 0, 0, 0, 0);
+                              0, direction, 0, 0, 0);
 }
 
 /* BFT_type_panel_directions */
@@ -136,19 +130,19 @@ new_base_navigation_buttons (const CONVERTER *self,
   result = new_button_specification_list (buttons_nr);
 
   new_button_specification (&result->list[0], BST_direction_info,
-                            BIT_function, D_direction_Next, 0, 0,
+                            BIT_function, D_direction_Next, 0,
                             function_type, 0);
   new_button_specification (&result->list[1], BST_direction_info,
-                            BIT_function, D_direction_Prev, 0, 0,
+                            BIT_function, D_direction_Prev, 0,
                             function_type, 0);
   new_button_specification (&result->list[2], BST_direction_info,
-                            BIT_function, D_direction_Up, 0, 0,
+                            BIT_function, D_direction_Up, 0,
                             function_type, 0);
   new_button_specification (&result->list[3], BST_direction, 0,
-                            D_direction_Space, 0, 0, 0, 0);
+                            D_direction_Space, 0, 0, 0);
   new_special_unit_direction_button (self, &result->list[4], BSUD_D_Contents);
   new_button_specification (&result->list[5], BST_direction, 0,
-                            D_direction_Index, 0, 0, 0, 0);
+                            D_direction_Index, 0, 0, 0);
   if (with_about)
     new_special_unit_direction_button (self, &result->list[6], BSUD_D_About);
   return result;
@@ -160,19 +154,19 @@ new_base_links_buttons (const CONVERTER *self)
   BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
 
   new_button_specification (&result->list[0], BST_direction,
-                            0, D_direction_Top, 0, 0, 0, 0);
+                            0, D_direction_Top, 0, 0, 0);
   new_button_specification (&result->list[1], BST_direction,
-                            0, D_direction_Index, 0, 0, 0, 0);
+                            0, D_direction_Index, 0, 0, 0);
 
   new_special_unit_direction_button (self, &result->list[2], BSUD_D_Contents);
   new_special_unit_direction_button (self, &result->list[3], BSUD_D_About);
 
   new_button_specification (&result->list[4], BST_direction,
-                            0, D_direction_NodeUp, 0, 0, 0, 0);
+                            0, D_direction_NodeUp, 0, 0, 0);
   new_button_specification (&result->list[5], BST_direction,
-                            0, D_direction_NodeNext, 0, 0, 0, 0);
+                            0, D_direction_NodeNext, 0, 0, 0);
   new_button_specification (&result->list[6], BST_direction,
-                            0, D_direction_NodePrev, 0, 0, 0, 0);
+                            0, D_direction_NodePrev, 0, 0, 0);
   return result;
 }
 
@@ -224,7 +218,7 @@ new_directions_list_buttons_specifications (const CONVERTER *self,
         direction = direction_index;
 
       new_button_specification (&result->list[i], BST_direction,
-                        0, direction, direction_string, 0, 0, 0);
+                        0, direction, direction_string, 0, 0);
     }
   return result;
 }

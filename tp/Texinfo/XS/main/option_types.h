@@ -79,8 +79,6 @@ enum button_specification_type {
 };
 
 enum button_information_type {
-   BIT_string,
-   BIT_external_string,
    BIT_function,
    BIT_selected_direction_information_type,
    BIT_href_direction_information_type,
@@ -112,10 +110,6 @@ typedef struct BUTTON_SPECIFICATION_INFO {
     enum button_information_type type;
     union {
       BUTTON_FUNCTION button_function; /* BIT_function */
-  /* perl references. This should be SV *sv_*,
-     but we don't want to include the Perl headers everywhere; */
-      void *sv_string; /* BIT_external_string */
-      char *string; /* BIT_string */
      /* BIT_direction_information_type
         text string in perl, element direction information type */
       enum html_text_type direction_information_type;

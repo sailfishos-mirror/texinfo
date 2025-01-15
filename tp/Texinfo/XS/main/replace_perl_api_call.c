@@ -58,12 +58,6 @@ register_perl_data (void *sv)
 {
 }
 
-char *
-get_perl_scalar_reference_value (const void *sv_string)
-{
-  return 0;
-}
-
 /* it is up to the caller to do something useful if NULL is returned */
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text)
