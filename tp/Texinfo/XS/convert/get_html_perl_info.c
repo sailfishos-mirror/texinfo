@@ -758,8 +758,6 @@ html_converter_get_customization_sv (SV *converter_sv,
           converter->customized_global_units_directions.list
            = (DIRECTION_NODE_NAME *)
             non_perl_malloc (hv_number * sizeof (DIRECTION_NODE_NAME));
-          /* FIXME useful information? */
-          converter->customized_global_units_directions.space = hv_number;
 
           for (i = 0; i < hv_number; i++)
             {

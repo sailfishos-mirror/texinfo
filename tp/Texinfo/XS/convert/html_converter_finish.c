@@ -321,7 +321,9 @@ html_free_converter (CONVERTER *self)
   int i;
   size_t j;
   int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                     + self->special_unit_varieties.number;
+                     + self->special_unit_varieties.number
+                     + (int) self->added_global_units_directions.number
+                     + (int) self->customized_global_text_directions.number;
   int nr_dir_str_contexts = TDS_context_string + 1;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
@@ -329,8 +331,6 @@ html_free_converter (CONVERTER *self)
   free_special_unit_info_list (&self->customized_special_unit_info);
 
   free_strings_list (&self->customized_special_unit_varieties);
-
-  free (self->main_units_direction_names);
 
   free (self->special_unit_body);
   free (self->special_unit_body_formatting);
@@ -540,6 +540,23 @@ html_free_converter (CONVERTER *self)
         }
       free (self->special_unit_info[i]);
     }
+
+  free_strings_list (&self->added_global_units_directions);
+
+  for (j = 0; j < self->customized_global_units_directions.number; j++)
+    {
+      DIRECTION_NODE_NAME *direction_node_name
+       = &self->customized_global_units_directions.list[j];
+      free (direction_node_name->direction);
+      free (direction_node_name->node_name);
+    }
+  free (self->customized_global_units_directions.list);
+
+  free_strings_list (&self->customized_global_text_directions);
+
+  free (self->main_units_direction_names);
+
+  free_strings_list (&self->global_texts_direction_names);
 
   free (self->html_customized_upper_case_commands);
   self->html_customized_upper_case_commands = 0;

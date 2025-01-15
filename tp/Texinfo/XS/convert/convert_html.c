@@ -378,7 +378,9 @@ html_clear_direction_string_type (const CONVERTER *self,
 {
   int i;
   int nr_string_directions = NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                      + self->special_unit_varieties.number;
+                      + self->special_unit_varieties.number
+                      + (int) self->added_global_units_directions.number
+                      + (int) self->customized_global_text_directions.number;
   int nr_dir_str_contexts = TDS_context_string + 1;
 
   for (i = 0; i < nr_string_directions; i++)

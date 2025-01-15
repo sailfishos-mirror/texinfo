@@ -476,7 +476,6 @@ typedef struct DIRECTION_NODE_NAME {
 
 typedef struct DIRECTION_NODE_NAME_LIST {
     size_t number;
-    size_t space;
     DIRECTION_NODE_NAME *list;
 } DIRECTION_NODE_NAME_LIST;
 

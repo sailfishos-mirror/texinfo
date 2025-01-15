@@ -2924,8 +2924,10 @@ html_initialize_output_state (CONVERTER *self, const char *context)
           else if (default_converted_dir_str[i])
             {
               if (i < NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
-                  || !non_default_special_unit_directions[
-                       i - (NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR)])
+                  || (i < (int) self->special_unit_varieties.number +
+                        NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR
+                      && !non_default_special_unit_directions[
+                       i - (NON_SPECIAL_DIRECTIONS_NR - FIRSTINFILE_NR)]))
                 self->directions_strings[DS_type][i][TDS_context_normal]
                   = html_substitute_non_breaking_space (self,
                                             default_converted_dir_str[i]);

@@ -1,5 +1,24 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_initialize_output_state): do not access special output units
+	directions outside of their range.
+
+	* tp/Texinfo/XS/convert/html_converter_finish.c (html_free_converter),
+	tp/Texinfo/XS/convert/convert_html.c
+	(html_clear_direction_string_type): correct nr_string_directions.
+
+	* tp/Texinfo/XS/convert/html_converter_finish.c (html_free_converter):
+	free added_global_units_directions,
+	customized_global_units_directions, customized_global_text_directions
+	and global_texts_direction_names.
+
+	* tp/Texinfo/XS/main/converter_types.h (DIRECTION_NODE_NAME_LIST),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): remove space field.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/init/button_replacement_for_special_unit_direction.pm: do not
 	modify default buttons lists.
 
