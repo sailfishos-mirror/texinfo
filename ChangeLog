@@ -35,6 +35,9 @@
 	update.  Remove text string is interpreted as an output unit direction
 	information type button specification @ignore'd block too.
 
+	* tp/Texinfo/XS/main/api_to_perl.c: remove now unused
+	get_perl_scalar_reference_value.
+
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
 	Remove the possibility to use a scalar reference for a button
