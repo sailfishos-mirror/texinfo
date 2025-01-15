@@ -15,7 +15,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
   use Texinfo::Convert::Converter;
   @ISA = qw(Texinfo::Convert::Converter);
 
-  sub converter_defaults ($$) {
+  sub converter_defaults ($;$) {
     return \%myconverter_defaults;
   }
   sub converter_initialize($) {
@@ -227,9 +227,10 @@ can define two methods:
 @cindex @code{converter_defaults}
 
 Returns a reference on a hash with defaults for the converter module
-customization options or @code{undef}.  The @emph{$options} hash reference holds
-options for the converter.  This method is called through a converter by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, @code{converter}}, but it may also
-be called through a converter module class.
+customization options or @code{undef}.  The optional @emph{$options} hash reference
+holds options for the converter.  This method is called through a converter
+by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, @code{converter}},
+but it may also be called through a converter module class.
 
 @item converter_initialize
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter converter_initialize}

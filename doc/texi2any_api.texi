@@ -932,9 +932,19 @@ Formatting}).
 A variety of data items, called @dfn{output units directions}, are associated
 with output units.  They may be used in the formatting functions, and/or
 associated with a button (@pxref{Simple Navigation Panel Customization}).
+@dfn{text directions} are used along with output units directions
+but are simpler and associated to text only.
 
-@c FIXME check if the links are to output units only or also to elements
-@c such as sections or nodes
+
+@node Default Directions
+@subsection Default Directions
+
+In the default case, there is one text direction:
+@table @emph
+@item Space
+An empty button.
+@end table
+
 Each output unit direction has a name and a reference to the unit they
 point to, when such an unit exists.  The unit is either a
 global unit (for example, the Top output unit) or relative to the
@@ -944,12 +954,9 @@ by the section structuring commands (@code{@@chapter},
 @code{@@unnumbered}@dots{}) or by the nodes if the node pointers are
 specified on @code{@@node} lines or in menus (@pxref{Two Paths,,, texinfo, Texinfo}).
 
-Here is the list of global output units directions:
+Here is the list of the default global output units directions:
 
 @table @emph
-@item Space
-An empty button.
-
 @item Top
 Top output unit.
 
@@ -1030,44 +1037,25 @@ is the next node output unit relative to the first output unit in file.
 The @samp{FirstInFile} directions are usually used in footers.
 
 
-@node Output Unit Direction Information Type
-@subsection Output Unit Direction Information Type
+@node Changing Global Directions Output Units
+@subsection Changing Global Directions Output Units
 
-@cindex Direction information type
-@cindex Type, of direction information
-The output unit directions also have types of information associated,
-which are in general set dynamically depending on the current output
-unit, for instance on the output unit whose navigation panel is being
-formatted:
+The global direction associated output unit may be changed by specifying the
+Texinfo code name of a @code{@@node}.  The direction should then be linked to
+the output unit of that node in headers.  Use
+@code{texinfo_register_global_direction} to change a direction link.
 
-@table @code
-@item href
-A string that can be used as an href attribute linking to the output unit
-corresponding to the direction.
+@defun texinfo_register_global_direction ($direction, $texinfo_node_name)
+@var{$direction} is a global direction (@pxref{Directions}),
+@var{$texinfo_node_name} is a node name Texinfo code.  The @var{$direction}
+will point to the output unit associated to the @var{$texinfo_node_name} node
+name, if the node exists in te Texinfo document.  @end defun
 
-@item string
-A string representing the direction that can be used in
-context where only entities are available (attributes).
-@xref{Init File Expansion Contexts}.
-
-@item text
-A string representing the direction to be used in contexts
-with HTML elements (preformatted and normal contexts).
-@xref{Init File Expansion Contexts}.
-
-@item node
-Same as @code{text}, but selecting the node associated with the
-output unit direction in priority.
-
-@item section
-Same as @code{text}, but selecting the sectioning command
-associated with the output unit direction in priority.
-
-@end table
-
-@code{text} and @code{string} also have a variant with
-@samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
-command number in the representation.
+For example, to have the @emph{Index} direction be associated to the
+output unit of the @samp{Main @@emph@{Index@}} node, call
+@example
+texinfo_register_global_direction ('Index', 'Main @@emph@{Index@}');
+@end example
 
 
 @node Direction Strings
@@ -1110,7 +1098,7 @@ with the same strings as @code{NodeNext}.
 
 
 @node Direction Strings Customization
-@section Direction Strings Customization
+@subsection Direction Strings Customization
 
 The direction strings are used in the default case in navigation panel
 formatting, therefore replacing their values is a way to customize headers.
@@ -1147,6 +1135,54 @@ For example, to set the @samp{Up} @samp{button} to be translated
 as @samp{Higher}, use:
 @example
 texinfo_register_direction_string_info('Up', 'button', undef, 'Higher');
+@end example
+
+
+@node Adding Text And Global Output Units Directions
+@subsection Adding Text And Global Output Units Directions
+
+Adding new directions is a two step process.  First, you should
+register the direction by calling @code{texinfo_register_global_direction},
+and then you should set the strings associated to the direction with
+@code{texinfo_register_direction_string_info}.
+
+You add a new text direction by calling
+@code{texinfo_register_global_direction} without second argument.  For example
+to add the @samp{Home} text direction, call:
+
+@example
+texinfo_register_global_direction('Home');
+@end example
+
+You should then set the strings associated to the text direction
+(@pxref{Direction Strings}) with
+@code{texinfo_register_direction_string_info}.  For a text direction, you
+should at least set the @samp{text} assocated string.  For example:
+
+@example
+texinfo_register_direction_string_info('Home', 'text',
+ '<a href="https://myhomepage.example.com/">Home</a>', undef, 'normal');
+texinfo_register_direction_string_info('Home', 'text',
+ 'Home myhomepage.example.com', undef, 'string');
+@end example
+
+You add a global output unit direction by calling
+@code{texinfo_register_global_direction} with a node name Texinfo code
+such that the new direction links to the output unit associated with the node
+(@pxref{Changing Global Directions Output Units}).  For example, to add a new
+global direction @samp{Tutorial} associated to the @samp{My First Program}
+@code{@@node}, call:
+
+@example
+texinfo_register_global_direction ('Tutorial', 'My First Program');
+@end example
+
+You should then set the direction strings associated to the new direction:
+
+@example
+texinfo_register_direction_string_info ('Tutorial', 'text', 'Tutorial');
+texinfo_register_direction_string_info ('Tutorial', 'button', 'Tuto');
+texinfo_register_direction_string_info ('Tutorial', 'accesskey', 't');
 @end example
 
 
@@ -1300,6 +1336,46 @@ If the customization variable @code{USE_ACCESSKEY} is set, the
 @code{accesskey} attribute is used in navigation.  The @code{accesskey}
 direction string is then used for the @code{accesskey} attributes
 (@pxref{Direction Strings}).
+
+
+@node Output Unit Direction Information Type
+@section Output Unit Direction Information Type
+
+@cindex Direction information type
+@cindex Type, of direction information
+The output unit directions also have types of information associated,
+which are in general set dynamically depending on the current output
+unit, for instance on the output unit whose navigation panel is being
+formatted:
+
+@table @code
+@item href
+A string that can be used as an href attribute linking to the output unit
+corresponding to the direction.
+
+@item string
+A string representing the direction that can be used in
+context where only entities are available (attributes).
+@xref{Init File Expansion Contexts}.
+
+@item text
+A string representing the direction to be used in contexts
+with HTML elements (preformatted and normal contexts).
+@xref{Init File Expansion Contexts}.
+
+@item node
+Same as @code{text}, but selecting the node associated with the
+output unit direction in priority.
+
+@item section
+Same as @code{text}, but selecting the sectioning command
+associated with the output unit direction in priority.
+
+@end table
+
+@code{text} and @code{string} also have a variant with
+@samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
+command number in the representation.
 
 
 @node User Defined Functions
