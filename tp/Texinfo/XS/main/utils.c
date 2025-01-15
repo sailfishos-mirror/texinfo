@@ -1266,12 +1266,23 @@ compare_strings (const void *a, const void *b)
   return strcmp (*str_a, *str_b);
 }
 
-/* for debugging */
 void
 sort_strings_list (STRING_LIST *strings)
 {
   qsort (strings->list, strings->number,
          sizeof (char **), compare_strings);
+}
+
+int
+string_exists_in_sorted_strings_list (STRING_LIST *strings, const char *target)
+{
+  char **result = (char **) bsearch (&target, strings->list, strings->number,
+                                     sizeof (char **), compare_strings);
+
+  if (result)
+    return 1;
+  else
+    return 0;
 }
 
 /* for debugging */

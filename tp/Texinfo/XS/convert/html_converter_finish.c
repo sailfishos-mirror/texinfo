@@ -197,9 +197,7 @@ html_reset_converter (CONVERTER *self)
   self->global_units_direction_names.list = 0;
   self->global_units_direction_names.number = 0;
 
-  free (self->global_texts_direction_names.list);
-  self->global_texts_direction_names.list = 0;
-  self->global_texts_direction_names.number = 0;
+  clear_strings_list (&self->global_texts_direction_names);
 
   html_free_direction_icons_array (self, &self->html_active_icons);
   html_free_direction_icons_array (self, &self->html_passive_icons);

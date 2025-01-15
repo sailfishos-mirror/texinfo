@@ -1,5 +1,20 @@
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (string_exists_in_sorted_strings_list):
+	add.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_global_direction_text),
+	tp/Texinfo/XS/convert/html_conversion_state.c,
+	tp/Texinfo/XS/convert/html_converter_finish.c (html_reset_converter),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_setup_global_texts_direction_names),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): use a STRING_LIST
+	for global_texts_direction_names.  Remove
+	html_find_direction_name_global_text, TEXT_DIRECTION and
+	TEXTS_DIRECTION_LIST.
+
+2025-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	HTML customization API to add or replace global directions
 
 	* tp/Texinfo/Config.pm (texinfo_register_global_direction)

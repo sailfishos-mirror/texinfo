@@ -2326,16 +2326,17 @@ html_global_direction_text (SV *converter_in, direction_name)
         const char *direction_name = (char *)SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
-        int text_index = -1;
+        int found = 0;
      CODE:
         self = get_sv_converter (converter_in,
                                  "html_global_direction_text");
         if (self)
           {
-            text_index
-              = html_find_direction_name_global_text (self, direction_name);
+            if (string_exists_in_sorted_strings_list (
+                  &self->global_texts_direction_names, direction_name))
+              found = 1;
           }
-        if (text_index > 0)
+        if (found)
           RETVAL = newSViv ((IV) 1);
         else
           RETVAL = newSV (0);

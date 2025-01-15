@@ -5086,15 +5086,6 @@ html_setup_global_units_direction_names (CONVERTER *self)
   self->global_units_direction_names.number = global_directions_nr;
 }
 
-static int
-compare_global_texts_direction_name (const void *a, const void *b)
-{
-  const TEXT_DIRECTION *gtdn_a = (const TEXT_DIRECTION *) a;
-  const TEXT_DIRECTION *gtdn_b = (const TEXT_DIRECTION *) b;
-
-  return strcmp (gtdn_a->direction, gtdn_b->direction);
-}
-
 /* To find more easily a global text direction index based on a direction
    name, for an XS interface, associate global direction texts to names
    and sort according to names.  Only called from Perl/XS, not needed when
@@ -5102,40 +5093,21 @@ compare_global_texts_direction_name (const void *a, const void *b)
 void
 html_setup_global_texts_direction_names (CONVERTER *self)
 {
-  TEXT_DIRECTION *global_texts_directions_list;
   size_t i;
-  size_t global_texts_directions_nr = D_direction_This - (D_Last +1)
-        + self->customized_global_text_directions.number;
-
-  size_t global_texts_direction_idx = 0;
-
-  global_texts_directions_list = (TEXT_DIRECTION *)
-   malloc (sizeof (TEXT_DIRECTION) * (global_texts_directions_nr));
 
   for (i = D_Last+1; i < D_direction_This; i++)
     {
-      global_texts_directions_list[global_texts_direction_idx].direction
-        = html_global_unit_direction_names[i];
-      global_texts_directions_list[global_texts_direction_idx].text_index
-        = 1;
-      global_texts_direction_idx++;
+      add_string (html_global_unit_direction_names[i],
+                  &self->global_texts_direction_names);
     }
 
   for (i = 0; i < self->customized_global_text_directions.number; i++)
     {
-      global_texts_directions_list[global_texts_direction_idx].direction
-        = self->customized_global_text_directions.list[i];
-       global_texts_directions_list[global_texts_direction_idx].text_index
-        = 1;
-      global_texts_direction_idx++;
+      add_string (self->customized_global_text_directions.list[i],
+                  &self->global_texts_direction_names);
     }
 
-  qsort (global_texts_directions_list,
-         global_texts_directions_nr,
-         sizeof (TEXT_DIRECTION), compare_global_texts_direction_name);
-
-  self->global_texts_direction_names.list = global_texts_directions_list;
-  self->global_texts_direction_names.number = global_texts_directions_nr;
+  sort_strings_list (&self->global_texts_direction_names);
 }
 
 static char *

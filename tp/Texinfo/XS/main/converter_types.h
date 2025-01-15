@@ -468,17 +468,6 @@ typedef struct SPECIAL_UNIT_DIRECTION_LIST {
     SPECIAL_UNIT_DIRECTION *list;
 } SPECIAL_UNIT_DIRECTION_LIST;
 
-typedef struct TEXT_DIRECTION {
-    /* not sure what it is for now but could be useful */
-    int text_index;
-    const char *direction;
-} TEXT_DIRECTION;
-
-typedef struct TEXTS_DIRECTION_LIST {
-    size_t number;
-    TEXT_DIRECTION *list;
-} TEXTS_DIRECTION_LIST;
-
 typedef struct DIRECTION_NODE_NAME {
     char *direction;
     char *node_name;
@@ -915,7 +904,7 @@ typedef struct CONVERTER {
        for special output units, sorted according to direction name */
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
     /* for global directions texts, for example Space */
-    TEXTS_DIRECTION_LIST global_texts_direction_names;
+    STRING_LIST global_texts_direction_names;
     DIRECTION_NODE_NAME_LIST customized_global_units_directions;
     STRING_LIST added_global_units_directions;
     STRING_LIST customized_global_text_directions;
