@@ -3,9 +3,9 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-01.21}
+\def\texinfoversion{2025-01-15.19}
 %
-% Copyright 1985, 1986, 1988, 1990-2024 Free Software Foundation, Inc.
+% Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
 % This texinfo.tex file is free software: you can redistribute it and/or
 % modify it under the terms of the GNU General Public License as
@@ -1169,6 +1169,80 @@ be supported due to the design of the PDF format; use regular TeX (DVI
 output) for that.)}
 
 \ifpdf
+  % Strings in PDF outlines can either be ASCII, or encoded in UTF-16BE
+  % with BOM.  Unfortunately there is no simple way with pdftex to output
+  % UTF-16, so we have to do some quite convoluted expansion games if we
+  % find the string contains a non-ASCII codepoint if we want these to
+  % display correctly.  We generated the UTF-16 sequences in
+  % \DeclareUnicodeCharacter and we access them here.
+  %
+  \def\defpdfoutlinetextunicode#1{%
+    \def\pdfoutlinetext{#1}%
+    %
+    % Make UTF-8 sequences expand to UTF-16 definitions.
+    \passthroughcharsfalse \utfbytespdftrue
+    \utfviiidefinedwarningfalse
+    %
+    % Completely expand, eliminating any control sequences such as \code,
+    % leaving only possibly \utfbytes.
+    \let\utfbytes\relax
+    \xdef\pdfoutlinetextchecked{#1}%
+    \checkutfbytes
+  }%
+  % Check if \utfbytes occurs in expansion.
+  \def\checkutfbytes{%
+    \expandafter\checkutfbytesz\pdfoutlinetextchecked\utfbytes\finish
+  }%
+  \def\checkutfbytesz#1\utfbytes#2\finish{%
+    \def\after{#2}%
+    \ifx\after\empty
+      % No further action needed.  Output ASCII string as-is, as converting
+      % to UTF-16 is somewhat slow (and uses more space).
+      \global\let\pdfoutlinetext\pdfoutlinetextchecked
+    \else
+      \passthroughcharstrue % pass UTF-8 sequences unaltered
+      \xdef\pdfoutlinetext{\pdfoutlinetext}%
+      \expandafter\expandutfsixteen\expandafter{\pdfoutlinetext}\pdfoutlinetext
+    \fi
+  }%
+  %
+  \catcode2=1 % begin-group character
+  \catcode3=2 % end-group character
+  %
+  % argument should be pure UTF-8 with no control sequences.  convert to
+  % UTF-16BE by inserting null bytes before bytes < 128 and expanding
+  % UTF-8 multibyte sequences to saved UTF-16BE sequences.
+  \def\expandutfsixteen#1#2{%
+    \bgroup \asciitounicode
+    \passthroughcharsfalse
+    \let\utfbytes\asis
+    %
+    % for Byte Order Mark (BOM)
+    \catcode"FE=12
+    \catcode"FF=12
+    %
+    % we want to treat { and } in #1 as any other ASCII bytes.  however,
+    % we need grouping characters for \scantokens and definitions/assignments,
+    % so define alternative grouping characters using control characters
+    % that are unlikely to occur.
+    % this does not affect 0x02 or 0x03 bytes arising from expansion as
+    % these are tokens with different catcodes.
+    \catcode"02=1 % begin-group character
+    \catcode"03=2 % end-group character
+    %
+    \expandafter\xdef\expandafter#2\scantokens{%
+      ^^02^^fe^^ff#1^^03}%
+    % NB we need \scantokens to provide both the open and close group tokens
+    % for \xdef otherwise there is an e-TeX error "File ended while
+    % scanning definition of..."
+    % NB \scantokens is a e-TeX command which is assumed to be provided by
+    % pdfTeX.
+    %
+    \egroup
+  }%
+  %
+  \catcode2=12 \catcode3=12 % defaults
+  %
   %
   % Color manipulation macros using ideas from pdfcolor.tex,
   % except using rgb instead of cmyk; the latter is said to render as a
@@ -1317,12 +1391,8 @@ output) for that.)}
     \else
       \ifx \declaredencoding \utfeight
         \ifx\luatexversion\thisisundefined
-          % For pdfTeX  with UTF-8.
-          % TODO: the PDF format can use UTF-16 in bookmark strings,
-          % but the code for this isn't done yet.
-          % Use ASCII approximations.
-          \passthroughcharsfalse
-          \def\pdfoutlinetext{#1}%
+          % For pdfTeX with UTF-8.
+          \defpdfoutlinetextunicode{#1}%
         \else
           % For LuaTeX with UTF-8.
           % Pass through Unicode characters for title texts.
@@ -10374,11 +10444,15 @@ directory should work if nowhere else does.}
 
 \gdef\UTFviiiDefined#1{%
   \ifx #1\relax
-    \message{\linenumber Unicode char \string #1 not defined for Texinfo}%
+    \ifutfviiidefinedwarning
+      \message{\linenumber Unicode char \string #1 not defined for Texinfo}%
+    \fi
   \else
     \expandafter #1%
   \fi
 }
+\newif\ifutfviiidefinedwarning
+\utfviiidefinedwarningtrue
 
 % Give non-ASCII bytes the active definitions for processing UTF-8 sequences
 \begingroup
@@ -10388,8 +10462,8 @@ directory should work if nowhere else does.}
 
   % Loop from \countUTFx to \countUTFy, performing \UTFviiiTmp
   % substituting ~ and $ with a character token of that value.
-  \def\UTFviiiLoop{%
-    \global\catcode\countUTFx\active
+  \gdef\UTFviiiLoop{%
+    \catcode\countUTFx\active
     \uccode`\~\countUTFx
     \uccode`\$\countUTFx
     \uppercase\expandafter{\UTFviiiTmp}%
@@ -10397,7 +10471,7 @@ directory should work if nowhere else does.}
     \ifnum\countUTFx < \countUTFy
       \expandafter\UTFviiiLoop
     \fi}
-
+  %
   % For bytes other than the first in a UTF-8 sequence.  Not expected to
   % be expanded except when writing to auxiliary files.
   \countUTFx = "80
@@ -10431,6 +10505,16 @@ directory should work if nowhere else does.}
         \else\expandafter\UTFviiiFourOctets\expandafter$\fi
         }}%
   \UTFviiiLoop
+  %
+  % for pdftex only, used to expand ASCII to UTF-16BE.
+  \gdef\asciitounicode{%
+    \countUTFx = "20
+    \countUTFy = "80
+    \def\UTFviiiTmp{%
+      \def~{\nullbyte $}}%
+    \UTFviiiLoop
+  }
+  {\catcode0=11 \gdef\nullbyte{^^00}}%
 \endgroup
 
 \def\globallet{\global\let} % save some \expandafter's below
@@ -10455,14 +10539,43 @@ directory should work if nowhere else does.}
   \fi
 }
 
-% These macros are used here to construct the name of a control
-% sequence to be defined.
+% These macros are used here to construct the names of macros
+% that expand to the definitions for UTF-8 sequences.
 \def\UTFviiiTwoOctetsName#1#2{%
   \csname u8:#1\string #2\endcsname}%
 \def\UTFviiiThreeOctetsName#1#2#3{%
   \csname u8:#1\string #2\string #3\endcsname}%
 \def\UTFviiiFourOctetsName#1#2#3#4{%
   \csname u8:#1\string #2\string #3\string #4\endcsname}%
+
+% generate UTF-16 from codepoint
+\def\utfsixteentotoks#1#2{%
+  \countUTFz = "#2\relax
+  \ifnum \countUTFz > 65535
+    % doesn't work for codepoints > U+FFFF
+    % we don't define glyphs for any of these anyway, so it doesn't matter
+    #1={U+#2}%
+  \else
+    \countUTFx = \countUTFz
+    \divide\countUTFx by 256
+    \countUTFy = \countUTFx
+    \multiply\countUTFx by 256
+    \advance\countUTFz by -\countUTFx
+    \uccode`,=\countUTFy
+    \uccode`;=\countUTFz
+    \ifnum\countUTFy = 0
+      \uppercase{#1={\nullbyte\string;}}%
+    \else\ifnum\countUTFz = 0
+      \uppercase{#1={\string,\nullbyte}}%
+    \else
+      \uppercase{#1={\string,\string;}}%
+    \fi\fi
+    % NB \uppercase cannot insert a null byte
+  \fi
+}
+
+\newif\ifutfbytespdf
+\utfbytespdffalse
 
 % For UTF-8 byte sequences (TeX, e-TeX and pdfTeX),
 % provide a definition macro to replace a Unicode character;
@@ -10480,18 +10593,22 @@ directory should work if nowhere else does.}
     \countUTFz = "#1\relax
     \begingroup
       \parseXMLCharref
-    
-      % Give \u8:... its definition.  The sequence of seven \expandafter's
-      % expands after the \gdef three times, e.g.
       %
+      % Completely expand \UTFviiiTmp, which looks like:
       % 1.  \UTFviiTwoOctetsName B1 B2
       % 2.  \csname u8:B1 \string B2 \endcsname
       % 3.  \u8: B1 B2  (a single control sequence token)
+      \xdef\UTFviiiTmp{\UTFviiiTmp}%
       %
-      \expandafter\expandafter
-      \expandafter\expandafter
-      \expandafter\expandafter
-      \expandafter\gdef       \UTFviiiTmp{#2}%
+      \ifpdf
+        \toksA={#2}%
+        \utfsixteentotoks\toksB{#1}%
+        \expandafter\xdef\UTFviiiTmp{%
+          \noexpand\ifutfbytespdf\noexpand\utfbytes{\the\toksB}%
+          \noexpand\else\the\toksA\noexpand\fi}%
+      \else
+        \expandafter\gdef\UTFviiiTmp{#2}%
+      \fi
       % 
       \expandafter\ifx\csname uni:#1\endcsname \relax \else
        \message{Internal error, already defined: #1}%
@@ -10501,8 +10618,9 @@ directory should work if nowhere else does.}
       \expandafter\globallet\csname uni:#1\endcsname \UTFviiiTmp
     \endgroup}
   %
-  % Given the value in \countUTFz as a Unicode code point, set \UTFviiiTmp
-  % to the corresponding UTF-8 sequence.
+  % Given the value in \countUTFz as a Unicode code point, set
+  % \UTFviiiTmp to one of the \UTVviii*OctetsName macros followed by
+  % the corresponding UTF-8 sequence.
   \gdef\parseXMLCharref{%
     \ifnum\countUTFz < "20\relax
       \errhelp = \EMsimple

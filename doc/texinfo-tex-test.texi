@@ -2395,11 +2395,8 @@ line line line line line line}{9, 42}
 Check table of contents.
 
 For PDF output, check the bookmarks pane in the reader.
-(Currently plain ASCII approximations are used for the UTF-8 encoding.)
 
-@section --- übersicht
-
-@section --- @"Ubersicht
+@section --- Fußgängerübergänge@{
 
 @section @{ @} @@ @{@ @} @arrow{} @atchar{} @lbracechar{}
 

@@ -1,3 +1,20 @@
+2025-01-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	UTF-16 in PDF outlines
+
+	* doc/texinfo.tex
+	(\utfsixteentotoks): new.  generate UTF-16 from codepoint.
+	(DeclareUnicodeCharacterUTFviii) [pdftex]: call it.
+	(\asciitounicode): new macro to expand ASCII to UTF-16BE.
+	(\defpdfoutlinetextunicode): new macro to set string for PDF
+	outline to UTF-16BE string if necessary.
+	(\setpdfoutlinetext) <pdfTeX with UTF-8>: call it.
+	(\UTFviiiLoop): do not make catcode changes global.
+	(\UTFviiiDefined): add conditional to allow suppressing error
+	message.
+
+	* doc/texinfo-tex-test.texi: update test case.
+
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/convert_html.c
