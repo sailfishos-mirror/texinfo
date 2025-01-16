@@ -97,16 +97,6 @@ would have an easy time figuring out what they are for.
 Make building "source marks" optional?
 
 
-check for comma after @xref{...}, in parser to simplify checking for
-it in Info output module.
-The code checking if punctuation followed the closing brace
-required fiddly checking ahead (see code following comment
-"# Check if punctuation follows the ref command" in Plaintext.pm).
-Gavin wondered if it would be easier to do this in the parser instead so the
-converter could check if the punctuation was present simply by checking
-$current->{'extra'}->{'following_punctuation'} or similar.
-
-
 hyphenation: should only appear in toplevel.
 
 

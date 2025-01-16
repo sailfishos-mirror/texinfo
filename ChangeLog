@@ -1,3 +1,9 @@
+2025-01-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/TODO: remove suggestion to check for comma/fullstop after
+	@xref{...} in parser as it does not seem like it would add much
+	benefit and the existing check in Info.pm seems to work well enough.
+
 2025-01-16  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Advanced Navigation Panel Buttons
