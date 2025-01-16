@@ -1,5 +1,24 @@
 2025-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
+	update with explicit text direction mention.  Move accesskey
+	description to the beginning of the node and mention rel too.
+
+	* doc/texi2any_api.texi (Navigation Panels Buttons Arrays): add a
+	subsection for the list of navigation panels buttons customization
+	variables arrays.
+
+	* doc/texi2any_api.texi (Setting The Navigation Panel Buttons)
+	(Modifying The Navigation Panel Buttons): add subsection explaining
+	more simply how to set and modify the navigation panel buttons.
+
+	* doc/texi2any_api.texi (Advanced Navigation Panel Buttons
+	Specification): describe all the possibilities in detail for the
+	buttons specification in a new node.  Add the "string with a text
+	direction" possibilitiy.
+
+2025-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Managing Customization Variables)
 	(Getting Converter Default Variables Values): ignore a confusing
 	paragraph in "Managing Customization Variables".  Add Getting

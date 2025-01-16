@@ -1244,22 +1244,34 @@ need to be set in addition:
 @vtable @code
 @item ACTIVE_ICONS
 @itemx PASSIVE_ICONS
-Hash references with output unit directions as key (@pxref{Directions}) and
-button image icons as values.  @code{ACTIVE_ICONS} is used for directions
-actually linking to an output unit, and @code{PASSIVE_ICONS} are used if there
-is no output unit to link to.  The button images are interpreted as URLs.
+Hash references with output unit and text directions as key
+(@pxref{Directions}) and button image icons as values.  @code{ACTIVE_ICONS} is
+used for directions actually linking to an output unit, and
+@code{PASSIVE_ICONS} are used if there is no output unit to link to.  The
+button images are interpreted as URLs.
 @end vtable
 
-@cindex Navigation panel button specification
-@cindex Button specification, navigation panel
+@vindex USE_ACCESSKEY
+@anchor{Accesskey and @code{rel} Navigation}
+@cindex @code{accesskey} navigation
+If the customization variable @code{USE_ACCESSKEY} is set, the
+@code{accesskey} attribute is used in navigation.  The @code{accesskey}
+direction string is then used for the @code{accesskey} attributes
+(@pxref{Direction Strings}).  The @code{rel} direction string is
+used for @code{rel} attributes.
 
 Several arrays and hashes enable even more precise control over the navigation
 panel buttons and their display.  They can be set as customization variables
 with @code{texinfo_set_from_init_file}. @xref{Setting Main Program String
 Variables}.
 
+
+@node Navigation Panels Buttons Arrays
+@subsection Navigation Panels Buttons Arrays
+
 The following customization variables arrays determine the
-buttons present in the various navigation panels:
+buttons present in the various navigation panels.  They should
+be set or modified to change the panels direction buttons:
 
 @vtable @code
 @item SECTION_BUTTONS
@@ -1289,20 +1301,115 @@ Specifies the buttons used in the top output unit (@pxref{Output Units}).
 are used for the footer.
 @end vtable
 
+
+@node Setting The Navigation Panel Buttons
+@subsection Setting The Navigation Panel Buttons
+
+@cindex Navigation panel button specification
+@cindex Button specification, navigation panel
+
 Each array specifies which buttons are included, and how they are
 displayed.  Each array item is associated with a button of the
-navigation panel from left to right.  The meaning of the array item
-values is the following:
+navigation panel from left to right.  The simplest way to specify
+a button formatting is to use a direction name and let the navigation panel
+code formatting format the button based in the direction name.
+
+An output unit direction string is associated to a link to the corresponding
+output unit, possibly formatted with an icon.  A direction text string
+is associated to the text string.  Default (@pxref{Default Directions}) and
+added directions (@pxref{Adding Text And Global Output Units Directions}) can
+be used in buttons list arrays.
+
+For example, the following sets the section header navigation panel to
+show the @code{Home} text button value, followed by a link to the Top node
+output unit, a link to the next output unit, a space, and lastly a link
+to the table of contents output unit:
+
+@example
+texinfo_set_from_init_file('SECTION_BUTTONS',
+            ['Home', 'Top', 'Next', 'Space', 'Contents']);
+@end example
+
+
+@node Modifying The Navigation Panel Buttons
+@subsection Modifying The Navigation Panel Buttons
+
+If you want to modify the default navigation panel buttons instead of
+specifying all the buttons, you can get the converter buttons list
+(@pxref{Getting Converter Default Variables Values}), copy them
+and insert or remove buttons.  It is important to copy the array
+and to never modify the defaults.
+
+A button specified as a string is not the only way to specify
+the button direction.  The button direction of default navigation panel button
+arrays may also be the first item of an array reference.  To get the button
+direction, you can therefore use the following snippet:
+
+@example
+my $button_direction;
+
+if (ref($button) eq '') @{
+  $button_direction = $button;
+@} elsif (ref($button) eq 'ARRAY') @{
+  $button_direction = $button->[0];
+@}
+@end example
+
+Here is an example that removes the @code{Up} direction button and
+adds a @code{Tutorial} button after the @code{Next} button:
+
+@example
+use Texinfo::Convert::HTML;
+
+my $converter_defaults = Texinfo::Convert::HTML->converter_defaults();
+
+my $section_header_buttons_list
+   = $converter_defaults->@{'SECTION_BUTTONS'@};
+
+my @@modified_buttons_list;
+
+foreach my $button (@@@{$section_header_buttons_list@}) @{
+  my $button_direction;
+
+  if (ref($button) eq '') @{
+    $button_direction = $button;
+  @} elsif (ref($button) eq 'ARRAY') @{
+    $button_direction = $button->[0];
+  @}
+
+  if ($button_direction ne 'Up') @{
+    push @@modified_buttons_list, $button;
+    if ($button_direction eq 'Next') @{
+      push @@modified_buttons_list, 'Tutorial';
+    @}
+  @}
+@}
+
+texinfo_set_from_init_file('SECTION_BUTTONS', \@@modified_buttons_list);
+
+@end example
+
+@node Advanced Navigation Panel Buttons Specification
+@subsection Advanced Navigation Panel Buttons Specification
+
+The meaning of the array item values is the following:
 
 @anchor{Buttons Display}
 
 @table @emph
+@item string with a text direction
+If icons are not used, button is the @code{text} direction string.
+If icons are used, the button is an image whose file is determined by
+the value associated with the output unit direction in the @code{ACTIVE_ICONS}
+variable hash.  The button name is given as HTML attribute to have a textual
+description of the icon.  The button name corresponds to the
+@code{button} direction string in @emph{string} context.
+
 @item string with an output unit direction
 If icons are not used, the button is a link to the corresponding
 output unit whose text is the @code{text} direction string
 (@pxref{Direction Strings}), surrounded by @samp{[} and
-@samp{]}. If the direction is @samp{ }, the @samp{[} and @samp{]}
-are omitted.
+@samp{]}.
 
 @vindex ACTIVE_ICONS
 @vindex PASSIVE_ICONS
@@ -1335,14 +1442,6 @@ a boolean set if a delimiter is desired before the button.
 
 No delimiter is printed before the first button.  Leading space buttons
 mixed with directions not found may be omitted of the navigation panel output.
-
-@vindex USE_ACCESSKEY
-@anchor{Accesskey and @code{rel} Navigation}
-@cindex @code{accesskey} navigation
-If the customization variable @code{USE_ACCESSKEY} is set, the
-@code{accesskey} attribute is used in navigation.  The @code{accesskey}
-direction string is then used for the @code{accesskey} attributes
-(@pxref{Direction Strings}).
 
 
 @node User Defined Functions
