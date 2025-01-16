@@ -24,21 +24,6 @@ htmlxrefinclude dir/*.conf
 Add an higher level HTML customization API for buttons:
 https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00047.html
 
-Missing texi2any_api information (!!! Wait for the addition
- of the higher level HTML customization API for buttons described just above!!!
-* some information on how to practically modify buttons formatting
-  in "Simple Navigation Panel Customization".  For example
-    tp/t/init/t2h_buttons.pm
-    tp/t/init/redefined_buttons.pm
-    tp/t/init/t2h_singular.init (singular_banner)
-    tp/t/init/button_replacement_for_special_unit_direction.pm
-* some information on what to use in user-defined buttons formatting
-  functions that would link heavily to "Target Tree Element Link"
-  and a bit to "Navigation Panel Button Formatting" for direction_string,
-  $converter->global_direction_unit and from_element_direction.  For example
-    tp/t/init/t2h_singular.init (singular_banner)
-    tp/t/init/redefined_buttons.pm
-
 Show example of use of document API, for global_commands_information,
 for example, or global_information... ?
 

@@ -1,5 +1,12 @@
 2025-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Advanced Navigation Panel Buttons
+	Specification, Customizing HTML Footers@comma{} Headers and Navigation
+	Panels): move "Advanced Navigation Panel Buttons Specification" node
+	to "Customizing HTML Footers@comma{} Headers and Navigation Panels".
+
+2025-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
 	update with explicit text direction mention.  Move accesskey
 	description to the beginning of the node and mention rel too.

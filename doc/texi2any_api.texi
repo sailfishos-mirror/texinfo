@@ -1389,59 +1389,9 @@ texinfo_set_from_init_file('SECTION_BUTTONS', \@@modified_buttons_list);
 
 @end example
 
-@node Advanced Navigation Panel Buttons Specification
-@subsection Advanced Navigation Panel Buttons Specification
-
-The meaning of the array item values is the following:
-
-@anchor{Buttons Display}
-
-@table @emph
-@item string with a text direction
-If icons are not used, button is the @code{text} direction string.
-If icons are used, the button is an image whose file is determined by
-the value associated with the output unit direction in the @code{ACTIVE_ICONS}
-variable hash.  The button name is given as HTML attribute to have a textual
-description of the icon.  The button name corresponds to the
-@code{button} direction string in @emph{string} context.
-
-@item string with an output unit direction
-If icons are not used, the button is a link to the corresponding
-output unit whose text is the @code{text} direction string
-(@pxref{Direction Strings}), surrounded by @samp{[} and
-@samp{]}.
-
-@vindex ACTIVE_ICONS
-@vindex PASSIVE_ICONS
-@cindex Icons, in navigation buttons
-If icons are used, the button is an image whose file is determined by
-the value associated with the output unit direction in the
-@code{ACTIVE_ICONS} variable hash if the link leads to an output unit, or in the
-@code{PASSIVE_ICONS} variable hash if there is no output unit to link to.  If
-there is a link to the output unit, the icon links to that output unit.  The
-button name and button description are given as HTML attributes to
-have a textual description of the icon.  The corresponding strings
-correspond to the @code{button} direction string for the button name
-and the @code{description} for a more detailed description (@pxref{Direction
-Strings}).
-
-@item function reference
-The functions is called with one arguments, the converter object.
-The function should return two scalars, the button text and
-a boolean set if a delimiter is desired before the button.
-
-@item array reference of length 2
-Here, the first array item should be a an output unit direction,
-and the second array item a reference to a function.
-The function is called with three arguments, the converter object, the
-output unit direction and the source Texinfo tree element (possibly undef).
-The function should return two scalars, the button text and
-a boolean set if a delimiter is desired before the button.
-
-@end table
-
-No delimiter is printed before the first button.  Leading space buttons
-mixed with directions not found may be omitted of the navigation panel output.
+This concludes the simple navigation headers customization.  More advanced
+possibilities for customization are described later on (@pxref{Customizing HTML
+Footers@comma{} Headers and Navigation Panels}).
 
 
 @node User Defined Functions
@@ -4630,10 +4580,12 @@ unrelated to the headings and ``footings'' produced in @TeX{} output;
 
 In the event that your needs are not met by setting customization variables
 (@pxref{Customization of Navigation and Headers,,, texinfo, Texinfo}) and
-changing the navigation buttons (@pxref{Simple Navigation Panel
-Customization}), you can completely control the formatting of navigation panels
-by redefining function references.  @xref{Registering Specific Formating
-Functions} for information on how to register the function references.
+changing the navigation buttons using directions names
+(@pxref{Simple Navigation Panel Customization}), you can use more advanced
+navigation buttons formatting specifications.  You can also completely control
+the formatting of navigation panels by redefining function references.
+@xref{Registering Specific Formating Functions} for information on how to
+register the function references.
 
 In a nutshell, element header and footer formatting function determines
 the button directions list to use and calls navigation header formatting.  The
@@ -4642,6 +4594,66 @@ the navigation panel formatting.  The navigation panel can call buttons
 formatting.
 
 All the formatting functions take a converter object as first argument.
+
+
+@node Advanced Navigation Panel Buttons Specification
+@section Advanced Navigation Panel Buttons Specification
+
+The button specification for simple headers customizations is a direction name
+string (@pxref{Simple Navigation Panel Customization}).  This is not the only
+way to specify how navigation panel buttons should be formatted.  Other
+possibilities involve functions that may be specified for more control
+other the buttons formatting.  The detailed description of the different
+possibilities for the array item values is the following:
+
+@anchor{Buttons Display}
+
+@table @emph
+@item string with a text direction
+If icons are not used, button is the @code{text} direction string.
+If icons are used, the button is an image whose file is determined by
+the value associated with the output unit direction in the @code{ACTIVE_ICONS}
+variable hash.  The button name is given as HTML attribute to have a textual
+description of the icon.  The button name corresponds to the
+@code{button} direction string in @emph{string} context.
+
+@item string with an output unit direction
+If icons are not used, the button is a link to the corresponding
+output unit whose text is the @code{text} direction string
+(@pxref{Direction Strings}), surrounded by @samp{[} and
+@samp{]}.
+
+@vindex ACTIVE_ICONS
+@vindex PASSIVE_ICONS
+@cindex Icons, in navigation buttons
+If icons are used, the button is an image whose file is determined by
+the value associated with the output unit direction in the
+@code{ACTIVE_ICONS} variable hash if the link leads to an output unit, or in the
+@code{PASSIVE_ICONS} variable hash if there is no output unit to link to.  If
+there is a link to the output unit, the icon links to that output unit.  The
+button name and button description are given as HTML attributes to
+have a textual description of the icon.  The corresponding strings
+correspond to the @code{button} direction string for the button name
+and the @code{description} for a more detailed description (@pxref{Direction
+Strings}).
+
+@item function reference
+The functions is called with one arguments, the converter object.
+The function should return two scalars, the button text and
+a boolean set if a delimiter is desired before the button.
+
+@item array reference of length 2
+Here, the first array item should be a an output unit direction,
+and the second array item a reference to a function.
+The function is called with three arguments, the converter object, the
+output unit direction and the source Texinfo tree element (possibly undef).
+The function should return two scalars, the button text and
+a boolean set if a delimiter is desired before the button.
+
+@end table
+
+No delimiter is printed before the first button.  Leading space buttons
+mixed with directions not found may be omitted of the navigation panel output.
 
 
 @node Navigation Panel Button Formatting
