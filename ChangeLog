@@ -1,5 +1,13 @@
 2025-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Managing Customization Variables)
+	(Getting Converter Default Variables Values): ignore a confusing
+	paragraph in "Managing Customization Variables".  Add Getting
+	"Converter Default Variables Values" explaining how to get HTML
+	converter default values.
+
+2025-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Navigation Panel Button Formatting): move
 	"Output Unit Direction Information Type" node content to the
 	from_element_direction function description, where it is used.  Remove

@@ -332,17 +332,20 @@ the names of the customization options.}.
 @cindex Customization variables, setting and getting
 
 The basic operations on customization variables are to set and
-retrieve their values.  @c You can also add new variables.
+retrieve their values.
 
+@ignore
 The customization variables also valid in the main program out of the HTML
 converter are handled differently if their associated values are strings or
 arrays.  Conversely, customization variables only relevant for the conversion
 phase set in the main program are always set by associating a string, an array
 reference or a hash references to customization variables in the same way.
+@end ignore
 
 This section describes customization variables set in the main program.  These
-variables are in general passed to converters.  It is also possible to set
-customization variables in the converters only, not in the main program.
+variables are in general passed to converters.  You can also retrieve the
+default converter values for customization variables.  It is also possible to
+set customization variables in the converters only, not in the main program.
 This is explained later on (@pxref{Conversion Customization Variables}).
 
 @node Setting Main Program String Variables
@@ -452,21 +455,55 @@ my @@SECTION_BUTTONS =
 texinfo_set_from_init_file ('SECTION_BUTTONS', \@@SECTION_BUTTONS);
 @end example
 
+
 @node Getting Main Program Variables Values
 @subsection Getting Main Program Variables Values
 
 To get the value of a variable, the function is
 @code{texinfo_get_conf}:
 
-@defun texinfo_get_conf ($variable_name)
+@deftypefun {@var{$result} =} texinfo_get_conf (@var{$variable_name})
 @var{$variable_name} is the name of the variable; its value (possibly
 @code{undef}) is returned.
-@end defun
+@end deftypefun
 
 For example:
 
 @example
 if (texinfo_get_conf('footnotestyle') eq 'separate') @{ ... @}
+@end example
+
+
+@node Getting Converter Default Variables Values
+@subsection Getting Converter Default Variables Values
+
+To retrieve output formats specific variable value, you can call
+@code{converter_defaults} on the converter class.  For HTML, this would
+be:
+
+@deftypefun {@var{\%customization} =} Texinfo::Convert::HTML->converter_defaults (\%conf)
+Returns an hash reference (or @code{undef}).  Returned hash reference
+keys are the HTML output format specific customization variables names,
+associated to the HTML output default values.
+
+The optional @var{\%conf} customization variable hash can be passed
+with customization variables that may change the defaults.  For
+HTML, this may be used to get texi2html-style defaults, by passing
+@code{@{'TEXI2HTML' => 1@}}.
+@end deftypefun
+
+Note that you should load the @code{Texinfo::Convert::HTML} module
+before calling @code{converter_defaults}.
+
+This can be useful to get the default buttons arrays, for example:
+
+@example
+use Texinfo::Convert::HTML;
+
+my $converter_defaults = Texinfo::Convert::HTML->converter_defaults();
+
+my $section_header_buttons_list
+   = $converter_defaults->@{'SECTION_BUTTONS'@};
 @end example
 
 
@@ -1158,7 +1195,7 @@ texinfo_register_global_direction('Home');
 You should then set the strings associated to the text direction
 (@pxref{Direction Strings}) with
 @code{texinfo_register_direction_string_info}.  For a text direction, you
-should at least set the @samp{text} assocated string.  For example:
+should at least set the @samp{text} associated string.  For example:
 
 @example
 texinfo_register_direction_string_info('Home', 'text',
