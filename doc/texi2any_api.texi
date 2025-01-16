@@ -1049,7 +1049,8 @@ the output unit of that node in headers.  Use
 @var{$direction} is a global direction (@pxref{Directions}),
 @var{$texinfo_node_name} is a node name Texinfo code.  The @var{$direction}
 will point to the output unit associated to the @var{$texinfo_node_name} node
-name, if the node exists in te Texinfo document.  @end defun
+name, if the node exists in the Texinfo document.
+@end defun
 
 For example, to have the @emph{Index} direction be associated to the
 output unit of the @samp{Main @@emph@{Index@}} node, call
@@ -1305,46 +1306,6 @@ If the customization variable @code{USE_ACCESSKEY} is set, the
 @code{accesskey} attribute is used in navigation.  The @code{accesskey}
 direction string is then used for the @code{accesskey} attributes
 (@pxref{Direction Strings}).
-
-
-@node Output Unit Direction Information Type
-@section Output Unit Direction Information Type
-
-@cindex Direction information type
-@cindex Type, of direction information
-The output unit directions also have types of information associated,
-which are in general set dynamically depending on the current output
-unit, for instance on the output unit whose navigation panel is being
-formatted:
-
-@table @code
-@item href
-A string that can be used as an href attribute linking to the output unit
-corresponding to the direction.
-
-@item string
-A string representing the direction that can be used in
-context where only entities are available (attributes).
-@xref{Init File Expansion Contexts}.
-
-@item text
-A string representing the direction to be used in contexts
-with HTML elements (preformatted and normal contexts).
-@xref{Init File Expansion Contexts}.
-
-@item node
-Same as @code{text}, but selecting the node associated with the
-output unit direction in priority.
-
-@item section
-Same as @code{text}, but selecting the sectioning command
-associated with the output unit direction in priority.
-
-@end table
-
-@code{text} and @code{string} also have a variant with
-@samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
-command number in the representation.
 
 
 @node User Defined Functions
@@ -4608,15 +4569,48 @@ directions, use @code{from_element_direction}:
    @var{$source_element}, @var{$source_filename}, @var{$source_command})
 Return a string for linking to @var{$direction}, or the information
 to be used for a hyperlink to @var{$direction}, depending on @var{$type}.
-The possible values for @var{$type} are described in
-@ref{Output Unit Direction Information Type}.
-
 @var{$source_element} is the output unit the link comes from. If not set,
 the current output unit is used.  @var{$source_filename} is the file the
 link comes from. If not set, the current file name is used.
-@var{$source_command}
-is an optional argument, the @@-command the link comes from. It is only used for
-messages.
+@var{$source_command} is an optional argument, the @@-command the link comes
+from. It is only used for messages.  The returned string is determined
+dynamically depending on the current output, for instance on the output unit
+whose navigation panel is being formatted.
+
+@anchor{Output Unit Direction Information Type}
+@cindex Direction information type
+@cindex Type, of direction information
+
+The possible values for @var{$type} are:
+@table @code
+@item href
+A string that can be used as an href attribute linking to the output unit
+corresponding to the direction.
+
+@item string
+A string representing the direction that can be used in
+context where only entities are available (attributes).
+@xref{Init File Expansion Contexts}.
+
+@item text
+A string representing the direction to be used in contexts
+with HTML elements (preformatted and normal contexts).
+@xref{Init File Expansion Contexts}.
+
+@item node
+Same as @code{text}, but selecting the node associated with the
+output unit direction in priority.
+
+@item section
+Same as @code{text}, but selecting the sectioning command
+associated with the output unit direction in priority.
+
+@end table
+
+@code{text} and @code{string} also have a variant with
+@samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
+command number in the representation.
+
 @end deftypefun
 
 @code{format_button_icon_img} formatting function can be redefined.

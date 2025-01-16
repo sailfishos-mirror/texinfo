@@ -1,3 +1,10 @@
+2025-01-16  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Navigation Panel Button Formatting): move
+	"Output Unit Direction Information Type" node content to the
+	from_element_direction function description, where it is used.  Remove
+	the "Output Unit Direction Information Type" node.
+
 2025-01-15  Patrice Dumas  <pertusus@free.fr>
 
 	Remove the direction and text type for a button
