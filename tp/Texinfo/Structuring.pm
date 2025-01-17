@@ -60,7 +60,7 @@ our @EXPORT_OK = qw(
   associate_internal_references
   check_nodes_are_referenced
   complete_node_tree_with_menus
-  nodes_tree
+  construct_nodes_tree
   number_floats
   sectioning_structure
   set_menus_node_directions
@@ -78,8 +78,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::sectioning_structure",
   "Texinfo::Structuring::warn_non_empty_parts"
     => "Texinfo::StructTransfXS::warn_non_empty_parts",
-  "Texinfo::Structuring::nodes_tree"
-    => "Texinfo::StructTransfXS::nodes_tree",
+  "Texinfo::Structuring::construct_nodes_tree"
+    => "Texinfo::StructTransfXS::construct_nodes_tree",
   "Texinfo::Structuring::set_menus_node_directions"
     => "Texinfo::StructTransfXS::set_menus_node_directions",
   "Texinfo::Structuring::complete_node_tree_with_menus"
@@ -339,6 +339,7 @@ sub sectioning_structure($)
   if (scalar(@sections_list) == 0) {
     return undef;
   } else {
+    $document->{'sections_list'} = \@sections_list;
     return \@sections_list;
   }
 }
@@ -917,7 +918,7 @@ sub complete_node_tree_with_menus($)
 }
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($)
+sub construct_nodes_tree($)
 {
   my $document = shift;
 
@@ -1044,6 +1045,9 @@ sub nodes_tree($)
       }
     }
   }
+
+  $document->{'nodes_list'} = \@nodes_list;
+
   return \@nodes_list;
 }
 
@@ -1620,14 +1624,14 @@ Texinfo::Structuring - information on Texinfo::Document document structure
 
 =head1 SYNOPSIS
 
-  use Texinfo::Structuring qw(sectioning_structure nodes_tree number_floats
-    associate_internal_references);
+  use Texinfo::Structuring qw(sectioning_structure construct_nodes_tree
+    number_floats associate_internal_references);
 
   # $document is a parsed Texinfo::Document document.
   # When customization variables information is needed, it is obtained
   # from the $document by calling the get_conf() method.
-  my $sections_list = sectioning_structure($document);
-  my $nodes_list = nodes_tree($document);
+  sectioning_structure($document);
+  construct_nodes_tree($document);
   set_menus_node_directions($document);
   complete_node_tree_with_menus($document);
   check_nodes_are_referenced($document);
@@ -1645,9 +1649,9 @@ C<Texinfo::Structuring> allows to collect information on a Texinfo
 document structure.  Thanks to C<sectioning_structure> the hierarchy of
 sectioning commands is determined.  The directions implied by menus are
 determined with C<set_menus_node_directions>.  The node tree is analysed
-with C<nodes_tree>.  Nodes directions are completed with menu directions
-with C<complete_node_tree_with_menus>.  Floats get their standard
-numbering with C<number_floats> and internal references are matched up
+with C<construct_nodes_tree>.  Nodes directions are completed with
+menu directions with C<complete_node_tree_with_menus>.  Floats get their
+standard numbering with C<number_floats> and internal references are matched up
 with nodes, floats or anchors with C<associate_internal_references>.
 
 =head1 METHODS
@@ -1731,11 +1735,11 @@ Returns the Texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name for the menu
 entry name.  Returns C<undef> if the node argument is missing.
 
-=item $nodes_list = nodes_tree($document)
-X<C<nodes_tree>>
+=item $nodes_list = construct_nodes_tree($document)
+X<C<construct_nodes_tree>>
 
-Goes through nodes in I<$document> tree and set directions.  Returns the
-list of nodes.
+Goes through nodes in I<$document> tree and set directions.  Set the list of
+nodes in the I<$document>.  Returns the list of nodes.
 
 This functions sets, in the C<extra> node element hash:
 
@@ -1766,7 +1770,8 @@ and lowered sections, when needed.
 X<C<sectioning_structure>>
 
 This function goes through the parsed document tree and gather information
-on the document structure for sectioning commands.  It returns a reference
+on the document structure for sectioning commands.  It sets the sections
+elements list in the document and returns a reference
 on the sections elements list.
 
 It sets section elements C<extra> hash values:

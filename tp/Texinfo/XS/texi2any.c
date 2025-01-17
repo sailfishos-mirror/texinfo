@@ -2201,7 +2201,6 @@ main (int argc, char *argv[], char *env[])
 
           /* to be kept in sync with build_html_perl_info.c
               html_pass_conversion_initialization */
-          /* internal links code is in Perl */
           if (loaded_init_files_nr > 0 || need_latex)
             external_module = format_specification->module;
         }

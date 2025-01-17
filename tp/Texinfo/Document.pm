@@ -129,20 +129,6 @@ sub register_tree($$)
   $document->{'tree'} = $tree;
 }
 
-sub register_document_nodes_list($$)
-{
-  my $document = shift;
-  my $nodes_list = shift;
-  $document->{'nodes_list'} = $nodes_list;
-}
-
-sub register_document_sections_list($$)
-{
-  my $document = shift;
-  my $sections_list = shift;
-  $document->{'sections_list'} = $sections_list;
-}
-
 sub _XS_set_document_global_info($$$)
 {
 }
@@ -707,16 +693,13 @@ to the same document with @-commands that refer to node, anchors or floats.
 =item $nodes_list = nodes_list($document)
 
 Returns an array reference containing the document nodes.  In general set to
-the nodes list returned by L<Texinfo::Structuring
-nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document)>, by a call
-to L<register_document_nodes_list|/register_document_nodes_list ($document,
-$nodes_list)>.
+the nodes list constructed by L<Texinfo::Structuring
+construct_nodes_tree|Texinfo::Structuring/$nodes_list = construct_nodes_tree($document)>.
 
 =item $sections_list = sections_list($document)
 
-Returns an array reference containing the document sections.  In general set to the sections list returned by
-L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>,
-by a call to L<register_document_sections_list|/register_document_sections_list ($document, $sections_list)>.
+Returns an array reference containing the document sections.  In general set to the sections list determined by
+L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list = sectioning_structure($document)>.
 
 =back
 
@@ -937,13 +920,6 @@ Further information can be registered in the document.
 
 =over
 
-=item register_document_nodes_list ($document, $nodes_list)
-X<C<register_document_nodes_list>>
-
-Register the I<$nodes_list> array reference as I<$document> nodes
-list.  This method should be called after the processing of document
-structure.
-
 =item register_document_options ($document, $options)
 X<C<register_document_options>>
 
@@ -954,13 +930,6 @@ getting place between Texinfo code parsing and conversion to output formats.
 Indeed, document customization options are mainly accessed by structuring and
 tree transformation methods (by calling L<< C<get_conf>|/$value = $document->get_conf($variable_name) >>). The options should in general be registered before
 the calls to C<get_conf>.
-
-=item register_document_sections_list ($document, $sections_list)
-X<C<register_document_sections_list>>
-
-Register the I<$sections_list> array reference as I<$document> sections
-list.  This method should be called after the processing of document
-structure.
 
 =item set_document_global_info($document, $key, $value)
 X<C<set_document_global_info>>

@@ -1898,13 +1898,7 @@ while(@input_files) {
   # information obtained through Texinfo::Structuring
   # and useful in converters.
   # every format needs the sectioning structure
-  my $sections_list
-            = Texinfo::Structuring::sectioning_structure($document);
-
-  if ($sections_list) {
-    Texinfo::Document::register_document_sections_list($document,
-                                                       $sections_list);
-  }
+  Texinfo::Structuring::sectioning_structure($document);
 
   if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
     Texinfo::Structuring::warn_non_empty_parts($document);
@@ -1921,8 +1915,7 @@ while(@input_files) {
   }
 
   if ($formats_table{$converted_format}->{'nodes_tree'}) {
-    my $nodes_list = Texinfo::Structuring::nodes_tree($document);
-    Texinfo::Document::register_document_nodes_list($document, $nodes_list);
+    Texinfo::Structuring::construct_nodes_tree($document);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
     # However, this can only happen if

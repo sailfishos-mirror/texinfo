@@ -431,7 +431,6 @@ void
 txi_complete_document (DOCUMENT *document, unsigned long flags,
                        int format_menu)
 {
-  CONST_ELEMENT_LIST *sections_list;
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
   if (flags & STTF_relate_index_entries_to_table_items)
@@ -446,9 +445,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
   associate_internal_references (document);
 
-  sections_list = sectioning_structure (document);
-  if (sections_list)
-    register_document_sections_list (document, sections_list);
+  sectioning_structure (document);
 
   if (!(flags & STTF_no_warn_non_empty_parts))
     warn_non_empty_parts (document);
@@ -464,8 +461,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 
   if (flags & STTF_nodes_tree)
     {
-      CONST_ELEMENT_LIST *nodes_list = nodes_tree (document);
-      register_document_nodes_list (document, nodes_list);
+      construct_nodes_tree (document);
 
       if (format_menu)
         {

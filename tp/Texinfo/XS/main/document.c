@@ -107,22 +107,6 @@ new_document (void)
 }
 
 void
-register_document_nodes_list (DOCUMENT *document,
-                              CONST_ELEMENT_LIST *nodes_list)
-{
-  document->nodes_list = nodes_list;
-  document->modified_information |= F_DOCM_nodes_list;
-}
-
-void
-register_document_sections_list (DOCUMENT *document,
-                                 CONST_ELEMENT_LIST *sections_list)
-{
-  document->sections_list = sections_list;
-  document->modified_information |= F_DOCM_sections_list;
-}
-
-void
 register_document_options (DOCUMENT *document, OPTIONS *options,
                            OPTION **sorted_options)
 {

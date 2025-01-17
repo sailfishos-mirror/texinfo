@@ -1,5 +1,21 @@
 2025-01-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (construct_nodes_tree),
+	tp/Texinfo/XS/structuring_transfo/structuring.c
+	(construct_nodes_tree): rename nodes_tree as construct_nodes_tree.
+	Upate callers.
+
+	* tp/Texinfo/Structuring.pm (construct_nodes_tree)
+	(sectioning_structure), tp/Texinfo/Document.pm,
+	tp/Texinfo/XS/main/document.c,
+	tp/Texinfo/XS/structuring_transfo/structuring.c (sectioning_structure)
+	(construct_nodes_tree): register nodes lists
+	nd sections lists directly in construct_nodes_tree and
+	sectioning_structure.  Remove register_document_nodes_list,
+	register_document_sections_list.  Upate callers.
+
+2025-01-17  Patrice Dumas  <pertusus@free.fr>
+
 	Use the TEXINFO_C_PERL_EMBED env variable to prevent loading embedded Perl
 
 	* tp/Texinfo/XS/texi2any.c (long_options, main): remove the

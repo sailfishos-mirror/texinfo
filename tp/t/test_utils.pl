@@ -1162,13 +1162,8 @@ sub test($$)
 
   Texinfo::Structuring::associate_internal_references($document);
 
-  my $sections_list
-        = Texinfo::Structuring::sectioning_structure($document);
+  Texinfo::Structuring::sectioning_structure($document);
 
-  if ($sections_list) {
-    Texinfo::Document::register_document_sections_list($document,
-                                                       $sections_list);
-  }
   Texinfo::Structuring::warn_non_empty_parts($document);
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1181,11 +1176,7 @@ sub test($$)
     Texinfo::Transformations::regenerate_master_menu($document);
   }
 
-  my $nodes_tree_nodes_list
-          = Texinfo::Structuring::nodes_tree($document);
-
-  Texinfo::Document::register_document_nodes_list($document,
-                                                  $nodes_tree_nodes_list);
+  Texinfo::Structuring::construct_nodes_tree($document);
 
   Texinfo::Structuring::set_menus_node_directions($document);
 

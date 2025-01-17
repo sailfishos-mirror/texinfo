@@ -398,6 +398,10 @@ sectioning_structure (DOCUMENT *document)
       return 0;
     }
   free (section_number.text);
+
+  document->sections_list = sections_list;
+  document->modified_information |= F_DOCM_sections_list;
+
   return sections_list;
 }
 
@@ -1324,7 +1328,7 @@ complete_node_tree_with_menus (DOCUMENT *document)
 
 /* set node directions based on sectioning and @node explicit directions */
 CONST_ELEMENT_LIST *
-nodes_tree (DOCUMENT *document)
+construct_nodes_tree (DOCUMENT *document)
 {
   const LABEL_LIST *identifiers_target = &document->identifiers_target;
   const ELEMENT *root = document->tree;
@@ -1507,6 +1511,10 @@ nodes_tree (DOCUMENT *document)
             }
         }
     }
+
+  document->nodes_list = nodes_list;
+  document->modified_information |= F_DOCM_nodes_list;
+
   return nodes_list;
 }
 

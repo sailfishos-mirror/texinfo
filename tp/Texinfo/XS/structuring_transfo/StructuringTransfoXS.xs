@@ -165,9 +165,9 @@ associate_internal_references (SV *document_in)
           associate_internal_references (document);
 
 
-# The perl function returns a list of sections, but it is only used
-# to register in the document.  It is better to reserve the return
-# value for a return status, if it becomes needed.
+# The perl function returns a list of sections, but it is not used.
+# It is better to reserve the return value for a return status, if it
+# becomes needed.
 void
 sectioning_structure (SV *document_in)
     PREINIT:
@@ -177,8 +177,7 @@ sectioning_structure (SV *document_in)
                                              "sectioning_structure");
         if (document)
           {
-            CONST_ELEMENT_LIST *sections_list = sectioning_structure (document);
-            register_document_sections_list (document, sections_list);
+            sectioning_structure (document);
           }
 
 void
@@ -292,19 +291,18 @@ insert_nodes_for_sectioning_commands (SV *document_in)
             destroy_list (added_nodes);
           }
 
-# The Perl function returns a list of nodes, but it is only used
-# to register in the document.  It is better to reserve the return
-# value for a return status, if it becomes needed.
+# The Perl function returns a list of nodes, but it is not used.
+# It is better to reserve the return value for a return status, if it
+# becomes needed.
 void
-nodes_tree (SV *document_in)
+construct_nodes_tree (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
     CODE:
         document = get_sv_document_document (document_in, "nodes_tree");
         if (document)
           {
-            CONST_ELEMENT_LIST *nodes_list = nodes_tree (document);
-            register_document_nodes_list (document, nodes_list);
+            construct_nodes_tree (document);
           }
 
 # For the next functions, the Perl function returns a tree, as the
