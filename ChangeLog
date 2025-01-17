@@ -1,3 +1,15 @@
+2025-01-17  Patrice Dumas  <pertusus@free.fr>
+
+	Use the TEXINFO_C_PERL_EMBED env variable to prevent loading embedded Perl
+
+	* tp/Texinfo/XS/texi2any.c (long_options, main): remove the
+	no-embed-interpreter option.  If the TEXINFO_C_EMBED_PERL environment
+	variable is 0, do not load the Perl embedded interpreter.  Gavin
+	proposal.
+
+	* tp/Texinfo/XS/texi2any.c (main): load init files while processing
+	command-line options.
+
 2025-01-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/TODO: remove suggestion to check for comma/fullstop after

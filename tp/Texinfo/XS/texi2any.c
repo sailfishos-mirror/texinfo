@@ -746,10 +746,6 @@ const char *input_file_suffixes[] = {
 /* If non-zero, show help and exit */
 static int print_help_p;
 
-/* if 1 embed interpreter.  If -1 do not embed interpreted.
-   If 0 use a compile-time default */
-static int embed_interpreter_p;
-
 #define DOCUMENT_LANGUAGE_OPT 2
 #define NO_SPLIT_OPT 3
 #define SPLIT_OPT 4
@@ -805,8 +801,6 @@ static int embed_interpreter_p;
 static struct option long_options[] = {
   /* next not in texi2any */
   {"mimick", 0, 0, MIMICK_OPT},
-  {"embed-interpreter", 0, &embed_interpreter_p, 1},
-  {"no-embed-interpreter", 0, &embed_interpreter_p, -1},
 
   {"conf-dir", required_argument, 0, CONF_DIR_OPT},
   {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
@@ -933,7 +927,6 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST converter_init_dirs;
   STRING_LIST *converter_config_dirs_array_ref;
   STRING_LIST internal_extension_dirs;
-  STRING_LIST init_files;
   STRING_LIST init_file_dirs;
   STRING_LIST texi2dvi_args;
   char *extensions_dir;
@@ -964,6 +957,7 @@ main (int argc, char *argv[], char *env[])
   const char *txi_xs_external_formatting;
   FILE *main_program_unclosed_stdout = 0;
   DEPRECATED_DIRS_LIST deprecated_dirs_used;
+  char *perl_embed_env;
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
@@ -974,6 +968,10 @@ main (int argc, char *argv[], char *env[])
   embedded_interpreter = 1;
   default_is_html = 0;
 #endif
+
+  perl_embed_env = getenv ("TEXINFO_C_EMBED_PERL");
+  if (perl_embed_env && !strcmp (perl_embed_env, "0"))
+    embedded_interpreter = 0;
 
   top_srcdir = getenv ("top_srcdir");
   if (top_srcdir)
@@ -1044,6 +1042,18 @@ main (int argc, char *argv[], char *env[])
                         PACKAGE_VERSION_CONFIG "+nc");
       version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
     }
+
+  /* setup paths and defauts.
+     Done earlier than in Perl because options defaults are used in help
+     and paths setup for converters and to locate file used for
+     interpreter embedding */
+  generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
+                                tp_builddir, top_srcdir);
+  free (tp_builddir);
+  free (top_srcdir);
+
+  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env,
+                                   version_for_embedded_interpreter_check);
 
   /* set default output format.  Is info in texi2any.pl */
   /* better than making it the default value independently of the
@@ -1123,15 +1133,6 @@ main (int argc, char *argv[], char *env[])
   options_list_add_option_number (&cmdline_options,
                      cmdline_options.options->EXPANDED_FORMATS.number);
 
-  /* setup paths and defauts.
-     Done earlier than in Perl because options defaults are used in help
-     and paths setup for converters are used to locate file used for
-     interpreter embedding */
-  generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
-                                tp_builddir, top_srcdir);
-  free (tp_builddir);
-  free (top_srcdir);
-
   init_files_options =
     GNUT_initialize_customization (&program_file, &program_options,
                                    &cmdline_options);
@@ -1162,8 +1163,8 @@ main (int argc, char *argv[], char *env[])
 
   for (i = 0; i < config_init_files.number; i++)
     {
-      /* TODO 0 should be instead embedded_interpreter */
-      int status = txi_load_init_file (config_init_files.list[i], 0);
+      int status = txi_load_init_file (config_init_files.list[i],
+                                       embedded_interpreter);
       if (status)
         loaded_init_files_nr++;
     }
@@ -1173,8 +1174,8 @@ main (int argc, char *argv[], char *env[])
 
   /* Parse command line */
 
+  memset (&init_file_dirs, 0, sizeof (STRING_LIST));
   memset (&ignored_formats, 0, sizeof (STRING_LIST));
-  memset (&init_files, 0, sizeof (STRING_LIST));
   memset (&texi2dvi_args, 0, sizeof (STRING_LIST));
 
   while (1)
@@ -1395,7 +1396,22 @@ main (int argc, char *argv[], char *env[])
           print_help_p = 1;
           break;
         case INIT_FILE_OPT:
-          add_string (optarg, &init_files);
+          {
+            test_option = GNUT_get_conf (program_options.options->TEST.number);
+            if (test_option && test_option->o.integer > 0)
+              test_mode_set = 1;
+
+            if (test_mode_set)
+              locate_and_load_init_file (optarg, &conf_dirs, 0);
+            else
+              {
+                copy_strings (&init_file_dirs, &conf_dirs);
+                copy_strings (&init_file_dirs, &converter_init_dirs);
+                locate_and_load_init_file (optarg, &init_file_dirs,
+                                           &deprecated_directories);
+                clear_strings_list (&init_file_dirs);
+              }
+          }
           break;
         case XOPT_OPT:
           add_string (optarg, &texi2dvi_args);
@@ -1642,6 +1658,8 @@ main (int argc, char *argv[], char *env[])
           exit (EXIT_FAILURE);
         }
     }
+
+  free_strings_list (&init_file_dirs);
 
   if (print_help_p)
     {
@@ -1946,45 +1964,10 @@ main (int argc, char *argv[], char *env[])
       store_value (&values, "TEXI2HTML", "1");
     }
 
-  if (embed_interpreter_p == -1)
-    embedded_interpreter = 0;
-  else if (embed_interpreter_p == 1)
-    embedded_interpreter = 1;
-
   if (!embedded_interpreter)
     /* it is the best we have without an embedded interpreter */
     add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
                       "en_US");
-
-  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env,
-                                   version_for_embedded_interpreter_check);
-
-  /* TODO different from Perl, to be discussed on the list which
-     one is better, load within the command line loop, or after */
-  memset (&init_file_dirs, 0, sizeof (STRING_LIST));
-
-  test_option = GNUT_get_conf (program_options.options->TEST.number);
-  if (test_option && test_option->o.integer > 0)
-    test_mode_set = 1;
-
-  if (!test_mode_set)
-    {
-      copy_strings (&init_file_dirs, &conf_dirs);
-      copy_strings (&init_file_dirs, &converter_init_dirs);
-    }
-
-  for (i = 0; i < init_files.number; i++)
-    {
-      char *init_file = init_files.list[i];
-      if (test_mode_set)
-        locate_and_load_init_file (init_file, &conf_dirs, 0);
-      else
-        locate_and_load_init_file (init_file, &init_file_dirs,
-                                   &deprecated_directories);
-    }
-
-  free_strings_list (&init_file_dirs);
-  free_strings_list (&init_files);
 
   html_math_option = GNUT_get_conf (program_options.options->HTML_MATH.number);
   if (html_math_option && html_math_option->o.string
