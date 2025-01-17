@@ -1,5 +1,14 @@
 2025-01-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/z_misc/test_sort.t: call get_customization_options_hash on
+	main_configuration to get regular options, as done in main program or
+	other tests, register in the document and use the document as source
+	of customization.
+
+	* tp/t/z_misc/test_sort.t: update Texinfo::ModulePath updirs.
+
+2025-01-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Document.pm, tp/Texinfo/Indices.pm: add/change comments,
 	move code around.
 
