@@ -533,7 +533,7 @@ Texinfo::Document - Texinfo document tree and information
   my $indices_information = $document->indices_information();
   my $float_types_arrays = $document->floats_information();
   my $internal_references_array
-    = $parser->internal_references_information();
+    = $document->internal_references_information();
 
   # $identifier_target is an hash reference on normalized
   # node/float/anchor names.
@@ -557,8 +557,14 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 This module is used to represent parsed Texinfo documents, with the Texinfo
-tree and associated information.  In general a document is obtained from
-a Texinfo parser call, there is no need to setup the document.
+tree and associated information.  A document is always obtained from
+a Texinfo parser method call as the result of parsing a Texinfo text or file.
+
+For example, the I<$document> obtained in the following example is a
+C<Texinfo::Document> object:
+
+  my $parser = Texinfo::Parser::parser();
+  my $document = $parser->parse_texi_file("somefile.texi");
 
 =head1 METHODS
 
@@ -710,7 +716,7 @@ L<Texinfo::Structuring sectioning_structure|Texinfo::Structuring/$sections_list 
 
 =back
 
-Information about defined indices, indices merging and index entries is
+Information about defined indexes, indexes merging and index entries is
 available through C<indices_information>.
 
 =over
@@ -738,7 +744,7 @@ An array reference of prefix associated to the index.
 
 In case the index is merged to another index, this key holds the name of
 the index the index is merged into.  It takes into account indirectly
-merged indices.
+merged indexes.
 
 =item index_entries
 
@@ -771,7 +777,7 @@ The number of the index entry.
 
 The following shows the references corresponding to the default indexes
 I<cp> and I<fn>, the I<fn> index having its entries formatted as code and
-the indices corresponding to the following texinfo
+the indexes corresponding to the following texinfo
 
   @defindex some
   @defcodeindex code
@@ -785,32 +791,36 @@ If C<name> is not set, it is set to the index name.
 
 =back
 
-=head2 Merging and sorting indices
+=head2 Merging and sorting indexes
 
-Merged and sorted document indices are also available.  Parsed indices
+Merged and sorted document indexes are also available.  Parsed indexes
 are not merged nor sorted, L<Texinfo::Indices> functions are
-called to merge or sort the indices the first time the following
+called to merge or sort the indexes the first time the following
 methods are called.  The results are afterwards associated to the
 document and simply returned.
-
-In general, those methods should not be called directly, instead
-L<Texinfo::Convert::Converter/Index sorting> Converter methods should be
-used, which already call the following functions.
 
 =over
 
 =item $merged_indices = $document->merged_indices()
 X<C<merged_indices>>
 
-Merge indices if needed and return merged indices.  The I<$merged_indices>
+Merge indexes if needed and return merged indexes.  The I<$merged_indices>
 returned is a hash reference whose keys are the index names and values arrays
 of index entry structures described in L</index_entries>.
 
 L<< C<Texinfo::Indices::merge_indices>|Texinfo::Indices/$merged_indices = merge_indices($indices_information) >>
-is used to merge the indices.
+is used to merge the indexes.
 
-In general, it is not useful to call this function directly, as it is already
-called by index sorting functions.
+It is not useful to call this function directly if indexes are sorted, as
+it is already called by index sorting functions.
+
+=back
+
+In general, the sorting methods should not be called directly, instead
+L<Texinfo::Convert::Converter/Index sorting> Converter methods should be
+used, which already call the following functions.
+
+=over
 
 =item $sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang)
 
@@ -818,10 +828,10 @@ called by index sorting functions.
 X<C<sorted_indices_by_index>> X<C<sorted_indices_by_letter>>
 
 C<sorted_indices_by_letter> returns the indices sorted by index and letter,
-while C<sorted_indices_by_index> returns the indices with all entries
+while C<sorted_indices_by_index> returns the indexes with all entries
 of an index together.
 
-By default, indices are sorted according to the I<Unicode Collation Algorithm>
+By default, indexes are sorted according to the I<Unicode Collation Algorithm>
 defined in the L<Unicode Technical Standard
 #10|http://www.unicode.org/reports/tr10/>, without language-specific collation
 tailoring.  If I<$use_unicode_collation> is set to 0, the sorting will not use
@@ -848,7 +858,7 @@ customization options values registered in document>).
 
 L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
 and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
-are used to sort the indices, if needed.
+are used to sort the indexes, if needed.
 
 In general, those methods should not be called directly, instead
 L<< C<Texinfo::Convert::Converter::get_converter_indices_sorted_by_index>|Texinfo::Convert::Converter/$sorted_indices = $converter->get_converter_indices_sorted_by_index() >>
@@ -908,22 +918,9 @@ or C<undef>.
 
 =back
 
-=head2 Registering document and information in document
+=head2 Registering information in document
 
-The setup of a document is described next, it should only be used in
-parsers codes.
-
-=over
-
-=item $document = Texinfo::Document::register($tree, $global_information, $indices_information, $floats_information, $internal_references_information, $global_commands_information, $identifier_target, $labels_list, $parser_registrar)
-
-Setup a document. There is no reason to call this method out of parsers, as
-it is already done by the Texinfo parsers.  The arguments are gathered
-during parsing and correspond to information returned by the other methods.
-
-=back
-
-Further information can be registered in the document.
+Some information can be registered in the document.
 
 =over
 
@@ -998,7 +995,7 @@ to a Texinfo parsed document:
 =item remove_document($document)
 X<C<remove_document>>
 
-Remove the C data corresponding to I<$document>.
+Release the C data corresponding to I<$document>.
 
 =back
 
