@@ -1350,7 +1350,7 @@ if there is an associated external manual name, and a @emph{normalized} key for 
 normalized label, built as specified in the @emph{HTML Xref} Texinfo documentation
 node.
 
-If you called @ref{Texinfo@asis{::}Structuring $nodes_list = nodes_tree($document),, Texinfo::Structuring::nodes_tree},
+If you called @ref{Texinfo@asis{::}Structuring $nodes_list = construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
 the @emph{node_directions} hash in the @code{@@node} element @code{extra} associates
 @emph{up}, @emph{next} and @emph{prev} keys to the elements corresponding to the node
 line directions.

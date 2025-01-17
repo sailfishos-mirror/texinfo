@@ -46,7 +46,7 @@ my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 our %XS_overrides = (
   "Texinfo::Document::remove_document"
     => "Texinfo::DocumentXS::remove_document",
-  "Texinfo::Document::_XS_set_document_global_info",
+  "Texinfo::Document::set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
   "Texinfo::Document::errors"
     => "Texinfo::DocumentXS::document_errors",
@@ -129,18 +129,11 @@ sub register_tree($$)
   $document->{'tree'} = $tree;
 }
 
-sub _XS_set_document_global_info($$$)
-{
-}
-
 sub set_document_global_info($$$)
 {
   my $document = shift;
   my $key = shift;
   my $value = shift;
-  if ($XS_parser) {
-    _XS_set_document_global_info($document, $key, $value);
-  }
   $document->{'global_info'}->{$key} = $value;
 }
 
@@ -613,6 +606,9 @@ Binary strings.  In C<texi2any>, they should come from the command line
 C<COMMAND_LINE_ENCODING>).
 
 =back
+
+If the global information changed, C<global_information> should be called
+to update the hash returned by previous calls before accessing the hash again.
 
 =back
 

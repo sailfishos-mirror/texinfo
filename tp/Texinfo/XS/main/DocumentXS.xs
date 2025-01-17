@@ -226,7 +226,8 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
       PREINIT:
         DOCUMENT *document = 0;
       CODE:
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in,
+                                             "set_document_global_info");
         if (document)
           {
             document->modified_information |= F_DOCM_global_info;

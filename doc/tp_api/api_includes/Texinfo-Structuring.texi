@@ -10,14 +10,14 @@ Texinfo::Structuring - information on Texinfo::Document document structure
 @section Texinfo::Structuring SYNOPSIS
 
 @verbatim
-  use Texinfo::Structuring qw(sectioning_structure nodes_tree number_floats
-    associate_internal_references);
+  use Texinfo::Structuring qw(sectioning_structure construct_nodes_tree
+    number_floats associate_internal_references);
 
   # $document is a parsed Texinfo::Document document.
   # When customization variables information is needed, it is obtained
   # from the $document by calling the get_conf() method.
-  my $sections_list = sectioning_structure($document);
-  my $nodes_list = nodes_tree($document);
+  sectioning_structure($document);
+  construct_nodes_tree($document);
   set_menus_node_directions($document);
   complete_node_tree_with_menus($document);
   check_nodes_are_referenced($document);
@@ -38,9 +38,9 @@ Texinfo to other formats.  There is no promise of API stability.
 document structure.  Thanks to @code{sectioning_structure} the hierarchy of
 sectioning commands is determined.  The directions implied by menus are
 determined with @code{set_menus_node_directions}.  The node tree is analysed
-with @code{nodes_tree}.  Nodes directions are completed with menu directions
-with @code{complete_node_tree_with_menus}.  Floats get their standard
-numbering with @code{number_floats} and internal references are matched up
+with @code{construct_nodes_tree}.  Nodes directions are completed with
+menu directions with @code{complete_node_tree_with_menus}.  Floats get their
+standard numbering with @code{number_floats} and internal references are matched up
 with nodes, floats or anchors with @code{associate_internal_references}.
 
 @node Texinfo@asis{::}Structuring METHODS
@@ -132,12 +132,12 @@ Returns the Texinfo tree corresponding to a single menu entry pointing to
 @emph{$node}.  If @emph{$use_sections} is set, use the section name for the menu
 entry name.  Returns @code{undef} if the node argument is missing.
 
-@item $nodes_list = nodes_tree($document)
-@anchor{Texinfo@asis{::}Structuring $nodes_list = nodes_tree($document)}
-@cindex @code{nodes_tree}
+@item $nodes_list = construct_nodes_tree($document)
+@anchor{Texinfo@asis{::}Structuring $nodes_list = construct_nodes_tree($document)}
+@cindex @code{construct_nodes_tree}
 
-Goes through nodes in @emph{$document} tree and set directions.  Returns the
-list of nodes.
+Goes through nodes in @emph{$document} tree and set directions.  Set the list of
+nodes in the @emph{$document}.  Returns the list of nodes.
 
 This functions sets, in the @code{extra} node element hash:
 
@@ -171,7 +171,8 @@ and lowered sections, when needed.
 @cindex @code{sectioning_structure}
 
 This function goes through the parsed document tree and gather information
-on the document structure for sectioning commands.  It returns a reference
+on the document structure for sectioning commands.  It sets the sections
+elements list in the document and returns a reference
 on the sections elements list.
 
 It sets section elements @code{extra} hash values:

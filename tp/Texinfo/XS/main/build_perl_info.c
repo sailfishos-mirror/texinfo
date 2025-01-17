@@ -1472,13 +1472,15 @@ build_index_data (const INDEX_LIST *indices_info)
   return hv;
 }
 
-/* Return object to be used as 'info', retrievable with the
-   'global_information' function. */
+/* Return object to be used as global info, retrievable with the
+   'global_information' function.  Reuse the Perl hash associated to
+   the DOCUMENT if it is passed and found */
 static HV *
-build_global_info (const GLOBAL_INFO *global_info_ref,
+build_global_info (DOCUMENT *document,
+                   const GLOBAL_INFO *global_info_ref,
                    const GLOBAL_COMMANDS *global_commands_ref)
 {
-  HV *hv;
+  HV *hv = 0;
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
@@ -1486,7 +1488,19 @@ build_global_info (const GLOBAL_INFO *global_info_ref,
 
   dTHX;
 
-  hv = newHV ();
+  if (document && document->hv)
+    {
+      const char *key = "global_info";
+      SV **global_info_sv = hv_fetch (document->hv, key, strlen (key), 0);
+      if (global_info_sv && SvOK (*global_info_sv))
+        {
+          hv = (HV *) SvRV (*global_info_sv);
+          SvREFCNT_inc ((SV *) hv);
+        }
+    }
+
+  if (!hv)
+    hv = newHV ();
   if (global_info.input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
               newSVpv (global_info.input_encoding_name, 0), 0);
@@ -1651,7 +1665,7 @@ get_document (size_t document_descriptor)
 
   hv = newHV ();
 
-  hv_info = build_global_info (&document->global_info,
+  hv_info = build_global_info (0, &document->global_info,
                                &document->global_commands);
 
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
@@ -1720,7 +1734,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   if (document->tree)
     hv_tree = build_texinfo_tree (document->tree, 0);
 
-  hv_info = build_global_info (&document->global_info,
+  hv_info = build_global_info (0, &document->global_info,
                                &document->global_commands);
 
   hv_commands_info = build_global_commands (&document->global_commands);
@@ -2071,7 +2085,8 @@ document_global_information (SV *document_in)
     {
       if (document->modified_information & F_DOCM_global_info)
         {
-          HV *result_hv = build_global_info (&document->global_info,
+          HV *result_hv = build_global_info (document,
+                                             &document->global_info,
                                              &document->global_commands);
           result_sv = newRV_inc ((SV *) result_hv);
           hv_store (document->hv, key, strlen (key), result_sv, 0);

@@ -9501,7 +9501,7 @@ if there is an associated external manual name, and a I<normalized> key for the
 normalized label, built as specified in the I<HTML Xref> Texinfo documentation
 node.
 
-If you called L<Texinfo::Structuring::nodes_tree|Texinfo::Structuring/$nodes_list = nodes_tree($document)>,
+If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/$nodes_list = construct_nodes_tree($document)>,
 the I<node_directions> hash in the C<@node> element C<extra> associates
 I<up>, I<next> and I<prev> keys to the elements corresponding to the node
 line directions.

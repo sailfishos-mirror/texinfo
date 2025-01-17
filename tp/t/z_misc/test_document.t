@@ -1,7 +1,7 @@
 use strict;
 
 use lib '.';
-use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
+use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 
 use Test::More;
 
@@ -32,6 +32,9 @@ is (join('|', sort(keys(%$global_info))),
     'initial global info keys');
 
 $document->set_document_global_info('toto', 'la tete a');
+
+# rebuild $global_info
+$document->global_information();
 
 is (join('|', sort(keys(%$global_info))),
     'input_encoding_name|toto',

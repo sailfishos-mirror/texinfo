@@ -111,6 +111,9 @@ Binary strings.  In @code{texi2any}, they should come from the command line
 
 @end table
 
+If the global information changed, @code{global_information} should be called
+to update the hash returned by previous calls before accessing the hash again.
+
 @end table
 
 Some command lists are available, such that it is possible to go through
@@ -192,17 +195,14 @@ to the same document with @@-commands that refer to node, anchors or floats.
 @anchor{Texinfo@asis{::}Document $nodes_list = nodes_list($document)}
 
 Returns an array reference containing the document nodes.  In general set to
-the nodes list returned by @ref{Texinfo@asis{::}Structuring $nodes_list = nodes_tree($document),, Texinfo::Structuring
-nodes_tree}, by a call
-to @ref{Texinfo@asis{::}Document register_document_nodes_list ($document@comma{}
-$nodes_list),, register_document_nodes_list}.
+the nodes list constructed by @ref{Texinfo@asis{::}Structuring $nodes_list = construct_nodes_tree($document),, Texinfo::Structuring
+construct_nodes_tree}.
 
 @item $sections_list = sections_list($document)
 @anchor{Texinfo@asis{::}Document $sections_list = sections_list($document)}
 
-Returns an array reference containing the document sections.  In general set to the sections list returned by
-@ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, Texinfo::Structuring sectioning_structure},
-by a call to @ref{Texinfo@asis{::}Document register_document_sections_list ($document@comma{} $sections_list),, register_document_sections_list}.
+Returns an array reference containing the document sections.  In general set to the sections list determined by
+@ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, Texinfo::Structuring sectioning_structure}.
 
 @end table
 
@@ -438,14 +438,6 @@ during parsing and correspond to information returned by the other methods.
 Further information can be registered in the document.
 
 @table @asis
-@item register_document_nodes_list ($document, $nodes_list)
-@anchor{Texinfo@asis{::}Document register_document_nodes_list ($document@comma{} $nodes_list)}
-@cindex @code{register_document_nodes_list}
-
-Register the @emph{$nodes_list} array reference as @emph{$document} nodes
-list.  This method should be called after the processing of document
-structure.
-
 @item register_document_options ($document, $options)
 @anchor{Texinfo@asis{::}Document register_document_options ($document@comma{} $options)}
 @cindex @code{register_document_options}
@@ -457,14 +449,6 @@ getting place between Texinfo code parsing and conversion to output formats.
 Indeed, document customization options are mainly accessed by structuring and
 tree transformation methods (by calling @ref{Texinfo@asis{::}Document $value = $document->get_conf($variable_name),, @code{get_conf}}). The options should in general be registered before
 the calls to @code{get_conf}.
-
-@item register_document_sections_list ($document, $sections_list)
-@anchor{Texinfo@asis{::}Document register_document_sections_list ($document@comma{} $sections_list)}
-@cindex @code{register_document_sections_list}
-
-Register the @emph{$sections_list} array reference as @emph{$document} sections
-list.  This method should be called after the processing of document
-structure.
 
 @item set_document_global_info($document, $key, $value)
 @anchor{Texinfo@asis{::}Document set_document_global_info($document@comma{} $key@comma{} $value)}
