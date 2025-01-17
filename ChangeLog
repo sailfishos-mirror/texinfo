@@ -1,5 +1,10 @@
 2025-01-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm: remove document_descriptor accessor.  There
+	shouldn't be any situation where the document cannot be used directly.
+
+2025-01-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/z_misc/test_sort.t: call get_customization_options_hash on
 	main_configuration to get regular options, as done in main program or
 	other tests, register in the document and use the document as source

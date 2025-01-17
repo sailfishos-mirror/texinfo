@@ -208,14 +208,6 @@ sub registrar($)
   return $self->{'registrar'};
 }
 
-# only set if the Texinfo::Document object has been set up by XS code.
-# No XS override, no need
-sub document_descriptor($)
-{
-  my $self = shift;
-  return $self->{'document_descriptor'};
-}
-
 # Useful for options used in structuring/tree transformations.
 sub register_document_options($$)
 {
@@ -972,21 +964,6 @@ actions related to C data.
 The methods can always be called on pure Perl modules even if they do nothing.
 Therefore it is, in general, better to call them assuming that modules
 setting up C data were called, even when it is not the case.
-
-First, C<document_descriptor> can be called to get the document identifier
-document used by C code to retrieve the document data in C.  In general
-this identifier is directly and transparently taken from the document, but may
-need to be set on other objects in rare cases.
-
-=over
-
-=item $document_descriptor = $document->document_descriptor()
-X<C<document_descriptor>>
-
-Returns the document descriptor if the document is available as C data,
-0 or C<undef> if not.
-
-=back
 
 When the tree is directly accessed in Perl (not through a document)
 but is modified by C code, for instance called through L<Texinfo::Common> or

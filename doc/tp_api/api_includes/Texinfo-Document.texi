@@ -479,21 +479,6 @@ The methods can always be called on pure Perl modules even if they do nothing.
 Therefore it is, in general, better to call them assuming that modules
 setting up C data were called, even when it is not the case.
 
-First, @code{document_descriptor} can be called to get the document identifier
-document used by C code to retrieve the document data in C.  In general
-this identifier is directly and transparently taken from the document, but may
-need to be set on other objects in rare cases.
-
-@table @asis
-@item $document_descriptor = $document->document_descriptor()
-@anchor{Texinfo@asis{::}Document $document_descriptor = $document->document_descriptor()}
-@cindex @code{document_descriptor}
-
-Returns the document descriptor if the document is available as C data,
-0 or @code{undef} if not.
-
-@end table
-
 When the tree is directly accessed in Perl (not through a document)
 but is modified by C code, for instance called through @ref{Texinfo@asis{::}Common NAME,, Texinfo::Common} or
 @ref{Texinfo@asis{::}Transformations NAME,, Texinfo::Transformations} methods, the Perl structures need to be rebuilt
