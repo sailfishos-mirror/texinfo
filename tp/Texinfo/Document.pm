@@ -38,8 +38,10 @@ use Texinfo::Indices;
 
 our $VERSION = '7.2dev';
 
-# Full XS coverage.  See comments before methods definitions for an
-# explanation of why some methods have no XS override.
+# There is a full coverage by the C implementation.
+# Relevant XS interfaces are all implemented.
+# See comments before methods definitions for an explanation of why some
+# methods have no XS override.
 
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
@@ -99,6 +101,7 @@ sub import {
   goto &Exporter::import;
 }
 
+# No XS override, only called from Texinfo::ParserNonXS.
 sub new_document($)
 {
   my $indices_information = shift;
@@ -198,10 +201,19 @@ sub sections_list($)
   return $self->{'sections_list'};
 }
 
+# No XS override, no need
 sub registrar($)
 {
   my $self = shift;
   return $self->{'registrar'};
+}
+
+# only set if the Texinfo::Document object has been set up by XS code.
+# No XS override, no need
+sub document_descriptor($)
+{
+  my $self = shift;
+  return $self->{'document_descriptor'};
 }
 
 # Useful for options used in structuring/tree transformations.
@@ -241,225 +253,6 @@ sub get_conf($$)
     return undef;
   }
   return $self->{'options'}->{$var};
-}
-
-# No XS override, as there is no reason to call this function directly,
-# since it is already called by other methods, in particular
-# sorted_indices_by_*.
-sub merged_indices($)
-{
-  my $self = shift;
-
-  if ($self->{'indices'}) {
-    if (!$self->{'merged_indices'}) {
-      $self->{'merged_indices'}
-        = Texinfo::Indices::merge_indices($self->{'indices'});
-    }
-  }
-  return $self->{'merged_indices'};
-}
-
-# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
-# result.
-# In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Indices::sort_indices_by_*.  It could
-# be called in advance if errors need to be collected early.
-sub setup_indices_sort_strings($$)
-{
-  my $document = shift;
-  my $customization_information = shift;
-
-  if (!$document->{'index_entries_sort_strings'}) {
-    my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings
-             ($document->{'registrar'}, $customization_information,
-              $document->merged_indices(),
-              $document->indices_information(), 0);
-    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
-  }
-}
-
-# index_entries_sort_strings accessor.  A different function from
-# setup_indices_sort_strings such that it is possible to build Perl data
-# only for this function in XS.
-sub indices_sort_strings($$)
-{
-  my $document = shift;
-  my $customization_information = shift;
-
-  setup_indices_sort_strings($document, $customization_information);
-  return $document->{'index_entries_sort_strings'};
-}
-
-# calls Texinfo::Indices::sort_indices_by_letter and caches the result.
-# No XS override, as there is no reason to call this function directly,
-# Texinfo::Convert::Converter get_converter_indices_sorted_by_letter
-# should be called directly.
-sub sorted_indices_by_letter($$$$)
-{
-  my $document = shift;
-  my $customization_information = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
-
-  my $lang_key;
-  if (!$use_unicode_collation) {
-    $lang_key = '';
-  } elsif (!defined($locale_lang)) {
-    # special name corresponding to Unicode Collation with 'Non-Ignorable'
-    # set for variable collation elements
-    $lang_key = '-';
-  } else {
-    $lang_key = $locale_lang;
-  }
-
-  $document->{'sorted_indices_by_letter'} = {}
-    if (!$document->{'sorted_indices_by_letter'});
-
-  if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
-    $document->merged_indices();
-    $document->{'sorted_indices_by_letter'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_letter
-          ($document, $document->{'registrar'}, $customization_information,
-           $use_unicode_collation, $locale_lang);
-  }
-  return $document->{'sorted_indices_by_letter'}->{$lang_key};
-}
-
-# calls Texinfo::Indices::sort_indices_by_index and caches the result.
-# No XS override, as there is no reason to call this function directly,
-# Texinfo::Convert::Converter get_converter_indices_sorted_by_index
-# should be called directly.
-sub sorted_indices_by_index($$$$)
-{
-  my $document = shift;
-  my $customization_information = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
-
-  my $lang_key;
-  if (!$use_unicode_collation) {
-    $lang_key = '';
-  } elsif (!defined($locale_lang)) {
-    # special name corresponding to Unicode Collation with 'Non-Ignorable'
-    # set for variable collation elements
-    $lang_key = '-';
-  } else {
-    $lang_key = $locale_lang;
-  }
-
-  $document->{'sorted_indices_by_index'} = {}
-    if (!$document->{'sorted_indices_by_index'});
-
-  if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
-    $document->merged_indices();
-    $document->{'sorted_indices_by_index'}->{$lang_key}
-      = Texinfo::Indices::sort_indices_by_index
-          ($document, $document->{'registrar'}, $customization_information,
-           $use_unicode_collation, $locale_lang);
-  }
-  return $document->{'sorted_indices_by_index'}->{$lang_key};
-}
-
-# only set if the Texinfo::Document object has been set up by XS code.
-sub document_descriptor($)
-{
-  my $self = shift;
-  return $self->{'document_descriptor'};
-}
-
-sub _existing_label_error($$;$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $registrar = shift;
-  my $debug = shift;
-
-  if ($element->{'extra'}
-      and defined($element->{'extra'}->{'normalized'})) {
-    my $normalized = $element->{'extra'}->{'normalized'};
-    if (defined($registrar)) {
-      my $existing_target = $self->{'identifiers_target'}->{$normalized};
-      my $label_element = Texinfo::Common::get_label_element($element);
-      $registrar->line_error(sprintf(__("\@%s `%s' previously defined"),
-                                     $element->{'cmdname'},
-                    Texinfo::Convert::Texinfo::convert_to_texinfo(
-                         {'contents' => $label_element->{'contents'}})),
-                              $element->{'source_info'}, 0, $debug);
-      $registrar->line_error(
-                    sprintf(__("here is the previous definition as \@%s"),
-                            $existing_target->{'cmdname'}),
-                             $existing_target->{'source_info'}, 1, $debug);
-    }
-  }
-}
-
-sub _add_element_to_identifiers_target($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  if ($element->{'extra'}
-      and defined($element->{'extra'}->{'normalized'})) {
-    my $normalized = $element->{'extra'}->{'normalized'};
-    if (!defined $self->{'identifiers_target'}->{$normalized}) {
-      $self->{'identifiers_target'}->{$normalized} = $element;
-      $element->{'extra'}->{'is_target'} = 1;
-      return 1;
-    }
-  }
-  return 0;
-}
-
-# Called from Texinfo::ParserNonXS.
-# This should be considered an internal function of the parser.
-# It is here to reuse code.
-# Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
-sub set_labels_identifiers_target($$;$)
-{
-  my $self = shift;
-  my $registrar = shift;
-  my $debug = shift;
-
-  my @elements_with_error;
-
-  $self->{'identifiers_target'} = {};
-  if (defined $self->{'labels_list'}) {
-    foreach my $element (@{$self->{'labels_list'}}) {
-      my $retval = _add_element_to_identifiers_target($self, $element);
-      if (!$retval and $element->{'extra'}
-          and defined($element->{'extra'}->{'normalized'})) {
-        push @elements_with_error, $element;
-      }
-    }
-  }
-  # use identifiers order to have the same error messages order as in XS parser
-  if (scalar(@elements_with_error) > 0) {
-    my @sorted
-     = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
-        @elements_with_error;
-    foreach my $element (@sorted) {
-      _existing_label_error($self, $element, $self->{'registrar'}, $debug);
-    }
-  }
-}
-
-# TODO document when stabilized
-sub register_label_element($$;$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $registrar = shift;
-  my $debug = shift;
-
-  my $retval = _add_element_to_identifiers_target($self, $element);
-  if (!$retval) {
-    _existing_label_error($self, $element, $registrar, $debug);
-  }
-  # TODO do not push at the end but have the caller give an information
-  # on the element it should be after or before in the list?
-  push @{$self->{'labels_list'}}, $element;
-  return $retval;
 }
 
 # do nothing, only the XS override does something.
@@ -504,6 +297,232 @@ sub errors($)
   $registrar->clear();
 
   return ($error_warnings_list, $error_count);
+}
+
+
+
+# No XS override.
+# This method is already called by other methods, in particular
+# sorted_indices_by_* when the indexes are sorted.  When the indexes
+# are merged but not sorted, it is sensible to call this function
+# directly.  Also called directly in tests.
+# XS override is not needed, if the converters calling this function
+# are implemented in C, even partly, they should call the C counterpart
+# rather than go through an XS interface.
+sub merged_indices($)
+{
+  my $self = shift;
+
+  if ($self->{'indices'}) {
+    if (!$self->{'merged_indices'}) {
+      $self->{'merged_indices'}
+        = Texinfo::Indices::merge_indices($self->{'indices'});
+    }
+  }
+  return $self->{'merged_indices'};
+}
+
+# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
+# result.
+# In general, it is not needed to call that function directly,
+# as it is called by Texinfo::Indices::sort_indices_by_*.  It could
+# be called in advance if errors need to be collected early.
+sub setup_indices_sort_strings($$)
+{
+  my $document = shift;
+  my $customization_information = shift;
+
+  if (!$document->{'index_entries_sort_strings'}) {
+    my $indices_sort_strings
+      = Texinfo::Indices::setup_index_entries_sort_strings
+             ($document->{'registrar'}, $customization_information,
+              $document->merged_indices(),
+              $document->indices_information(), 0);
+    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
+  }
+}
+
+# index_entries_sort_strings accessor.  A different function from
+# setup_indices_sort_strings such that there is no need to build C data
+# to Perl when calling setup_indices_sort_strings, to make it possible
+# to delay building Perl data for indices_sort_strings function call in XS.
+sub indices_sort_strings($$)
+{
+  my $document = shift;
+  my $customization_information = shift;
+
+  setup_indices_sort_strings($document, $customization_information);
+  return $document->{'index_entries_sort_strings'};
+}
+
+# calls Texinfo::Indices::sort_indices_by_letter and caches the result.
+# No XS override, as there is no reason to call this function directly
+# outside of tests, Texinfo::Convert::Converter
+# get_converter_indices_sorted_by_letter should be called directly.
+sub sorted_indices_by_letter($$$$)
+{
+  my $document = shift;
+  my $customization_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($locale_lang)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $locale_lang;
+  }
+
+  $document->{'sorted_indices_by_letter'} = {}
+    if (!$document->{'sorted_indices_by_letter'});
+
+  if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
+    $document->merged_indices();
+    $document->{'sorted_indices_by_letter'}->{$lang_key}
+      = Texinfo::Indices::sort_indices_by_letter
+          ($document, $document->{'registrar'}, $customization_information,
+           $use_unicode_collation, $locale_lang);
+  }
+  return $document->{'sorted_indices_by_letter'}->{$lang_key};
+}
+
+# calls Texinfo::Indices::sort_indices_by_index and caches the result.
+# No XS override, as there is no reason to call this function directly
+# outside of tests, Texinfo::Convert::Converter
+# get_converter_indices_sorted_by_index should be called directly.
+sub sorted_indices_by_index($$$$)
+{
+  my $document = shift;
+  my $customization_information = shift;
+  my $use_unicode_collation = shift;
+  my $locale_lang = shift;
+
+  my $lang_key;
+  if (!$use_unicode_collation) {
+    $lang_key = '';
+  } elsif (!defined($locale_lang)) {
+    # special name corresponding to Unicode Collation with 'Non-Ignorable'
+    # set for variable collation elements
+    $lang_key = '-';
+  } else {
+    $lang_key = $locale_lang;
+  }
+
+  $document->{'sorted_indices_by_index'} = {}
+    if (!$document->{'sorted_indices_by_index'});
+
+  if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
+    $document->merged_indices();
+    $document->{'sorted_indices_by_index'}->{$lang_key}
+      = Texinfo::Indices::sort_indices_by_index
+          ($document, $document->{'registrar'}, $customization_information,
+           $use_unicode_collation, $locale_lang);
+  }
+  return $document->{'sorted_indices_by_index'}->{$lang_key};
+}
+
+
+
+sub _existing_label_error($$;$$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $registrar = shift;
+  my $debug = shift;
+
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'normalized'})) {
+    my $normalized = $element->{'extra'}->{'normalized'};
+    if (defined($registrar)) {
+      my $existing_target = $self->{'identifiers_target'}->{$normalized};
+      my $label_element = Texinfo::Common::get_label_element($element);
+      $registrar->line_error(sprintf(__("\@%s `%s' previously defined"),
+                                     $element->{'cmdname'},
+                    Texinfo::Convert::Texinfo::convert_to_texinfo(
+                         {'contents' => $label_element->{'contents'}})),
+                              $element->{'source_info'}, 0, $debug);
+      $registrar->line_error(
+                    sprintf(__("here is the previous definition as \@%s"),
+                            $existing_target->{'cmdname'}),
+                             $existing_target->{'source_info'}, 1, $debug);
+    }
+  }
+}
+
+sub _add_element_to_identifiers_target($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'normalized'})) {
+    my $normalized = $element->{'extra'}->{'normalized'};
+    if (!defined $self->{'identifiers_target'}->{$normalized}) {
+      $self->{'identifiers_target'}->{$normalized} = $element;
+      $element->{'extra'}->{'is_target'} = 1;
+      return 1;
+    }
+  }
+  return 0;
+}
+
+# No XS override, only called from Texinfo::ParserNonXS.
+# This should be considered an internal function of the parser.
+# It is here to reuse code.
+# Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
+sub set_labels_identifiers_target($$;$)
+{
+  my $self = shift;
+  my $registrar = shift;
+  my $debug = shift;
+
+  my @elements_with_error;
+
+  $self->{'identifiers_target'} = {};
+  if (defined $self->{'labels_list'}) {
+    foreach my $element (@{$self->{'labels_list'}}) {
+      my $retval = _add_element_to_identifiers_target($self, $element);
+      if (!$retval and $element->{'extra'}
+          and defined($element->{'extra'}->{'normalized'})) {
+        push @elements_with_error, $element;
+      }
+    }
+  }
+  # use identifiers order to have the same error messages order as in XS parser
+  if (scalar(@elements_with_error) > 0) {
+    my @sorted
+     = sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
+        @elements_with_error;
+    foreach my $element (@sorted) {
+      _existing_label_error($self, $element, $self->{'registrar'}, $debug);
+    }
+  }
+}
+
+# Not clear whether this should be considered as a private function
+# here solely to reuse code, or if it should be considered to be public.
+# There is no XS override but the function modifies data that is in C
+# when XS is used.  Therefore this function should only be called from Perl
+# if there is no XS used.
+sub register_label_element($$;$$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $registrar = shift;
+  my $debug = shift;
+
+  my $retval = _add_element_to_identifiers_target($self, $element);
+  if (!$retval) {
+    _existing_label_error($self, $element, $registrar, $debug);
+  }
+  # TODO do not push at the end but have the caller give an information
+  # on the element it should be after or before in the list?
+  push @{$self->{'labels_list'}}, $element;
+  return $retval;
 }
 
 1;

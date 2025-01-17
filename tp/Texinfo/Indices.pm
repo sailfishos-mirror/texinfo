@@ -67,7 +67,8 @@ our $VERSION = '7.2dev';
 # setup_index_entry_keys_formatting
 # index_entry_first_letter_text_or_command
 
-# There is therefore a full XS coverage of the module as
+# There is a full coverage by the C implementation.
+# Relevant XS interfaces are all implemented.
 # index_entry_first_letter_text_or_command has a C implementation, but no
 # XS override, because it is only a helper function, if needed the calling
 # functions should have XS interfaces.
@@ -285,7 +286,7 @@ sub _setup_collator($$)
   return $collator;
 }
 
-# Not documented, as, in general, it should not be called directly, but
+# Not documented, no XS, as, in general, it should not be called directly, but
 # through Texinfo::Document::indices_sort_strings that caches the
 # result in the document, itself, in general, called through sorting functions.
 sub setup_index_entries_sort_strings($$$$;$)

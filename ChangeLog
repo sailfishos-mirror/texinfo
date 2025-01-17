@@ -1,5 +1,10 @@
 2025-01-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Document.pm, tp/Texinfo/Indices.pm: add/change comments,
+	move code around.
+
+2025-01-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c (build_global_info): add a
 	converter argument to try to reuse the "global_info" value of the Perl
 	document hash instead of systematically creating a new HV.  Update
