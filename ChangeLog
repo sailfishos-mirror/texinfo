@@ -1,3 +1,28 @@
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/texi2any.c (main): determine if the program is
+	uninstalled by checking TEXINFO_DEV_SOURCE environment variable,
+	and, if not set, by looking at the absolute directory and checking the
+	last directories, using a report by Eli that it is how it is done in
+	general.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
+	File names portability
+
+	* tp/Texinfo/XS/main/utils.h (O_BINARY, HAVE_DRIVE, IS_SLASH)
+	(IS_ABSOLUTE): add, from system.h.
+	* tp/Texinfo/XS/main/utils.h (FILE_SLASH): add.
+
+	* tp/Texinfo/XS/main/utils.c (parse_file_path, file_name_is_absolute):
+	use file names portability macros.
+
+	* tp/Texinfo/XS/main/utils.c (splitpath): add.
+
+	* tp/Texinfo/XS/main/utils.c (locate_include_file)
+	(locate_file_in_dirs): use splitpath instead of parse_file_path, as in
+	Perl.
+
 2025-01-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Index entry line count adjustment
@@ -17,23 +42,6 @@
 	the end of a node, they will all be adjusted.  If an automatic
 	"*Menu" block is output at the end of a node, there will be
 	no adjustment.	Adjustment in "plaintext" output is more limited.
-
-2025-01-18  Patrice Dumas  <pertusus@free.fr>
-
-	File names portability
-
-	* tp/Texinfo/XS/main/utils.h (O_BINARY, HAVE_DRIVE, IS_SLASH)
-	(IS_ABSOLUTE): add, from system.h.
-	* tp/Texinfo/XS/main/utils.h (FILE_SLASH): add.
-
-	* tp/Texinfo/XS/main/utils.c (parse_file_path, file_name_is_absolute):
-	use file names portability macros.
-
-	* tp/Texinfo/XS/main/utils.c (splitpath): add.
-
-	* tp/Texinfo/XS/main/utils.c (locate_include_file)
-	(locate_file_in_dirs): use splitpath instead of parse_file_path, as in
-	Perl.
 
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 

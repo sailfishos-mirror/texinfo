@@ -944,8 +944,7 @@ main (int argc, char *argv[], char *env[])
   int do_menu = 0;
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
-  /* FIXME what could be used to determine if installed or not? */
-  int texinfo_uninstalled = 1;
+  int texinfo_uninstalled = 0;
   const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
@@ -963,11 +962,71 @@ main (int argc, char *argv[], char *env[])
   FILE *main_program_unclosed_stdout = 0;
   DEPRECATED_DIRS_LIST deprecated_dirs_used;
   char *perl_embed_env;
+  char *texinfo_dev_source_env;
+
+  texinfo_dev_source_env = getenv ("TEXINFO_DEV_SOURCE");
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
+  if (texinfo_dev_source_env && strcmp (texinfo_dev_source_env, "0"))
+    texinfo_uninstalled = 1;
+  else
+    {
+      /* determine if uninstalled by looking at the absolute directory
+         and checking the last directories.  It is not perfectly robust
+         but we do not have anything better */
+      char *command_directories = program_file_name_and_directory[1];
+      char *abs_command_directories = 0;
+      if (!file_name_is_absolute (command_directories))
+        {
+          size_t space = 512;
+          char *cwd;
+
+          while (1)
+            {
+              cwd = getcwd (NULL, space);
+              if (!cwd)
+                {
+                  if (errno == ERANGE)
+                    {
+                      size_t max_size = (size_t)-1;
+                      if (space > max_size / 2 -1)
+                        break;
+                      space *= 2;
+                    }
+                  else
+                    break;
+                }
+              else
+                break;
+            }
+          if (cwd)
+            {
+              xasprintf (&abs_command_directories, "%s/%s",
+                         cwd, command_directories);
+              free (cwd);
+            }
+        }
+      else
+        abs_command_directories = strdup (command_directories);
+
+      if (abs_command_directories)
+        {
+          STRING_LIST *file_directories
+            = splitdir (abs_command_directories);
+          free (abs_command_directories);
+          size_t nr = file_directories->number;
+          char **list = file_directories->list;
+
+          if (nr > 4 && !strcmp (list[nr -1], ".libs")
+                     && !strcmp (list[nr -2], "XS")
+                     && !strcmp (list[nr -3], "Texinfo")
+                     && !strcmp (list[nr -4], "tp"))
+            texinfo_uninstalled = 1;
+          free_strings_list (file_directories);
+        }
+    }
   free (program_file_name_and_directory[1]);
-  /* command_directory = program_file_name_and_directory[1]; */
 
 #ifdef EMBED_PERL
   embedded_interpreter = 1;
