@@ -53,6 +53,7 @@ s/^'//
 s/ *; *$//
 s/'$d//
 s/$b$b/$b//g"
+#'
 
 # In general there is no need to remove a carriage return explicitely,
 # either there is none to begin with (on Unix, with Cygwin Perl) or
@@ -123,11 +124,12 @@ AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
-platform_LDFLAGS=
+perl_conf_CPPFLAGS=
 perl_conf_CFLAGS=
+platform_LDFLAGS=
 perl_conf_LDFLAGS=
+perl_conf_LIBS=
 XSUBPPARGS=
-PERL_INC=
 PACKAGE_XS_VERSION=0
 
 # See (automake)Conditional Subdirectories.  Even if --disable-perl-xs
@@ -184,13 +186,14 @@ if test x$disable_xs != xyes; then
                    -e 's/^cygperl.*/-lperl/' `
   
   lookup_perl_conf_values([[archlibexp], [privlibexp]])
-  PERL_INC=${PERL_CONF_archlibexp}/CORE
+  # perl_inc in ExtUtils::Embed
+  perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
   XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
   
+  perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl"
   AC_CONFIG_HEADERS([config.h])
 fi # not disable_xs
 
-AC_SUBST([PERL_INC], [$PERL_INC])
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
@@ -381,24 +384,24 @@ AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
 CFLAGS=$PERL_EXT_CFLAGS
 LDFLAGS=$PERL_EXT_LDFLAGS
 
-PERL_LIBS="-L$PERL_INC $PERL_CONF_libperl"
 # Use the -no-undefined flag on MS-Windows.  See info node
 # `(gnulib)Libtool and Windows'.  The -L and -l options in
 # platform_PERL_LIBADD show where to find the undefined symbols when
 # linking against Perl.
 case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
   perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
-  platform_PERL_LIBADD=$PERL_LIBS
+  platform_PERL_LIBADD=$perl_conf_LIBS
   # to be used for shared libraries not linked against Perl.
   platform_LDFLAGS='-no-undefined'
   ;;
 esac
 
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
+AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
-AC_SUBST([PERL_LIBS], [$PERL_LIBS])
+AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
 
 AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
 AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
