@@ -1,5 +1,16 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): set top_srcdir and tp_builddir only
+	if texinfo_uninstalled.
+
+	* tp/Texinfo/XS/texi2any.c (main): handle command_directories being
+	NULL.
+
+	* tp/Texinfo/XS/texi2any.c (main): set top_srcdir relative to
+	command_directories.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS: run
 	  gnulib-tool --add-import getcwd
 	We need Gnulib getcwd because we pass NULL as first argument such that

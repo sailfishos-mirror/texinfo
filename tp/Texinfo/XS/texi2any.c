@@ -906,8 +906,8 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST config_init_files;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
-  char *top_srcdir;
-  char *top_builddir;
+  char *top_srcdir = 0;
+  char *top_builddir = 0;
   char *tp_builddir = 0;
   OPTION *html_math_option;
   OPTION *highlight_syntax_option;
@@ -963,11 +963,14 @@ main (int argc, char *argv[], char *env[])
   DEPRECATED_DIRS_LIST deprecated_dirs_used;
   char *perl_embed_env;
   char *texinfo_dev_source_env;
+  char *command_directories;
 
   texinfo_dev_source_env = getenv ("TEXINFO_DEV_SOURCE");
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_file = program_file_name_and_directory[0];
+  command_directories = program_file_name_and_directory[1];
+
   if (texinfo_dev_source_env && strcmp (texinfo_dev_source_env, "0"))
     texinfo_uninstalled = 1;
   else
@@ -975,9 +978,8 @@ main (int argc, char *argv[], char *env[])
       /* determine if uninstalled by looking at the absolute directory
          and checking the last directories.  It is not perfectly robust
          but we do not have anything better */
-      char *command_directories = program_file_name_and_directory[1];
       char *abs_command_directories = 0;
-      if (!file_name_is_absolute (command_directories))
+      if (!command_directories || !file_name_is_absolute (command_directories))
         {
           size_t space = 512;
           char *cwd;
@@ -1002,8 +1004,13 @@ main (int argc, char *argv[], char *env[])
             }
           if (cwd)
             {
-              xasprintf (&abs_command_directories, "%s/%s",
-                         cwd, command_directories);
+              if (command_directories)
+                {
+                  xasprintf (&abs_command_directories, "%s/%s",
+                             cwd, command_directories);
+                }
+              else
+                abs_command_directories = strdup (cwd);
               free (cwd);
             }
         }
@@ -1026,7 +1033,6 @@ main (int argc, char *argv[], char *env[])
           free_strings_list (file_directories);
         }
     }
-  free (program_file_name_and_directory[1]);
 
 #ifdef EMBED_PERL
   embedded_interpreter = 1;
@@ -1037,28 +1043,40 @@ main (int argc, char *argv[], char *env[])
   if (perl_embed_env && !strcmp (perl_embed_env, "0"))
     embedded_interpreter = 0;
 
-  top_srcdir = getenv ("top_srcdir");
-  if (top_srcdir)
-    top_srcdir = strdup (top_srcdir);
-  else
-    /* a wild guess likely to be incorrect */
-    top_srcdir = strdup ("../../..");
-
-  top_builddir = getenv ("top_builddir");
-  if (!top_builddir)
-    /* this is correct for in-source builds only. */
-    top_builddir = strdup (top_srcdir);
-  else
-    top_builddir = strdup (top_builddir);
-
-  xasprintf (&tp_builddir, "%s/tp", top_builddir);
-
-  free (top_builddir);
-
   if (texinfo_uninstalled)
-    xasprintf (&extensions_dir, "%s/tp/ext", top_srcdir);
+    {
+      top_srcdir = getenv ("top_srcdir");
+      if (top_srcdir)
+        top_srcdir = strdup (top_srcdir);
+      else
+        {
+          /* similar to ModulePath.pm with updir 3 (or 4 for .libs) */
+          if (command_directories)
+            {/* within tp/Texinfo/XS/.libs */
+              xasprintf (&top_srcdir, "%s/../../../..",
+                         command_directories);
+            }
+          else
+            top_srcdir = strdup ("../../..");
+        }
+
+      top_builddir = getenv ("top_builddir");
+      if (!top_builddir)
+        /* this is correct for in-source builds only. */
+        top_builddir = strdup (top_srcdir);
+      else
+        top_builddir = strdup (top_builddir);
+
+      xasprintf (&tp_builddir, "%s/tp", top_builddir);
+
+      free (top_builddir);
+
+      xasprintf (&extensions_dir, "%s/tp/ext", top_srcdir);
+    }
   else
     xasprintf (&extensions_dir, "%s/ext", converterdatadir);
+
+  free (command_directories);
 
   memset (&internal_extension_dirs, 0, sizeof (STRING_LIST));
 
