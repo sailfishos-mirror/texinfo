@@ -963,14 +963,14 @@ main (int argc, char *argv[], char *env[])
   DEPRECATED_DIRS_LIST deprecated_dirs_used;
   char *perl_embed_env;
   char *texinfo_dev_source_env;
-  char *command_directories;
+  char *command_directory;
   char *program_basename;
 
   texinfo_dev_source_env = getenv ("TEXINFO_DEV_SOURCE");
 
   parse_file_path (argv[0], program_file_name_and_directory);
   program_basename = program_file_name_and_directory[0];
-  command_directories = program_file_name_and_directory[1];
+  command_directory = program_file_name_and_directory[1];
 
   program_file = strdup ("texi2any");
 
@@ -981,8 +981,8 @@ main (int argc, char *argv[], char *env[])
       /* determine if uninstalled by looking at the absolute directory
          and checking the last directories.  It is not perfectly robust
          but we do not have anything better */
-      char *abs_command_directories = 0;
-      if (!command_directories || !file_name_is_absolute (command_directories))
+      char *abs_command_directory = 0;
+      if (!command_directory || !file_name_is_absolute (command_directory))
         {
           size_t space = 512;
           char *cwd;
@@ -1007,24 +1007,24 @@ main (int argc, char *argv[], char *env[])
             }
           if (cwd)
             {
-              if (command_directories)
+              if (command_directory)
                 {
-                  xasprintf (&abs_command_directories, "%s/%s",
-                             cwd, command_directories);
+                  xasprintf (&abs_command_directory, "%s/%s",
+                             cwd, command_directory);
                 }
               else
-                abs_command_directories = strdup (cwd);
+                abs_command_directory = strdup (cwd);
               free (cwd);
             }
         }
       else
-        abs_command_directories = strdup (command_directories);
+        abs_command_directory = strdup (command_directory);
 
-      if (abs_command_directories)
+      if (abs_command_directory)
         {
           STRING_LIST *file_directories
-            = splitdir (abs_command_directories);
-          free (abs_command_directories);
+            = splitdir (abs_command_directory);
+          free (abs_command_directory);
           size_t nr = file_directories->number;
           char **list = file_directories->list;
 
@@ -1054,10 +1054,10 @@ main (int argc, char *argv[], char *env[])
       else
         {
           /* similar to ModulePath.pm with updir 3 (or 4 for .libs) */
-          if (command_directories)
+          if (command_directory)
             {/* within tp/Texinfo/XS/.libs */
               xasprintf (&top_srcdir, "%s/../../../..",
-                         command_directories);
+                         command_directory);
             }
           else
             top_srcdir = strdup ("../../..");
@@ -1079,7 +1079,7 @@ main (int argc, char *argv[], char *env[])
   else
     xasprintf (&extensions_dir, "%s/ext", converterdatadir);
 
-  free (command_directories);
+  free (command_directory);
 
   memset (&internal_extension_dirs, 0, sizeof (STRING_LIST));
 

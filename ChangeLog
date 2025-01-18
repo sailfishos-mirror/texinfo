@@ -1,5 +1,10 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main): rename command_directories as
+	command_directory.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	Remove the tp/ctexi2any.pl wrapper it is not useful anymore
 
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
