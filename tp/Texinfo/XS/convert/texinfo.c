@@ -168,7 +168,7 @@ txi_general_output_strings_setup (int use_external_translate_string)
 /* to be called before loading init file to get the opportunity to
    start an embedded interpreter */
 void
-txi_customization_loading_setup (int embedded_interpreter,
+txi_load_interpreter (int embedded_interpreter,
                    int *argc_ref, char ***argv_ref, char ***env_ref,
                    const char *version_checked)
 {
@@ -215,7 +215,7 @@ txi_load_init_file (const char *file, int embedded_interpreter)
 }
 
 void
-txi_customization_loading_finish (int embedded_interpreter)
+txi_stop_interpreter (int embedded_interpreter)
 {
   if (embedded_interpreter)
     call_finish_perl ();

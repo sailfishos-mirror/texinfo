@@ -62,7 +62,7 @@ void txi_set_base_default_options (OPTIONS_LIST *options,
 
 void txi_general_output_strings_setup (int use_external_translate_string);
 
-void txi_customization_loading_setup (int embedded_interpreter,
+void txi_load_interpreter (int embedded_interpreter,
                    int *argc_ref, char ***argv_ref, char ***env_ref,
                    const char *version_checked);
 
@@ -86,7 +86,7 @@ void txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
                                     const OPTIONS_LIST *customizations);
 int txi_load_init_file (const char *file, int embedded_interpreter);
-void txi_customization_loading_finish (int embedded_interpreter);
+void txi_stop_interpreter (int embedded_interpreter);
 
 CONVERTER *txi_converter_setup (const char *external_module,
                      const char *converted_format,

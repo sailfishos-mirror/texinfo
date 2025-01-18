@@ -1,5 +1,12 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/texinfo.c (txi_load_interpreter)
+	(txi_stop_interpreter): rename txi_customization_loading_setup as
+	txi_load_interpreter and txi_customization_loading_finish as
+	txi_stop_interpreter.  Update caller.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): rename command_directories as
 	command_directory.
 

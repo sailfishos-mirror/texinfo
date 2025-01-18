@@ -1137,8 +1137,8 @@ main (int argc, char *argv[], char *env[])
   free (tp_builddir);
   free (top_srcdir);
 
-  txi_customization_loading_setup (embedded_interpreter, &argc, &argv, &env,
-                                   version_for_embedded_interpreter_check);
+  txi_load_interpreter (embedded_interpreter, &argc, &argv, &env,
+                        version_for_embedded_interpreter_check);
 
   /* set default output format.  Is info in texi2any.pl */
   /* better than making it the default value independently of the
@@ -3096,7 +3096,7 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&internal_extension_dirs);
   free (extensions_dir);
 
-  txi_customization_loading_finish (embedded_interpreter);
+  txi_stop_interpreter (embedded_interpreter);
 
   free_strings_list (&opened_files);
 
