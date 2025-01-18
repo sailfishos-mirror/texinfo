@@ -1,5 +1,10 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (long_options, main): set the default
+	program_file to be texi2any, use argv[0] only if --no-mimick is set.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): set top_srcdir and tp_builddir only
 	if texinfo_uninstalled.
 

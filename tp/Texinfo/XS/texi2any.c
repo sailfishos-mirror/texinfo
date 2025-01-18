@@ -772,7 +772,7 @@ static int print_help_p;
 #define _FORMAT_OPT 21
 #define XML_OPT 22
 #define INTERNAL_LINKS_OPT 23
-#define MIMICK_OPT 24
+#define NO_MIMICK_OPT 24
 #define XOPT_OPT 25
 #define _SILENT_OPT 26
 /* can add here */
@@ -804,7 +804,7 @@ static int print_help_p;
 
 static struct option long_options[] = {
   /* next not in texi2any */
-  {"mimick", 0, 0, MIMICK_OPT},
+  {"no-mimick", 0, 0, NO_MIMICK_OPT},
 
   {"conf-dir", required_argument, 0, CONF_DIR_OPT},
   {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
@@ -964,12 +964,15 @@ main (int argc, char *argv[], char *env[])
   char *perl_embed_env;
   char *texinfo_dev_source_env;
   char *command_directories;
+  char *program_basename;
 
   texinfo_dev_source_env = getenv ("TEXINFO_DEV_SOURCE");
 
   parse_file_path (argv[0], program_file_name_and_directory);
-  program_file = program_file_name_and_directory[0];
+  program_basename = program_file_name_and_directory[0];
   command_directories = program_file_name_and_directory[1];
+
+  program_file = strdup ("texi2any");
 
   if (texinfo_dev_source_env && strcmp (texinfo_dev_source_env, "0"))
     texinfo_uninstalled = 1;
@@ -1291,9 +1294,9 @@ main (int argc, char *argv[], char *env[])
         case XML_OPT:
           set_cmdline_format ("texinfoxml");
           break;
-        case MIMICK_OPT:
+        case NO_MIMICK_OPT:
           free (program_file);
-          program_file = strdup ("texi2any");
+          program_file = strdup (program_basename);
           GNUT_set_from_cmdline (&program_options,
                          cmdline_options.options->PROGRAM.number,
                                  program_file);
@@ -3070,7 +3073,8 @@ main (int argc, char *argv[], char *env[])
   free_strings_list (&input_files);
 
   free_options_list (&parser_options);
-  /* free (command_directory); */
+
+  free (program_basename);
   free (program_file);
 
   free_options_list (&cmdline_options);
