@@ -47,8 +47,7 @@ xsdir = $(converterlibdir)
 # -------------------------------------------------------
 
 # XSLIBS_CPPFLAGS and XSLIBS_CFLAGS should be used for XS
-# modules compilation and can also be used for libraries whose
-# source files include Perl headers.
+# modules compilation.
 
 # XS_VERSION is used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
@@ -278,8 +277,8 @@ libcallperl_libtexinfo_la_SOURCES = \
 		      main/call_perl_function.c \
 		      main/call_perl_function.h
 
-libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(XSLIBS_CPPFLAGS)
-libcallperl_libtexinfo_la_CFLAGS = $(XSLIBS_CFLAGS)
+libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(perl_conf_CPPFLAGS)
+libcallperl_libtexinfo_la_CFLAGS = $(perl_conf_CFLAGS)
 libcallperl_libtexinfo_la_LIBADD = libperlcall_utils.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
@@ -416,8 +415,8 @@ libtexinfoxs_la_SOURCES= \
 		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
-libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfoxs_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
+libtexinfoxs_la_CFLAGS = $(perl_conf_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libperlcall_utils.la $(platform_PERL_LIBADD)
 libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
@@ -534,8 +533,8 @@ libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/call_conversion_perl.c \
                        convert/call_conversion_perl.h
 
-libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
-libcallperl_libtexinfo_convert_la_CFLAGS = $(XSLIBS_CFLAGS)
+libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(perl_conf_CPPFLAGS)
+libcallperl_libtexinfo_convert_la_CFLAGS = $(perl_conf_CFLAGS)
 libcallperl_libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
@@ -563,8 +562,8 @@ libtexinfo_convertxs_la_SOURCES = \
                        convert/get_converter_perl_info.h
 
 # locate include files under out-of-source builds.
-libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-libtexinfo_convertxs_la_CFLAGS = $(XSLIBS_CFLAGS)
+libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
+libtexinfo_convertxs_la_CFLAGS = $(perl_conf_CFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined

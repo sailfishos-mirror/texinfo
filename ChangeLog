@@ -1,5 +1,16 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libcallperl_libtexinfo_la_CPPFLAGS)
+	(libcallperl_libtexinfo_la_CFLAGS, libtexinfoxs_la_CPPFLAGS)
+	(libtexinfoxs_la_CFLAGS, libcallperl_libtexinfo_convert_la_CPPFLAGS)
+	(libcallperl_libtexinfo_convert_la_CFLAGS)
+	(libtexinfo_convertxs_la_CPPFLAGS, libtexinfo_convertxs_la_CFLAGS):
+	use perl_conf_CFLAGS and perl_conf_CPPFLAGS instead of XSLIBS_CFLAGS
+	and XSLIBS_CPPFLAGS for shared libraries compiled against Perl that
+	are not XS modules.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (perl_conf_CPPFLAGS),
 	tp/Texinfo/XS/Makefile.am (XSLIBS_CPPFLAGS): remove PERL_INC, instead
 	set perl_conf_CPPFLAGS to -I${PERL_CONF_archlibexp}/CORE.
