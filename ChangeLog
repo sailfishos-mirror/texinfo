@@ -1,5 +1,12 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS: run
+	  gnulib-tool --add-import getcwd
+	We need Gnulib getcwd because we pass NULL as first argument such that
+	getcwd allocates the memory.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/input.c (encode_file_name)
 	(save_line_directive), tp/Texinfo/XS/parsetexi/end_line.c
 	(end_line_misc_line): do not call save_string in encode_file_name, as

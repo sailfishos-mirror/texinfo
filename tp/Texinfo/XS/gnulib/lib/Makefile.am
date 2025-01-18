@@ -33,6 +33,7 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  euidaccess \
+#  getcwd \
 #  getline \
 #  getopt-gnu \
 #  gettext-h \
@@ -180,12 +181,51 @@ EXTRA_DIST += assert.in.h verify.h
 
 ## end   gnulib module assert-h
 
+## begin gnulib module assure
+
+
+EXTRA_DIST += assure.h
+
+## end   gnulib module assure
+
+## begin gnulib module at-internal
+
+libgnu_la_SOURCES += openat-priv.h openat-proc.c
+
+## end   gnulib module at-internal
+
 ## begin gnulib module attribute
 
 
 EXTRA_DIST += attribute.h
 
 ## end   gnulib module attribute
+
+## begin gnulib module basename-lgpl
+
+libgnu_la_SOURCES += basename-lgpl.c
+
+EXTRA_DIST += basename-lgpl.h
+
+## end   gnulib module basename-lgpl
+
+## begin gnulib module chdir-long
+
+if GL_COND_OBJ_CHDIR_LONG
+libgnu_la_SOURCES += chdir-long.c
+endif
+
+EXTRA_DIST += chdir-long.h
+
+## end   gnulib module chdir-long
+
+## begin gnulib module cloexec
+
+libgnu_la_SOURCES += cloexec.c
+
+EXTRA_DIST += cloexec.h
+
+## end   gnulib module cloexec
 
 ## begin gnulib module close
 
@@ -194,6 +234,83 @@ libgnu_la_SOURCES += close.c
 endif
 
 ## end   gnulib module close
+
+## begin gnulib module closedir
+
+if GL_COND_OBJ_CLOSEDIR
+libgnu_la_SOURCES += closedir.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module closedir
+
+## begin gnulib module dirent
+
+BUILT_SOURCES += dirent.h
+
+# We need the following in order to create <dirent.h> when the system
+# doesn't have one that works with the given compiler.
+dirent.h: dirent.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(WARN_ON_USE_H)
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''HAVE_DIRENT_H''@|$(HAVE_DIRENT_H)|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_DIRENT_H''@|$(NEXT_DIRENT_H)|g' \
+	      -e 's/@''DIR_HAS_FD_MEMBER''@/$(DIR_HAS_FD_MEMBER)/g' \
+	      -e 's/@''GNULIB_OPENDIR''@/$(GL_GNULIB_OPENDIR)/g' \
+	      -e 's/@''GNULIB_READDIR''@/$(GL_GNULIB_READDIR)/g' \
+	      -e 's/@''GNULIB_REWINDDIR''@/$(GL_GNULIB_REWINDDIR)/g' \
+	      -e 's/@''GNULIB_CLOSEDIR''@/$(GL_GNULIB_CLOSEDIR)/g' \
+	      -e 's/@''GNULIB_DIRFD''@/$(GL_GNULIB_DIRFD)/g' \
+	      -e 's/@''GNULIB_FDOPENDIR''@/$(GL_GNULIB_FDOPENDIR)/g' \
+	      -e 's/@''GNULIB_SCANDIR''@/$(GL_GNULIB_SCANDIR)/g' \
+	      -e 's/@''GNULIB_ALPHASORT''@/$(GL_GNULIB_ALPHASORT)/g' \
+	      -e 's/@''HAVE_OPENDIR''@/$(HAVE_OPENDIR)/g' \
+	      -e 's/@''HAVE_READDIR''@/$(HAVE_READDIR)/g' \
+	      -e 's/@''HAVE_REWINDDIR''@/$(HAVE_REWINDDIR)/g' \
+	      -e 's/@''HAVE_CLOSEDIR''@/$(HAVE_CLOSEDIR)/g' \
+	      -e 's|@''HAVE_DECL_DIRFD''@|$(HAVE_DECL_DIRFD)|g' \
+	      -e 's|@''HAVE_DECL_FDOPENDIR''@|$(HAVE_DECL_FDOPENDIR)|g' \
+	      -e 's|@''HAVE_FDOPENDIR''@|$(HAVE_FDOPENDIR)|g' \
+	      -e 's|@''HAVE_SCANDIR''@|$(HAVE_SCANDIR)|g' \
+	      -e 's|@''HAVE_ALPHASORT''@|$(HAVE_ALPHASORT)|g' \
+	      -e 's|@''REPLACE_OPENDIR''@|$(REPLACE_OPENDIR)|g' \
+	      -e 's|@''REPLACE_READDIR''@|$(REPLACE_READDIR)|g' \
+	      -e 's|@''REPLACE_REWINDDIR''@|$(REPLACE_REWINDDIR)|g' \
+	      -e 's|@''REPLACE_CLOSEDIR''@|$(REPLACE_CLOSEDIR)|g' \
+	      -e 's|@''REPLACE_DIRFD''@|$(REPLACE_DIRFD)|g' \
+	      -e 's|@''REPLACE_FDOPENDIR''@|$(REPLACE_FDOPENDIR)|g' \
+	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
+	      -e '/definition of _GL_ARG_NONNULL/r $(ARG_NONNULL_H)' \
+	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
+	      $(srcdir)/dirent.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += dirent.h dirent.h-t
+
+EXTRA_DIST += dirent.in.h
+
+## end   gnulib module dirent
+
+## begin gnulib module dirfd
+
+if GL_COND_OBJ_DIRFD
+libgnu_la_SOURCES += dirfd.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module dirfd
+
+## begin gnulib module dup
+
+if GL_COND_OBJ_DUP
+libgnu_la_SOURCES += dup.c
+endif
+
+## end   gnulib module dup
 
 ## begin gnulib module dup2
 
@@ -235,6 +352,38 @@ EXTRA_DIST += errno.in.h
 
 ## end   gnulib module errno
 
+## begin gnulib module error
+
+if GL_COND_OBJ_ERROR
+libgnu_la_SOURCES += error.c
+endif
+
+## end   gnulib module error
+
+## begin gnulib module error-h
+
+BUILT_SOURCES += error.h
+
+# We need the following in order to override <error.h>.
+error.h: error.in.h $(top_builddir)/config.status $(CXXDEFS_H)
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's|@''HAVE_ERROR_H''@|$(HAVE_ERROR_H)|g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''NEXT_ERROR_H''@|$(NEXT_ERROR_H)|g' \
+	      -e 's|@''HAVE_ERROR''@|$(HAVE_ERROR)|g' \
+	      -e 's|@''HAVE_ERROR_AT_LINE''@|$(HAVE_ERROR_AT_LINE)|g' \
+	      -e 's|@''REPLACE_ERROR''@|$(REPLACE_ERROR)|g' \
+	      -e 's|@''REPLACE_ERROR_AT_LINE''@|$(REPLACE_ERROR_AT_LINE)|g' \
+	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
+	      $(srcdir)/error.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += error.h error.h-t
+
+EXTRA_DIST += error.in.h
+
+## end   gnulib module error-h
+
 ## begin gnulib module euidaccess
 
 if GL_COND_OBJ_EUIDACCESS
@@ -242,6 +391,22 @@ libgnu_la_SOURCES += euidaccess.c
 endif
 
 ## end   gnulib module euidaccess
+
+## begin gnulib module exitfail
+
+libgnu_la_SOURCES += exitfail.c
+
+EXTRA_DIST += exitfail.h
+
+## end   gnulib module exitfail
+
+## begin gnulib module fchdir
+
+if GL_COND_OBJ_FCHDIR
+libgnu_la_SOURCES += fchdir.c
+endif
+
+## end   gnulib module fchdir
 
 ## begin gnulib module fcntl
 
@@ -296,12 +461,30 @@ EXTRA_DIST += fd-hook.h
 
 ## end   gnulib module fd-hook
 
+## begin gnulib module fdopendir
+
+if GL_COND_OBJ_FDOPENDIR
+libgnu_la_SOURCES += fdopendir.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module fdopendir
+
 ## begin gnulib module filename
 
 
 EXTRA_DIST += filename.h
 
 ## end   gnulib module filename
+
+## begin gnulib module filenamecat-lgpl
+
+libgnu_la_SOURCES += filenamecat-lgpl.c
+
+EXTRA_DIST += filenamecat.h
+
+## end   gnulib module filenamecat-lgpl
 
 ## begin gnulib module float
 
@@ -345,6 +528,30 @@ endif
 
 ## end   gnulib module free-posix
 
+## begin gnulib module fstat
+
+if GL_COND_OBJ_FSTAT
+libgnu_la_SOURCES += fstat.c
+endif
+
+EXTRA_DIST += stat-w32.c stat-w32.h
+
+EXTRA_libgnu_la_SOURCES += stat-w32.c
+
+## end   gnulib module fstat
+
+## begin gnulib module fstatat
+
+if GL_COND_OBJ_FSTATAT
+libgnu_la_SOURCES += fstatat.c
+endif
+
+EXTRA_DIST += at-func.c
+
+EXTRA_libgnu_la_SOURCES += at-func.c
+
+## end   gnulib module fstatat
+
 ## begin gnulib module gen-header
 
 # In 'sed', replace the pattern space with a "DO NOT EDIT" comment.
@@ -364,6 +571,22 @@ SED_HEADER_TO_AT_t = $(SED_HEADER_STDOUT) -n -e 'w $@-t'
 gl_V_at = $(AM_V_GEN)
 
 ## end   gnulib module gen-header
+
+## begin gnulib module getcwd
+
+if GL_COND_OBJ_GETCWD
+libgnu_la_SOURCES += getcwd.c
+endif
+
+## end   gnulib module getcwd
+
+## begin gnulib module getcwd-lgpl
+
+if GL_COND_OBJ_GETCWD_LGPL
+libgnu_la_SOURCES += getcwd-lgpl.c
+endif
+
+## end   gnulib module getcwd-lgpl
 
 ## begin gnulib module getdelim
 
@@ -441,6 +664,16 @@ EXTRA_DIST += getopt-cdefs.in.h getopt-core.h getopt-ext.h getopt-pfx-core.h get
 
 ## end   gnulib module getopt-posix
 
+## begin gnulib module getprogname
+
+if GL_COND_OBJ_GETPROGNAME
+libgnu_la_SOURCES += getprogname.c
+endif
+
+EXTRA_DIST += getprogname.h
+
+## end   gnulib module getprogname
+
 ## begin gnulib module gettext-h
 
 libgnu_la_SOURCES += gettext.h
@@ -476,6 +709,13 @@ EXTRA_DIST += $(top_srcdir)/build-aux/config.rpath
 libgnu_la_SOURCES += idx.h
 
 ## end   gnulib module idx
+
+## begin gnulib module intprops
+
+
+EXTRA_DIST += intprops-internal.h intprops.h
+
+## end   gnulib module intprops
 
 ## begin gnulib module inttypes-incomplete
 
@@ -593,6 +833,14 @@ EXTRA_DIST += locale.in.h
 
 ## end   gnulib module locale
 
+## begin gnulib module lstat
+
+if GL_COND_OBJ_LSTAT
+libgnu_la_SOURCES += lstat.c
+endif
+
+## end   gnulib module lstat
+
 ## begin gnulib module malloc-gnu
 
 
@@ -635,6 +883,22 @@ EXTRA_DIST += memchr.valgrind
 
 ## end   gnulib module memchr
 
+## begin gnulib module mempcpy
+
+if GL_COND_OBJ_MEMPCPY
+libgnu_la_SOURCES += mempcpy.c
+endif
+
+## end   gnulib module mempcpy
+
+## begin gnulib module memrchr
+
+if GL_COND_OBJ_MEMRCHR
+libgnu_la_SOURCES += memrchr.c
+endif
+
+## end   gnulib module memrchr
+
 ## begin gnulib module msvc-inval
 
 if GL_COND_OBJ_MSVC_INVAL
@@ -655,6 +919,45 @@ EXTRA_DIST += msvc-nothrow.h
 
 ## end   gnulib module msvc-nothrow
 
+## begin gnulib module open
+
+if GL_COND_OBJ_OPEN
+libgnu_la_SOURCES += open.c
+endif
+
+## end   gnulib module open
+
+## begin gnulib module openat
+
+if GL_COND_OBJ_OPENAT
+libgnu_la_SOURCES += openat.c
+endif
+
+## end   gnulib module openat
+
+## begin gnulib module openat-die
+
+libgnu_la_SOURCES += openat-die.c
+
+## end   gnulib module openat-die
+
+## begin gnulib module openat-h
+
+
+EXTRA_DIST += openat.h
+
+## end   gnulib module openat-h
+
+## begin gnulib module opendir
+
+if GL_COND_OBJ_OPENDIR
+libgnu_la_SOURCES += opendir.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module opendir
+
 ## begin gnulib module pathmax
 
 
@@ -672,12 +975,48 @@ EXTRA_DIST += rawmemchr.valgrind
 
 ## end   gnulib module rawmemchr
 
+## begin gnulib module readdir
+
+if GL_COND_OBJ_READDIR
+libgnu_la_SOURCES += readdir.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module readdir
+
+## begin gnulib module realloc-posix
+
+if GL_COND_OBJ_REALLOC_POSIX
+libgnu_la_SOURCES += realloc.c
+endif
+
+## end   gnulib module realloc-posix
+
+## begin gnulib module rewinddir
+
+if GL_COND_OBJ_REWINDDIR
+libgnu_la_SOURCES += rewinddir.c
+endif
+
+EXTRA_DIST += dirent-private.h
+
+## end   gnulib module rewinddir
+
 ## begin gnulib module root-uid
 
 
 EXTRA_DIST += root-uid.h
 
 ## end   gnulib module root-uid
+
+## begin gnulib module save-cwd
+
+libgnu_la_SOURCES += save-cwd.c
+
+EXTRA_DIST += save-cwd.h
+
+## end   gnulib module save-cwd
 
 ## begin gnulib module setenv
 
@@ -1203,12 +1542,38 @@ EXTRA_DIST += strchrnul.valgrind
 
 ## end   gnulib module strchrnul
 
+## begin gnulib module strdup-posix
+
+if GL_COND_OBJ_STRDUP
+libgnu_la_SOURCES += strdup.c
+endif
+
+## end   gnulib module strdup-posix
+
 ## begin gnulib module streq
 
 
 EXTRA_DIST += streq.h
 
 ## end   gnulib module streq
+
+## begin gnulib module strerror
+
+if GL_COND_OBJ_STRERROR
+libgnu_la_SOURCES += strerror.c
+endif
+
+## end   gnulib module strerror
+
+## begin gnulib module strerror-override
+
+if GL_COND_OBJ_STRERROR_OVERRIDE
+libgnu_la_SOURCES += strerror-override.c
+endif
+
+EXTRA_DIST += strerror-override.h
+
+## end   gnulib module strerror-override
 
 ## begin gnulib module string
 
@@ -2499,6 +2864,13 @@ EXTRA_DIST += asprintf.c vasprintf.c
 EXTRA_libgnu_la_SOURCES += asprintf.c vasprintf.c
 
 ## end   gnulib module vasprintf
+
+## begin gnulib module verify
+
+
+EXTRA_DIST += verify.h
+
+## end   gnulib module verify
 
 ## begin gnulib module wchar
 

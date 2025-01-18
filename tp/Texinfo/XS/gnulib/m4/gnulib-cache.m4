@@ -38,6 +38,7 @@
 #  --libtool \
 #  --macro-prefix=gl \
 #  euidaccess \
+#  getcwd \
 #  getline \
 #  getopt-gnu \
 #  gettext-h \
@@ -78,6 +79,7 @@
 gl_LOCAL_DIR([])
 gl_MODULES([
   euidaccess
+  getcwd
   getline
   getopt-gnu
   gettext-h

@@ -102,12 +102,14 @@ gnulib/po/stamp-po
 
 tp/Texinfo/XS/teximakehtml
 
+tp/Texinfo/XS/gnulib/lib/dirent.h
+tp/Texinfo/XS/gnulib/lib/error.h
+tp/Texinfo/XS/gnulib/lib/fcntl.h
+tp/Texinfo/XS/gnulib/lib/float.h
 tp/Texinfo/XS/gnulib/lib/getopt.h
 tp/Texinfo/XS/gnulib/lib/getopt-cdefs.h
-tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/inttypes.h
-tp/Texinfo/XS/gnulib/lib/float.h
-tp/Texinfo/XS/gnulib/lib/fcntl.h
+tp/Texinfo/XS/gnulib/lib/locale.h
 tp/Texinfo/XS/gnulib/lib/sys/stat.h
 tp/Texinfo/XS/gnulib/lib/sys/time.h
 tp/Texinfo/XS/gnulib/lib/time.h
