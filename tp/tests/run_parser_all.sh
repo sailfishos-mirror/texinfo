@@ -200,7 +200,7 @@ prepended_command=
 #prepended_command='valgrind -q'
 
 main_command='texi2any.pl'
-#main_command='ctexi2any.pl'
+#main_command='Texinfo/XS/ctexi2any'
 
 # formats can be specified by first line of list-of-tests.
 #commands='texi2any.pl:_html texi2any.pl:_info'
@@ -238,6 +238,10 @@ if [ "z$srcdir" = 'z' ]; then
 fi
 
 . $testdir/../../defs || exit 1
+
+if test $main_command = 'texi2any.pl' ; then
+  prepended_command="$prepended_command $PERL -w"
+fi
 
 one_test_logs_dir=$testdir/test_log
 logfile=$testdir/tests.log
@@ -454,7 +458,7 @@ while read line; do
     mkdir "${outdir}$dir"
     remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
     echo "$command $dir -> ${outdir}$dir" >> $logfile
-    cmd="$prepended_command $PERL -w $command_run $format_option --force --conf-dir $srcdir/../t/init/ --conf-dir $srcdir/../init --conf-dir $srcdir/../ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
+    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../t/init/ --conf-dir $srcdir/../init --conf-dir $srcdir/../ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
     echo "$cmd" >>$logfile
     eval $cmd
     ret=$?
