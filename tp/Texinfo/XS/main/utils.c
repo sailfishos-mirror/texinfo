@@ -858,7 +858,7 @@ canonpath (const char *input_file)
           /* omit a / at the end of the path */
           if (!*p)
             return (result.text);
-          text_append_n (&result, *q, 1);
+          text_append_n (&result, q, 1);
           q = strpbrk (p, FILE_SLASH);
           if (q)
             {
