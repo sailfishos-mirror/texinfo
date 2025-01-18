@@ -1032,11 +1032,12 @@ parse_file_path (const char *input_file_path, char **result)
   /* Strip off a leading directory path, by looking for the last
      '/' in input_file_path. */
   const char *p = 0;
-  const char *q = strchr (input_file_path, '/');
+  const char *q = strpbrk (input_file_path, FILE_SLASH);
+
   while (q)
     {
       p = q;
-      q = strchr (q + 1, '/');
+      q = strpbrk (q + 1, FILE_SLASH);
     }
 
   if (p)
@@ -1049,6 +1050,34 @@ parse_file_path (const char *input_file_path, char **result)
       result[0] = strdup (input_file_path);
       result[1] = 0;
     }
+}
+
+/* RESULT should be an array of size three.  Upon return, it holds
+   the volume, if any, in the first position, the directory, if any, in
+   the second position and the file name in the third position.
+   The volume, directory and file name should be freed.
+ */
+void
+splitpath (const char *input_file_path, char **result)
+{
+  const char *s;
+  char *file_name_and_directory[2];
+
+  /* determine the volume */
+  if (HAVE_DRIVE (input_file_path))
+    {
+      result[0] = strndup (input_file_path, 2);
+      s = input_file_path +2;
+    }
+  else
+    {
+      result[0] = 0;
+      s = input_file_path;
+    }
+
+  parse_file_path (s, file_name_and_directory);
+  result[2] = file_name_and_directory[0];
+  result[1] = file_name_and_directory[1];
 }
 
 /* Check validity of TEXT as @documentlanguage argument.
@@ -1308,13 +1337,10 @@ join_strings_list (STRING_LIST *strings)
   return text.text;
 }
 
-
-/* Note: the Perl code (in Common.pm, 'locate_include_file') handles
-   a volume in a path (like "A:") using the File::Spec module. */
-static int
+int
 file_name_is_absolute (const char *filename)
 {
-  return !memcmp (filename, "/", 1);
+  return IS_ABSOLUTE(filename);
 }
 
 DEPRECATED_DIR_INFO *
@@ -1405,9 +1431,6 @@ free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
   free (deprecated_dirs->list);
 }
 
-/* FIXME not correct on MS-Windows */
-#define FILE_SLASH "/"
-
 STRING_LIST *
 splitdir (char *directories_str)
 {
@@ -1440,10 +1463,11 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
     ignore_include_directories = 1;
   else
     {
-      char *file_name_and_directories[2];
+      char *file_name_and_directories[3];
 
-      parse_file_path (filename, file_name_and_directories);
+      splitpath (filename, file_name_and_directories);
       free (file_name_and_directories[0]);
+      free (file_name_and_directories[2]);
       if (file_name_and_directories[1])
         {
           STRING_LIST *directories = splitdir (file_name_and_directories[1]);
@@ -1524,11 +1548,12 @@ locate_file_in_dirs (const char *filename,
   else
     {
       size_t i;
-      char *file_name_and_directories[2];
+      char *file_name_and_directories[3];
       int file_with_directories = 0;
 
-      parse_file_path (filename, file_name_and_directories);
+      splitpath (filename, file_name_and_directories);
       free (file_name_and_directories[0]);
+      free (file_name_and_directories[2]);
       if (file_name_and_directories[1])
         {
           STRING_LIST *file_directories

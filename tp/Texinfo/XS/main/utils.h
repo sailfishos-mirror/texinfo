@@ -40,6 +40,30 @@
 #  define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
 #endif /* !S_ISDIR && S_IFDIR */
 
+/* FIXME use something common? */
+/* taken from system.h */
+#ifndef O_BINARY
+# ifdef _O_BINARY
+#  define O_BINARY _O_BINARY
+# else
+#  define O_BINARY 0
+# endif
+#endif /* O_BINARY */
+
+#if O_BINARY
+# define HAVE_DRIVE(n)   ((n)[0] && (n)[1] == ':')
+# define IS_SLASH(c)     ((c) == '/' || (c) == '\\')
+# define IS_ABSOLUTE(n)  (IS_SLASH((n)[0]) || HAVE_DRIVE(n))
+# define FILE_SLASH      "/\\"
+#else  /* not O_BINARY, i.e., Unix */
+# define IS_SLASH(c)     ((c) == '/')
+# define HAS_SLASH(s)    (strchr ((s), '/'))
+# define HAVE_DRIVE(n)   (0)
+# define IS_ABSOLUTE(n)  ((n)[0] == '/')
+# define FILE_SLASH      "/"
+#endif /* not O_BINARY */
+
+
 extern const char *null_device_names[];
 
 extern const char *whitespace_chars;
@@ -147,7 +171,9 @@ int section_level (const ELEMENT *section);
 enum command_id section_level_adjusted_command_name (const ELEMENT *element);
 char *collapse_spaces (const char *text);
 char *parse_line_directive (const char *line, int *retval, int *out_line_no);
+int file_name_is_absolute (const char *filename);
 void parse_file_path (const char *input_file_path, char **result);
+STRING_LIST *splitdir (char *directories_str);
 char *analyze_documentlanguage_argument (const char *text,
                                    const char **region_code_out,
                                    int *valid_lang, int *valid_region);
