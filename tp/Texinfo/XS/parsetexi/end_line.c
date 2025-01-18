@@ -1360,6 +1360,7 @@ end_line_misc_line (ELEMENT *current)
 
               file_path = encode_file_name (text);
               fullpath = parser_locate_include_file (file_path);
+              free (file_path);
 
               if (!fullpath)
                 {
@@ -1405,6 +1406,7 @@ end_line_misc_line (ELEMENT *current)
                  should be output by converters */
               file_path = encode_file_name (text);
               fullpath = parser_locate_include_file (file_path);
+              free (file_path);
               if (fullpath && access (fullpath, R_OK) == 0)
                 add_string (fullpath, &global_info->included_files);
               free (fullpath);

@@ -10,8 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Use system.h macros used in info for File::Spec replacement in C in
-texi2any too
+system.h macros are duplicated in XS/main/utils.h.  Ok?
 
 Move C code?
 

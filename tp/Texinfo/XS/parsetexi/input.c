@@ -204,13 +204,11 @@ encode_file_name (char *filename)
       char *result
         = encode_with_iconv (filename_encoding_conversion->iconv,
                              filename, &current_source_info);
-      char *saved_string = save_string (result);
-      free (result);
-      return saved_string;
+      return result;
     }
   else
     {
-      return save_string (filename);
+      return strdup (filename);
     }
 }
 
@@ -223,7 +221,11 @@ save_line_directive (int line_nr, char *filename)
   INPUT *top;
 
   if (filename)
-    f = encode_file_name (filename);
+    {
+      char *encoded_filename = encode_file_name (filename);
+      f = save_string (encoded_filename);
+      free (encoded_filename);
+    }
 
   top = &input_stack[input_number - 1];
   if (line_nr)
