@@ -391,8 +391,8 @@ print ODHF "#ifndef OPTIONS_DEFAULTS_H\n#define OPTIONS_DEFAULTS_H\n\n";
 
 print ODHF "/* Automatically generated from $program_name */\n\n";
 
-print ODHF "#include \"main/option_types.h\"\n";
-print ODHF "#include \"main/options_data.h\"\n\n";
+print ODHF "#include \"option_types.h\"\n";
+print ODHF "#include \"options_data.h\"\n\n";
 
 print ODHF "/* Undefine values set from autoconf as we use these as\n";
 print ODHF "   customization variable names.  The original values are\n";
@@ -493,8 +493,8 @@ print CDHF "#ifndef CONVERTERS_DEFAULTS_H\n#define CONVERTERS_DEFAULTS_H\n\n";
 
 print CDHF "/* Automatically generated from $program_name */\n\n";
 
-print CDHF "#include \"main/option_types.h\"\n";
-print CDHF "#include \"main/options_data.h\"\n\n";
+print CDHF "#include \"option_types.h\"\n";
+print CDHF "#include \"options_data.h\"\n\n";
 
 print CDHF "/* Undefine values set from autoconf as we use these as\n";
 print CDHF "   customization variable names.  The original values are\n";
