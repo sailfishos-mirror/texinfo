@@ -57,7 +57,6 @@
 # define FILE_SLASH      "/\\"
 #else  /* not O_BINARY, i.e., Unix */
 # define IS_SLASH(c)     ((c) == '/')
-# define HAS_SLASH(s)    (strchr ((s), '/'))
 # define HAVE_DRIVE(n)   (0)
 # define IS_ABSOLUTE(n)  ((n)[0] == '/')
 # define FILE_SLASH      "/"
