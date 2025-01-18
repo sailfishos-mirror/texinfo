@@ -137,10 +137,7 @@ my $sysconfdir;
 #my $pkgdatadir;
 my $converter;
 
-# the result is not good when using rootdir, maybe using a concatenation
-# of rootdir would be better.
-#my $fallback_prefix = join('/', (File::Spec->rootdir(), 'usr', 'local'));
-my $fallback_prefix = File::Spec->catdir(File::Spec->rootdir(), 'usr', 'local');
+my $fallback_prefix = File::Spec->rootdir() . join('/', ('usr', 'local'));
 
 # We need to eval as $prefix has to be expanded. However when we haven't
 # run configure @sysconfdir will be expanded as an array, thus we verify
@@ -188,7 +185,7 @@ Locale::Messages->select_package('gettext_pp');
 
 # Note: this uses installed messages even when the program is uninstalled
 Locale::Messages::bindtextdomain($messages_textdomain,
-                                File::Spec->catdir($datadir, 'locale'));
+                                 join('/', ($datadir, 'locale')));
 
 # Set initial configuration
 
@@ -212,8 +209,8 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # in configure.ac
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-              "< ".File::Spec->catfile($Texinfo::ModulePath::top_srcdir,
-                                       'configure.ac'))) {
+              "< " . join('/', ($Texinfo::ModulePath::top_srcdir,
+                                'configure.ac')))) {
       while (<CONFIGURE>) {
         if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*,/) {
           # add +nc to distinguish from configured and, in general, installed.
@@ -297,16 +294,16 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Indices;
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
-                                       'LocaleData');
+  my $locales_dir
+     = join('/', ($Texinfo::ModulePath::tp_builddir, 'LocaleData'));
   if (-d $locales_dir) {
     Texinfo::Translations::configure($locales_dir, $strings_textdomain);
   } else {
     warn "Locales dir for document strings not found\n";
   }
 } else {
-  Texinfo::Translations::configure(File::Spec->catdir($datadir, 'locale'),
-                              $strings_textdomain);
+  my $locales_dir = join('/', ($datadir, 'locale'));
+  Texinfo::Translations::configure($locales_dir, $strings_textdomain);
 }
 
 # useful modules the user can always assume to have.

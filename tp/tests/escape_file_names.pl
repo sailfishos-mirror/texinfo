@@ -23,7 +23,6 @@ use utf8;
 
 use File::Copy;
 use File::Basename;
-use File::Spec;
 use File::Path;
 
 my @files;

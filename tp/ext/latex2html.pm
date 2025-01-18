@@ -225,14 +225,14 @@ sub l2h_process($$)
 
   $l2h_name = "${docu_name}_l2h";
   my $l2h_latex_file_name = "${l2h_name}.tex";
-  my $l2h_latex_path_name = File::Spec->catfile($destination_directory,
-                                                $l2h_latex_file_name);
+  my $l2h_latex_path_name
+    = join('/', ($destination_directory, $l2h_latex_file_name));
   # we use utf-8 encoding irrespective of what is used in texi2any
   # because latex2html use the file name in the resulting file and
   # it needs to be utf-8
   my $encoded_l2h_latex_file_name = encode('UTF-8', $l2h_latex_file_name);
-  my $l2h_latex_path_string = File::Spec->catfile($destination_directory_string,
-                                                  $encoded_l2h_latex_file_name);
+  my $l2h_latex_path_string
+    = join('/', ($destination_directory_string, $encoded_l2h_latex_file_name));
   $l2h_cache_path_name = "$destination_directory/${docu_name}-l2h_cache.pm";
   # set consistently with $l2h_latex_file_name to ensure that
   # latex2html will create a file with this name.
@@ -532,24 +532,25 @@ sub l2h_change_image_file_names($$)
         # encode in UTF-8 as latex2html uses $l2h_latex_path_string, which
         # is UTF-8 encoded to setup the file names
         my $encoded_image_file_name = encode('UTF-8', $image_file_name);
-        my $image_file_path = File::Spec->catfile($destination_directory_string,
-                                                  $encoded_image_file_name);
+        my $image_file_path
+          = join('/', ($destination_directory_string,
+                       $encoded_image_file_name));
         unless (-e $image_file_path) {
           last;
         }
         $image_count++;
       }
-      my $src_file = File::Spec->catfile($destination_directory, $src);
+      my $src_file = join('/', ($destination_directory, $src));
       my $encoded_src = Encode::encode('UTF-8', $src);
       my $encoded_file_src
-        = File::Spec->catfile($destination_directory_string, $encoded_src);
+        = join('/', ($destination_directory_string, $encoded_src));
 
       $dest = "${docu_name}_${image_count}$ext";
       my $file_dest
-        = File::Spec->catfile($destination_directory, $dest);
+        = join('/', ($destination_directory, $dest));
       my $encoded_dest = Encode::encode('UTF-8', $dest);
-      my $encoded_file_dest = File::Spec->catfile($destination_directory_string,
-                                                  $encoded_dest);
+      my $encoded_file_dest = join('/', ($destination_directory_string,
+                                         $encoded_dest));
       if ($debug) {
         copy($encoded_file_src, $encoded_file_dest);
       } else {
@@ -751,7 +752,9 @@ sub l2h_finish($)
         my $file_name = decode('UTF-8', $file);
         if ($file_name =~ /^$quoted_l2h_name/) {
           # FIXME error condition not checked
-          unlink File::Spec->catfile($destination_directory_string, $file);
+          my $removed_file
+            = join('/', ($destination_directory_string, $file));
+          unlink $removed_file;
         }
       }
     }

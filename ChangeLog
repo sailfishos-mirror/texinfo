@@ -1,5 +1,16 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	Use more forward slashes unconditionally in file names
+
+	* tp/Texinfo/Tests.pm, tp/ext/highlight_syntax.pm,
+	tp/ext/latex2html.pm, tp/texi2any.pl, tp/load_txi_modules.pl:
+	use forward slashes unconditionally instead of File::Spec for more
+	reproducible file names and consistency with other parts of the code.
+
+	Add missing use File::Spec, remove useless use File::Spec.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	Set locale for MS-Windows in C texi2any
 
 	* tp/Texinfo/XS/texi2any.c (main): in WIN32, set locale using GetACP

@@ -48,7 +48,6 @@ use Test::More;
 # result when regenerating
 use I18N::Langinfo qw(langinfo CODESET);
 use Encode ();
-use File::Spec;
 #use File::Basename;
 #use File::Copy;
 use Data::Dumper ();

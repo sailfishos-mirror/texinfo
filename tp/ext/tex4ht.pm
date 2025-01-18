@@ -38,6 +38,8 @@ use strict;
 use Cwd;
 use Encode qw(encode);
 
+use File::Spec;
+
 # Also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;

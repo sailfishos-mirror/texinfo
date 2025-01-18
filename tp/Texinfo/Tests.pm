@@ -134,7 +134,7 @@ sub create_group_directory($;$)
   $result_base = $default_result_base if (!defined($result_base));
 
   foreach my $dir ('t', $result_base,
-                 File::Spec->catdir($result_base, $test_group)) {
+                   join('/', ($result_base, $test_group))) {
     my $error;
     # to avoid a race conditon, first create the dir then test that it
     # exists
@@ -155,10 +155,10 @@ sub prepare_format_directories($$$$;$)
 
   $result_base = $default_result_base if (!defined($result_base));
 
-  my $base = File::Spec->catdir($result_base, $test_group, $test_name);
+  my $base = join('/', ($result_base, $test_group, $test_name));
 
-  my $test_out_dir = File::Spec->catdir($base, 'out_'.$format_type);
-  my $reference_dir = File::Spec->catdir($srcdir, $base, 'res_'.$format_type);
+  my $test_out_dir = join('/', ($base, 'out_'.$format_type));
+  my $reference_dir = join('/', ($srcdir, $base, 'res_'.$format_type));
 
   mkdir ($base)
     if (! -d $base);
