@@ -157,16 +157,20 @@ if test x$disable_xs != xyes; then
   ac_cv_prog_CC= ; unset ac_cv_prog_CC
   ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
+  # ccflags: contains any additional C compiler flags desired by the user
   # cccdlflags: compilation flags to compile modules to be used to
   #             create a shared library that will be used for dynamic loading
-  lookup_perl_conf_values([[ccflags], [cccdlflags], [optimize]])
+  # ldflags: contains any additional C loader flags desired by the user
+  # optimize: contains any optimizer/debugger flag that should be used
+  # ccdlflags: link flags to link with a shared library for dynamic loading.
+  #            for example -rpath.
+  lookup_perl_conf_values([[ccflags], [cccdlflags], [ldflags], [optimize],
+                           [ccdlflags]])
   
-  # ccdlflags: link flags with a shared library for dynamic loading
-  # flags for linking the extension, e.g. -rpath.
-  lookup_perl_conf([ccdlflags])
-
-  perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_optimize $PERL_CONF_cccdlflags"
-  perl_conf_LDFLAGS="$PERL_CONF_ccdlflags"
+  # we do not use PERL_CONF_optimize because it often conflicts with
+  # PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
+  perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
+  perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
   # Override these variables set by configure at the top level, because 
   # the compiler used in this subdirectory might be different.
@@ -176,7 +180,8 @@ if test x$disable_xs != xyes; then
   CPPFLAGS=$PERL_EXT_CPPFLAGS
   LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
   
-  lookup_perl_conf([libperl])
+  # perllibs: The list of libraries needed by Perl only
+  lookup_perl_conf_values([[libperl], [perllibs]])
   # Change libperl.so into -lperl to indicate a library dependency to 
   # libtool.
   # Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl
@@ -190,7 +195,7 @@ if test x$disable_xs != xyes; then
   perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
   XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
   
-  perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl"
+  perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
   AC_CONFIG_HEADERS([config.h])
 fi # not disable_xs
 

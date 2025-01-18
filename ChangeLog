@@ -1,5 +1,19 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	Align perl_conf flags better with ExtUtils::Embed flags
+
+	* tp/Texinfo/XS/configure.ac (perl_conf_CFLAGS): remove
+	PERL_CONF_optimize from perl_conf_CFLAGS, it often conflicts with
+	PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
+
+	* tp/Texinfo/XS/configure.ac (perl_conf_LDFLAGS): add
+	PERL_CONF_ldflags, like ExtUtils::Embed ldopts does.
+
+	* tp/Texinfo/XS/configure.ac (perl_conf_LIBS): add PERL_CONF_perllibs,
+	like ExtUtils::Embed ldopts does.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am (libcallperl_libtexinfo_la_CPPFLAGS)
 	(libcallperl_libtexinfo_la_CFLAGS, libtexinfoxs_la_CPPFLAGS)
 	(libtexinfoxs_la_CFLAGS, libcallperl_libtexinfo_convert_la_CPPFLAGS)
