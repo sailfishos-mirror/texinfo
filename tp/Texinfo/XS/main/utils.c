@@ -1405,6 +1405,24 @@ free_deprecated_dirs_list (DEPRECATED_DIRS_LIST *deprecated_dirs)
   free (deprecated_dirs->list);
 }
 
+/* FIXME not correct on MS-Windows */
+#define FILE_SLASH "/"
+
+STRING_LIST *
+splitdir (char *directories_str)
+{
+  char *directory = strtok (directories_str, FILE_SLASH);
+  STRING_LIST *directories = new_string_list ();
+
+  while (directory)
+    {
+      if (strlen (directory))
+        add_string (directory, directories);
+      directory = strtok (NULL, FILE_SLASH);
+    }
+  return directories;
+}
+
 /* Return value to be freed by caller. */
 /* try to locate a file called FILENAME, looking for it in the list of include
    directories. */
@@ -1415,11 +1433,37 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
   struct stat dummy;
   int status;
   size_t i;
+  int ignore_include_directories = 0;
 
   /* Checks if filename is absolute or relative to current directory. */
-  if (file_name_is_absolute (filename)
-      || (strlen (filename) >= 3 && !memcmp (filename, "../", 3))
-      || (strlen (filename) >= 2 && !memcmp (filename, "./", 2)))
+  if (file_name_is_absolute (filename))
+    ignore_include_directories = 1;
+  else
+    {
+      char *file_name_and_directories[2];
+
+      parse_file_path (filename, file_name_and_directories);
+      free (file_name_and_directories[0]);
+      if (file_name_and_directories[1])
+        {
+          STRING_LIST *directories = splitdir (file_name_and_directories[1]);
+          free (file_name_and_directories[1]);
+
+          for (i = 0; i < directories->number; i++)
+            {
+              char *directory = directories->list[i];
+              if ((strlen (directory) == 2 && !memcmp (directory, "..", 2))
+                  || (strlen (directory) == 1 && !memcmp (directory, ".", 1)))
+                {
+                  ignore_include_directories = 1;
+                  break;
+                }
+            }
+          free_strings_list (directories);
+        }
+    }
+
+  if (ignore_include_directories)
     {
       status = stat (filename, &dummy);
       if (status == 0)
@@ -1480,28 +1524,57 @@ locate_file_in_dirs (const char *filename,
   else
     {
       size_t i;
-      for (i = 0; i < directories->number; i++)
-        {
-          char *fullpath;
+      char *file_name_and_directories[2];
+      int file_with_directories = 0;
 
-          xasprintf (&fullpath, "%s/%s", directories->list[i], filename);
-          if (euidaccess (fullpath, R_OK) == 0)
+      parse_file_path (filename, file_name_and_directories);
+      free (file_name_and_directories[0]);
+      if (file_name_and_directories[1])
+        {
+          STRING_LIST *file_directories
+            = splitdir (file_name_and_directories[1]);
+          free (file_name_and_directories[1]);
+          if (file_directories->number)
+            file_with_directories = 1;
+
+          free_strings_list (file_directories);
+        }
+
+      if (file_with_directories)
+        {
+          if (euidaccess (filename, R_OK) == 0)
             {
-              if (deprecated_dirs && deprecated_dirs_used)
-                {
-                  DEPRECATED_DIR_INFO *deprecated_dir_info
-                    = find_deprecated_dir_info (deprecated_dirs,
-                                         directories->list[i]);
-                  if (deprecated_dir_info)
-                    add_deprecated_dir_info (deprecated_dirs_used,
-                                             deprecated_dir_info);
-                }
               if (all_files)
-                add_string (fullpath, all_files);
+                add_string (filename, all_files);
               else
-                return fullpath;
+                return strdup (filename);
             }
-          free (fullpath);
+        }
+      else
+        {
+          for (i = 0; i < directories->number; i++)
+            {
+              char *fullpath;
+
+              xasprintf (&fullpath, "%s/%s", directories->list[i], filename);
+              if (euidaccess (fullpath, R_OK) == 0)
+                {
+                  if (deprecated_dirs && deprecated_dirs_used)
+                    {
+                      DEPRECATED_DIR_INFO *deprecated_dir_info
+                        = find_deprecated_dir_info (deprecated_dirs,
+                                             directories->list[i]);
+                      if (deprecated_dir_info)
+                        add_deprecated_dir_info (deprecated_dirs_used,
+                                                 deprecated_dir_info);
+                    }
+                  if (all_files)
+                    add_string (fullpath, all_files);
+                  else
+                    return fullpath;
+                }
+              free (fullpath);
+            }
         }
     }
   return 0;

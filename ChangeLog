@@ -1,5 +1,14 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/utils.c (splitdir): add.
+
+	* tp/Texinfo/XS/main/utils.c (locate_include_file)
+	(locate_file_in_dirs): determine if a file name is relative or
+	contains . or .. in the same way as in Perl, by calling splitdir and
+	looking at the result.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	Use more forward slashes unconditionally in file names
 
 	* tp/Texinfo/Tests.pm, tp/ext/highlight_syntax.pm,
