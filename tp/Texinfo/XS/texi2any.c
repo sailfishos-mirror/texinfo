@@ -38,6 +38,10 @@
    is not set */
 #include "gettext.h"
 #include <getopt.h>
+#ifdef _WIN32
+/* for GetACP */
+#include <windows.h>
+#endif
 
 #include "text.h"
 #include "option_types.h"
@@ -876,7 +880,8 @@ int
 main (int argc, char *argv[], char *env[])
 {
   int getopt_long_index;
-  const char *locale_encoding = 0;
+  const char *langinfo_locale_encoding;
+  char *locale_encoding = 0;
   const char *input_file_arg;
   int status;
   char *program_file_name_and_directory[2];
@@ -1007,25 +1012,25 @@ main (int argc, char *argv[], char *env[])
      file names encoding */
   /* from Gnulib codeset.m4 */
 #ifdef HAVE_LANGINFO_CODESET
-  locale_encoding = nl_langinfo (CODESET);
+  langinfo_locale_encoding = nl_langinfo (CODESET);
+  if (langinfo_locale_encoding)
+    locale_encoding = strdup (langinfo_locale_encoding);
 #endif
-  /* TODO
-  if (!defined($locale_encoding) and $^O eq 'MSWin32') {
-    eval 'require Win32::API';
-    if (!$@) {
-      Win32::API::More->Import("kernel32", "int GetACP()");
-      my $CP = GetACP();
-      if (defined($CP)) {
-        $locale_encoding = 'cp'.$CP;
-      }
+
+#ifdef _WIN32
+  if (!locale_encoding)
+    {
+      unsigned cp = GetACP ();
+      xasprintf (&locale_encoding, "cp%u", cp);
     }
-  }
-   */
+#endif
 
   /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
                                 program_file);
+
+  free (locale_encoding);
 
   version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
@@ -1063,11 +1068,20 @@ main (int argc, char *argv[], char *env[])
   else
     add_option_value (&program_options, "TEXINFO_OUTPUT_FORMAT", 0, "info");
 
-  /* TODO
-   if ($^O eq 'MSWin32') {
-     $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
-   }
-  */
+#ifdef _WIN32
+/*
+ In Windows, a character in file name is encoded according to the current
+ codepage, and converted to/from UTF-16 in the filesystem.  If a file name is
+ not encoded in the current codepage, the file name will appear with erroneous
+ characters when listing file names.  Also the encoding and decoding to
+ UTF-16 may fail, especially when the codepage is 8bit while the file name
+ is encoded in a multibyte encoding.
+ We assume that in Windows the file names are reencoded in the current
+ codepage encoding to avoid those issues.
+ */
+  add_option_value (&program_options, "DOC_ENCODING_FOR_INPUT_FILE_NAME",
+                    0, 0);
+#endif
 
   memset (&deprecated_directories, 0, sizeof (DEPRECATED_DIRS_LIST));
 

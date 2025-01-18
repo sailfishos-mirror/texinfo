@@ -1,5 +1,13 @@
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
+	Set locale for MS-Windows in C texi2any
+
+	* tp/Texinfo/XS/texi2any.c (main): in WIN32, set locale using GetACP
+	and set DOC_ENCODING_FOR_INPUT_FILE_NAME to 0, as in Perl texi2any.
+	GetACP call code from Eli Zaretskii.
+
+2025-01-18  Patrice Dumas  <pertusus@free.fr>
+
 	Align perl_conf flags better with ExtUtils::Embed flags
 
 	* tp/Texinfo/XS/configure.ac (perl_conf_CFLAGS): remove
