@@ -2106,24 +2106,24 @@ File: ,  Node: chapter second,  Prev: chapter one,  Up: Top
  [index ]
 * Menu:
 
-* aa, bb:                                chapter one.           (line 6)
-* aa, dd:                                chapter one.           (line 6)
-* ab, cc:                                chapter one.           (line 6)
-* bb, cc:                                chapter one.           (line 6)
-* hhh:                                   chapter one.           (line 6)
+* aa, bb:                                chapter one.           (line 5)
+* aa, dd:                                chapter one.           (line 5)
+* ab, cc:                                chapter one.           (line 5)
+* bb, cc:                                chapter one.           (line 5)
+* hhh:                                   chapter one.           (line 5)
 * hhh <1>:                               chapter second.        (line 6)
-* hhh, :                                 chapter one.           (line 6)
-* hhh, jjj:                              chapter one.           (line 6)
+* hhh, :                                 chapter one.           (line 5)
+* hhh, jjj:                              chapter one.           (line 5)
 * hhh, jjj <1>:                          chapter second.        (line 6)
 * hhh, jjj, lll:                         chapter second.        (line 6)
-* hhh, jjj, lll <1>:                     chapter one.           (line 6)
+* hhh, jjj, lll <1>:                     chapter one.           (line 5)
 * hhh, jjj, lll <2>:                     chapter second.        (line 6)
-* hhh, jjj, lll, ppp:                    chapter one.           (line 6)
+* hhh, jjj, lll, ppp:                    chapter one.           (line 5)
 * hhh, JJJ, mymail <jjj>:                chapter second.        (line 6)
-* hhh, k:                                chapter one.           (line 6)
+* hhh, k:                                chapter one.           (line 5)
 * hhh, k, nnn:                           chapter second.        (line 6)
 * hhh, l, third:                         chapter second.        (line 6)
-* hhh jjj:                               chapter one.           (line 6)
+* hhh jjj:                               chapter one.           (line 5)
 
 
 Tag Table:
@@ -2148,24 +2148,24 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 
 * Menu:
 
-* aa, bb:                                chapter one.           (line 3)
-* aa, dd:                                chapter one.           (line 3)
-* ab, cc:                                chapter one.           (line 3)
-* bb, cc:                                chapter one.           (line 3)
-* hhh:                                   chapter one.           (line 3)
+* aa, bb:                                chapter one.           (line 2)
+* aa, dd:                                chapter one.           (line 2)
+* ab, cc:                                chapter one.           (line 2)
+* bb, cc:                                chapter one.           (line 2)
+* hhh:                                   chapter one.           (line 2)
 * hhh <1>:                               chapter second.        (line 6)
-* hhh, :                                 chapter one.           (line 3)
-* hhh, jjj:                              chapter one.           (line 3)
+* hhh, :                                 chapter one.           (line 2)
+* hhh, jjj:                              chapter one.           (line 2)
 * hhh, jjj <1>:                          chapter second.        (line 6)
 * hhh, jjj, lll:                         chapter second.        (line 6)
-* hhh, jjj, lll <1>:                     chapter one.           (line 3)
+* hhh, jjj, lll <1>:                     chapter one.           (line 2)
 * hhh, jjj, lll <2>:                     chapter second.        (line 6)
-* hhh, jjj, lll, ppp:                    chapter one.           (line 3)
+* hhh, jjj, lll, ppp:                    chapter one.           (line 2)
 * hhh, JJJ, mymail <jjj>:                chapter second.        (line 6)
-* hhh, k:                                chapter one.           (line 3)
+* hhh, k:                                chapter one.           (line 2)
 * hhh, k, nnn:                           chapter second.        (line 6)
 * hhh, l, third:                         chapter second.        (line 6)
-* hhh jjj:                               chapter one.           (line 3)
+* hhh jjj:                               chapter one.           (line 2)
 
 ';
 

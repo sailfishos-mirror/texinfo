@@ -7,7 +7,7 @@
 * entry after printindex:                a node.               (line 49)
 * entry in node:                         chap first.           (line 30)
 * entry in node <1>:                     chap first.           (line 30)
-* something:                             another.              (line 49)
+* something:                             another.              (line 48)
 
 * Menu:
 
@@ -18,5 +18,5 @@
 * entry after printindex:                a node.               (line 49)
 * entry in node:                         chap first.           (line 30)
 * entry in node <1>:                     chap first.           (line 30)
-* something:                             another.              (line 49)
+* something:                             another.              (line 48)
 

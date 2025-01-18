@@ -625,6 +625,7 @@ sub convert_output_unit($$)
   }
   $self->count_context_bug_message('', $output_unit);
   $self->process_footnotes($output_unit);
+  _adjust_final_locations($self);
   $self->count_context_bug_message('footnotes ', $output_unit);
 
   return _stream_result($self);
@@ -1039,6 +1040,31 @@ sub add_location($$)
   }
   return $location;
 }
+
+# Used at the end of an output unit.  Decrement any location line counters
+# if equal to the current line count, as this could be past the end of a
+# node.
+sub _adjust_final_locations($)
+{
+  my $self = shift;
+  my $locations = $self->{'count_context'}->[-1]->{'locations'};
+  if (scalar(@$locations) > 0) {
+    my $i = @$locations - 1;
+    my $final_lines = $self->{'count_context'}->[-1]->{'lines'};
+    # return if $final_lines == 0;
+    my $last_location;
+    while ($i >= 0) {
+      if ($locations->[$i]->{'lines'} == $final_lines) {
+        $locations->[$i]->{'lines'}--;
+        $i--;
+      } else {
+        last;
+      }
+    }
+  }
+}
+
+
 
 sub add_image($$$$;$)
 {
@@ -2830,52 +2856,7 @@ sub _convert($$)
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
     my $location = $self->add_location($element);
-    # remove a 'lines' from $location if at the very end of a node
-    # since it will lead to the next node otherwise.
-    if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
-      my $following_not_empty;
-      # NOTE we cannot use the chain of $element->{'parent'} if a
-      # converted element copies another element contents list
-      # (as is the case for @insertcopying conversion or float caption in
-      # listoffloats).  Indeed, in that case, the elements parent will
-      # be the original tree element, and not the element being converted.
-      my $parents = $self->{'current_roots'};
-      my $parents_nr = scalar(@$parents);
-      my $current_child = $element;
-      for (my $i = $parents_nr - 1; $i >= 0; $i--) {
-        my $parent = $parents->[$i];
-        my $parent_content = $parent->{'contents'};
 
-        if ($parent->{'type'} and $parent->{'type'} eq 'paragraph') {
-          $following_not_empty = 1;
-          last;
-        }
-        my $n = scalar(@$parent_content);
-        while ($n > 0) {
-          $n--;
-          my $following_content = $parent_content->[$n];
-          last if $following_content == $current_child;
-
-          unless (($following_content->{'type'}
-                   and ($following_content->{'type'} eq 'empty_line'
-                        or $ignorable_space_types{$following_content->{'type'}}))
-                  or ($following_content->{'cmdname'}
-                      and ($following_content->{'cmdname'} eq 'c'
-                           or $following_content->{'cmdname'} eq 'comment'))) {
-            $following_not_empty = 1;
-            last;
-          }
-        }
-        last if $following_not_empty;
-        if ($parent->{'cmdname'} and $root_commands{$parent->{'cmdname'}}) {
-          last;
-        }
-        $current_child = $parent;
-      }
-      if (! $following_not_empty) {
-        $location->{'lines'}--;
-      }
-    }
     # this covers the special case for index entry not associated with a
     # node but seen.  this will be an index entry in @copying,
     # in @insertcopying.
@@ -4200,11 +4181,9 @@ sub _convert($$)
   # The processing of contents is done here.
   # $element->{'contents'} undef may happen for some empty commands/containers
   if ($element->{'contents'}) {
-    push @{$self->{'current_roots'}}, $element;
     for my $content (@{$element->{'contents'}}) {
       _convert($self, $content);
     }
-    pop @{$self->{'current_roots'}};
   }
 
   # now closing. First, close types.

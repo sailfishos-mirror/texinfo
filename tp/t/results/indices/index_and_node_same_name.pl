@@ -438,7 +438,7 @@ in index node node, with the same name than index entry.
  [index ]
 * Menu:
 
-* node:                                  Top.                   (line 7)
+* node:                                  Top.                   (line 8)
 
 
 Tag Table:

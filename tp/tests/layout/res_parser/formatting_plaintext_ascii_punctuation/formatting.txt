@@ -2646,7 +2646,7 @@ chapter 2
 * b <1>:                                 chapter.            (line 1211)
 * b <2>:                                 chapter.            (line 2042)
 * b--b, c--c:                            chapter.            (line 2267)
-* counting entry:                        chapter.            (line 2609)
+* counting entry:                        chapter.            (line 2610)
 * d--dd, e--ee, f--ff:                   chapter.            (line 2267)
 * d--efcv_name:                          chapter.            (line  366)
 * d--efcv_name <1>:                      chapter.            (line  369)

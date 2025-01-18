@@ -813,7 +813,7 @@ Part: Part 1
 * Menu:
 
 * aop1:                                  Top.                   (line 6)
-* aop1 <1>:                              Top.                   (line 5)
+* aop1 <1>:                              Top.                   (line 6)
 * chap2:                                 node chap2.            (line 4)
 * chap2 <1>:                             node chap2.            (line 4)
 * top1:                                  Top.                   (line 6)
@@ -851,12 +851,12 @@ $result_converted{'plaintext'}->{'printindex_between_part_chapter'} = 'top
 
 * Menu:
 
-* aop1:                                  Top.                   (line 3)
+* aop1:                                  Top.                   (line 2)
 * aop1 <1>:                              Top.                   (line 2)
 * chap2:                                 node chap2.            (line 0)
 * chap2 <1>:                             node chap2.            (line 0)
-* top1:                                  Top.                   (line 3)
-* top1 <1>:                              Top.                   (line 3)
+* top1:                                  Top.                   (line 2)
+* top1 <1>:                              Top.                   (line 2)
 
 1 chapter 1
 ***********

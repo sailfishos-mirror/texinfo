@@ -612,7 +612,7 @@ Appendix A App
 * Menu:
 
 * entry1:                                node.                  (line 5)
-* entry2:                                sec.                   (line 8)
+* entry2:                                sec.                   (line 9)
 
 ';
 

@@ -1,3 +1,23 @@
+2025-01-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Index entry line count adjustment
+
+	* tp/Texinfo/Convert/Plaintext.pm (_adjust_final_location):
+	New function, to decrement index entry line count at the end of
+	a node.
+	(convert_output_unit): Call it after processing footnotes.
+
+	(_convert) <contents>: Do not save current element on a
+	'current_roots' array.
+	(_convert) <index entry>: Do not check 'current_roots' array
+	for saved location at the end of a node.
+
+	This is arguably simpler and slightly quicker.	This change has
+	minor consequences.   If several index entries occur together at
+	the end of a node, they will all be adjusted.  If an automatic
+	"*Menu" block is output at the end of a node, there will be
+	no adjustment.	Adjustment in "plaintext" output is more limited.
+
 2025-01-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (splitdir): add.

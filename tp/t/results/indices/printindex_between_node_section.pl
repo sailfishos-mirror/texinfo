@@ -729,9 +729,9 @@ File: ,  Node: node sec1,  Up: node chap1
 * Menu:
 
 * aop1:                                  Top.                   (line 6)
-* aop1 <1>:                              Top.                   (line 5)
+* aop1 <1>:                              Top.                   (line 6)
 * chap1:                                 node chap1.            (line 6)
-* chap1 <1>:                             node chap1.            (line 5)
+* chap1 <1>:                             node chap1.            (line 6)
 * top1:                                  Top.                   (line 6)
 * top1 <1>:                              Top.                   (line 6)
 
@@ -761,12 +761,12 @@ $result_converted{'plaintext'}->{'printindex_between_node_section'} = 'top
 
 * Menu:
 
-* aop1:                                  Top.                   (line 3)
+* aop1:                                  Top.                   (line 2)
 * aop1 <1>:                              Top.                   (line 2)
-* chap1:                                 node chap1.            (line 6)
+* chap1:                                 node chap1.            (line 5)
 * chap1 <1>:                             node chap1.            (line 5)
-* top1:                                  Top.                   (line 3)
-* top1 <1>:                              Top.                   (line 3)
+* top1:                                  Top.                   (line 2)
+* top1 <1>:                              Top.                   (line 2)
 
 1.1 section1
 ============
