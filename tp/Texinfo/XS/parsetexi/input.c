@@ -538,6 +538,7 @@ top_file_index (void)
 }
 
 
+
 char *
 parser_locate_include_file (const char *filename)
 {
@@ -550,9 +551,8 @@ int
 input_push_file (const char *input_file_path)
 {
   FILE *stream = 0;
-  const char *p, *q;
   char *base_filename;
-  const char *stored_file_path;
+  char *input_file_name_and_directory[2];
 
   if (!strcmp (input_file_path, "-"))
     stream = stdin;
@@ -570,29 +570,14 @@ input_push_file (const char *input_file_path)
         fatal ("realloc failed");
     }
 
-  /* Strip off a leading directory path. */
-  p = 0;
-  q = strchr (input_file_path, '/');
-  while (q)
-    {
-      p = q;
-      q = strchr (q + 1, '/');
-    }
-
-  if (p)
-    {
-      base_filename = save_string (p+1);
-      stored_file_path = save_string (input_file_path);
-    }
-  else
-    {
-      base_filename = save_string (input_file_path);
-      stored_file_path = base_filename;
-    }
+  parse_file_path (input_file_path, input_file_name_and_directory);
+  base_filename = save_string (input_file_name_and_directory[0]);
+  free (input_file_name_and_directory[0]);
+  free (input_file_name_and_directory[1]);
 
   input_stack[input_number].type = IN_file;
   input_stack[input_number].file = stream;
-  input_stack[input_number].input_file_path = stored_file_path;
+  input_stack[input_number].input_file_path = save_string (input_file_path);
   input_stack[input_number].source_info.file_name = base_filename;
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;

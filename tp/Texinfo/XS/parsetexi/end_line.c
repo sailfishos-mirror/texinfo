@@ -1356,10 +1356,10 @@ end_line_misc_line (ELEMENT *current)
           else if (current->e.c->cmd == CM_include)
             {
               int status;
-              char *fullpath, *sys_filename;
+              char *fullpath, *file_path;
 
-              sys_filename = encode_file_name (text);
-              fullpath = parser_locate_include_file (sys_filename);
+              file_path = encode_file_name (text);
+              fullpath = parser_locate_include_file (file_path);
 
               if (!fullpath)
                 {
@@ -1395,7 +1395,7 @@ end_line_misc_line (ELEMENT *current)
             }
           else if (current->e.c->cmd == CM_verbatiminclude)
             {
-              char *fullpath, *sys_filename;
+              char *fullpath, *file_path;
               GLOBAL_INFO *global_info = &parsed_document->global_info;
 
               if (global_info->input_encoding_name)
@@ -1403,8 +1403,8 @@ end_line_misc_line (ELEMENT *current)
                                       global_info->input_encoding_name);
               /* gather included file for 'included_files'.  No errors, they
                  should be output by converters */
-              sys_filename = encode_file_name (text);
-              fullpath = parser_locate_include_file (sys_filename);
+              file_path = encode_file_name (text);
+              fullpath = parser_locate_include_file (file_path);
               if (fullpath && access (fullpath, R_OK) == 0)
                 add_string (fullpath, &global_info->included_files);
               free (fullpath);

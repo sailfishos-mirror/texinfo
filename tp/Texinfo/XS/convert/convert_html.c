@@ -2430,7 +2430,7 @@ do_jslicenses_file (CONVERTER *self)
   if (!setting || strcmp (setting, "generate") || !path || !strlen (path))
     return;
 
-  if (!memcmp (path, "/", 1))
+  if (file_name_is_absolute (path))
     path_not_ok = 1;
   else
     {

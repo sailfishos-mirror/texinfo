@@ -843,7 +843,7 @@ char *
 canonpath (const char *input_file)
 {
   TEXT result;
-  const char *p = strchr (input_file, '/');
+  const char *p = strpbrk (input_file, FILE_SLASH);
 
   if (p)
     {
@@ -851,15 +851,15 @@ canonpath (const char *input_file)
       text_append_n (&result, input_file, p - input_file);
       while (1)
         {
-          const char *q;
+          const char *q = p;
           p++;
-          while (*p == '/')
+          while (IS_SLASH(*p))
             p++;
           /* omit a / at the end of the path */
           if (!*p)
             return (result.text);
-          text_append_n (&result, "/", 1);
-          q = strchr (p, '/');
+          text_append_n (&result, *q, 1);
+          q = strpbrk (p, FILE_SLASH);
           if (q)
             {
               text_append_n (&result, p, q - p);
@@ -1174,7 +1174,7 @@ add_include_directory (const char *input_filename,
   int len;
   char *filename = strdup (input_filename);
   len = strlen (filename);
-  if (len > 0 && filename[len - 1] == '/')
+  if (len > 0 && IS_SLASH(filename[len - 1]))
     filename[len - 1] = '\0';
   add_string (filename, include_dirs_list);
   free (filename);
