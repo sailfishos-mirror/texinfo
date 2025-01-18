@@ -4710,6 +4710,15 @@ a special output unit direction or the associated special output unit is
 not output.
 @end deftypefun
 
+@cindex Text directions, determining
+
+To determine if a direction is a text direction (@pxref{Directions}),
+use @code{global_direction_text}:
+@deftypefun {@var{$is_text_direction} =} @var{$converter}->global_direction_text (@var{$direction})
+Return 1 if direction @var{$direction} is a text direction not associated
+with an output unit, such as the @samp{Space} direction.
+@end deftypefun
+
 To get link information for relative and global
 directions, use @code{from_element_direction}:
 
