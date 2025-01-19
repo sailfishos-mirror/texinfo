@@ -218,7 +218,7 @@ call_converter_output (const char *module_name, CONVERTER *self,
 
   dTHX;
 
-  document_sv = get_document (document->descriptor);
+  document_sv = build_minimal_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
   converter_sv = (SV *) self->sv;
@@ -310,7 +310,7 @@ call_sort_element_counts (const char *module_name, CONVERTER *self,
 
   dTHX;
 
-  document_sv = get_document (document->descriptor);
+  document_sv = build_minimal_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
   converter_sv = (SV *) self->sv;

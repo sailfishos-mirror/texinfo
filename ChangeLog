@@ -4,6 +4,14 @@
 
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (build_minimal_document):
+	rename get_document as build_minimal_document.  Update callers.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: change variable names, update
+	includes, add const.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/utils.c (locate_include_file)
 	(locate_file_in_dirs): destroy the lists returned by splitdir. 
 

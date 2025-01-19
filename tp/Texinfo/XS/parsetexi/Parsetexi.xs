@@ -43,10 +43,12 @@
 #include "conf.h"
 /* for messages_and_encodings_setup */
 #include "utils.h"
+/* register_conf */
 #include "parser_conf.h"
+/* build_minimal_document build_document */
 #include "build_perl_info.h"
+/* apply_sv_parser_conf */
 #include "get_perl_info.h"
-#include "document.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -77,23 +79,23 @@ void
 reset_parser (int debug_output)
 
 void
-register_parser_conf (SV *parser)
+register_parser_conf (SV *parser_sv)
     PREINIT:
-        HV *hv_in;
+        HV *parser_hv;
         const char *key = "parser_conf_descriptor";
         const PARSER_CONF *parser_conf;
     CODE:
-        hv_in = (HV *)SvRV (parser);
+        parser_hv = (HV *)SvRV (parser_sv);
         parser_conf = register_conf ();
         /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */
-        hv_store (hv_in, key, strlen (key),
+        hv_store (parser_hv, key, strlen (key),
                   newSViv ((IV) parser_conf->descriptor), 0);
 
 # the file is already a byte string, taken as is from the command line.
 # The encoding was detected as COMMAND_LINE_ENCODING.
 SV *
 parse_texi_file (SV *parser_sv, input_file_path)
-        char *input_file_path = (char *)SvPVbyte_nolen ($arg);
+        const char *input_file_path = (const char *)SvPVbyte_nolen ($arg);
     PREINIT:
         size_t document_descriptor = 0;
       CODE:
@@ -104,7 +106,7 @@ parse_texi_file (SV *parser_sv, input_file_path)
             int status;
             apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_file (input_file_path, &status);
-            RETVAL = get_document (document_descriptor);
+            RETVAL = build_minimal_document (document_descriptor);
           }
       OUTPUT:
         RETVAL
@@ -120,12 +122,12 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = (char *)SvPVutf8_nolen (string_sv);
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
             apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_piece (string, line_nr);
-            RETVAL = get_document (document_descriptor);
+            RETVAL = build_minimal_document (document_descriptor);
           }
       OUTPUT:
         RETVAL
@@ -141,7 +143,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = (char *)SvPVutf8_nolen (string_sv);
             SV *document_sv;
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
@@ -159,7 +161,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
             pass_document_parser_errors_to_registrar (document_descriptor,
                                                       parser_sv);
             if (!no_store)
-              document_sv = get_document (document_descriptor);
+              document_sv = build_minimal_document (document_descriptor);
             else
               document_sv = build_document (document_descriptor, 1);
             RETVAL = document_tree (document_sv, 0);
@@ -178,48 +180,48 @@ parse_texi_text (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = (char *)SvPVutf8_nolen (string_sv);
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
             apply_sv_parser_conf (parser_sv);
             document_descriptor = parse_text (string, line_nr);
-            RETVAL = get_document (document_descriptor);
+            RETVAL = build_minimal_document (document_descriptor);
           }
       OUTPUT:
         RETVAL
 
 void
-parser_store_values (SV *values)
+parser_store_values (SV *values_sv)
       CODE:
         parser_conf_reset_values ();
-        if (SvOK (values))
+        if (SvOK (values_sv))
           {
             I32 i;
-            HV *values_hv = (HV *)SvRV (values);
+            HV *values_hv = (HV *)SvRV (values_sv);
             I32 hv_number = hv_iterinit (values_hv);
 
             for (i = 0; i < hv_number; i++)
               {
                 HE *next = hv_iternext (values_hv);
                 SV *flag_sv = hv_iterkeysv (next);
-                char *key = SvPVutf8_nolen (flag_sv);
+                const char *key = SvPVutf8_nolen (flag_sv);
                 SV *value_sv = hv_iterval (values_hv, next);
                 if (value_sv && SvOK (value_sv))
                   {
-                    char *value_text = SvPVutf8_nolen (value_sv);
+                    const char *value_text = SvPVutf8_nolen (value_sv);
                     parser_conf_add_value (key, value_text);
                   }
               }
           }
 
 void
-parser_store_INCLUDE_DIRECTORIES (SV *directories)
+parser_store_INCLUDE_DIRECTORIES (SV *directories_sv)
       CODE:
         parser_conf_clear_INCLUDE_DIRECTORIES ();
-        if (SvOK (directories))
+        if (SvOK (directories_sv))
           {
             SSize_t i;
-            AV *directories_av = (AV *)SvRV (directories);
+            AV *directories_av = (AV *)SvRV (directories_sv);
             SSize_t directories_nr = AvFILL (directories_av) +1;
 
             for (i = 0; i < directories_nr; i++)
@@ -230,20 +232,20 @@ parser_store_INCLUDE_DIRECTORIES (SV *directories)
      /*  the directories from the command line or the input file name
          are already byte strings (or ascii).  The encoding was detected
          as COMMAND_LINE_ENCODING. */
-                    char *directory = SvPVbyte_nolen (*directory_sv);
+                    const char *directory = SvPVbyte_nolen (*directory_sv);
                     parser_conf_add_include_directory (directory);
                   }
               }
           }
 
 void
-parser_store_EXPANDED_FORMATS (SV *expanded_formats)
+parser_store_EXPANDED_FORMATS (SV *expanded_formats_sv)
       CODE:
         parser_conf_clear_expanded_formats ();
-        if (SvOK (expanded_formats))
+        if (SvOK (expanded_formats_sv))
           {
             SSize_t i;
-            AV *expanded_formats_av = (AV *)SvRV (expanded_formats);
+            AV *expanded_formats_av = (AV *)SvRV (expanded_formats_sv);
             SSize_t expanded_formats_nr = AvFILL (expanded_formats_av) +1;
 
             for (i = 0; i < expanded_formats_nr; i++)
@@ -251,7 +253,7 @@ parser_store_EXPANDED_FORMATS (SV *expanded_formats)
                 SV **format_sv = av_fetch (expanded_formats_av, i, 0);
                 if (format_sv && SvOK (*format_sv))
                   {
-                    char *format = SvPVutf8_nolen (*format_sv);
+                    const char *format = SvPVutf8_nolen (*format_sv);
                     parser_conf_add_expanded_format (format);
                   }
               }

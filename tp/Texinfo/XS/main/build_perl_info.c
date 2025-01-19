@@ -1650,7 +1650,7 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
    with the document descriptor information, errors and information that do
    not refer directly to tree elements */
 SV *
-get_document (size_t document_descriptor)
+build_minimal_document (size_t document_descriptor)
 {
   HV *hv_stash;
   HV *hv;
@@ -1702,7 +1702,7 @@ get_document (size_t document_descriptor)
     {
       if (document->options && document->options->DEBUG.o.integer > 0)
         fprintf (stderr,
-          "get_document: %zu: already %p and new %p document hv\n",
+          "build_minimal_document: %zu: already %p and new %p document hv\n",
                  document_descriptor, document->hv, hv);
     }
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
