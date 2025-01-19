@@ -108,4 +108,13 @@ ext_pattern=".*\.(sh)"
 
 change_files
 
+find_dir=util
 
+set -x
+
+ext_pattern=""
+named_pattern=".*"
+# update these manually for now
+not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
+
+change_files
