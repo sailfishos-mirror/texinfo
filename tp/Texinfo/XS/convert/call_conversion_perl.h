@@ -13,10 +13,10 @@ CONVERTER_INITIALIZATION_INFO *call_module_converter_defaults (
 
 CONVERTER *call_convert_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
-OUTPUT_TEXT_FILES_INFO *call_converter_output (const char *module_name,
-                                     CONVERTER *self, DOCUMENT *document);
+OUTPUT_TEXT_FILES_INFO *call_converter_output (CONVERTER *self,
+                                               DOCUMENT *document);
 
-char *call_sort_element_counts (const char *module_name, CONVERTER *self,
+char *call_sort_element_counts (CONVERTER *self,
                           DOCUMENT *document, int use_sections,
                           int count_words);
 

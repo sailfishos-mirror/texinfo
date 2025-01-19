@@ -542,8 +542,7 @@ txi_converter_output (const char *external_module,
     {
       size_t i;
       OUTPUT_TEXT_FILES_INFO *output_text_files_info
-                = call_converter_output (external_module,
-                                            converter, document);
+                = call_converter_output (converter, document);
       OUTPUT_FILES_INFORMATION *output_files_information
                 = output_text_files_info->output_files_information;
       FILE_STREAM_LIST *unclosed_files
@@ -612,9 +611,8 @@ txi_sort_element_counts (const char *external_module,
           return 0;
         }
 
-      result->text = call_sort_element_counts (external_module,
-                                           result->converter, document,
-                                           use_sections, count_words);
+      result->text = call_sort_element_counts (result->converter, document,
+                                               use_sections, count_words);
 
       destroy_converter_initialization_info (converter_init_info);
       return result;

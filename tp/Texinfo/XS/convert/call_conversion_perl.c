@@ -202,11 +202,8 @@ call_convert_converter (const char *module_name,
 /* call converter->output and converter->output_files_information if needed
    and return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
    and the output files information, if not already in the converter. */
-/* FIXME remove module_name argument?  Or check that it matches the converter?
- */
 OUTPUT_TEXT_FILES_INFO *
-call_converter_output (const char *module_name, CONVERTER *self,
-                       DOCUMENT *document)
+call_converter_output (CONVERTER *self, DOCUMENT *document)
 {
   SV *document_sv;
   SV *converter_sv;
@@ -293,12 +290,9 @@ call_converter_output (const char *module_name, CONVERTER *self,
   return result;
 }
 
-/* FIXME remove module_name argument?  Or check that it matches the converter?
- */
 char *
-call_sort_element_counts (const char *module_name, CONVERTER *self,
-                          DOCUMENT *document, int use_sections,
-                          int count_words)
+call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
+                          int use_sections, int count_words)
 {
   SV *document_sv;
   SV *converter_sv;
@@ -310,6 +304,7 @@ call_sort_element_counts (const char *module_name, CONVERTER *self,
 
   dTHX;
 
+  /* FIXME isn't the document already built when converted? */
   document_sv = build_minimal_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 

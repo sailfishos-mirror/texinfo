@@ -27,16 +27,14 @@ call_convert_converter (const char *module_name,
 }
 
 OUTPUT_TEXT_FILES_INFO *
-call_converter_output (const char *module_name, CONVERTER *self,
-                       DOCUMENT *document)
+call_converter_output (CONVERTER *self, DOCUMENT *document)
 {
   return 0;
 }
 
 char *
-call_sort_element_counts (const char *module_name, CONVERTER *self,
-                          DOCUMENT *document, int use_sections,
-                          int count_words)
+call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
+                          int use_sections, int count_words)
 {
   return 0;
 }
