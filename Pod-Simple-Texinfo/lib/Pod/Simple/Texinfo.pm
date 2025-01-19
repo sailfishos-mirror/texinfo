@@ -1,6 +1,6 @@
 # Texinfo.pm: format Pod as Texinfo.
 #
-# Copyright 2011-2024 Free Software Foundation, Inc.
+# Copyright 2011-2025 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -1264,7 +1264,7 @@ L<Pod::Simple>. L<Pod::Simple::PullParser>. The Texinfo manual.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011-2024 Free Software Foundation, Inc.
+Copyright (C) 2011-2025 Free Software Foundation, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
