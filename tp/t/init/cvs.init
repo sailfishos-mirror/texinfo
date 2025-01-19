@@ -1,2 +1,3 @@
 
-texinfo_register_type_format_info('menu_comment', 1, 'menu-comment');
+texinfo_register_type_code('menu_comment', 1);
+texinfo_register_type_pre_class('menu_comment', 'menu-comment');

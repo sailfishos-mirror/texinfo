@@ -8705,7 +8705,7 @@ sub _XS_html_converter_initialize_beginning($)
 {
 }
 
-sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$)
+sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$)
 {
 }
 
@@ -8802,14 +8802,21 @@ sub converter_initialize($)
   foreach my $type (keys(%default_pre_class_types)) {
     $self->{'pre_class_types'}->{$type} = $default_pre_class_types{$type};
   }
-  my $customized_type_formatting
-    = Texinfo::Config::GNUT_get_types_formatting_info();
-  foreach my $type (keys(%$customized_type_formatting)) {
-    # Used in cvs.init.
-    $self->{'code_types'}->{$type}
-     = $customized_type_formatting->{$type}->{'code'};
-    $self->{'pre_class_types'}->{$type}
-     = $customized_type_formatting->{$type}->{'pre_class'};
+
+  my $customized_code_types = Texinfo::Config::GNUT_get_types_code_info();
+  if ($customized_code_types) {
+    foreach my $type (keys(%$customized_code_types)) {
+      $self->{'code_types'}->{$type} = $customized_code_types->{$type};
+    }
+  }
+
+  my $customized_pre_class_types
+    = Texinfo::Config::GNUT_get_types_pre_class();
+  if ($customized_pre_class_types) {
+    foreach my $type (keys(%$customized_pre_class_types)) {
+      $self->{'pre_class_types'}->{$type}
+         = $customized_pre_class_types->{$type};
+    }
   }
 
   $self->{'upper_case_commands'} = {};
@@ -9130,7 +9137,8 @@ sub converter_initialize($)
                              \%default_output_units_conversion,
                              \%defaults_format_special_unit_body_contents,
                              $customized_upper_case_commands,
-                             $customized_type_formatting,
+                             $customized_code_types,
+                             $customized_pre_class_types,
                              \%customized_accent_entities,
                              \%style_commands_customized_formatting_info,
                              $customized_no_arg_commands_formatting,

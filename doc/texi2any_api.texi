@@ -788,30 +788,40 @@ texinfo_register_accent_command_formatting('dotless', 'nodot', 'ij');
 
 Texinfo tree elements that are not text container nor directly associated with
 an @@-command can have information set on their formatting.  The first piece of
-information is whether their contents should be considered in code context (@pxref{Init
-File Expansion Contexts}).  The other piece of information is the type of
+information is whether their contents should be considered in code context
+(@pxref{Init File Expansion Contexts}).
+
+Call @code{texinfo_register_type_code} to set code context for an element:
+
+@defun texinfo_register_type_code ($type, $code_type)
+@var{$type} is the type of the container.  If @var{$code_type} is set, the
+container contents are assumed to be in code context. @xref{Init File Expansion
+Contexts}.
+@end defun
+
+The other piece of information is the type of
 preformatted environment they are, analogous with the @@-command names of
 @code{@@example} or @code{@@display}@footnote{Note that setting the type of preformatted environment does not
 make sure that there are preformatted containers used for the formatting of their
 contents instead of paragraph containers, since this is determined in the very
 first step of parsing the Texinfo code, which cannot be customized.}.
 
-The function used is @code{texinfo_register_type_format_info}:
+Call @code{texinfo_register_type_pre_class} to set preformatted class:
 
-@defun texinfo_register_type_format_info ($type, $code_type, $pre_class_type)
-@var{$type} is the type of the container.  If @var{$code_type} is set, the container
-contents are assumed to be in code context. @xref{Init File Expansion
-Contexts}. If @var{$pre_class_type} is set, the HTML @code{<pre>} elements
-class attribute are based on @var{$pre_class_type}, if there are such HTML
-elements output for preformatted content of @var{$type} containers.
+@defun texinfo_register_type_pre_class ($type, $pre_class_type)
+@var{$type} is the type of the container.  If @var{$pre_class_type} is set, the
+HTML @code{<pre>} elements class attribute are based on @var{$pre_class_type},
+if there are such HTML elements output for preformatted content of @var{$type}
+containers.
 @end defun
 
 For example, to set content appearing in-between node links in @code{@@menu},
-which is in the @code{menu_comment} container type
-to be formatted in a code context, with preformatted type @samp{menu-between}, use:
+which is in the @code{menu_comment} container type to be formatted in a code
+context, with preformatted type @samp{menu-between}, use:
 
 @example
-texinfo_register_type_format_info('menu_comment', 1, 'menu-between');
+texinfo_register_type_code('menu_comment', 1);
+texinfo_register_type_pre_class('menu_comment', 'menu-between');
 @end example
 
 @xref{Texinfo::Parser Types of container elements,,,texi2any_internals}, for a

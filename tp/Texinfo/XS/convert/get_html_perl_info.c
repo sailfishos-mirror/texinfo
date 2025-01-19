@@ -243,7 +243,8 @@ html_converter_get_customization_sv (SV *converter_sv,
                               SV *default_output_units_conversion,
                               SV *default_special_unit_body,
                               SV *customized_upper_case_commands,
-                              SV *customized_type_formatting,
+                              SV *customized_code_types,
+                              SV *customized_pre_class_types,
                               SV *customized_accent_entities,
                               SV *customized_style_commands,
                               SV *customized_no_arg_commands_formatting,
@@ -372,22 +373,62 @@ html_converter_get_customization_sv (SV *converter_sv,
         }
     }
 
-  if (customized_type_formatting && SvOK (customized_type_formatting))
+  if (customized_code_types && SvOK (customized_code_types))
     {
       I32 hv_number;
       I32 i;
       int code_type_idx = 0;
-      int pre_class_idx = 0;
-      HV *customized_type_formatting_hv
-        = (HV *)SvRV (customized_type_formatting);
+      HV *customized_code_types_hv
+        = (HV *)SvRV (customized_code_types);
 
-      hv_number = hv_iterinit (customized_type_formatting_hv);
+      hv_number = hv_iterinit (customized_code_types_hv);
 
       converter->html_customized_code_types
         = (TYPE_INTEGER_INFORMATION *) non_perl_malloc ((hv_number + 1)
                                   * sizeof (TYPE_INTEGER_INFORMATION));
       memset (converter->html_customized_code_types, 0,
               (hv_number + 1) * sizeof (TYPE_INTEGER_INFORMATION));
+
+      for (i = 0; i < hv_number; i++)
+        {
+          enum element_type type = ET_NONE;
+          I32 retlen;
+          char *type_name;
+          SV *code_sv = hv_iternextsv (customized_code_types_hv,
+                                       &type_name, &retlen);
+          if (SvOK (code_sv))
+            {
+              type = find_element_type (type_name);
+
+              if (type == ET_NONE)
+                {
+                  fprintf (stderr, "ERROR: %s: customized type not found\n",
+                                   type_name);
+                }
+              else
+                {
+                  TYPE_INTEGER_INFORMATION *customized_code
+                    = &converter->html_customized_code_types[code_type_idx];
+                  int code_value = 0;
+                  code_value = SvIV (code_sv);
+
+                  customized_code->type = type;
+                  customized_code->integer = code_value;
+                  code_type_idx++;
+                }
+            }
+       }
+   }
+
+  if (customized_pre_class_types && SvOK (customized_pre_class_types))
+    {
+      I32 hv_number;
+      I32 i;
+      int pre_class_idx = 0;
+      HV *customized_pre_class_types_hv
+        = (HV *)SvRV (customized_pre_class_types);
+
+      hv_number = hv_iterinit (customized_pre_class_types_hv);
 
       converter->html_customized_pre_class_types
         = (PRE_CLASS_TYPE_INFO *) non_perl_malloc ((hv_number + 1)
@@ -400,9 +441,9 @@ html_converter_get_customization_sv (SV *converter_sv,
           enum element_type type = ET_NONE;
           I32 retlen;
           char *type_name;
-          SV *spec_sv = hv_iternextsv (customized_type_formatting_hv,
+          SV *pre_class_sv = hv_iternextsv (customized_pre_class_types_hv,
                                        &type_name, &retlen);
-          if (SvOK (spec_sv))
+          if (SvOK (pre_class_sv))
             {
               type = find_element_type (type_name);
 
@@ -413,42 +454,16 @@ html_converter_get_customization_sv (SV *converter_sv,
                 }
               else
                 {
-                  HV *spec_hv = (HV *)SvRV (spec_sv);
-                  SV **code_sv = hv_fetch (spec_hv, "code",
-                                           strlen("code"), 0);
-                  SV **pre_class_sv = hv_fetch (spec_hv, "pre_class",
-                                                strlen("pre_class"), 0);
+                  PRE_CLASS_TYPE_INFO *customized_pre_class
+                    = &converter->html_customized_pre_class_types
+                                                       [pre_class_idx];
+                  const char *pre_class_string
+                    = SvPV_nolen (pre_class_sv);
 
-                  if (code_sv)
-                    {
-                      TYPE_INTEGER_INFORMATION *customized_code
-                        = &converter->html_customized_code_types[code_type_idx];
-                      int code_value = 0;
-
-                      if (SvOK (*code_sv))
-                        code_value = SvIV (*code_sv);
-
-                      customized_code->type = type;
-                      customized_code->integer = code_value;
-                      code_type_idx++;
-                    }
-                  if (pre_class_sv)
-                    {
-                      PRE_CLASS_TYPE_INFO *customized_pre_class
-                        = &converter->html_customized_pre_class_types
-                                                           [pre_class_idx];
-                      char *pre_class_value = 0;
-
-                      if (SvOK (*pre_class_sv))
-                        {
-                          const char *pre_class_string
-                             = SvPV_nolen (*pre_class_sv);
-                          pre_class_value = non_perl_strdup (pre_class_string);
-                        }
-                      customized_pre_class->type = type;
-                      customized_pre_class->pre_class = pre_class_value;
-                      pre_class_idx++;
-                    }
+                  customized_pre_class->type = type;
+                  customized_pre_class->pre_class
+                    = non_perl_strdup (pre_class_string);
+                  pre_class_idx++;
                 }
             }
         }

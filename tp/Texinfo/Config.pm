@@ -493,7 +493,8 @@ my $GNUT_upper_case_commands = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 my $GNUT_accent_command_formatting_info = {};
-my $GNUT_types_formatting_info = {};
+my $GNUT_types_code_info = {};
+my $GNUT_types_pre_class = {};
 my $GNUT_global_directions = {};
 my $GNUT_direction_string_info = {};
 my $GNUT_special_unit_info = {};
@@ -799,22 +800,30 @@ sub GNUT_get_accent_command_formatting($)
   return (undef, undef);
 }
 
-# need to give both arguments
-# FIXME is it ok, or should there be two functions?
-sub texinfo_register_type_format_info($$$)
+sub texinfo_register_type_code($$)
 {
   my $type = shift;
   my $code_type = shift;
-  my $pre_class_type = shift;
 
-  $GNUT_types_formatting_info->{$type}
-    = {'code' => $code_type, 'pre_class' => $pre_class_type};
+  $GNUT_types_code_info->{$type} = $code_type;
 }
 
-sub GNUT_get_types_formatting_info()
+sub texinfo_register_type_pre_class($$)
 {
-  # NOTE a deep copy could also be done if needed
-  return { %$GNUT_types_formatting_info };
+  my $type = shift;
+  my $pre_class_type = shift;
+
+  $GNUT_types_pre_class->{$type} = $pre_class_type;
+}
+
+sub GNUT_get_types_code_info()
+{
+  return { %$GNUT_types_code_info };
+}
+
+sub GNUT_get_types_pre_class()
+{
+  return { %$GNUT_types_pre_class };
 }
 
 # if $NODE_TEXI_NAME is undef, the direction is a direction text not
@@ -899,7 +908,7 @@ sub GNUT_reinitialize_init_files()
      $GNUT_upper_case_commands,
      $GNUT_commands_conversion, $GNUT_commands_open, $GNUT_types_conversion,
      $GNUT_types_open, $GNUT_accent_command_formatting_info,
-     $GNUT_types_formatting_info, $GNUT_direction_string_info,
+     $GNUT_types_code_info, $GNUT_types_pre_class, $GNUT_direction_string_info,
      $GNUT_global_directions) {
     $reference = {};
   }

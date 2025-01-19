@@ -783,7 +783,7 @@ html_converter_initialize_beginning (SV *converter_in)
           }
 
 void
-html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_type_formatting, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
+html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_code_types, SV *customized_pre_class_types, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -811,7 +811,8 @@ html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_re
                          default_output_units_conversion,
                          default_special_unit_body,
                          customized_upper_case_commands,
-                         customized_type_formatting,
+                         customized_code_types,
+                         customized_pre_class_types,
                          customized_accent_entities,
                          customized_style_commands,
                          customized_no_arg_commands_formatting,
