@@ -23,16 +23,24 @@ find_missed () {
     -not -name 'Makefile.in' \
     -not -name Makefile \
     -not -name "*.m4" \
+    -not -name "*.sh.log" \
     -not -name "libtool" \
     -not -name configure \
     -not -name "config.*" \
+    -not -name "*.info" \
+    -not -name "*.info-?" \
     -not -wholename "./doc/txi-??.tex" \
     -not -wholename "./doc/texinfo-ja.tex" \
     -not -wholename "./doc/texinfo-zh.tex" \
+    -not -wholename "./doc/short-sample-*.texi" \
+    -not -wholename "./doc/refcard/txirefcard.tex" \
+    -not -wholename "./doc/texi2oldapi.texi" \
+    -not -wholename "./texindex/ti.texi" \
     -not -name "ChangeLog.*" \
     -not -name "COPYING" \
     -not -name "fdl.texi" \
     -not -wholename "./tp/texi2any" \
+    -not -wholename "./util/htmlxref.cnf" \
     -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
     -not -wholename "./install-info/tests/defs" \
     -not -wholename "./INSTALL.generic" \

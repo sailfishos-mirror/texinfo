@@ -1128,7 +1128,7 @@ my $result_options = Getopt::Long::GetOptions (
 "Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law."), "2024")."\n";
+There is NO WARRANTY, to the extent permitted by law."), "2025")."\n";
       exit 0;},
  'macro-expand|E=s' => sub { set_from_cmdline('MACRO_EXPAND', $_[1]); },
  'ifhtml!' => sub { set_expansion('html', $_[1]); },
