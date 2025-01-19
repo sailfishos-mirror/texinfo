@@ -426,7 +426,8 @@ sub _setup_sortable_index_entries($$)
         my $sort_string = $sort_string_alpha->{'sort_string'};
         # TODO $sort_string is never used directly to sort anymore, so
         # it is possible that utf8::upgrade is not needed anymore.  To be safe,
-        # we can keep it until we only support perl > 5.12.
+        # we can keep it until we only support perl > 5.12. (5.14.0 released
+        # in 2011).
         # This avoids varying results depending on whether the string is
         # represented internally in UTF-8.  See 'the "Unicode bug"' in the
         # "perlunicode" man page.

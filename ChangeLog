@@ -12,6 +12,15 @@
 
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_module_converter_defaults): rename
+	call_converter_converter_defaults as call_module_converter_defaults.
+	Update callers.
+
+	Minor changes in comments, typo in variable name.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Customization of Containers),
 	tp/Texinfo/Config.pm (texinfo_register_type_code),
 	(texinfo_register_type_pre_class, GNUT_get_types_code_info),

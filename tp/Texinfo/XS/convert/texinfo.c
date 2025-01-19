@@ -258,8 +258,8 @@ txi_converter_format_defaults (const char *converted_format,
 
   if (external_module)
     {
-      format_defaults = call_converter_converter_defaults (external_module,
-                                                           customizations);
+      format_defaults = call_module_converter_defaults (external_module,
+                                                        customizations);
       if (format_defaults)
         return format_defaults;
     }

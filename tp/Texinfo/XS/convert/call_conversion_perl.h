@@ -7,7 +7,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-CONVERTER_INITIALIZATION_INFO *call_converter_converter_defaults (
+CONVERTER_INITIALIZATION_INFO *call_module_converter_defaults (
                                    const char *module_name,
                                    OPTIONS_LIST *customizations);
 

@@ -1114,9 +1114,9 @@ main (int argc, char *argv[], char *env[])
 
   version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
-  /* FIXME this is different from Perl.  In Perl, there is a distinction
-     between not configured and uninstalled, and +nc is only postpended
-     if not configured.  This code is always configured.  We still
+  /* NOTE this is not exactly the same as in Perl.  In Perl, when uninstalled,
+     it is possible to be configured or not, and +nc is only postpended if
+     not configured.  This code is always configured.  We still
      set to not configured if not installed, to correspond to texi2any.pl
      being called in the build directory */
   if (texinfo_uninstalled)

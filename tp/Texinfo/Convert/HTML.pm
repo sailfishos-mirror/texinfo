@@ -2122,6 +2122,9 @@ sub special_unit_body_formatting($$)
 # &{$self->default_command_conversion($cmdname)}($self, $cmdname, $command, args, $content)
 my %default_commands_conversion;
 
+# TODO add a check that all the relevant commands are
+# in %default_commands_conversion?
+
 sub default_command_conversion($$)
 {
   my $self = shift;
@@ -2844,8 +2847,6 @@ foreach my $explained_command (keys(%explained_commands)) {
 }
 
 my %kept_line_commands;
-
-# FIXME check that all the commands are in %default_commands_conversion?
 
 # TODO add the possibility to customize to add more commands to
 # @informative_global_commands?
@@ -6672,8 +6673,8 @@ sub _convert_contents_command($$$)
   return '';
 }
 
-foreach my $contents_comand (@contents_commands) {
-  $default_commands_conversion{$contents_comand} = \&_convert_contents_command;
+foreach my $contents_command (@contents_commands) {
+  $default_commands_conversion{$contents_command} = \&_convert_contents_command;
 }
 
 sub _convert_def_command($$$$$) {

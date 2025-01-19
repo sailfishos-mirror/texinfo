@@ -97,8 +97,6 @@ sub import {
 
 # copy a Texinfo tree.
 
-# TODO document in POD?
-
 # To do the copy, we do two pass.  First with copy_tree_internal, the tree is
 # copied and a reference to the copy is put in all the elements,
 # taking care that each element is processed once only.
@@ -294,6 +292,7 @@ sub _remove_element_copy_info($;$)
   }
 }
 
+# TODO document in POD?
 sub copy_tree($)
 {
   my $current = shift;

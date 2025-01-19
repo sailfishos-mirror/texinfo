@@ -13,8 +13,8 @@ call_config_GNUT_load_init_file (const char *file_path)
 }
 
 CONVERTER_INITIALIZATION_INFO *
-call_converter_converter_defaults (const char *module_name,
-                                   OPTIONS_LIST *customizations)
+call_module_converter_defaults (const char *module_name,
+                                OPTIONS_LIST *customizations)
 {
   return 0;
 }

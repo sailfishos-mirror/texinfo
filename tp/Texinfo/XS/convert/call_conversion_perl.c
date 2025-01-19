@@ -103,10 +103,9 @@ get_sv_converter (SV *sv_in, const char *warn_string)
   return converter;
 }
 
-/* FIXME rename something like call_module_converter_defaults */
 CONVERTER_INITIALIZATION_INFO *
-call_converter_converter_defaults (const char *module_name,
-                                   OPTIONS_LIST *customizations)
+call_module_converter_defaults (const char *module_name,
+                                OPTIONS_LIST *customizations)
 {
   SV *options_list_sv;
   int count;
