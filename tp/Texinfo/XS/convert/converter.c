@@ -2022,8 +2022,8 @@ free_generic_converter (CONVERTER *self)
 
   free_strings_list (&self->small_strings);
 
-  if (self->hv)
-    register_perl_data (self->hv);
+  if (self->sv)
+    unregister_perl_data (self->sv);
 }
 
 void

@@ -1,3 +1,28 @@
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
+	Keep converter SV instead of HV in C
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs (generic_converter_init),
+	tp/Texinfo/XS/main/converter_types.h (CONVERTER): keep the converter
+	SV instead of the converter HV in C.
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_converter_output, call_sort_element_counts): no need to reset
+	the converter stash anymore.
+
+	* tp/Texinfo/XS/convert/build_html_perl_state.c,
+	tp/Texinfo/XS/convert/call_html_perl_function.c,
+	tp/Texinfo/XS/main/call_perl_function.c,
+	tp/Texinfo/XS/main/build_perl_info.c: update for the change in
+	CONVERTER, change variable names.
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_converter_output): add a SvREFCNT_inc before the second Perl
+	function call in call_converter_output.
+
+	* tp/Texinfo/XS/convert/converter.c (free_generic_converter):
+	unregister converter Perl object.
+
 2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* grand-replace.sh: split call to find/perl into function

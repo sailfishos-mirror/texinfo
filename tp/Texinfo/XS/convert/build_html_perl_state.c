@@ -162,7 +162,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
 void
 build_html_formatting_state (CONVERTER *converter)
 {
-  HV *hv;
+  HV *converter_hv;
   unsigned long flags;
 
   dTHX;
@@ -172,16 +172,16 @@ build_html_formatting_state (CONVERTER *converter)
   if (!flags)
     return;
 
-  if (converter->external_references_number <= 0 || !converter->hv)
+  if (converter->external_references_number <= 0 || !converter->sv)
     {
       converter->modified_state = 0;
       return;
     }
 
 
-  hv = converter->hv;
+  converter_hv = (HV *) SvRV ((SV *) converter->sv);
 
-#define STORE(key, value) hv_store (hv, key, strlen (key), value, 0)
+#define STORE(key, value) hv_store (converter_hv, key, strlen (key), value, 0)
 
   if (flags & HMSF_current_root)
     {
@@ -204,7 +204,7 @@ build_html_formatting_state (CONVERTER *converter)
 #undef STORE
 
   if (flags & HMSF_translations)
-    build_html_translated_names (hv, converter);
+    build_html_translated_names (converter_hv, converter);
 
   converter->modified_state = 0;
 }

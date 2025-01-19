@@ -85,7 +85,7 @@ call_file_id_setting_special_unit_target_file_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 4);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newRV_inc (special_unit->hv)));
       PUSHs(sv_2mortal (newSVpv_utf8 (target, 0)));
       PUSHs(sv_2mortal (newSVpv_utf8 (default_filename, 0)));
@@ -158,7 +158,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 4);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newSVpv (normalized, 0)));
       PUSHs(sv_2mortal (label_element_sv));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
@@ -215,7 +215,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 3);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newRV_inc (target_element->hv)));
       PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
       PUTBACK;
@@ -284,7 +284,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 6);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newRV_inc (command->hv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
       PUSHs(sv_2mortal (newSVpv (target_contents, 0)));
@@ -351,7 +351,7 @@ call_file_id_setting_unit_file_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 4);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
       PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
       PUSHs(sv_2mortal (newSVpv_utf8 (filepath, 0)));
@@ -419,7 +419,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 6);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newSVpv (normalized, 0)));
       PUSHs(sv_2mortal (newRV_inc (element->hv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
@@ -501,7 +501,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
       PUSHMARK(SP);
       EXTEND(SP, 5);
 
-      PUSHs(sv_2mortal (newRV_inc (self->hv)));
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newSVpv (normalized, 0)));
       PUSHs(sv_2mortal (newRV_inc (element->hv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
@@ -570,7 +570,7 @@ call_formatting_function_format_comment (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
   PUTBACK;
 
@@ -619,7 +619,7 @@ call_formatting_function_format_program_string (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -667,7 +667,7 @@ call_formatting_function_format_titlepage (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -715,7 +715,7 @@ call_formatting_function_format_title_titlepage (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -764,7 +764,7 @@ call_formatting_function_format_protect_text (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
   PUTBACK;
 
@@ -813,7 +813,7 @@ call_formatting_function_format_footnotes_segment (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -864,7 +864,7 @@ call_formatting_function_format_single_footnote (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (footid, 0)));
   PUSHs(sv_2mortal (newSViv ((IV) number_in_doc)));
@@ -917,7 +917,7 @@ call_formatting_function_format_footnotes_sequence (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -966,7 +966,7 @@ call_formatting_function_format_css_lines (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUTBACK;
 
@@ -1022,7 +1022,7 @@ call_formatting_function_format_end_file (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUSHs(sv_2mortal (output_unit_sv));
   PUTBACK;
@@ -1080,7 +1080,7 @@ call_formatting_function_format_begin_file (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUSHs(sv_2mortal (output_unit_sv));
   PUTBACK;
@@ -1132,7 +1132,7 @@ call_formatting_function_format_translate_message (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message, 0)));
   PUSHs(sv_2mortal (newSVpv (lang, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (message_context, 0)));
@@ -1197,7 +1197,7 @@ call_formatting_function_format_button_icon_img (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (button_name, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (icon, 0)));
   PUSHs(sv_2mortal (name_sv));
@@ -1255,7 +1255,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
   SvREFCNT_inc (button->sv);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (button->sv));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
@@ -1331,7 +1331,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 5);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (buttons->av)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
@@ -1391,7 +1391,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (buttons->av)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
@@ -1471,7 +1471,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 7);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (classes_sv));
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
@@ -1536,7 +1536,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (command_sv));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
@@ -1590,7 +1590,7 @@ call_formatting_function_format_separate_anchor (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (id, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (class, 0)));
   PUTBACK;
@@ -1644,7 +1644,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (newRV_inc (command->hv)));
   PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
@@ -1700,7 +1700,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 5);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
   PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
@@ -1757,7 +1757,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (command->hv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUTBACK;
@@ -1820,7 +1820,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
@@ -1875,7 +1875,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
@@ -1990,7 +1990,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
   PUSHMARK(SP);
   EXTEND(SP, 5);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (command_name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUSHs(sv_2mortal (args_formatted_sv));
@@ -2054,7 +2054,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (command_name, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUTBACK;
@@ -2109,7 +2109,7 @@ call_output_units_conversion (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (output_unit_type_names[unit_type], 0)));
   PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
@@ -2169,7 +2169,7 @@ call_special_unit_body_formatting (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (special_unit_variety, 0)));
   PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
   PUTBACK;
@@ -2223,7 +2223,7 @@ call_button_simple_function (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_sv ((SV *) formatting_reference_sv,
@@ -2282,7 +2282,7 @@ call_button_direction_function (CONVERTER *self,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (self->main_units_direction_names[direction],
                              0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
@@ -2333,17 +2333,20 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   SV *result_sv;
   SV **options_latex_math_sv;
   SV *options_latex_math;
+  HV *converter_hv;
 
   dTHX;
 
-  if (!self->hv)
+  if (!self->sv)
     return 0;
 
   build_tree_to_build (&self->tree_to_build);
 
   dSP;
 
-  options_latex_math_sv = hv_fetch (self->hv, "options_latex_math",
+  converter_hv = (HV *) SvRV ((SV *) self->sv);
+
+  options_latex_math_sv = hv_fetch (converter_hv, "options_latex_math",
                                  strlen ("options_latex_math"), 0);
 
   if (options_latex_math_sv)
@@ -2355,7 +2358,8 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
     {
       /* NOTE this case should never happen.  If it does, we could set the
          options here dynamically */
-      fprintf (stderr, "BUG: no options_latex_math in %p\n", self->hv);
+      fprintf (stderr, "BUG: no options_latex_math in %p %p\n",
+               converter_hv, self->sv);
       options_latex_math = newSV (0);
     }
 
@@ -2406,7 +2410,8 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
 
   if (self->document)
     {
-      SV **document_ref_sv = hv_fetch (self->hv, "document",
+      HV *converter_hv = (HV *) SvRV ((SV *) self->sv);
+      SV **document_ref_sv = hv_fetch (converter_hv, "document",
                                        strlen ("document"), 0);
       if (document_ref_sv && *document_ref_sv)
         {
@@ -2426,7 +2431,7 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
   PUSHMARK(SP);
   EXTEND(SP, 3);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (document_sv));
   PUSHs(sv_2mortal (newSVpv (stage_name, 0)));
 

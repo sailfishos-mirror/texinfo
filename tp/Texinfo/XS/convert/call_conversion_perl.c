@@ -202,8 +202,8 @@ call_convert_converter (const char *module_name,
 /* call converter->output and converter->output_files_information if needed
    and return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
    and the output files information, if not already in the converter. */
-/* FIXME it would probably be better to be able to keep the converter
-   SV to keep the blessing information instead of needing the module name */
+/* FIXME remove module_name argument?  Or check that it matches the converter?
+ */
 OUTPUT_TEXT_FILES_INFO *
 call_converter_output (const char *module_name, CONVERTER *self,
                        DOCUMENT *document)
@@ -215,18 +215,14 @@ call_converter_output (const char *module_name, CONVERTER *self,
   const char *result_ret;
   STRLEN len;
   SV *result_sv;
-  HV *hv_stash;
 
   dTHX;
 
   document_sv = get_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
-  converter_sv = newRV_inc (self->hv);
+  converter_sv = (SV *) self->sv;
   SvREFCNT_inc (converter_sv);
-
-  hv_stash = gv_stashpv (module_name, 0);
-  sv_bless (converter_sv, hv_stash);
 
   result = (OUTPUT_TEXT_FILES_INFO *)
     non_perl_malloc (sizeof (OUTPUT_TEXT_FILES_INFO));
@@ -267,6 +263,8 @@ call_converter_output (const char *module_name, CONVERTER *self,
       || self->output_files_information.unclosed_files.number > 0)
     return result;
 
+  SvREFCNT_inc (converter_sv);
+
   ENTER;
   SAVETMPS;
 
@@ -295,8 +293,8 @@ call_converter_output (const char *module_name, CONVERTER *self,
   return result;
 }
 
-/* FIXME it would probably be better to be able to keep the converter
-   SV to keep the blessing information instead of needing the module name */
+/* FIXME remove module_name argument?  Or check that it matches the converter?
+ */
 char *
 call_sort_element_counts (const char *module_name, CONVERTER *self,
                           DOCUMENT *document, int use_sections,
@@ -309,18 +307,14 @@ call_sort_element_counts (const char *module_name, CONVERTER *self,
   char *result;
   STRLEN len;
   SV *result_sv;
-  HV *hv_stash;
 
   dTHX;
 
   document_sv = get_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
-  converter_sv = newRV_inc (self->hv);
+  converter_sv = (SV *) self->sv;
   SvREFCNT_inc (converter_sv);
-
-  hv_stash = gv_stashpv (module_name, 0);
-  sv_bless (converter_sv, hv_stash);
 
   dSP;
 

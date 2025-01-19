@@ -184,12 +184,12 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
 
         self = get_or_create_sv_converter (converter_in, class_name);
         converter_hv = (HV *)SvRV (converter_in);
-        self->hv = converter_hv;
+        self->sv = converter_in;
         /* hold a reference to the converter as long as we could access
            it, in case there is nothing else holding a reference, for
            instance when the converter is created by a call to Perl
            method from C */
-        SvREFCNT_inc ((SV *) self->hv);
+        SvREFCNT_inc ((SV *) self->sv);
 
         format_defaults = get_converter_info_from_sv (format_defaults_sv,
                                                       class_name, self);

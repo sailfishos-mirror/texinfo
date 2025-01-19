@@ -793,9 +793,9 @@ typedef struct CONVERTER_INITIALIZATION_INFO {
 
 typedef struct CONVERTER {
     int converter_descriptor;
-  /* perl converter. This should be HV *hv,
+  /* perl converter. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
-    void *hv;
+    void *sv;
 
   /* this is the type of the converter, not of the output.  (Similar to
      a module name in Perl).  Should only be used to determine which

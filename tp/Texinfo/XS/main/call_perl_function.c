@@ -73,7 +73,7 @@ call_common_set_output_perl_encoding (const CONVERTER *self)
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (newRV_inc (self->hv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_pv (

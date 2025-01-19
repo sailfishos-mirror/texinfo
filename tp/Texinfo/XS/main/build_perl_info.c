@@ -2779,9 +2779,10 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
       STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
     }
 
-  if (text_options->converter && text_options->converter->hv)
+  if (text_options->converter && text_options->converter->sv)
     {
-      STORE("converter", newRV_inc ((SV *) text_options->converter->hv));
+      SvREFCNT_inc (text_options->converter->sv);
+      STORE("converter", text_options->converter->sv);
     }
 #undef STORE
 
