@@ -45,6 +45,7 @@ tp/Texinfo/ParserNonXS.pm
 tp/Texinfo/Report.pm
 tp/Texinfo/Structuring.pm
 tp/Texinfo/Transformations.pm
+tp/Texinfo/Translations.pm
 tp/init/chm.pm
 tp/ext/epub3.pm
 tp/ext/highlight_syntax.pm
@@ -56,11 +57,13 @@ tp/Texinfo/XS/convert/converter.c
 tp/Texinfo/XS/convert/convert_html.c
 tp/Texinfo/XS/convert/format_html.c
 tp/Texinfo/XS/convert/html_prepare_converter.c
+tp/Texinfo/XS/convert/rawtext_converter_api.c
 tp/Texinfo/XS/main/errors.c
 tp/Texinfo/XS/main/errors.h
 tp/Texinfo/XS/main/manipulate_indices.c
 tp/Texinfo/XS/main/convert_utils.c
 tp/Texinfo/XS/main/targets.c
+tp/Texinfo/XS/main/translations.c
 tp/Texinfo/XS/parsetexi/api.c
 tp/Texinfo/XS/parsetexi/close.c
 tp/Texinfo/XS/parsetexi/end_line.c

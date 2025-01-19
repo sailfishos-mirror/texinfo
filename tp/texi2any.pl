@@ -971,7 +971,6 @@ sub _get_converter_default($)
 # avoid requiring translation
 sub makeinfo_help()
 {
-  # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
   my $makeinfo_help =
     sprintf(__("Usage: %s [OPTION]... TEXINFO-FILE..."),
     $real_command_name . $command_suffix)
