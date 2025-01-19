@@ -772,7 +772,7 @@ static int print_help_p;
 #define _FORMAT_OPT 21
 #define XML_OPT 22
 #define INTERNAL_LINKS_OPT 23
-#define NO_MIMICK_OPT 24
+#define NO_MIMICKING_OPT 24
 #define XOPT_OPT 25
 #define _SILENT_OPT 26
 /* can add here */
@@ -804,7 +804,7 @@ static int print_help_p;
 
 static struct option long_options[] = {
   /* next not in texi2any */
-  {"no-mimick", 0, 0, NO_MIMICK_OPT},
+  {"no-mimicking", 0, 0, NO_MIMICKING_OPT},
 
   {"conf-dir", required_argument, 0, CONF_DIR_OPT},
   {"css-include", required_argument, 0, CSS_INCLUDE_OPT},
@@ -1294,7 +1294,7 @@ main (int argc, char *argv[], char *env[])
         case XML_OPT:
           set_cmdline_format ("texinfoxml");
           break;
-        case NO_MIMICK_OPT:
+        case NO_MIMICKING_OPT:
           free (program_file);
           program_file = strdup (program_basename);
           GNUT_set_from_cmdline (&program_options,

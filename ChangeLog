@@ -1,5 +1,10 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (long_options, main): use mimicking instead
+	of the grammatically incorrect mimick.  Report from Gavin.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/call_conversion_perl.c
 	(call_sort_element_counts): reuse the document hv if it already
 	exists.
