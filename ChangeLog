@@ -1,3 +1,14 @@
+2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Variables in info help message
+
+	* info/variables.c
+	(variable_description_string, variable_long_description_string):
+	New.
+	* info/infodoc.c (create_internal_info_help_node):
+	Output list of variables, including current value, how it
+	was set, and doc string.
+
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/structuring_transfo/transformations.c (new_node):

@@ -226,6 +226,55 @@ rendition_to_string (RENDITION *rendition)
   return string;
 }
 
+char *
+variable_description_string (VARIABLE_ALIST *var)
+{
+  char *description;
+  if (var->choices)
+    xasprintf (&description, "%s (%s): %s.",
+             var->name,
+             var->value == &highlight_searches
+               ? on_off_choices[match_rendition.mask != 0]
+               : var->choices == (char **) &rendition_choices
+               ? rendition_to_string (var->value)
+               : var->choices[*(int *)var->value],
+             _(var->doc));
+  else
+    xasprintf (&description, "%s (%d): %s.",
+             var->name, *(int *)var->value, _(var->doc));
+
+  return description;
+}
+
+static char *where_set_names[] = {
+  "default",
+  "file",
+  "command line",
+  "interactive"
+};
+
+char *
+variable_long_description_string (VARIABLE_ALIST *var)
+{
+  char *description;
+  if (var->choices)
+    xasprintf (&description, "%s (%s) [%s]\n    %s.",
+             var->name,
+             var->value == &highlight_searches
+               ? on_off_choices[match_rendition.mask != 0]
+               : var->choices == (char **) &rendition_choices
+               ? rendition_to_string (var->value)
+               : var->choices[*(int *)var->value],
+             where_set_names[var->where_set],
+             _(var->doc));
+  else
+    xasprintf (&description, "%s (%d) [%s]\n    %s.",
+             var->name, *(int *)var->value,
+             where_set_names[var->where_set], _(var->doc));
+
+  return description;
+}
+
 DECLARE_INFO_COMMAND (describe_variable, _("Explain the use of a variable"))
 {
   VARIABLE_ALIST *var;
@@ -236,18 +285,7 @@ DECLARE_INFO_COMMAND (describe_variable, _("Explain the use of a variable"))
   if (!var)
     return;
 
-  if (var->choices)
-    xasprintf (&description, "%s (%s): %s.",
-             var->name,
-             var->value == &highlight_searches
-             ? on_off_choices[match_rendition.mask != 0]
-             : var->choices == (char **) &rendition_choices
-             ? rendition_to_string (var->value)
-             : var->choices[*(int *)var->value], _(var->doc));
-  else
-    xasprintf (&description, "%s (%d): %s.",
-             var->name, *(int *)var->value, _(var->doc));
-
+  description = variable_description_string (var);
   window_message_in_echo_area ("%s", description);
   free (description);
 }

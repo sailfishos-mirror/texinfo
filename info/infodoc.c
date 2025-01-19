@@ -24,6 +24,7 @@
 #include "session.h"
 #include "doc.h"
 #include "funs.h"
+#include "variables.h"
 
 /* The name of the node used in the help window. */
 static char *info_help_nodename = "*Info Help*";
@@ -241,8 +242,19 @@ create_internal_info_help_node (int help_is_only_window_p)
 
         }
     }
-
   free (exec_keys);
+
+  text_buffer_printf (&msg, "---------------------\n\n");
+  text_buffer_printf (&msg, _("Variables:\n\n"));
+
+  for (i = 0; info_variables[i].name != NULL; i++)
+    {
+      char *description
+        = variable_long_description_string (&info_variables[i]);
+      text_buffer_printf (&msg, description);
+      text_buffer_printf (&msg, "\n");
+
+    }
 
   node = text_buffer_to_node (&msg);
 

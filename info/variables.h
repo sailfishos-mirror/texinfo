@@ -38,12 +38,14 @@ typedef struct {
 } VARIABLE_ALIST;
 
 /* Values for VARIABLE_ALIST.where_set, in order of increasing priority. */
+/* Note: keep same order in variables.c:where_set_names. */
 #define SET_BY_DEFAULT 0
 #define SET_IN_CONFIG_FILE 1
 #define SET_ON_COMMAND_LINE 2
-#define SET_IN_SESSION 4
+#define SET_IN_SESSION 3
 
 VARIABLE_ALIST *variable_by_name (char *name);
+extern VARIABLE_ALIST info_variables[];
 
 /* Make an array of REFERENCE which actually contains the names of the
    variables available in Info. */
@@ -54,6 +56,8 @@ void set_variable (WINDOW *window, int count);
 int set_variable_to_value (VARIABLE_ALIST *var, char *value, int where);
 
 void describe_variable (WINDOW *window, int count);
+char *variable_description_string (VARIABLE_ALIST *var);
+char *variable_long_description_string (VARIABLE_ALIST *var);
 
 /* The list of user-visible variables. */
 extern int auto_footnotes_p;
