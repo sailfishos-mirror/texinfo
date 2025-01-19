@@ -404,16 +404,6 @@ sub texinfo_get_conf($)
   }
 }
 
-# to dynamically add customization options from init files
-# FIXME not implementable in XS, would need a type, dynamically added
-# customization variables...
-# Documentation in texi2any api manual is ignored.
-sub texinfo_add_valid_customization_option($)
-{
-  my $option = shift;
-  return Texinfo::Common::add_valid_customization_option($option);
-}
-
 
 ########################################################################
 # Output format API.  Handled differently from customization option

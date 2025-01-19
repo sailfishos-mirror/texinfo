@@ -507,26 +507,6 @@ my $section_header_buttons_list
 @end example
 
 
-@ignore
-@c problematic for XS, need a type, to add dynamically...
-@node Adding Customization Variables
-@subsection Adding Customization Variables
-
-@cindex Customization variables, adding
-
-Trying to set a customization variable that is not known as a valid
-customization variable in @command{texi2any} is an error.  It is possible, however,
-to add new customization variables from init files.  To add a customization
-variable, call @code{texinfo_add_valid_customization_option}:
-
-@defun texinfo_add_valid_customization_option ($variable_name)
-@var{$variable_name} is added as a valid customization variable name.
-@end defun
-
-The variable value, if set, should also be available in the converters and therefore
-in the init file functions registered and called from the converters.
-@end ignore
-
 @node Init File Loading Error Reporting
 @section Init File Loading Error Reporting
 

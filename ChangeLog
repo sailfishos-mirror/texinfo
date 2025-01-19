@@ -1,3 +1,10 @@
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi, tp/Texinfo/Common.pm, tp/Texinfo/Config.pm:
+	remove texinfo_add_valid_customization_option and
+	add_valid_customization_option.  Remove already @ignore'd text in
+	texi2any_api.texi.
+
 2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/variables.c (set_variable_to_value): Set 'where_set'

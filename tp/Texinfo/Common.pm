@@ -209,20 +209,6 @@ sub valid_customization_option($)
   return $valid_customization_options{$option};
 }
 
-# not documented on purpose, should not be directly called in user-defined
-# codes
-# FIXME not implementable in XS, would need a type, dynamically added
-# customization variables...
-sub add_valid_customization_option($)
-{
-  my $option = shift;
-  if ($option =~ /^[A-Z][A-Z_]{2,}$/) {
-    $valid_customization_options{$option} = 1;
-    return 1;
-  }
-  return 0;
-}
-
 
 # Output formats
 
