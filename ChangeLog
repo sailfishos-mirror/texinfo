@@ -1,5 +1,11 @@
 2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/variables.c (set_variable_to_value): Set 'where_set'
+	for all variables, including rendition styles, to allow
+	overriding from the command line even if these are set in infokey.
+
+2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Variables in info help message
 
 	* info/variables.c

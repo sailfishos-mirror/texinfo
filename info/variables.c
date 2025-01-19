@@ -554,6 +554,7 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
      anything, but don't indicate an error. */
   if (var->where_set > where)
     return 1;
+  var->where_set = where;
 
   if (var->choices)
     {
@@ -574,7 +575,6 @@ set_variable_to_value (VARIABLE_ALIST *var, char *value, int where)
             if (strcmp (var->choices[j], value) == 0)
               {
                 *(int *)var->value = j;
-                var->where_set = where;
                 return 1;
               }
         }
