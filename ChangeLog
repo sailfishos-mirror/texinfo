@@ -1,5 +1,10 @@
 2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* grand-replace.sh: split call to find/perl into function
+	and call several times to mop up more files
+
+2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* grand-replace.sh: add option to search for possible copyright
 	years updated.
 	* README-hacking: replace long manual "find" command suggestion

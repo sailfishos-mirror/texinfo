@@ -34,8 +34,24 @@ find_missed () {
     -not -wholename "./tp/texi2any" \
     -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
     -not -wholename "./install-info/tests/defs" \
+    -not -wholename "./INSTALL.generic" \
     -not -name "*~" \
     -exec perl -wnl -e '/20\d[^5] Free/ && print "$ARGV:$_"' '{}' \;
+}
+
+change_files () {
+  if $list ; then
+      find $find_dir -regextype posix-egrep $prune -o $not -type f \
+        \( -regex "$ext_pattern" -o -regex "$named_pattern" \) \
+        -print
+  else
+      find $find_dir -regextype posix-egrep $prune -o $not -type f \
+        \( -regex "$ext_pattern" -o -regex "$named_pattern" \) \
+        -execdir perl -wpli -e \
+          's/-20\d\d Free/-'$current_year' Free/;
+           s/(Copyright 20\d\d) Free/$1-'$current_year' Free/;' \
+        '{}' ';'
+  fi
 }
 
 list=false
@@ -68,16 +84,28 @@ named_files='configure.ac|Makefile.am|README|README-hacking|TODO'
 ext_pattern=".*\.($extensions)"
 named_pattern=".*\/($named_files)"
 
-if $list ; then
-    find . -regextype posix-egrep $prune -o $not -type f \
-      \( -regex "$ext_pattern" -o -regex "$named_pattern" \) \
-      -print
-else
-    find . -regextype posix-egrep $prune -o $not -type f \
-      \( -regex "$ext_pattern" -o -regex "$named_pattern" \) \
-      -execdir perl -wpli -e \
-        's/-20\d\d Free/-'$current_year' Free/;
-         s/(Copyright 20\d\d) Free/$1-'$current_year' Free/;' \
-      '{}' ';'
-fi
+find_dir=.
+
+change_files
+
+find_dir=.
+ext_pattern=""
+named_pattern='./NEWS|./INSTALL|./AUTHORS|./js/info.js|./pre-inst-env'
+
+change_files
+
+prune_dirs=""
+find_dir=contrib/nontests
+ext_pattern=".*\.(sh|test)"
+named_files='README|txitextest'
+named_pattern=".*\/($named_files)"
+
+change_files
+
+prune_dirs=""
+find_dir=contrib/mass_test
+ext_pattern=".*\.(sh)"
+
+change_files
+
 
