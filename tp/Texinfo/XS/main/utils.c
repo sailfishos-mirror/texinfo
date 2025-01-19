@@ -1475,7 +1475,7 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
 
           for (i = 0; i < directories->number; i++)
             {
-              char *directory = directories->list[i];
+              const char *directory = directories->list[i];
               if ((strlen (directory) == 2 && !memcmp (directory, "..", 2))
                   || (strlen (directory) == 1 && !memcmp (directory, ".", 1)))
                 {
@@ -1483,7 +1483,7 @@ locate_include_file (const char *filename, const STRING_LIST *include_dirs_list)
                   break;
                 }
             }
-          free_strings_list (directories);
+          destroy_strings_list (directories);
         }
     }
 
@@ -1562,7 +1562,7 @@ locate_file_in_dirs (const char *filename,
           if (file_directories->number)
             file_with_directories = 1;
 
-          free_strings_list (file_directories);
+          destroy_strings_list (file_directories);
         }
 
       if (file_with_directories)
