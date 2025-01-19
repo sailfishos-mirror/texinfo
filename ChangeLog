@@ -1,3 +1,10 @@
+2025-01-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* grand-replace.sh: add option to search for possible copyright
+	years updated.
+	* README-hacking: replace long manual "find" command suggestion
+	with run of grand-replace.sh --missed.
+
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Customization of Containers),

@@ -1,15 +1,58 @@
 # grand-replace.sh - copyright years updating script
-# invoke as grand-replace.sh $dir or grand-replace.sh --list $dir
+# invoke as grand-replace.sh $dir or grand-replace.sh --list $dir or
+# grand-replace.sh --missed $dir
+
+# list files that have possibly been missed by this script
+find_missed () {
+  find . \
+    -name autom4te.cache -prune -o \
+    -name .git -prune -o \
+    -wholename ./tp/maintain/lib -prune -o \
+    -name test -prune -o \
+    -name "test-infodir" -prune -o \
+    -name "gnulib" -prune -o \
+    -name "po" -prune -o \
+    -name "po_document" -prune -o \
+    -name "build-aux" -prune -o \
+    -wholename "./js/node_modules" -prune -o \
+    -wholename "./tp/t/results" -prune -o \
+    -wholename "./tp/tests/*/{res,out}_*" -prune -o \
+    -type f \
+    \( -name '*' \) \
+    -not -name 'Makefile.in' \
+    -not -name Makefile \
+    -not -name "*.m4" \
+    -not -name "libtool" \
+    -not -name configure \
+    -not -name "config.*" \
+    -not -wholename "./doc/txi-??.tex" \
+    -not -wholename "./doc/texinfo-jp.tex" \
+    -not -wholename "./doc/texinfo-zh.tex" \
+    -not -name "ChangeLog.*" \
+    -not -name "COPYING" \
+    -not -name "fdl.texi" \
+    -not -wholename "./tp/texi2any" \
+    -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
+    -not -wholename "./install-info/tests/defs" \
+    -not -name "*~" \
+    -exec perl -wnl -e '/20\d[^5] Free/ && print "$ARGV:$_"' '{}' \;
+}
 
 list=false
+missed=false
 case $1 in --list)
     list=true
+    shift;;
+    --missed)
+    missed=true
     shift;;
 esac
 
 dir=$1
 test -d "$dir" || exit 1
 cd $dir
+
+if $missed ; then find_missed ; exit 0 ; fi
 
 current_year=`date "+%Y"`
 prune_dirs="./tp/maintain/lib|./tp/tests/test_scripts|./gnulib|./tp/Texinfo/XS/gnulib|./js/node_modules|./contrib|./tp/t/include"

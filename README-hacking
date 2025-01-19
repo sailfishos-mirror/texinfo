@@ -263,22 +263,7 @@ with "git diff" before committing.
 
 Look for omissions by running, e.g.
 
-find . \
-  -name autom4te.cache -prune -o \
-  -name .git -prune -o \
-  -wholename ./tp/maintain/lib -prune -o \
-  -name test -prune -o \
-  -name "test-infodir" -prune -o \
-  -name "gnulib" -prune -o \
-  -type f \
-  \( -name '*' \) \
-  -not -name 'Makefile.in' \
-  -not -name Makefile \
-  -not -name "*.m4" \
-  -not -name configure \
-  -not -name "config.*" \
-  -not -name "*~" \
-  -exec perl -wnl -e '/20\d[^4] Free/ && print "$ARGV:$_"' '{}' \;
+./grand-replace.sh --missed .
 
 at the top level.  It's likely that the script doesn't find all the
 years that should be updated yet.
