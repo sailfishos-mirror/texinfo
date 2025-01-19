@@ -505,7 +505,7 @@ txi_converter_setup (const char *external_module,
 
   if (external_module)
     {
-      self = call_convert_converter (external_module, converter_init_info);
+      self = call_module_converter (external_module, converter_init_info);
       if (!self)
         {
           char *message;
@@ -599,7 +599,7 @@ txi_sort_element_counts (const char *external_module,
 
       call_eval_use_module (external_module);
       result->converter
-         = call_convert_converter (external_module, converter_init_info);
+         = call_module_converter (external_module, converter_init_info);
       if (!result->converter)
         {
           char *message;

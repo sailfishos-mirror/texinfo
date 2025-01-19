@@ -137,7 +137,7 @@ call_module_converter_defaults (const char *module_name,
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_convert_converter should return 1 item\n");
+    croak ("call_module_converter_defaults should return 1 item\n");
 
   result_sv = POPs;
 
@@ -152,8 +152,8 @@ call_module_converter_defaults (const char *module_name,
 }
 
 CONVERTER *
-call_convert_converter (const char *module_name,
-                        const CONVERTER_INITIALIZATION_INFO *conf)
+call_module_converter (const char *module_name,
+                       const CONVERTER_INITIALIZATION_INFO *conf)
 {
   SV *options_list_sv;
   int count;
@@ -186,10 +186,10 @@ call_convert_converter (const char *module_name,
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_convert_converter should return 1 item\n");
+    croak ("call_module_converter should return 1 item\n");
 
   result_sv = POPs;
-  result = get_sv_converter (result_sv, "call_convert_converter");
+  result = get_sv_converter (result_sv, "call_module_converter");
 
   PUTBACK;
 

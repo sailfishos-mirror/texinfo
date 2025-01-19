@@ -20,8 +20,8 @@ call_module_converter_defaults (const char *module_name,
 }
 
 CONVERTER *
-call_convert_converter (const char *module_name,
-                        const CONVERTER_INITIALIZATION_INFO *conf)
+call_module_converter (const char *module_name,
+                       const CONVERTER_INITIALIZATION_INFO *conf)
 {
   return 0;
 }

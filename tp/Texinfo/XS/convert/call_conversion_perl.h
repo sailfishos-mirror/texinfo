@@ -11,7 +11,7 @@ CONVERTER_INITIALIZATION_INFO *call_module_converter_defaults (
                                    const char *module_name,
                                    OPTIONS_LIST *customizations);
 
-CONVERTER *call_convert_converter (const char *module_name,
+CONVERTER *call_module_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
 OUTPUT_TEXT_FILES_INFO *call_converter_output (CONVERTER *self,
                                                DOCUMENT *document);
