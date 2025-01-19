@@ -1,6 +1,12 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/call_conversion_perl.c
+	(call_sort_element_counts): reuse the document hv if it already
+	exists.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/call_conversion_perl.c
 	(call_module_converter): rename call_convert_converter as
 	call_module_converter.  Update callers.
 
@@ -25,7 +31,7 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/utils.c (locate_include_file)
-	(locate_file_in_dirs): destroy the lists returned by splitdir. 
+	(locate_file_in_dirs): destroy the lists returned by splitdir.
 
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
@@ -811,7 +817,7 @@
 	tp/t/z_misc/paragraph.t: remove code in Paragraph.pm importing symbols
 	in the caller, instead use Exporter and @EXPORT_OK.  Gavin analysed
 	that this is not needed anymore since 2019 when XSLoader.pm init
-	started relying on XS declaring the correct package name. 
+	started relying on XS declaring the correct package name.
 	Update code using Texinfo::Convert::Paragraph.
 
 2025-01-11  Patrice Dumas  <pertusus@free.fr>
@@ -1360,7 +1366,7 @@
 
 2025-01-02  Patrice Dumas  <pertusus@free.fr>
 
-	* tp/Texinfo/XS/convert/format_html.c (html_output_internal_links): 
+	* tp/Texinfo/XS/convert/format_html.c (html_output_internal_links):
 	use sorted indices by name to determine the order of indices
 	processing.
 

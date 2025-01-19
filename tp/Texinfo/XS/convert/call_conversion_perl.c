@@ -215,6 +215,10 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
 
   dTHX;
 
+  /* The Perl document object should not have been built already when called
+     from C texi2any.  If called by other codes it may become relevant to reuse
+     the document->hv.
+   */
   document_sv = build_minimal_document (document->descriptor);
   SvREFCNT_inc (document_sv);
 
@@ -304,9 +308,16 @@ call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
 
   dTHX;
 
-  /* FIXME isn't the document already built when converted? */
-  document_sv = build_minimal_document (document->descriptor);
-  SvREFCNT_inc (document_sv);
+  if (document->hv)
+    {
+      /* reuse if the document hv already exists */
+      document_sv = newRV_inc ((SV *) document->hv);
+    }
+  else
+    {
+      document_sv = build_minimal_document (document->descriptor);
+      SvREFCNT_inc (document_sv);
+    }
 
   converter_sv = (SV *) self->sv;
   SvREFCNT_inc (converter_sv);
