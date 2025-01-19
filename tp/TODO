@@ -827,6 +827,7 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppre
 With memory leaks
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppressions=./texi2any.supp -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
+(for file in t/z_misc/*.t ; do bfile=`basename $file .t`; echo z_misc/$bfile; valgrind -q --leak-check=full perl -w $file ; done) > val_res/z_misc.out 2>&1
 
 In some cases, memory that is not released/freed, but that should still be
 accessible at the end of conversion is shown by valgrind as being leaked,

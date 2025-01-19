@@ -2,7 +2,7 @@ use strict;
 use utf8;
 
 use lib '.';
-use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
+use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 
 use Test::More;
 

@@ -1,5 +1,9 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/z_misc/*.t: update ModulePath updirs.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	Update TODO and po files
 
 	* po/POTFILES.in: add Translations.pm, rawtext_converter_api.c and

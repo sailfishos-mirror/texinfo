@@ -1,7 +1,7 @@
 use strict;
 
 use lib '.';
-use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
+use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 
 use Test::More;
 
@@ -11,7 +11,8 @@ use Data::Dumper;
 use Locale::Messages;
 
 use Texinfo::Convert::Texinfo;
-use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier normalize_transliterate_texinfo);
+use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
+                                       normalize_transliterate_texinfo);
 use Texinfo::Parser;
 
 my $srcdir = $ENV{'srcdir'};
@@ -140,7 +141,8 @@ in float
 
 $document = $parser->parse_texi_piece($texinfo_manual);
 my $texinfo_manual_tree = $document->tree();
-my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_manual_tree);
+my $check_texinfo
+  = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_manual_tree);
 is ($texinfo_manual, $check_texinfo, 'check parsing of a manual');
 
 #print STDERR Data::Dumper->Dump([$texinfo_manual_tree]);
@@ -229,11 +231,13 @@ is ($effect_of_sc_node_normalized,
     'a-_00f1-_00e5-TeX-myimage-chap-_0028f_0029node-ext-latex-00ff-ma_002bth-la-a-a_0040c-ab-mverb',
     '@sc content');
 
-my $effect_of_var_node_tree = $parser->parse_texi_line('@var{'.$string_for_upper_case
-  # we add a @verb out of @inline*.  @verb is in @inline* to have valid LaTeX output
-  # in the t/converters_tests.t test
+my $effect_of_var_node_tree
+     = $parser->parse_texi_line('@var{'.$string_for_upper_case
+  # we add a @verb out of @inline*.  @verb is in @inline* to have valid LaTeX
+  # output in the t/converters_tests.t test
        . ' @verb{!mverb!}}');
-my $effect_of_var_node_normalized = convert_to_identifier($effect_of_var_node_tree);
+my $effect_of_var_node_normalized
+  = convert_to_identifier($effect_of_var_node_tree);
 is ($effect_of_var_node_normalized,
     'a-_00f1-_00e5-TeX-myimage-chap-_0028f_0029node-ext-latex-00ff-ma_002bth-la-a-a_0040c-ab-mverb',
     '@var content');
