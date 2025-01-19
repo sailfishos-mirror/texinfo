@@ -14,6 +14,7 @@ find_missed () {
     -name "po" -prune -o \
     -name "po_document" -prune -o \
     -name "build-aux" -prune -o \
+    -name "contrib" -prune -o \
     -wholename "./js/node_modules" -prune -o \
     -wholename "./tp/t/results" -prune -o \
     -wholename "./tp/tests/*/{res,out}_*" -prune -o \
@@ -26,7 +27,7 @@ find_missed () {
     -not -name configure \
     -not -name "config.*" \
     -not -wholename "./doc/txi-??.tex" \
-    -not -wholename "./doc/texinfo-jp.tex" \
+    -not -wholename "./doc/texinfo-ja.tex" \
     -not -wholename "./doc/texinfo-zh.tex" \
     -not -name "ChangeLog.*" \
     -not -name "COPYING" \
@@ -126,4 +127,15 @@ named_files=""
 named_pattern=".*\/($named_files)"
 
 change_files
+
+find_dir=man
+extensions='1|5|h2m'
+named_files=''
+
+ext_pattern=".*\.($extensions)"
+named_pattern=".*\/($named_files)"
+
+change_files
+
+exit 0
 

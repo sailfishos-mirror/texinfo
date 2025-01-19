@@ -962,7 +962,7 @@ Here is a short sample Texinfo file.
 @@copying
 This is a short example of a complete Texinfo file.
 
-Copyright @@copyright@{@} 2016 Free Software Foundation, Inc.
+Copyright @@copyright@{@} 2025 Free Software Foundation, Inc.
 @@end copying
 
 @@titlepage
@@ -1388,7 +1388,7 @@ which it is distributed.
 @@copying
 This is a short example of a complete Texinfo file, version 1.0.
 
-Copyright @@copyright@{@} 2016 Free Software Foundation, Inc.
+Copyright @@copyright@{@} 2025 Free Software Foundation, Inc.
 @@end copying
 @end group
 @end example
@@ -21334,7 +21334,7 @@ Here is the sample document:
 This manual is for GNU Sample (version @value{VERSION}, @value{UPDATED}),
 which is an example in the Texinfo documentation.
 
-Copyright @copyright{} 2016 Free Software Foundation, Inc.
+Copyright @copyright{} 2025 Free Software Foundation, Inc.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -21419,7 +21419,7 @@ see the previous sections.
 @copying
 This document is a sample for allowing verbatim copying only.
 
-Copyright @copyright{} 2016 Free Software Foundation, Inc.
+Copyright @copyright{} 2025 Free Software Foundation, Inc.
 
 @quotation
 Permission is granted to make and distribute verbatim copies
@@ -21450,7 +21450,7 @@ the license text itself.  For a complete sample document, see the
 previous sections.
 
 @example
-Copyright @@copyright@{@} 2016 Free Software Foundation, Inc.
+Copyright @@copyright@{@} 2025 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
