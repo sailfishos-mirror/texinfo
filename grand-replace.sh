@@ -65,7 +65,11 @@ case $1 in --list)
 esac
 
 dir=$1
-test -d "$dir" || exit 1
+if ! test -d "$dir" ; then
+  echo "no argument" >&2
+  exit 1
+fi
+
 cd $dir
 
 if $missed ; then find_missed ; exit 0 ; fi
@@ -78,13 +82,12 @@ prune="-regex ($prune_dirs) -prune"
 # Don't touch this file itself
 not="-not -name grand-replace.sh"
 
+find_dir=.
 extensions='c|h|sh|pm|pl|texi|xs'
 named_files='configure.ac|Makefile.am|README|README-hacking|TODO'
 
 ext_pattern=".*\.($extensions)"
 named_pattern=".*\/($named_files)"
-
-find_dir=.
 
 change_files
 
@@ -94,27 +97,33 @@ named_pattern='./NEWS|./INSTALL|./AUTHORS|./js/info.js|./pre-inst-env'
 
 change_files
 
-prune_dirs=""
 find_dir=contrib/nontests
+prune_dirs=""
 ext_pattern=".*\.(sh|test)"
 named_files='README|txitextest'
 named_pattern=".*\/($named_files)"
 
 change_files
 
-prune_dirs=""
 find_dir=contrib/mass_test
+prune_dirs=""
 ext_pattern=".*\.(sh)"
 
 change_files
 
 find_dir=util
-
-set -x
-
 ext_pattern=""
 named_pattern=".*"
 # update these manually for now
 not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
 
 change_files
+
+find_dir=tp/Texinfo
+extensions='txt|awk'
+ext_pattern=".*\.($extensions)"
+named_files=""
+named_pattern=".*\/($named_files)"
+
+change_files
+
