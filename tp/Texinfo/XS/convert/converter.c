@@ -464,17 +464,8 @@ copy_converter_initialization_info (CONVERTER_INITIALIZATION_INFO *dst_info,
     }
 }
 
-/* Next five functions are not called from Perl as the Perl equivalent
-   functions are already called (and possibly overriden).  Inheritance
-   in Perl is replaced by dispatching using a table here.
-
-   converter_initialize cannot be overriden fully in HTML as long as Perl
-   code is needed to setup customization in Perl.  Therefore, there is
-   no prospect of overriding converter_initialize for now, and therefore
-   of overridding converter_converter.  Those functions are only meant
-   for pure C.
- */
-/* corresponds to Perl $converter->converter_defaults() Converter */
+/* corresponds to Perl $converter->converter_defaults() or
+   Texinfo::Convert:XXXX->converter_defaults() */
 CONVERTER_INITIALIZATION_INFO *
 converter_defaults (enum converter_format converter_format,
                     const CONVERTER_INITIALIZATION_INFO *user_conf)
@@ -502,6 +493,16 @@ converter_defaults (enum converter_format converter_format,
   return 0;
 }
 
+/* Next four functions are not called from Perl as the Perl equivalent
+   functions are already called (and possibly overriden).  Inheritance
+   in Perl is replaced by dispatching using a table here.
+
+   converter_initialize cannot be overriden fully in HTML as long as Perl
+   code is needed to setup customization in Perl.  Therefore, there is
+   no prospect of overriding converter_initialize for now, and therefore
+   of overridding converter_converter.  Those functions are only meant
+   for pure C.
+ */
 /* corresponds to Perl $converter->converter_initialize() Converter */
 /* default is to do nothing */
 void

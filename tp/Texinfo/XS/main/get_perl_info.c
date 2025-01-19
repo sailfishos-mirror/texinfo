@@ -1548,8 +1548,11 @@ get_converter_info_from_sv (SV *conf_sv, const char *class_name,
             }
           else
             {
+              /* Currently no information passed as is from Perl without
+                 being stored in C.
               add_string (key,
                 &initialization_info->non_valid_customization);
+               */
 
               if (!strcmp (key, "translated_commands"))
                 set_translated_commands (value_sv,

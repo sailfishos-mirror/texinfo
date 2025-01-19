@@ -3096,6 +3096,30 @@ build_translated_commands (const TRANSLATED_COMMAND_LIST *translated_commands)
   return translated_hv;
 }
 
+static HV *
+build_deprecated_directories (
+           const DEPRECATED_DIRS_LIST *deprecated_directories)
+{
+  size_t i;
+  HV *deprecated_directories_hv;
+
+  dTHX;
+
+  deprecated_directories_hv = newHV ();
+  for (i = 0; i < deprecated_directories->number; i++)
+    {
+      const char *reference_dir
+        = deprecated_directories->list[i].reference_dir;
+      const char *obsolete_dir
+        = deprecated_directories->list[i].obsolete_dir;
+      SV *reference_dir_sv = newSVpv_utf8 (reference_dir, 0);
+      SV *obsolete_dir_sv = newSVpv_utf8 (obsolete_dir, 0);
+      hv_store_ent (deprecated_directories_hv, obsolete_dir_sv,
+                    reference_dir_sv, 0);
+    }
+  return deprecated_directories_hv;
+}
+
 void
 pass_generic_converter_to_converter_sv (SV *converter_sv,
                                         const CONVERTER *converter)
@@ -3103,6 +3127,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
   HV *converter_hv;
   HV *expanded_formats_hv;
   HV *translated_commands_hv;
+  HV *deprecated_directories_hv;
   HV *output_files_hv;
   HV *unclosed_files_hv;
   HV *opened_files_hv;
@@ -3132,6 +3157,11 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
   translated_commands_hv
     = build_translated_commands (&converter->translated_commands);
   STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
+
+  deprecated_directories_hv
+    = build_deprecated_directories (&converter->deprecated_config_directories);
+  STORE("deprecated_config_directories",
+        newRV_noinc ((SV *) deprecated_directories_hv));
 
   /* store converter_descriptor in perl converter */
   /* NOTE unlikely IV overflow if PERL_QUAD_MAX < SIZE_MAX */

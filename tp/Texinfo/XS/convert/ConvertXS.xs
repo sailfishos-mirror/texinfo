@@ -98,7 +98,7 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, S
     OUTPUT:
         RETVAL
 
-# this function could be called with a class name or a converter as first
+# this function is called with a class name or a converter as first
 # argument.  In Perl code, the first argument is not used in the functions,
 # it is only used to locate the method to call through inheritance.
 # Here, if the argument is a converter, a C converter is created, the
@@ -162,6 +162,9 @@ converter_defaults (SV *converter_in, SV *conf_sv=0)
         else
           {
        /* no converter, return format_defaults built to Perl for the class */
+       /* NOTE we only return options, not other information that could be in
+          CONVERTER_INITIALIZATION_INFO, as when called on a class, it
+          is what is expected */
             RETVAL
               = build_sv_options_from_options_list (&format_defaults->conf, 0);
             destroy_converter_initialization_info (format_defaults);
@@ -205,9 +208,12 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
 
         set_converter_init_information (self, format_defaults, conf);
 
+        /* Now pass information back to Perl */
         if (format_defaults)
           {
     /* set directly Perl converter keys with non 'valid' customization info */
+    /* Nothing to be passed here, as all the information is passed to C and
+       returned to Perl in pass_generic_converter_to_converter_sv */
             set_non_customization_sv (converter_hv, format_defaults_sv,
                                 &format_defaults->non_valid_customization);
             destroy_converter_initialization_info (format_defaults);
@@ -216,6 +222,8 @@ generic_converter_init (SV *converter_in, SV *format_defaults_sv, SV *conf_sv=0)
         if (conf)
           {
     /* set directly Perl converter keys with non 'valid' customization info */
+    /* Nothing to be passed here, as all the information is passed to C and
+       returned to Perl in pass_generic_converter_to_converter_sv */
             set_non_customization_sv (converter_hv, conf_sv,
                               &conf->non_valid_customization);
 
