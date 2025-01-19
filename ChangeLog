@@ -1,5 +1,11 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c (new_node):
+	destroy arguments_line when removing the newly created node if it is
+	already present.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/z_misc/*.t: update ModulePath updirs.
 
 2025-01-19  Patrice Dumas  <pertusus@free.fr>

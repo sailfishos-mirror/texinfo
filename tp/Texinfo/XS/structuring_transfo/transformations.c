@@ -689,6 +689,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
 
       free (normalized);
       destroy_element (node_line_arg);
+      destroy_element (arguments_line);
       if (appended_text)
         destroy_element (appended_text);
       destroy_element (node);
