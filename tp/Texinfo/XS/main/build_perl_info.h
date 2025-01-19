@@ -89,6 +89,8 @@ SV *build_sv_option (const OPTION *option, CONVERTER *converter);
 SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
                                         CONVERTER *converter);
 
+SV *build_sv_converter_info_from_converter_initialization_info
+       (const CONVERTER_INITIALIZATION_INFO *conf, CONVERTER *converter);
 void pass_generic_converter_to_converter_sv (SV *converter_sv,
                                              const CONVERTER *converter);
 void pass_output_unit_files (SV *converter_sv,

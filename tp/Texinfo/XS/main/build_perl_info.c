@@ -57,7 +57,7 @@
 #include "option_types.h"
 /* for GLOBAL_INFO ERROR_MESSAGE CL_* */
 #include "document_types.h"
-/* CONVERTER sv_string_type */
+/* CONVERTER sv_string_type CONVERTER_INITIALIZATION_INFO */
 #include "converter_types.h"
 /* non_perl_* */
 #include "xs_utils.h"
@@ -3118,6 +3118,35 @@ build_deprecated_directories (
                     reference_dir_sv, 0);
     }
   return deprecated_directories_hv;
+}
+
+/* Build a converter info hash reference based on CONF */
+SV *
+build_sv_converter_info_from_converter_initialization_info
+  (const CONVERTER_INITIALIZATION_INFO *conf, CONVERTER *converter)
+{
+  SV *result;
+  HV *deprecated_directories_hv;
+  HV *translated_commands_hv;
+  HV *result_hv;
+
+  dTHX;
+
+  result = build_sv_options_from_options_list (&conf->conf, converter);
+
+  result_hv = (HV *) SvRV (result);
+#define STORE(key, sv) hv_store (result_hv, key, strlen (key), sv, 0);
+  translated_commands_hv
+    = build_translated_commands (&conf->translated_commands);
+  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
+
+  deprecated_directories_hv
+    = build_deprecated_directories (&conf->deprecated_config_directories);
+  STORE("deprecated_config_directories",
+        newRV_noinc ((SV *) deprecated_directories_hv));
+#undef STORE
+
+  return result;
 }
 
 void

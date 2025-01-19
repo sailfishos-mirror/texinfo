@@ -155,16 +155,15 @@ CONVERTER *
 call_module_converter (const char *module_name,
                        const CONVERTER_INITIALIZATION_INFO *conf)
 {
-  SV *options_list_sv;
+  SV *converter_info_sv;
   int count;
   CONVERTER *result;
   SV *result_sv;
 
   dTHX;
 
-  /* TODO add a function to build from CONVERTER_INITIALIZATION_INFO */
-  options_list_sv
-    = build_sv_options_from_options_list (&conf->conf, 0);
+  converter_info_sv
+    = build_sv_converter_info_from_converter_initialization_info (conf, 0);
 
   dSP;
 
@@ -174,10 +173,10 @@ call_module_converter (const char *module_name,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  SvREFCNT_inc (options_list_sv);
+  SvREFCNT_inc (converter_info_sv);
 
   PUSHs(sv_2mortal (newSVpv (module_name, 0)));
-  PUSHs(sv_2mortal (options_list_sv));
+  PUSHs(sv_2mortal (converter_info_sv));
   PUTBACK;
 
   count = call_method ("converter",
