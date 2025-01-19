@@ -2585,21 +2585,12 @@ sub _next_text($;$)
           # Done differently for the file names in source_info
           # which are byte strings and end up unmodified in output error
           # messages.
-          my $file_name_encoding;
-          # FIXME 'file_name_encoding' should always be defined, as
+          # 'file_name_encoding' should always be defined, as
           # it comes from 'input_file_encoding' which is always
-          # defined, possibly to the default value, so the following
-          # condition should always be true.
-          if (defined($input->{'file_name_encoding'})) {
-            $file_name_encoding = $input->{'file_name_encoding'};
-          } else {
-            $file_name_encoding = $self->{'conf'}->{'COMMAND_LINE_ENCODING'};
-          }
-          my $decoded_file_name = $input->{'input_file_path'};
-          if (defined($file_name_encoding)) {
-            $decoded_file_name = decode($file_name_encoding,
+          # defined, possibly to the default value.
+          my $file_name_encoding = $input->{'file_name_encoding'};
+          my $decoded_file_name = decode($file_name_encoding,
                                         $input->{'input_file_path'});
-          }
           $self->{'document'}->{'parser_registrar'}->document_warn(
                                sprintf(__("error on closing %s: %s"),
                                        $decoded_file_name, $!),
@@ -3813,7 +3804,7 @@ sub _end_line_misc_line($$$)
             $input_encoding = lc($Encode_encoding_object->mime_name());
           }
 
-          if (!$perl_encoding) {
+          if (!defined($perl_encoding)) {
             $self->_command_warn($current,
                  __("unhandled encoding name `%s'"), $text);
           } else {

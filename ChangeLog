@@ -1,5 +1,13 @@
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_next_text): simplify code, as
+	$input->{'file_name_encoding'} should always be set.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line_misc_line): call defined
+	explicitly.
+
+2025-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi, tp/Texinfo/Common.pm, tp/Texinfo/Config.pm:
 	remove texinfo_add_valid_customization_option and
 	add_valid_customization_option.  Remove already @ignore'd text in
