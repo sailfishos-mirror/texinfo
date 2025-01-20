@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-15.19}
+\def\texinfoversion{2025-01-20.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -958,6 +958,10 @@ where each line of input produces a line of output.}
   \ifx\byeerror\relax\else\errmessage{\byeerror}\fi
   \tracingstats=1\ptexend}
 
+% set in \donoderef below, but we need to define this here so that
+% conditionals balance inside the large \ifpdf ... \fi blocks below.
+\newif\ifnodeseen
+\nodeseenfalse
 
 \message{pdf,}
 % adobe `portable' document format
@@ -1453,6 +1457,7 @@ output) for that.)}
   }
   %
   \def\pdfmakeoutlines{%
+    \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
     \begingroup
       % Read toc silently, to get counts of subentries for \pdfoutline.
       \def\partentry##1##2##3##4{}% ignore parts in the outlines
@@ -1535,6 +1540,10 @@ output) for that.)}
       \catcode`\\=\active \otherbackslash
       \input \tocreadfilename
     \endgroup
+    \ifnodeseen \dopdfoutlinecontents \fi % for @contents at end
+  }
+  \def\dopdfoutlinecontents{%
+    \expandafter\dopdfoutline\expandafter{\putwordTOC}{}{txi.CONTENTS}{}%
   }
   {\catcode`[=1 \catcode`]=2
    \catcode`{=\other \catcode`}=\other
@@ -1744,6 +1753,7 @@ output) for that.)}
   %
   \def\pdfmakeoutlines{%
     \begingroup
+      \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
       %
       % For XeTeX, counts of subentries are not necessary.
       % Therefore, we read toc only once.
@@ -1788,8 +1798,13 @@ output) for that.)}
       \def\{{\lbracecharliteral}%
       \def\}{\rbracecharliteral}%
       \catcode`\\=\active \otherbackslash
-      \input \tocreadfilename
+      \input \tocreadfilename\relax
+      \ifnodeseen \dopdfoutlinecontents \fi % for @contents at end
     \endgroup
+  }
+  \def\dopdfoutlinecontents{%
+    \expandafter\dopdfoutline\expandafter
+      {\putwordTOC}{1}{txi.CONTENTS}{txi.CONTENTS}%
   }
   {\catcode`[=1 \catcode`]=2
    \catcode`{=\other \catcode`}=\other
@@ -6891,12 +6906,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % Prepare to read what we've written to \tocfile.
 %
-\def\startcontents#1{%
+\def\startcontents#1#2{%
   % If @setchapternewpage on, and @headings double, the contents should
   % start on an odd page, unlike chapters.
   \contentsalignmacro
   \immediate\closeout\tocfile
   %
+  #2%
   % Don't need to put `Contents' or `Short Contents' in the headline.
   % It is abundantly clear what they are.
   \chapmacro{#1}{Yomitfromtoc}{}%
@@ -6927,7 +6943,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Normal (long) toc.
 %
 \def\contents{%
-  \startcontents{\putwordTOC}%
+  \startcontents{\putwordTOC}{\contentsmkdest}%
     \openin 1 \tocreadfilename\space
     \ifeof 1 \else
       \findsecnowidths
@@ -6943,9 +6959,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \contentsendroman
 }
 
+\def\contentsmkdest{%
+  \pdfmkdest{txi.CONTENTS}%
+}
+
 % And just the chapters.
 \def\summarycontents{%
-  \startcontents{\putwordShortTOC}%
+  \startcontents{\putwordShortTOC}{}%
     %
     \let\partentry = \shortpartentry
     \let\numchapentry = \shortchapentry
@@ -8928,7 +8948,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \ifx\lastnode\empty\else
     \setref{\lastnode}{#1}%
     \global\let\lastnode=\empty
+    \setnodeseenonce
   \fi
+}
+\def\setnodeseenonce{
+  \global\nodeseentrue
+  \let\setnodeseenonce\relax
 }
 
 % @nodedescription, @nodedescriptionblock - do nothing for TeX

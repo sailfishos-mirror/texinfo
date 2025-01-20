@@ -1,3 +1,17 @@
+2025-01-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Contents in PDF outline.
+
+	* doc/texinfo.tex (\pdfmakoutlines) [pdftex, luatex, xetex]:
+	Output entry for table of contents, either at beginning or at
+	the end of the PDF outline.
+	(\contents, \startcontents): Output PDF anchor.
+	(\donoderef): Record that a node has been seen so that if @contents
+	is seen, we can assume it is at the end of the document rather than
+	at the beginning.
+
+	Suggestion from Werner.
+
 2025-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/main/build_perl_info.c
