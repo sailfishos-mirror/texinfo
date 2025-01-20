@@ -1,3 +1,8 @@
+2025-01-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/Makefile.am (libtexinfo_main_la_LDFLAGS): remove
+	linking flags not needed for libtexinfo_main.
+
 2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	info: reduce use of variables for translated strings

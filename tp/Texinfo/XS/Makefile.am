@@ -270,7 +270,7 @@ libtexinfo_la_SOURCES = \
 noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 
 # api_to_perl.c and call_perl_function.c functions are called in other
-# parts of the libtexinfo code and need to be compiled against Perl
+# parts of the libtexinfo code and need to be compiled with Perl headers
 libcallperl_libtexinfo_la_SOURCES = \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
@@ -516,11 +516,14 @@ C_libtexinfo_convert_sources = \
                        convert/rawtext_converter_api.c \
                        convert/rawtext_converter_api.h
 
-# convenience library for C Perl called from libtexinfo-convert C code,
-# call_html_perl_function.c, to be able to have different flags from
-# libtexinfo-convert, to avoid Gnulib flags.  Internal for libtexinfo-convert.
+# convenience library compiled with Perl headers, separate to be able to
+# have different flags from libtexinfo-convert, to avoid Gnulib flags.
+# Internal for libtexinfo-convert.
+# call_html_perl_function.c code is called from libtexinfo-convert C code.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
-# call_conversion_perl.c is also included.
+# call_conversion_perl.c is also included although it is not directly used,
+# to have it in a library and not in libtexinfo-main where different flags
+# (for embedding Perl) are used for the Perl part.
 if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
 endif
@@ -635,14 +638,14 @@ ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 # hide some details from the main program.
 
 # TODO could also be a convenience library or maybe always linked directly in
-# the main programs, as there is no shared state with modules.
+# the main programs, as there is no shared state among modules.
 
 # NOTE we build libtexinfo-main.la even if PERL_EMBEDDED is not set as some
-# code in libtexinfo-main (the texinfo.c part) do not directly need a Perl
-# interpreter.  In that case, there will not be any interpreter loaded by the
-# library and the library will lack all the features involving the interpreter,
-# may not load if libperl is no already loaded in memory when the library is
-# loaded (and could crash?).  Testing this configuration is not easy as
+# code in libtexinfo-main do not directly need a Perl interpreter.
+# In that case, the library does not load an interpreter and will lack
+# all the features involving the interpreter, may not load if libperl is
+# not already loaded in memory when the library is loaded (and could
+# crash?).  Testing this configuration is not easy as
 # ctexi2any cannot be built in that situation.
 
 if HAVE_ICONV
@@ -654,7 +657,7 @@ C_libtexinfo_main_sources = \
                        convert/texinfo.h
 
 # convenience library for embedded Perl called from libtexinfo-main C code,
-# to be able to specific flags for compilation and linking different from
+# to be able to use specific flags for compilation and linking different from
 # other libraries with code including Perl headers, and without Gnulib.
 # Internal for libtexinfo-main.
 if HAVE_ICONV
@@ -671,18 +674,18 @@ else
 libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
 endif
 
-#libperlembed_libtexinfo_main_la_CPPFLAGS = 
-libperlembed_libtexinfo_main_la_CFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
-# there are some duplications between LDFLAGS and LIBADD,
-# namely ccdlflags should be in both.  This is mainly because program-specific
-# linker flags that should be in LDFLAGS according to the automake
-# documentation are in PERL_EXTUTILS_EMBED_ldopts.  It should not be
-# problematic.
+# ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS.
+libperlembed_libtexinfo_main_la_CPPFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
+#libperlembed_libtexinfo_main_la_CFLAGS =
+# In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
+# LDFLAGS (program-specific linker flags according to the automake
+# documentation) or LIBADD (linked libraries flags) are mixed.
+# Since we also set LDFLAGS to be the Perl linking flags these
+# flags are duplicated.
 if PERL_EMBEDDED
 libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
 endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
-
 
 libtexinfo_main_la_SOURCES = \
    $(C_libtexinfo_main_sources)
@@ -693,12 +696,14 @@ libtexinfo_main_la_SOURCES = \
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
 if PERL_EMBEDDED
+# in LIBADD and not LDFLAGS to have the libraries link flags at the end,
+# otherwise the link fails.  There is a duplication with flags in
+# $(perl_conf_LDFLAGS) used in libtexinfo_main_la_LDFLAGS.
 libtexinfo_main_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
 endif
-# FIXME are $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) needed?
-libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
-#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 
 ############################################### main program in C
@@ -733,7 +738,8 @@ ctexi2any_SOURCES = \
 # on LDADD.  We favor LDADD otherwise linking fails.
 # Gnulib is directly needed on some platforms for getopt-gnu
 ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
-# FIXME needed?
+# Most likely unneeded, libtool shall add the needed flags specified for
+# .la linking when linking the program
 #ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
