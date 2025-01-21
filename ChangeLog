@@ -1,3 +1,7 @@
+2025-01-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tp/texi2any.pl (makeinfo_help): remove obsolete comment.
+
 2025-01-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Contents in PDF outline.

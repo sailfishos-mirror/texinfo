@@ -967,8 +967,6 @@ sub _get_converter_default($)
   return undef;
 }
 
-# translation related todo to be done when the string change anyway to
-# avoid requiring translation
 sub makeinfo_help()
 {
   my $makeinfo_help =
