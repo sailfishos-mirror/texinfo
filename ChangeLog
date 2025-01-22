@@ -1,3 +1,7 @@
+2025-01-22  Karl Berry <karl@freefriends.org>
+
+	* doc/texinfo.texi: fix typos and other errors
+
 2025-01-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tp/texi2any.pl (makeinfo_help): remove obsolete comment.

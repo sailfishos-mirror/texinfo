@@ -1297,7 +1297,7 @@ Text ending the preamble
 @cindex Start of header line
 
 In Emacs, start- and end-of-header lines can be used to enclose commands that
-globally affect the document in the Texinfo preambule.  This allows you to
+globally affect the document in the Texinfo preamble.  This allows you to
 format only part of a Texinfo file for Info or printing.
 @xref{@code{texinfo-format} commands}.
 
@@ -1610,7 +1610,7 @@ right-hand side of the page.
 
 Texinfo also provides a second method for creating a title page.
 using typesetting commands that are not to be used in the main text.
-This method uses uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
+This method uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
 commands to generate a title page in which the words on the page are
 centered.
 
@@ -2772,7 +2772,7 @@ You can also use a @code{@@nodedescriptionblock} environment to
 provide a node description. This may be useful for longer descriptions.
 
 @command{texi2any} uses the content you provide with these commands
-when outputing menus for Info output format (and, optionally,
+when outputting menus for Info output format (and, optionally,
 for HTML).  @command{texi2any} uses the description after a menu
 entry for the node if it is generating the menu automatically, or
 if no description for the menu entry was provided in an explicit
@@ -4380,7 +4380,7 @@ Anchor names, node names and float labels may not conflict.  Anchors,
 nodes and float labels are
 given similar treatment in some ways; for example, the
 @code{goto-node} command takes either an anchor name or a node name as
-an argument.  (@xref{Go to node,,, info, Info}.).  Anchors names and float
+an argument.  (@xref{Go to node,,, info, Info}.).  Anchor names and float
 labels could also appear in menus (@pxref{Menus}) and node direction
 pointers (@pxref{Writing a Node}), although this is not recommended.
 
@@ -6645,7 +6645,7 @@ unless you have a good reason for it.  When processing with
 @file{texinfo.tex} only, you can obtain a similar effect with
 @samp{@@set dispenvsize small}, which uses a smaller font for
 @code{@@example} and other environments.  In HTML output, you can
-use CSS to change the font size of enviroments if needed; @pxref{HTML CSS}.
+use CSS to change the font size of environments if needed; @pxref{HTML CSS}.
 
 
 @node Lists and Tables
@@ -8020,7 +8020,7 @@ only one place to look.  Two or more source indices can be combined
 into one output index by using the @code{@@synindex} or
 @code{@@syncodeindex} commands (@pxref{Combining Indices}).
 
-Index entry commands based on the the two letter index names are also
+Index entry commands based on the two letter index names are also
 valid, for example @code{@@cpindex} can be used instead of @code{@@cindex}.
 
 
@@ -15913,7 +15913,7 @@ and the bullet symbol (@command{@@bullet@{@}}, becoming @samp{*}), rather
 than other Unicode sequences.  Off by default.
 
 @item ASCII_PUNCTUATION
-Avoid any unncessary or gratuitious non-ASCII, UTF-8 sequences in the
+Avoid any unnecessary or gratuitous non-ASCII, UTF-8 sequences in the
 output.  Implies both @code{ASCII_DASHES_AND_QUOTES} and @code{ASCII_GLYPH}
 and additionally affects the output of commands such as @code{@@samp} which
 output quotation marks.
@@ -16103,7 +16103,7 @@ with a direct access to the information at the Top node.
 For DocBook, @code{NO_TOP_NODE_OUTPUT} is set to true.  Setting
 @code{NO_TOP_NODE_OUTPUT} to false causes the Top node content to be
 output.  It is not recommended to output the Top node in DocBook as
-the title and copying informations are always output.  This option
+the title and copying texts are always output.  This option
 is kept for DocBook for compatibility, as before 2022 the Top node was output
 in DocBook.  It could be removed in the future.
 
@@ -17186,7 +17186,7 @@ that manual (@pxref{HTML Xref}).
 
 When splitting, the HTML output files are written into a subdirectory.  The
 subdirectory name is derived from the base name (that
-is, any extension is removed), with @code{_html} postpended. For example, HTML
+is, any extension is removed), with @code{_html} appended. For example, HTML
 output for @file{gcc.texi} would be written into a subdirectory
 named @samp{gcc_html/}.  The subdirectory name is based on @code{@@setfilename}
 or on the input file name (@pxref{Setting the Output File Name}).
@@ -17630,7 +17630,7 @@ how you run @command{texi2any}; the default is to split, with the
 @option{--no-split} option overriding this.
 
 By default, @command{texi2any} generates links to a referent manual using
-the same form as as the present manual: if the present manual is generated
+the same form as the present manual: if the present manual is generated
 as split, then links to other manuals are to their split forms by default;
 likewise for mono output.
 
@@ -18122,7 +18122,7 @@ to @samp{after_title}.
 To output the table of contents at the end of the document or to a separate
 file, if output is split, set @code{CONTENTS_OUTPUT_LOCATION}
 to @samp{separate_element}.  You can also set
-@code{CONTENTS_OUTPUT_LOCATION} to @samp{inline}: in this case, the
+@code{CONTENTS_OUTPUT_LOCATION} to @samp{inline}: in this case,
 the tables of contents are output where
 the corresponding @@-command, for example @code{@@contents}, is used.
 
