@@ -1,5 +1,9 @@
 2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/txi-cs.tex: recode from ISO-8859-2 to UTF-8
+
+2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/main/translations.c (switch_messages_locale):
 	Check if locale name begins with "C." to exclude "C.UTF-8" locale
 	where translations are also disabled.
