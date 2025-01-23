@@ -1174,45 +1174,25 @@ Texinfo home page: https://www.gnu.org/software/texinfo/"
 }
 
 
-/* Initialize strings for gettext.  Because gettext doesn't handle N_ or
-   _ within macro definitions, we put shared messages into variables and
-   use them that way.  This also has the advantage that there's only one
-   copy of the strings.  */
+/* Initialize strings for gettext.  This has the advantage that there's
+   only one copy of the strings.  */
 
 const char *msg_cant_find_node;
 const char *msg_cant_file_node;
-const char *msg_cant_find_window;
 const char *msg_cant_find_point;
-const char *msg_cant_kill_last;
 const char *msg_no_menu_node;
-const char *msg_no_foot_node;
 const char *msg_no_xref_node;
-const char *msg_no_pointer;
-const char *msg_unknown_command;
-const char *msg_term_too_dumb;
-const char *msg_at_node_bottom;
-const char *msg_at_node_top;
 const char *msg_one_window;
 const char *msg_win_too_small;
-const char *msg_cant_make_help;
 
 static void
 init_messages (void)
 {
   msg_cant_find_node   = _("Cannot find node '%s'");
   msg_cant_file_node   = _("Cannot find node '(%s)%s'");
-  msg_cant_find_window = _("Cannot find a window!");
   msg_cant_find_point  = _("Point doesn't appear within this window's node!");
-  msg_cant_kill_last   = _("Cannot delete the last window");
   msg_no_menu_node     = _("No menu in this node");
-  msg_no_foot_node     = _("No footnotes in this node");
   msg_no_xref_node     = _("No cross references in this node");
-  msg_no_pointer       = _("No '%s' pointer for this node");
-  msg_unknown_command  = _("Unknown Info command '%c'; try '?' for help");
-  msg_term_too_dumb    = _("Terminal type '%s' is not smart enough to run Info");
-  msg_at_node_bottom   = _("You are already at the last page of this node");
-  msg_at_node_top      = _("You are already at the first page of this node");
   msg_one_window       = _("Only one window");
   msg_win_too_small    = _("Resulting window would be too small");
-  msg_cant_make_help   = _("Not enough room for a help window, please delete a window");
 }

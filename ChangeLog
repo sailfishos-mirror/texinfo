@@ -1,5 +1,17 @@
 2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info: reduce use of variables for translated strings
+
+	* info/info.c
+	(msg_cant_find_window, msg_cant_kill_last, msg_no_foot_node)
+	(msg_no_pointer, msg_unknown_command, msg_term_too_dumb)
+	(msg_at_node_bottom, msg_at_node_top, msg_cant_make_help):
+	Remove.  All uses updated.  Reduce comment saying such variables
+	are need because of a gettext limitation, as this does not appear
+	to be true now.
+
+2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Translations.pm (_switch_messages_locale):
 	Also exclude "C.UTF-8" (matching C code).
 

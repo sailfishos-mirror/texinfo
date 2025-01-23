@@ -122,20 +122,11 @@ extern int raw_escapes_p;
 /* Error message defines. */
 extern const char *msg_cant_find_node;
 extern const char *msg_cant_file_node;
-extern const char *msg_cant_find_window;
 extern const char *msg_cant_find_point;
-extern const char *msg_cant_kill_last;
 extern const char *msg_no_menu_node;
-extern const char *msg_no_foot_node;
 extern const char *msg_no_xref_node;
-extern const char *msg_no_pointer;
-extern const char *msg_unknown_command;
-extern const char *msg_term_too_dumb;
-extern const char *msg_at_node_bottom;
-extern const char *msg_at_node_top;
 extern const char *msg_one_window;
 extern const char *msg_win_too_small;
-extern const char *msg_cant_make_help;
 
 
 /* In infopath.c, but also used in man.c. */

@@ -264,7 +264,7 @@ DECLARE_INFO_COMMAND (info_show_footnotes,
     switch (info_get_or_remove_footnotes (window))
       {
       case FN_UNFOUND:
-        info_error ("%s", msg_no_foot_node);
+        info_error ("%s", _("No footnotes in this node"));
         break;
 
       case FN_UNABLE:

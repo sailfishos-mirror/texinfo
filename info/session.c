@@ -145,7 +145,7 @@ begin_multiple_window_info_session (REFERENCE **references, char *error)
           if (!largest)
             {
               display_update_display ();
-              info_error ("%s", msg_cant_find_window);
+              info_error ("%s", _("Cannot find a window!"));
               return;
             }
 
@@ -282,7 +282,8 @@ initialize_info_session (void)
     {
       /* Terminal too dumb to run interactively. */
       char *term_name = getenv ("TERM");
-      info_error (msg_term_too_dumb, term_name);
+      info_error (_("Terminal type '%s' is not smart enough to run Info"),
+                  term_name);
       exit (EXIT_FAILURE);
     }
 
@@ -1946,7 +1947,7 @@ DECLARE_INFO_COMMAND (info_split_window, _("Split the current window"))
 DECLARE_INFO_COMMAND (info_delete_window, _("Delete the current window"))
 {
   if (!windows->next)
-    info_error ("%s", msg_cant_kill_last);
+    info_error ("%s", _("Cannot delete the last window"));
   else if (window->flags & W_WindowIsPerm)
     info_error ("%s", _("Cannot delete a permanent window"));
   else
@@ -2955,7 +2956,7 @@ info_handle_pointer (const char *label, WINDOW *window)
 
   if (!description)
     {
-      info_error (msg_no_pointer, label);
+      info_error (_("No '%s' pointer for this node"), label);
       return 0;
     }
 
@@ -3095,7 +3096,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
   switch (behaviour)
     {
     case IS_PageOnly:
-      info_error ("%s", msg_at_node_bottom);
+      info_error ("%s", _("You are already at the last page of this node"));
       return 1;
 
     case IS_NextOnly:
@@ -3211,7 +3212,7 @@ backward_move_node_structure (WINDOW *window, int behaviour)
   switch (behaviour)
     {
     case IS_PageOnly:
-      info_error ("%s", msg_at_node_top);
+      info_error ("%s", _("You are already at the first page of this node"));
       return 1;
 
     case IS_NextOnly:

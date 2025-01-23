@@ -300,7 +300,8 @@ info_find_or_create_help_window (void)
 
       if (!eligible)
         {
-          info_error ("%s", msg_cant_make_help);
+          info_error ("%s",
+            _("Not enough room for a help window, please delete a window"));
           return NULL;
         }
     }
