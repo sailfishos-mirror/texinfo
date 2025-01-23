@@ -1,5 +1,10 @@
 2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Translations.pm (_switch_messages_locale):
+	Also exclude "C.UTF-8" (matching C code).
+
+2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/txi-cs.tex: recode from ISO-8859-2 to UTF-8
 
 2025-01-23  Gavin Smith <gavinsmith0123@gmail.com>

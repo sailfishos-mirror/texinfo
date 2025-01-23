@@ -140,14 +140,15 @@ sub _switch_messages_locale
     my @local_command_locales = split("\n", `$locale_command`);
     if ($? == 0) {
       foreach my $try (@local_command_locales) {
-        next if $try eq 'C' or $try eq 'POSIX';
+        # Exclude "C", "C.UTF-8" (or similar) and "POSIX"
+        next if $try eq 'C' or $try eq 'POSIX' or $try =~ /^C\./;
         $locale = POSIX::setlocale(LC_MESSAGES, $try);
         last if $locale;
       }
     }
   }
   if ($locale) {
-    if ($locale ne 'C' and $locale ne 'POSIX') {
+    if ($locale ne 'C' and $locale ne 'POSIX' and $locale !~ /^C\./) {
       $working_locale = $locale;
     } elsif (!defined($working_locale)) {
       # There is no access to converter/document/... so the warning
