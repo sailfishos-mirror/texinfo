@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-01-23 21:47+0000\n"
+"POT-Creation-Date: 2025-01-23 22:04+0000\n"
 "PO-Revision-Date: 2024-12-17 13:14+0100\n"
 "Last-Translator: Marek Felšöci <marek@felsoci.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: info/echo-area.c:290 info/session.c:1384
+#: info/echo-area.c:290 info/session.c:1385
 msgid "Move forward a character"
 msgstr "Posunúť sa o znak dopredu"
 
-#: info/echo-area.c:309 info/session.c:1397
+#: info/echo-area.c:309 info/session.c:1398
 msgid "Move backward a character"
 msgstr "Posunúť sa o znak dozadu"
 
@@ -35,11 +35,11 @@ msgstr "Presunúť sa na začiatok tohto riadku"
 msgid "Move to the end of this line"
 msgstr "Presunúť sa na koniec tohto riadku"
 
-#: info/echo-area.c:348 info/session.c:1412
+#: info/echo-area.c:348 info/session.c:1413
 msgid "Move forward a word"
 msgstr "Posunúť sa o slovo dopredu"
 
-#: info/echo-area.c:388 info/session.c:1426
+#: info/echo-area.c:388 info/session.c:1427
 msgid "Move backward a word"
 msgstr "Posunúť sa o slovo dozadu"
 
@@ -160,6 +160,10 @@ msgstr "Poznámky pod čiarou sa nepodarilo zobraziť"
 msgid "Show the footnotes associated with this node in another window"
 msgstr "Zobraziť poznámky pod čiarou súvisiace s týmto uzlom v novom okne"
 
+#: info/footnotes.c:267
+msgid "No footnotes in this node"
+msgstr "Žiadne poznámky pod čiarou v tomto uzle"
+
 #: info/footnotes.h:24
 msgid "---------- Footnotes ----------"
 msgstr "---------- Poznámky pod čiarou ----------"
@@ -264,12 +268,12 @@ msgstr "Žiadne položky registra obsahujúce „%s“."
 msgid "No available info files have '%s' in their indices"
 msgstr "Žiadny z dostupných info súborov nemá medzi položkami registra „%s“"
 
-#: info/info.c:291 info/session.c:2810
+#: info/info.c:291 info/session.c:2811
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Položka „%s“ sa v uzle „%s“ nenachádza"
 
-#: info/info.c:428 info/info.c:1202
+#: info/info.c:428 info/info.c:1191
 #, c-format
 msgid "Cannot find node '%s'"
 msgstr "Nepodarilo sa nájsť uzol „%s“"
@@ -489,70 +493,30 @@ msgstr ""
 "  info -f ./hruska.info        zobraziť súbor „./hruska.info“, nevyhľadávať "
 "v dir"
 
-#: info/info.c:1203
+#: info/info.c:1192
 #, c-format
 msgid "Cannot find node '(%s)%s'"
 msgstr "Nedá sa nájsť uzol „(%s)%s“"
 
-#: info/info.c:1204
-msgid "Cannot find a window!"
-msgstr "Nedá sa nájsť žiadne okno!"
-
-#: info/info.c:1205
+#: info/info.c:1193
 msgid "Point doesn't appear within this window's node!"
 msgstr "Bod sa nevyskytuje vrámci uzla tohto okna!"
 
-#: info/info.c:1206
-msgid "Cannot delete the last window"
-msgstr "Nedá sa odstrániť posledné okno"
-
-#: info/info.c:1207
+#: info/info.c:1194
 msgid "No menu in this node"
 msgstr "Žiadna ponuka v tomto uzle"
 
-#: info/info.c:1208
-msgid "No footnotes in this node"
-msgstr "Žiadne poznámky pod čiarou v tomto uzle"
-
-#: info/info.c:1209
+#: info/info.c:1195
 msgid "No cross references in this node"
 msgstr "Žiadne krížové odkazy v tomto uzle"
 
-#: info/info.c:1210
-#, c-format
-msgid "No '%s' pointer for this node"
-msgstr "Niet ukazovateľa „%s“ pre tento uzol"
-
-#: info/info.c:1211
-#, c-format
-msgid "Unknown Info command '%c'; try '?' for help"
-msgstr "Neznámy Info príkaz „%c“; skúste zistiť viac pomocou „?“"
-
-#: info/info.c:1212
-#, c-format
-msgid "Terminal type '%s' is not smart enough to run Info"
-msgstr ""
-"Druh príkazového riadka „%s“ nie je dosť vyspelý na prevádzku programu Info"
-
-#: info/info.c:1213
-msgid "You are already at the last page of this node"
-msgstr "Už ste na poslednej stránke tohto uzla"
-
-#: info/info.c:1214
-msgid "You are already at the first page of this node"
-msgstr "Už ste na prvej stránke tohto uzla"
-
-#: info/info.c:1215
+#: info/info.c:1196
 msgid "Only one window"
 msgstr "Iba jedno okno"
 
-#: info/info.c:1216
+#: info/info.c:1197
 msgid "Resulting window would be too small"
 msgstr "Výsledné okno by bolo primalé"
-
-#: info/info.c:1217
-msgid "Not enough room for a help window, please delete a window"
-msgstr "Nie je dosť miesta pre okno pomocníka, odstráňte, prosím, nejaké okno"
 
 #: info/infodoc.c:40
 msgid "Basic Info command keys\n"
@@ -741,52 +705,56 @@ msgid ""
 "\n"
 msgstr "Nastaviť premennú: "
 
-#: info/infodoc.c:346
+#: info/infodoc.c:304
+msgid "Not enough room for a help window, please delete a window"
+msgstr "Nie je dosť miesta pre okno pomocníka, odstráňte, prosím, nejaké okno"
+
+#: info/infodoc.c:347
 msgid "Display help message"
 msgstr "Zobraziť nápovedu"
 
-#: info/infodoc.c:359
+#: info/infodoc.c:360
 msgid "Visit Info node '(info)Help'"
 msgstr "Navštíviť Info uzol „(info)Help“"
 
-#: info/infodoc.c:462
+#: info/infodoc.c:463
 msgid "Print documentation for KEY"
 msgstr "Zobraziť pomocníka pre KLÁVESU"
 
-#: info/infodoc.c:473
+#: info/infodoc.c:474
 #, c-format
 msgid "Describe key: %s"
 msgstr "Popísať klávesu: %s"
 
-#: info/infodoc.c:484 info/infodoc.c:520
+#: info/infodoc.c:485 info/infodoc.c:521
 #, c-format
 msgid "%s is undefined"
 msgstr "%s nebola pridelená"
 
-#: info/infodoc.c:815
+#: info/infodoc.c:816
 msgid "Show what to type to execute a given command"
 msgstr "Zistiť, čo treba zadať pre vykonanie určitého príkazu"
 
-#: info/infodoc.c:819
+#: info/infodoc.c:820
 msgid "Where is command: "
 msgstr "Kde je príkaz: "
 
-#: info/infodoc.c:841
+#: info/infodoc.c:842
 #, c-format
 msgid "'%s' is not on any keys"
 msgstr "„%s“ nemá žiadnu klávesovú skratku"
 
-#: info/infodoc.c:847
+#: info/infodoc.c:848
 #, c-format
 msgid "%s can only be invoked via %s"
 msgstr "%s možno vyvolať len pomocou %s"
 
-#: info/infodoc.c:851
+#: info/infodoc.c:852
 #, c-format
 msgid "%s can be invoked via %s"
 msgstr "%s možno vyvolať pomocou %s"
 
-#: info/infodoc.c:856
+#: info/infodoc.c:857
 #, c-format
 msgid "There is no function named '%s'"
 msgstr "Funkcia s názvom „%s“ nejestvuje"
@@ -979,6 +947,10 @@ msgstr "Zobraziť všetky zodpovedajúce súbory"
 msgid "No file index"
 msgstr "Súbor nemá register"
 
+#: info/session.c:148
+msgid "Cannot find a window!"
+msgstr "Nedá sa nájsť žiadne okno!"
+
 #. TRANSLATORS: Try to keep this message (when "expanded") at most 79
 #. characters; anything after the 79th character will not actually be
 #. displayed on an 80-column terminal.
@@ -992,66 +964,72 @@ msgstr ""
 "info-help-node]\n"
 "vyvolá príručku."
 
-#: info/session.c:1263
+#: info/session.c:285
+#, c-format
+msgid "Terminal type '%s' is not smart enough to run Info"
+msgstr ""
+"Druh príkazového riadka „%s“ nie je dosť vyspelý na prevádzku programu Info"
+
+#: info/session.c:1264
 msgid "Move down to the next line"
 msgstr "Posunúť sa o riadok nižšie"
 
-#: info/session.c:1281
+#: info/session.c:1282
 msgid "Move up to the previous line"
 msgstr "Posunúť sa o riadok vyššie"
 
-#: info/session.c:1300
+#: info/session.c:1301
 msgid "Move the cursor to a specific line of the window"
 msgstr "Presunúť kurzor na určitý riadok v okne"
 
-#: info/session.c:1332
+#: info/session.c:1333
 msgid "Move to the end of the line"
 msgstr "Presunúť sa na koniec riadku"
 
-#: info/session.c:1357
+#: info/session.c:1358
 msgid "Move to the start of the line"
 msgstr "Presunúť sa na začiatok riadku"
 
-#: info/session.c:1441
+#: info/session.c:1442
 msgid "Move to the start of this node"
 msgstr "Presunúť sa na začiatok tohto uzla"
 
-#: info/session.c:1448
+#: info/session.c:1449
 msgid "Move to the end of this node"
 msgstr "Presunúť sa na koniec tohto uzla"
 
-#: info/session.c:1539
+#: info/session.c:1540
 msgid "Scroll forward in this window"
 msgstr "Posunúť sa ďalej v tomto okne"
 
-#: info/session.c:1553
+#: info/session.c:1554
 msgid "Scroll backward in this window"
 msgstr "Posunúť sa naspäť v tomto okne"
 
-#: info/session.c:1561
+#: info/session.c:1562
 msgid "Scroll forward in this window and set default window size"
 msgstr "Posunúť sa ďalej v tomto okne a nastaviť predvolenú veľkosť okna"
 
-#: info/session.c:1576
+#: info/session.c:1577
 msgid "Scroll backward in this window and set default window size"
 msgstr "Posunúť sa naspäť v tomto okne a nastaviť predvolenú veľkosť okna"
 
-#: info/session.c:1582
+#: info/session.c:1583
 msgid "Scroll forward in this window staying within node"
 msgstr "Posunúť sa ďalej v tomto okne zotrvajúc vrámci uzla"
 
-#: info/session.c:1597
+#: info/session.c:1598
 msgid "Scroll backward in this window staying within node"
 msgstr "Posunúť sa naspäť v tomto okne zotrvajúc vrámci uzla"
 
-#: info/session.c:1605
+#: info/session.c:1606
 msgid ""
 "Scroll forward in this window staying within node and set default window size"
 msgstr ""
 "Posunúť sa ďalej v tomto okne zotrvajúc v rámci uzla a nastaviť predvolenú "
 "veľkosť okna"
 
-#: info/session.c:1632
+#: info/session.c:1633
 msgid ""
 "Scroll backward in this window staying within node and set default window "
 "size"
@@ -1059,71 +1037,75 @@ msgstr ""
 "Posunúť sa naspäť v tomto okne zotrvajúc v rámci uzla a nastaviť predvolenú "
 "veľkosť okna"
 
-#: info/session.c:1638
+#: info/session.c:1639
 msgid "Scroll down by lines"
 msgstr "Posunúť sa o niekoľko riadkov nadol"
 
-#: info/session.c:1644
+#: info/session.c:1645
 msgid "Scroll up by lines"
 msgstr "Posunúť sa o niekoľko riadkov nahor"
 
-#: info/session.c:1656
+#: info/session.c:1657
 msgid "Scroll down by half screen size"
 msgstr "Posunúť sa o polovicu veľkosti okna nadol"
 
-#: info/session.c:1683
+#: info/session.c:1684
 msgid "Scroll up by half screen size"
 msgstr "Posunúť sa o polovicu veľkosti okna nahor"
 
-#: info/session.c:1689
+#: info/session.c:1690
 msgid "Scroll the other window"
 msgstr "Posunúť sa v druhom okne"
 
-#: info/session.c:1710
+#: info/session.c:1711
 msgid "Scroll the other window backward"
 msgstr "Posunúť sa naspäť v druhom okne"
 
-#: info/session.c:1820
+#: info/session.c:1821
 msgid "Select the next window"
 msgstr "Vybrať nasledujúce okno"
 
-#: info/session.c:1857
+#: info/session.c:1858
 msgid "Select the previous window"
 msgstr "Vybrať predchádzajúce okno"
 
-#: info/session.c:1901
+#: info/session.c:1902
 msgid "Split the current window"
 msgstr "Rozdeliť súčasné okno"
 
-#: info/session.c:1946
+#: info/session.c:1947
 msgid "Delete the current window"
 msgstr "Odstrániť súčasné okno"
 
-#: info/session.c:1951
+#: info/session.c:1950
+msgid "Cannot delete the last window"
+msgstr "Nedá sa odstrániť posledné okno"
+
+#: info/session.c:1952
 msgid "Cannot delete a permanent window"
 msgstr "Trvalé okno sa nedá odstrániť"
 
-#: info/session.c:1982
+#: info/session.c:1983
 msgid "Delete all other windows"
 msgstr "Odstrániť všetky ostatné okná"
 
-#: info/session.c:2028
+#: info/session.c:2029
 msgid "Grow (or shrink) this window"
 msgstr "Rozšíriť (alebo zúžiť) toto okno"
 
-#: info/session.c:2039
+#: info/session.c:2040
 msgid "Divide the available screen space among the visible windows"
 msgstr "Rozdeliť dostupné miesto na obrazovke medzi viditeľné okná"
 
-#: info/session.c:2046
+#: info/session.c:2047
 msgid "Toggle the state of line wrapping in the current window"
 msgstr "Prepnúť zalamovanie riadkov v súčasnom okne"
 
-#: info/session.c:2200
+#: info/session.c:2201
 msgid "Select this menu item"
 msgstr "Vybrať túto položku ponuky"
 
-#: info/session.c:2230
+#: info/session.c:2231
 #, c-format
 msgid "There isn't %d item in this menu"
 msgid_plural "There aren't %d items in this menu"
@@ -1131,415 +1113,428 @@ msgstr[0] "V tejto ponuke nie je %d položka"
 msgstr[1] "V tejto ponuke nie sú %d položky"
 msgstr[2] "V tejto ponuke nie je %d položiek"
 
-#: info/session.c:2239
+#: info/session.c:2240
 msgid "Select the last item in this node's menu"
 msgstr "Vybrať poslednú položku v ponuke tohto uzla"
 
-#: info/session.c:2343
+#: info/session.c:2344
 #, c-format
 msgid "Menu item (%s): "
 msgstr "Položka ponuky (%s): "
 
-#: info/session.c:2345
+#: info/session.c:2346
 msgid "Menu item: "
 msgstr "Položka ponuky: "
 
-#: info/session.c:2350
+#: info/session.c:2351
 #, c-format
 msgid "Follow xref (%s): "
 msgstr "Nasledovať krížový odkaz (%s): "
 
-#: info/session.c:2352
+#: info/session.c:2353
 msgid "Follow xref: "
 msgstr "Nasledovať krížový odkaz: "
 
-#: info/session.c:2429
+#: info/session.c:2430
 #, c-format
 msgid "The reference disappeared! (%s)"
 msgstr "Odkaz zmizol! (%s)"
 
-#: info/session.c:2441
+#: info/session.c:2442
 msgid "Read a menu item and select its node"
 msgstr "Prečítať položku ponuky a vybrať príslušný uzol"
 
-#: info/session.c:2466
+#: info/session.c:2467
 msgid "Read a footnote or cross reference and select its node"
 msgstr "Prečítať položku pod čiarou alebo odkaz a vybrať príslušný uzol"
 
-#: info/session.c:2489
+#: info/session.c:2490
 msgid "Move to the start of this node's menu"
 msgstr "Presunúť sa na začiatok ponuky tohto uzla"
 
-#: info/session.c:2527
+#: info/session.c:2528
 msgid "Visit as many menu items at once as possible"
 msgstr "Naraz navštíviť toľko položiek ponuky, koľko sa len dá"
 
-#: info/session.c:2630
+#: info/session.c:2631
 msgid "Move to the previous cross reference"
 msgstr "Presunúť sa na predchádzajúci krížový odkaz"
 
-#: info/session.c:2693
+#: info/session.c:2694
 msgid "Move to the next cross reference"
 msgstr "Presunúť sa na nasledujúci krížový odkaz"
 
-#: info/session.c:2754
+#: info/session.c:2755
 msgid "Select reference or menu item appearing on this line"
 msgstr "Vybrať odkaz alebo položku ponuky vyskytujúcu sa na tomto riadku"
 
-#: info/session.c:2788
+#: info/session.c:2789
 #, c-format
 msgid "No menu in node '%s'"
 msgstr "Uzol „%s“ nemá ponuku"
 
-#: info/session.c:2835
+#: info/session.c:2836
 #, c-format
 msgid "Unable to find node referenced by '%s' in '%s'"
 msgstr "Nepodarilo sa nájsť uzol, na ktorý odkazuje „%s“ v „%s“"
 
-#: info/session.c:2891
+#: info/session.c:2892
 msgid "Read a list of menus starting from dir and follow them"
 msgstr "Prečítať zoznam ponúk počínajúc dir a nasledovať ich"
 
-#: info/session.c:2893
+#: info/session.c:2894
 msgid "Follow menus: "
 msgstr "Nasledovať ponuky: "
 
-#: info/session.c:2997
+#: info/session.c:2959
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Niet ukazovateľa „%s“ pre tento uzol"
+
+#: info/session.c:2998
 msgid "Select the Next node"
 msgstr "Vybrať nasledujúci uzol"
 
-#: info/session.c:3004
+#: info/session.c:3005
 msgid "Select the Prev node"
 msgstr "Vybrať prechádzajúci uzol"
 
-#: info/session.c:3011
+#: info/session.c:3012
 msgid "Select the Up node"
 msgstr "Vybrať vrchný uzol"
 
-#: info/session.c:3017
+#: info/session.c:3018
 msgid "Select the last node in this file"
 msgstr "Vybrať posledný uzol v tomto súbore"
 
-#: info/session.c:3044 info/session.c:3077
+#: info/session.c:3045 info/session.c:3078
 msgid "This window has no additional nodes"
 msgstr "Toto okno nemá žiadne ďalšie uzly"
 
-#: info/session.c:3050
+#: info/session.c:3051
 msgid "Select the first node in this file"
 msgstr "Vybrať prvý uzol v tomto súbore"
 
-#: info/session.c:3184
+#: info/session.c:3099
+msgid "You are already at the last page of this node"
+msgstr "Už ste na poslednej stránke tohto uzla"
+
+#: info/session.c:3185
 msgid "No more nodes within this document"
 msgstr "V tomto dokumente už nie sú žiadne ďalšie uzly"
 
-#: info/session.c:3228 info/session.c:3275
+#: info/session.c:3215
+msgid "You are already at the first page of this node"
+msgstr "Už ste na prvej stránke tohto uzla"
+
+#: info/session.c:3229 info/session.c:3276
 msgid "No 'Prev' or 'Up' for this node within this document"
 msgstr ""
 "V tomto dokumente nie je pre tento uzol dostupný ani „Predchádzajúci“, ani "
 "„Hore“"
 
-#: info/session.c:3288
+#: info/session.c:3289
 msgid "Move forwards or down through node structure"
 msgstr "Posunúť sa dopredu alebo dole po kostre uzla"
 
-#: info/session.c:3305
+#: info/session.c:3306
 msgid "Move backwards or up through node structure"
 msgstr "Posunúť sa dozadu alebo hore po kostre uzla"
 
-#: info/session.c:3328
+#: info/session.c:3329
 msgid "Read a node name and select it"
 msgstr "Prečítať názov uzla a vybrať ho"
 
-#: info/session.c:3382 info/session.c:3386
+#: info/session.c:3383 info/session.c:3387
 msgid "Goto node: "
 msgstr "Ísť na uzol: "
 
-#: info/session.c:3565
+#: info/session.c:3566
 msgid "Find the node describing program invocation"
 msgstr "Nájsť uzol popisujúci vyvolanie programu"
 
-#: info/session.c:3567
+#: info/session.c:3568
 #, c-format
 msgid "Find Invocation node of [%s]: "
 msgstr "Nájsť vyvolávací uzol pre [%s]: "
 
-#: info/session.c:3611
+#: info/session.c:3612
 msgid "Read a manpage reference and select it"
 msgstr "Prečítať odkaz na stránku pomocníka a vybrať ho"
 
-#: info/session.c:3615
+#: info/session.c:3616
 msgid "Get Manpage: "
 msgstr "Získať stránku pomocníka: "
 
-#: info/session.c:3636
+#: info/session.c:3637
 msgid "Select the node 'Top' in this file"
 msgstr "Vybrať uzol „Hore“ v tomto súbore"
 
-#: info/session.c:3642
+#: info/session.c:3643
 msgid "Select the node '(dir)'"
 msgstr "Vybrať uzol „(dir)“"
 
-#: info/session.c:3648
+#: info/session.c:3649
 msgid "Show full file name of node being displayed"
 msgstr "Zobraziť úplný názov súbore pre práve zobrazený uzol"
 
-#: info/session.c:3665
+#: info/session.c:3666
 msgid "Select the most recently selected node"
 msgstr "Vybrať naposledy vybratý uzol"
 
-#: info/session.c:3670
+#: info/session.c:3671
 #, c-format
 msgid "No earlier node in history"
 msgstr "V histórii nie je žiadny predošlý uzol"
 
-#: info/session.c:3674
+#: info/session.c:3675
 msgid "Read the name of a file and select it"
 msgstr "Prečítať názov súboru a vybrať ho"
 
-#: info/session.c:3678
+#: info/session.c:3679
 msgid "Find file: "
 msgstr "Nájsť súbor: "
 
-#: info/session.c:3695
+#: info/session.c:3696
 #, c-format
 msgid "Cannot find '%s'"
 msgstr "Nepodarilo sa nájsť „%s“"
 
-#: info/session.c:3776
+#: info/session.c:3777
 #, c-format
 msgid "Could not create output file '%s'"
 msgstr "Nepodarilo sa vytvoriť výstupný súbor „%s“"
 
-#: info/session.c:3802
+#: info/session.c:3803
 #, c-format
 msgid "error writing to %s: %s"
 msgstr "chyba pri zapisovaní do %s: %s"
 
-#: info/session.c:3811
+#: info/session.c:3812
 #, c-format
 msgid "closing %s"
 msgstr "zatvára sa %s"
 
-#: info/session.c:3851
+#: info/session.c:3852
 #, c-format
 msgid "writing node %s..."
 msgstr "zapisuje sa uzol %s..."
 
-#: info/session.c:3897
+#: info/session.c:3898
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "Zreťaziť obsah tohto uzla cez INFO_PRINT_COMMAND"
 
-#: info/session.c:3925
+#: info/session.c:3926
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr "Nepodarilo sa otvoriť zreťazenie do „%s“"
 
-#: info/session.c:3930
+#: info/session.c:3931
 #, c-format
 msgid "printing node %s..."
 msgstr "zobrazuje sa uzol %s..."
 
-#: info/session.c:3938
+#: info/session.c:3939
 #, c-format
 msgid "finished printing node %s"
 msgstr "zobrazovanie uzla %s dokončené"
 
-#: info/session.c:3970
+#: info/session.c:3971
 msgid "Toggle the usage of regular expressions in searches"
 msgstr "Prepnúť používanie regulárnych výraz pri vyhľadávaní"
 
-#: info/session.c:3974
+#: info/session.c:3975
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr "Pri vyhľadávaní používať regulárne výrazy"
 
-#: info/session.c:3975
+#: info/session.c:3976
 #, c-format
 msgid "Using literal strings for searches"
 msgstr "Pri vyhľadávaní spracovávať reťazce doslovne"
 
-#: info/session.c:4178
+#: info/session.c:4179
 msgid "Search continued from the end of the document"
 msgstr "Vyhľadávanie pokračuje od konca dokumentu"
 
-#: info/session.c:4183
+#: info/session.c:4184
 msgid "Search continued from the beginning of the document"
 msgstr "Vyhľadávanie pokračuje od začiatku dokumentu"
 
-#: info/session.c:4200
+#: info/session.c:4201
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "Vyhľadáva sa v podsúbore %s ..."
 
-#: info/session.c:4241 info/session.c:4510 info/session.c:4623
+#: info/session.c:4242 info/session.c:4511 info/session.c:4624
 #, c-format
 msgid "Search failed"
 msgstr "Vyhľadávanie zlyhalo"
 
-#: info/session.c:4261
+#: info/session.c:4262
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s]: "
 
-#: info/session.c:4262 info/session.c:4268
+#: info/session.c:4263 info/session.c:4269
 msgid "Regexp search"
 msgstr "Vyhľadávanie pomocou regulárneho výrazu"
 
-#: info/session.c:4262 info/session.c:4268
+#: info/session.c:4263 info/session.c:4269
 msgid "Search"
 msgstr "Vyhľadať"
 
-#: info/session.c:4263 info/session.c:4269
+#: info/session.c:4264 info/session.c:4270
 msgid " case-sensitively"
 msgstr " rozlišovať malé a veľké písmená"
 
-#: info/session.c:4264 info/session.c:4270
+#: info/session.c:4265 info/session.c:4271
 msgid " backward"
 msgstr " dozadu"
 
-#: info/session.c:4267
+#: info/session.c:4268
 #, c-format
 msgid "%s%s%s: "
 msgstr "%s%s%s: "
 
-#: info/session.c:4287
+#: info/session.c:4288
 msgid "Search string too short"
 msgstr "Prikrátky reťazec vyhľadávania"
 
-#: info/session.c:4481
+#: info/session.c:4482
 #, c-format
 msgid "Going back to last match from %s"
 msgstr "Návrat k poslednej zhode z %s"
 
-#: info/session.c:4510 info/session.c:4623
+#: info/session.c:4511 info/session.c:4624
 #, c-format
 msgid "No more matches"
 msgstr "Žiadne ďalšie zhody"
 
-#: info/session.c:4650
+#: info/session.c:4651
 msgid "Search this node and subnodes for a string"
 msgstr "Vyhľadať reťazec v tomto uzle a poduzloch"
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session.c:4657
+#: info/session.c:4658
 #, c-format
 msgid "Search under %s: "
 msgstr "Vyhľadať pod %s: "
 
-#: info/session.c:4672
+#: info/session.c:4673
 msgid "Go to next match in Info sub-tree"
 msgstr "Ísť na nasledujúcu zhodu v Info pod-strome"
 
-#: info/session.c:4676 info/session.c:4688
+#: info/session.c:4677 info/session.c:4689
 #, c-format
 msgid "No active search"
 msgstr "Žiadne prebiehajúce vyhľadávanie"
 
-#: info/session.c:4684
+#: info/session.c:4685
 msgid "Go to previous match in Info sub-tree"
 msgstr "Ísť na predchádzajúcu zhodu v Info pod-strome"
 
-#: info/session.c:4697
+#: info/session.c:4698
 msgid "Read a string and search for it case-sensitively"
 msgstr "Prečítať reťazec a vyhľadať ho rozlišujúc malé a veľké písmená"
 
-#: info/session.c:4702
+#: info/session.c:4703
 msgid "Read a string and search for it"
 msgstr "Prečítať reťazec a vyhľadať ho"
 
-#: info/session.c:4708
+#: info/session.c:4709
 msgid "Read a string and search backward for it"
 msgstr "Prečítať reťazec a vyhľadať ho dozadu"
 
-#: info/session.c:4716
+#: info/session.c:4717
 msgid "Repeat last search in the same direction"
 msgstr "Zopakovať posledné vyhľadávanie v rovnakom smere"
 
-#: info/session.c:4730 info/session.c:4781
+#: info/session.c:4731 info/session.c:4782
 msgid "No previous search string"
 msgstr "Žiadny predtým hľadaný reťazec"
 
-#: info/session.c:4767
+#: info/session.c:4768
 msgid "Repeat last search in the reverse direction"
 msgstr "Zopakovať posledné vyhľadávanie v opačnom smere"
 
-#: info/session.c:4820
+#: info/session.c:4821
 msgid "Clear displayed search matches"
 msgstr "Vyčistiť zobrazenie nájdených zhôd"
 
-#: info/session.c:4836 info/session.c:4842
+#: info/session.c:4837 info/session.c:4843
 msgid "Search interactively for a string as you type it"
 msgstr "Vyhľadávať reťazec popri písaní"
 
-#: info/session.c:4962
+#: info/session.c:4963
 msgid "Regexp I-search backward: "
 msgstr "Vyhľadať regulárny výraz dozadu popri písaní: "
 
-#: info/session.c:4963
+#: info/session.c:4964
 msgid "I-search backward: "
 msgstr "Vyhľadať dozadu popri písaní: "
 
-#: info/session.c:4965
+#: info/session.c:4966
 msgid "Regexp I-search: "
 msgstr "Vyhľadať  popri písaní: "
 
-#: info/session.c:4966
+#: info/session.c:4967
 msgid "I-search: "
 msgstr "Vyhľadať popri písaní: "
 
-#: info/session.c:4991 info/session.c:4994
+#: info/session.c:4992 info/session.c:4995
 msgid "Failing "
 msgstr "Zlyháva "
 
-#: info/session.c:5359
+#: info/session.c:5360
 msgid "Cancel current operation"
 msgstr "Prerušiť prebiehajúci úkon"
 
-#: info/session.c:5366
+#: info/session.c:5367
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: info/session.c:5371
+#: info/session.c:5372
 msgid "Display version of Info being run"
 msgstr "Zobraziť verziu Info, ktorá sa práve používa"
 
-#: info/session.c:5373
+#: info/session.c:5374
 #, c-format
 msgid "GNU Info version %s"
 msgstr "GNU Info verzie %s"
 
-#: info/session.c:5378
+#: info/session.c:5379
 msgid "Redraw the display"
 msgstr "Opätovne vykresliť obrazovku"
 
-#: info/session.c:5415
+#: info/session.c:5416
 msgid "Quit using Info"
 msgstr "Ukončiť používanie programu Info"
 
-#: info/session.c:5431
+#: info/session.c:5432
 msgid "Run command bound to this key's lowercase variant"
 msgstr "Vykonať príkaz pridelený k malému tvaru písmena tejto klávesy"
 
-#: info/session.c:5442
+#: info/session.c:5443
 #, c-format
 msgid "Unknown command (%s)"
 msgstr "Neznámy príkaz (%s)"
 
-#: info/session.c:5445
+#: info/session.c:5446
 #, c-format
 msgid "\"%s\" is invalid"
 msgstr "„%s“ je neplatný"
 
-#: info/session.c:5446
+#: info/session.c:5447
 #, c-format
 msgid "'%s' is invalid"
 msgstr "„%s“ je neplatný"
 
-#: info/session.c:5764
+#: info/session.c:5765
 msgid "Add this digit to the current numeric argument"
 msgstr "Pridať túto číslicu k súčasnému číselnému parametru"
 
-#: info/session.c:5771
+#: info/session.c:5772
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Začať (alebo vynásobiť štyrmi) súčasný číselný parameter"
 
@@ -4835,6 +4830,10 @@ msgstr "@subentry by sa mal objavovať len v položke registra"
 #, c-format
 msgid "bad or empty @%s formal argument: "
 msgstr "nesprávny alebo prázdny formálny parameter @%s: "
+
+#, c-format
+#~ msgid "Unknown Info command '%c'; try '?' for help"
+#~ msgstr "Neznámy Info príkaz „%c“; skúste zistiť viac pomocou „?“"
 
 #~ msgid ""
 #~ "Frequently-used options:\n"

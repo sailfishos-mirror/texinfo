@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-01-23 21:47+0000\n"
+"POT-Creation-Date: 2025-01-23 22:04+0000\n"
 "PO-Revision-Date: 2015-12-28 00:59+0200\n"
 "Last-Translator: Tsiolkas Michail <cs112152@cs.uoi.gr>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: info/echo-area.c:290 info/session.c:1384
+#: info/echo-area.c:290 info/session.c:1385
 msgid "Move forward a character"
 msgstr ""
 
-#: info/echo-area.c:309 info/session.c:1397
+#: info/echo-area.c:309 info/session.c:1398
 msgid "Move backward a character"
 msgstr ""
 
@@ -34,11 +34,11 @@ msgstr ""
 msgid "Move to the end of this line"
 msgstr ""
 
-#: info/echo-area.c:348 info/session.c:1412
+#: info/echo-area.c:348 info/session.c:1413
 msgid "Move forward a word"
 msgstr ""
 
-#: info/echo-area.c:388 info/session.c:1426
+#: info/echo-area.c:388 info/session.c:1427
 msgid "Move backward a word"
 msgstr ""
 
@@ -158,6 +158,10 @@ msgstr ""
 msgid "Show the footnotes associated with this node in another window"
 msgstr ""
 
+#: info/footnotes.c:267
+msgid "No footnotes in this node"
+msgstr ""
+
 #: info/footnotes.h:24
 msgid "---------- Footnotes ----------"
 msgstr ""
@@ -255,12 +259,12 @@ msgstr ""
 msgid "No available info files have '%s' in their indices"
 msgstr ""
 
-#: info/info.c:291 info/session.c:2810
+#: info/info.c:291 info/session.c:2811
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr ""
 
-#: info/info.c:428 info/info.c:1202
+#: info/info.c:428 info/info.c:1191
 #, c-format
 msgid "Cannot find node '%s'"
 msgstr ""
@@ -427,68 +431,29 @@ msgstr ""
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
-#: info/info.c:1203
+#: info/info.c:1192
 #, c-format
 msgid "Cannot find node '(%s)%s'"
 msgstr ""
 
-#: info/info.c:1204
-msgid "Cannot find a window!"
-msgstr ""
-
-#: info/info.c:1205
+#: info/info.c:1193
 msgid "Point doesn't appear within this window's node!"
 msgstr ""
 
-#: info/info.c:1206
-msgid "Cannot delete the last window"
-msgstr ""
-
-#: info/info.c:1207
+#: info/info.c:1194
 msgid "No menu in this node"
 msgstr ""
 
-#: info/info.c:1208
-msgid "No footnotes in this node"
-msgstr ""
-
-#: info/info.c:1209
+#: info/info.c:1195
 msgid "No cross references in this node"
 msgstr ""
 
-#: info/info.c:1210
-#, c-format
-msgid "No '%s' pointer for this node"
-msgstr ""
-
-#: info/info.c:1211
-#, c-format
-msgid "Unknown Info command '%c'; try '?' for help"
-msgstr ""
-
-#: info/info.c:1212
-#, c-format
-msgid "Terminal type '%s' is not smart enough to run Info"
-msgstr ""
-
-#: info/info.c:1213
-msgid "You are already at the last page of this node"
-msgstr ""
-
-#: info/info.c:1214
-msgid "You are already at the first page of this node"
-msgstr ""
-
-#: info/info.c:1215
+#: info/info.c:1196
 msgid "Only one window"
 msgstr ""
 
-#: info/info.c:1216
+#: info/info.c:1197
 msgid "Resulting window would be too small"
-msgstr ""
-
-#: info/info.c:1217
-msgid "Not enough room for a help window, please delete a window"
 msgstr ""
 
 #: info/infodoc.c:40
@@ -677,52 +642,56 @@ msgid ""
 "\n"
 msgstr ""
 
-#: info/infodoc.c:346
+#: info/infodoc.c:304
+msgid "Not enough room for a help window, please delete a window"
+msgstr ""
+
+#: info/infodoc.c:347
 msgid "Display help message"
 msgstr ""
 
-#: info/infodoc.c:359
+#: info/infodoc.c:360
 msgid "Visit Info node '(info)Help'"
 msgstr ""
 
-#: info/infodoc.c:462
+#: info/infodoc.c:463
 msgid "Print documentation for KEY"
 msgstr ""
 
-#: info/infodoc.c:473
+#: info/infodoc.c:474
 #, c-format
 msgid "Describe key: %s"
 msgstr ""
 
-#: info/infodoc.c:484 info/infodoc.c:520
+#: info/infodoc.c:485 info/infodoc.c:521
 #, c-format
 msgid "%s is undefined"
 msgstr ""
 
-#: info/infodoc.c:815
+#: info/infodoc.c:816
 msgid "Show what to type to execute a given command"
 msgstr ""
 
-#: info/infodoc.c:819
+#: info/infodoc.c:820
 msgid "Where is command: "
 msgstr ""
 
-#: info/infodoc.c:841
+#: info/infodoc.c:842
 #, c-format
 msgid "'%s' is not on any keys"
 msgstr ""
 
-#: info/infodoc.c:847
+#: info/infodoc.c:848
 #, c-format
 msgid "%s can only be invoked via %s"
 msgstr ""
 
-#: info/infodoc.c:851
+#: info/infodoc.c:852
 #, c-format
 msgid "%s can be invoked via %s"
 msgstr ""
 
-#: info/infodoc.c:856
+#: info/infodoc.c:857
 #, c-format
 msgid "There is no function named '%s'"
 msgstr ""
@@ -898,6 +867,10 @@ msgstr ""
 msgid "No file index"
 msgstr ""
 
+#: info/session.c:148
+msgid "Cannot find a window!"
+msgstr ""
+
 #. TRANSLATORS: Try to keep this message (when "expanded") at most 79
 #. characters; anything after the 79th character will not actually be
 #. displayed on an 80-column terminal.
@@ -910,548 +883,570 @@ msgstr ""
 "Καλωσήρθατε στο Info %s.  Πληκτρολογήστε \\[get-help-window] για βοήθεια, "
 "\\[get-info-help-node] για εκμάθηση."
 
-#: info/session.c:1263
+#: info/session.c:285
+#, c-format
+msgid "Terminal type '%s' is not smart enough to run Info"
+msgstr ""
+
+#: info/session.c:1264
 msgid "Move down to the next line"
 msgstr ""
 
-#: info/session.c:1281
+#: info/session.c:1282
 msgid "Move up to the previous line"
 msgstr ""
 
-#: info/session.c:1300
+#: info/session.c:1301
 msgid "Move the cursor to a specific line of the window"
 msgstr ""
 
-#: info/session.c:1332
+#: info/session.c:1333
 msgid "Move to the end of the line"
 msgstr ""
 
-#: info/session.c:1357
+#: info/session.c:1358
 msgid "Move to the start of the line"
 msgstr ""
 
-#: info/session.c:1441
+#: info/session.c:1442
 msgid "Move to the start of this node"
 msgstr ""
 
-#: info/session.c:1448
+#: info/session.c:1449
 msgid "Move to the end of this node"
 msgstr ""
 
-#: info/session.c:1539
+#: info/session.c:1540
 msgid "Scroll forward in this window"
 msgstr ""
 
-#: info/session.c:1553
+#: info/session.c:1554
 msgid "Scroll backward in this window"
 msgstr ""
 
-#: info/session.c:1561
+#: info/session.c:1562
 msgid "Scroll forward in this window and set default window size"
 msgstr ""
 
-#: info/session.c:1576
+#: info/session.c:1577
 msgid "Scroll backward in this window and set default window size"
 msgstr ""
 
-#: info/session.c:1582
+#: info/session.c:1583
 msgid "Scroll forward in this window staying within node"
 msgstr ""
 
-#: info/session.c:1597
+#: info/session.c:1598
 msgid "Scroll backward in this window staying within node"
 msgstr ""
 
-#: info/session.c:1605
+#: info/session.c:1606
 msgid ""
 "Scroll forward in this window staying within node and set default window size"
 msgstr ""
 
-#: info/session.c:1632
+#: info/session.c:1633
 msgid ""
 "Scroll backward in this window staying within node and set default window "
 "size"
 msgstr ""
 
-#: info/session.c:1638
+#: info/session.c:1639
 msgid "Scroll down by lines"
 msgstr ""
 
-#: info/session.c:1644
+#: info/session.c:1645
 msgid "Scroll up by lines"
 msgstr ""
 
-#: info/session.c:1656
+#: info/session.c:1657
 msgid "Scroll down by half screen size"
 msgstr ""
 
-#: info/session.c:1683
+#: info/session.c:1684
 msgid "Scroll up by half screen size"
 msgstr ""
 
-#: info/session.c:1689
+#: info/session.c:1690
 msgid "Scroll the other window"
 msgstr ""
 
-#: info/session.c:1710
+#: info/session.c:1711
 msgid "Scroll the other window backward"
 msgstr ""
 
-#: info/session.c:1820
+#: info/session.c:1821
 msgid "Select the next window"
 msgstr ""
 
-#: info/session.c:1857
+#: info/session.c:1858
 msgid "Select the previous window"
 msgstr ""
 
-#: info/session.c:1901
+#: info/session.c:1902
 msgid "Split the current window"
 msgstr ""
 
-#: info/session.c:1946
+#: info/session.c:1947
 msgid "Delete the current window"
 msgstr ""
 
-#: info/session.c:1951
+#: info/session.c:1950
+msgid "Cannot delete the last window"
+msgstr ""
+
+#: info/session.c:1952
 msgid "Cannot delete a permanent window"
 msgstr ""
 
-#: info/session.c:1982
+#: info/session.c:1983
 msgid "Delete all other windows"
 msgstr ""
 
-#: info/session.c:2028
+#: info/session.c:2029
 msgid "Grow (or shrink) this window"
 msgstr ""
 
-#: info/session.c:2039
+#: info/session.c:2040
 msgid "Divide the available screen space among the visible windows"
 msgstr ""
 
-#: info/session.c:2046
+#: info/session.c:2047
 msgid "Toggle the state of line wrapping in the current window"
 msgstr ""
 
-#: info/session.c:2200
+#: info/session.c:2201
 msgid "Select this menu item"
 msgstr ""
 
-#: info/session.c:2230
+#: info/session.c:2231
 #, c-format
 msgid "There isn't %d item in this menu"
 msgid_plural "There aren't %d items in this menu"
 msgstr[0] ""
 msgstr[1] ""
 
-#: info/session.c:2239
+#: info/session.c:2240
 msgid "Select the last item in this node's menu"
 msgstr ""
 
-#: info/session.c:2343
+#: info/session.c:2344
 #, c-format
 msgid "Menu item (%s): "
 msgstr ""
 
-#: info/session.c:2345
+#: info/session.c:2346
 msgid "Menu item: "
 msgstr ""
 
-#: info/session.c:2350
+#: info/session.c:2351
 #, c-format
 msgid "Follow xref (%s): "
 msgstr ""
 
-#: info/session.c:2352
+#: info/session.c:2353
 msgid "Follow xref: "
 msgstr ""
 
-#: info/session.c:2429
+#: info/session.c:2430
 #, c-format
 msgid "The reference disappeared! (%s)"
 msgstr ""
 
-#: info/session.c:2441
+#: info/session.c:2442
 msgid "Read a menu item and select its node"
 msgstr ""
 
-#: info/session.c:2466
+#: info/session.c:2467
 msgid "Read a footnote or cross reference and select its node"
 msgstr ""
 
-#: info/session.c:2489
+#: info/session.c:2490
 msgid "Move to the start of this node's menu"
 msgstr ""
 
-#: info/session.c:2527
+#: info/session.c:2528
 msgid "Visit as many menu items at once as possible"
 msgstr ""
 
-#: info/session.c:2630
+#: info/session.c:2631
 msgid "Move to the previous cross reference"
 msgstr ""
 
-#: info/session.c:2693
+#: info/session.c:2694
 msgid "Move to the next cross reference"
 msgstr ""
 
-#: info/session.c:2754
+#: info/session.c:2755
 msgid "Select reference or menu item appearing on this line"
 msgstr ""
 
-#: info/session.c:2788
+#: info/session.c:2789
 #, c-format
 msgid "No menu in node '%s'"
 msgstr ""
 
-#: info/session.c:2835
+#: info/session.c:2836
 #, c-format
 msgid "Unable to find node referenced by '%s' in '%s'"
 msgstr ""
 
-#: info/session.c:2891
+#: info/session.c:2892
 msgid "Read a list of menus starting from dir and follow them"
 msgstr ""
 
-#: info/session.c:2893
+#: info/session.c:2894
 msgid "Follow menus: "
 msgstr ""
 
-#: info/session.c:2997
+#: info/session.c:2959
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr ""
+
+#: info/session.c:2998
 msgid "Select the Next node"
 msgstr ""
 
-#: info/session.c:3004
+#: info/session.c:3005
 msgid "Select the Prev node"
 msgstr ""
 
-#: info/session.c:3011
+#: info/session.c:3012
 msgid "Select the Up node"
 msgstr ""
 
-#: info/session.c:3017
+#: info/session.c:3018
 msgid "Select the last node in this file"
 msgstr ""
 
-#: info/session.c:3044 info/session.c:3077
+#: info/session.c:3045 info/session.c:3078
 msgid "This window has no additional nodes"
 msgstr ""
 
-#: info/session.c:3050
+#: info/session.c:3051
 msgid "Select the first node in this file"
 msgstr ""
 
-#: info/session.c:3184
+#: info/session.c:3099
+msgid "You are already at the last page of this node"
+msgstr ""
+
+#: info/session.c:3185
 msgid "No more nodes within this document"
 msgstr ""
 
-#: info/session.c:3228 info/session.c:3275
+#: info/session.c:3215
+msgid "You are already at the first page of this node"
+msgstr ""
+
+#: info/session.c:3229 info/session.c:3276
 msgid "No 'Prev' or 'Up' for this node within this document"
 msgstr ""
 
-#: info/session.c:3288
+#: info/session.c:3289
 msgid "Move forwards or down through node structure"
 msgstr ""
 
-#: info/session.c:3305
+#: info/session.c:3306
 msgid "Move backwards or up through node structure"
 msgstr ""
 
-#: info/session.c:3328
+#: info/session.c:3329
 msgid "Read a node name and select it"
 msgstr ""
 
-#: info/session.c:3382 info/session.c:3386
+#: info/session.c:3383 info/session.c:3387
 msgid "Goto node: "
 msgstr ""
 
-#: info/session.c:3565
+#: info/session.c:3566
 msgid "Find the node describing program invocation"
 msgstr ""
 
-#: info/session.c:3567
+#: info/session.c:3568
 #, c-format
 msgid "Find Invocation node of [%s]: "
 msgstr ""
 
-#: info/session.c:3611
+#: info/session.c:3612
 msgid "Read a manpage reference and select it"
 msgstr ""
 
-#: info/session.c:3615
+#: info/session.c:3616
 msgid "Get Manpage: "
 msgstr ""
 
-#: info/session.c:3636
+#: info/session.c:3637
 msgid "Select the node 'Top' in this file"
 msgstr ""
 
-#: info/session.c:3642
+#: info/session.c:3643
 msgid "Select the node '(dir)'"
 msgstr ""
 
-#: info/session.c:3648
+#: info/session.c:3649
 msgid "Show full file name of node being displayed"
 msgstr ""
 
-#: info/session.c:3665
+#: info/session.c:3666
 msgid "Select the most recently selected node"
 msgstr ""
 
-#: info/session.c:3670
+#: info/session.c:3671
 #, c-format
 msgid "No earlier node in history"
 msgstr ""
 
-#: info/session.c:3674
+#: info/session.c:3675
 msgid "Read the name of a file and select it"
 msgstr ""
 
-#: info/session.c:3678
+#: info/session.c:3679
 msgid "Find file: "
 msgstr ""
 
-#: info/session.c:3695
+#: info/session.c:3696
 #, c-format
 msgid "Cannot find '%s'"
 msgstr ""
 
-#: info/session.c:3776
+#: info/session.c:3777
 #, c-format
 msgid "Could not create output file '%s'"
 msgstr ""
 
-#: info/session.c:3802
+#: info/session.c:3803
 #, c-format
 msgid "error writing to %s: %s"
 msgstr ""
 
-#: info/session.c:3811
+#: info/session.c:3812
 #, c-format
 msgid "closing %s"
 msgstr ""
 
-#: info/session.c:3851
+#: info/session.c:3852
 #, c-format
 msgid "writing node %s..."
 msgstr ""
 
-#: info/session.c:3897
+#: info/session.c:3898
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr ""
 
-#: info/session.c:3925
+#: info/session.c:3926
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr ""
 
-#: info/session.c:3930
+#: info/session.c:3931
 #, c-format
 msgid "printing node %s..."
 msgstr ""
 
-#: info/session.c:3938
+#: info/session.c:3939
 #, c-format
 msgid "finished printing node %s"
 msgstr ""
 
-#: info/session.c:3970
+#: info/session.c:3971
 msgid "Toggle the usage of regular expressions in searches"
 msgstr ""
 
-#: info/session.c:3974
+#: info/session.c:3975
 #, fuzzy, c-format
 #| msgid "Invalid regular expression"
 msgid "Using regular expressions for searches"
 msgstr "Μη έγκυρη κανονική έκφραση"
 
-#: info/session.c:3975
+#: info/session.c:3976
 #, c-format
 msgid "Using literal strings for searches"
 msgstr ""
 
-#: info/session.c:4178
+#: info/session.c:4179
 msgid "Search continued from the end of the document"
 msgstr ""
 
-#: info/session.c:4183
+#: info/session.c:4184
 msgid "Search continued from the beginning of the document"
 msgstr ""
 
-#: info/session.c:4200
+#: info/session.c:4201
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr ""
 
-#: info/session.c:4241 info/session.c:4510 info/session.c:4623
+#: info/session.c:4242 info/session.c:4511 info/session.c:4624
 #, c-format
 msgid "Search failed"
 msgstr ""
 
-#: info/session.c:4261
+#: info/session.c:4262
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr ""
 
-#: info/session.c:4262 info/session.c:4268
+#: info/session.c:4263 info/session.c:4269
 msgid "Regexp search"
 msgstr ""
 
-#: info/session.c:4262 info/session.c:4268
+#: info/session.c:4263 info/session.c:4269
 msgid "Search"
 msgstr ""
 
-#: info/session.c:4263 info/session.c:4269
+#: info/session.c:4264 info/session.c:4270
 msgid " case-sensitively"
 msgstr ""
 
-#: info/session.c:4264 info/session.c:4270
+#: info/session.c:4265 info/session.c:4271
 msgid " backward"
 msgstr ""
 
-#: info/session.c:4267
+#: info/session.c:4268
 #, c-format
 msgid "%s%s%s: "
 msgstr ""
 
-#: info/session.c:4287
+#: info/session.c:4288
 msgid "Search string too short"
 msgstr ""
 
-#: info/session.c:4481
+#: info/session.c:4482
 #, c-format
 msgid "Going back to last match from %s"
 msgstr ""
 
-#: info/session.c:4510 info/session.c:4623
+#: info/session.c:4511 info/session.c:4624
 #, fuzzy, c-format
 msgid "No more matches"
 msgstr "Δε βρέθηκε"
 
-#: info/session.c:4650
+#: info/session.c:4651
 msgid "Search this node and subnodes for a string"
 msgstr ""
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session.c:4657
+#: info/session.c:4658
 #, c-format
 msgid "Search under %s: "
 msgstr ""
 
-#: info/session.c:4672
+#: info/session.c:4673
 msgid "Go to next match in Info sub-tree"
 msgstr ""
 
-#: info/session.c:4676 info/session.c:4688
+#: info/session.c:4677 info/session.c:4689
 #, c-format
 msgid "No active search"
 msgstr ""
 
-#: info/session.c:4684
+#: info/session.c:4685
 msgid "Go to previous match in Info sub-tree"
 msgstr ""
 
-#: info/session.c:4697
+#: info/session.c:4698
 msgid "Read a string and search for it case-sensitively"
 msgstr ""
 
-#: info/session.c:4702
+#: info/session.c:4703
 msgid "Read a string and search for it"
 msgstr ""
 
-#: info/session.c:4708
+#: info/session.c:4709
 msgid "Read a string and search backward for it"
 msgstr ""
 
-#: info/session.c:4716
+#: info/session.c:4717
 msgid "Repeat last search in the same direction"
 msgstr ""
 
-#: info/session.c:4730 info/session.c:4781
+#: info/session.c:4731 info/session.c:4782
 msgid "No previous search string"
 msgstr ""
 
-#: info/session.c:4767
+#: info/session.c:4768
 msgid "Repeat last search in the reverse direction"
 msgstr ""
 
-#: info/session.c:4820
+#: info/session.c:4821
 msgid "Clear displayed search matches"
 msgstr ""
 
-#: info/session.c:4836 info/session.c:4842
+#: info/session.c:4837 info/session.c:4843
 msgid "Search interactively for a string as you type it"
 msgstr ""
 
-#: info/session.c:4962
+#: info/session.c:4963
 msgid "Regexp I-search backward: "
 msgstr ""
 
-#: info/session.c:4963
+#: info/session.c:4964
 msgid "I-search backward: "
 msgstr ""
 
-#: info/session.c:4965
+#: info/session.c:4966
 msgid "Regexp I-search: "
 msgstr ""
 
-#: info/session.c:4966
+#: info/session.c:4967
 msgid "I-search: "
 msgstr ""
 
-#: info/session.c:4991 info/session.c:4994
+#: info/session.c:4992 info/session.c:4995
 msgid "Failing "
 msgstr ""
 
-#: info/session.c:5359
+#: info/session.c:5360
 msgid "Cancel current operation"
 msgstr ""
 
-#: info/session.c:5366
+#: info/session.c:5367
 msgid "Quit"
 msgstr ""
 
-#: info/session.c:5371
+#: info/session.c:5372
 msgid "Display version of Info being run"
 msgstr ""
 
-#: info/session.c:5373
+#: info/session.c:5374
 #, c-format
 msgid "GNU Info version %s"
 msgstr ""
 
-#: info/session.c:5378
+#: info/session.c:5379
 msgid "Redraw the display"
 msgstr ""
 
-#: info/session.c:5415
+#: info/session.c:5416
 msgid "Quit using Info"
 msgstr ""
 
-#: info/session.c:5431
+#: info/session.c:5432
 msgid "Run command bound to this key's lowercase variant"
 msgstr ""
 
-#: info/session.c:5442
+#: info/session.c:5443
 #, c-format
 msgid "Unknown command (%s)"
 msgstr ""
 
-#: info/session.c:5445
+#: info/session.c:5446
 #, c-format
 msgid "\"%s\" is invalid"
 msgstr ""
 
-#: info/session.c:5446
+#: info/session.c:5447
 #, c-format
 msgid "'%s' is invalid"
 msgstr ""
 
-#: info/session.c:5764
+#: info/session.c:5765
 msgid "Add this digit to the current numeric argument"
 msgstr ""
 
-#: info/session.c:5771
+#: info/session.c:5772
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr ""
 
