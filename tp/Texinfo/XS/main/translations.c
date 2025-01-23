@@ -99,6 +99,15 @@ configure_output_strings_translations (const char *localesdir,
 #endif
 }
 
+/* return non-zero if locale is "C", "C.UTF-8" (or similar) or "POSIX" */
+static int
+locale_name_check (const char *line)
+{
+  return strcmp (line, "C") == 0
+           || strncmp (line, "C.", 2) == 0
+           || strcmp (line, "POSIX") == 0;
+}
+
 void
 switch_messages_locale (void)
 {
@@ -149,7 +158,7 @@ switch_messages_locale (void)
                   break;
                 }
               line[ret - 1] = '\0';   /* Remove trailing newline. */
-              if (strcmp (line, "C") == 0 || strcmp (line, "POSIX") == 0)
+              if (locale_name_check (line))
                 {
                   free (line);
                   continue;
@@ -181,7 +190,7 @@ switch_messages_locale (void)
      to other locales for LANGUAGE.  The locale returned by setlocale
      can be these one of these locales even if the locale passed
      in argument is not */
-      if (strcmp (locale, "C") && strcmp (locale, "POSIX"))
+      if (!locale_name_check (locale))
         {
           free (working_locale);
           working_locale = strdup (locale);
