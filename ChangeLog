@@ -1,5 +1,9 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/06columnfractions.t: add html_text format to the tests.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/html_tests.t (sectioning_check_menu_structure): replace
 	TEXI2HTML by the relevant customization variables values.
 

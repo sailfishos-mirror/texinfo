@@ -104,6 +104,9 @@ $result_floats{'empty'} = {};
 
 
 
+$result_converted{'html_text'}->{'empty'} = '';
+
+
 $result_converted{'xml'}->{'empty'} = '<multitable spaces=" " endspaces=" "><columnfractions line=" "></columnfractions>
 </multitable>';
 

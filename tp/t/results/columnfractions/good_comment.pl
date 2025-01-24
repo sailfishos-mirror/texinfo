@@ -121,6 +121,9 @@ $result_floats{'good_comment'} = {};
 
 
 
+$result_converted{'html_text'}->{'good_comment'} = '';
+
+
 $result_converted{'xml'}->{'good_comment'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 .6 5.@c comment"><columnfraction value="0.4"></columnfraction><columnfraction value=".6"></columnfraction><columnfraction value="5."></columnfraction></columnfractions><!-- c comment -->
 </multitable>';
 

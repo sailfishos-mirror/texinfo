@@ -115,6 +115,9 @@ $result_floats{'good'} = {};
 
 
 
+$result_converted{'html_text'}->{'good'} = '';
+
+
 $result_converted{'xml'}->{'good'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 .6 5."><columnfraction value="0.4"></columnfraction><columnfraction value=".6"></columnfraction><columnfraction value="5."></columnfraction></columnfractions>
 </multitable>';
 

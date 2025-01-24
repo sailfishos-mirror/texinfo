@@ -123,6 +123,9 @@ $result_floats{'good_space_comment'} = {};
 
 
 
+$result_converted{'html_text'}->{'good_space_comment'} = '';
+
+
 $result_converted{'xml'}->{'good_space_comment'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0 1  @c space comment"><columnfraction value="0"></columnfraction><columnfraction value="1"></columnfraction></columnfractions><!-- c space comment -->
 </multitable>';
 

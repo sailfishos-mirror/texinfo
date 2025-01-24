@@ -134,6 +134,9 @@ $result_floats{'wrong_command'} = {};
 
 
 
+$result_converted{'html_text'}->{'wrong_command'} = '';
+
+
 $result_converted{'xml'}->{'wrong_command'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="@b{3.4} "></columnfractions>
 </multitable>';
 

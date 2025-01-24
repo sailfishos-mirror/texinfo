@@ -32,9 +32,9 @@ my @test_cases = (
 
 foreach my $test (@test_cases) {
 # html and plaintext test results are empty as the multitables
-# are empty.  TODO add one line to test those formats?
+# are empty.
 #  push @{$test->[2]->{'test_formats'}}, 'plaintext';
-#  push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'latex_text';
 }

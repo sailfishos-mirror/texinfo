@@ -117,6 +117,9 @@ $result_floats{'something_before_columnfractions'} = {};
 
 
 
+$result_converted{'html_text'}->{'something_before_columnfractions'} = '';
+
+
 $result_converted{'xml'}->{'something_before_columnfractions'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.3 0.7"><columnfraction value="0.3"></columnfraction><columnfraction value="0.7"></columnfraction></columnfractions>
 </multitable>';
 

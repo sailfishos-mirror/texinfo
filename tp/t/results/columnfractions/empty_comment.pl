@@ -115,6 +115,9 @@ $result_floats{'empty_comment'} = {};
 
 
 
+$result_converted{'html_text'}->{'empty_comment'} = '';
+
+
 $result_converted{'xml'}->{'empty_comment'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="@c"></columnfractions><!-- c -->
 </multitable>';
 
