@@ -489,21 +489,18 @@ remove_from_contents (ELEMENT *parent, size_t where)
   return remove_from_element_list (list, where);
 }
 
-ELEMENT *
-remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e)
+const ELEMENT *
+remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *removed)
 {
   size_t i;
-  int found = 0;
+
   for (i = 0; i < list->number; i++)
     {
-      if (list->list[i] == e)
+      if (list->list[i] == removed)
         {
-          found = 1;
-          break;
+          return remove_from_element_list (list, i);
         }
     }
-  if (found)
-    return remove_from_element_list (list, i);
 
   return 0;
 }
@@ -564,8 +561,9 @@ contents_child_by_index (const ELEMENT *e, size_t index)
   return e->e.c->contents.list[index];
 }
 
-int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
-                             ELEMENT *added)
+const ELEMENT *
+replace_element_in_list (ELEMENT_LIST *list, const ELEMENT *removed,
+                         ELEMENT *added)
 {
   size_t i;
 
@@ -574,21 +572,13 @@ int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
 
   for (i = 0; i < list->number; i++)
     {
-      ELEMENT *content = list->list[i];
-      if (content == removed)
+      if (list->list[i] == removed)
         {
           list->list[i] = added;
-          return 1;
+          return removed;
         }
     }
   return 0;
-}
-
-/* do not set parent as it can be used to replace in a container element */
-int
-replace_element_in_contents (ELEMENT *parent, ELEMENT *removed, ELEMENT *added)
-{
-  return replace_element_in_list (&parent->e.c->contents, removed, added);
 }
 
 /* should only be used if the nse->manual_content

@@ -1245,11 +1245,12 @@ sub lookup_index_entry($$)
 }
 
 # only used from Perl
-# Remove first $ELEMENT from $ARRAY
-sub remove_from_array($$)
+# Remove or replace first $ELEMENT from $ARRAY
+sub modify_array_element($$;$)
 {
   my $array = shift;
   my $element = shift;
+  my $replacement = shift;
 
   #if (!defined($array)) {
   #  cluck();
@@ -1257,7 +1258,11 @@ sub remove_from_array($$)
 
   for (my $index = 0; $index < scalar(@$array); $index++) {
     if ($array->[$index] eq $element) {
-      return splice(@$array, $index, 1);
+      if (!defined($replacement)) {
+        return splice(@$array, $index, 1);
+      } else {
+        return splice(@$array, $index, 1, $replacement);
+      }
     }
   }
   return undef;
@@ -1565,28 +1570,6 @@ sub split_custom_heading_command_contents($)
   }
 
   return $result;
-}
-
-# TODO document?
-# currently untested/unused, but there is a similar function in XS that
-# is used.
-sub replace_element_in_contents($$$)
-{
-  my $parent = shift;
-  my $removed = shift;
-  my $added = shift;
-
-  return 0 if (!defined($parent) or !$parent->{'contents'});
-
-  my $nr_contents = scalar(@{$parent->{'contents'}});
-  for (my $i = 0; $i < $nr_contents; $i++) {
-    my $content = $parent->{'contents'}->[$i];
-    if ($content eq $removed) {
-      $parent->{'contents'}->[$i] = $added;
-      return 1;
-    }
-  }
-  return 0;
 }
 
 # not currently used
@@ -2217,10 +2200,11 @@ X<C<normalize_top_node_name>>
 Normalize the node name string given in argument, by normalizing
 Top node case.
 
-=item $result = remove_from_array($array, $element)
+=item $result = modify_array_element($array, $element, $replacement)
 
 Remove first occurence of I<$element> in the array reference I<$array>.
-Return the removed element, or C<undef> if not found.
+If the optional I<$replacement> argument is given, replace the I<$element>
+by I<$replacement>.  Return the removed element, or C<undef> if not found.
 
 =item $level = section_level($section)
 X<C<section_level>>

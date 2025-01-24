@@ -23,7 +23,7 @@ void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
 void insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, size_t where);
 void insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where);
-ELEMENT *remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e);
+const ELEMENT *remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *e);
 void add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e);
 void insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
                                   const ELEMENT_LIST *from,
@@ -46,10 +46,8 @@ void destroy_list (ELEMENT_LIST *list);
 void destroy_const_element_list (CONST_ELEMENT_LIST *list);
 void destroy_element (ELEMENT *e);
 void destroy_element_and_children (ELEMENT *e);
-int replace_element_in_contents (ELEMENT *parent, ELEMENT *removed,
-                                 ELEMENT *added);
-int replace_element_in_list (ELEMENT_LIST *list, ELEMENT *removed,
-                             ELEMENT *added);
+const ELEMENT *replace_element_in_list (ELEMENT_LIST *list,
+                              const ELEMENT *removed, ELEMENT *added);
 void destroy_node_spec (NODE_SPEC_EXTRA *nse);
 void destroy_associated_info (ASSOCIATED_INFO *a);
 void free_element_source_mark_list (ELEMENT *e);

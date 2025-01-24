@@ -243,7 +243,7 @@ sub _reference_to_arg($$$)
     # remove from internal references
     if ($document) {
       my $internal_references = $document->internal_references_information();
-      Texinfo::Common::remove_from_array($internal_references, $current);
+      Texinfo::Common::modify_array_element($internal_references, $current);
     }
 
     my @args_try_order;
@@ -680,32 +680,25 @@ sub regenerate_master_menu($;$)
                       $document->registrar(),
                       $identifier_target, $top_node->{'extra'}->{'menus'},
                       $use_sections);
+  # no need for a master menu
   return undef if (!defined($new_detailmenu));
 
   my $global_detailmenu
     = $document->global_commands_information()->{'detailmenu'};
   foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
-    my $detailmenu_index = 0;
-    foreach my $entry (@{$menu->{'contents'}}) {
+    my $menu_contents_len = scalar(@{$menu->{'contents'}});
+    for (my $current_idx = 0; $current_idx < $menu_contents_len;
+         $current_idx++) {
+      my $entry = $menu->{'contents'}->[$current_idx];
       if ($entry->{'cmdname'} and $entry->{'cmdname'} eq 'detailmenu') {
         # replace existing detailmenu by the master menu
         $new_detailmenu->{'parent'} = $menu;
-        splice (@{$menu->{'contents'}}, $detailmenu_index, 1,
+        splice (@{$menu->{'contents'}}, $current_idx, 1,
                 $new_detailmenu);
         # also replace in global commands
-        my $index = 0;
-        my $global_detailmenu_index = -1;
-        foreach my $detailmenu_global (@$global_detailmenu) {
-          if ($detailmenu_global eq $entry) {
-            $global_detailmenu_index = $index;
-            last;
-          }
-          $index++;
-        }
-        if ($global_detailmenu_index >= 0) {
-          splice (@$global_detailmenu, $global_detailmenu_index, 1,
-                  $new_detailmenu);
-        }
+        Texinfo::Common::modify_array_element($global_detailmenu, $entry,
+                                              $new_detailmenu);
+
         # NOTE the menu entries added in @detailmenu are not added as
         # internal references.  However, this is not an issue, as the
         # menu entries in @detailmenu are also in regular menus.
@@ -721,15 +714,14 @@ sub regenerate_master_menu($;$)
             foreach my $entry_content (@{$detailmenu_entry->{'contents'}}) {
               if ($entry_content->{'type'}
                   and $entry_content->{'type'} eq 'menu_entry_node') {
-                Texinfo::Common::remove_from_array($internal_references,
-                                                   $entry_content);
+                Texinfo::Common::modify_array_element($internal_references,
+                                                      $entry_content);
               }
             }
           }
         }
         return 1;
       }
-      $detailmenu_index++;
     }
   }
 

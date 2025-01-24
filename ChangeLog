@@ -1,5 +1,29 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (modify_array_element): rename
+	remove_from_array as modify_array_element, add an optional argument to
+	replace the removed element.  Update callers.
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu): call
+	modify_array_element to replace the detailmenu in global commands.
+
+	* tp/Texinfo/XS/main/tree.c (remove_element_from_list): rename e as
+	removed.  Call remove_from_element_list directly from the loop.
+	Return removed element.
+
+	* tp/Texinfo/XS/main/tree.c (replace_element_in_list): return removed
+	element.
+
+	* tp/Texinfo/Transformations.pm (regenerate_master_menu),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(regenerate_master_menu): rename detailmenu_index as current_idx.
+	Use a for loop in Perl as in C.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/XS/main/tree.c: remove
+	replace_element_in_contents.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm, tp/Texinfo/Document.pm (get_conf),
 	tp/Texinfo/Indices.pm, tp/Texinfo/Structuring.pm: handle/remove
 	TODOs.

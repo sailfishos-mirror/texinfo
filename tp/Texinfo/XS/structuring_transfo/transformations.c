@@ -1211,19 +1211,19 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
   for (i = 0; i < menus->number; i++)
     {
-      size_t detailmenu_index;
+      size_t current_idx;
       /* cast to remove const to be able to replace the detailmenu */
       ELEMENT *menu = (ELEMENT *)menus->list[i];
-      for (detailmenu_index = 0; detailmenu_index < menu->e.c->contents.number;
-           detailmenu_index++)
+      for (current_idx = 0; current_idx < menu->e.c->contents.number;
+           current_idx++)
         {
           /* entry should be one of the menu specific containers, a
              @detailmenu or @end */
-          const ELEMENT *entry = menu->e.c->contents.list[detailmenu_index];
+          const ELEMENT *entry = menu->e.c->contents.list[current_idx];
           if (entry->e.c->cmd == CM_detailmenu)
             {
               size_t j;
-              ELEMENT *removed = remove_from_contents (menu, detailmenu_index);
+              ELEMENT *removed = remove_from_contents (menu, current_idx);
               replace_element_in_list (&document->global_commands.detailmenu,
                                        removed, new_detailmenu_e);
               /* remove internal refs of removed entries */
@@ -1259,7 +1259,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                     }
                 }
               destroy_element_and_children (removed);
-              insert_into_contents (menu, new_detailmenu_e, detailmenu_index);
+              insert_into_contents (menu, new_detailmenu_e, current_idx);
               return 1;
             }
         }
