@@ -115,9 +115,9 @@ Clear the previously registered messages.
 @anchor{Texinfo@asis{::}Report $registrar->add_formatted_message ($msg)}
 @cindex @code{add_formatted_message}
 
-Register the @emph{$msg} hash reference corresponding to an error, warning or error line
-continuation.  The @emph{$msg} hash reference should correspond to the structure returned
-by @code{errors}.
+Register the @emph{$msg} hash reference corresponding to an error, warning or error
+line continuation.  The @emph{$msg} hash reference should correspond to the
+structure returned by @code{errors}.
 
 @item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
 @anchor{Texinfo@asis{::}Report $registrar->line_warn($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}

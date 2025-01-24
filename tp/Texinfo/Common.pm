@@ -2018,7 +2018,7 @@ and C<plaintext>.
 
 =back
 
-TODO: undocumented
+TODO undocumented data structures:
 %null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
 
 =head1 @-COMMAND INFORMATION

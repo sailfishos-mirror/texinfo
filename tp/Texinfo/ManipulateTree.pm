@@ -292,7 +292,9 @@ sub _remove_element_copy_info($;$)
   }
 }
 
-# TODO document in POD?
+# The functions called in Perl code outside of tests are the copy_*NonXS
+# functions.
+# TODO document?
 sub copy_tree($)
 {
   my $current = shift;

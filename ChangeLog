@@ -1,5 +1,12 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/27float.t: remove incorrect FIXME.
+
+	* tp/t/30sectioning.t (top_part_chapter): add docbook.  Remove fixed
+	FIXME.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (replace_remove_list_element): rename
 	modify_array_element as replace_remove_list_element.  Rename $element
 	as $removed.  Update callers.

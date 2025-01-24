@@ -22,7 +22,6 @@ In float.
 '@float Type, 
 @end float
 '],
-# FIXME no error 'empty node name after expansion'
 ['empty_label_with_space_comment',
 '@float Type, @c comment
 @end float
@@ -31,7 +30,6 @@ In float.
 '@float Type,
 @end float
 '],
-# FIXME no error 'empty node name after expansion'
 ['empty_label_no_space_comment',
 '@float Type,@c comment
 @end float

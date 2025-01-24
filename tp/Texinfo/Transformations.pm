@@ -954,7 +954,8 @@ sub _protect_first_parenthesis_in_targets($$$)
   return undef;
 }
 
-# TODO not documented
+# Used in Pod::Simple::Texinfo
+# TODO document
 sub protect_first_parenthesis_in_targets($)
 {
   my $tree = shift;

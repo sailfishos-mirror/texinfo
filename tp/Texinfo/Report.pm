@@ -80,7 +80,7 @@ sub add_formatted_message($$)
   push @{$self->{'errors_warnings'}}, $message;
 }
 
-# TODO document?  Or consider that this method is internal?
+# Used in generic converter API.
 sub format_line_message($$$$;$)
 {
   my $type = shift;
@@ -325,9 +325,9 @@ Clear the previously registered messages.
 =item $registrar->add_formatted_message ($msg)
 X<C<add_formatted_message>>
 
-Register the I<$msg> hash reference corresponding to an error, warning or error line
-continuation.  The I<$msg> hash reference should correspond to the structure returned
-by C<errors>.
+Register the I<$msg> hash reference corresponding to an error, warning or error
+line continuation.  The I<$msg> hash reference should correspond to the
+structure returned by C<errors>.
 
 =item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
 

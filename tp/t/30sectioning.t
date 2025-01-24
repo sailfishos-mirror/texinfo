@@ -1290,9 +1290,6 @@ in chap
 
 @chapter chapter
 '],
-# FIXME in DocBook the nesting is incorrect, part is opened before chapter
-# and is closed first too.  This is not an important bug, however, as
-# this construct is not normal, and @top has no equivalent in DocBook.
 ['top_part_chapter',
 '@top top
 
@@ -1552,7 +1549,7 @@ my @xml_tests_cases_tests = ('part_before_section',
 'next_no_prev_to_node',
 'empty_ref_arg');
 
-my @docbook_tests_cases_tests = ('hole_in_sectioning');
+my @docbook_tests_cases_tests = ('hole_in_sectioning', 'top_part_chapter');
 
 my @latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
  'nodes_before_top', 'nodes_before_after_top',
