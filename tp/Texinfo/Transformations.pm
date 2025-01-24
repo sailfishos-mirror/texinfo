@@ -243,7 +243,8 @@ sub _reference_to_arg($$$)
     # remove from internal references
     if ($document) {
       my $internal_references = $document->internal_references_information();
-      Texinfo::Common::modify_array_element($internal_references, $current);
+      Texinfo::Common::replace_remove_list_element($internal_references,
+                                                   $current);
     }
 
     my @args_try_order;
@@ -696,8 +697,8 @@ sub regenerate_master_menu($;$)
         splice (@{$menu->{'contents'}}, $current_idx, 1,
                 $new_detailmenu);
         # also replace in global commands
-        Texinfo::Common::modify_array_element($global_detailmenu, $entry,
-                                              $new_detailmenu);
+        Texinfo::Common::replace_remove_list_element($global_detailmenu,
+                                                  $entry, $new_detailmenu);
 
         # NOTE the menu entries added in @detailmenu are not added as
         # internal references.  However, this is not an issue, as the
@@ -714,7 +715,8 @@ sub regenerate_master_menu($;$)
             foreach my $entry_content (@{$detailmenu_entry->{'contents'}}) {
               if ($entry_content->{'type'}
                   and $entry_content->{'type'} eq 'menu_entry_node') {
-                Texinfo::Common::modify_array_element($internal_references,
+                Texinfo::Common::replace_remove_list_element(
+                                                      $internal_references,
                                                       $entry_content);
               }
             }

@@ -1409,7 +1409,7 @@ clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
 
   if (tree_elements->tree
       && tree_elements->status != tree_added_status_reused_tree)
-    remove_element_from_list (&self->tree_to_build, tree_elements->tree);
+    replace_remove_list_element (&self->tree_to_build, tree_elements->tree, 0);
 
   if (tree_elements->status == tree_added_status_new_tree)
     destroy_element_and_children (tree_elements->tree);

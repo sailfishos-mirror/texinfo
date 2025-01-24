@@ -489,22 +489,6 @@ remove_from_contents (ELEMENT *parent, size_t where)
   return remove_from_element_list (list, where);
 }
 
-const ELEMENT *
-remove_element_from_list (ELEMENT_LIST *list, const ELEMENT *removed)
-{
-  size_t i;
-
-  for (i = 0; i < list->number; i++)
-    {
-      if (list->list[i] == removed)
-        {
-          return remove_from_element_list (list, i);
-        }
-    }
-
-  return 0;
-}
-
 void
 add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e)
 {
@@ -561,9 +545,10 @@ contents_child_by_index (const ELEMENT *e, size_t index)
   return e->e.c->contents.list[index];
 }
 
+/* Remove or replace first REMOVED from LIST */
 const ELEMENT *
-replace_element_in_list (ELEMENT_LIST *list, const ELEMENT *removed,
-                         ELEMENT *added)
+replace_remove_list_element (ELEMENT_LIST *list, const ELEMENT *removed,
+                             ELEMENT *added)
 {
   size_t i;
 
@@ -574,8 +559,13 @@ replace_element_in_list (ELEMENT_LIST *list, const ELEMENT *removed,
     {
       if (list->list[i] == removed)
         {
-          list->list[i] = added;
-          return removed;
+          if (added)
+            {
+              list->list[i] = added;
+              return removed;
+            }
+          else
+            return remove_from_element_list (list, i);
         }
     }
   return 0;

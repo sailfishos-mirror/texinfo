@@ -215,7 +215,7 @@ void
 remove_tree_to_build (CONVERTER *self, ELEMENT *e)
 {
   if (self->external_references_number > 0)
-    remove_element_from_list (&self->tree_to_build, e);
+    replace_remove_list_element (&self->tree_to_build, e, 0);
 }
 
 void
@@ -518,7 +518,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         free (no_arg_command_context->text);
       no_arg_command_context->text = translation_result;
       if (tree_built)
-        remove_element_from_list (&self->tree_to_build, tree_built);
+        replace_remove_list_element (&self->tree_to_build, tree_built, 0);
     }
 }
 

@@ -925,7 +925,7 @@ reference_to_arg_internal (const char *type,
       if (document && document->internal_references.number > 0)
         {
           const ELEMENT *removed_internal_ref =
-              remove_element_from_list (&document->internal_references, e);
+            replace_remove_list_element (&document->internal_references, e, 0);
           if (removed_internal_ref)
             document->modified_information |= F_DOCM_internal_references;
         }
@@ -1224,8 +1224,10 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
             {
               size_t j;
               ELEMENT *removed = remove_from_contents (menu, current_idx);
-              replace_element_in_list (&document->global_commands.detailmenu,
-                                       removed, new_detailmenu_e);
+              /* also replace in global commands */
+              replace_remove_list_element (
+                                   &document->global_commands.detailmenu,
+                                   removed, new_detailmenu_e);
               /* remove internal refs of removed entries */
               for (j = 0; j < removed->e.c->contents.number; j++)
                 {
@@ -1235,13 +1237,14 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
                       size_t k;
                       for (k = 0; k < content->e.c->contents.number; k++)
                         {
-                          const ELEMENT *entry_content = content->e.c->contents.list[k];
+                          const ELEMENT *entry_content
+                                  = content->e.c->contents.list[k];
                           if (entry_content->type == ET_menu_entry_node)
                             {
                               const ELEMENT *removed_internal_ref =
-                                remove_element_from_list (
+                                replace_remove_list_element (
                                         &document->internal_references,
-                                                        entry_content);
+                                                        entry_content, 0);
                               if (removed_internal_ref)
                                 document->modified_information
                                             |= F_DOCM_internal_references;

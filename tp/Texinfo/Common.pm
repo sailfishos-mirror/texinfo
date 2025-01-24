@@ -1245,11 +1245,11 @@ sub lookup_index_entry($$)
 }
 
 # only used from Perl
-# Remove or replace first $ELEMENT from $ARRAY
-sub modify_array_element($$;$)
+# Remove or replace first $REMOVED from $ARRAY
+sub replace_remove_list_element($$;$)
 {
   my $array = shift;
-  my $element = shift;
+  my $removed = shift;
   my $replacement = shift;
 
   #if (!defined($array)) {
@@ -1257,7 +1257,7 @@ sub modify_array_element($$;$)
   #}
 
   for (my $index = 0; $index < scalar(@$array); $index++) {
-    if ($array->[$index] eq $element) {
+    if ($array->[$index] eq $removed) {
       if (!defined($replacement)) {
         return splice(@$array, $index, 1);
       } else {
@@ -2200,7 +2200,7 @@ X<C<normalize_top_node_name>>
 Normalize the node name string given in argument, by normalizing
 Top node case.
 
-=item $result = modify_array_element($array, $element, $replacement)
+=item $result = replace_remove_list_element($array, $element, $replacement)
 
 Remove first occurence of I<$element> in the array reference I<$array>.
 If the optional I<$replacement> argument is given, replace the I<$element>
