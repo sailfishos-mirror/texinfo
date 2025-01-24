@@ -1101,33 +1101,29 @@ info_short_help (void)
 Read documentation in Info format.\n"), program_name);
   puts ("");
 
-/* mark strings to be translated */
-#undef _
-#define _(String) String
-
   char *message_lines[] = {
 
-_("Frequently-used options:"),
-_("  -a, --all                    use all matching manuals"),
-_("  -k, --apropos=STRING         look up STRING in all indices of all manuals"),
-_("  -d, --directory=DIR          add DIR to INFOPATH"),
-_("  -f, --file=MANUAL            specify Info manual to visit"),
-_("  -h, --help                   display this help and exit"),
-_("      --index-search=STRING    go to node pointed by index entry STRING"),
-_("  -n, --node=NODENAME          specify nodes in first visited Info file"),
-_("  -o, --output=FILE            output selected nodes to FILE"),
+N_("Frequently-used options:"),
+N_("  -a, --all                    use all matching manuals"),
+N_("  -k, --apropos=STRING         look up STRING in all indices of all manuals"),
+N_("  -d, --directory=DIR          add DIR to INFOPATH"),
+N_("  -f, --file=MANUAL            specify Info manual to visit"),
+N_("  -h, --help                   display this help and exit"),
+N_("      --index-search=STRING    go to node pointed by index entry STRING"),
+N_("  -n, --node=NODENAME          specify nodes in first visited Info file"),
+N_("  -o, --output=FILE            output selected nodes to FILE"),
 
 #if defined(__MSDOS__) || defined(__MINGW32__)
-_("  -b, --speech-friendly        be friendly to speech synthesizers"),
+N_("  -b, --speech-friendly        be friendly to speech synthesizers"),
 #endif
 
-_("      --subnodes               recursively output menu items"),
-_("  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"),
-_("      --version                display version information and exit"),
-_("  -w, --where, --location      print physical location of Info file"),
+N_("      --subnodes               recursively output menu items"),
+N_("  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"),
+N_("      --version                display version information and exit"),
+N_("  -w, --where, --location      print physical location of Info file"),
 
 "",
-_(
+N_(
 "The first non-option argument, if present, is the menu entry to start from;\n\
 it is searched for in all 'dir' files along INFOPATH.\n\
 If it is not present, info merges all 'dir' files and shows the result.\n\
@@ -1135,19 +1131,19 @@ Any remaining arguments are treated as the names of menu\n\
 items relative to the initial node visited."),
 
 "",
-_("For a summary of key bindings, type H within Info."),
+N_("For a summary of key bindings, type H within Info."),
 "",
 
-_(" Examples:"),
-_("  info                         show top-level dir menu"),
-_("  info info-stnd               show the manual for this Info program"),
-_("  info emacs                   start at emacs node from top-level dir"),
-_("  info emacs buffers           select buffers menu entry in emacs manual"),
-_("  info emacs -n Files          start at Files node within emacs manual"),
-_("  info '(emacs)Files'          alternative way to start at Files node"),
-_("  info --subnodes -o out.txt emacs\n\
+N_(" Examples:"),
+N_("  info                         show top-level dir menu"),
+N_("  info info-stnd               show the manual for this Info program"),
+N_("  info emacs                   start at emacs node from top-level dir"),
+N_("  info emacs buffers           select buffers menu entry in emacs manual"),
+N_("  info emacs -n Files          start at Files node within emacs manual"),
+N_("  info '(emacs)Files'          alternative way to start at Files node"),
+N_("  info --subnodes -o out.txt emacs\n\
                                dump entire emacs manual to out.txt"),
-_("  info -f ./foo.info           show file ./foo.info, not searching dir"),
+N_("  info -f ./foo.info           show file ./foo.info, not searching dir"),
 
 "",
 
@@ -1156,8 +1152,6 @@ general questions and discussion to help-texinfo@gnu.org.\n\
 Texinfo home page: https://www.gnu.org/software/texinfo/"
 
   };
-#undef _
-#define _(String) gettext (String)
 
   char **p;
   for (p = message_lines;
