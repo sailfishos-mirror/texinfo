@@ -1,5 +1,10 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/t/html_tests.t (sectioning_check_menu_structure): replace
+	TEXI2HTML by the relevant customization variables values.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/27float.t: remove incorrect FIXME.
 
 	* tp/t/30sectioning.t (top_part_chapter): add docbook.  Remove fixed

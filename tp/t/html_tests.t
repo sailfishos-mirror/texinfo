@@ -1358,15 +1358,28 @@ $check_htmlxref_text
   {'test_file' => 'float_copying.texi',},
   {'SPLIT' => 'chapter', 'footnotestyle' => 'separate'}
 ],
-# FIXME which TEXI2HTML options are really interesting for the test?
 # The CHECK_NORMAL_MENU_STRUCTURE setting is relevant and to keep,
 # even though it is set by default, to mark that it is on purpose.
 ['sectioning_check_menu_structure',
   undef,
   # tests for node with directions after section
   {'test_file' => '../../tests/customization/sectioning.texi',
-   'CHECK_NORMAL_MENU_STRUCTURE' => 1},
-  {'TEXI2HTML' => 1, 'SPLIT' => 'chapter'}
+   'CHECK_NORMAL_MENU_STRUCTURE' => 1,},
+  {'FORMAT_MENU' => 'menu',
+   'NODE_NAME_IN_MENU' => 0,
+   'USE_NODES' => 0,
+   'SPLIT' => 'chapter',
+   'SECTION_BUTTONS' => ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
+                             'Space', 'Space', 'Space', 'Space',
+                             'Top', 'Contents', 'Index', 'About' ],
+   'TOP_BUTTONS' => ['Back', 'Forward', 'Space',
+                             'Contents', 'Index', 'About'],
+   'TOP_FOOTER_BUTTONS' => ['Back', 'Forward', 'Space',
+                             'Contents', 'Index', 'About'],
+   'CHAPTER_FOOTER_BUTTONS' => [ 'FastBack', 'FastForward', 'Space',
+                              'Space', 'Space', 'Space', 'Space',
+                              'Top', 'Contents', 'Index', 'About', ],
+  }
 ],
 ['test_separated_contents_shortcontents',
 '@contents
