@@ -1072,18 +1072,13 @@ sub determine_files_and_directory($$)
     # with other character strings, so we decode here.
     my $input_file_name_bytes = $document_info->{'input_file_name'};
     my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
-    my $input_file_name;
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_name_bytes, sub { '?' });
+      $input_basefile = decode($encoding, $input_file_name_bytes, sub { '?' });
       # use '?' as replacement character rather than U+FFFD in case it
       # is re-encoded to an encoding without this character
     } else {
-      $input_file_name = $input_file_name_bytes;
+      $input_basefile = $input_file_name_bytes;
     }
-    # FIXME $input_file_name is already the base file name.  Not clear how
-    # this is useful.
-    my ($directories, $suffix);
-    ($input_basefile, $directories, $suffix) = fileparse($input_file_name);
   } else {
     # This could happen if called on a piece of Texinfo and not a full manual.
     $input_basefile = '';

@@ -868,24 +868,15 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
        decoded (utf-8) character strings such that they can easily be mixed
        with other character strings, so we decode here. */
       const char *encoding = self->conf->COMMAND_LINE_ENCODING.o.string;
-      char *input_file_name;
-      char *input_file_name_and_directory[2];
 
       if (encoding)
         {
           int status;
-          input_file_name = decode_string (document_info->input_file_name,
-                                           encoding, &status, 0);
+          input_basefile = decode_string (document_info->input_file_name,
+                                          encoding, &status, 0);
         }
       else
-        input_file_name = strdup (document_info->input_file_name);
-
-  /* FIXME $input_file_name is already the base file name.  Not clear how
-     this is useful. */
-      parse_file_path (input_file_name, input_file_name_and_directory);
-      input_basefile = input_file_name_and_directory[0];
-      free (input_file_name_and_directory[1]);
-      free (input_file_name);
+        input_basefile = strdup (document_info->input_file_name);
     }
   else /* This could happen if called on a piece of texinfo */
     input_basefile = strdup ("");

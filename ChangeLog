@@ -1,5 +1,12 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory),
+	tp/Texinfo/XS/convert/converter.c (determine_files_and_directory): the
+	document input_file_name information is already a base file name.  Do
+	not determine a basename again.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/06columnfractions.t: add html_text format to the tests.
 
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
