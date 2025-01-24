@@ -672,6 +672,13 @@ $result_menus{'empty_string_index_entry'} = [
 
 $result_errors{'empty_string_index_entry'} = [
   {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: empty index key in @findex
 ',
     'line_nr' => 4,

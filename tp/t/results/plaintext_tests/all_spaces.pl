@@ -613,7 +613,16 @@ $result_menus{'all_spaces'} = [
   }
 ];
 
-$result_errors{'all_spaces'} = [];
+$result_errors{'all_spaces'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'all_spaces.texi',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'all_spaces'} = {};

@@ -339,6 +339,13 @@ $result_errors{'footnote_in_caption_and_error'} = [
     'line_nr' => 8,
     'text' => '@error expected braces',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

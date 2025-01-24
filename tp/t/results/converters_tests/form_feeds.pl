@@ -1494,7 +1494,15 @@ $result_menus{'form_feeds'} = [
   }
 ];
 
-$result_errors{'form_feeds'} = [];
+$result_errors{'form_feeds'} = [
+  {
+    'error_line' => 'warning: node `chapnode\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chapnode\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'form_feeds'} = {

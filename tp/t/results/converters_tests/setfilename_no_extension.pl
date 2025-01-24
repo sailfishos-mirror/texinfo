@@ -261,7 +261,15 @@ $result_menus{'setfilename_no_extension'} = [
   }
 ];
 
-$result_errors{'setfilename_no_extension'} = [];
+$result_errors{'setfilename_no_extension'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 6,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'setfilename_no_extension'} = {};

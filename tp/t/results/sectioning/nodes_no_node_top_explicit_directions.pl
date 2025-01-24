@@ -447,7 +447,15 @@ $result_menus{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'tr
 $result_menus{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'unit_command'} = $result_menus{'nodes_no_node_top_explicit_directions'}[0];
 $result_menus{'nodes_no_node_top_explicit_directions'}[1] = $result_menus{'nodes_no_node_top_explicit_directions'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'};
 
-$result_errors{'nodes_no_node_top_explicit_directions'} = [];
+$result_errors{'nodes_no_node_top_explicit_directions'} = [
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodes_no_node_top_explicit_directions'} = {};

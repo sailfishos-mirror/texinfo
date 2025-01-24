@@ -309,7 +309,15 @@ $result_menus{'today_in_copying'} = [
   }
 ];
 
-$result_errors{'today_in_copying'} = [];
+$result_errors{'today_in_copying'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 8,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'today_in_copying'} = {};

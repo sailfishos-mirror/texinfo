@@ -807,6 +807,29 @@ check_nodes_are_referenced (DOCUMENT *document)
                                          node_texi);
               free (node_texi);
             }
+          else if (((!options)
+                    || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
+                   && strcmp (normalized, "Top")
+                   && nodes_list->number > 1)
+            {
+              const ELEMENT *arguments_line = node->e.c->contents.list[0];
+              int automatic_directions
+                 = (arguments_line->e.c->contents.number <= 1);
+              const ELEMENT *section = lookup_extra_element (node,
+                                                  AI_key_associated_section);
+              const ELEMENT * const *menu_directions
+                        = lookup_extra_directions (node,
+                                                   AI_key_menu_directions);
+              if (! ((section && automatic_directions) 
+                     || (menu_directions && menu_directions[D_up])))
+                {
+                  char *node_texi = target_element_to_texi_label (node);
+                  message_list_command_warn (error_messages, options, node, 0,
+                                             "node `%s' not in menu",
+                                             node_texi);
+                  free (node_texi);
+                }
+            }
         }
     }
 

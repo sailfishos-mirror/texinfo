@@ -404,7 +404,15 @@ $result_menus{'anchor_in_titlepage'} = [
   }
 ];
 
-$result_errors{'anchor_in_titlepage'} = [];
+$result_errors{'anchor_in_titlepage'} = [
+  {
+    'error_line' => 'warning: node `nchap\' not in menu
+',
+    'line_nr' => 10,
+    'text' => 'node `nchap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'anchor_in_titlepage'} = {};

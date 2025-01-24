@@ -402,7 +402,15 @@ $result_menus{'syncodeindex_to_plain'} = [
   }
 ];
 
-$result_errors{'syncodeindex_to_plain'} = [];
+$result_errors{'syncodeindex_to_plain'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_indices{'syncodeindex_to_plain'} = {

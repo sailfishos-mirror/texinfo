@@ -416,7 +416,15 @@ $result_menus{'transparent_sort_chars'} = [
   }
 ];
 
-$result_errors{'transparent_sort_chars'} = [];
+$result_errors{'transparent_sort_chars'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 6,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'transparent_sort_chars'} = {};

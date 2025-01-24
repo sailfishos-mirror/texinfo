@@ -718,6 +718,13 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: node `a node\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `a node\' not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `second\' unreferenced
 ',
     'line_nr' => 9,

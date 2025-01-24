@@ -1048,6 +1048,13 @@ $result_errors{'complex_recursive_synindex'} = [
     'line_nr' => 39,
     'text' => 'printing an index `eee\' merged in another one, `bbb\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

@@ -324,7 +324,15 @@ $result_menus{'anchor_in_caption'} = [
   }
 ];
 
-$result_errors{'anchor_in_caption'} = [];
+$result_errors{'anchor_in_caption'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'anchor_in_caption'} = {

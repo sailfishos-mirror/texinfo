@@ -869,6 +869,13 @@ $result_errors{'value_expansion_in_include'} = [
     'line_nr' => 25,
     'text' => '@verbatiminclude should only appear at the beginning of a line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 11,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

@@ -836,6 +836,13 @@ $result_errors{'macro_and_commands_in_early_commands'} = [
     'line_nr' => 11,
     'text' => 'encoding `ISO-8859-1@\' is not a canonical texinfo encoding',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 21,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

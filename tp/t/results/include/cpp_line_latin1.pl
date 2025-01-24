@@ -318,6 +318,14 @@ $result_errors{'cpp_line_latin1'} = [
     'line_nr' => 102,
     'text' => 'unknown command `gggg\'',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'cpp_line_latin1.texi',
+    'line_nr' => 8,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

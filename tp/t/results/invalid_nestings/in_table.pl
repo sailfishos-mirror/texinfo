@@ -1156,6 +1156,13 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: empty index key in @item
 ',
     'line_nr' => 18,

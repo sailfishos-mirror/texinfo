@@ -200,6 +200,13 @@ $result_errors{'print_merged_index'} = [
     'line_nr' => 4,
     'text' => 'printing an index `fn\' merged in another one, `cp\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

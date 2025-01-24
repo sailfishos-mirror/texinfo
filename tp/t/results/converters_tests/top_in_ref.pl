@@ -3023,6 +3023,13 @@ $result_errors{'top_in_ref'} = [
     'line_nr' => 38,
     'text' => '@inforef is obsolete',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap refs node\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap refs node\' not in menu',
+    'type' => 'warning'
   }
 ];
 

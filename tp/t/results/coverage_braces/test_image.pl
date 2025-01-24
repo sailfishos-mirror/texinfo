@@ -2982,6 +2982,13 @@ $result_errors{'test_image'} = [
     'macro' => 'files-char',
     'text' => '@verb should not appear anywhere inside @image',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chapter\' not in menu
+',
+    'line_nr' => 13,
+    'text' => 'node `chapter\' not in menu',
+    'type' => 'warning'
   }
 ];
 

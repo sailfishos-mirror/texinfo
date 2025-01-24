@@ -280,7 +280,15 @@ $result_menus{'format_in_titlepage_titlepage'} = [
   }
 ];
 
-$result_errors{'format_in_titlepage_titlepage'} = [];
+$result_errors{'format_in_titlepage_titlepage'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 10,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'format_in_titlepage_titlepage'} = {};

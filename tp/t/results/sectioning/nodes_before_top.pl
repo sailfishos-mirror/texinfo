@@ -726,7 +726,15 @@ $result_menus{'nodes_before_top'} = [
 $result_menus{'nodes_before_top'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'nodes_before_top'}[0];
 $result_menus{'nodes_before_top'}[3]{'extra'}{'menu_directions'}{'up'} = $result_menus{'nodes_before_top'}[2];
 
-$result_errors{'nodes_before_top'} = [];
+$result_errors{'nodes_before_top'} = [
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodes_before_top'} = {};

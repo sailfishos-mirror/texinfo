@@ -527,7 +527,15 @@ $result_menus{'backslash_in_arg'} = [
   }
 ];
 
-$result_errors{'backslash_in_arg'} = [];
+$result_errors{'backslash_in_arg'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'backslash_in_arg'} = {};

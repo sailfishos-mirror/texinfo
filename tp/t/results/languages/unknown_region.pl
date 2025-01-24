@@ -405,6 +405,13 @@ $result_errors{'unknown_region'} = [
     'line_nr' => 1,
     'text' => 'NOWHERE is not a valid region code',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

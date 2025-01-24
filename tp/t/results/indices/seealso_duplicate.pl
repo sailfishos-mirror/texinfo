@@ -538,7 +538,15 @@ $result_menus{'seealso_duplicate'} = [
   }
 ];
 
-$result_errors{'seealso_duplicate'} = [];
+$result_errors{'seealso_duplicate'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'seealso_duplicate'} = {};

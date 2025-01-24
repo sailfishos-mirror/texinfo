@@ -740,7 +740,15 @@ $result_menus{'ftable_vtable'} = [
   }
 ];
 
-$result_errors{'ftable_vtable'} = [];
+$result_errors{'ftable_vtable'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'ftable_vtable'} = {};

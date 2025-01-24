@@ -2261,7 +2261,16 @@ $result_menus{'nodes_before_top'}[5]{'extra'}{'menu_directions'}{'prev'}{'extra'
 $result_menus{'nodes_before_top'}[5]{'extra'}{'menu_directions'}{'up'} = $result_menus{'nodes_before_top'}[4];
 $result_menus{'nodes_before_top'}[6] = $result_menus{'nodes_before_top'}[5]{'extra'}{'menu_directions'}{'prev'};
 
-$result_errors{'nodes_before_top'} = [];
+$result_errors{'nodes_before_top'} = [
+  {
+    'error_line' => 'warning: node `first before top\' not in menu
+',
+    'file_name' => 'nodes_before_top.texi',
+    'line_nr' => 6,
+    'text' => 'node `first before top\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodes_before_top'} = {};

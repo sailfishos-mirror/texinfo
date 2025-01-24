@@ -1413,6 +1413,14 @@ $result_errors{'cpp_lines'} = [
     'line_nr' => 7,
     'text' => "l\x{e0}ng is not a valid language code",
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'g_f',
+    'line_nr' => 71,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

@@ -383,7 +383,15 @@ $result_menus{'anchor_in_copying_in_footnote'} = [
   }
 ];
 
-$result_errors{'anchor_in_copying_in_footnote'} = [];
+$result_errors{'anchor_in_copying_in_footnote'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 12,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'anchor_in_copying_in_footnote'} = {};

@@ -177,7 +177,15 @@ $result_menus{'nodes_no_section_footnote_no_top_node_output'} = [
   }
 ];
 
-$result_errors{'nodes_no_section_footnote_no_top_node_output'} = [];
+$result_errors{'nodes_no_section_footnote_no_top_node_output'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodes_no_section_footnote_no_top_node_output'} = {};

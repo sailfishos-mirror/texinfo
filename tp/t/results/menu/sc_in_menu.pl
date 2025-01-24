@@ -808,6 +808,13 @@ $result_errors{'sc_in_menu'} = [
     'line_nr' => 19,
     'text' => '@menu in invalid context',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
   }
 ];
 

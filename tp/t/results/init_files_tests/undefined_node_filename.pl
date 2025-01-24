@@ -141,7 +141,15 @@ $result_menus{'undefined_node_filename'} = [
   }
 ];
 
-$result_errors{'undefined_node_filename'} = [];
+$result_errors{'undefined_node_filename'} = [
+  {
+    'error_line' => 'warning: node `chap Other\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap Other\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'undefined_node_filename'} = {};

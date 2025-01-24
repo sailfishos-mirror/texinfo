@@ -373,7 +373,15 @@ $result_menus{'node_before_top'} = [
   }
 ];
 
-$result_errors{'node_before_top'} = [];
+$result_errors{'node_before_top'} = [
+  {
+    'error_line' => 'warning: node `before Top\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `before Top\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'node_before_top'} = {};

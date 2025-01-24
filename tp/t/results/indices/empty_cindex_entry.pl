@@ -163,6 +163,13 @@ $result_errors{'empty_cindex_entry'} = [
     'line_nr' => 3,
     'text' => '@cindex missing argument',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

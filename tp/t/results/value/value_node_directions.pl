@@ -803,7 +803,22 @@ $result_menus{'value_node_directions'} = [
   }
 ];
 
-$result_errors{'value_node_directions'} = [];
+$result_errors{'value_node_directions'} = [
+  {
+    'error_line' => 'warning: node `bar\' not in menu
+',
+    'line_nr' => 7,
+    'text' => 'node `bar\' not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `BarFoo\' not in menu
+',
+    'line_nr' => 10,
+    'text' => 'node `BarFoo\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'value_node_directions'} = {};

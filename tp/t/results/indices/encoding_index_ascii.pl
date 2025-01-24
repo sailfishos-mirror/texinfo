@@ -2883,7 +2883,15 @@ $result_menus{'encoding_index_ascii'} = [
   }
 ];
 
-$result_errors{'encoding_index_ascii'} = [];
+$result_errors{'encoding_index_ascii'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 7,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'encoding_index_ascii'} = {};

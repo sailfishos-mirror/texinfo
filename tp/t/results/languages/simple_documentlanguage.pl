@@ -398,7 +398,15 @@ $result_menus{'simple_documentlanguage'} = [
   }
 ];
 
-$result_errors{'simple_documentlanguage'} = [];
+$result_errors{'simple_documentlanguage'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'simple_documentlanguage'} = {};

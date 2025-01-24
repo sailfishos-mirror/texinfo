@@ -765,6 +765,13 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: node `one arg1\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `one arg1\' not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: node `one arg2\' unreferenced
 ',
     'line_nr' => 3,

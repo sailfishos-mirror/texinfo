@@ -473,7 +473,15 @@ $result_menus{'space_in_def_for_index'} = [
   }
 ];
 
-$result_errors{'space_in_def_for_index'} = [];
+$result_errors{'space_in_def_for_index'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'space_in_def_for_index'} = {};

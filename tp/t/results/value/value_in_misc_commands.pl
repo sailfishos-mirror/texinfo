@@ -4221,6 +4221,13 @@ $result_errors{'value_in_misc_commands'} = [
     'line_nr' => 143,
     'text' => 'remaining argument on @clickstyle line: {result_macro}',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 6,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

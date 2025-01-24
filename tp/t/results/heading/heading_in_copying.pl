@@ -365,7 +365,15 @@ $result_menus{'heading_in_copying'} = [
   }
 ];
 
-$result_errors{'heading_in_copying'} = [];
+$result_errors{'heading_in_copying'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 10,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'heading_in_copying'} = {};

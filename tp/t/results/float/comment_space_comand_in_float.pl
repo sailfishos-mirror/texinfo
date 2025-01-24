@@ -292,7 +292,15 @@ $result_menus{'comment_space_comand_in_float'} = [
   }
 ];
 
-$result_errors{'comment_space_comand_in_float'} = [];
+$result_errors{'comment_space_comand_in_float'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'comment_space_comand_in_float'} = {

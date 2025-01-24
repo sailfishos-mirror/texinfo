@@ -1135,6 +1135,13 @@ $result_errors{'value_in_index_commands'} = [
     'line_nr' => 36,
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 23,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

@@ -2255,6 +2255,13 @@ $result_errors{'test_allowcodebreaks'} = [
     'macro' => 'testallowcodebreakspara',
     'text' => '@anchor should not appear anywhere inside @w',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

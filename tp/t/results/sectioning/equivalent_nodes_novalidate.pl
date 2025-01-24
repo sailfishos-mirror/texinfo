@@ -378,7 +378,15 @@ $result_menus{'equivalent_nodes_novalidate'} = [
 ];
 $result_menus{'equivalent_nodes_novalidate'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_novalidate'}[0];
 
-$result_errors{'equivalent_nodes_novalidate'} = [];
+$result_errors{'equivalent_nodes_novalidate'} = [
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'equivalent_nodes_novalidate'} = {};

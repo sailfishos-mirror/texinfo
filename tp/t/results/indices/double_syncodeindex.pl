@@ -376,6 +376,13 @@ $result_errors{'double_syncodeindex'} = [
     'line_nr' => 11,
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 5,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

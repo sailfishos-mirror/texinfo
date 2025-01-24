@@ -337,6 +337,13 @@ $result_errors{'empty_menu_entry_name'} = [
     'line_nr' => 5,
     'text' => 'empty menu entry name in `* :aaa,\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
   }
 ];
 

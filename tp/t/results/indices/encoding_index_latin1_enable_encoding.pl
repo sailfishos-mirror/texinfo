@@ -2828,7 +2828,16 @@ $result_menus{'encoding_index_latin1_enable_encoding'} = [
   }
 ];
 
-$result_errors{'encoding_index_latin1_enable_encoding'} = [];
+$result_errors{'encoding_index_latin1_enable_encoding'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'encoding_index_latin1.texi',
+    'line_nr' => 7,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'encoding_index_latin1_enable_encoding'} = {};

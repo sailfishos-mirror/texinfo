@@ -527,7 +527,36 @@ $result_menus{'character_and_spaces_in_node'} = [
   }
 ];
 
-$result_errors{'character_and_spaces_in_node'} = [];
+$result_errors{'character_and_spaces_in_node'} = [
+  {
+    'error_line' => 'warning: node `chap nodes\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap nodes\' not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `!_"#$%&\'()*+-.\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `!_"#$%&\'()*+-.\' not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `/;<=>?[\\]^_`|~\' not in menu
+',
+    'line_nr' => 5,
+    'text' => 'node `/;<=>?[\\]^_`|~\' not in menu',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `local   node\' not in menu
+',
+    'line_nr' => 6,
+    'text' => 'node `local   node\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'character_and_spaces_in_node'} = {};

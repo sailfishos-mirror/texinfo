@@ -297,6 +297,13 @@ $result_errors{'empty_index_entry'} = [
     'line_nr' => 5,
     'text' => 'missing name for @deffn',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

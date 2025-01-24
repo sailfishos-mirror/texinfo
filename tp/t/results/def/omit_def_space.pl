@@ -466,7 +466,15 @@ $result_menus{'omit_def_space'} = [
   }
 ];
 
-$result_errors{'omit_def_space'} = [];
+$result_errors{'omit_def_space'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'omit_def_space'} = {};

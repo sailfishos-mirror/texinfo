@@ -212,6 +212,13 @@ $result_errors{'empty_added_index_entry'} = [
     'line_nr' => 6,
     'text' => '@myindex missing argument',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

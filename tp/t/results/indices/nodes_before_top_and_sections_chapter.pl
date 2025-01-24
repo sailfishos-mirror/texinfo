@@ -2920,7 +2920,16 @@ $result_menus{'nodes_before_top_and_sections_chapter'}[6] = $result_menus{'nodes
 $result_menus{'nodes_before_top_and_sections_chapter'}[7] = $result_menus{'nodes_before_top_and_sections_chapter'}[3]{'extra'}{'menu_directions'}{'next'};
 $result_menus{'nodes_before_top_and_sections_chapter'}[8] = $result_menus{'nodes_before_top_and_sections_chapter'}[3]{'extra'}{'menu_directions'}{'next'}{'extra'}{'menu_directions'}{'next'};
 
-$result_errors{'nodes_before_top_and_sections_chapter'} = [];
+$result_errors{'nodes_before_top_and_sections_chapter'} = [
+  {
+    'error_line' => 'warning: node `first before top\' not in menu
+',
+    'file_name' => 'nodes_before_top_and_sections.texi',
+    'line_nr' => 3,
+    'text' => 'node `first before top\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'nodes_before_top_and_sections_chapter'} = {};

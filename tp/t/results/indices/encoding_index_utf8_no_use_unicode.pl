@@ -2828,7 +2828,16 @@ $result_menus{'encoding_index_utf8_no_use_unicode'} = [
   }
 ];
 
-$result_errors{'encoding_index_utf8_no_use_unicode'} = [];
+$result_errors{'encoding_index_utf8_no_use_unicode'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'encoding_index_utf8.texi',
+    'line_nr' => 7,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'encoding_index_utf8_no_use_unicode'} = {};

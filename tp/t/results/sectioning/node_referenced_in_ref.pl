@@ -353,7 +353,15 @@ $result_menus{'node_referenced_in_ref'} = [
 ];
 $result_menus{'node_referenced_in_ref'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'node_referenced_in_ref'}[0];
 
-$result_errors{'node_referenced_in_ref'} = [];
+$result_errors{'node_referenced_in_ref'} = [
+  {
+    'error_line' => 'warning: node `second level node\' not in menu
+',
+    'line_nr' => 11,
+    'text' => 'node `second level node\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'node_referenced_in_ref'} = {};

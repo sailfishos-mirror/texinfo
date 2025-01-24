@@ -726,6 +726,13 @@ $result_errors{'explicit_sort_key'} = [
     'line_nr' => 16,
     'text' => '@sortas should only appear in an index entry',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 4,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

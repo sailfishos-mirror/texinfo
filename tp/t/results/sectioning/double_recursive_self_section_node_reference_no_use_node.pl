@@ -391,6 +391,13 @@ $result_errors{'double_recursive_self_section_node_reference_no_use_node'} = [
     'line_nr' => 5,
     'text' => '@ref to `to node1\', different from node name `to @ref{node1}\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `to @ref{node1}\' not in menu
+',
+    'line_nr' => 7,
+    'text' => 'node `to @ref{node1}\' not in menu',
+    'type' => 'warning'
   }
 ];
 

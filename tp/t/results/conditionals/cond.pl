@@ -906,7 +906,16 @@ $result_menus{'cond'} = [
   }
 ];
 
-$result_errors{'cond'} = [];
+$result_errors{'cond'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'cond.texi',
+    'line_nr' => 20,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'cond'} = {};

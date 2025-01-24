@@ -442,7 +442,15 @@ $result_menus{'index_entries_locations'} = [
   }
 ];
 
-$result_errors{'index_entries_locations'} = [];
+$result_errors{'index_entries_locations'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 3,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'index_entries_locations'} = {};

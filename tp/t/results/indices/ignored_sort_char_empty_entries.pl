@@ -446,6 +446,13 @@ $result_menus{'ignored_sort_char_empty_entries'} = [
 
 $result_errors{'ignored_sort_char_empty_entries'} = [
   {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 6,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: empty index key in @findex
 ',
     'line_nr' => 8,

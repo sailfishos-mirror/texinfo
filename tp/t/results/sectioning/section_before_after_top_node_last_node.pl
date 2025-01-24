@@ -349,6 +349,13 @@ $result_errors{'section_before_after_top_node_last_node'} = [
     'line_nr' => 4,
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `node after\' not in menu
+',
+    'line_nr' => 10,
+    'text' => 'node `node after\' not in menu',
+    'type' => 'warning'
   }
 ];
 

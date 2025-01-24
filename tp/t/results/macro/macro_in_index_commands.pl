@@ -1409,6 +1409,13 @@ $result_errors{'macro_in_index_commands'} = [
     'line_nr' => 50,
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 37,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
   }
 ];
 

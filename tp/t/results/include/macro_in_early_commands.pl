@@ -1013,7 +1013,15 @@ $result_menus{'macro_in_early_commands'} = [
   }
 ];
 
-$result_errors{'macro_in_early_commands'} = [];
+$result_errors{'macro_in_early_commands'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 28,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'macro_in_early_commands'} = {};

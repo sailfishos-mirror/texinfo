@@ -376,6 +376,13 @@ $result_errors{'equivalent_nodes'} = [
     'line_nr' => 4,
     'text' => '@menu entry node name `@strong{node}\' different from node name `@samp{node}\'',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: node `first\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `first\' not in menu',
+    'type' => 'warning'
   }
 ];
 

@@ -652,6 +652,13 @@ $result_errors{'double_node_anchor_float'} = [
     'line_nr' => 1,
     'text' => 'here is the previous definition as @node',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: node `node1\' not in menu
+',
+    'line_nr' => 1,
+    'text' => 'node `node1\' not in menu',
+    'type' => 'warning'
   }
 ];
 

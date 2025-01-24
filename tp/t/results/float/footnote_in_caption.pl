@@ -326,7 +326,15 @@ $result_menus{'footnote_in_caption'} = [
   }
 ];
 
-$result_errors{'footnote_in_caption'} = [];
+$result_errors{'footnote_in_caption'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'line_nr' => 2,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'footnote_in_caption'} = {

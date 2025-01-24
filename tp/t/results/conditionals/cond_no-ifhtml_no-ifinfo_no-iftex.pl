@@ -906,7 +906,16 @@ $result_menus{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [
   }
 ];
 
-$result_errors{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [];
+$result_errors{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [
+  {
+    'error_line' => 'warning: node `chap\' not in menu
+',
+    'file_name' => 'cond.texi',
+    'line_nr' => 20,
+    'text' => 'node `chap\' not in menu',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {};
