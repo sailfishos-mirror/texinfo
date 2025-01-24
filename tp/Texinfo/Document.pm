@@ -222,29 +222,14 @@ sub get_conf($$)
   my $self = shift;
   my $var = shift;
 
-  if (!$self->{'options'}) {
-    # This may happen if a tree/document is manipulated without having
-    # any configuration set.  This is or was the case for pod2texi.
-    # TODO it is not clear yet whether allowing document options not to be set
-    # at all is right or wrong:
-    # In favor
-    #  * it would be a good thing if the output was correct with undef set
-    #    for each of the structuring options.
-    #  * not having to worry about setting customization information
-    #    at all allows writing simpler code.
-    # Against
-    #  * it guards against having forgotten to setup customization
-    #    variables
-    #  * it forces writers of code using a document object to think about
-    #    which customization should be set or not
-    #  * it is very easy to setup options as an empty hash, which removes
-    #    the warning but has not other effect, once one is confident that
-    #    the result obtained with all the customization variables unset is ok
-    #print STDERR "DEBUG: $var: Document get_conf uninitialized options\n";
-    #cluck();
-    return undef;
+  if ($self->{'options'}) {
+    return $self->{'options'}->{$var};
   }
-  return $self->{'options'}->{$var};
+
+  # This may happen if a tree/document is manipulated without having
+  # any configuration set.  This is or was the case for pod2texi.
+  # This is allowed.
+  return undef;
 }
 
 # do nothing, only the XS override does something.

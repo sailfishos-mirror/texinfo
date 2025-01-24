@@ -181,7 +181,8 @@ sub index_entry_element_sort_string($$$$;$)
                                                $prefer_reference_element);
     $sort_string = Texinfo::Convert::Text::convert_to_text(
                               $entry_tree_element, $options);
-    # TODO do that for sortas too?
+    # Not done for @sortas, in particular to be able to still sort using
+    # the ignored characters for index sorting for some entries.
     if (defined($main_entry->{'entry_element'}
                        ->{'extra'}->{'index_ignore_chars'})) {
       my $ignore_chars = quotemeta($main_entry->{'entry_element'}

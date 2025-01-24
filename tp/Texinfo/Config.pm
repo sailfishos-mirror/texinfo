@@ -424,14 +424,18 @@ sub GNUT_get_format_from_init_file()
 
 
 #####################################################################
+# If another format than HTML can be customized, it may be a good
+# idea to add another level with the format name, maybe change some
+# texinfo_ function names and add the format in GNUT_* functions called
+# from main program.
+
+#####################################################################
 # stages handlers API.  Used in HTML only.
 
 my @possible_stages = ('setup', 'structure', 'init', 'finish');
 
 my $default_priority = 'default';
 
-# TODO add another level with format?  Not needed now as HTML is
-# the only customizable format for now.
 my $GNUT_stage_handlers;
 
 sub _GNUT_initialize_stage_handlers()

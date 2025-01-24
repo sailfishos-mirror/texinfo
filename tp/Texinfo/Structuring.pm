@@ -934,7 +934,6 @@ sub complete_node_tree_with_menus($)
                                 $customization_information->get_conf('DEBUG'));
         }
       }
-      # TODO check that node_up is not an external node (except for Top)?
     }
   }
 }

@@ -1,5 +1,11 @@
 2025-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm, tp/Texinfo/Document.pm (get_conf),
+	tp/Texinfo/Indices.pm, tp/Texinfo/Structuring.pm: handle/remove
+	TODOs.
+
+2025-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced),
 	tp/Texinfo/XS/structuring_transfo/structuring.c
 	(check_nodes_are_referenced): check that all the nodes are in a menu
