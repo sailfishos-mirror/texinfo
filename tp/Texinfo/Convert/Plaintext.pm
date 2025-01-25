@@ -756,8 +756,15 @@ sub output($$)
       my $output_unit_text = $self->convert_output_unit($output_unit);
       $output .= $self->write_or_return($output_unit_text, $fh);
     }
-    # NOTE do not close STDOUT now to avoid a perl warning.
-    # TODO is it still true that there is such a warning?
+    # Do not close STDOUT now.
+    # This avoids a Perl warning, "Filehandle STDOUT reopened as FH only for
+    # input", which happens if STDOUT is closed and then the file descriptor
+    # of STDOUT (typically 1) is reused for another filehandle opened in input
+    # only.
+    # It is a good idea to keep STDOUT open such that a call to open does
+    # not reuse the STDOUT file descriptor, as open is expected to reuse the
+    # lowest-numbered file descriptor not currently open, so we keep it open
+    # and the main program should close it.
     if ($fh and $outfile_name ne '-') {
       Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_outfile_name);
@@ -802,7 +809,9 @@ sub output($$)
       print $file_fh $output_unit_text;
       $self->{'file_counters'}->{$output_unit_filename}--;
       if ($self->{'file_counters'}->{$output_unit_filename} == 0) {
-        # NOTE do not close STDOUT here to avoid a perl warning
+        # Do not close STDOUT now such that the file descriptor is not reused
+        # by open, which uses the lowest-numbered file descriptor not open,
+        # for another filehandle.  Closing STDOUT is handled by the caller.
         if ($out_filepath ne '-') {
           Texinfo::Convert::Utils::output_files_register_closed(
             $self->output_files_information(), $out_filepath);

@@ -379,10 +379,9 @@ sub output($$)
   }
   if ($fh) {
     print $fh $tag_text;
-    # NOTE it should be possible to close STDOUT.  However this leads to
-    # 'Filehandle STDOUT reopened as FH only for input' if there are files
-    # reopened after closing STDOUT.  So closing STDOUT is handled by the
-    # caller.
+    # Do not close STDOUT now such that the file descriptor is not reused
+    # by open, which uses the lowest-numbered file descriptor not open,
+    # for another filehandle.  Closing STDOUT is handled by the caller.
     unless ($output_file eq '-') {
       $self->_register_closed_info_file($output_file);
       if (!close ($fh)) {

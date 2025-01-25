@@ -1987,7 +1987,7 @@ convert_output_output_unit_internal (CONVERTER *self,
       const OUTPUT_UNIT *file_output_unit = unit_file->first_unit;
       char *file_end;
       char *file_beginning;
-      char *out_filepath = unit_file->filepath;
+      const char *out_filepath = unit_file->filepath;
       char *path_encoding;
       char *open_error_message;
       int overwritten_file;
@@ -2057,7 +2057,9 @@ convert_output_output_unit_internal (CONVERTER *self,
               return 0;
             }
         }
-      /* NOTE do not close STDOUT here to be in line with perl code */
+      /* Do not close STDOUT now such that the file descriptor is not reused
+         by open, which uses the lowest-numbered file descriptor not open,
+         for another filehandle.  Closing STDOUT is handled by the caller. */
       if (strcmp (out_filepath, "-"))
         {
           output_files_register_closed (&self->output_files_information,
@@ -2348,6 +2350,9 @@ html_check_transfer_state_finalization (CONVERTER *self)
 
 /* return 0 on success, -1 on write or close error, -2 if file_fh is 0,
    which should mean a failure to open */
+/* It should be made sure by the caller that the closed FILE_FH cannot
+   be STDOUT.  If it becomes possible, an argument to avoid closing the
+   file descriptor should be added */
 static int
 file_error_or_write_close (CONVERTER *self, const char *out_filepath,
                            const char *encoded_out_filepath,
@@ -2430,7 +2435,7 @@ do_jslicenses_file (CONVERTER *self)
   if (!setting || strcmp (setting, "generate") || !path || !strlen (path))
     return;
 
-  if (file_name_is_absolute (path))
+  if (file_name_is_absolute (path) || !strcmp (path, "-"))
     path_not_ok = 1;
   else
     {

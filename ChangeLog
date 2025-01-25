@@ -1,5 +1,27 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file),
+	tp/Texinfo/XS/convert/convert_html.c (do_jslicenses_file): do not use
+	- as JS_WEBLABELS_FILE path.
+
+	* tp/Texinfo/Convert/Text.pm (output): do not close STDOUT.  Add an
+	error message if there is an error when closing.
+
+	* tp/Texinfo/XS/convert/rawtext_converter_api.c (rawtext_output):
+	close output file.
+
+	* tp/Texinfo/XS/convert/rawtext_converter_api.c (rawtext_output): free
+	input_basefile, input_basename, encoded_out_filepath and outfile.
+
+	* tp/Texinfo/XS/texi2any.c (main): free the file_directories itself.
+	Free input_directory after next_input_file such that it is done in
+	every case.
+
+	Homogenize/add to comments on STDOUT not closed immediately, but left
+	to the main program to close.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm: add a check that needs to be manually
 	enabled to warn if some relevant commands are not converted.
 

@@ -18,6 +18,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #include "document_types.h"
 #include "converter_types.h"
@@ -114,6 +115,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
     {
       input_basename = texinfo_input_file_basename (input_basefile);
     }
+  free (input_basefile);
 
   if (converter->conf->setfilename.o.string)
     setfilename = converter->conf->setfilename.o.string;
@@ -201,6 +203,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
         }
       free (destination_directory);
     }
+  free (input_basename);
 
   if (outfile)
     {
@@ -247,8 +250,31 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
                        file_fh, 0, result);
       free (result);
 
+      /* Do not close STDOUT now such that the file descriptor is not reused
+         by open, which uses the lowest-numbered file descriptor not open,
+         for another filehandle.  Closing STDOUT is handled by the caller. */
+      if (strcmp (outfile, "-"))
+        {
+          output_files_register_closed (&converter->output_files_information,
+                                        encoded_out_filepath);
+          if (fclose (file_fh))
+            {
+              message_list_document_error (&converter->error_messages,
+                                           converter->conf, 0,
+                                           "error on closing %s: %s",
+                                           outfile, strerror (errno));
+              free (encoded_out_filepath);
+              free (outfile);
+              return 0;
+            }
+        }
+
       result = strdup ("");
     }
+
+  free (encoded_out_filepath);
+  free (outfile);
+
   return result;
 }
 

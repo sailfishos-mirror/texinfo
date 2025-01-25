@@ -1033,7 +1033,7 @@ main (int argc, char *argv[], char *env[])
                      && !strcmp (list[nr -3], "Texinfo")
                      && !strcmp (list[nr -4], "tp"))
             texinfo_uninstalled = 1;
-          free_strings_list (file_directories);
+          destroy_strings_list (file_directories);
         }
     }
 
@@ -2733,7 +2733,6 @@ main (int argc, char *argv[], char *env[])
           if (strcmp (curdir, input_directory))
             add_string (input_directory,
                         converter_texinfo_language_config_dirs);
-        free (input_directory);
       }
 
       copy_strings (converter_texinfo_language_config_dirs,
@@ -3008,6 +3007,7 @@ main (int argc, char *argv[], char *env[])
       /* destroy document */
       txi_document_remove (document);
 
+      free (input_directory);
       free (input_file_name);
       free (input_file_path);
 

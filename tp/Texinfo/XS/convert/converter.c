@@ -793,6 +793,9 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
         }
     }
 
+  /* Do not close STDOUT now such that the file descriptor is not reused
+     by open, which uses the lowest-numbered file descriptor not open,
+     for another filehandle.  Closing STDOUT is handled by the caller. */
   if (file_fh && !strcmp (output_file, "-"))
     {
        output_files_register_closed

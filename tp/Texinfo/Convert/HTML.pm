@@ -11847,7 +11847,8 @@ sub _do_jslicenses_file {
   return if (!$setting or $setting ne 'generate' or !defined($path)
              or $path eq '');
 
-  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
+  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/
+      or $path eq '-') {
     $self->converter_document_warn(sprintf(
  __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
@@ -12938,7 +12939,9 @@ sub _html_convert_output($$$$$$$$)
         # end file
         print $file_fh "". $end_file;
 
-        # NOTE do not close STDOUT here to avoid a perl warning
+        # Do not close STDOUT now such that the file descriptor is not reused
+        # by open, which uses the lowest-numbered file descriptor not open,
+        # for another filehandle.  Closing STDOUT is handled by the caller.
         if ($out_filepath ne '-') {
           Texinfo::Convert::Utils::output_files_register_closed(
              $self->output_files_information(), $encoded_out_filepath);

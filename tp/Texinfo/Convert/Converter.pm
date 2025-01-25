@@ -424,6 +424,9 @@ sub output_tree($$)
 
   $result .= $self->write_or_return($output_end, $fh);
 
+  # Do not close STDOUT now such that the file descriptor is not reused
+  # by open, which uses the lowest-numbered file descriptor not open,
+  # for another filehandle.  Closing STDOUT is handled by the caller.
   if ($fh and $output_file ne '-') {
     Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);

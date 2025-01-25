@@ -1071,9 +1071,18 @@ sub output($$)
 
   if ($fh) {
     print $fh $result;
-    Texinfo::Convert::Utils::output_files_register_closed(
+    # Do not close STDOUT now such that the file descriptor is not reused
+    # by open, which uses the lowest-numbered file descriptor not open,
+    # for another filehandle.  Closing STDOUT is handled by the caller.
+    if ($outfile ne '-') {
+      Texinfo::Convert::Utils::output_files_register_closed(
                   $self->{'output_files'}, $encoded_outfile);
-    return undef if (!close($fh));
+
+      if (!close($fh)) {
+        warn sprintf(__("error on closing %s: %s"), $outfile, $!)."\n";
+        return undef;
+      }
+    }
     $result = '';
   }
   return $result;
