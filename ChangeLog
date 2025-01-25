@@ -1,5 +1,12 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/convert_html.c
+	(convert_output_output_unit_internal): cast to char * to remove a
+	const in encoded_output_file_name, as the function cannot be with
+	const even though the input string is not modified.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Command Tree Element Conversion Functions)
 	(Command Tree Element Opening Functions)
 	(Type Tree Element Conversion Functions)

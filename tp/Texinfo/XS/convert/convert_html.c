@@ -1992,9 +1992,11 @@ convert_output_output_unit_internal (CONVERTER *self,
       char *open_error_message;
       int overwritten_file;
 
+  /* cast to remove const since the encoded_output_file_name argument cannot
+     be const even though the string is not modified */
       char *encoded_out_filepath = encoded_output_file_name (self->conf,
-                               &self->document->global_info, out_filepath,
-                                                       &path_encoding, 0);
+                                           &self->document->global_info,
+                                   (char *)out_filepath, &path_encoding, 0);
       /* overwritten_file being set cannot happen */
       FILE *file_fh = output_files_open_out (&self->output_files_information,
                                encoded_out_filepath, &open_error_message,
