@@ -1,5 +1,13 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/texi2any.c (main), tp/texi2any.pl: if
+	macro_expand_file_name, internal_links_file_name or
+	sort_element_count_file_name is -, which means output to STDOUT, do
+	not close the filehandle/file descriptor immediately, and instead put
+	it in main_program_unclosed_stdout/main_unclosed_files.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file),
 	tp/Texinfo/XS/convert/convert_html.c (do_jslicenses_file): do not use
 	- as JS_WEBLABELS_FILE path.

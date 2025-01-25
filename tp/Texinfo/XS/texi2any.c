@@ -2621,15 +2621,20 @@ main (int argc, char *argv[], char *env[])
               write_to_file (texinfo_text, file_fh,
                              encoded_macro_expand_file_name);
 
-              output_files_register_closed (&output_files_information,
-                                            encoded_macro_expand_file_name);
-              if (fclose (file_fh))
+              if (!strcmp (macro_expand_file_name, "-"))
                 {
-                  txi_config_document_warn (
+                  output_files_register_closed (&output_files_information,
+                                                encoded_macro_expand_file_name);
+                  if (fclose (file_fh))
+                    {
+                      txi_config_document_warn (
                                "error on closing macro expand file %s: %s",
                                  macro_expand_file_name, strerror (errno));
-                  error_macro_expand_file = 1;
+                      error_macro_expand_file = 1;
+                    }
                 }
+              else
+                main_program_unclosed_stdout = file_fh;
             }
           else
             {
@@ -2833,15 +2838,20 @@ main (int argc, char *argv[], char *env[])
                   write_to_file (internal_links_text, file_fh,
                                  encoded_internal_links_file_name);
 
-                  output_files_register_closed (&output_files_information,
-                                            encoded_internal_links_file_name);
-                  if (fclose (file_fh))
+                  if (!strcmp (internal_links_file_name, "-"))
                     {
-                      txi_config_document_warn (
+                      output_files_register_closed (&output_files_information,
+                                            encoded_internal_links_file_name);
+                      if (fclose (file_fh))
+                        {
+                          txi_config_document_warn (
                                "error on closing internal links file %s: %s",
                                internal_links_file_name, strerror (errno));
-                      error_internal_links_file = 1;
+                          error_internal_links_file = 1;
+                        }
                     }
+                  else
+                    main_program_unclosed_stdout = file_fh;
                 }
               else
                 {
@@ -2964,15 +2974,20 @@ main (int argc, char *argv[], char *env[])
                   write_to_file (sort_element_count_text, file_fh,
                                  encoded_sort_element_count_file_name);
 
-                  output_files_register_closed (&output_files_information,
-                                         encoded_sort_element_count_file_name);
-                  if (fclose (file_fh))
+                  if (!strcmp (sort_element_count_file_name, "-"))
                     {
-                      txi_config_document_warn (
+                      output_files_register_closed (&output_files_information,
+                                         encoded_sort_element_count_file_name);
+                      if (fclose (file_fh))
+                        {
+                          txi_config_document_warn (
                                "error on closing internal links file %s: %s",
                                sort_element_count_file_name, strerror (errno));
-                      error_element_count_file = 1;
+                          error_element_count_file = 1;
+                        }
                     }
+                  else
+                    main_program_unclosed_stdout = file_fh;
                 }
               else
                 {
