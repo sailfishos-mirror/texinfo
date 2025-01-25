@@ -1,5 +1,15 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libperlembed_libtexinfo_main_la_CFLAGS),
+	tp/Texinfo/XS/configure.ac (perl_conf_EMBED_CFLAGS): add cccdlflags to
+	libperlembed_libtexinfo_main_la_CFLAGS through perl_conf_EMBED_CFLAGS,
+	as PERL_EXTUTILS_EMBED_ccopts does not include cccdlflags.
+
+	* tp/Texinfo/XS/configure.ac (TEXINFO_DTD_VERSION_CONFIG): move with
+	other variable that can be confused with customization variables.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/convert_html.c
 	(convert_output_output_unit_internal): cast to char * to remove a
 	const in encoded_output_file_name, as the function cannot be with

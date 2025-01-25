@@ -676,7 +676,8 @@ endif
 
 # ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
-#libperlembed_libtexinfo_main_la_CFLAGS =
+# flags for library compilation from Perl, not in PERL_EXTUTILS_EMBED_ccopts
+libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS)
 # In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
 # LDFLAGS (program-specific linker flags according to the automake
 # documentation) or LIBADD (linked libraries flags) are mixed.

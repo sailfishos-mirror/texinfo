@@ -172,6 +172,10 @@ if test x$disable_xs != xyes; then
   perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
   perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
+  # PERL_EXTUTILS_EMBED_ccopts is used for CPPFLAGS and includes ccflags
+  # but not cccdlflags
+  perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
+
   # Override these variables set by configure at the top level, because 
   # the compiler used in this subdirectory might be different.
   # Change these now so they are used in the checks that follow so that
@@ -257,6 +261,8 @@ fi
 embedded_perl=no
 
 if test x$disable_xs != xyes -a $extutils_embed = yes ; then
+  perl_conf_EMBED_LDFLAGS=
+
   # having XS enabled, the Perl headers corresponding to libperl and
   # ExtUtils::Embed installed do not ensure
   # that the Perl library .so/.a file needed for linking against libperl
@@ -272,7 +278,9 @@ if test x$disable_xs != xyes -a $extutils_embed = yes ; then
   # We favor having the variable last and use LIBS otherwise linking fails.
 
   LIBS="$PERL_EXTUTILS_EMBED_ldopts"
-  CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts"
+  # In the actual build variables, PERL_EXTUTILS_EMBED_ccopts is used for
+  # CPPFLAGS, but we do not differenciate CPPFLAGS and CFLAGS here.
+  CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts $perl_conf_EMBED_CFLAGS"
   LDFLAGS="$PERL_EXT_LDFLAGS"
 
   # NOTE The tested code is a simplified version of
@@ -407,6 +415,7 @@ AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
+AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
 
 AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
 AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
@@ -423,14 +432,13 @@ AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
                    [autoconf PACKAGE_URL value])
 AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
                    [autoconf PACKAGE_VERSION value])
+AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
+                   [configure TEXINFO_DTD_VERSION value])
 
 # Output with the _CONFIG suffix as the original is a type name
 AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
                    [configure CONVERTER value])
 
-# Output with the _CONFIG suffix as the original is a type name
-AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
-                   [configure TEXINFO_DTD_VERSION value])
 
 AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
 AC_OUTPUT
