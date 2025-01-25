@@ -12,7 +12,7 @@ use Texinfo::Parser;
 use Texinfo::Common;
 use Data::Dumper;
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 sub test_is_empty($$$;$)
 {

@@ -12,7 +12,7 @@ use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 sub test_correction($$$;$)
 {
@@ -68,7 +68,7 @@ my $with_XS = ((not defined($ENV{TEXINFO_XS})
 
 SKIP:
 {
-  skip "test perl not XS", 2 if ($with_XS);
+  skip 'test perl not XS', 2 if ($with_XS);
 
 test_correction('@raisesections
 

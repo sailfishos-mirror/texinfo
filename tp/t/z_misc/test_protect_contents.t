@@ -12,7 +12,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::Transformations;
 
-ok(1);
+ok(1, 'modules loading');
 
 sub run_test($$$$)
 {

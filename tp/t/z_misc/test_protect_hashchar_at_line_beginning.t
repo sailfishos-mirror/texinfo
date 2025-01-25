@@ -24,8 +24,7 @@ $ENV{LC_ALL} = 'C';
 # also needed for consistent error message
 $ENV{LANGUAGE} = 'C';
 
-# modules loaded
-ok(1);
+ok(1, 'modules loading');
 
 sub run_test($$$;$)
 {

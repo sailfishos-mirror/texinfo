@@ -15,7 +15,7 @@ use Texinfo::Transformations;
 
 use Data::Dumper;
 
-ok(1);
+ok(1, 'modules loading');
 
 sub test($$$;$$)
 {
@@ -34,7 +34,7 @@ sub test($$$;$$)
   if ($complete_missing_menus) {
     Texinfo::Transformations::complete_tree_nodes_missing_menu($document,
                                                                $use_sections);
-    #print STDERR "".Texinfo::Common::debug_print_tree($tree)."\n";
+    #print STDERR Texinfo::Common::debug_print_tree($tree)."\n";
   } else {
     Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }
@@ -47,7 +47,7 @@ sub test($$$;$$)
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";
   } else {
-    is ($texi_result, $out, $name);
+    is($texi_result, $out, $name);
   }
 }
 
@@ -390,10 +390,10 @@ sub _partial_menu_section_result($)
 }
 
 test($partial_menu_section_input,
-_partial_menu_section_result($added_menu_entry),
-'complete with sections all menus');
+     _partial_menu_section_result($added_menu_entry),
+     'complete with sections all menus');
 
 test($partial_menu_section_input,
-_partial_menu_section_result(''),
-'complete with sections only missing menus', 1);
+     _partial_menu_section_result(''),
+     'complete with sections only missing menus', 1);
 

@@ -15,7 +15,7 @@ $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'en';
 
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 my $parser = Texinfo::Parser::parser();
 
@@ -27,18 +27,18 @@ T
 
 my $global_info = $document->global_information();
 
-is (join('|', sort(keys(%$global_info))),
-    'input_encoding_name',
-    'initial global info keys');
+is(join('|', sort(keys(%$global_info))),
+   'input_encoding_name',
+   'initial global info keys');
 
 $document->set_document_global_info('toto', 'la tete a');
 
 # rebuild $global_info
 $document->global_information();
 
-is (join('|', sort(keys(%$global_info))),
-    'input_encoding_name|toto',
-    'with set global info keys');
+is(join('|', sort(keys(%$global_info))),
+   'input_encoding_name|toto',
+   'with set global info keys');
 
-is ($global_info->{'toto'}, 'la tete a', 'check global info set value');
+is($global_info->{'toto'}, 'la tete a', 'check global info set value');
 

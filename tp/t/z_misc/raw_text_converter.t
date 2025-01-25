@@ -14,7 +14,7 @@ use Texinfo::Parser;
 # converter that can be used from C.
 use Texinfo::Convert::Text;
 
-ok(1);
+ok(1, 'modules loading');
 
 my $converter = Texinfo::Convert::Text->converter({'TEST' => 1,
                                                    'ASCII_GLYPH' => 1,

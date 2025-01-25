@@ -9,7 +9,7 @@ use Texinfo::Convert::Texinfo;
 
 plan tests => 2;
 
-ok(1, "modules loading"); # If we made it this far, we're ok.
+ok(1, 'modules loading');
 
 # Note that this tree is not necessarily updated when the tree elements
 # change, so it generally uses obsolete constructs.
@@ -53,7 +53,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
                                }
                             ]
              },
-             {'text' => " ccc"},
+             {'text' => ' ccc'},
           ],
        } ],
      },
@@ -61,7 +61,7 @@ my $manual_tree = { 'cmdname' => 'multitable',
              'contents' => [
                              { 'type' => 'paragraph',
                                'contents' => [
-                                                { 'text' => "title" },
+                                                { 'text' => 'title' },
                                                 { 'cmdname' => 'verb',
                                                   'contents' => [ {
                                                                'contents' => [
@@ -130,6 +130,6 @@ title@verb{: in verb } :}@@.
 @end multitable
 ';
 
-is (Texinfo::Convert::Texinfo::convert_to_texinfo($manual_tree),
-     $manual_tree_result, "tree_to_texi on a manually written tree");
+is(Texinfo::Convert::Texinfo::convert_to_texinfo($manual_tree),
+   $manual_tree_result, 'tree_to_texi on a manually written tree');
 

@@ -16,7 +16,7 @@ use Texinfo::Parser;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::HTML;
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 sub _find_accent($)
 {
@@ -48,11 +48,11 @@ sub test_accent_stack ($)
   if (defined($contents_element)) {
     $text = Texinfo::Convert::Text::convert_to_text($contents_element);
   } else {
-    $text = "";
+    $text = '';
   }
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
-    ok ($reference eq join('|',($text, @stack)), 'innermost '.$name);
+    ok($reference eq join('|',($text, @stack)), 'innermost '.$name);
   } else {
     print STDERR join('|',($text, @stack))."\n";
   }
@@ -77,7 +77,7 @@ sub ord_hex_string($)
   my $hex = '';
   foreach my $char (split '', $result) {
     $ord .= ord($char).'-';
-    $hex .= sprintf("%04x-", ord($char));
+    $hex .= sprintf('%04x-', ord($char));
   }
   $ord =~ s/-$//;
   $hex =~ s/-$//;
@@ -127,24 +127,25 @@ sub test_enable_encoding ($)
                                \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   if (defined($reference)) {
-    is (Encode::encode('iso-8859-1', $result), $reference, $name);
+    is(Encode::encode('iso-8859-1', $result), $reference, $name);
   } else {
     my ($ord, $hex) = ord_hex_string($result);
     print STDERR "$name ($ord)--> utf8: ".Encode::encode('utf8', $result).
         " latin1: ".Encode::encode('iso-8859-1', $result)."\n";
   }
   if (defined($reference_xml)) {
-    is ($result_xml, $reference_xml, "$name xml");
+    is($result_xml, $reference_xml, "$name xml");
   } else {
     print STDERR "$name xml: $result_xml\n";
   }
   if (defined($reference_xml_numeric_entity)) {
-    is ($result_xml_numeric_entity, $reference_xml_numeric_entity, "$name xml numeric");
+    is($result_xml_numeric_entity, $reference_xml_numeric_entity,
+       "$name xml numeric");
   } else {
     print STDERR "$name xml entity: $result_xml_numeric_entity\n";
   }
   if (defined($reference_unicode)) {
-    is ($result_unicode, $reference_unicode, "$name unicode");
+    is($result_unicode, $reference_unicode, "$name unicode");
   } else {
     my ($ord, $hex) = ord_hex_string($result);
     my ($ord_unicode, $hex_unicode) = ord_hex_string($result_unicode);
@@ -166,7 +167,7 @@ sub chrx(@)
 # the results correspond to:
 #  8bit, XML named entity fallback to numeric, XML numeric entity, utf8
 foreach my $test (
-  ['@~e',                   'no 8bit encoding',    "e~", '&#7869;', '&#7869;',
+  ['@~e',                   'no 8bit encoding',    'e~', '&#7869;', '&#7869;',
                                                    chrx('1ebd')],
   ['@~n',                   'simple encoding',     chr(241), '&ntilde;',
                                                    '&#241;', chrx('00f1')],
@@ -200,13 +201,13 @@ foreach my $test (
 my $parser = Texinfo::Parser::parser();
 my $res_e = $parser->parse_texi_line('@^e');
 my $result = Texinfo::Convert::Text::convert_to_text($res_e, {'enabled_encoding' => 'utf-8'});
-is ($result, "\x{00EA}", 'enable encoding @^e');
+is($result, "\x{00EA}", 'enable encoding @^e');
 
 my $res_aa = $parser->parse_texi_line('@aa{}');
 $result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'utf-8'});
-is ($result, "\x{00E5}", 'enable encoding @aa{}');
+is($result, "\x{00E5}", 'enable encoding @aa{}');
 
 $result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'iso-8859-1'});
-is ($result, "\x{00E5}", 'enable encoding latin1 @aa{}');
+is($result, "\x{00E5}", 'enable encoding latin1 @aa{}');
 
 1;

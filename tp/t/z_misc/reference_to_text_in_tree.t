@@ -12,7 +12,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Document;
 use Texinfo::Transformations;
 
-ok(1);
+ok(1, 'modules loading');
 
 sub run_test($$$)
 {
@@ -33,7 +33,7 @@ sub run_test($$$)
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";
   } else {
-    is ($texi_result, $out, $name);
+    is($texi_result, $out, $name);
   }
 }
 

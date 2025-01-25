@@ -15,7 +15,7 @@ use Texinfo::XSLoader;
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-ok(1);
+ok(1, 'modules loading');
 
 #my %avoided_keys_tree;
 #my @avoided_keys_tree = ('parent', 'tree_document_descriptor');
@@ -73,8 +73,8 @@ sub run_test($$$$)
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result_as_text\n$texi_result_as_line";
   } else {
-    is ($texi_result_as_text, $reference_as_text, "text $name");
-    is ($texi_result_as_line, $reference_as_line, "line $name");
+    is($texi_result_as_text, $reference_as_text, "text $name");
+    is($texi_result_as_line, $reference_as_line, "line $name");
     #local $Data::Dumper::Purity = 1;
     #local $Data::Dumper::Indent = 1;
     #local $Data::Dumper::Sortkeys = \&filter_tree_keys;

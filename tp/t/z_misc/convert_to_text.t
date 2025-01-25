@@ -51,7 +51,7 @@ if (-d $locales_dir) {
   warn "Locales dir for document strings not found\n";
 }
 
-ok(1);
+ok(1, 'modules loading');
 
 my $parser = Texinfo::Parser::parser();
 
@@ -87,7 +87,7 @@ $converter->set_document($document);
 # note that parse_texi_piece is used, so there is no preamble
 $converter->set_global_document_commands('preamble_or_first',
                                          ['documentlanguage']);
-#print STDERR "DOCUMENTLANGUAGE ".$converter->get_conf('documentlanguage')."\n";
+#print STDERR 'DOCUMENTLANGUAGE '.$converter->get_conf('documentlanguage')."\n";
 
 my $text_options
  = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
@@ -95,7 +95,7 @@ my $text_options
 my $result_text
  = Texinfo::Convert::Text::convert_to_text($document->tree(), $text_options);
 
-is ($result_text, '
+is($result_text, '
 
 A top
 *****
@@ -123,7 +123,7 @@ Some text. @^o. @aa{}.  @AA{}.  @copyright{}.
 $result_text
  = Texinfo::Convert::Text::convert_to_text($document->tree(),
                                            {'set_case' => 1});
-is ($result_text, '
+is($result_text, '
 SOME TEXT. O^. AA.  AA.  (C).
 ', 'set_case > 0, no encoding');
 
@@ -131,7 +131,7 @@ SOME TEXT. O^. AA.  AA.  (C).
 $result_text
  = Texinfo::Convert::Text::convert_to_text($document->tree(),
                                            {'set_case' => -1});
-is ($result_text, '
+is($result_text, '
 some text. o^. aa.  aa.  (C).
 ', 'set_case < 0, no encoding');
 
@@ -141,7 +141,7 @@ $result_text
 # since all the characters can be encoded in latin1, perl internal encoding
 # of those characters may be latin1, and a simple print may show result
 # encoded in latin1.
-is ($result_text, '
+is($result_text, '
 some text. ô. å.  å.  ©.
 ', 'set_case < 0, utf-8 encoding');
 

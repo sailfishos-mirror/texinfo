@@ -1664,22 +1664,22 @@ sub test($$)
     #$converter_to_texinfo->reset_converter();
     #$converter_to_texinfo->destroy();
 
-    is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
+    is($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
         skip $todos{'text'}, 1;
-        is ($converted_text, $result_texts{$test_name}, $test_name.' text');
+        is($converted_text, $result_texts{$test_name}, $test_name.' text');
       }
     } else {
-      is ($converted_text, $result_texts{$test_name}, $test_name.' text');
+      is($converted_text, $result_texts{$test_name}, $test_name.' text');
     }
     $tests_count = $nr_comparisons;
     if (defined($result_directions_text{$test_name})) {
       cmp_trimmed($output_units, $result_elements{$test_name},
                   \@avoided_keys_elements, $test_name.' elements');
       $tests_count++;
-      is ($directions_text, $result_directions_text{$test_name},
-          $test_name.' directions text');
+      is($directions_text, $result_directions_text{$test_name},
+         $test_name.' directions text');
       $tests_count++;
     }
     if (@tested_formats) {
@@ -1780,14 +1780,14 @@ sub test($$)
           if ($todos{$format}) {
             SKIP: {
               skip $todos{$format}, 1;
-              is ($converted{$format},
-                  $result_converted{$format}->{$test_name},
-                  $test_name.' converted '.$format);
+              is($converted{$format},
+                 $result_converted{$format}->{$test_name},
+                 $test_name.' converted '.$format);
             }
           } else {
-            is ($converted{$format},
-                $result_converted{$format}->{$test_name},
-                $test_name.' converted '.$format);
+            is($converted{$format},
+               $result_converted{$format}->{$test_name},
+               $test_name.' converted '.$format);
           }
         }
         if ($reference_exists) {

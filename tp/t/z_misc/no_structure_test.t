@@ -57,8 +57,8 @@ sub _do_format_test_file($$$$$$)
   my $results_dir = $test_out_dir;
   if (-d $reference_dir) {
     my $errors = compare_dirs_files($reference_dir, $results_dir);
-    ok (!defined($errors), $test_name.' converted '.$format)
-      or diag (join("\n", @$errors));
+    ok(!defined($errors), $test_name.' converted '.$format)
+        or diag(join("\n", @$errors));
   } else {
     print STDERR "\n$format $test_name: \n$results_dir\n";
   }
@@ -81,7 +81,7 @@ if (defined($srcdir)) {
 my $debug = 0;
 #my $debug = 1;
   
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 my $test_group = 'no_structure_test';
 
@@ -125,12 +125,12 @@ $document->set_document_global_info('input_file_name',
 # check that the tree is ok by converting back
 my $result_texi
   = Texinfo::Convert::Texinfo::convert_to_texinfo($document->tree());
-is ($result_texi, $texi, 'back to Texinfo');
+is($result_texi, $texi, 'back to Texinfo');
 
 
 my ($test_parser_errors, $test_parser_error_count) = $document->parser_errors();
 foreach my $error_message (@$test_parser_errors) {
-  warn "W: ".$error_message->{'error_line'}
+  warn 'W: '.$error_message->{'error_line'}
    ;# if ($debug);
 }
 
@@ -153,7 +153,7 @@ _do_format_test_file($test_name, $format, $html_converter, $document,
 
 my $plaintext_converter = Texinfo::Convert::Plaintext->converter();
 my $plaintext_text = $plaintext_converter->convert($document);
-is ($plaintext_text, 'First File
+is($plaintext_text, 'First File
 **********
 
 Chap
@@ -188,7 +188,7 @@ _do_format_test_file($test_name, $format, $info_converter, $document,
 
 my $latex_converter = Texinfo::Convert::LaTeX->converter();
 my $latex_text = $latex_converter->convert($document);
-is ($latex_text, '
+is($latex_text, '
 \begin{document}
 \part*{{First File}}
 \label{anchor:Top}%
@@ -216,7 +216,7 @@ See point.
 
 my $docbook_converter = Texinfo::Convert::DocBook->converter();
 my $docbook_text = $docbook_converter->convert($document);
-is ($docbook_text, '<chapter label="">
+is($docbook_text, '<chapter label="">
 <title>First File</title>
 </chapter>
 <chapter label="" id="chap">
@@ -245,7 +245,7 @@ is ($docbook_text, '<chapter label="">
 
 my $texinfoxml_converter = Texinfo::Convert::TexinfoXML->converter();
 my $texinfoxml_text = $texinfoxml_converter->convert($document);
-is ($texinfoxml_text, '<contents></contents>
+is($texinfoxml_text, '<contents></contents>
 
 <top spaces=" "><sectiontitle>First File</sectiontitle>
 </top>

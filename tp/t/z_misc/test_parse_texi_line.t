@@ -15,8 +15,7 @@ use Texinfo::Parser;
 $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'en';
 
-# modules loaded
-ok(1);
+ok(1, 'modules loading');
 
 # test regressions specific of parse_texi_line
 
@@ -65,7 +64,7 @@ sub test_line($$$$)
 
 my @tests = (
 ["\@node a node\n", 'node line'],
-["aa \@exdent in exdent", 'exdent error no end line',
+['aa @exdent in exdent', 'exdent error no end line',
   [[1, 'warning: @exdent should only appear at the beginning of a line']]],
 ["aa \@exdent in exdent\n", 'exdent error with end line',
   [[1, 'warning: @exdent should only appear at the beginning of a line']]],

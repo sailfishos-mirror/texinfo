@@ -59,8 +59,8 @@ sub _do_format_test_file($$$$$$)
   my $results_dir = $test_out_dir;
   if (-d $reference_dir) {
     my $errors = compare_dirs_files($reference_dir, $results_dir);
-    ok (!defined($errors), $test_name.' converted '.$format)
-      or diag (join("\n", @$errors));
+    ok(!defined($errors), $test_name.' converted '.$format)
+         or diag(join("\n", @$errors));
   } else {
     print STDERR "\n$format $test_name: \n$results_dir\n";
   }
@@ -91,7 +91,7 @@ if (defined($srcdir)) {
 # system.  If the translations found elsewhere are too old, some tests could
 # still fail.
 my $localesdir;
-foreach my $dir ("LocaleData", "$locales_srcdir/LocaleData") {
+foreach my $dir ('LocaleData', "$locales_srcdir/LocaleData") {
   if (-d $dir) {
     $localesdir = $dir;
   }
@@ -135,8 +135,8 @@ sub _run_test($$$)
     if (!defined($reference_parsing_errors)) {
       print STDERR "$bfile:\n$parsing_errors";
     } else {
-      is ($parsing_errors, $reference_parsing_errors,
-          "$test_file_name parsing errors");
+      is($parsing_errors, $reference_parsing_errors,
+         "$test_file_name parsing errors");
     }
 
     #my $plaintext_converter = Texinfo::Convert::Plaintext->converter();
@@ -165,7 +165,7 @@ sub _run_test($$$)
   }
 }
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 Texinfo::Tests::create_group_directory($test_group);
 

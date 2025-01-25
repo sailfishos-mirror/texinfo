@@ -15,7 +15,7 @@ use Texinfo::Structuring;
 
 use Data::Dumper;
 
-ok(1);
+ok(1, 'modules loading');
 
 sub _get_in($;$)
 {
@@ -168,7 +168,7 @@ unnumbered1
 ';
 #print STDERR $out;
 
-is ($out, $reference, 'master menu');
+is($out, $reference, 'master menu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
@@ -181,7 +181,7 @@ $master_menu = Texinfo::Structuring::new_detailmenu($document,
                                                     $identifier_target,
                                            $top_node->{'extra'}->{'menus'});
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
-is ($out, $reference, 'master menu no detailmenu');
+is($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
@@ -191,7 +191,7 @@ Texinfo::Transformations::regenerate_master_menu($document, $parser);
 my $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
-is ($out, _get_in($reference), 'regenerate with existing detailmenu');
+is($out, _get_in($reference), 'regenerate with existing detailmenu');
 #print STDERR "$out";
 
 
@@ -203,5 +203,5 @@ Texinfo::Transformations::regenerate_master_menu($document, $parser);
 $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
-is ($out, _get_in('',"\n".$reference), 'regenerate with no detailmenu');
+is($out, _get_in('', "\n".$reference), 'regenerate with no detailmenu');
 

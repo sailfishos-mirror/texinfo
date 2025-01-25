@@ -6,7 +6,6 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 use Test::More;
 
 BEGIN { plan tests => 7; }
-#BEGIN { plan tests => 1; }
 
 use Data::Dumper;
 use File::Spec;
@@ -37,7 +36,7 @@ my $with_XS = ((not defined($ENV{TEXINFO_XS})
                and (!defined $ENV{TEXINFO_XS_PARSER}
                     or $ENV{TEXINFO_XS_PARSER} eq '1'));
 
-ok(1, "modules loading");
+ok(1, 'modules loading');
 
 # FIXME not tested in XS
 # a tree with a reference seen after one within the extra tree.
@@ -70,7 +69,7 @@ my $tref_copy_texi = Texinfo::Convert::Texinfo::convert_to_texinfo($tref_copy);
 # output.  Not a big deal, what is important it so see if there are error
 # messages.
 
-is ($tref_texi, $tref_copy_texi, "ref within extra tree");
+is($tref_texi, $tref_copy_texi, 'ref within extra tree');
 
 my $text = '@setfilename some@@file.ext
 
@@ -146,10 +145,10 @@ my $copy = Texinfo::ManipulateTree::copy_tree($tree);
 
 my $texi_tree = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
-is ($text, $texi_tree, "tree to texi and original match");
+is($text, $texi_tree, 'tree to texi and original match');
 
 my $texi_copy = Texinfo::Convert::Texinfo::convert_to_texinfo($copy);
-is ($texi_copy, $texi_tree, "tree and copy to texi match");
+is($texi_copy, $texi_tree, 'tree and copy to texi match');
 
 # set sectioning structure and redo a copy
 Texinfo::Structuring::sectioning_structure($document);
@@ -161,8 +160,8 @@ my $copy_with_sec = Texinfo::ManipulateTree::copy_tree($tree);
 my $texi_tree_with_sec = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 my $texi_copy_with_sec
   = Texinfo::Convert::Texinfo::convert_to_texinfo($copy_with_sec); 
-is ($texi_tree_with_sec, $texi_copy_with_sec,
-    "tree after sectioning and copy to texi match");
+is($texi_tree_with_sec, $texi_copy_with_sec,
+   'tree after sectioning and copy to texi match');
 
 my $updir = File::Spec->updir();
 my $manual_file = File::Spec->catfile($srcdir, $updir, 'doc', 'texinfo.texi');
@@ -171,8 +170,6 @@ my $manual_include_dir = File::Spec->catdir($srcdir, $updir, 'doc');
 
 my $coverage_file = File::Spec->catfile($srcdir, 'tests', 'coverage', 'formatting.texi');
 my $coverage_include_dir = File::Spec->catdir($srcdir, 'tests');
-
-#__END__
 
 foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
                           ['formatting', $coverage_file, $coverage_include_dir]) {
@@ -195,7 +192,7 @@ foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
   my $texi_test_copy
      = Texinfo::Convert::Texinfo::convert_to_texinfo($test_tree_copy);
 
-  is ($test_texi, $texi_test_copy, "manual tree and copy to texi match");
+  is($test_texi, $texi_test_copy, 'manual tree and copy to texi match');
   #print STDERR $test_texi_copy;
 }
 
