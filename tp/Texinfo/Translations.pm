@@ -64,13 +64,6 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Translations::_XS_configure",
       "Texinfo::DocumentXS::configure_output_strings_translations");
-    # Example of how gdt could be overriden.  Not used because
-    # the approach is flawed as there won't be any substitution if the trees in
-    # $replaced_substrings are not registered in C data, as is the case in
-    # general.
-    #Texinfo::XSLoader::override(
-    #  "Texinfo::Translations::gdt",
-    #  "Texinfo::DocumentXS::gdt");
     $module_loaded = 1;
   }
   # The usual import method
