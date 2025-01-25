@@ -1,5 +1,19 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Command Tree Element Conversion Functions)
+	(Command Tree Element Opening Functions)
+	(Type Tree Element Conversion Functions)
+	(Type Tree Element Opening Functions),
+	tp/init/documentation_examples.pm: show how to call functions to get
+	defaults without a converter.  Add an example that uses
+	default_command_conversion.
+
+	* tp/Texinfo/Convert/HTML.pm,
+	tp/maintain/generate_code_convert_data.pl: remove TODOs, move code,
+	add NOTEs.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main), tp/texi2any.pl: if
 	macro_expand_file_name, internal_links_file_name or
 	sort_element_count_file_name is -, which means output to STDOUT, do

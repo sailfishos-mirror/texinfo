@@ -10,6 +10,8 @@ use utf8;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Texinfo::Convert::HTML;
+
 texinfo_set_from_init_file('MATHJAX_CONFIGURATION',
 "options: { enableMenu: false },
 loader: {
@@ -77,6 +79,10 @@ texinfo_register_direction_string_info('Forward', 'text', undef,
                                        'Forward');
 texinfo_register_special_unit_info('heading', 'contents',
                                    'The @emph{Table of Contents}');
+
+texinfo_register_command_formatting('setchapternewpage',
+     Texinfo::Convert::HTML::default_command_conversion(undef,
+                                                 'documentlanguage'));
 
 my $shown_styles;
 my $footnotestyle;

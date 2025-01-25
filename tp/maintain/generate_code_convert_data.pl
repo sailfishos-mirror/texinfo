@@ -283,6 +283,8 @@ while (<DSUI>) {
   foreach my $translated_type (@su_ordered_translated_hashes) {
     my $string = $data[$su_header_indices{$translated_type}->{'string'}];
     if (defined($string) and $string ne '') {
+      # NOTE to be kept in sync with context in Texinfo::Convert::HTML
+      # special_unit_info
       my $context = $special_unit . ' section heading';
       if ($perl_format) {
         $su_hash_lines{$translated_type}

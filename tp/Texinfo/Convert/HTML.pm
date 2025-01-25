@@ -1989,8 +1989,6 @@ sub direction_string($$$;$)
                                        ->{$direction}->{$context};
 }
 
-my %default_translated_special_unit_info;
-
 sub get_special_unit_info_varieties($$)
 {
   my $self = shift;
@@ -2019,6 +2017,8 @@ sub special_unit_info($$$) {
                                             ->{$special_unit_variety};
       my $translated_tree;
       if (defined($special_unit_info_string)) {
+        # NOTE to be kept in sync with generated context in
+        # generate_code_convert_data.pl
         my $translation_context = "$special_unit_variety section heading";
         $translated_tree = $self->pcdt($translation_context,
                                        $special_unit_info_string);
@@ -2597,8 +2597,7 @@ foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
 my %default_special_unit_info
   = %{ Texinfo::HTMLData::get_default_special_unit_info() };
 
-# TODO translation context should be consistent with special_unit_info()
-%default_translated_special_unit_info
+my %default_translated_special_unit_info
   = %{ Texinfo::HTMLData::get_default_translated_special_unit_info() };
 
 my $direction_orders = Texinfo::HTMLData::get_directions_order();
@@ -2847,8 +2846,6 @@ foreach my $explained_command (keys(%explained_commands)) {
 
 my %kept_line_commands;
 
-# TODO add the possibility to customize to add more commands to
-# @informative_global_commands?
 my @informative_global_commands = ('documentlanguage', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
 

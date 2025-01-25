@@ -3004,13 +3004,25 @@ passing arguments that may correspond to another @@-command:
 @end example
 
 It is possible to have access to the default conversion function reference.
-The function used is:
+The function used is @code{default_command_conversion}:
 
 @deftypefun {@var{\&default_command_conversion} =} @var{$converter}->default_command_conversion (@var{$command_name})
+@deftypefunx {@var{\&default_command_conversion} =} Texinfo::Convert::HTML::default_command_conversion (undef, @var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
 default conversion function reference for @var{$command_name}, or @samp{undef} if there is none,
 which should only be the case for @@-commands ignored in HTML.
 @end deftypefun
+
+For example, to use the same conversion function for @code{@@setchapternewpage}
+as for @code{@@documentlanguage}, a function that set the customization
+variable to the command argument:
+@example
+use Texinfo::Convert::HTML;
+
+texinfo_register_command_formatting('setchapternewpage',
+     Texinfo::Convert::HTML::default_command_conversion(undef,
+                                               'documentlanguage'));
+@end example
 
 
 @node Command Tree Element Opening Functions
@@ -3045,8 +3057,9 @@ The @var{$text} returned is prepended to the formatting of the
 @end deftypefn
 
 It is possible to have access to the default opening function reference.
-The function used is:
+The function used is @code{default_command_open}:
 @deftypefun {@var{\&default_command_open} =} @var{$converter}->default_command_open (@var{$command_name})
+@deftypefunx {@var{\&default_command_open} =} Texinfo::Convert::HTML::default_command_open (undef, @var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
 default opening function reference for @var{$command_name}, or @samp{undef} if there is none.
 @end deftypefun
@@ -3399,9 +3412,10 @@ which should only be the case for types ignored in HTML not defined by the user.
 @end deftypefun
 
 It is possible to have access to the default conversion function reference.
-The function used is:
+The function used is @code{default_type_conversion}:
 
 @deftypefun {@var{\&default_type_conversion} =} @var{$converter}->default_type_conversion (@var{$type})
+@deftypefunx {@var{\&default_type_conversion} =} Texinfo::Convert::HTML::default_type_conversion (undef, @var{$type})
 @var{$type} is the element type.  Returns the
 default conversion function reference for @var{$type}, or @samp{undef} if there is none,
 which should only be the case for types ignored in HTML.
@@ -3467,8 +3481,9 @@ type container.
 @end deftypefn
 
 It is possible to have access to the default opening function reference.
-The function used is:
+The function used is @code{default_type_open}:
 @deftypefun {@var{\&default_type_open} =} @var{$converter}->default_type_open (@var{$type})
+@deftypefunx {@var{\&default_type_open} =} Texinfo::Convert::HTML::default_type_open (undef, @var{$type})
 @var{$command_name} is the element type. Returns the
 default opening function reference for @var{$type}, or @samp{undef} if there is none.
 @end deftypefun
