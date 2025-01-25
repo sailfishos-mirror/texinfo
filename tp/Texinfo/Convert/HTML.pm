@@ -1505,7 +1505,7 @@ sub command_text($$;$)
       $context_str .= $command->{'type'};
     }
     # NOTE the multiple pass argument is not unicized, and no global
-    # context argument is given because the external node manual label
+    # context argument is given because this external node manual label
     # should in general be converted only once.
     # In addition, regarding multiple pass, it is unlikely for
     # @-commands which should better be converted only once to be present.
@@ -1574,8 +1574,6 @@ sub command_description($$;$)
       return undef;
     }
 
-    # TODO is it needed to have both $multiple_formatted and
-    # document_global_context ($explanation) set?
     my $formatted_nodedescription_nr
        = _formatted_nodedescription_nr($self, $node_description);
 
@@ -1587,6 +1585,7 @@ sub command_description($$;$)
     if ($node_description->{'cmdname'} eq 'nodedescription') {
       $description_element = $node_description->{'contents'}->[0];
     } else {
+      # nodedescriptionblock
       $description_element = {'contents' => $node_description->{'contents'}};
     }
     my $multiple_formatted;
@@ -1731,10 +1730,13 @@ foreach my $no_number_type ('text', 'string') {
 # sectioning command associated with the element, as the error messages
 # are about external nodes not found.
 #
-# $self->current_output_unit() undef happens at least when there is no
-# output file.  That call would result for instance from from_element_direction
-# being called from _get_links, itself called from 'format_begin_file'.
-# TODO are there other cases?
+# $self->current_output_unit() undef happens when there is no
+# output file.  In the test suite, that call results only from
+# from_element_direction being called from _get_links, itself
+# called from 'format_begin_file' ultimately called from output
+# without output file.  There could probably be other cases
+# with crafted/test code, but it should never happen when output is
+# called from the main program as there is always an output file.
 sub from_element_direction($$$;$$$)
 {
   my $self = shift;
@@ -1764,8 +1766,8 @@ sub from_element_direction($$$;$$$)
   if ($global_target_unit) {
     $target_unit = $global_target_unit;
   # output TOP_NODE_UP related info even if $source_unit is not defined,
-  # which should mostly correspond to cases when there is no
-  # output file, for example in tests.
+  # which should correspond to cases when there is no output file, mainly in
+  # tests.
   } elsif ((not defined($source_unit)
             or ($source_unit
                 and $self->unit_is_top_output_unit($source_unit)))
@@ -2121,9 +2123,6 @@ sub special_unit_body_formatting($$)
 # using code along
 # &{$self->default_command_conversion($cmdname)}($self, $cmdname, $command, args, $content)
 my %default_commands_conversion;
-
-# TODO add a check that all the relevant commands are
-# in %default_commands_conversion?
 
 sub default_command_conversion($$)
 {
@@ -6735,6 +6734,20 @@ foreach my $small_command (keys(%small_block_associated_command)) {
     = $default_commands_conversion{$small_block_associated_command{$small_command}};
 }
 
+# Can be used to check that all the relevant commands are converted
+if (0) {
+  foreach my $cmdname (keys(%Texinfo::Common::all_commands)) {
+    if (!exists($default_commands_conversion{$cmdname})) {
+      # should be @if* @*index and item_LINE
+      if ($cmdname =~ /^if/ or $cmdname =~ /index$/ or $cmdname eq 'item_LINE') {}
+      else
+      {
+        warn "MISSING $cmdname\n";
+      }
+    }
+  }
+}
+
 sub _open_node_part_command($$$)
 {
   my $self = shift;
@@ -7412,6 +7425,7 @@ sub _convert_menu_entry_type($$$)
       if ($node_description->{'cmdname'} eq 'nodedescription') {
         $description_element = $node_description->{'contents'}->[0];
       } else {
+        # nodedescriptionblock
         $description_element = {'contents' => $node_description->{'contents'}};
       }
       my $multiple_formatted;
@@ -7474,6 +7488,7 @@ sub _convert_menu_entry_type($$$)
     if ($node_description->{'cmdname'} eq 'nodedescription') {
       $description_element = $node_description->{'contents'}->[0];
     } else {
+      # nodedescriptionblock
       $description_element = {'contents' => $node_description->{'contents'}};
     }
     my $multiple_formatted;

@@ -1,5 +1,12 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm: add a check that needs to be manually
+	enabled to warn if some relevant commands are not converted.
+
+	Changes in comments/TODO/FIXME.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/test_utils.pl, tp/t/z_misc/*.t: change in spacing, replace
 	double quotes by simple quotes, use ok(1, 'modules loading');
 	consistently.  No functional change intended.

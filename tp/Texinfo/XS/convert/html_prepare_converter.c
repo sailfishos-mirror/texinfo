@@ -2358,7 +2358,7 @@ html_converter_customize (CONVERTER *self)
         = &html_css_string_convert_no_arg_command;
     }
 
-  /* accents commands implemented in C */
+  /* all the accents commands are implemented in C */
   if (accent_cmd.number)
     {
       for (i = 0; i < accent_cmd.number; i++)
@@ -2387,7 +2387,7 @@ html_converter_customize (CONVERTER *self)
 
   /* all the commands in style_formatted_cmd are implemented in C.
      It is not only the style commands, some others too.  indicateurl
-     is not in style_formatted_cmd for now either */
+     is not in style_formatted_cmd */
   if (style_formatted_cmd.number)
     {
       for (i = 0; i < style_formatted_cmd.number; i++)

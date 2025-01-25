@@ -526,7 +526,8 @@ our %level_to_structuring_command;
 
 # %all_commands includes user-settable commands only.
 # The internal commands are not in %all_commands.
-# used in util/txicmdlist
+# used in util/txicmdlist and in a check that needs to be manually
+# enabled in HTML code
 our %all_commands;
 foreach my $command (
   keys(%Texinfo::Commands::block_commands),

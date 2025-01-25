@@ -38,7 +38,7 @@ my $with_XS = ((not defined($ENV{TEXINFO_XS})
 
 ok(1, 'modules loading');
 
-# FIXME not tested in XS
+# FIXME does not test the XS code
 # a tree with a reference seen after one within the extra tree.
 # Not sure that it exists in real trees, so check it here
 my $tref = {'type' => 'document_root',
