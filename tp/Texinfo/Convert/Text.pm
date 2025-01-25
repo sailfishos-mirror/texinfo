@@ -1005,22 +1005,21 @@ sub output($$)
     }
     if (defined($outfile)) {
       $outfile .= '.txt';
-    }
-    if (defined($self->{'SUBDIR'})) {
-      # FIXME in theory here $outfile could be undef.  Check if possible
-      my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
-      my ($encoded_destination_directory, $destination_directory_encoding)
-        = Texinfo::Convert::Utils::encoded_output_file_name($self,
+      if (defined($self->{'SUBDIR'})) {
+        my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
+        my ($encoded_destination_directory, $destination_directory_encoding)
+          = Texinfo::Convert::Utils::encoded_output_file_name($self,
                                                      $destination_directory);
-      if (! -d $encoded_destination_directory) {
-        if (!mkdir($encoded_destination_directory, oct(755))) {
-          warn sprintf(__(
-             "could not create directory `%s': %s"),
-             $destination_directory, $!)."\n";
-          return undef;
+        if (! -d $encoded_destination_directory) {
+          if (!mkdir($encoded_destination_directory, oct(755))) {
+            warn sprintf(__(
+               "could not create directory `%s': %s"),
+               $destination_directory, $!)."\n";
+            return undef;
+          }
         }
+        $outfile = join('/', ($destination_directory, $outfile));
       }
-      $outfile = join('/', ($destination_directory, $outfile));
     }
   } else {
     $outfile = $self->{'OUTFILE'};

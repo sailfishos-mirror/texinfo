@@ -123,7 +123,6 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
   if (!converter->conf->OUTFILE.o.string)
     {
       char *basename_for_outfile = 0;
-      char *basefile_for_outfile = 0;
       if (setfilename)
         {
           basename_for_outfile = remove_extension (setfilename);
@@ -132,11 +131,12 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
         basename_for_outfile = strdup (input_basename);  
 
       if (basename_for_outfile)
-        xasprintf (&basefile_for_outfile, "%s.txt", basename_for_outfile);
-      free (basename_for_outfile);
-
-      if (basefile_for_outfile)
         {
+          char *basefile_for_outfile;
+
+          xasprintf (&basefile_for_outfile, "%s.txt", basename_for_outfile);
+          free (basename_for_outfile);
+
           if (converter->conf->SUBDIR.o.string)
             {
               char *destination_directory
