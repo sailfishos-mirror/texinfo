@@ -323,7 +323,6 @@ sub conversion_output_end($)
 {
   my $self = shift;
 
-  # FIXME add txi_markup_footer() to format a footer for the file?
   return $self->txi_markup_close_element('texinfo')."\n";
 }
 

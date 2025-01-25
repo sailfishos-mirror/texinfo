@@ -1,5 +1,17 @@
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm ($converter_common_defaults): rename
+	$common_defaults as $converter_common_defaults.
+
+	* tp/Texinfo/Convert/Converter.pm
+	(%common_converters_non_options_defaults, %all_converters_defaults):
+	split %common_converters_non_options_defaults out of
+	%common_converters_defaults.  Remove %common_converters_defaults.
+
+	Remove/modify FIXMEs and TODOs.
+
+2025-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (output): handle the case of output file
 	name not being set.
 

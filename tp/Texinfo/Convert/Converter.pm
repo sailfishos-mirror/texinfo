@@ -131,29 +131,28 @@ my %defaults = %$regular_defaults;
 
 # values for integer and string options in code generated from
 # Texinfo/Convert/converters_defaults.txt
-my $common_defaults
+# customization variables defaults for all converters that are
+# not defined elsewhere.
+# Integer and string customization variables common for all the converters
+# with values different from main program values
+my $converter_common_defaults
   = Texinfo::Options::get_regular_options('converter_common');
 
-# defaults for all converters that are not defined elsewhere.
-# undef values in general marks information passed by the caller that
-# is valid in the initialization hash, but is not considered
-# as "configuration/customization". It is not available through get_conf()
-# but is available directly in the converter as a hash key.
-# FIXME separate the two types of information and check that those
-# items are not valid customization options?  Or make them customization
-# variables that can only be set from init files, like buttons or icons?
-# NOTE converters for now only set customization variables.
-# It would be good to keep it that way.
-my %common_converters_defaults = (
+# Non-customization variables defaults for all converters.
+# undef values in general mark information passed by the caller that
+# is valid here.  These defaults are not considered as
+# "configuration/customization" and therefore are not available through
+# get_conf(), but are available directly in the converter as a hash key.
+# TODO check that those items are not valid customization options?
+# TODO make those items customization variables that can only be set
+# from init files, like buttons or icons?
+# NOTE converters should never set those items.
+my %common_converters_non_options_defaults = (
   # Following are set in the main program
   'deprecated_config_directories' => undef,
 
   # Not set in the main program
   'translated_commands'  => {'error' => 'error@arrow{}',},
-
-# integer and string customization variables common for all the converters
-# with values different from main program values
-  %$common_defaults
 );
 
 my %all_converters_defaults
@@ -161,7 +160,8 @@ my %all_converters_defaults
     %Texinfo::Options::converter_customization_options,
     %Texinfo::Options::unique_at_command_options,
     %Texinfo::Options::multiple_at_command_options,
-    %common_converters_defaults
+    %$converter_common_defaults,
+    %common_converters_non_options_defaults
 );
 
 # For translation of in document string.
@@ -294,6 +294,13 @@ sub _generic_converter_init($$;$)
   # set $converter->{'converter_init_conf'} to the customization
   # options obtained after setting the defaults and applying
   # the customization passed as argument.
+  # FIXME no equivalent in C for HTML, as there is only an
+  # init_conf, which is overwritten in output, such that it corresponds
+  # better to output_init_conf.
+  # FIXME in C there is a full copy, except for Perl objects.
+  # It cannot be completly equivalent, but here a good equivalent
+  # would be deep copy of data and shallow copy of code references.
+  # The Clone module does that, but it is not a core module.
   $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
 
   # used for output files information, to register opened
@@ -876,7 +883,9 @@ sub _get_root_element($$)
   }
 }
 
-# TODO document
+# TODO document?
+# Called in Texinfo::Converter::Plaintext.  The HTML converter defines its
+# own version.
 # set file_counters converter state
 sub set_output_units_files($$$$$$)
 {

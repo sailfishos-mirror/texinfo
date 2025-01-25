@@ -4162,7 +4162,6 @@ sub _default_format_button($$;$)
         my $active_icon;
         my $active_icons = $self->get_conf('ACTIVE_ICONS');
         if ($active_icons) {
-        # TODO strip FirstInFile from $button to get $active_icon?
           $active_icon = $active_icons->{$button};
         }
         if (defined($active_icon) and $active_icon ne '') {
@@ -4190,7 +4189,6 @@ sub _default_format_button($$;$)
         my $passive_icon;
         my $passive_icons = $self->get_conf('PASSIVE_ICONS');
         if ($passive_icons) {
-        # TODO strip FirstInFile from $button to get $passive_icon?
           $passive_icon = $passive_icons->{$button};
         }
         if (defined($passive_icon) and $passive_icon ne '') {
@@ -9405,9 +9403,6 @@ sub _prepare_css($)
       }
       $css_file_fh = \*CSSFILE;
     }
-    # FIXME set binary mode?  Or set explicitly text mode?
-    # Would need some testing on windows
-    # binmode($css_file_fh)
     my ($import_lines, $rules_lines);
     ($import_lines, $rules_lines)
       = $self->_process_css_file($css_file_fh, $css_file_path);
@@ -11679,7 +11674,6 @@ EOT
     # if the button spec is an array we do not know what the button
     # looks like, so we do not show the button but still show explanations.
     if (ref($button_spec) ne 'ARRAY') {
-      # TODO strip FirstInFile from $button to get active icon file?
       if ($active_icons and $active_icons->{$direction}) {
         my $button_name_string
           = $self->direction_string($direction, 'button', 'string');
