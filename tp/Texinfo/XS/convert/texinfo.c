@@ -73,6 +73,56 @@ txi_find_tree_transformation (const char *transformation_name)
   return 0;
 }
 
+/* to be called before loading init files to get the opportunity to
+   start an embedded interpreter, and also do the basic initialization
+   if not done through the interpreter */
+void
+txi_setup_main_load_interpreter (int embedded_interpreter,
+                      int texinfo_uninstalled,
+                      const char *converterdatadir,
+                      const char *tp_builddir,
+                      const char *top_srcdir,
+                      int *argc_ref, char ***argv_ref, char ***env_ref,
+                      const char *version_checked)
+{
+  const char *load_txi_modules_basename = "load_txi_modules";
+  if (embedded_interpreter)
+    {
+      char *load_modules_path;
+      int status;
+      if (texinfo_uninstalled)
+        xasprintf (&load_modules_path, "%s/tp/%s.pl",
+                   top_srcdir, load_txi_modules_basename);
+      else
+        xasprintf (&load_modules_path, "%s/%s", converterdatadir,
+                   load_txi_modules_basename);
+      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
+                               version_checked);
+      /* status < 0 means no functioning call_init_perl */
+      if (status > 0)
+        {
+          char *message;
+          /* unexpected failure, no point continuing, the output needs
+             the interpreter and libperl will segfault */
+          xasprintf (&message, "call_init_perl status: %d", status);
+          fatal (message);
+          free (message);
+        }
+      else if (status < 0)
+        fprintf (stderr, "WARNING: no embedded interpreter available\n");
+      free (load_modules_path);
+    }
+  else
+    {
+      /* sets up gettext and iconv */
+      messages_and_encodings_setup ();
+      setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+                          tp_builddir, top_srcdir);
+
+      set_no_perl_interpreter (1);
+    }
+}
+
 static void
 err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
                       int int_value, const char *char_value)
@@ -165,46 +215,6 @@ txi_general_output_strings_setup (int use_external_translate_string)
     }
 }
 
-/* to be called before loading init file to get the opportunity to
-   start an embedded interpreter */
-void
-txi_load_interpreter (int embedded_interpreter,
-                   int *argc_ref, char ***argv_ref, char ***env_ref,
-                   const char *version_checked)
-{
-  const char *load_txi_modules_basename = "load_txi_modules";
-  if (embedded_interpreter)
-    {
-      char *load_modules_path;
-      int status;
-      if (txi_paths_info.texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/tp/%s.pl",
-                      txi_paths_info.p.uninstalled.top_srcdir,
-                                       load_txi_modules_basename);
-      else
-        xasprintf (&load_modules_path, "%s/%s",
-                  txi_paths_info.p.installed.converterdatadir,
-                   load_txi_modules_basename);
-      status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
-                               version_checked);
-      /* status < 0 means no functioning call_init_perl */
-      if (status > 0)
-        {
-          char *message;
-          /* unexpected failure, no point continuing, the output needs
-             the interpreter and libperl will segfault */
-          xasprintf (&message, "call_init_perl status: %d", status);
-          fatal (message);
-          free (message);
-        }
-      else if (status < 0)
-        fprintf (stderr, "WARNING: no embedded interpreter available\n");
-      free (load_modules_path);
-    }
-  else
-    set_no_perl_interpreter (1);
-}
-
 int
 txi_load_init_file (const char *file, int embedded_interpreter)
 {
@@ -231,11 +241,12 @@ txi_converter_output_format_setup (const char *converted_format,
     = find_format_name_converter_format (converted_format);
 
   if (external_module)
+    /* in that case the functions below are called from Perl */
     call_eval_use_module (external_module);
-
-  /* TODO remove the if (!$Texinfo::XSLoader::embedded_xs) in HTML.pm and use
-     an else here? */
+  else
     {
+      setup_converter_generic ();
+
       /* TODO use the table of format functions? */
       if (converter_format == COF_html)
         html_format_setup ();

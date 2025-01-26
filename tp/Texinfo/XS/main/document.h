@@ -12,6 +12,29 @@
 /* avoid an interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;
 
+typedef struct INSTALLED_PATHS {
+    char *converterdatadir;
+} INSTALLED_PATHS;
+
+typedef struct UNINSTALLED_PATHS {
+    char *tp_builddir;
+    char *top_srcdir;
+} UNINSTALLED_PATHS;
+
+typedef struct PATHS_INFORMATION {
+    int texinfo_uninstalled;
+    union {
+      INSTALLED_PATHS installed;
+      UNINSTALLED_PATHS uninstalled;
+    } p;
+} PATHS_INFORMATION;
+
+extern PATHS_INFORMATION txi_paths_info;
+
+void setup_texinfo_main (int texinfo_uninstalled,
+                    const char *converterdatadir,
+                 const char *tp_builddir, const char *top_srcdir);
+
 
 DOCUMENT *retrieve_document (size_t document_descriptor);
 DOCUMENT *new_document (void);

@@ -74,23 +74,6 @@ typedef struct FLOAT_CAPTION_PREPENDED_ELEMENT {
     ELEMENT *prepended;
 } FLOAT_CAPTION_PREPENDED_ELEMENT;
 
-typedef struct INSTALLED_PATHS {
-    char *converterdatadir;
-} INSTALLED_PATHS;
-
-typedef struct UNINSTALLED_PATHS {
-    char *tp_builddir;
-    char *top_srcdir;
-} UNINSTALLED_PATHS;
-
-typedef struct PATHS_INFORMATION {
-    int texinfo_uninstalled;
-    union {
-      INSTALLED_PATHS installed;
-      UNINSTALLED_PATHS uninstalled;
-    } p;
-} PATHS_INFORMATION;
-
 typedef struct CONVERTER_FORMAT_DATA {
     const char *default_format;
     const char *perl_converter_class;
@@ -129,13 +112,9 @@ extern const char *xml_text_entity_no_arg_commands_formatting[];
 
 extern COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[];
 
-extern PATHS_INFORMATION txi_paths_info;
-
 extern CONVERTER_FORMAT_DATA converter_format_data[];
 
-void generic_setup_main_converter (int texinfo_uninstalled,
-                                   const char *converterdatadir,
-                      const char *tp_builddir, const char *top_srcdir);
+void setup_converter_generic (void);
 
 enum converter_format find_format_name_converter_format (const char *format);
 enum converter_format find_perl_converter_class_converter_format (

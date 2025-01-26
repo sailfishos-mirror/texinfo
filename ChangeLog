@@ -1,3 +1,42 @@
+2025-01-26  Patrice Dumas  <pertusus@free.fr>
+
+	Decide if C libraries initialization is called from C or Perl in C code
+
+	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, import),
+	tp/Texinfo/XS/convert/ConvertXS.xs (setup_converter_generic),
+	tp/Texinfo/XS/convert/converter.c (setup_converter_generic),
+	tp/Texinfo/XS/main/document.c (txi_paths_info)
+	(free_converter_paths_information, setup_txi_paths_information)
+	(setup_texinfo_main), tp/Texinfo/XS/convert/converter.h,
+	tp/Texinfo/XS/main/document.h (INSTALLED_PATHS, UNINSTALLED_PATHS)
+	(PATHS_INFORMATION): split generic_setup_main_converter in two, with
+	conversion specific information in setup_converter_generic and the
+	remaining in setup_texinfo_main.  Move setup_texinfo_main,
+	txi_paths_info, setup_txi_paths_information and
+	free_converter_paths_information to main/document.c.  Move
+	INSTALLED_PATHS, UNINSTALLED_PATHS and PATHS_INFORMATION to
+	document.h.  Call setup_converter_generic from XS and from C.
+
+	* tp/Texinfo/XS/convert/ConvertXS.xs, tp/Texinfo/XS/convert/texinfo.c
+	(txi_setup_main_load_interpreter), tp/Texinfo/XS/main/DocumentXS.xs
+	(init), tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/texi2any.c
+	(main), tp/load_txi_modules.pl: move C library main initialization to
+	DocumentXS.xs, from both ConvertXS.xs and Parsetexi.xs.  Rename
+	txi_load_interpreter as txi_setup_main_load_interpreter.  Modify
+	txi_setup_main_load_interpreter such that it sets the paths instead of
+	needing the paths to be set before.  Call the main C library
+	initialization functions in txi_setup_main_load_interpreter if the
+	interpreter is not loaded.
+
+	* tp/Texinfo/Convert/HTML.pm (import),
+	tp/Texinfo/XS/convert/texinfo.c (txi_converter_output_format_setup):
+	call generic converter and format specific C library initialization
+	from txi_converter_output_format_setup if the Perl modules is not
+	loaded.  Always initialize C HTML library in HTML.pm with XS.
+
+	* tp/texi2any.pl: move locales determination before setup of messages,
+	as in C.
+
 2025-01-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libperlembed_libtexinfo_main_la_CFLAGS),

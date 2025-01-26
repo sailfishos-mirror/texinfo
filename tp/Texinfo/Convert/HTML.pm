@@ -324,8 +324,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_node_redirections",
 );
 
-# XS initialization independent of customization and of Perl
-# variables setup.
+# HTML C data initialization independent of customization and of Perl
+# default variables.
 sub _XS_format_setup()
 {
 }
@@ -341,11 +341,10 @@ sub import {
       foreach my $sub (keys %XS_conversion_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_conversion_overrides{$sub});
       }
-      # No need to do it again if called from C
-      if (!$Texinfo::XSLoader::embedded_xs) {
-        _XS_format_setup();
-      }
+      # initialize HTML C data
+      _XS_format_setup();
     }
+
     $module_loaded = 1;
   }
   # The usual import method

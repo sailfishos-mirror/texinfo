@@ -65,7 +65,7 @@
 /* output_files_open_out output_files_register_closed */
 #include "convert_utils.h"
 /* destroy_converter_initialization_info new_converter_initialization_info
-   encoded_output_file_name generic_setup_main_converter */
+   encoded_output_file_name */
 #include "converter.h"
 /* for html_output_internal_links */
 #include "html_converter_api.h"
@@ -1085,9 +1085,6 @@ main (int argc, char *argv[], char *env[])
 
   add_string (extensions_dir, &internal_extension_dirs);
 
-  /* sets up gettext and iconv */
-  messages_and_encodings_setup ();
-
   /* the encoding used to decode command line arguments, and also for
      file names encoding */
   /* from Gnulib codeset.m4 */
@@ -1105,14 +1102,31 @@ main (int argc, char *argv[], char *env[])
     }
 #endif
 
+  if (texinfo_uninstalled)
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
+  else
+    version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
+
+  /* load interpreter if needed and setup paths and defauts if not already
+     done by the interpreter.
+     Done early because options defaults are used in help
+     and paths are needed to locate file used for interpreter embedding
+     and setup by the interpreter */
+  txi_setup_main_load_interpreter (embedded_interpreter,
+                        texinfo_uninstalled,
+                        converterdatadir, tp_builddir, top_srcdir,
+                        &argc, &argv, &env,
+                        version_for_embedded_interpreter_check);
+
+  free (tp_builddir);
+  free (top_srcdir);
+
   /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
                                 program_file);
 
   free (locale_encoding);
-
-  version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
   /* NOTE this is not exactly the same as in Perl.  In Perl, when uninstalled,
      it is possible to be configured or not, and +nc is only postpended if
@@ -1125,20 +1139,7 @@ main (int argc, char *argv[], char *env[])
                         PACKAGE_NAME_CONFIG " " PACKAGE_VERSION_CONFIG "+nc");
       add_option_value (&program_options, "PACKAGE_VERSION", 0,
                         PACKAGE_VERSION_CONFIG "+nc");
-      version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
     }
-
-  /* setup paths and defauts.
-     Done earlier than in Perl because options defaults are used in help
-     and paths setup for converters and to locate file used for
-     interpreter embedding */
-  generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
-                                tp_builddir, top_srcdir);
-  free (tp_builddir);
-  free (top_srcdir);
-
-  txi_load_interpreter (embedded_interpreter, &argc, &argv, &env,
-                        version_for_embedded_interpreter_check);
 
   /* set default output format.  Is info in texi2any.pl */
   /* better than making it the default value independently of the

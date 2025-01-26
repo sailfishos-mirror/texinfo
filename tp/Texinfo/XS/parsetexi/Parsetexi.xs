@@ -41,8 +41,6 @@
 
 #include "api.h"
 #include "conf.h"
-/* for messages_and_encodings_setup */
-#include "utils.h"
 /* register_conf */
 #include "parser_conf.h"
 /* build_minimal_document build_document */
@@ -64,16 +62,6 @@ PROTOTYPES: ENABLE
 # There is no need for the parser to know the file paths
 # encodings, they are never decoded/encoded but used as is
 # and passed as byte strings.
-
-# Called once from Texinfo::XSLoader.pm at loading time.
-# File paths (not used) are byte strings and can be in any encoding.
-int
-init (SV *texinfo_uninstalled, SV *converterdatadir, SV *tp_builddir, SV *top_srcdir)
-    CODE:
-        messages_and_encodings_setup ();
-        RETVAL = 1;
-    OUTPUT:
-        RETVAL
 
 void
 reset_parser (int debug_output)

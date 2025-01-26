@@ -71,6 +71,8 @@ our $module_loaded = 0;
 
 my %XS_overrides = (
   # fully overriden for all the converters
+  "Texinfo::Convert::Converter::_XS_setup_converter_generic"
+   => "Texinfo::Convert::ConvertXS::setup_converter_generic",
   "Texinfo::Convert::Converter::_generic_converter_init",
    => "Texinfo::Convert::ConvertXS::generic_converter_init",
   "Texinfo::Convert::Converter::set_document"
@@ -114,6 +116,8 @@ sub import {
       foreach my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }
+      # initialize non format specific converter C data
+      _XS_setup_converter_generic();
     }
 
     $module_loaded = 1;

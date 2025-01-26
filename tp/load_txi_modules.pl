@@ -123,6 +123,8 @@ use Locale::Messages;
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Report;
+# Not a basic module, but contains the initialization of C data
+use Texinfo::Document;
 
 # Paths and file names
 #my $curdir = File::Spec->curdir();
@@ -308,7 +310,6 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
 
 # useful modules the user can always assume to have.
 use Texinfo::ManipulateTree;
-use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
 

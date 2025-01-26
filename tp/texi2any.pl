@@ -196,6 +196,28 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
 my $internal_extension_dirs = [$extensions_dir];
 
 
+# the encoding used to decode command line arguments, and also for
+# file names encoding, Perl is expecting sequences of bytes, not unicode
+# code points.
+my $locale_encoding;
+
+eval 'require I18N::Langinfo';
+if (!$@) {
+  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
+  $locale_encoding = undef if ($locale_encoding eq '');
+}
+
+if (!defined($locale_encoding) and $^O eq 'MSWin32') {
+  eval 'require Win32::API';
+  if (!$@) {
+    Win32::API::More->Import("kernel32", "int GetACP()");
+    my $CP = GetACP();
+    if (defined($CP)) {
+      $locale_encoding = 'cp'.$CP;
+    }
+  }
+}
+
 # initial setup of messages internalisation framework
 # work-around in case libintl-perl do not do it itself
 # see http://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html#The-LANGUAGE-variable
@@ -219,29 +241,6 @@ Locale::Messages->select_package('gettext_pp');
 # Note: this uses installed messages even when the program is uninstalled
 Locale::Messages::bindtextdomain($messages_textdomain,
                                  join('/', ($datadir, 'locale')));
-
-
-# the encoding used to decode command line arguments, and also for
-# file names encoding, Perl is expecting sequences of bytes, not unicode
-# code points.
-my $locale_encoding;
-
-eval 'require I18N::Langinfo';
-if (!$@) {
-  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
-  $locale_encoding = undef if ($locale_encoding eq '');
-}
-
-if (!defined($locale_encoding) and $^O eq 'MSWin32') {
-  eval 'require Win32::API';
-  if (!$@) {
-    Win32::API::More->Import("kernel32", "int GetACP()");
-    my $CP = GetACP();
-    if (defined($CP)) {
-      $locale_encoding = 'cp'.$CP;
-    }
-  }
-}
 
 
 # Set initial configuration

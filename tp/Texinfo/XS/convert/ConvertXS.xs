@@ -70,33 +70,10 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
-# Called from Texinfo::XSLoader.pm.
-# File paths are byte strings and can be in any encoding.
-int
-init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, SV *top_srcdir_sv)
-      PREINIT:
-        const char *tp_builddir = 0;
-        const char *top_srcdir = 0;
-        const char *converterdatadir = 0;
-        int texinfo_uninstalled = 0;
-      CODE:
-        if (SvOK (texinfo_uninstalled_sv))
-          texinfo_uninstalled = SvIV (texinfo_uninstalled_sv);
-        if (texinfo_uninstalled)
-          {
-            if (SvOK (tp_builddir_sv))
-              tp_builddir = SvPVbyte_nolen (tp_builddir_sv);
-            if (SvOK (top_srcdir_sv))
-              top_srcdir = SvPVbyte_nolen (top_srcdir_sv);
-          }
-        else
-          converterdatadir = SvPVbyte_nolen (converterdatadir_sv);
-
-        generic_setup_main_converter (texinfo_uninstalled, converterdatadir,
-                                      tp_builddir, top_srcdir);
-        RETVAL = 1;
-    OUTPUT:
-        RETVAL
+# could also have been init, but since the paths in init argument are not
+# needed, prefer a function override
+void
+setup_converter_generic ()
 
 # this function is called with a class name or a converter as first
 # argument.  In Perl code, the first argument is not used in the functions,

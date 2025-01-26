@@ -123,81 +123,12 @@ static CONVERTER **converter_list;
 static size_t converter_number;
 static size_t converter_space;
 
-PATHS_INFORMATION txi_paths_info;
-
 const char *xml_text_entity_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
 
-static void
-free_converter_paths_information (PATHS_INFORMATION *paths_info)
-{
-  if (paths_info->texinfo_uninstalled)
-    {
-      free (paths_info->p.uninstalled.tp_builddir);
-      free (paths_info->p.uninstalled.top_srcdir);
-    }
-  else
-    free (paths_info->p.installed.converterdatadir);
-}
-
-static void
-setup_txi_paths_information (int texinfo_uninstalled,
-                             const char *converterdatadir,
-                             const char *tp_builddir,
-                             const char *top_srcdir)
-{
-  free_converter_paths_information (&txi_paths_info);
-  memset (&txi_paths_info, 0, sizeof (PATHS_INFORMATION));
-  txi_paths_info.texinfo_uninstalled = texinfo_uninstalled;
-  if (texinfo_uninstalled)
-    {
-      if (tp_builddir)
-        {
-          txi_paths_info.p.uninstalled.tp_builddir
-            = strdup (tp_builddir);
-        }
-      if (top_srcdir)
-        {
-          txi_paths_info.p.uninstalled.top_srcdir
-            = strdup (top_srcdir);
-        }
-    }
-  else
-    {
-      if (converterdatadir)
-        {
-          txi_paths_info.p.installed.converterdatadir
-            = strdup (converterdatadir);
-        }
-    }
-}
-
-static int generic_setup_main_converter_called;
-
-/* should be called only once.  Except that it may be called both
-   from C and from an embedded Perl module initialization, so
-   use a variable to guard resetting anything else than paths */
-/* TODO do not call XS Modules init from XSLoader.pm if
-   $embedded_xs is set, under the assumption that the corresponding
-   code would already be called in C code? */
-/* used in converters and in main C program at earlier steps, not in Parser */
 void
-generic_setup_main_converter (int texinfo_uninstalled,
-                              const char *converterdatadir,
-                 const char *tp_builddir, const char *top_srcdir)
+setup_converter_generic (void)
 {
   int i;
-
-  setup_txi_paths_information (texinfo_uninstalled,
-                             converterdatadir, tp_builddir, top_srcdir);
-
-  if (generic_setup_main_converter_called)
-    return;
-
-  generic_setup_main_converter_called = 1;
-
-  set_element_type_name_info ();
-  txi_initialise_base_options ();
-
   /* conversion specific information */
   for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
     {

@@ -62,9 +62,13 @@ void txi_set_base_default_options (OPTIONS_LIST *options,
 
 void txi_general_output_strings_setup (int use_external_translate_string);
 
-void txi_load_interpreter (int embedded_interpreter,
-                   int *argc_ref, char ***argv_ref, char ***env_ref,
-                   const char *version_checked);
+void txi_setup_main_load_interpreter (int embedded_interpreter,
+                      int texinfo_uninstalled,
+                      const char *converterdatadir,
+                      const char *tp_builddir,
+                      const char *top_srcdir,
+                      int *argc_ref, char ***argv_ref, char ***env_ref,
+                      const char *version_checked);
 
 void txi_converter_output_format_setup (const char *converted_format,
                                         const char *external_module);

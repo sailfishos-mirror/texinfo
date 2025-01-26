@@ -59,6 +59,7 @@
 #include "call_html_perl_function.h"
 #include "hashmap.h"
 #include "format_html.h"
+/* txi_paths_info */
 #include "document.h"
 #include "conf.h"
 #include "api.h"

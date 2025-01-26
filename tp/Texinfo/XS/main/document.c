@@ -47,6 +47,70 @@ static size_t document_number;
 static size_t document_space;
 
 
+/* generic setup of C data not needed for parser */
+PATHS_INFORMATION txi_paths_info;
+
+static void
+free_converter_paths_information (PATHS_INFORMATION *paths_info)
+{
+  if (paths_info->texinfo_uninstalled)
+    {
+      free (paths_info->p.uninstalled.tp_builddir);
+      free (paths_info->p.uninstalled.top_srcdir);
+    }
+  else
+    free (paths_info->p.installed.converterdatadir);
+}
+
+static void
+setup_txi_paths_information (int texinfo_uninstalled,
+                             const char *converterdatadir,
+                             const char *tp_builddir,
+                             const char *top_srcdir)
+{
+  free_converter_paths_information (&txi_paths_info);
+  memset (&txi_paths_info, 0, sizeof (PATHS_INFORMATION));
+  txi_paths_info.texinfo_uninstalled = texinfo_uninstalled;
+  if (texinfo_uninstalled)
+    {
+      if (tp_builddir)
+        {
+          txi_paths_info.p.uninstalled.tp_builddir
+            = strdup (tp_builddir);
+        }
+      if (top_srcdir)
+        {
+          txi_paths_info.p.uninstalled.top_srcdir
+            = strdup (top_srcdir);
+        }
+    }
+  else
+    {
+      if (converterdatadir)
+        {
+          txi_paths_info.p.installed.converterdatadir
+            = strdup (converterdatadir);
+        }
+    }
+}
+
+/* should be called only once. */
+/* used in converters and in main C program at earlier steps, not in Parser */
+void
+setup_texinfo_main (int texinfo_uninstalled,
+                    const char *converterdatadir,
+                 const char *tp_builddir, const char *top_srcdir)
+{
+
+  setup_txi_paths_information (texinfo_uninstalled,
+                             converterdatadir, tp_builddir, top_srcdir);
+
+  set_element_type_name_info ();
+  txi_initialise_base_options ();
+}
+
+
+
 DOCUMENT *
 retrieve_document (size_t document_descriptor)
 {
