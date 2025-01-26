@@ -551,7 +551,7 @@ handle_errors (size_t additional_error_count, size_t error_count,
   return error_count;
 }
 
-/* TODO could also have used strtol */
+/* NOTE could also have used strtol */
 static int
 is_ascii_digit (const char *text)
 {

@@ -1,5 +1,12 @@
 2025-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am: more comments.
+
+	* tp/Texinfo/XS/Makefile.am, tp/Texinfo/XS/texi2any.c: transform TODO
+	to NOTE.
+
+2025-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	Decide if C libraries initialization is called from C or Perl in C code
 
 	* tp/Texinfo/Convert/Converter.pm (%XS_overrides, import),

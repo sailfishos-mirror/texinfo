@@ -89,14 +89,16 @@ xs_LTLIBRARIES += MiscXS.la
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
 MiscXS_la_SOURCES = xsmisc.c xsmisc.h main/base_utils.c main/base_utils.h
+# Include Perl headers, do not include Gnulib/configure generated config.h
 MiscXS_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS) -UHAVE_CONFIG_H
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 
-# C only convenience library for XSParagraph solely used to set different
-# flags than the Perl part, requiring Gnulib but not Perl.
+# C only convenience library internal for XSParagraph solely used to set
+# different values than code including Perl headers to include
+# configure/Gnulib headers but no Perl header.
 noinst_LTLIBRARIES += libparagraph.la
 libparagraph_la_SOURCES = xspara.c xspara.h \
                          main/base_utils.c main/base_utils.h \
@@ -118,7 +120,7 @@ EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
 ############ Convenience library for code calling Perl from C and for XS
 # interfaces, separate to use different flags to be sure that Perl headers
-# are not used and Gnulib/libc functions are used.
+# are not used and configure/Gnulib/libc headers and functions are used.
 
 noinst_LTLIBRARIES += libperlcall_utils.la
 
@@ -136,13 +138,14 @@ xs_LTLIBRARIES += libtexinfo.la
 endif
 
 # The files in the main directory correspond to code used both
-# by the parser, by converters an by C code used for interfacing with
+# by the parser, by converters and by C code used for interfacing with
 # Perl.  In particular, conversion of the tree to Texinfo code and to raw text
 # is in the main directory.
 # The files in the parsetexi directory correspond to the parser code.  They
 # depend on the files in main but not the other way around.
 # Files in structuring_transfo depend only on the files in main and not
 # the other way around.
+# No include of Perl headers for the files in C_libtexinfo_sources.
 C_libtexinfo_sources = \
 		      main/tree_types.h \
 		      main/document_types.h \
@@ -522,7 +525,7 @@ C_libtexinfo_convert_sources = \
 # call_html_perl_function.c code is called from libtexinfo-convert C code.
 # build_html_perl_state.c functions are called from call_html_perl_function.c.
 # call_conversion_perl.c is also included although it is not directly used,
-# to have it in a library and not in libtexinfo-main where different flags
+# to have it in a library different from libtexinfo-main where different flags
 # (for embedding Perl) are used for the Perl part.
 if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
@@ -635,10 +638,12 @@ ConfigXS_la_LIBADD = libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ############################################### main program library
-# hide some details from the main program.
+# loads interpreter and provides a high level API for the main program.
 
-# TODO could also be a convenience library or maybe always linked directly in
-# the main programs, as there is no shared state among modules.
+# NOTE libtexinfo-main.la could also be a convenience library or linked
+# statically in the main programs, as there is no shared state among modules.
+# In that case, libperlembed_libtexinfo_main.la would still need to be
+# a convenience library.
 
 # NOTE we build libtexinfo-main.la even if PERL_EMBEDDED is not set as some
 # code in libtexinfo-main do not directly need a Perl interpreter.
@@ -651,10 +656,6 @@ ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfo-main.la
 endif
-
-C_libtexinfo_main_sources = \
-                       convert/texinfo.c \
-                       convert/texinfo.h
 
 # convenience library for embedded Perl called from libtexinfo-main C code,
 # to be able to use specific flags for compilation and linking different from
@@ -676,7 +677,8 @@ endif
 
 # ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
-# flags for library compilation from Perl, not in PERL_EXTUTILS_EMBED_ccopts
+# flags for compilation as part of a library from Perl, not in
+# PERL_EXTUTILS_EMBED_ccopts
 libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS)
 # In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
 # LDFLAGS (program-specific linker flags according to the automake
@@ -688,12 +690,15 @@ libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
 endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
+C_libtexinfo_main_sources = \
+                       convert/texinfo.c \
+                       convert/texinfo.h
+
 libtexinfo_main_la_SOURCES = \
    $(C_libtexinfo_main_sources)
 
 # locate include files under out-of-source builds.
-# NOTE not sure that Gnulib is directly used, but it does
-# not harm to add.
+# NOTE not sure that Gnulib is directly used, but it could.
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_main_la_LIBADD = libtexinfoxs.la libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
 if PERL_EMBEDDED
@@ -748,6 +753,10 @@ ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main 
 
 
 ################################# C only static main program demonstrator
+# The same effect can be obtained with the main program in C with
+# the interpreter disabled at runtime.
+# Not really useful nowadays besides making sure that the replacement functions
+# required for linking are provided.
 
 if ! DISABLE_ADDITIONAL_CHECKS
 if HAVE_ICONV
