@@ -591,6 +591,8 @@ check_nodes_are_referenced (DOCUMENT *document)
   const ELEMENT_LIST *refs = &document->internal_references;
   ERROR_MESSAGE_LIST *error_messages = &document->error_messages;
   OPTIONS *options = document->options;
+  int check_node_in_menu;
+  int all_nodes_are_referenced;
 
   char **referenced_identifiers;
   size_t referenced_identifier_space;
@@ -779,14 +781,20 @@ check_nodes_are_referenced (DOCUMENT *document)
     fprintf (stderr, " %zu: %s\n", i, referenced_identifiers[i]);
     */
 
-  /* FIXME we could return here if there is no non referenced node:
-   if (nr_nodes_to_find == referenced_identifier_number)
-     {
-       free (referenced_identifiers);
-       return;
-     }
-   */
+  check_node_in_menu
+      = ((!options) || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
+        && nodes_list->number > 1;
 
+  all_nodes_are_referenced = (nr_nodes_to_find == referenced_identifier_number);
+
+  if (!check_node_in_menu && all_nodes_are_referenced)
+    {
+      free (referenced_identifiers);
+      return;
+    }
+
+  /* this loop is used both to show unreferenced nodes and warn about
+     referenced nodes that are not in menu, except for the Top node */
   for (i = 0; i < nodes_list->number; i++)
     {
       const ELEMENT *node = nodes_list->list[i];
@@ -794,23 +802,27 @@ check_nodes_are_referenced (DOCUMENT *document)
 
       if (is_target)
         {
-          char *normalized = lookup_extra_string (node, AI_key_normalized);
-          char *found = (char *)bsearch (&normalized, referenced_identifiers,
+          const char *normalized = lookup_extra_string (node, AI_key_normalized);
+          if (!all_nodes_are_referenced)
+            {
+              const char *found = (const char *)bsearch (&normalized,
+                             referenced_identifiers,
                              referenced_identifier_number, sizeof (char *),
                              compare_strings);
-          if (!found)
-            {
-              char *node_texi = target_element_to_texi_label (node);
-              nr_not_found++;
-              message_list_command_warn (error_messages, options, node, 0,
-                                         "node `%s' unreferenced",
-                                         node_texi);
-              free (node_texi);
+              if (!found)
+                {
+                  char *node_texi = target_element_to_texi_label (node);
+                  nr_not_found++;
+                  message_list_command_warn (error_messages, options, node, 0,
+                                             "node `%s' unreferenced",
+                                              node_texi);
+                  free (node_texi);
+                  /* do not check if in menu if not referenced */
+                  continue;
+                }
             }
-          else if (((!options)
-                    || options->CHECK_NORMAL_MENU_STRUCTURE.o.integer > 0)
-                   && strcmp (normalized, "Top")
-                   && nodes_list->number > 1)
+
+          if (check_node_in_menu && strcmp (normalized, "Top"))
             {
               const ELEMENT *arguments_line = node->e.c->contents.list[0];
               int automatic_directions
