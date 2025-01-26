@@ -1,5 +1,24 @@
 2025-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/convert/ConvertXS.xs (html_convert_tree),
+	tp/Texinfo/XS/convert/convert_html.c (html_convert_tree_explanation)
+	(html_convert_tree), tp/Texinfo/XS/convert/format_html.c: rename
+	html_convert_tree as html_convert_tree_explanation.  Update callers.
+	Readd html_convert_tree with a converter and a tree as arguments
+	to follow the general API.
+
+	* tp/Texinfo/Convert/Converter.pm (convert_accents),
+	tp/Texinfo/XS/convert/converter.c (convert_accents): call convert_tree
+	with a converter and a tree as arguments, and no explanation, to
+	follow the API common to converters.
+
+	* tp/Texinfo/XS/convert/converter.c (converter_format_data),
+	tp/Texinfo/XS/convert/converter.h (CONVERTER_FORMAT_DATA): use the
+	common API for converter_convert_tree field in CONVERTER_FORMAT_DATA.
+	Add html_convert_tree to converter_format_data.
+
+2025-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/Makefile.am: more comments.
 
 	* tp/Texinfo/XS/Makefile.am, tp/Texinfo/XS/texi2any.c: transform TODO

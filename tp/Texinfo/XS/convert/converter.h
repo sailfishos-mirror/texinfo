@@ -88,9 +88,8 @@ typedef struct CONVERTER_FORMAT_DATA {
     void (* converter_initialize) (CONVERTER *self);
     char * (* converter_output) (CONVERTER *converter, DOCUMENT *document);
     char * (* converter_convert) (CONVERTER *converter, DOCUMENT *document);
-    /* TODO API to be determined, in HTML there is a debugging explanation
-       argument
-     */
+    /* currently unused, could be modified when it become used, but it would
+       probably be better to stick to that API to be consistent with Perl */
     char * (* converter_convert_tree) (CONVERTER *converter,
                                        const ELEMENT *tree);
     void (* converter_reset) (CONVERTER *self);
@@ -196,7 +195,7 @@ TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                    const ELEMENT *command);
 
 char *convert_accents (CONVERTER *self, const ELEMENT *accent,
- char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, const char *explanation),
+ char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
                         int set_case),
   int output_encoded_characters,

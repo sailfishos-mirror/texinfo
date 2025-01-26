@@ -35,8 +35,7 @@ CONVERTER_INITIALIZATION_INFO *html_converter_defaults (
 void html_converter_initialize (CONVERTER *converter);
 
 /* in convert_html.c */
-char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
-                         const char *explanation);
+char *html_convert_tree (CONVERTER *self, const ELEMENT *tree);
 
 /* implemented in html_converter_api.c using html_conversion_api.h functions */
 char *html_output (CONVERTER *converter, DOCUMENT *document);

@@ -72,8 +72,8 @@
    and TXI_CONVERSION_FORMAT_NR */
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", 0, &html_converter_defaults,
-   &html_converter_initialize, &html_output, &html_convert, 0,
-   &html_reset_converter, &html_free_converter},
+   &html_converter_initialize, &html_output, &html_convert,
+   &html_convert_tree, &html_reset_converter, &html_free_converter},
   {"rawtext", "Texinfo::Convert::Text", &rawtext_converter,
    0, 0, &rawtext_output,
    &rawtext_convert, &rawtext_convert_tree, 0, 0},
@@ -1476,7 +1476,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 
 char *
 convert_accents (CONVERTER *self, const ELEMENT *accent,
- char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree, const char *explanation),
+ char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
                         int set_case),
   int output_encoded_characters,
@@ -1490,11 +1490,7 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
 
   if (accent_stack->argument)
     {
-      char *explanation;
-      xasprintf (&explanation, "ACCENT ARG %s",
-                 builtin_command_name (accent->e.c->cmd));
-      arg_text = (*convert_tree) (self, accent_stack->argument, explanation);
-      free (explanation);
+      arg_text = (*convert_tree) (self, accent_stack->argument);
     }
   else
     arg_text = strdup ("");

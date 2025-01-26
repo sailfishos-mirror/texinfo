@@ -1600,11 +1600,7 @@ sub convert_accents($$$;$$)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
   my $arg_text = '';
   if (defined($contents_element)) {
-    # NOTE the explanation argument is HTML specific, it may theoretically
-    # be used for something else in other formats.  The type (string) should
-    # be fixed to the type used in C/XS.
-    $arg_text = $self->convert_tree($contents_element,
-                                    "ACCENT ARG ".$accent->{'cmdname'});
+    $arg_text = $self->convert_tree($contents_element);
   }
 
   if ($output_encoded_characters) {

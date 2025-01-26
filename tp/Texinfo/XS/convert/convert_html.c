@@ -235,10 +235,11 @@ html_translate_convert_tree_append (const char *string,
   destroy_element_and_children (translation_tree);
 }
 
+/* EXPLANATION is used for debugging */
 /* returned string to be freed by the caller */
 char *
-html_convert_tree (CONVERTER *self, const ELEMENT *tree,
-                   const char *explanation)
+html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
+                               const char *explanation)
 {
   TEXT result;
   text_init (&result);
@@ -246,6 +247,14 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree,
   html_convert_tree_append (self, tree, &result, explanation);
 
   return result.text;
+}
+
+/* follows the common API for converters */
+/* returned string to be freed by the caller */
+char *
+html_convert_tree (CONVERTER *self, const ELEMENT *tree)
+{
+  return html_convert_tree_explanation (self, tree, 0);
 }
 
 /* Call convert_tree out of the main conversion flow.
@@ -277,7 +286,7 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                                               multiple_pass_str);
 
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
-  result = html_convert_tree (self, tree, explanation);
+  result = html_convert_tree_explanation (self, tree, explanation);
 
   free (explanation);
 
@@ -331,7 +340,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   html_new_document_context (self, css_string_context_str, 0, 0);
   html_set_string_context (self);
 
-  result = html_convert_tree (self, element, explanation);
+  result = html_convert_tree_explanation (self, element, explanation);
 
   html_pop_document_context (self);
 
@@ -484,8 +493,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                  html_conversion_context_type_names[reset_context]);
       if (reset_context == HCC_type_normal)
         {
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
+          translation_result
+             = html_convert_tree_explanation (self, translated_tree,
+                                              explanation);
         }
       else if (reset_context == HCC_type_preformatted)
         {
@@ -493,8 +503,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           /* there does not seems to be anything simpler... */
           html_new_document_context (self, context, 0, 0);
           html_open_command_update_context (self, preformatted_cmd);
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
+          translation_result
+              = html_convert_tree_explanation (self, translated_tree,
+                                               explanation);
           html_convert_command_update_context (self, preformatted_cmd);
           html_pop_document_context (self);
         }
@@ -503,8 +514,9 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
           html_new_document_context (self, context, 0, 0);
           html_set_string_context (self);
 
-          translation_result = html_convert_tree (self, translated_tree,
-                                                  explanation);
+          translation_result
+             = html_convert_tree_explanation (self, translated_tree,
+                                              explanation);
           html_pop_document_context (self);
         }
       else if (reset_context == HCC_type_css_string)

@@ -40,10 +40,11 @@ ELEMENT *html_pcdt_tree (const char *translation_context, const char *string,
 void add_tree_to_build (CONVERTER *self, ELEMENT *e);
 void remove_tree_to_build (CONVERTER *self, ELEMENT *e);
 
-char *html_convert_tree (CONVERTER *self, const ELEMENT *tree,
-                         const char *explanation);
 void html_convert_tree_append (CONVERTER *self, const ELEMENT *e,
                                TEXT *result, const char *explanation);
+char *html_convert_tree_explanation (CONVERTER *self, const ELEMENT *tree,
+                                     const char *explanation);
+char *html_convert_tree (CONVERTER *self, const ELEMENT *tree);
 void html_translate_convert_tree_append (const char *string,
                      CONVERTER *self,
                      NAMED_STRING_ELEMENT_LIST *replaced_substrings,

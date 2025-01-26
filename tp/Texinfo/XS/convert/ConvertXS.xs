@@ -2850,8 +2850,8 @@ html_convert_tree (SV *converter_in, SV *tree_in, explanation)
             document = get_sv_tree_document (tree_in, 0);
             if (document)
               {
-                char *result = html_convert_tree(self, document->tree,
-                                                 explanation);
+                char *result = html_convert_tree_explanation (self,
+                                            document->tree, explanation);
                 result_sv = newSVpv_utf8 (result, 0);
                 non_perl_free (result);
               }
