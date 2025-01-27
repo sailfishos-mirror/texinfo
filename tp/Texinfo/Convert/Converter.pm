@@ -110,6 +110,11 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_unclosed_stream",
 );
 
+# for XS only
+sub _XS_setup_converter_generic()
+{
+}
+
 sub import {
   if (!$module_loaded) {
     if ($XS_convert) {
