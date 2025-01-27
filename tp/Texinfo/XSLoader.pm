@@ -115,8 +115,8 @@ my $added_converterxsdir;
 my %dl_path_prepended_dirs;
 
 # If $TRY_DIRECT_LOAD is set and no .la file is found in @INC, add
-# the converterxsdir to DynaLoader path and let DynaLoader find the module
-# file using the usual file names.
+# the converterxsdir directory to the DynaLoader path and let DynaLoader
+# find the module file using the usual file names.
 # This allows to have modules found even if packagers remove .la files
 # installed in the default case on platforms where modules have usual names
 # and are found by DynaLoader.

@@ -6885,6 +6885,7 @@ sub _new_macro($$$)
     'element' => $current,
     'macrobody' => $macrobody
   };
+  # FIXME warn replaced alias/..., like for macro/macro?
   delete $self->{'aliases'}->{$name};
   # could be cleaner to delete definfoenclose'd too, but macros
   # are expanded earlier
@@ -8018,6 +8019,7 @@ sub _parse_line_command_args($$$)
         }
       }
       $self->{'aliases'}->{$new_command} = $existing_command;
+      # FIXME warn replaced macro/definfoenclose..., like for macro/macro?
       # could be cleaner to unset macro and definfoenclosed, but
       # not needed in practice as alias are substituted the earliest.
     } else {
@@ -8045,6 +8047,7 @@ sub _parse_line_command_args($$$)
         $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
         print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
                if ($self->{'conf'}->{'DEBUG'});
+        # FIXME warn replaced alias/macro/..., like for macro/macro?
         delete $self->{'macros'}->{$cmd_name};
         delete $self->{'aliases'}->{$cmd_name};
         # unset @def*index effect
@@ -8110,6 +8113,7 @@ sub _parse_line_command_args($$$)
           $document->{'indices'}->{$name}->{'name'} = $name;
         }
         my $index_cmdname = $name.'index';
+        # FIXME warn replaced alias/macro/..., like for macro/macro?
         delete $self->{'macros'}->{$index_cmdname};
         delete $self->{'aliases'}->{$index_cmdname};
         # unset definfoenclose effect

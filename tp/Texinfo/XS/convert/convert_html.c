@@ -1328,11 +1328,10 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
   if ((element->type
        && (self->current_types_conversion_function[element->type].status
                                                      == FRS_status_ignored
-         /* type unknown in Perl
-            FIXME in which situation is that possible?  The type has to
-            be known in Perl for the formatting function to be set to
-            be ignored?
-          */
+         /* type unknown in Perl.  They cannot be customized as ignored
+            but correspond to @-commands only.  We always consider them
+            to be ignored as type, in the next condition it is checked
+            if they are ignored as commands */
            || type_data[element->type].flags & TF_c_only))
        && (!cmd
            || self->current_commands_conversion_function[cmd].status

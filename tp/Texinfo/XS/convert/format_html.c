@@ -5886,7 +5886,7 @@ html_convert_email_command (CONVERTER *self, const enum command_id cmd,
       text = mail_string;
     }
 
-  /* FIXME in perl unicode spaces are also matched */
+  /* FIXME in Perl unicode spaces are also matched */
   if (!mail || mail[strspn (mail, whitespace_chars)] == '\0')
     {
       if (text)
