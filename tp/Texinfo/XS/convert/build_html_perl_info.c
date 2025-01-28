@@ -504,12 +504,9 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
     {
  /* need to setup the Perl tree before rebuilding the output units as
     they refer to Perl root command elements */
-      SV **document_sv
-        = hv_fetch (converter_hv, "document", strlen ("document"), 0);
-      if (document_sv)
+      if (converter->document)
         {
-          HV *document_hv = (HV *) SvRV (*document_sv);
-          store_document_texinfo_tree (converter->document, document_hv);
+          store_document_texinfo_tree (converter->document);
         }
 
       *output_units_sv = build_output_units_list

@@ -1891,7 +1891,7 @@ rebuild_document (SV *document_in, int no_store)
 }
 
 SV *
-store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
+store_document_texinfo_tree (DOCUMENT *document)
 {
   SV *result_sv = 0;
   const char *key = "tree";
@@ -1920,31 +1920,30 @@ store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
 SV *
 document_tree (SV *document_in, int handler_only)
 {
-  HV *document_hv;
   SV *result_sv = 0;
   DOCUMENT *document = 0;
 
   dTHX;
-
-  document_hv = (HV *) SvRV (document_in);
 
   document = get_sv_document_document (document_in, 0);
 
   if (!handler_only)
     {
       if (document)
-        result_sv = store_document_texinfo_tree (document, document_hv);
+        result_sv = store_document_texinfo_tree (document);
     }
 
   if (!result_sv)
     {
       SV **sv_reference = 0;
-       /*
+      /* Prefer the tree cached in the original Perl document, if it exists */
       if (document)
         sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
-        */
       if (!sv_reference)
-        sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+        {
+          HV *document_hv = (HV *) SvRV (document_in);
+          sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+        }
       if (sv_reference && SvOK (*sv_reference))
         result_sv = *sv_reference;
     }
@@ -1969,18 +1968,16 @@ document_tree (SV *document_in, int handler_only)
 SV * \
 funcname (SV *document_in) \
 { \
-  HV *document_hv; \
   SV *result_sv = 0; \
   const char *key = keyname; \
 \
   dTHX;\
 \
-  document_hv = (HV *) SvRV (document_in); \
   DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
 \
   if (document && document->fieldname)\
     {\
-      store_document_texinfo_tree (document, document_hv);\
+      store_document_texinfo_tree (document);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (document->fieldname);\
@@ -2023,18 +2020,16 @@ BUILD_PERL_DOCUMENT_ITEM(document_sections_list,sections_list,"sections_list",F_
 SV * \
 funcname (SV *document_in) \
 { \
-  HV *document_hv; \
   SV *result_sv = 0; \
   const char *key = keyname; \
 \
   dTHX;\
 \
-  document_hv = (HV *) SvRV (document_in); \
   DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
 \
   if (document)\
     {\
-      store_document_texinfo_tree (document, document_hv);\
+      store_document_texinfo_tree (document);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (&document->fieldname);\

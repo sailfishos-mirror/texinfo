@@ -43,7 +43,7 @@ SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 SV *build_document (size_t document_descriptor, int no_store);
 SV *build_minimal_document (size_t document_descriptor);
 
-SV *store_document_texinfo_tree (DOCUMENT *document, HV *document_hv);
+SV *store_document_texinfo_tree (DOCUMENT *document);
 
 SV *document_tree (SV *document_in, int handler_only);
 SV *document_indices_information (SV *document_in);

@@ -1,5 +1,15 @@
 2025-01-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (document_tree): prefer the
+	tree cached in the original Perl document associated to the C
+	converter document, if it exists.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (store_document_texinfo_tree):
+	remove the document_hv argument, it is not used anymore.  Update
+	callers.
+
+2025-01-28  Patrice Dumas  <pertusus@free.fr>
+
 	Add a customization option for DocBook for a piece, not a book
 
 	* tp/Texinfo/Convert/DocBook.pm (_convert),
