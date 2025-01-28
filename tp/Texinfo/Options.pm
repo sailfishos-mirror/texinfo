@@ -65,6 +65,7 @@ our %converter_customization_options = (
   'DEFAULT_RULE'                     => undef,
   'DEF_TABLE'                        => undef,
   'DO_ABOUT'                         => undef,
+  '_DOCBOOK_PIECE'                   => undef,
   'DOCTYPE'                          => undef,
   'DOCUMENTLANGUAGE_COLLATION'       => undef,
   'END_USEPACKAGE'                   => undef,

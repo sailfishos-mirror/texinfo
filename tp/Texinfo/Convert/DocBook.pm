@@ -1884,10 +1884,12 @@ sub _convert($$;$)
         pop @{$self->{'lang_stack'}};
       }
     }
-  } elsif ($element->{'type'} and $element->{'type'} eq 'before_node_section') {
+  } elsif ($element->{'type'} and $element->{'type'} eq 'before_node_section'
+           and !$self->get_conf('_DOCBOOK_PIECE')) {
     # ignore text before the first @node or sectioning command
     # as DocBook does not allow content not within some semantic
-    # markup
+    # markup, unless _DOCBOOK_PIECE is set to mean that a the output is not
+    # a full book.
     return '';
   }
 

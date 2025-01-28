@@ -80,6 +80,7 @@ initialize_options (OPTIONS *options)
   initialize_option (&options->DEFAULT_RULE, GOT_char, "DEFAULT_RULE", 0);
   initialize_option (&options->DEF_TABLE, GOT_integer, "DEF_TABLE", 0);
   initialize_option (&options->DO_ABOUT, GOT_integer, "DO_ABOUT", 0);
+  initialize_option (&options->_DOCBOOK_PIECE, GOT_integer, "_DOCBOOK_PIECE", 0);
   initialize_option (&options->DOCTYPE, GOT_char, "DOCTYPE", 0);
   initialize_option (&options->DOCUMENTLANGUAGE_COLLATION, GOT_integer, "DOCUMENTLANGUAGE_COLLATION", 0);
   initialize_option (&options->END_USEPACKAGE, GOT_char, "END_USEPACKAGE", 0);
@@ -345,6 +346,7 @@ free_options (OPTIONS *options)
   free_option (&options->DEFAULT_RULE);
   free_option (&options->DEF_TABLE);
   free_option (&options->DO_ABOUT);
+  free_option (&options->_DOCBOOK_PIECE);
   free_option (&options->DOCTYPE);
   free_option (&options->DOCUMENTLANGUAGE_COLLATION);
   free_option (&options->END_USEPACKAGE);
@@ -611,6 +613,7 @@ clear_options (OPTIONS *options)
   clear_option (&options->DEFAULT_RULE);
   clear_option (&options->DEF_TABLE);
   clear_option (&options->DO_ABOUT);
+  clear_option (&options->_DOCBOOK_PIECE);
   clear_option (&options->DOCTYPE);
   clear_option (&options->DOCUMENTLANGUAGE_COLLATION);
   clear_option (&options->END_USEPACKAGE);
@@ -877,6 +880,7 @@ copy_options (OPTIONS *destination, const OPTIONS *source)
   copy_option (&destination->DEFAULT_RULE, &source->DEFAULT_RULE);
   copy_option (&destination->DEF_TABLE, &source->DEF_TABLE);
   copy_option (&destination->DO_ABOUT, &source->DO_ABOUT);
+  copy_option (&destination->_DOCBOOK_PIECE, &source->_DOCBOOK_PIECE);
   copy_option (&destination->DOCTYPE, &source->DOCTYPE);
   copy_option (&destination->DOCUMENTLANGUAGE_COLLATION, &source->DOCUMENTLANGUAGE_COLLATION);
   copy_option (&destination->END_USEPACKAGE, &source->END_USEPACKAGE);
@@ -1265,51 +1269,52 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
   to_sort[185] = &options->XS_EXTERNAL_CONVERSION;   /* converter_customization */
   to_sort[186] = &options->XS_EXTERNAL_FORMATTING;   /* converter_customization */
   to_sort[187] = &options->XS_STRXFRM_COLLATION_LOCALE;   /* converter_customization */
-  to_sort[188] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
-  to_sort[189] = &options->afivepaper;   /* unique_at_command */
-  to_sort[190] = &options->afourlatex;   /* unique_at_command */
-  to_sort[191] = &options->afourpaper;   /* unique_at_command */
-  to_sort[192] = &options->afourwide;   /* unique_at_command */
-  to_sort[193] = &options->allowcodebreaks;   /* multiple_at_command */
-  to_sort[194] = &options->bsixpaper;   /* unique_at_command */
-  to_sort[195] = &options->clickstyle;   /* multiple_at_command */
-  to_sort[196] = &options->codequotebacktick;   /* multiple_at_command */
-  to_sort[197] = &options->codequoteundirected;   /* multiple_at_command */
-  to_sort[198] = &options->contents;   /* multiple_at_command */
-  to_sort[199] = &options->deftypefnnewline;   /* multiple_at_command */
-  to_sort[200] = &options->documentdescription;   /* unique_at_command */
-  to_sort[201] = &options->documentencoding;   /* multiple_at_command */
-  to_sort[202] = &options->documentlanguage;   /* multiple_at_command */
-  to_sort[203] = &options->evenfooting;   /* multiple_at_command */
-  to_sort[204] = &options->evenfootingmarks;   /* unique_at_command */
-  to_sort[205] = &options->evenheading;   /* multiple_at_command */
-  to_sort[206] = &options->evenheadingmarks;   /* unique_at_command */
-  to_sort[207] = &options->everyfooting;   /* multiple_at_command */
-  to_sort[208] = &options->everyfootingmarks;   /* unique_at_command */
-  to_sort[209] = &options->everyheading;   /* multiple_at_command */
-  to_sort[210] = &options->everyheadingmarks;   /* unique_at_command */
-  to_sort[211] = &options->exampleindent;   /* multiple_at_command */
-  to_sort[212] = &options->firstparagraphindent;   /* multiple_at_command */
-  to_sort[213] = &options->fonttextsize;   /* unique_at_command */
-  to_sort[214] = &options->footnotestyle;   /* unique_at_command */
-  to_sort[215] = &options->frenchspacing;   /* multiple_at_command */
-  to_sort[216] = &options->headings;   /* multiple_at_command */
-  to_sort[217] = &options->kbdinputstyle;   /* multiple_at_command */
-  to_sort[218] = &options->microtype;   /* multiple_at_command */
-  to_sort[219] = &options->novalidate;   /* unique_at_command */
-  to_sort[220] = &options->oddfooting;   /* multiple_at_command */
-  to_sort[221] = &options->oddfootingmarks;   /* unique_at_command */
-  to_sort[222] = &options->oddheading;   /* multiple_at_command */
-  to_sort[223] = &options->oddheadingmarks;   /* unique_at_command */
-  to_sort[224] = &options->pagesizes;   /* unique_at_command */
-  to_sort[225] = &options->paragraphindent;   /* multiple_at_command */
-  to_sort[226] = &options->setchapternewpage;   /* unique_at_command */
-  to_sort[227] = &options->setfilename;   /* unique_at_command */
-  to_sort[228] = &options->shortcontents;   /* multiple_at_command */
-  to_sort[229] = &options->smallbook;   /* unique_at_command */
-  to_sort[230] = &options->summarycontents;   /* multiple_at_command */
-  to_sort[231] = &options->urefbreakstyle;   /* multiple_at_command */
-  to_sort[232] = &options->xrefautomaticsectiontitle;   /* multiple_at_command */
+  to_sort[188] = &options->_DOCBOOK_PIECE;   /* converter_customization */
+  to_sort[189] = &options->_INLINE_STYLE_WIDTH;   /* converter_customization */
+  to_sort[190] = &options->afivepaper;   /* unique_at_command */
+  to_sort[191] = &options->afourlatex;   /* unique_at_command */
+  to_sort[192] = &options->afourpaper;   /* unique_at_command */
+  to_sort[193] = &options->afourwide;   /* unique_at_command */
+  to_sort[194] = &options->allowcodebreaks;   /* multiple_at_command */
+  to_sort[195] = &options->bsixpaper;   /* unique_at_command */
+  to_sort[196] = &options->clickstyle;   /* multiple_at_command */
+  to_sort[197] = &options->codequotebacktick;   /* multiple_at_command */
+  to_sort[198] = &options->codequoteundirected;   /* multiple_at_command */
+  to_sort[199] = &options->contents;   /* multiple_at_command */
+  to_sort[200] = &options->deftypefnnewline;   /* multiple_at_command */
+  to_sort[201] = &options->documentdescription;   /* unique_at_command */
+  to_sort[202] = &options->documentencoding;   /* multiple_at_command */
+  to_sort[203] = &options->documentlanguage;   /* multiple_at_command */
+  to_sort[204] = &options->evenfooting;   /* multiple_at_command */
+  to_sort[205] = &options->evenfootingmarks;   /* unique_at_command */
+  to_sort[206] = &options->evenheading;   /* multiple_at_command */
+  to_sort[207] = &options->evenheadingmarks;   /* unique_at_command */
+  to_sort[208] = &options->everyfooting;   /* multiple_at_command */
+  to_sort[209] = &options->everyfootingmarks;   /* unique_at_command */
+  to_sort[210] = &options->everyheading;   /* multiple_at_command */
+  to_sort[211] = &options->everyheadingmarks;   /* unique_at_command */
+  to_sort[212] = &options->exampleindent;   /* multiple_at_command */
+  to_sort[213] = &options->firstparagraphindent;   /* multiple_at_command */
+  to_sort[214] = &options->fonttextsize;   /* unique_at_command */
+  to_sort[215] = &options->footnotestyle;   /* unique_at_command */
+  to_sort[216] = &options->frenchspacing;   /* multiple_at_command */
+  to_sort[217] = &options->headings;   /* multiple_at_command */
+  to_sort[218] = &options->kbdinputstyle;   /* multiple_at_command */
+  to_sort[219] = &options->microtype;   /* multiple_at_command */
+  to_sort[220] = &options->novalidate;   /* unique_at_command */
+  to_sort[221] = &options->oddfooting;   /* multiple_at_command */
+  to_sort[222] = &options->oddfootingmarks;   /* unique_at_command */
+  to_sort[223] = &options->oddheading;   /* multiple_at_command */
+  to_sort[224] = &options->oddheadingmarks;   /* unique_at_command */
+  to_sort[225] = &options->pagesizes;   /* unique_at_command */
+  to_sort[226] = &options->paragraphindent;   /* multiple_at_command */
+  to_sort[227] = &options->setchapternewpage;   /* unique_at_command */
+  to_sort[228] = &options->setfilename;   /* unique_at_command */
+  to_sort[229] = &options->shortcontents;   /* multiple_at_command */
+  to_sort[230] = &options->smallbook;   /* unique_at_command */
+  to_sort[231] = &options->summarycontents;   /* multiple_at_command */
+  to_sort[232] = &options->urefbreakstyle;   /* multiple_at_command */
+  to_sort[233] = &options->xrefautomaticsectiontitle;   /* multiple_at_command */
 }
 
 

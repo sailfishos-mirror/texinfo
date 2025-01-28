@@ -14,7 +14,7 @@
 #undef PACKAGE_URL
 #undef PACKAGE_VERSION
 
-#define TXI_OPTIONS_NR 233
+#define TXI_OPTIONS_NR 234
 
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
@@ -83,6 +83,7 @@ typedef struct OPTIONS {
     OPTION DEFAULT_RULE;
     OPTION DEF_TABLE;
     OPTION DO_ABOUT;
+    OPTION _DOCBOOK_PIECE;
     OPTION DOCTYPE;
     OPTION DOCUMENTLANGUAGE_COLLATION;
     OPTION END_USEPACKAGE;

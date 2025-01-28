@@ -622,34 +622,27 @@ sub convert_to_docbook($$$$$)
     = set_converter_option_defaults($converter_options, 'docbook',
                                     $self->{'DEBUG'});
 
+  my $tree = $document->tree();
+
+  # 'before_node_section' is normally ignored in conversion to DocBook and
+  # it is the type, in 'document_root' that holds content that appear before
+  # @node and sectioning command.  To be able to have tests of simple
+  # Texinfo code without sectioning or @node command with DocBook,
+  # set the customization variable that mean that the document is not a
+  # full book.
+  if ($tree->{'contents'} and scalar(@{$tree->{'contents'}}) == 1) {
+    $converter_options->{'_DOCBOOK_PIECE'} = 1;
+  }
+
   my $converter = Texinfo::Convert::DocBook->converter($converter_options);
 
   my $result;
-  my $tree = $document->tree();
-  my $document_for_conversion;
-  # 'before_node_section' is ignored in conversion to DocBook and it is
-  # the type, in 'document_root' that holds content that appear before
-  # @node and sectioning command.  To be able to have tests of simple
-  # Texinfo code without sectioning or @node command with DocBook,
-  # a tree consisting in a sole 'before_node_section' is duplicated
-  # as a tree with an element without type replacing the 'before_node_section'
-  # type element, with the same contents.
-  if ($tree->{'contents'} and scalar(@{$tree->{'contents'}}) == 1) {
-    my $tree_for_conversion = {
-      'type' => $tree->{'type'},
-      'contents' => [{'contents' => $tree->{'contents'}->[0]->{'contents'}}]
-    };
-    $document_for_conversion = dclone($document);
-    $document_for_conversion->{'tree'} = $tree_for_conversion;
-  } else {
-    $document_for_conversion = $document;
-  }
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq ''
       and $format ne 'docbook_doc') {
-    $result = $converter->convert($document_for_conversion);
+    $result = $converter->convert($document);
   } else {
-    $result = $converter->output($document_for_conversion);
+    $result = $converter->output($document);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }

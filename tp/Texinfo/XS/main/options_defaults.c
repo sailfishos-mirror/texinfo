@@ -124,6 +124,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->DEFAULT_RULE, -2, 0);
   option_set_conf (&options->DEF_TABLE, -1, 0);
   option_set_conf (&options->DO_ABOUT, -1, 0);
+  option_set_conf (&options->_DOCBOOK_PIECE, -1, 0);
   option_set_conf (&options->DOCTYPE, -2, 0);
   option_set_conf (&options->DOCUMENTLANGUAGE_COLLATION, -1, 0);
   option_set_conf (&options->END_USEPACKAGE, -2, 0);
@@ -269,6 +270,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "DEFAULT_RULE", -2, 0);
   add_option_value (options_list, "DEF_TABLE", -1, 0);
   add_option_value (options_list, "DO_ABOUT", -1, 0);
+  add_option_value (options_list, "_DOCBOOK_PIECE", -1, 0);
   add_option_value (options_list, "DOCTYPE", -2, 0);
   add_option_value (options_list, "DOCUMENTLANGUAGE_COLLATION", -1, 0);
   add_option_value (options_list, "END_USEPACKAGE", -2, 0);

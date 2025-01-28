@@ -234,6 +234,8 @@ DATE_IN_HEADER                     converter_customization undef   integer
 DEFAULT_RULE                       converter_customization undef   char
 DEF_TABLE                          converter_customization undef   integer
 DO_ABOUT                           converter_customization undef   integer
+# not documented, used for tests
+_DOCBOOK_PIECE                     converter_customization undef   integer
 DOCTYPE                            converter_customization undef   char
 DOCUMENTLANGUAGE_COLLATION         converter_customization undef   integer
 # for LaTeX
