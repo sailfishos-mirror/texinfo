@@ -13353,7 +13353,8 @@ sub output($$)
   }
 
   if ($text_output ne '' and $output_file eq '') {
-    # $output_file eq '' should always be true, see comment above.
+    # $output_file eq '' should always be true, as $text_output is only
+    # filled in that case.
     if (!$self->get_conf('TEST')) {
       # This case is unlikely to happen, as there is no output file
       # only if formatting is called as convert, which only happens in tests.

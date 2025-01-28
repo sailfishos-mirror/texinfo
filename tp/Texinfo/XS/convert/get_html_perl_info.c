@@ -768,7 +768,7 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       if (hv_number > 0)
         {
-          int customized_global_units_directions = 0;
+          int custom_global_units_direction_nr = 0;
           /* if there are global text directions, some slots won't be used */
           converter->customized_global_units_directions.list
            = (DIRECTION_NODE_NAME *)
@@ -787,18 +787,18 @@ html_converter_get_customization_sv (SV *converter_sv,
                     = (char *) SvPVutf8_nolen (node_texi_sv);
                   DIRECTION_NODE_NAME *direction_node_name
                    = &converter->customized_global_units_directions.list[
-                                      customized_global_units_directions];
+                                      custom_global_units_direction_nr];
 
                   direction_node_name->direction = strdup (direction);
                   direction_node_name->node_name = strdup (node_texi);
-                  customized_global_units_directions++;
+                  custom_global_units_direction_nr++;
                 }
               else
                 add_string (direction,
                             &converter->customized_global_text_directions);
             }
           converter->customized_global_units_directions.number
-            = customized_global_units_directions;
+            = custom_global_units_direction_nr;
         }
     }
 

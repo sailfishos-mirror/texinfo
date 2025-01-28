@@ -661,6 +661,24 @@ html_nr_string_directions (const CONVERTER *self)
        + (int) self->customized_global_text_directions.number;
 }
 
+/* here because it is used in files also needing html_nr_string_directions */
+void
+html_free_customized_global_units_directions (
+             DIRECTION_NODE_NAME_LIST *customized_global_units_directions)
+{
+  size_t j;
+  for (j = 0; j < customized_global_units_directions->number; j++)
+    {
+      DIRECTION_NODE_NAME *direction_node_name
+       = &customized_global_units_directions->list[j];
+      free (direction_node_name->direction);
+      free (direction_node_name->node_name);
+    }
+  free (customized_global_units_directions->list);
+  customized_global_units_directions->list = 0;
+  customized_global_units_directions->number = 0;
+}
+
 /* Also used to get htmlxref info from Perl.  Initialize in C */
 HTMLXREF_MANUAL *
 new_htmlxref_manual_list (size_t size)
@@ -1795,6 +1813,9 @@ html_set_main_units_direction_names (CONVERTER *self)
           if (main_directions_idx < 0)
             {
               /* an added global output unit direction */
+              /* it would be unlikely for the direction to already exist,
+                 since it should ultimately come from a Perl hash.  In case
+                 it could be set from C, it is better to check */
               size_t added_string_nr
                  = find_string (&self->added_global_units_directions,
                                 direction);

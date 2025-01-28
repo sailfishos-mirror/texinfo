@@ -1906,7 +1906,7 @@ store_document_texinfo_tree (DOCUMENT *document, HV *document_hv)
                 strlen ("tree_document_descriptor"),
                 newSViv (document->descriptor), 0);
       result_sv = newRV_inc ((SV *) result_hv);
-      hv_store (document_hv, key, strlen (key), result_sv, 0);
+      hv_store (document->hv, key, strlen (key), result_sv, 0);
       document->modified_information &= ~F_DOCM_tree;
     }
   return result_sv;
@@ -1922,21 +1922,29 @@ document_tree (SV *document_in, int handler_only)
 {
   HV *document_hv;
   SV *result_sv = 0;
+  DOCUMENT *document = 0;
 
   dTHX;
 
   document_hv = (HV *) SvRV (document_in);
 
+  document = get_sv_document_document (document_in, 0);
+
   if (!handler_only)
     {
-      DOCUMENT *document = get_sv_document_document (document_in, 0);
       if (document)
         result_sv = store_document_texinfo_tree (document, document_hv);
     }
 
   if (!result_sv)
     {
-      SV **sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
+      SV **sv_reference = 0;
+       /*
+      if (document)
+        sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+        */
+      if (!sv_reference)
+        sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
       if (sv_reference && SvOK (*sv_reference))
         result_sv = *sv_reference;
     }

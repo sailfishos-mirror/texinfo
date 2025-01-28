@@ -24,6 +24,8 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 int html_nr_string_directions (const CONVERTER *self);
+void html_free_customized_global_units_directions (
+             DIRECTION_NODE_NAME_LIST *customized_global_units_directions);
 
 /* void html_converter_initialize_beginning (CONVERTER *self); */
 

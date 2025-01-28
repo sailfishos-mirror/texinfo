@@ -215,8 +215,8 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   dTHX;
 
   /* The Perl document object should not have been built already when called
-     from C texi2any.  If called by other codes it may become relevant to reuse
-     the document->hv.
+     from C texi2any.  If called by other codes it may become relevant to
+     check if there is already a document->hv and reuse it.
    */
   document_sv = build_minimal_document (document->descriptor);
   SvREFCNT_inc (document_sv);

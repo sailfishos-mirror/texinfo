@@ -98,8 +98,8 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
 
   dTHX;
 
-  /* this happens if the customization variable TEST is set and
-     --no-embed is passed */
+  /* this happens if the customization variable TEST is set while there
+     is no embedded Perl */
   if (get_no_perl_interpreter ())
     return 0;
 
@@ -147,7 +147,8 @@ call_translations_translate_string (const char *string, const char *in_lang,
 
   dTHX;
 
-  /* this happens if USE_LIBINTL_PERL_IN_XS is set and --no-embed is passed */
+  /* this happens if USE_LIBINTL_PERL_IN_XS is set while there is no
+     embedded Perl */
   if (get_no_perl_interpreter ())
     return 0;
 
@@ -194,8 +195,8 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
 
   dTHX;
 
-  /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef and --no-embed
-     is passed */
+  /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef while there is
+     no embedded Perl */
   if (get_no_perl_interpreter ())
     return 0;
 
@@ -282,3 +283,4 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
 
   return result;
 }
+

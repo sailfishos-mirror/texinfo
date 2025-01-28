@@ -27,9 +27,17 @@ of the code?
 
 Document TEXINFO_C_EMBED_PERL
 
+Allow texinfo_register_global_direction effect to be modified after parsing
+before output to be able to use the document to set the direction node.
+Not sure how to do that.  For consistency of the API, it may be better
+to use customization variables, as it is in general how to make a dynamic
+variable in the API.
+
 
 Bugs
 ====
+
+a test fails with ctexi2any.
 
 
 HTML API

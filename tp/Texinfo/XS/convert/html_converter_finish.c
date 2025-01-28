@@ -35,7 +35,7 @@
    html_free_direction_icons_array
  */
 #include "convert_html.h"
-/* html_nr_string_directions */
+/* html_nr_string_directions html_free_customized_global_units_directions */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
 
@@ -542,14 +542,8 @@ html_free_converter (CONVERTER *self)
 
   free_strings_list (&self->added_global_units_directions);
 
-  for (j = 0; j < self->customized_global_units_directions.number; j++)
-    {
-      DIRECTION_NODE_NAME *direction_node_name
-       = &self->customized_global_units_directions.list[j];
-      free (direction_node_name->direction);
-      free (direction_node_name->node_name);
-    }
-  free (self->customized_global_units_directions.list);
+  html_free_customized_global_units_directions (
+                    &self->customized_global_units_directions);
 
   free_strings_list (&self->customized_global_text_directions);
 

@@ -1,5 +1,26 @@
 2025-01-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/main/build_perl_info.c (store_document_texinfo_tree):
+	store tree in document->hv.
+
+	* tp/Texinfo/XS/convert/html_converter_finish.c (html_free_converter),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_free_customized_global_units_directions): add
+	html_free_customized_global_units_directions based on
+	html_free_converter code.
+
+	* tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): rename
+	customized_global_units_directions variable as
+	custom_global_units_direction_nr.
+
+	* tp/Texinfo/XS/main/build_perl_info.c (document_tree): always
+	determine if there is a C document.
+
+	Changes in comments.
+
+2025-01-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/main/build_perl_info.c
 	(pass_document_sv_to_converter_sv, pass_converter_text_options): split
 	pass_document_to_converter_sv in two, with
