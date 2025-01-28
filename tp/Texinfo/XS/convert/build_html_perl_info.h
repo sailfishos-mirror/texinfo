@@ -15,9 +15,9 @@ void html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
 HV *build_html_target (const HTML_TARGET *html_target);
 
 void html_pass_conversion_initialization (CONVERTER *converter,
-                                     SV *converter_sv, SV *document_in);
+                                          SV *converter_sv);
 void html_pass_converter_initialization_state (const CONVERTER *converter,
-                                          HV *converter_hv, SV *document_in);
+                                               HV *converter_hv);
 
 void html_pass_converter_setup_state (const CONVERTER *converter,
                                       SV *converter_sv);

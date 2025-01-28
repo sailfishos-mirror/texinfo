@@ -1914,9 +1914,10 @@ store_document_texinfo_tree (DOCUMENT *document)
 
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
-   the Perl DOCUMENT_IN.
+   a Perl document, if possible the one associated with C data, otherwise
+   DOCUMENT_IN.
    If the C document data was not stored, the tree will be only be
-   in the Perl document. */
+   in DOCUMENT_IN. */
 SV *
 document_tree (SV *document_in, int handler_only)
 {
@@ -1927,23 +1928,22 @@ document_tree (SV *document_in, int handler_only)
 
   document = get_sv_document_document (document_in, 0);
 
-  if (!handler_only)
-    {
-      if (document)
-        result_sv = store_document_texinfo_tree (document);
-    }
+  if (!handler_only && document)
+    result_sv = store_document_texinfo_tree (document);
 
   if (!result_sv)
     {
       SV **sv_reference = 0;
-      /* Prefer the tree cached in the original Perl document, if it exists */
+      /* Prefer the tree of the Perl document associated to the C data */
       if (document)
         sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+
       if (!sv_reference)
         {
           HV *document_hv = (HV *) SvRV (document_in);
           sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
         }
+
       if (sv_reference && SvOK (*sv_reference))
         result_sv = *sv_reference;
     }

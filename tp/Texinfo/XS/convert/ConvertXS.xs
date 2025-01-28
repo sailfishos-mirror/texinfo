@@ -835,7 +835,7 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         html_conversion_initialization_sv (converter_in, self);
         */
 
-        html_pass_conversion_initialization (self, converter_in, document_in);
+        html_pass_conversion_initialization (self, converter_in);
 
 SV *
 html_setup_output (SV *converter_in)
@@ -1144,7 +1144,7 @@ html_output (SV *converter_in, SV *document_in)
         html_conversion_initialization_sv (converter_in, self);
          */
 
-        html_pass_conversion_initialization (self, converter_in, document_in);
+        html_pass_conversion_initialization (self, converter_in);
 
         /* html_setup_output */
         status = html_setup_output (self, paths);
@@ -1265,7 +1265,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_conversion_initialization_sv (converter_in, self);
          */
 
-        html_pass_conversion_initialization (self, converter_in, document_in);
+        html_pass_conversion_initialization (self, converter_in);
 
         /* html_setup_convert */
         html_setup_convert (self);

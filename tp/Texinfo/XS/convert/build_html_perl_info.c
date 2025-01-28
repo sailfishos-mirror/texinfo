@@ -270,7 +270,7 @@ build_directions_strings (const CONVERTER *converter)
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 void
 html_pass_converter_initialization_state (const CONVERTER *converter,
-                                       HV *converter_hv, SV *document_in)
+                                          HV *converter_hv)
 {
   SV *no_arg_commands_formatting_sv;
   SV *directions_strings_sv;
@@ -291,7 +291,7 @@ html_pass_converter_initialization_state (const CONVERTER *converter,
 
 void
 html_pass_conversion_initialization (CONVERTER *converter,
-                                     SV *converter_sv, SV *document_in)
+                                     SV *converter_sv)
 {
   HV *converter_hv;
   HV *converter_info_hv;
@@ -338,8 +338,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
 
       if (converter->external_references_number > 0)
         {
-          html_pass_converter_initialization_state (converter, converter_hv,
-                                                    document_in);
+          html_pass_converter_initialization_state (converter, converter_hv);
         }
     }
 }

@@ -1,6 +1,15 @@
 2025-01-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/convert/build_html_perl_info.c
+	(html_pass_converter_initialization_state)
+	(html_pass_conversion_initialization): remove unused document_in
+	argument.  Update callers.
+
+	Change in spacing and comments.
+
+2025-01-28  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/convert/build_html_perl_info.c
 	(html_pass_conversion_initialization): set the Perl document
 	associated to the converter as Perl converter "document".
 
