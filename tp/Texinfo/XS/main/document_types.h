@@ -281,13 +281,9 @@ typedef struct DOCUMENT {
 
     /* Reference to Perl document.  Used to have a place where caching
        can happen reliably even if the caller changes the hash associated
-       to a descriptor (has happened in the past).  Can also be used to
-       find the document, but it should be verified that it is not better
-       to use a document reference passed from Perl.
-     */
-    /* TODO check the code to see if it shouldn't be used more to find
-       the document, in particular to avoid redoing uselessly a Perl
-       document reference.
+       to a descriptor (has happened in the past).  Is also used to
+       find the Perl document to reuse and modify the same document already
+       passed to Perl, when possible.
      */
     void *hv;
 } DOCUMENT;

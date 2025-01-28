@@ -1663,6 +1663,10 @@ build_minimal_document (size_t document_descriptor)
 
   document = retrieve_document (document_descriptor);
 
+  /* We do not attempt to reuse a pre-existing C document hv, as
+     build_minimal_document is only called on documents that were just
+     created and do not already have associated hv */
+  /* There is a bug message below if there is already a C document hv */
   hv = newHV ();
 
   hv_info = build_global_info (0, &document->global_info,
@@ -1700,11 +1704,11 @@ build_minimal_document (size_t document_descriptor)
     }
   else
     {
-      if (document->options && document->options->DEBUG.o.integer > 0)
-        fprintf (stderr,
-          "build_minimal_document: %zu: already %p and new %p document hv\n",
-                 document_descriptor, document->hv, hv);
+      fprintf (stderr,
+       "BUG: build_minimal_document: %zu: already %p and new %p document hv\n",
+               document_descriptor, document->hv, hv);
     }
+
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);
   sv_bless (sv, hv_stash);
@@ -1825,17 +1829,15 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
           SvREFCNT_inc ((SV *)hv);
         }
       else if ((HV *)document->hv != hv)
-        {/* this happens if called through rebuild_tree as build_document
-            is called in that case, the document HV is not reused */
-          if (document->options && document->options->DEBUG.o.integer > 0)
-            fprintf (stderr,
-              "fill_document_hv: %zu: %p and new %p document hv differ\n",
+        {
+          fprintf (stderr,
+           "BUG: fill_document_hv: %zu: %p and new %p document hv differ\n",
                      document_descriptor, document->hv, hv);
         }
     }
 }
 
-/* Return a new Texinfo::Document perl object corresponding to the
+/* Return a Texinfo::Document perl object corresponding to the
    C document structure corresponding to DOCUMENT_DESCRIPTOR.
    If NO_STORE is set, destroy the C document.
  */
@@ -1846,10 +1848,19 @@ build_document (size_t document_descriptor, int no_store)
   SV *sv;
   HV *hv_stash;
   SV *registrar_sv;
+  DOCUMENT *document;
 
   dTHX;
 
-  hv = newHV ();
+  document = retrieve_document (document_descriptor);
+
+  if (document->hv)
+    {
+      hv = document->hv;
+      SvREFCNT_inc ((SV *) hv);
+    }
+  else
+    hv = newHV ();
 
   fill_document_hv (hv, document_descriptor, no_store);
 
@@ -1863,31 +1874,6 @@ build_document (size_t document_descriptor, int no_store)
   sv = newRV_noinc ((SV *) hv);
   sv_bless (sv, hv_stash);
   return sv;
-}
-
-/* Currently unused, but could be */
-void
-rebuild_document (SV *document_in, int no_store)
-{
-  HV *hv;
-  SV **document_descriptor_sv;
-  char *descriptor_key = "document_descriptor";
-  dTHX;
-
-  hv = (HV *)SvRV (document_in);
-
-  document_descriptor_sv = hv_fetch (hv, descriptor_key,
-                                     strlen (descriptor_key), 0);
-
-  if (document_descriptor_sv)
-    {
-      int document_descriptor = SvIV (*document_descriptor_sv);
-      fill_document_hv (hv, document_descriptor, no_store);
-    }
-  else
-    {
-      fprintf (stderr, "ERROR: document rebuild: no %s\n", descriptor_key);
-    }
 }
 
 SV *

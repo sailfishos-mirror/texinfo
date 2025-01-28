@@ -91,12 +91,9 @@ configure_output_strings_translations (localesdir, strings_textdomain="texinfo_d
                                               strings_textdomain,
                                               use_external_translate_string);
 
-# Since build_document is called, the underlying document HV is destroyed
-# instead of being reused, which is somewhat inefficient.  Doing something
-# better would require the possibility to get the document HV from the
-# XS document or from the Perl tree.  This XS interface is rarely used,
-# however, as, in general, a document is available and document_tree
-# can be used instead, therefore it is fine to keep the code as is.
+# This XS interface is rarely used, as, in general, a document is available
+# and document_tree can be used instead.
+# No code call this interface with no_store set.
 SV *
 rebuild_tree (SV *tree_in, ...)
       PROTOTYPE: $;$
@@ -113,7 +110,7 @@ rebuild_tree (SV *tree_in, ...)
        /* if no_store is set, get the reference on the tree HV before calling
           build_document, as the tree is gonna be destroyed.  This requires
           that the document the tree comes from to have already been built to
-          Perl, which should be the general case */
+          Perl */
 
             ELEMENT *tree = document->tree;
             if (no_store)
