@@ -303,11 +303,21 @@ html_pass_conversion_initialization (CONVERTER *converter,
   /* always set the document in the converter, as it is the only
      way to find it back, it is not stored in C data.
      TODO it is not foolproof, in case a document with the same descriptor
-     associate with another hash is passed.  There is/was a practical case,
-     in tests, a workaround for DocBook for tree modifications
-     with a copy of document hash.
+     associated with another hash is passed.  There was a practical case,
+     in tests, a copy of document hash was done before modifying
+     the tree, which lead to the descriptor being used with another hash.
    */
-  pass_document_to_converter_sv (converter, converter_sv, document_in);
+  pass_document_sv_to_converter_sv (converter_sv, document_in);
+
+  /* FIXME the following could be used instead, could be more robust
+     and more efficient too
+  if (converter->document && converter->document->hv)
+    {
+      STORE("document", newRV_inc ((SV *) converter->document->hv));
+    }
+   */
+
+  pass_converter_text_options (converter, converter_sv);
 
   /* always set "converter_info" for calls to get_info in Perl. */
   converter_info_hv = newHV ();

@@ -308,6 +308,18 @@ construct_nodes_tree (SV *document_in)
 # For the next functions, the Perl function returns a tree, as the
 # argument could be modified.  Here, tree_in is always a container
 # that is not modified, so there is no need to return a tree.
+# FIXME the corresponding Perl functions could be called on subtrees,
+# which would not be associated with a document in C, and would
+# lead to failures to get the document, a warning, and no change to the
+# Perl tree.  In general, it is better to override the calling functions
+# than to use an XS override for functions that may operate on subtrees.
+# Indeed, the code calling the functions from Perl need to check XS overrides
+# and fail if there are XS overrides, see Texinfo/Transformations.pm _new_node.
+# It is convenient for tests, however, to have XS overrides.  Maybe it
+# would be better to override test specific/document tree only wrappers instead.
+# Another option would be to have NonXS never overriden variants, like for
+# copy_tree with copy_treeNonXS, but this is also wrong, as it breaks the
+# promise of XS being transparent.
 void
 protect_colon_in_tree (SV *tree_in)
     PREINIT:

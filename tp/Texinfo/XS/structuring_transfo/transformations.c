@@ -194,6 +194,8 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
     }
 }
 
+/* The document is not given as an argument.  In general, the caller should
+   set F_DOCM_tree in the document modification flags */
 ELEMENT_LIST *
 fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
 {
@@ -450,6 +452,8 @@ relate_index_entries_to_table_items_internal (const char *type,
   return 0;
 }
 
+/* The document is not given as an argument.  In general, the caller should
+   set F_DOCM_tree in the document modification flags */
 void
 relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
                                              INDEX_LIST *indices_info)
@@ -557,6 +561,8 @@ move_index_entries_after_items_internal (const char *type,
   return 0;
 }
 
+/* The document is not given as an argument.  In general, the caller should
+   set F_DOCM_tree in the document modification flags */
 void
 move_index_entries_after_items_in_tree (ELEMENT *tree)
 {
@@ -1133,6 +1139,8 @@ get_non_automatic_nodes_with_sections (const ELEMENT *root)
 }
 
 /* This should be called after structuring.c sectioning_structure */
+/* The document is not given as an argument.  In general, the caller should
+   set F_DOCM_tree in the document modification flags */
 void
 complete_tree_nodes_menus (const ELEMENT *root, int use_sections)
 {

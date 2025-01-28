@@ -279,11 +279,15 @@ typedef struct DOCUMENT {
     /* flags for modified information not already passed to Perl */
     unsigned long modified_information;
 
-    /* reference to Perl document.  Should not be used to find the document
-       but to have a place where caching can happen reliably even if the
-       caller changes the hash associated to a descriptor.  There is/was a
-       practical case, in tests, a workaround for DocBook for tree
-       modifications with a copy of document hash.
+    /* Reference to Perl document.  Used to have a place where caching
+       can happen reliably even if the caller changes the hash associated
+       to a descriptor (has happened in the past).  Can also be used to
+       find the document, but it should be verified that it is not better
+       to use a document reference passed from Perl.
+     */
+    /* TODO check the code to see if it shouldn't be used more to find
+       the document, in particular to avoid redoing uselessly a Perl
+       document reference.
      */
     void *hv;
 } DOCUMENT;

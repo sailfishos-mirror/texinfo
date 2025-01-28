@@ -79,8 +79,9 @@ void output_units_list_to_perl_hash (const DOCUMENT *document,
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 
-void pass_document_to_converter_sv (const CONVERTER *converter,
-                                    SV *converter_sv, SV *document_in);
+void pass_document_sv_to_converter_sv (SV *converter_sv, SV *document_in);
+void pass_converter_text_options (const CONVERTER *converter,
+                                  SV *converter_sv);
 
 SV *html_build_direction_icons (const DIRECTION_ICON_LIST *direction_icons);
 SV *html_build_buttons_specification (CONVERTER *converter,

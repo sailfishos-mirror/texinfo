@@ -220,10 +220,13 @@ converter_set_document (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
       CODE:
+        pass_document_sv_to_converter_sv (converter_in, document_in);
+
         /* if a converter is properly initialized, the XS converter should
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
-        pass_document_to_converter_sv (self, converter_in, document_in);
+
+        pass_converter_text_options (self, converter_in);
 
         call_common_set_output_perl_encoding (self);
 

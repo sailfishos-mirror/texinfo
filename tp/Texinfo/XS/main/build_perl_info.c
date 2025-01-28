@@ -2790,8 +2790,7 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
 }
 
 void
-pass_document_to_converter_sv (const CONVERTER *converter,
-                               SV *converter_sv, SV *document_in)
+pass_document_sv_to_converter_sv (SV *converter_sv, SV *document_in)
 {
   HV *converter_hv;
 
@@ -2805,6 +2804,17 @@ pass_document_to_converter_sv (const CONVERTER *converter,
       hv_store (converter_hv, "document", strlen ("document"),
                 document_in, 0);
     }
+}
+
+void
+pass_converter_text_options (const CONVERTER *converter, SV *converter_sv)
+{
+  HV *converter_hv;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+
   if (converter && converter->convert_text_options)
     {
       SV *text_options_sv
