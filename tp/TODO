@@ -33,6 +33,18 @@ Not sure how to do that.  For consistency of the API, it may be better
 to use customization variables, as it is in general how to make a dynamic
 variable in the API.
 
+Add a test of convert_tree in HTML without document. Like
+my $line_parser = Texinfo::Parser::parser();
+my $tree = $line_parser->parse_texi_line('Some @code{item}');
+$tree = Texinfo::Document::rebuild_tree($tree, 1);
+my $conv = Texinfo::Convert::HTML->converter();
+$conv->conversion_initialization('', undef);
+my $res = $conv->convert_tree($tree);
+
+Optionnally, can check that customization works by calling, before
+conversion_initialization:
+Texinfo::Config::texinfo_register_style_command_formatting('code', 'toto');
+
 
 Bugs
 ====

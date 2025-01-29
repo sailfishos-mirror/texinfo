@@ -25,6 +25,7 @@
 #include "tree_types.h"
 #include "command_ids.h"
 #include "types_data.h"
+#include "document_types.h"
 #include "text.h"
 /* fatal */
 #include "base_utils.h"
@@ -1017,6 +1018,13 @@ protect_colon_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_colon, 0);
 }
 
+void
+protect_colon_in_document (DOCUMENT *document)
+{
+  protect_colon_in_tree (document->tree);
+  document->modified_information |= F_DOCM_tree;
+}
+
 static ELEMENT_LIST *
 protect_comma (const char *type, ELEMENT *current, void *argument)
 {
@@ -1029,6 +1037,13 @@ protect_comma_in_tree (ELEMENT *tree)
   return modify_tree (tree, &protect_comma, 0);
 }
 
+void
+protect_comma_in_document (DOCUMENT *document)
+{
+  protect_comma_in_tree (document->tree);
+  document->modified_information |= F_DOCM_tree;
+}
+
 static ELEMENT_LIST *
 protect_node_after_label (const char *type, ELEMENT *current, void *argument)
 {
@@ -1039,6 +1054,13 @@ ELEMENT *
 protect_node_after_label_in_tree (ELEMENT *tree)
 {
   return modify_tree (tree, &protect_node_after_label, 0);
+}
+
+void
+protect_node_after_label_in_document (DOCUMENT *document)
+{
+  protect_node_after_label_in_tree (document->tree);
+  document->modified_information |= F_DOCM_tree;
 }
 
 

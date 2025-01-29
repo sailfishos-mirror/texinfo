@@ -42,26 +42,27 @@ sub run_test($$$$)
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();
-  my $tree_as_line = $line_parser->parse_texi_line($in);
+  # turned to a Perl ony tree, no test of XS
+  my $tree_as_line = $line_parser->parse_texi_line($in, undef, 1);
 
-  foreach my $tree ($tree_as_text, $tree_as_line) {
-    if ($do->{'protect_comma'}) {
-      Texinfo::ManipulateTree::protect_comma_in_tree($tree);
-    }
-    if ($do->{'protect_colon'}) {
-      Texinfo::ManipulateTree::protect_colon_in_tree($tree);
-    }
-    if ($do->{'protect_node_after_label'}) {
-      Texinfo::ManipulateTree::protect_node_after_label_in_tree($tree);
-    }
+  if ($do->{'protect_colon'}) {
+    Texinfo::ManipulateTree::protect_colon_in_document($document);
+
+    Texinfo::ManipulateTree::protect_colon_in_tree($tree_as_line);
+  }
+  if ($do->{'protect_comma'}) {
+    Texinfo::ManipulateTree::protect_comma_in_document($document);
+
+    Texinfo::ManipulateTree::protect_comma_in_tree($tree_as_line);
+  }
+  if ($do->{'protect_node_after_label'}) {
+    Texinfo::ManipulateTree::protect_node_after_label_in_document($document);
+
+    Texinfo::ManipulateTree::protect_node_after_label_in_tree($tree_as_line);
   }
 
   # rebuild tree
   $tree_as_text = $document->tree();
-
-  if ($XS_structuring) {
-    $tree_as_line = Texinfo::Document::rebuild_tree($tree_as_line);
-  }
 
   my $texi_result_as_text
      = Texinfo::Convert::Texinfo::convert_to_texinfo($tree_as_text);

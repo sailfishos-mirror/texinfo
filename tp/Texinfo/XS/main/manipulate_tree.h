@@ -20,6 +20,7 @@
 #include <stddef.h>
 
 #include "tree_types.h"
+#include "document_types.h"
 
 ELEMENT *copy_tree (ELEMENT *current);
 ELEMENT *copy_contents (const ELEMENT *element, enum element_type type);
@@ -50,6 +51,10 @@ ELEMENT *new_asis_command_with_text (const char *text, ELEMENT *parent,
 ELEMENT *protect_colon_in_tree (ELEMENT *tree);
 ELEMENT *protect_comma_in_tree (ELEMENT *tree);
 ELEMENT *protect_node_after_label_in_tree (ELEMENT *tree);
+
+void protect_colon_in_document (DOCUMENT *document);
+void protect_comma_in_document (DOCUMENT *document);
+void protect_node_after_label_in_document (DOCUMENT *document);
 
 
 

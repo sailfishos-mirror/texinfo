@@ -31,8 +31,8 @@ sub test_new_node($$$$)
   my $name = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $node_tree = $parser->parse_texi_line ($in);
-  my $document = $parser->parse_texi_text ('');
+  my $node_tree = $parser->parse_texi_line($in);
+  my $document = $parser->parse_texi_text('');
   my $identifier_target = $document->labels_information();
   Texinfo::Structuring::associate_internal_references($document);
   my $node = Texinfo::Transformations::_new_node($node_tree, $document);
@@ -88,7 +88,7 @@ my $document = $parser->parse_texi_text('@node a node
 ');
 my $tree = $document->tree();
 my $line_parser = Texinfo::Parser::parser();
-my $line_tree = $line_parser->parse_texi_line ('a node');
+my $line_tree = $line_parser->parse_texi_line('a node');
 
 SKIP:
 {

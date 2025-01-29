@@ -71,12 +71,12 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::relate_index_entries_to_table_items_in_tree",
   "Texinfo::ManipulateTree::move_index_entries_after_items_in_tree"
     => "Texinfo::StructTransfXS::move_index_entries_after_items_in_tree",
-  "Texinfo::ManipulateTree::protect_colon_in_tree"
-    => "Texinfo::StructTransfXS::protect_colon_in_tree",
-  "Texinfo::ManipulateTree::protect_comma_in_tree"
-    => "Texinfo::StructTransfXS::protect_comma_in_tree",
-  "Texinfo::ManipulateTree::protect_node_after_label_in_tree"
-    => "Texinfo::StructTransfXS::protect_node_after_label_in_tree",
+  "Texinfo::ManipulateTree::protect_colon_in_document"
+    => "Texinfo::StructTransfXS::protect_colon_in_document",
+  "Texinfo::ManipulateTree::protect_comma_in_document"
+    => "Texinfo::StructTransfXS::protect_comma_in_document",
+  "Texinfo::ManipulateTree::protect_node_after_label_in_document"
+    => "Texinfo::StructTransfXS::protect_node_after_label_in_document",
 );
 
 our $module_loaded = 0;
@@ -399,6 +399,16 @@ sub protect_comma_in_tree($)
   return modify_tree($tree, \&_protect_comma);
 }
 
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub protect_comma_in_document($)
+{
+  my $document = shift;
+
+  protect_comma_in_tree($document->tree());
+  return;
+}
+
 sub _new_asis_command_with_text($$;$)
 {
   my $text = shift;
@@ -502,6 +512,16 @@ sub protect_colon_in_tree($)
   return modify_tree($tree, \&_protect_colon);
 }
 
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub protect_colon_in_document($)
+{
+  my $document = shift;
+
+  protect_colon_in_tree($document->tree());
+  return;
+}
+
 sub _protect_node_after_label($$)
 {
   my $type = shift;
@@ -515,6 +535,16 @@ sub protect_node_after_label_in_tree($)
   my $tree = shift;
 
   return modify_tree($tree, \&_protect_node_after_label);
+}
+
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub protect_node_after_label_in_document($)
+{
+  my $document = shift;
+
+  protect_node_after_label_in_tree($document->tree());
+  return;
 }
 
 sub protect_first_parenthesis($)

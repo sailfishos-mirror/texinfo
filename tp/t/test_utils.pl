@@ -870,10 +870,10 @@ sub test($$)
     # There are other specific tests for comparison to texinfo, but here
     # we also get the tree.
     %tested_transformations = (
-     'protect_comma' => \&Texinfo::ManipulateTree::protect_comma_in_tree,
-     'protect_colon' => \&Texinfo::ManipulateTree::protect_colon_in_tree,
+     'protect_comma' => \&Texinfo::ManipulateTree::protect_comma_in_document,
+     'protect_colon' => \&Texinfo::ManipulateTree::protect_colon_in_document,
      'protect_node_after_label'
-        => \&Texinfo::ManipulateTree::protect_node_after_label_in_tree,
+        => \&Texinfo::ManipulateTree::protect_node_after_label_in_document,
      'protect_first_parenthesis'
       => \&Texinfo::Transformations::protect_first_parenthesis_in_targets,
      'protect_hashchar_at_line_beginning'
@@ -1187,6 +1187,10 @@ sub test($$)
       if ($transformation eq 'protect_hashchar_at_line_beginning') {
         &$tree_transformation_sub($tree, $document->registrar(),
                                   $document);
+      } elsif ($transformation eq 'protect_colon'
+               or $transformation eq 'protect_comma'
+               or $transformation eq 'protect_node_after_label') {
+        &$tree_transformation_sub($document);
       } else {
         &$tree_transformation_sub($tree);
       }

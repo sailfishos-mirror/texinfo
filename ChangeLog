@@ -1,5 +1,33 @@
 2025-01-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ManipulateTree.pm (%XS_overrides)
+	(protect_comma_in_document, protect_colon_in_document)
+	(protect_node_after_label_in_document),
+	tp/Texinfo/XS/main/manipulate_tree.c (protect_colon_in_document)
+	(protect_comma_in_document, protect_node_after_label_in_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(protect_colon_in_document, protect_comma_in_document)
+	(protect_node_after_label_in_document): do not override
+	transformations on tree, but on document only, adding the needed
+	functions, protect_comma_in_document, protect_colon_in_document and
+	protect_node_after_label_in_document.  Not documented, as they should
+	mostly be relevant for tests, in general the tree should be
+	manipulated in Perl only.
+
+	* tp/t/test_utils.pl (test): update to use transformations on
+	documents.
+
+	* tp/t/z_misc/protect_character_in_texinfo.t: get a Perl tree without
+	C data for the test of parsed line.  Call transformations on documents
+	otherwise.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_comma)
+	(_protect_colon, _prepare_anchor): get a Perl tree without C data.
+
+	* tp/t/z_misc/automatic_nodes.t: change in spacing.
+
+2025-01-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/convert/get_converter_perl_info.c
 	(converter_set_document_from_sv): handle undef document_in.
 

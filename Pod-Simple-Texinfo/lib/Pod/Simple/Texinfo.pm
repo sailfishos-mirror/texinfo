@@ -368,9 +368,8 @@ sub _protect_comma($)
 {
   my $texinfo = shift;
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_line($texinfo);
+  my $tree = $parser->parse_texi_line($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_comma_in_tree($tree);
-  $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
@@ -378,9 +377,8 @@ sub _protect_colon($)
 {
   my $texinfo = shift;
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_line($texinfo);
+  my $tree = $parser->parse_texi_line($texinfo, undef, 1);
   Texinfo::ManipulateTree::protect_colon_in_tree($tree);
-  $tree = Texinfo::Document::rebuild_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
@@ -549,7 +547,7 @@ sub _prepare_anchor($$)
   }
   # Now we know that we have something.
   my $parser = Texinfo::Parser::parser();
-  my $node_tree = $parser->parse_texi_line($node);
+  my $node_tree = $parser->parse_texi_line($node, undef, 1);
   my $normalized_base = convert_to_identifier($node_tree);
   my $normalized = $normalized_base;
   my $number_appended = 0;
@@ -560,11 +558,10 @@ sub _prepare_anchor($$)
   my $node_name;
   if ($number_appended) {
     $texinfo_node_name = "$node $number_appended";
-    $node_tree = $parser->parse_texi_line($texinfo_node_name);
+    $node_tree = $parser->parse_texi_line($texinfo_node_name, undef, 1);
   }
   Texinfo::ManipulateTree::protect_comma_in_tree($node_tree);
   Texinfo::ManipulateTree::protect_colon_in_tree($node_tree);
-  $node_tree = Texinfo::Document::rebuild_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
   my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree);
   return $final_node_name;

@@ -321,44 +321,34 @@ construct_nodes_tree (SV *document_in)
 # copy_tree with copy_treeNonXS, but this is also wrong, as it breaks the
 # promise of XS being transparent.
 void
-protect_colon_in_tree (SV *tree_in)
+protect_colon_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "protect_colon_in_tree");
-        /* there is no need to replace the root of the tree */
+        document
+          = get_sv_document_document (document_in, "protect_colon_in_document");
         if (document)
-          {
-            protect_colon_in_tree (document->tree);
-            document->modified_information |= F_DOCM_tree;
-          }
+          protect_colon_in_document (document);
 
 void
-protect_comma_in_tree (SV *tree_in)
+protect_comma_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "protect_comma_in_tree");
-        /* there is no need to replace the root of the tree */
+        document = get_sv_document_document (document_in,
+                                             "protect_comma_in_document");
         if (document)
-          {
-            protect_comma_in_tree (document->tree);
-            document->modified_information |= F_DOCM_tree;
-          }
+          protect_comma_in_document (document);
 
 void
-protect_node_after_label_in_tree (SV *tree_in)
+protect_node_after_label_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in,
-                              "protect_node_after_label_in_tree");
-        /* there is no need to replace the root of the tree */
+        document = get_sv_document_document (document_in,
+                              "protect_node_after_label_in_document");
         if (document)
-          {
-            protect_node_after_label_in_tree (document->tree);
-            document->modified_information |= F_DOCM_tree;
-          }
+          protect_node_after_label_in_document (document);
 
 void
 protect_hashchar_at_line_beginning (SV *tree_in, ...)
