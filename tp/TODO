@@ -45,6 +45,8 @@ Optionnally, can check that customization works by calling, before
 conversion_initialization:
 Texinfo::Config::texinfo_register_style_command_formatting('code', 'toto');
 
+do not skip _new_node tests with XS -- though it won't test XS.
+
 
 Bugs
 ====

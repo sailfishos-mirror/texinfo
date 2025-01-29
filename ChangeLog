@@ -1,5 +1,38 @@
 2025-01-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning): add an explicit tree argument.
+
+	* tp/Texinfo/Transformations.pm (%XS_overrides)
+	(reference_to_arg_in_document)
+	(protect_hashchar_at_line_beginning_in_document)
+	(protect_first_parenthesis_in_targets_in_document),
+	tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.xs
+	(reference_to_arg_in_document)
+	(protect_hashchar_at_line_beginning_in_document)
+	(protect_first_parenthesis_in_targets_in_document),
+	tp/Texinfo/XS/structuring_transfo/transformations.c
+	(reference_to_arg_in_document)
+	(protect_hashchar_at_line_beginning_in_document)
+	(protect_first_parenthesis_in_targets_in_document): do not override
+	transformations on tree, but on document only, adding the needed
+	functions, reference_to_arg_in_document,
+	protect_hashchar_at_line_beginning_in_document and
+	protect_first_parenthesis_in_targets_in_document.  Not documented, as
+	they should mostly be relevant for tests, in general the tree should
+	be manipulated in Perl only.
+
+	* tp/t/test_utils.pl (test), tp/t/z_misc/reference_to_text_in_tree.t,
+	tp/t/z_misc/test_protect_contents.t,
+	tp/t/z_misc/test_protect_hashchar_at_line_beginning.t: update to use
+	functions applied on document.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_hashchar)
+	(_reference_to_text_in_texi, _normalize_texinfo_name): remove link of
+	tree to C data.
+
+2025-01-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ManipulateTree.pm (%XS_overrides)
 	(protect_comma_in_document, protect_colon_in_document)
 	(protect_node_after_label_in_document),

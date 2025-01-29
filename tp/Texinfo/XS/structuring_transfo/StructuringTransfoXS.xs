@@ -127,32 +127,16 @@ move_index_entries_after_items_in_tree (SV *tree_in)
             document->modified_information |= F_DOCM_tree;
           }
 
-# The Perl function returns a tree, as the
-# argument could be modified.  Here, tree_in is always a container
-# that is not modified, so there is no need to return a tree.
 void
-reference_to_arg_in_tree (SV *tree_in, SV *document_in=0)
+reference_to_arg_in_document (SV *document_in)
     PREINIT:
-        DOCUMENT *tree_document = 0;
         DOCUMENT *document = 0;
      CODE:
-        tree_document
-          = get_sv_tree_document (tree_in, "reference_to_arg_in_tree");
-        /* in general will be the same as tree_document, in case it is not,
-           perhaps if the tree_in is a subtree of document_in tree,
-           the document is found independently if document_in is set.
-           NOTE if the document is different from tree_document, setting
-           the F_DOCM_tree in reference_to_arg_internal
-           may not lead to a rebuild of the modified tree in Perl.  Getting
-           sure that the right document tree is rebuilt is the caller
-           responsibility.
-        */
-        if (document_in)
-          document = get_sv_document_document (document_in, 0);
-        else
-          document = tree_document;
-        if (tree_document)
-          reference_to_arg_in_tree (tree_document->tree, document);
+        document
+          = get_sv_document_document (document_in,
+                                      "reference_to_arg_in_document");
+        if (document)
+          reference_to_arg_in_document (document);
 
 void
 associate_internal_references (SV *document_in)
@@ -305,21 +289,9 @@ construct_nodes_tree (SV *document_in)
             construct_nodes_tree (document);
           }
 
-# For the next functions, the Perl function returns a tree, as the
-# argument could be modified.  Here, tree_in is always a container
-# that is not modified, so there is no need to return a tree.
-# FIXME the corresponding Perl functions could be called on subtrees,
-# which would not be associated with a document in C, and would
-# lead to failures to get the document, a warning, and no change to the
-# Perl tree.  In general, it is better to override the calling functions
-# than to use an XS override for functions that may operate on subtrees.
-# Indeed, the code calling the functions from Perl need to check XS overrides
-# and fail if there are XS overrides, see Texinfo/Transformations.pm _new_node.
-# It is convenient for tests, however, to have XS overrides.  Maybe it
-# would be better to override test specific/document tree only wrappers instead.
-# Another option would be to have NonXS never overriden variants, like for
-# copy_tree with copy_treeNonXS, but this is also wrong, as it breaks the
-# promise of XS being transparent.
+# Next functions are provided to be able to test the C code.  The functions
+# used in Perl code should be the corresponding functions with tree in
+# argument that are not overriden.
 void
 protect_colon_in_document (SV *document_in)
     PREINIT:
@@ -351,32 +323,24 @@ protect_node_after_label_in_document (SV *document_in)
           protect_node_after_label_in_document (document);
 
 void
-protect_hashchar_at_line_beginning (SV *tree_in, ...)
-   PROTOTYPE: $;$$
+protect_hashchar_at_line_beginning_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in,
-                                         "protect_hashchar_at_line_beginning");
-        /* there is no need to replace the root of the tree */
+        document = get_sv_document_document (document_in,
+                           "protect_hashchar_at_line_beginning_in_document");
         if (document)
-          {
-            protect_hashchar_at_line_beginning (document);
-            document->modified_information |= F_DOCM_tree;
-          }
+          protect_hashchar_at_line_beginning_in_document (document);
 
 void
-protect_first_parenthesis_in_targets (SV *tree_in)
+protect_first_parenthesis_in_targets_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        document = get_sv_tree_document (tree_in,
-                              "protect_first_parenthesis_in_targets");
+        document = get_sv_document_document (document_in,
+                       "protect_first_parenthesis_in_targets_in_document");
         if (document)
-          {
-            protect_first_parenthesis_in_targets (document->tree);
-            document->modified_information |= F_DOCM_tree;
-          }
+          protect_first_parenthesis_in_targets_in_document (document);
 
 SV *
 split_by_node (SV *document_in)

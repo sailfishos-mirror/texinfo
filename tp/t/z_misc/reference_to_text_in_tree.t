@@ -22,11 +22,10 @@ sub run_test($$$)
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in);
-  my $tree = $document->tree();
 
-  Texinfo::Transformations::reference_to_arg_in_tree($tree, $document);
+  Texinfo::Transformations::reference_to_arg_in_document($document);
   # rebuild tree
-  $tree = $document->tree();
+  my $tree = $document->tree();
 
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

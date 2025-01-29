@@ -95,6 +95,7 @@ configure_output_strings_translations (localesdir, strings_textdomain="texinfo_d
 # and document_tree can be used instead.  It may be used to force the C
 # data to be removed, with no_store set to 1 to ensure that the resulting tree
 # modified by pure Perl functions is not taken unmodified from C again.
+# TODO change that no_store set to 1 is the default?  Change name?
 SV *
 rebuild_tree (SV *tree_in, ...)
       PROTOTYPE: $;$

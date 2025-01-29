@@ -23,14 +23,14 @@ sub run_test($$$$)
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in);
-  my $tree = $document->tree();
   my $texi_result;
 
   if ($do->{'protect_first_parenthesis'}) {
-    Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);
+    Texinfo::Transformations::protect_first_parenthesis_in_targets_in_document(
+                                                                     $document);
 
     # rebuild tree
-    $tree = $document->tree();
+    my $tree = $document->tree();
 
     $texi_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

@@ -35,10 +35,9 @@ sub run_test($$$;$)
 
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_piece($in, 1);
-  my $tree = $document->tree($XS_structuring);
 
-  Texinfo::Transformations::protect_hashchar_at_line_beginning($tree,
-                                    $document->registrar(), $document);
+  Texinfo::Transformations::protect_hashchar_at_line_beginning_in_document(
+                                    $document);
   # rebuild tree if structuring with XS but conversion in pure Perl.
   my $corrected_tree = $document->tree($XS_convert);
 

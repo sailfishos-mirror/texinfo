@@ -56,8 +56,8 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our %XS_overrides = (
   "Texinfo::Transformations::fill_gaps_in_sectioning"
     => "Texinfo::StructTransfXS::fill_gaps_in_sectioning",
-  "Texinfo::Transformations::reference_to_arg_in_tree"
-    => "Texinfo::StructTransfXS::reference_to_arg_in_tree",
+  "Texinfo::Transformations::reference_to_arg_in_document"
+    => "Texinfo::StructTransfXS::reference_to_arg_in_document",
   "Texinfo::Transformations::complete_tree_nodes_menus"
     => "Texinfo::StructTransfXS::complete_tree_nodes_menus",
   "Texinfo::Transformations::complete_tree_nodes_missing_menu"
@@ -66,10 +66,10 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::regenerate_master_menu",
   "Texinfo::Transformations::insert_nodes_for_sectioning_commands"
     => "Texinfo::StructTransfXS::insert_nodes_for_sectioning_commands",
-  "Texinfo::Transformations::protect_hashchar_at_line_beginning"
-    => "Texinfo::StructTransfXS::protect_hashchar_at_line_beginning",
-  "Texinfo::Transformations::protect_first_parenthesis_in_targets"
-    => "Texinfo::StructTransfXS::protect_first_parenthesis_in_targets",
+  "Texinfo::Transformations::protect_hashchar_at_line_beginning_in_document"
+    => "Texinfo::StructTransfXS::protect_hashchar_at_line_beginning_in_document",
+  "Texinfo::Transformations::protect_first_parenthesis_in_targets_in_document"
+    => "Texinfo::StructTransfXS::protect_first_parenthesis_in_targets_in_document",
 );
 
 our $module_loaded = 0;
@@ -287,6 +287,15 @@ sub reference_to_arg_in_tree($;$)
                                               $document);
 }
 
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub reference_to_arg_in_document($)
+{
+  my $document = shift;
+
+  reference_to_arg_in_tree($document->tree(), $document);
+}
+
 # prepare and add a new node as a possible cross reference targets
 # modifies $document
 
@@ -301,33 +310,6 @@ sub _new_node($$;$)
   my $node_tree = shift;
   my $document = shift;
   my $customization_information = shift;
-
-  if ($XS_structuring and $Texinfo::StructTransfXS::XS_package) {
-    # If there were XS overrides for all the transformations, they would
-    # necessarily fail, so treat as a bug even though it does not matter
-    # with missing overrides, as seen just below.
-    if (!$node_tree->{'tree_document_descriptor'}) {
-      print STDERR "BUG: new_node: with XS, no tree_document_descriptor\n";
-    }
-
-    # If changes are only done to underlying XS tree, the changes by
-    # Texinfo::Common::protect_* will be done on the underlying XS tree,
-    # but the perl tree will not change, although it is the perl tree
-    # that is used to construct the node.
-    # Also protect_first_parenthesis has no XS override, only
-    # protect_first_parenthesis_in_targets.
-    confess("BUG: _new_node: XS not supported");
-
-    # It could have been possible to rebuild the tree, after adding
-    # an override for protect_first_parenthesis.
-    # If XS is used, however, it is be much better to override all
-    # the functions calling the current function instead of trying
-    # to have it work through an interface because the function is
-    # mostly internal.  So, it is better to keep failing with XS.
-    #
-    # The issue arise because the current function is used in tests,
-    # this cannot work with XS (and tests are skipped).
-  }
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -941,6 +923,16 @@ sub protect_hashchar_at_line_beginning($;$$)
                       [$registrar, $customization_information]);
 }
 
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub protect_hashchar_at_line_beginning_in_document($)
+{
+  my $document = shift;
+  protect_hashchar_at_line_beginning($document->tree(), $document->registrar(),
+                                     $document);
+  return;
+}
+
 sub _protect_first_parenthesis_in_targets($$$)
 {
   my $type = shift;
@@ -962,6 +954,16 @@ sub protect_first_parenthesis_in_targets($)
 
   Texinfo::ManipulateTree::modify_tree($tree,
                            \&_protect_first_parenthesis_in_targets);
+}
+
+# Has an XS override. Defined to be able to test Perl and XS. Undocumented
+# on purpose.
+sub protect_first_parenthesis_in_targets_in_document($)
+{
+  my $document = shift;
+
+  protect_first_parenthesis_in_targets($document->tree());
+  return;
 }
 
 1;

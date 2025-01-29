@@ -875,9 +875,9 @@ sub test($$)
      'protect_node_after_label'
         => \&Texinfo::ManipulateTree::protect_node_after_label_in_document,
      'protect_first_parenthesis'
-      => \&Texinfo::Transformations::protect_first_parenthesis_in_targets,
+  => \&Texinfo::Transformations::protect_first_parenthesis_in_targets_in_document,
      'protect_hashchar_at_line_beginning'
-      => \&Texinfo::Transformations::protect_hashchar_at_line_beginning,
+  => \&Texinfo::Transformations::protect_hashchar_at_line_beginning_in_document,
     );
 
     my @option_transformations
@@ -1184,16 +1184,7 @@ sub test($$)
   if ($additional_tree_transformations) {
     foreach my $transformation (@$additional_tree_transformations) {
       my $tree_transformation_sub = $tested_transformations{$transformation};
-      if ($transformation eq 'protect_hashchar_at_line_beginning') {
-        &$tree_transformation_sub($tree, $document->registrar(),
-                                  $document);
-      } elsif ($transformation eq 'protect_colon'
-               or $transformation eq 'protect_comma'
-               or $transformation eq 'protect_node_after_label') {
-        &$tree_transformation_sub($document);
-      } else {
-        &$tree_transformation_sub($tree);
-      }
+      &$tree_transformation_sub($document);
     }
   }
 

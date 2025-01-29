@@ -951,6 +951,12 @@ reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document)
 }
 
 void
+reference_to_arg_in_document (DOCUMENT *document)
+{
+  reference_to_arg_in_tree (document->tree, document);
+}
+
+void
 prepend_new_menu_in_node_section (ELEMENT *node, ELEMENT *section,
                                   ELEMENT *current_menu)
 {
@@ -1517,13 +1523,19 @@ protect_hashchar_at_line_beginning_internal (const char *type,
 }
 
 /* NOTE in perl there is a customization_information, but here we use the
-   document for error registration and customization */
+   document both for error registration and customization */
 ELEMENT *
-protect_hashchar_at_line_beginning (DOCUMENT *document)
+protect_hashchar_at_line_beginning (ELEMENT *tree, DOCUMENT *document)
 {
-  ELEMENT *tree = document->tree;
   return modify_tree (tree, &protect_hashchar_at_line_beginning_internal,
                       (void *) document);
+}
+
+void
+protect_hashchar_at_line_beginning_in_document (DOCUMENT *document)
+{
+  protect_hashchar_at_line_beginning (document->tree, document);
+  document->modified_information |= F_DOCM_tree;
 }
 
 ELEMENT_LIST *
@@ -1546,3 +1558,11 @@ protect_first_parenthesis_in_targets (ELEMENT *tree)
 {
   modify_tree (tree, &protect_first_parenthesis_in_targets_internal, 0);
 }
+
+void
+protect_first_parenthesis_in_targets_in_document (DOCUMENT *document)
+{
+  protect_first_parenthesis_in_targets (document->tree);
+  document->modified_information |= F_DOCM_tree;
+}
+
