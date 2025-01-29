@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-29.22}
+\def\texinfoversion{2025-01-29.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1181,6 +1181,7 @@ with PDF output, and none of those formats could be found.  (.eps cannot
 be supported due to the design of the PDF format; use regular TeX (DVI
 output) for that.)}
 
+% definitions for pdftex or luatex with pdf output
 \ifpdf
   % Strings in PDF outlines can either be ASCII, or encoded in UTF-16BE
   % with BOM.  Unfortunately there is no simple way with pdftex to output
@@ -1256,57 +1257,13 @@ output) for that.)}
   %
   \catcode2=12 \catcode3=12 % defaults
   %
-  %
-  % Color manipulation macros using ideas from pdfcolor.tex,
-  % except using rgb instead of cmyk; the latter is said to render as a
-  % very dark gray on-screen and a very dark halftone in print, instead
-  % of actual black. The dark red here is dark enough to print on paper as
-  % nearly black, but still distinguishable for online viewing.  We use
-  % black by default, though.
-  \def\rgbDarkRed{0.50 0.09 0.12}
-  \def\rgbBlack{0 0 0}
+  % Color support
   %
   % rg sets the color for filling (usual text, etc.);
   % RG sets the color for stroking (thin rules, e.g., normal _'s).
   \def\pdfsetcolor#1{\pdfliteral{#1 rg  #1 RG}}
   %
-  % Set color, and create a mark which defines \thiscolor accordingly,
-  % so that \makeheadline knows which color to restore.
-  \def\curcolor{0 0 0}%
-  \def\setcolor#1{%
-    \ifx#1\curcolor\else
-      \xdef\currentcolordefs{\gdef\noexpand\thiscolor{#1}}%
-      \domark
-      \pdfsetcolor{#1}%
-      \xdef\curcolor{#1}%
-    \fi
-  }
-  %
-  \let\maincolor\rgbBlack
-  \pdfsetcolor{\maincolor}
-  \edef\thiscolor{\maincolor}
-  \def\currentcolordefs{}
-  %
-  \def\makefootline{%
-    \baselineskip24pt
-    \line{\pdfsetcolor{\maincolor}\the\footline}%
-  }
-  %
-  \def\makeheadline{%
-    \vbox to 0pt{%
-      \vskip-22.5pt
-      \line{%
-        \vbox to8.5pt{}%
-        % Extract \thiscolor definition from the marks.
-        \getcolormarks
-        % Typeset the headline with \maincolor, then restore the color.
-        \pdfsetcolor{\maincolor}\the\headline\pdfsetcolor{\thiscolor}%
-      }%
-      \vss
-    }%
-    \nointerlineskip
-  }
-  %
+  % PDF outline support
   %
   \pdfcatalog{/PageMode /UseOutlines}
   %
@@ -1431,11 +1388,6 @@ output) for that.)}
   %
   % used to mark target names; must be expandable.
   \def\pdfmkpgn#1{#1}
-  %
-  % by default, use black for everything.
-  \def\urlcolor{\rgbBlack}
-  \let\linkcolor\rgbBlack
-  \def\endlink{\setcolor{\maincolor}\pdfendlink}
   %
   % Adding outlines to PDF; macros for calculating structure of outlines
   % come from Petr Olsak
@@ -1667,44 +1619,7 @@ output) for that.)}
   \fi
   %
   % Color support
-  %
-  \def\rgbDarkRed{0.50 0.09 0.12}
-  \def\rgbBlack{0 0 0}
-  %
   \def\pdfsetcolor#1{\special{pdf:scolor [#1]}}
-  %
-  % Set color, and create a mark which defines \thiscolor accordingly,
-  % so that \makeheadline knows which color to restore.
-  \def\setcolor#1{%
-    \xdef\currentcolordefs{\gdef\noexpand\thiscolor{#1}}%
-    \domark
-    \pdfsetcolor{#1}%
-  }
-  %
-  \def\maincolor{\rgbBlack}
-  \pdfsetcolor{\maincolor}
-  \edef\thiscolor{\maincolor}
-  \def\currentcolordefs{}
-  %
-  \def\makefootline{%
-    \baselineskip24pt
-    \line{\pdfsetcolor{\maincolor}\the\footline}%
-  }
-  %
-  \def\makeheadline{%
-    \vbox to 0pt{%
-      \vskip-22.5pt
-      \line{%
-        \vbox to8.5pt{}%
-        % Extract \thiscolor definition from the marks.
-        \getcolormarks
-        % Typeset the headline with \maincolor, then restore the color.
-        \pdfsetcolor{\maincolor}\the\headline\pdfsetcolor{\thiscolor}%
-      }%
-      \vss
-    }%
-    \nointerlineskip
-  }
   %
   % PDF outline support
   %
@@ -1742,11 +1657,6 @@ output) for that.)}
     \setpdfdestname{#1}%
     \safewhatsit{\pdfdest name{\pdfdestname} xyz}%
   }
-  %
-  % by default, use black for everything.
-  \def\urlcolor{\rgbBlack}
-  \def\linkcolor{\rgbBlack}
-  \def\endlink{\setcolor{\maincolor}\pdfendlink}
   %
   \def\dopdfoutline#1#2#3#4{%
     \setpdfoutlinetext{#1}
@@ -1944,6 +1854,58 @@ output) for that.)}
       \ifdim \wd2 >0pt height \xeteximageheight \fi \relax
     \egroup
   }
+\fi
+
+% common definitions and code for pdftex, luatex and xetex
+\ifpdforxetex
+  % The dark red here is dark enough to print on paper as
+  % nearly black, but still distinguishable for online viewing.  We use
+  % black by default, though.
+  \def\rgbDarkRed{0.50 0.09 0.12}
+  \def\rgbBlack{0 0 0}
+  %
+  % Set color, and create a mark which defines \thiscolor accordingly,
+  % so that \makeheadline knows which color to restore.
+  \def\curcolor{0 0 0}%
+  \def\setcolor#1{%
+    \ifx#1\curcolor\else
+      \xdef\currentcolordefs{\gdef\noexpand\thiscolor{#1}}%
+      \domark
+      \pdfsetcolor{#1}%
+      \xdef\curcolor{#1}%
+    \fi
+  }
+  %
+  \let\maincolor\rgbBlack
+  \pdfsetcolor{\maincolor}
+  \edef\thiscolor{\maincolor}
+  \def\currentcolordefs{}
+  %
+  \def\makefootline{%
+    \baselineskip24pt
+    \line{\pdfsetcolor{\maincolor}\the\footline}%
+  }
+  %
+  \def\makeheadline{%
+    \vbox to 0pt{%
+      \vskip-22.5pt
+      \line{%
+        \vbox to8.5pt{}%
+        % Extract \thiscolor definition from the marks.
+        \getcolormarks
+        % Typeset the headline with \maincolor, then restore the color.
+        \pdfsetcolor{\maincolor}\the\headline\pdfsetcolor{\thiscolor}%
+      }%
+      \vss
+    }%
+    \nointerlineskip
+  }
+  %
+  % by default, use black for everything.
+  \def\urlcolor{\rgbBlack}
+  \let\linkcolor\rgbBlack
+  \def\endlink{\setcolor{\maincolor}\pdfendlink}
+  %
 \fi
 
 

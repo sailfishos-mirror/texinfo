@@ -1,5 +1,16 @@
 2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Common code for pdftex and xetex
+
+	* doc/texinfo.tex (\rgbDarkRed, \rgbBlack, \setcolor, \maincolor)
+	(\thiscolor, \currentcolordefs, \makefootline, \makeheadline)
+	(\urlcolor, \linkcolor, \endlink): Place definitions in single
+	place instead of having duplicated definitions for both pdftex/luatex
+	and xetex.  The large number of duplicated definitions made it
+	hard to navigate the file.
+
+2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\ifxetex): New conditional.  Use throughout.
 
 2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
