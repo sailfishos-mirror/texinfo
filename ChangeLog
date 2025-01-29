@@ -1,3 +1,8 @@
+2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\pdfmakeoutlines): Remove accidentally added
+	use of non-existent macro.
+
 2025-01-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/z_misc/automatic_nodes.t (test_new_node, duplicate node added):

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-29.19}
+\def\texinfoversion{2025-01-29.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1531,7 +1531,6 @@ output) for that.)}
       % we use for the index sort strings.
       % 
       \indexnofonts
-      \pdfaccentliterals
       \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
       \setupdatafile
       % We can have normal brace characters in the PDF outlines, unlike
