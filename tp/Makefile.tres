@@ -49,6 +49,7 @@ test_tap_files_generated_list = \
   t/z_misc/automatic_nodes.t \
   t/z_misc/convert_to_text.t \
   t/z_misc/do_master_menu.t \
+  t/z_misc/html_convert_tree.t \
   t/z_misc/index_before_item.t \
   t/z_misc/no_structure_test.t \
   t/z_misc/nodenormalization.t \

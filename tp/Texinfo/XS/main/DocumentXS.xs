@@ -112,11 +112,15 @@ rebuild_tree (SV *tree_in, ...)
        /* if no_store is set, get the reference on the tree HV before calling
           build_document, as the tree is gonna be destroyed.  This requires
           that the document the tree comes from to have already been built to
-          Perl */
+          Perl.  If not, built it here. */
 
             ELEMENT *tree = document->tree;
             if (no_store)
-              RETVAL = newRV_inc ((SV *) tree->hv);
+              {
+                if (!tree->hv)
+                  store_document_texinfo_tree (document);
+                RETVAL = newRV_inc ((SV *) tree->hv);
+              }
 
             build_document (document->descriptor, no_store);
             if (!no_store)

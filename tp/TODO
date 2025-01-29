@@ -32,18 +32,6 @@ before output to be able to use the document to set the direction node.
 For that, add a converter method that does the same as
 texinfo_register_global_direction but can be called from setup handler.
 
-Add a test of convert_tree in HTML without document. Like
-my $line_parser = Texinfo::Parser::parser();
-my $tree = $line_parser->parse_texi_line('Some @code{item}');
-$tree = Texinfo::Document::rebuild_tree($tree, 1);
-my $conv = Texinfo::Convert::HTML->converter();
-$conv->conversion_initialization('', undef);
-my $res = $conv->convert_tree($tree);
-
-Optionnally, can check that customization works by calling, before
-conversion_initialization:
-Texinfo::Config::texinfo_register_style_command_formatting('code', 'toto');
-
 
 Bugs
 ====
