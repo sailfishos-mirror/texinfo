@@ -63,10 +63,6 @@ SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 OUTPUT_FILES_INFORMATION *get_output_files_information (SV *output_files_sv);
 
-/* FIXME also declared in convert/get_converter_perl_info.h and
-   implemented in call_conversion_perl.h */
-CONVERTER *get_sv_converter (SV *sv_in, const char *warn_string);
-
 CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,
                                  const char *class, CONVERTER *converter);
 #endif

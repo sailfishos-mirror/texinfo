@@ -62,9 +62,19 @@
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
 
-/* FIXME not sure if __CYGWIN__ is correctly handled here, like a UNIX. */
+/*
+  From the Cygwin FAQ https://www.cygwin.com/faq.html:
+    In gcc for Cygwin, _WIN32 is only defined when you use the -mwin32 gcc
+    command line options.
+  This means that _WIN32 may be defined on Cygwin while the null device
+  name seems to always be different from MS-Windows null device name, so
+  we exclude explicitely __CYGWIN__.
+  In similar code used for the info reader, the logic is different, as
+  O_BINARY is used first and cygwin is tested afterwards.  We also use
+  O_BINARY in the C texi2any code for paths related defines.
+ */
 const char *null_device_names[] = {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__CYGWIN__)
  "NUL",
 #else
  "/dev/null",
