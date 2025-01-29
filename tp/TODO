@@ -36,8 +36,6 @@ texinfo_register_global_direction but can be called from setup handler.
 Bugs
 ====
 
-a test fails with ctexi2any.
-
 
 HTML API
 ========

@@ -2623,6 +2623,8 @@ main (int argc, char *argv[], char *env[])
                              encoded_macro_expand_file_name);
 
               if (!strcmp (macro_expand_file_name, "-"))
+                main_program_unclosed_stdout = file_fh;
+              else
                 {
                   output_files_register_closed (&output_files_information,
                                                 encoded_macro_expand_file_name);
@@ -2634,8 +2636,6 @@ main (int argc, char *argv[], char *env[])
                       error_macro_expand_file = 1;
                     }
                 }
-              else
-                main_program_unclosed_stdout = file_fh;
             }
           else
             {
@@ -2840,6 +2840,8 @@ main (int argc, char *argv[], char *env[])
                                  encoded_internal_links_file_name);
 
                   if (!strcmp (internal_links_file_name, "-"))
+                    main_program_unclosed_stdout = file_fh;
+                  else
                     {
                       output_files_register_closed (&output_files_information,
                                             encoded_internal_links_file_name);
@@ -2851,8 +2853,6 @@ main (int argc, char *argv[], char *env[])
                           error_internal_links_file = 1;
                         }
                     }
-                  else
-                    main_program_unclosed_stdout = file_fh;
                 }
               else
                 {
