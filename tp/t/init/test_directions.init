@@ -12,16 +12,16 @@ if (texinfo_get_conf('SPLIT')) {
   }
 }
 
-texinfo_register_global_direction('Bar');
+texinfo_register_text_direction('Bar');
 texinfo_register_direction_string_info('Bar', 'text', '|', undef, 'normal');
 
 foreach my $direction (@all_directions) {
     my $direction_node = "node-".$direction;
     my $direction_href = "href-".$direction;
     my $direction_name = "name-".$direction;
-    texinfo_register_global_direction($direction_node);
-    texinfo_register_global_direction($direction_href);
-    texinfo_register_global_direction($direction_name);
+    texinfo_register_text_direction($direction_node);
+    texinfo_register_text_direction($direction_href);
+    texinfo_register_text_direction($direction_name);
     texinfo_register_direction_string_info($direction_node, 'text',
                                            $direction_node, undef, 'normal');
     texinfo_register_direction_string_info($direction_href, 'text',

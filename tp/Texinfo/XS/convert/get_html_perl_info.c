@@ -264,6 +264,7 @@ html_converter_get_customization_sv (SV *converter_sv,
   HV *default_output_units_conversion_hv;
   SV **htmlxref_sv = 0;
   SV **formatting_function_sv;
+  SV **customized_text_directions_sv;
   SV **customized_global_directions_sv;
   SV **stage_handlers_sv;
   SV **special_unit_body_sv;
@@ -755,6 +756,27 @@ html_converter_get_customization_sv (SV *converter_sv,
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
 
+  FETCH(customized_text_directions);
+
+  if (customized_text_directions_sv)
+    {
+      I32 hv_number;
+      I32 i;
+      HV *customized_text_directions_hv
+        = (HV *) SvRV (*customized_text_directions_sv);
+
+      hv_number = hv_iterinit (customized_text_directions_hv);
+      for (i = 0; i < hv_number; i++)
+        {
+          HE *next = hv_iternext (customized_text_directions_hv);
+          SV *direction_sv = hv_iterkeysv (next);
+          const char *direction = (char *) SvPVutf8_nolen (direction_sv);
+
+          add_string (direction,
+                      &converter->customized_global_text_directions);
+        }
+    }
+
   FETCH(customized_global_directions);
 
   if (customized_global_directions_sv)
@@ -768,11 +790,11 @@ html_converter_get_customization_sv (SV *converter_sv,
 
       if (hv_number > 0)
         {
-          int custom_global_units_direction_nr = 0;
-          /* if there are global text directions, some slots won't be used */
           converter->customized_global_units_directions.list
            = (DIRECTION_NODE_NAME *)
             non_perl_malloc (hv_number * sizeof (DIRECTION_NODE_NAME));
+          converter->customized_global_units_directions.number
+            = hv_number;
 
           for (i = 0; i < hv_number; i++)
             {
@@ -780,25 +802,21 @@ html_converter_get_customization_sv (SV *converter_sv,
               SV *direction_sv = hv_iterkeysv (next);
               const char *direction = (char *) SvPVutf8_nolen (direction_sv);
               SV *node_texi_sv = HeVAL(next);
+              DIRECTION_NODE_NAME *direction_node_name
+               = &converter->customized_global_units_directions.list[i];
+
+              direction_node_name->direction = strdup (direction);
 
               if (SvOK (node_texi_sv))
                 {
                   const char *node_texi
                     = (char *) SvPVutf8_nolen (node_texi_sv);
-                  DIRECTION_NODE_NAME *direction_node_name
-                   = &converter->customized_global_units_directions.list[
-                                      custom_global_units_direction_nr];
 
-                  direction_node_name->direction = strdup (direction);
                   direction_node_name->node_name = strdup (node_texi);
-                  custom_global_units_direction_nr++;
                 }
               else
-                add_string (direction,
-                            &converter->customized_global_text_directions);
+                direction_node_name->node_name = 0;
             }
-          converter->customized_global_units_directions.number
-            = custom_global_units_direction_nr;
         }
     }
 

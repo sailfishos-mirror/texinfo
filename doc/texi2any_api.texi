@@ -1074,9 +1074,10 @@ the output unit of that node in headers.  Use
 
 @defun texinfo_register_global_direction ($direction, $texinfo_node_name)
 @var{$direction} is a global direction (@pxref{Directions}),
-@var{$texinfo_node_name} is a node name Texinfo code.  The @var{$direction}
-will point to the output unit associated to the @var{$texinfo_node_name} node
-name, if the node exists in the Texinfo document.
+@var{$texinfo_node_name} is an optional node name Texinfo code.
+The @var{$direction} will point to the output unit associated to the
+@var{$texinfo_node_name} node name, if set and the node exists in the
+Texinfo document.
 @end defun
 
 For example, to have the @emph{Index} direction be associated to the
@@ -1170,16 +1171,21 @@ texinfo_register_direction_string_info('Up', 'button', undef, 'Higher');
 @subsection Adding Text And Global Output Units Directions
 
 Adding new directions is a two step process.  First, you should
-register the direction by calling @code{texinfo_register_global_direction},
+register the direction by calling @code{texinfo_register_text_direction}
+or @code{texinfo_register_global_direction},
 and then you should set the strings associated to the direction with
 @code{texinfo_register_direction_string_info}.
 
-You add a new text direction by calling
-@code{texinfo_register_global_direction} without second argument.  For example
-to add the @samp{Home} text direction, call:
+You add a new text direction by calling @code{texinfo_register_text_direction}:
+@defun texinfo_register_text_direction ($direction)
+@var{$direction} is a new direction name.  The function
+registers the @var{$direction} as a text direction (@pxref{Directions}).
+@end defun
+
+For example to add the @samp{Home} text direction, call:
 
 @example
-texinfo_register_global_direction('Home');
+texinfo_register_text_direction('Home');
 @end example
 
 You should then set the strings associated to the text direction
@@ -1195,8 +1201,9 @@ texinfo_register_direction_string_info('Home', 'text',
 @end example
 
 You add a global output unit direction by calling
-@code{texinfo_register_global_direction} with a node name Texinfo code
-such that the new direction links to the output unit associated with the node
+@code{texinfo_register_global_direction}.  You associate the global output
+unit direction with a node name Texinfo code by giving the argument.
+The new direction will link to the output unit associated with the node
 (@pxref{Changing Global Directions Output Units}).  For example, to add a new
 global direction @samp{Tutorial} associated to the @samp{My First Program}
 @code{@@node}, call:
@@ -1212,6 +1219,15 @@ texinfo_register_direction_string_info ('Tutorial', 'text', 'Tutorial');
 texinfo_register_direction_string_info ('Tutorial', 'button', 'Tuto');
 texinfo_register_direction_string_info ('Tutorial', 'accesskey', 't');
 @end example
+
+The following call adds a global direction without associating a node name:
+@example
+texinfo_register_global_direction ('Global link');
+@end example
+
+This allows to specify the direction strings associated to the new direction
+even if the node name is not yet known.
+@c TODO link to explanation where a dynamic node name is associated
 
 
 @node Simple Navigation Panel Customization

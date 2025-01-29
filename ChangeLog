@@ -1,5 +1,22 @@
 2025-01-29  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Changing Global Directions Output Units)
+	(Adding Text And Global Output Units Directions), tp/Texinfo/Config.pm
+	($GNUT_text_directions, texinfo_register_text_direction)
+	(GNUT_get_text_directions, GNUT_reinitialize_init_files),
+	tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(conversion_initialization),
+	tp/Texinfo/XS/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): do not register text directions
+	with texinfo_register_global_direction, add
+	texinfo_register_text_direction for that.  Update initialization
+	and getting customization.
+
+	* tp/t/init/directions_buttons.pm, tp/t/init/test_directions.init: use
+	texinfo_register_text_direction.
+
+2025-01-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/texi2any.c (main): fix reversed conditions.
 
 2025-01-29  Patrice Dumas  <pertusus@free.fr>

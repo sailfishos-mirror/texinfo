@@ -9066,9 +9066,25 @@ sub converter_initialize($)
       = $customized_special_unit_body->{$special_unit_variety};
   }
 
+  # "directions" not associated to output units, but associated to text.
+  $self->{'global_texts_directions'} = {};
+  $self->{'global_texts_directions'}->{'Space'} = 1;
+
   my %all_directions;
   foreach my $direction (@all_directions_except_special_units) {
     $all_directions{$direction} = 1;
+  }
+
+  $self->{'customized_text_directions'}
+    = Texinfo::Config::GNUT_get_text_directions();
+
+  if ($self->{'customized_text_directions'}) {
+    foreach my $direction (keys(%{$self->{'customized_text_directions'}})) {
+      if (!$all_directions{$direction}) {
+        $self->{'global_texts_directions'}->{$direction} = 1;
+        $all_directions{$direction} = 1;
+      }
+    }
   }
 
   $self->{'customized_global_directions'}
@@ -9079,6 +9095,7 @@ sub converter_initialize($)
       $all_directions{$direction} = 1;
     }
   }
+
   # customized_global_directions are not used further here, as the output
   # unit need to be found with the document
 
@@ -12142,29 +12159,10 @@ sub conversion_initialization($$;$)
   # for global directions always set, and for directions to special elements,
   # only filled if special elements are actually used.
   $self->{'global_units_directions'} = {};
-  # "directions" not associated to output units, but associated to text.
-  $self->{'global_texts_directions'} = {};
-  $self->{'global_texts_directions'}->{'Space'} = 1;
 
   my %all_directions;
   foreach my $direction (@all_directions_except_special_units) {
     $all_directions{$direction} = 1;
-  }
-
-  if ($self->{'customized_global_directions'}) {
-    foreach my $direction (sort(keys(%{$self->{'customized_global_directions'}}))) {
-      my $node_texi_name
-        = $self->{'customized_global_directions'}->{$direction};
-      if (!defined($node_texi_name)) {
-        if (!$all_directions{$direction}) {
-          $self->{'global_texts_directions'}->{$direction} = 1;
-        }
-      }
-      # $node_texi_name output unit is determined later on
-      # after output units have been set
-
-      $all_directions{$direction} = 1;
-    }
   }
 
   foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
