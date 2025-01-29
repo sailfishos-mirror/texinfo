@@ -21,8 +21,8 @@ ok(1, 'modules loading');
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-# _new_node cannot be called with XS used for structuring.
-# See comment in the beginning of _new_node.
+# No real test of XS for the tests based on test_new_node.
+
 sub test_new_node($$$$)
 {
   my $in = shift;
@@ -31,7 +31,11 @@ sub test_new_node($$$$)
   my $name = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $node_tree = $parser->parse_texi_line($in);
+  # _new_node transformations are only for a Perl tree, therefore the link
+  # to C data need to be removed such that the conversion back to Texinfo
+  # uses the Perl tree and not the C tree, which has not been built nor
+  # modified.
+  my $node_tree = $parser->parse_texi_line($in, undef, 1);
   my $document = $parser->parse_texi_text('');
   my $identifier_target = $document->labels_information();
   Texinfo::Structuring::associate_internal_references($document);
@@ -56,9 +60,6 @@ sub test_new_node($$$$)
     is($texi_result, $out, $name);
   }
 }
-SKIP:
-{
-  skip 'test perl not XS', 7 * 3 if ($XS_structuring);
 
 test_new_node ('a node', 'a-node', '@node a node
 ', 'simple');
@@ -81,25 +82,22 @@ test_new_node ('@asis{}', '-1', '@node @asis{} 1
 test_new_node ('a::b	 c', 'a_003a_003ab-c', '@node a@asis{::}b@asis{	} c
 ', 'with colon and tab');
 
-}
-
 my $parser = Texinfo::Parser::parser();
 my $document = $parser->parse_texi_text('@node a node
 ');
 my $tree = $document->tree();
 my $line_parser = Texinfo::Parser::parser();
-my $line_tree = $line_parser->parse_texi_line('a node');
+my $line_tree = $line_parser->parse_texi_line('a node', undef, 1);
 
-SKIP:
-{
-  skip 'test perl not XS', 1 if ($XS_structuring);
-
+# No real test of XS
 my $new_node = Texinfo::Transformations::_new_node($line_tree, $document);
 is('@node a node 1
 ',  Texinfo::Convert::Texinfo::convert_to_texinfo($new_node),
     'duplicate node added');
-}
+
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($new_node);
+
+# Following tests test the XS code
 
 my $sections_text =
 '@top top section
