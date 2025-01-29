@@ -88,7 +88,7 @@ converter_set_document_from_sv (SV *converter_in, SV *document_in)
   dTHX;
 
   converter = get_sv_converter (converter_in, "converter_set_document");
-  if (document_in)
+  if (document_in && SvOK (document_in))
     document = get_sv_document_document (document_in, 0);
 
   converter_set_document (converter, document);
