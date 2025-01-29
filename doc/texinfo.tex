@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-29.21}
+\def\texinfoversion{2025-01-29.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1081,12 +1081,17 @@ where each line of input produces a line of output.}
   \fi
 \fi
 
+\newif\ifxetex
+\ifx\XeTeXrevision\thisisundefined\else
+  \xetextrue
+\fi
+
 \newif\ifpdforxetex
 \pdforxetexfalse
 \ifpdf
   \pdforxetextrue
 \fi
-\ifx\XeTeXrevision\thisisundefined\else
+\ifxetex
   \pdforxetextrue
 \fi
 
@@ -1636,8 +1641,7 @@ output) for that.)}
 %
 % For XeTeX
 %
-\ifx\XeTeXrevision\thisisundefined
-\else
+\ifxetex
   %
   % XeTeX version check
   %
@@ -3139,9 +3143,7 @@ end
           \unhbox0\ (\urefcode{#1})%
         \fi
       \else
-        \ifx\XeTeXrevision\thisisundefined
-          \unhbox0\ (\urefcode{#1})% DVI, always show arg and url
-        \else
+        \ifxetex
           % For XeTeX
           \ifurefurlonlylink
             % PDF plus option to not display url, show just arg
@@ -3151,6 +3153,8 @@ end
             % visibility, if the pdf is eventually used to print, etc.
             \unhbox0\ (\urefcode{#1})%
           \fi
+        \else
+          \unhbox0\ (\urefcode{#1})% DVI, always show arg and url
         \fi
       \fi
     \else
@@ -9696,7 +9700,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % For pdfTeX and LuaTeX <= 0.80
     \dopdfimage{#1}{#2}{#3}%
   \else
-    \ifx\XeTeXrevision\thisisundefined
+    \ifxetex
+      \doxeteximage{#1}{#2}{#3}%
+    \else
       % For epsf.tex
       % \epsfbox itself resets \epsf?size at each figure.
       \setbox0 = \hbox{\ignorespaces #2}%
@@ -9704,9 +9710,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \setbox0 = \hbox{\ignorespaces #3}%
         \ifdim\wd0 > 0pt \epsfysize=#3\relax \fi
       \epsfbox{#1.eps}%
-    \else
-      % For XeTeX
-      \doxeteximage{#1}{#2}{#3}%
     \fi
   \fi
   %
@@ -10052,7 +10055,10 @@ directory should work if nowhere else does.}
 \newif\iftxinativeunicodecapable
 \newif\iftxiusebytewiseio
 
-\ifx\XeTeXrevision\thisisundefined
+\ifxetex
+  \txinativeunicodecapabletrue
+  \txiusebytewiseiofalse
+\else
   \ifluatex
     \txinativeunicodecapabletrue
     \txiusebytewiseiofalse
@@ -10060,17 +10066,13 @@ directory should work if nowhere else does.}
     \txinativeunicodecapablefalse
     \txiusebytewiseiotrue
   \fi
-\else
-  \txinativeunicodecapabletrue
-  \txiusebytewiseiofalse
 \fi
 
 % Set I/O by bytes instead of UTF-8 sequence for XeTeX and LuaTex
 % for non-UTF-8 (byte-wise) encodings.
 %
 \def\setbytewiseio{%
-  \ifx\XeTeXrevision\thisisundefined
-  \else
+  \ifxetex
     \XeTeXdefaultencoding "bytes"  % For subsequent files to be read
     \XeTeXinputencoding "bytes"  % For document root file
     % Unfortunately, there seems to be no corresponding XeTeX command for
@@ -10188,8 +10190,7 @@ directory should work if nowhere else does.}
   \fi % lattwo
   \fi % ascii
   %
-  \ifx\XeTeXrevision\thisisundefined
-  \else
+  \ifxetex
     \ifx \declaredencoding \utfeight
     \else
       \ifx \declaredencoding \ascii
@@ -11631,12 +11632,12 @@ directory should work if nowhere else does.}
     \pdfhorigin = 1 true in
     \pdfvorigin = 1 true in
   \else
-    \ifx\XeTeXrevision\thisisundefined
-      \special{papersize=#8,#7}%
-    \else
+    \ifxetex
       \pdfpageheight #7\relax
       \pdfpagewidth #8\relax
       % XeTeX does not have \pdfhorigin and \pdfvorigin.
+    \else
+      \special{papersize=#8,#7}%
     \fi
   \fi
   %
@@ -11836,7 +11837,10 @@ directory should work if nowhere else does.}
   #1#2#3=\countB\relax
 }
 
-\ifx\XeTeXrevision\thisisundefined
+\ifxetex % XeTeX
+  \mtsetprotcode\textrm
+  \def\mtfontexpand#1{}
+\else
   \ifluatex % LuaTeX
     \mtsetprotcode\textrm
     \def\mtfontexpand#1{\expandglyphsinfont#1 20 20 1\relax}
@@ -11848,9 +11852,6 @@ directory should work if nowhere else does.}
       \def\mtfontexpand#1{}
     \fi
   \fi
-\else % XeTeX
-  \mtsetprotcode\textrm
-  \def\mtfontexpand#1{}
 \fi
 
 
@@ -11859,7 +11860,9 @@ directory should work if nowhere else does.}
 \def\microtypeON{%
   \microtypetrue
   %
-  \ifx\XeTeXrevision\thisisundefined
+  \ifxetex % XeTeX
+    \XeTeXprotrudechars=2
+  \else
     \ifluatex % LuaTeX
       \adjustspacing=2
       \protrudechars=2
@@ -11869,8 +11872,6 @@ directory should work if nowhere else does.}
         \pdfprotrudechars=2
       \fi
     \fi
-  \else % XeTeX
-    \XeTeXprotrudechars=2
   \fi
   %
   \mtfontexpand\textrm
@@ -11881,7 +11882,9 @@ directory should work if nowhere else does.}
 \def\microtypeOFF{%
   \microtypefalse
   %
-  \ifx\XeTeXrevision\thisisundefined
+  \ifxetex % XeTeX
+    \XeTeXprotrudechars=0
+  \else
     \ifluatex % LuaTeX
       \adjustspacing=0
       \protrudechars=0
@@ -11891,8 +11894,6 @@ directory should work if nowhere else does.}
         \pdfprotrudechars=0
       \fi
     \fi
-  \else % XeTeX
-    \XeTeXprotrudechars=0
   \fi
 }
 
