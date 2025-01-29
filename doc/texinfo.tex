@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-20.21}
+\def\texinfoversion{2025-01-29.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1457,7 +1457,6 @@ output) for that.)}
   }
   %
   \def\pdfmakeoutlines{%
-    \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
     \begingroup
       % Read toc silently, to get counts of subentries for \pdfoutline.
       \def\partentry##1##2##3##4{}% ignore parts in the outlines
@@ -1532,6 +1531,8 @@ output) for that.)}
       % we use for the index sort strings.
       % 
       \indexnofonts
+      \pdfaccentliterals
+      \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
       \setupdatafile
       % We can have normal brace characters in the PDF outlines, unlike
       % Texinfo index files.  So set that up.
@@ -1753,8 +1754,6 @@ output) for that.)}
   %
   \def\pdfmakeoutlines{%
     \begingroup
-      \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
-      %
       % For XeTeX, counts of subentries are not necessary.
       % Therefore, we read toc only once.
       %
@@ -1792,6 +1791,8 @@ output) for that.)}
       % Therefore, the encoding and the language may not be considered.
       %
       \indexnofonts
+      \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
+      %
       \setupdatafile
       % We can have normal brace characters in the PDF outlines, unlike
       % Texinfo index files.  So set that up.
