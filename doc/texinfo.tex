@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-29.20}
+\def\texinfoversion{2025-01-29.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -980,6 +980,11 @@ where each line of input produces a line of output.}
 \newif\ifpdf
 \newif\ifpdfmakepagedest
 
+\newif\ifluatex
+\ifx\luatexversion\thisisundefined\else
+  \luatextrue
+\fi
+
 %
 % For LuaTeX
 %
@@ -987,8 +992,7 @@ where each line of input produces a line of output.}
 \newif\iftxiuseunicodedestname
 \txiuseunicodedestnamefalse % For pdfTeX etc.
 
-\ifx\luatexversion\thisisundefined
-\else
+\ifluatex
   % Use Unicode destination names
   \txiuseunicodedestnametrue
   % Escape PDF strings with converting UTF-16 from UTF-8
@@ -1394,14 +1398,14 @@ output) for that.)}
       \def\pdfoutlinetext{#1}%
     \else
       \ifx \declaredencoding \utfeight
-        \ifx\luatexversion\thisisundefined
-          % For pdfTeX with UTF-8.
-          \defpdfoutlinetextunicode{#1}%
-        \else
+        \ifluatex
           % For LuaTeX with UTF-8.
           % Pass through Unicode characters for title texts.
           \passthroughcharstrue
           \def\pdfoutlinetext{#1}%
+        \else
+          % For pdfTeX with UTF-8.
+          \defpdfoutlinetextunicode{#1}%
         \fi
       \else
         % For non-Latin-1 or non-UTF-8 encodings.
@@ -10049,12 +10053,12 @@ directory should work if nowhere else does.}
 \newif\iftxiusebytewiseio
 
 \ifx\XeTeXrevision\thisisundefined
-  \ifx\luatexversion\thisisundefined
-    \txinativeunicodecapablefalse
-    \txiusebytewiseiotrue
-  \else
+  \ifluatex
     \txinativeunicodecapabletrue
     \txiusebytewiseiofalse
+  \else
+    \txinativeunicodecapablefalse
+    \txiusebytewiseiotrue
   \fi
 \else
   \txinativeunicodecapabletrue
@@ -10075,8 +10079,7 @@ directory should work if nowhere else does.}
     % place of non-ASCII characters.
   \fi
 
-  \ifx\luatexversion\thisisundefined
-  \else
+  \ifluatex
     \directlua{
     local utf8_char, byte, gsub = unicode.utf8.char, string.byte, string.gsub
     local function convert_char (char)
@@ -10705,7 +10708,7 @@ directory should work if nowhere else does.}
 }
 
 % Suppress ligature creation from adjacent characters.
-\ifx\luatexversion\thisisundefined
+\ifluatex
   \def\nolig{{}}
 \else
   % Braces do not suppress ligature creation in LuaTeX, e.g. in of{}fice
@@ -11834,16 +11837,16 @@ directory should work if nowhere else does.}
 }
 
 \ifx\XeTeXrevision\thisisundefined
-  \ifx\luatexversion\thisisundefined
+  \ifluatex % LuaTeX
+    \mtsetprotcode\textrm
+    \def\mtfontexpand#1{\expandglyphsinfont#1 20 20 1\relax}
+  \else
     \ifpdf % pdfTeX
       \mtsetprotcode\textrm
       \def\mtfontexpand#1{\pdffontexpand#1 20 20 1 autoexpand\relax}
     \else % TeX
       \def\mtfontexpand#1{}
     \fi
-  \else % LuaTeX
-    \mtsetprotcode\textrm
-    \def\mtfontexpand#1{\expandglyphsinfont#1 20 20 1\relax}
   \fi
 \else % XeTeX
   \mtsetprotcode\textrm
@@ -11857,14 +11860,14 @@ directory should work if nowhere else does.}
   \microtypetrue
   %
   \ifx\XeTeXrevision\thisisundefined
-    \ifx\luatexversion\thisisundefined
+    \ifluatex % LuaTeX
+      \adjustspacing=2
+      \protrudechars=2
+    \else
       \ifpdf % pdfTeX
         \pdfadjustspacing=2
         \pdfprotrudechars=2
       \fi
-    \else % LuaTeX
-      \adjustspacing=2
-      \protrudechars=2
     \fi
   \else % XeTeX
     \XeTeXprotrudechars=2
@@ -11879,14 +11882,14 @@ directory should work if nowhere else does.}
   \microtypefalse
   %
   \ifx\XeTeXrevision\thisisundefined
-    \ifx\luatexversion\thisisundefined
+    \ifluatex % LuaTeX
+      \adjustspacing=0
+      \protrudechars=0
+    \else
       \ifpdf % pdfTeX
         \pdfadjustspacing=0
         \pdfprotrudechars=0
       \fi
-    \else % LuaTeX
-      \adjustspacing=0
-      \protrudechars=0
     \fi
   \else % XeTeX
     \XeTeXprotrudechars=0

@@ -1,5 +1,11 @@
 2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\ifluatex): Introduce new conditional
+	and use throughout, rather than checking if \luatexversion is
+	defined every time.
+
+2025-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfmakeoutlines): Remove accidentally added
 	use of non-existent macro.
 
