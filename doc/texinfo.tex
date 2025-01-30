@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-29.23}
+\def\texinfoversion{2025-01-30.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1551,6 +1551,7 @@ output) for that.)}
       \startlink attr{/Border [0 0 0]}%
         user{/Subtype /Link /A << /S /URI /URI (#1) >>}%
     \endgroup}
+  \def\endlink{\setcolor{\maincolor}\pdfendlink}
   % \pdfgettoks - Surround page numbers in #1 with @pdflink.  #1 may
   % be a simple number, or a list of numbers in the case of an index
   % entry.
@@ -1904,7 +1905,6 @@ output) for that.)}
   % by default, use black for everything.
   \def\urlcolor{\rgbBlack}
   \let\linkcolor\rgbBlack
-  \def\endlink{\setcolor{\maincolor}\pdfendlink}
   %
 \fi
 
