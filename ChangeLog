@@ -1,5 +1,10 @@
 2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\pdfgettoks) [pdftex, xetex]:
+	Use common definition for pdftex and xetex.
+
+2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\endlink) [pdftex, xetex]:
 	Provide separate definitions for pdftex and xetex.  The previous
 	change broke the defition for xetex because xetex had another
