@@ -1,5 +1,11 @@
 2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\pdfurl, \pdfmakeurl):
+	Use common definition of \pdfurl for pdftex and xetex.  Use
+	\pdfmakeurl for engine-specific part.
+
+2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfgettoks) [pdftex, xetex]:
 	Use common definition for pdftex and xetex.
 

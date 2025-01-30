@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-30.19}
+\def\texinfoversion{2025-01-30.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1531,26 +1531,10 @@ output) for that.)}
   \else
     \let \startlink \pdfstartlink
   \fi
-  % make a live url in pdf output.
-  \def\pdfurl#1{%
-    \begingroup
-      % it seems we really need yet another set of dummies; have not
-      % tried to figure out what each command should do in the context
-      % of @url.  for now, just make @/ a no-op, that's the only one
-      % people have actually reported a problem with.
-      %
-      \normalturnoffactive
-      \def\@{@}%
-      \let\/=\empty
-      \makevalueexpandable
-      % do we want to go so far as to use \indexnofonts instead of just
-      % special-casing \var here?
-      \def\var##1{##1}%
-      %
-      \leavevmode\setcolor{\urlcolor}%
-      \startlink attr{/Border [0 0 0]}%
-        user{/Subtype /Link /A << /S /URI /URI (#1) >>}%
-    \endgroup}
+  \def\pdfmakeurl#1{%
+    \startlink attr{/Border [0 0 0]}%
+      user{/Subtype /Link /A << /S /URI /URI (#1) >>}%
+  }%
   \def\endlink{\setcolor{\maincolor}\pdfendlink}
   %
   \def\pdflink#1{\pdflinkpage{#1}{#1}}%
@@ -1713,7 +1697,7 @@ output) for that.)}
   % However, due to a UTF-16 conversion issue of xdvipdfmx 20150315,
   % ``\special{pdf:dest ...}'' cannot handle non-ASCII strings.
   % It is fixed by xdvipdfmx 20160106 (TeX Live SVN r39753).
-%
+  %
   \def\skipspaces#1{\def\PP{#1}\def\D{|}%
     \ifx\PP\D\let\nextsp\relax
     \else\let\nextsp\skipspaces
@@ -1728,26 +1712,10 @@ output) for that.)}
     \edef\temp{#1}%
     \expandafter\skipspaces\temp|\relax
   }
-  % make a live url in pdf output.
-  \def\pdfurl#1{%
-    \begingroup
-      % it seems we really need yet another set of dummies; have not
-      % tried to figure out what each command should do in the context
-      % of @url.  for now, just make @/ a no-op, that's the only one
-      % people have actually reported a problem with.
-      %
-      \normalturnoffactive
-      \def\@{@}%
-      \let\/=\empty
-      \makevalueexpandable
-      % do we want to go so far as to use \indexnofonts instead of just
-      % special-casing \var here?
-      \def\var##1{##1}%
-      %
-      \leavevmode\setcolor{\urlcolor}%
-      \special{pdf:bann << /Border [0 0 0]
-        /Subtype /Link /A << /S /URI /URI (#1) >> >>}%
-    \endgroup}
+  \def\pdfmakeurl#1{%
+    \special{pdf:bann << /Border [0 0 0]
+      /Subtype /Link /A << /S /URI /URI (#1) >> >>}%
+  }
   \def\endlink{\setcolor{\maincolor}\special{pdf:eann}}
   \def\pdflink#1{\pdflinkpage{#1}{#1}}%
   \def\pdflinkpage#1#2{%
@@ -1859,6 +1827,26 @@ output) for that.)}
   % by default, use black for everything.
   \def\urlcolor{\rgbBlack}
   \let\linkcolor\rgbBlack
+  %
+  % make a live url in pdf output.
+  \def\pdfurl#1{%
+    \begingroup
+      % it seems we really need yet another set of dummies; have not
+      % tried to figure out what each command should do in the context
+      % of @url.  for now, just make @/ a no-op, that's the only one
+      % people have actually reported a problem with.
+      %
+      \normalturnoffactive
+      \def\@{@}%
+      \let\/=\empty
+      \makevalueexpandable
+      % do we want to go so far as to use \indexnofonts instead of just
+      % special-casing \var here?
+      \def\var##1{##1}%
+      %
+      \leavevmode\setcolor{\urlcolor}%
+      \pdfmakeurl{#1}%
+    \endgroup}
   %
   % \pdfgettoks - Surround page numbers in #1 with @pdflink.  #1 may
   % be a simple number, or a list of numbers in the case of an index
