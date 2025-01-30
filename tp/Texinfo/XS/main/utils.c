@@ -1347,6 +1347,8 @@ join_strings_list (STRING_LIST *strings)
   return text.text;
 }
 
+
+
 int
 file_name_is_absolute (const char *filename)
 {

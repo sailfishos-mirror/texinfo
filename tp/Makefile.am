@@ -209,6 +209,7 @@ test_files = \
  t/init/footnote_mark_in_inline_content.pm \
  t/init/icons.init \
  t/init/ignore_and_comments_output.init \
+ t/init/index_direction_from_index_name.pm \
  t/init/l2h.init \
  t/init/mini_ker_t2h.init \
  t/init/misc_file_collision.init \

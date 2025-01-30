@@ -2441,6 +2441,26 @@ html_close_registered_sections_level (SV *converter_in, filename, int level)
     OUTPUT:
         RETVAL
 
+void
+html_set_global_direction (SV *converter_in, direction, ...)
+        const char *direction = (char *)SvPVutf8_nolen($arg);
+    PROTOTYPE: $$;$
+    PREINIT:
+        CONVERTER *self;
+        const char *node_name = 0;
+    CODE:
+        self = get_sv_converter (converter_in,
+                                 "html_set_global_direction");
+        if (items > 2 && SvOK(ST(2)))
+          node_name = SvPVutf8_nolen(ST(2));
+
+        if (self)
+          {
+            html_set_global_direction (self,
+                &self->customized_global_units_directions, direction,
+                 node_name);
+          }
+
 SV *
 html_attribute_class (SV *converter_in, element, ...)
         const char *element = (char *)SvPVutf8_nolen($arg);

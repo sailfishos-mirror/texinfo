@@ -27,11 +27,6 @@ of the code?
 
 Document TEXINFO_C_EMBED_PERL
 
-Allow texinfo_register_global_direction effect to be modified after parsing
-before output to be able to use the document to set the direction node.
-For that, add a converter method that does the same as
-texinfo_register_global_direction but can be called from setup handler.
-
 
 Bugs
 ====

@@ -327,7 +327,33 @@ $directions_buttons_text,
 {'init_files' => ['directions_buttons.pm',
                   'add_directions_buttons.pm']},
 ],
+['printindex_set_direction',
+'@node Top
+@top top
 
+@node Chapter
+@chapter chap
+
+@cindex CC
+@vindex VV
+@findex FF
+
+@node Vindex
+@appendix Vindex
+
+@printindex vr
+
+@node Cindex
+@appendix Cindex
+
+@printindex cp
+
+@node Findex
+@appendix Findex
+
+@printindex fn
+', {'init_files' => ['index_direction_from_index_name.pm']},
+],
 );
 
 foreach my $test (@test_cases) {

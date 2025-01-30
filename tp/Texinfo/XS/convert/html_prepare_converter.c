@@ -679,6 +679,67 @@ html_free_customized_global_units_directions (
   customized_global_units_directions->number = 0;
 }
 
+void
+html_set_global_direction (CONVERTER *self,
+              DIRECTION_NODE_NAME_LIST *customized_global_units_directions,
+              const char *direction, const char *node_name)
+{
+  DIRECTION_NODE_NAME *direction_node_name = 0;
+  int main_directions_idx = html_get_direction_index (self, direction);
+  if (main_directions_idx < 0)
+    {
+      message_list_document_warn (&self->error_messages,
+            self->conf, 0, "not setting an unknown direction: %s",
+                      direction);
+      return;
+    }
+
+  if (customized_global_units_directions->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < customized_global_units_directions->number; i++)
+        {
+          DIRECTION_NODE_NAME *current
+            = &customized_global_units_directions->list[i];
+          if (!strcmp (current->direction, direction))
+            {
+              direction_node_name = current;
+              break;
+            }
+        }
+      if (!direction_node_name)
+        customized_global_units_directions->list
+          = realloc (
+             customized_global_units_directions->list,
+             sizeof (DIRECTION_NODE_NAME)
+              * (customized_global_units_directions->number+1));
+    }
+  else
+    {
+      customized_global_units_directions->list
+        = (DIRECTION_NODE_NAME *)
+            malloc (sizeof (DIRECTION_NODE_NAME));
+    }
+
+  if (!direction_node_name)
+    {
+      direction_node_name
+        = &customized_global_units_directions->list[
+            customized_global_units_directions->number];
+      memset (direction_node_name, 0, sizeof (DIRECTION_NODE_NAME));
+      direction_node_name->direction = strdup (direction);
+      direction_node_name->direction_nr = main_directions_idx+1;
+      customized_global_units_directions->number++;
+    }
+  else
+    {
+      free (direction_node_name->node_name);
+      direction_node_name->node_name = 0;
+    }
+  if (node_name)
+    direction_node_name->node_name = strdup (node_name);
+}
+
 /* Also used to get htmlxref info from Perl.  Initialize in C */
 HTMLXREF_MANUAL *
 new_htmlxref_manual_list (size_t size)

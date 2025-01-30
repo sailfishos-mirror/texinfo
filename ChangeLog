@@ -19,6 +19,26 @@
 
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(conversion_initialization): cache all directions in
+	$self->{'all_directions'}.
+
+	* tp/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(set_global_direction), tp/Texinfo/XS/convert/ConvertXS.xs
+	(html_set_global_direction),
+	tp/Texinfo/XS/convert/html_prepare_converter.c
+	(html_set_global_direction): add set_global_direction to set the node
+	name of a global direction.  Should only be called on an already
+	registered or default global output unit.  Add a C implementation and
+	an XS interface.
+
+	* tp/Makefile.am (test_files),
+	tp/t/init/index_direction_from_index_name.pm, tp/Makefile.tres,
+	tp/t/init_files_tests.t (printindex_set_direction): test
+	set_global_direction.
+
+2025-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (output_tree),
 	tp/Texinfo/Convert/LaTeX.pm (output), tp/Texinfo/Convert/IXIN.pm: fix
 	precedence problem between ! and string eq, which leads to a warning
