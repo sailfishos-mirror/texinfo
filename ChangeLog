@@ -1,5 +1,10 @@
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/Makefile.am (libcallperl_libtexinfo_la_SOURCES): move
+	ppport.h to a SOURCE variable of code that actually includes it.
+
+2025-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/t/init/set_global_direction_for_relative.pm,
 	tp/t/init_files_tests.t: prepare a test in comments to test calling
 	texinfo_register_global_direction and texinfo_register_text_direction

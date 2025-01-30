@@ -68,7 +68,6 @@ noinst_LTLIBRARIES =
 xs_LTLIBRARIES = TestXS.la
 nodist_TestXS_la_SOURCES = TestXS.c
 CLEANFILES += TestXS.c
-TestXS_la_SOURCES = ppport.h
 TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
 TestXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TestXS_la_LIBADD = $(platform_PERL_LIBADD)
@@ -275,6 +274,7 @@ noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the libtexinfo code and need to be compiled with Perl headers
 libcallperl_libtexinfo_la_SOURCES = \
+		      ppport.h \
 		      main/api_to_perl.c \
 		      main/api_to_perl.h \
 		      main/call_perl_function.c \
