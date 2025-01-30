@@ -1,3 +1,11 @@
+2025-01-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (output_tree),
+	tp/Texinfo/Convert/LaTeX.pm (output), tp/Texinfo/Convert/IXIN.pm: fix
+	precedence problem between ! and string eq, which leads to a warning
+	with Perl 5.41.7.  Report from Igor Todorovski, details on:
+	https://github.com/Perl/perl5/issues/22954#issuecomment-2623408763
+
 2025-01-29  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Changing Global Directions Output Units)

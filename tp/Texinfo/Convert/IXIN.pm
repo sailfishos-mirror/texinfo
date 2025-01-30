@@ -341,7 +341,7 @@ sub output_ixin($$)
 
   my $fh;
   my $encoded_output_file;
-  if (! $output_file eq '') {
+  if ($output_file ne '') {
     my $path_encoding;
     ($encoded_output_file, $path_encoding)
       = $self->encoded_output_file_name($output_file);
