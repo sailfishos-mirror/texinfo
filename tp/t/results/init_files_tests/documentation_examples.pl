@@ -1511,6 +1511,42 @@ $result_trees{'documentation_examples'} = {
       }
     },
     {
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Second appendix'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'arguments_line'
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Second-appendix'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'line_nr' => 63
+      }
+    },
+    {
       'cmdname' => 'appendix',
       'contents' => [
         {
@@ -1547,7 +1583,7 @@ $result_trees{'documentation_examples'} = {
         }
       },
       'source_info' => {
-        'line_nr' => 63
+        'line_nr' => 64
       }
     }
   ],
@@ -1619,6 +1655,7 @@ $result_texis{'documentation_examples'} = '
 
 @printindex cp
 
+@node Second appendix
 @appendix Second appendix
 
 ';
@@ -1752,6 +1789,12 @@ $result_sectioning{'documentation_examples'} = {
             {
               'cmdname' => 'appendix',
               'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'Second-appendix'
+                  }
+                },
                 'section_directions' => {
                   'prev' => {},
                   'up' => {}
@@ -1831,6 +1874,22 @@ $result_nodes{'documentation_examples'} = [
                         },
                         'isindex' => 1,
                         'node_directions' => {
+                          'next' => {
+                            'cmdname' => 'node',
+                            'extra' => {
+                              'associated_section' => {
+                                'cmdname' => 'appendix',
+                                'extra' => {
+                                  'section_number' => 'B'
+                                }
+                              },
+                              'node_directions' => {
+                                'prev' => {},
+                                'up' => {}
+                              },
+                              'normalized' => 'Second-appendix'
+                            }
+                          },
                           'prev' => {},
                           'up' => {}
                         },
@@ -1855,8 +1914,11 @@ $result_nodes{'documentation_examples'} = [
   },
   {},
   {},
+  {},
   {}
 ];
+$result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentation_examples'}[0];
 $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentation_examples'}[0];
 $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'};
@@ -1866,6 +1928,7 @@ $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'
 $result_nodes{'documentation_examples'}[1] = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples'}[2] = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples'}[3] = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'documentation_examples'}[4] = $result_nodes{'documentation_examples'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'documentation_examples'} = [
   {
@@ -1886,6 +1949,11 @@ $result_menus{'documentation_examples'} = [
   {
     'extra' => {
       'normalized' => 'Index'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Second-appendix'
     }
   }
 ];

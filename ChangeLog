@@ -1,21 +1,10 @@
-2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.tex (\pdfurl, \pdfmakeurl):
-	Use common definition of \pdfurl for pdftex and xetex.  Use
-	\pdfmakeurl for engine-specific part.
+	* tp/t/init/index_direction_from_index_name.pm
+	(_set_index_global_direction_from_index_name): test setting an unknown
+	direction with set_global_direction.
 
-2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/texinfo.tex (\pdfgettoks) [pdftex, xetex]:
-	Use common definition for pdftex and xetex.
-
-2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/texinfo.tex (\endlink) [pdftex, xetex]:
-	Provide separate definitions for pdftex and xetex.  The previous
-	change broke the defition for xetex because xetex had another
-	definition of \endlink which was then overridden by the common
-	definition.  Report from Werner.
+	Update test results.
 
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
@@ -45,6 +34,25 @@
 	tp/t/init/index_direction_from_index_name.pm, tp/Makefile.tres,
 	tp/t/init_files_tests.t (printindex_set_direction): test
 	set_global_direction.
+
+2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\pdfurl, \pdfmakeurl):
+	Use common definition of \pdfurl for pdftex and xetex.  Use
+	\pdfmakeurl for engine-specific part.
+
+2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\pdfgettoks) [pdftex, xetex]:
+	Use common definition for pdftex and xetex.
+
+2025-01-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\endlink) [pdftex, xetex]:
+	Provide separate definitions for pdftex and xetex.  The previous
+	change broke the defition for xetex because xetex had another
+	definition of \endlink which was then overridden by the common
+	definition.  Report from Werner.
 
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 

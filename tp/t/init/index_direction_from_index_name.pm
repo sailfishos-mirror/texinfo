@@ -17,6 +17,8 @@
 # button.
 # Idea of Werner Lemberg
 
+# also test setting an unknown direction.
+
 use strict;
 
 use Texinfo::Convert::Texinfo;
@@ -61,6 +63,10 @@ sub _set_index_global_direction_from_index_name
       $self->set_global_direction('Index', $node_name);
     }
   }
+
+  # test setting an unknown direction
+  $self->set_global_direction('NewDirection', 'Top');
+
   return 0;
 }
 

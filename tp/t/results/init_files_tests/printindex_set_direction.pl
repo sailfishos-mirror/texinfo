@@ -940,4 +940,14 @@ $result_indices_sort_strings{'printindex_set_direction'} = {
 };
 
 
+$result_converted_errors{'file_html'}->{'printindex_set_direction'} = [
+  {
+    'error_line' => 'warning: not setting an unknown direction: NewDirection
+',
+    'text' => 'not setting an unknown direction: NewDirection',
+    'type' => 'warning'
+  }
+];
+
+
 1;
