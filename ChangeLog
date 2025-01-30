@@ -19,6 +19,15 @@
 
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Setting Global Directions From Document
+	Information), tp/init/documentation_examples.pm
+	(_set_appendix_direction_node_name), tp/t/init_files_tests.t
+	($documentation_examples_text): add the "Setting Global Directions
+	From Document Information" node to document set_global_direction.
+	Add example code to documentation_examples.pm.
+
+2025-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
 	(conversion_initialization): cache all directions in
 	$self->{'all_directions'}.

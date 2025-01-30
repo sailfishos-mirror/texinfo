@@ -10,6 +10,8 @@ use utf8;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
+use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::HTML;
 
 texinfo_set_from_init_file('MATHJAX_CONFIGURATION',
@@ -84,6 +86,9 @@ texinfo_register_command_formatting('setchapternewpage',
      Texinfo::Convert::HTML::default_command_conversion(undef,
                                                  'documentlanguage'));
 
+texinfo_register_global_direction ('Appendix');
+texinfo_register_direction_string_info ('Appendix', 'text', undef, 'Appendix');
+
 my $shown_styles;
 my $footnotestyle;
 sub my_function_set_some_css {
@@ -118,6 +123,44 @@ sub my_function_set_some_css {
 }
 
 texinfo_register_handler('setup', \&my_function_set_some_css);
+
+sub _set_appendix_direction_node_name
+{
+  my ($self, $document, $stage) = @_;
+
+  my $sections_list = $document->sections_list();
+
+  if (!$sections_list or !scalar(@{$sections_list})) {
+    return 0;
+  }
+
+  foreach my $section (@{$sections_list}) {
+    if ($section->{'cmdname'} eq 'appendix') {
+      if ($section->{'extra'}
+          and $section->{'extra'}->{'associated_node'}) {
+        my $node = $section->{'extra'}->{'associated_node'};
+        my $label_element = Texinfo::Common::get_label_element($node);
+        if (defined($label_element)) {
+          my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                            {'contents' => $label_element->{'contents'}});
+          $self->set_global_direction('Appendix', $node_name);
+        }
+      }
+      last;
+    }
+  }
+
+  my $section_header_buttons_list
+    = $self->get_conf('SECTION_BUTTONS');
+  my @modified_buttons = @$section_header_buttons_list;
+  push @modified_buttons, 'Appendix';
+  $self->set_conf('SECTION_BUTTONS', \@modified_buttons);
+
+  return 0;
+}
+
+texinfo_register_handler('setup',
+                       \&_set_appendix_direction_node_name);
 
 sub my_format_separate_anchor($$;$)
 {

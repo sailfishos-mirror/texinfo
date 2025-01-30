@@ -1509,6 +1509,82 @@ $result_trees{'documentation_examples_texi2html'} = {
       'source_info' => {
         'line_nr' => 59
       }
+    },
+    {
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Second appendix'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'arguments_line'
+        }
+      ],
+      'extra' => {
+        'is_target' => 1,
+        'normalized' => 'Second-appendix'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'line_nr' => 63
+      }
+    },
+    {
+      'cmdname' => 'appendix',
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'Second appendix'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => {
+                  'text' => '
+'
+                }
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'type' => 'arguments_line'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'section_number' => 'B'
+      },
+      'info' => {
+        'spaces_before_argument' => {
+          'text' => ' '
+        }
+      },
+      'source_info' => {
+        'line_nr' => 64
+      }
     }
   ],
   'type' => 'document_root'
@@ -1579,6 +1655,9 @@ $result_texis{'documentation_examples_texi2html'} = '
 
 @printindex cp
 
+@node Second appendix
+@appendix Second appendix
+
 ';
 
 
@@ -1625,6 +1704,9 @@ error-->.
 Appendix A Index
 ****************
 
+
+Appendix B Second appendix
+**************************
 
 ';
 
@@ -1703,6 +1785,27 @@ $result_sectioning{'documentation_examples_texi2html'} = {
                   'up' => {}
                 }
               }
+            },
+            {
+              'cmdname' => 'appendix',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'Second-appendix'
+                  }
+                },
+                'section_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                },
+                'section_level' => 1,
+                'section_number' => 'B',
+                'toplevel_directions' => {
+                  'prev' => {},
+                  'up' => {}
+                }
+              }
             }
           ],
           'section_level' => 0,
@@ -1725,6 +1828,10 @@ $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'
 $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[1];
 $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0];
+$result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[2];
+$result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[3]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0];
 $result_sectioning{'documentation_examples_texi2html'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'documentation_examples_texi2html'};
 
 $result_nodes{'documentation_examples_texi2html'} = [
@@ -1767,6 +1874,22 @@ $result_nodes{'documentation_examples_texi2html'} = [
                         },
                         'isindex' => 1,
                         'node_directions' => {
+                          'next' => {
+                            'cmdname' => 'node',
+                            'extra' => {
+                              'associated_section' => {
+                                'cmdname' => 'appendix',
+                                'extra' => {
+                                  'section_number' => 'B'
+                                }
+                              },
+                              'node_directions' => {
+                                'prev' => {},
+                                'up' => {}
+                              },
+                              'normalized' => 'Second-appendix'
+                            }
+                          },
                           'prev' => {},
                           'up' => {}
                         },
@@ -1791,8 +1914,11 @@ $result_nodes{'documentation_examples_texi2html'} = [
   },
   {},
   {},
+  {},
   {}
 ];
+$result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentation_examples_texi2html'}[0];
 $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'documentation_examples_texi2html'}[0];
 $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'};
@@ -1802,6 +1928,7 @@ $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}
 $result_nodes{'documentation_examples_texi2html'}[1] = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples_texi2html'}[2] = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 $result_nodes{'documentation_examples_texi2html'}[3] = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
+$result_nodes{'documentation_examples_texi2html'}[4] = $result_nodes{'documentation_examples_texi2html'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'next'};
 
 $result_menus{'documentation_examples_texi2html'} = [
   {
@@ -1822,6 +1949,11 @@ $result_menus{'documentation_examples_texi2html'} = [
   {
     'extra' => {
       'normalized' => 'Index'
+    }
+  },
+  {
+    'extra' => {
+      'normalized' => 'Second-appendix'
     }
   }
 ];

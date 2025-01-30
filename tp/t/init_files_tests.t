@@ -122,6 +122,9 @@ my $documentation_examples_text = '
 
 @printindex cp
 
+@node Second appendix
+@appendix Second appendix
+
 ';
 
 my $special_unit_direction_customization_text = '@contents

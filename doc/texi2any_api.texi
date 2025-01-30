@@ -4617,6 +4617,74 @@ formatting.
 All the formatting functions take a converter object as first argument.
 
 
+@node Setting Global Directions From Document Information
+@section Setting Global Directions From Document Information
+
+Global directions may be added or modified before any conversion takes
+place (@pxref{Adding Text And Global Output Units Directions}).  It is also
+possible to associate a global output unit direction with a node name Texinfo
+code using the converted document information, by registering a user-defined
+function (@pxref{Init File Calling at Different Stages}) to call
+@code{set_global_direction} on the converter at the @samp{setup} stage.  The
+direction needs to be a default global direction, or to have been registered
+previously, this function cannot be used to add a new direction, only to set
+the association to a node.  It is not a real limitation, as a new direction
+needs to be registered early such that associated direction strings can be set.
+
+@defun @var{$converter}->set_global_direction ($direction, $texinfo_node_name)
+@var{$direction} is a global direction (@pxref{Directions}),
+@var{$texinfo_node_name} is an optional node name Texinfo code.
+The @var{$direction} will point to the output unit associated to the
+@var{$texinfo_node_name} node name, if set and the node exists in the
+Texinfo document.
+@end defun
+
+For example, to associate the first @code{@@appendix} command to the
+@samp{Appendix} direction:
+
+@example
+use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
+
+texinfo_register_global_direction ('Appendix');
+
+texinfo_register_direction_string_info (@dots{})
+@dots{}
+
+sub _set_appendix_direction_node_name
+@{
+  my ($self, $document, $stage) = @@_;
+
+  my $sections_list = $document->sections_list();
+
+  if (!$sections_list or !scalar(@@@{$sections_list@})) @{
+    return 0;
+  @}
+
+  foreach my $section (@@@{$sections_list@}) @{
+    if ($section->@{'cmdname'@} eq 'appendix') @{
+      if ($section->@{'extra'@}
+          and $section->@{'extra'@}->@{'associated_node'@}) @{
+        my $node = $section->@{'extra'@}->@{'associated_node'@};
+        my $label_element = Texinfo::Common::get_label_element($node);
+        if (defined($label_element)) @{
+          my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                        @{'contents' => $label_element->@{'contents'@}@});
+          $self->set_global_direction('Appendix', $node_name);
+        @}
+      @}
+      last;
+    @}
+  @}
+
+  return 0;
+@}
+
+texinfo_register_handler('setup',
+            \&_set_appendix_direction_node_name);
+@end example
+
+
 @node Advanced Navigation Panel Buttons Specification
 @section Advanced Navigation Panel Buttons Specification
 
