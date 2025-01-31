@@ -63,24 +63,7 @@ XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
 
 noinst_LTLIBRARIES =
 
-########################## Test XS used in top source dir configure.ac
-
-xs_LTLIBRARIES = TestXS.la
-nodist_TestXS_la_SOURCES = TestXS.c
-CLEANFILES += TestXS.c
-TestXS_la_CPPFLAGS = $(AM_CPPFLAGS) $(XSLIBS_CPPFLAGS)
-TestXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-TestXS_la_LIBADD = $(platform_PERL_LIBADD)
-TestXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
-
-EXTRA_DIST += TestXS.pm TestXS.xs
-
-# TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES,
-# otherwise dynamic libraries aren't built (a libtool bug).  Work around
-# this by deleting it after it's installed.
-install-data-hook:
-	rm -f $(DESTDIR)$(xsdir)/TestXS*
-
+xs_LTLIBRARIES =
 
 ########################## Specific XS used in targeted override
 

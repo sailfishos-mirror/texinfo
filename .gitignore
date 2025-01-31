@@ -318,7 +318,6 @@ tp/Texinfo/XS/*.la
 tp/Texinfo/XS/.libs
 tp/Texinfo/XS/ctexi2any
 
-tp/Texinfo/XS/TestXS.c
 tp/Texinfo/XS/MiscXS.c
 tp/Texinfo/XS/XSParagraph.c
 tp/Texinfo/XS/config.h

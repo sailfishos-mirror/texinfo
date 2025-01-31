@@ -35,6 +35,8 @@ EXTRA_DIST += TestXS.pm TestXS.xs
 # TestXS.la has to be included in xs_LIBRARIES, and not noinst_LIBRARIES,
 # otherwise dynamic libraries aren't built (a libtool bug).  Work around
 # this by deleting it after it's installed.
+# Note that there is no reason for the XS module to be installed in the
+# first place, as this directory is not in SUBDIR.
 install-data-hook:
 	rm -f $(DESTDIR)$(xsdir)/TestXS*
 
