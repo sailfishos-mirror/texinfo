@@ -1,5 +1,11 @@
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac: move code around, to have Perl variables
+	setting in the same block and separate test with Autoconf/Gnulib
+	headers and tests with Perl headers better.
+
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac (PERL_CONF_cc): always define.
 
 	* tp/Texinfo/XS/configure.ac: remove unset and unused

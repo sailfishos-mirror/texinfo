@@ -9,7 +9,7 @@
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-#
+
 AC_INIT([GNU Texinfo], [7.2dev])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
@@ -22,6 +22,13 @@ AC_SUBST([TEXINFO_DTD_VERSION])
 
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
+
+AC_ARG_ENABLE([additional-checks],
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
+    [ enable_additional_tests=$enableval],
+    [ enable_additional_tests=no])
+
+AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
 
 AC_PATH_PROG([PERL], [perl])
 
@@ -112,6 +119,26 @@ AM_MISSING_PROG([XSUBPP], [xsubpp])
 XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
+# Use the -no-undefined flag on MS-Windows.  See info node
+# `(gnulib)Libtool and Windows'.  The -L and -l options in
+# platform_PERL_LIBADD show where to find the undefined symbols when
+# linking against Perl.
+case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
+  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
+  platform_PERL_LIBADD=$perl_conf_LIBS
+  # to be used for shared libraries not linked against Perl.
+  platform_LDFLAGS='-no-undefined'
+  ;;
+esac
+
+AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
+AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
+AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
+AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
+AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
+AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
+AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
+
 #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
 # to check that Perl module loading the XS objects and XS objects versions
 # match.  A hyphen is also turned to a dot for the Perl module version.
@@ -120,21 +147,6 @@ AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
-
-# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
-# XS and could lead to memory corruption, depending on the platform.
-usable_getenv_in_XS=no
-AC_MSG_CHECKING([Perl XS with usable getenv])
-if $PERL -e "use 5.038" >/dev/null 2>&1; then
-  usable_getenv_in_XS=yes
-fi
-AC_MSG_RESULT($usable_getenv_in_XS)
-
-if test $usable_getenv_in_XS = yes ; then
-  # currently unused
-  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
-            [Define to 1 if getenv can be used in XS])
-fi
 
 AC_MSG_CHECKING([ExtUtils::Embed])
 if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then
@@ -151,12 +163,23 @@ if test "z$extutils_embed" = 'zyes' ; then
   PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
 fi
 
-AC_ARG_ENABLE([additional-checks],
-    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
-    [ enable_additional_tests=$enableval],
-    [ enable_additional_tests=no])
+AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
+AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
 
-AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
+# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
+# XS and could lead to memory corruption, depending on the platform.
+usable_getenv_in_XS=no
+AC_MSG_CHECKING([Perl XS with usable getenv])
+if $PERL -e "use 5.038" >/dev/null 2>&1; then
+  usable_getenv_in_XS=yes
+fi
+AC_MSG_RESULT($usable_getenv_in_XS)
+
+if test $usable_getenv_in_XS = yes ; then
+  # currently unused
+  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
+            [Define to 1 if getenv can be used in XS])
+fi
 
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],
@@ -167,7 +190,6 @@ AC_ARG_ENABLE([perl-xs],
        disable_xs=no
      fi],
      [disable_xs=no])
-
 
 # PERL_EXT_var are user variables for a Perl XS extension, allowing
 # configuring at the top-level with e.g.
@@ -230,11 +252,10 @@ gl_INIT
 
 LT_INIT([disable-static dlopen])
 
-# Note that the above have to be outside the disable_xs block
-# otherwise it causes an error with configure.
-
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
+
+AC_CHECK_FUNCS(newlocale strxfrm_l)
 
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.
@@ -398,31 +419,6 @@ AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
 # CPPFLAGS-like variable, the main CPPFLAGS is modified.
 CFLAGS=$PERL_EXT_CFLAGS
 LDFLAGS=$PERL_EXT_LDFLAGS
-
-# Use the -no-undefined flag on MS-Windows.  See info node
-# `(gnulib)Libtool and Windows'.  The -L and -l options in
-# platform_PERL_LIBADD show where to find the undefined symbols when
-# linking against Perl.
-case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
-  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
-  platform_PERL_LIBADD=$perl_conf_LIBS
-  # to be used for shared libraries not linked against Perl.
-  platform_LDFLAGS='-no-undefined'
-  ;;
-esac
-
-AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
-AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
-AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
-AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
-AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
-AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
-AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
-
-AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
-AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
-
-AC_CHECK_FUNCS(newlocale strxfrm_l)
 
 # Output these with the _CONFIG suffix as we use the originals as names
 # of customization variables.
