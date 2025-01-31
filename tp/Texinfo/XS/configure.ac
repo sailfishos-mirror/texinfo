@@ -13,7 +13,7 @@
 AC_INIT([GNU Texinfo], [7.2dev])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
-AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
+AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4])
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -32,121 +32,8 @@ AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = 
 
 AC_PATH_PROG([PERL], [perl])
 
-# Get Perl configuration variables and set derived variables
-b='\'
-d='$'
-o='@<:@' dnl quadrigraph for [ - see autoconf documentation
-c='@:>@' dnl quadrigraph for ]
-
-# This turns a string like "cc='cc';" into a string like "cc".
-# Afterwards, convert \ into / in case \ is a path separator,
-# so it is not interpreted as a special character by the shell.
-
-sed_script="
-s/^$o^=$c*= *//
-s/^'//
-s/ *; *$//
-s/'$d//
-s/$b$b/$b//g"
-#'
-
-# In general there is no need to remove a carriage return explicitely,
-# either there is none to begin with (on Unix, with Cygwin Perl) or
-# the shell (case of mingw on MSYS) does it already.  When doing a
-# mingw on Cygwin 'fake' cross-compilation using native Perl, however,
-# the shell is the Cygwin shell that do not remove carriage returns
-# automatically, while the native Perl emits carriage returns.
-# we use something complicated because \r does not work in some
-# sed implementations.
-subst_cr=`printf 's/\r//g'`
-fetch_conf ()
-{
-          conf_value=`${PERL} -V:$1 | sed $subst_cr`
-          conf_value=`echo $conf_value | sed "$sed_script"`
-} 
-
-AC_DEFUN([lookup_perl_conf],
-         [AC_MSG_CHECKING([Perl configuration value $1])
-          fetch_conf $1
-          AC_MSG_RESULT([$conf_value])
-          PERL_CONF_$1=$conf_value
-])
-
-AC_DEFUN([lookup_perl_conf_values],
-          [m4_foreach([var], [$1], [lookup_perl_conf(var)])
-])
-
-# defines PERL_CONF_cc
-lookup_perl_conf([cc])
-
-# ccflags: contains any additional C compiler flags desired by the user
-# cccdlflags: compilation flags to compile modules to be used to
-#             create a shared library that will be used for dynamic loading
-# ldflags: contains any additional C loader flags desired by the user
-# optimize: contains any optimizer/debugger flag that should be used
-# ccdlflags: link flags to link with a shared library for dynamic loading.
-#            for example -rpath.
-lookup_perl_conf_values([[ccflags], [cccdlflags], [ldflags], [optimize],
-                         [ccdlflags]])
-
-# we do not use PERL_CONF_optimize because it often conflicts with
-# PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
-perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
-perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
-
-# PERL_EXTUTILS_EMBED_ccopts is used for CPPFLAGS and includes ccflags
-# but not cccdlflags
-perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
-
-# perllibs: The list of libraries needed by Perl only
-lookup_perl_conf_values([[libperl], [perllibs]])
-# Change libperl.so into -lperl to indicate a library dependency to
-# libtool.
-# Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl
-PERL_CONF_libperl=`echo $PERL_CONF_libperl \
-             | sed -e 's/^lib/-l/' \
-                   -e 's/\..*//' \
-                   -e 's/^cygperl.*/-lperl/' `
-
-lookup_perl_conf_values([[archlibexp], [privlibexp]])
-# perl_inc in ExtUtils::Embed
-perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
-
-perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
-
-AM_MISSING_PROG([XSUBPP], [xsubpp])
-
-XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
-AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
-
-# Use the -no-undefined flag on MS-Windows.  See info node
-# `(gnulib)Libtool and Windows'.  The -L and -l options in
-# platform_PERL_LIBADD show where to find the undefined symbols when
-# linking against Perl.
-case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
-  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
-  platform_PERL_LIBADD=$perl_conf_LIBS
-  # to be used for shared libraries not linked against Perl.
-  platform_LDFLAGS='-no-undefined'
-  ;;
-esac
-
-AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
-AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
-AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
-AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
-AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
-AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
-AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
-
-#PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
-# to check that Perl module loading the XS objects and XS objects versions
-# match.  A hyphen is also turned to a dot for the Perl module version.
-# We remove a "dev" suffix because the XS bootstrap functions choke on
-# non-numeric versions.
-PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
-
-AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
+# setup perl_conf*, XSUBPP* and XS_VERSION variables to build Perl XS modules
+txi_PERL_CONF
 
 AC_MSG_CHECKING([ExtUtils::Embed])
 if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then

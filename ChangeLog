@@ -1,5 +1,18 @@
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/m4/txi_perl_conf.m4 (txi_LOOKUP_PERL_CONF)
+	(txi_LOOKUP_PERL_CONF_VALUES, txi_PERL_CONF),
+	tp/Texinfo/XS/configure.ac, tp/Texinfo/XS/Makefile.am
+	(ACLOCAL_AMFLAGS): move XS/configure.ac code determining Perl
+	variables to an autoconf macro, txi_LOOKUP_PERL_CONF
+	in XS/m4/txi_perl_conf.m4.  Rename lookup_perl_conf macro as
+	txi_LOOKUP_PERL_CONF and lookup_perl_conf_values macro as
+	txi_LOOKUP_PERL_CONF_VALUES and move to txi_perl_conf.m4 too.
+	The objective is to be able to call the macro from another directory
+	to come.
+
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: move code around, to have Perl variables
 	setting in the same block and separate test with Autoconf/Gnulib
 	headers and tests with Perl headers better.

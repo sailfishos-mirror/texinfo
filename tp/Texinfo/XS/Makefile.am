@@ -25,7 +25,7 @@ AM_CPPFLAGS = -I$(srcdir)
 GNULIB_CPPFLAGS = -I$(srcdir)/gnulib/lib \
   -I$(builddir)/gnulib/lib
 
-ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4
+ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4 -I m4
 
 SUBDIRS=gnulib/lib
 
