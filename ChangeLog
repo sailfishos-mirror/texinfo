@@ -1,3 +1,11 @@
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/z_misc/html_convert_tree.t (convert tree with tree handle)
+	($XS_parser, SKIP): skip "convert tree with tree handle" test if
+	XS_parser is set, as it is possible that the Perl parser is used even
+	if XS_parser is set.  Indeed, if iconv is not functional, $XS_parser
+	will be set, but the Parser XS won't be built.
+
 2025-01-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Accent commands for PDF outline
