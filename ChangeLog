@@ -1,5 +1,13 @@
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/TestXS/configure.ac, tp/Texinfo/TestXS/Makefile.am,
+	tp/Texinfo/TestXS/TestXS.pm, tp/Texinfo/TestXS/TestXS.xs,
+	tp/maintain/change_perl_modules_version.sh: add a simple project
+	directory that builds TestXS modules isolated from the main XS
+	directory, to be used to check whether XS modules can be built.
+
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/m4/txi_perl_conf.m4 (txi_LOOKUP_PERL_CONF)
 	(txi_LOOKUP_PERL_CONF_VALUES, txi_PERL_CONF),
 	tp/Texinfo/XS/configure.ac, tp/Texinfo/XS/Makefile.am
