@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-30.20}
+\def\texinfoversion{2025-01-31.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -3703,13 +3703,22 @@ $$%
      {\font\thisecfont = #1ctt\ecsize \space at \nominalsize}%
   % else
      {\ifx\curfontstyle\bfstylename
-        % bold:
-        \font\thisecfont = #1cb\ifusingit{i}{x}\ecsize \space at \nominalsize
+        \etcfontbold{#1}%
       \else
-        % regular:
-        \font\thisecfont = #1c\ifusingit{ti}{rm}\ecsize \space at \nominalsize
+        \ifrmisbold
+          \etcfontbold{#1}%
+        \else
+          % regular:
+          \font\thisecfont = #1c\ifusingit{ti}{rm}\ecsize \space
+            at \nominalsize
+        \fi
       \fi}%
   \thisecfont
+}
+
+\def\etcfontbold#1{%
+  % bold:
+  \font\thisecfont = #1cb\ifusingit{i}{x}\ecsize \space at \nominalsize
 }
 
 % @registeredsymbol - R in a circle.  The font for the R should really
