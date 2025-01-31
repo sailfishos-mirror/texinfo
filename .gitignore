@@ -101,6 +101,11 @@ gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
 
 tp/Texinfo/TestXS/build-aux/**
+tp/Texinfo/TestXS/.libs
+tp/Texinfo/TestXS/TestXS.c
+tp/Texinfo/TestXS/*.la
+tp/Texinfo/TestXS/*.lo
+tp/Texinfo/TestXS/libtool
 
 tp/Texinfo/XS/teximakehtml
 

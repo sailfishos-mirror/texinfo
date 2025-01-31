@@ -36,7 +36,7 @@ endif
 
 SUBDIRS += . tests
 
-DIST_SUBDIRS = Texinfo/XS tests
+DIST_SUBDIRS = Texinfo/TestXS Texinfo/XS tests
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

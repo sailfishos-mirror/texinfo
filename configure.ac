@@ -473,7 +473,7 @@ esac
 # not to work.
 #
 save_subdirs=$subdirs
-subdirs=tp/Texinfo/XS
+subdirs=tp/Texinfo/TestXS
 ( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
 subdirs=$save_subdirs
 
@@ -485,13 +485,13 @@ if test $enable_xs = check; then
   AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
   AC_MSG_RESULT([])
   enable_xs=no
-  (cd tp/Texinfo/XS \
+  (cd tp/Texinfo/TestXS \
    && make clean \
    && make TestXS.la \
    && TEXINFO_XS=debug ; export TEXINFO_XS \
    && ${PERL} -I . \
               -I ${xs_srcdir} \
-              -e 'require Texinfo::XS::TestXS;' \
+              -e 'require Texinfo::TestXS::TestXS;' \
       | grep 'message from XS module') \
   && enable_xs=yes
   AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
@@ -670,6 +670,8 @@ AC_CONFIG_FILES([\
 
 AC_CONFIG_FILES([pre-inst-env:build-aux/pre-inst-env.in],
   [chmod +x pre-inst-env])
+
+AC_CONFIG_SUBDIRS([tp/Texinfo/XS])
 
 AC_OUTPUT
 

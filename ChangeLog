@@ -1,5 +1,15 @@
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	Test XS build in tp/Texinfo/TestXS/ directory
+
+	* autogen.sh, configure.ac (AC_CONFIG_SUBDIRS), tp/Makefile.am
+	(DIST_SUBDIRS): change main configure.ac to run _AC_OUTPUT_SUBDIRS in
+	tp/Texinfo/TestXS/, compile and run TestXS in this directory.
+	Use AC_CONFIG_SUBDIRS for tp/Texinfo/XS.  Add Texinfo/TestXS in
+	tp/Makefile.am DIST_SUBDIRS.
+
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/TestXS/configure.ac, tp/Texinfo/TestXS/Makefile.am,
 	tp/Texinfo/TestXS/TestXS.pm, tp/Texinfo/TestXS/TestXS.xs,
 	tp/maintain/change_perl_modules_version.sh: add a simple project

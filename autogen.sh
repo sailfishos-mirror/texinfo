@@ -44,6 +44,11 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
+cmd="(cd tp/Texinfo/TestXS && ${LIBTOOLIZE} \
+ && autoreconf --verbose --install)"
+echo "  $cmd"
+$chicken eval $cmd || exit 1
+
 cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
  && AUTOPOINT=true autoreconf --verbose --install)"
 echo "  $cmd"
