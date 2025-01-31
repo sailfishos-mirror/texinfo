@@ -2402,6 +2402,13 @@ For PDF output, check the bookmarks pane in the reader.
 
 This section should be called ``@{ @} @@ @{ @} @arrow{} @@ @{''.
 
+@section --- @"o @'o @,{c} @=o @^o @`o @~o @dotaccent{o} @H{o} @ogonek{a} @ogonek{x} @ringaccent{o} @tieaccent{oo} @u{o} @ubaraccent{o} @udotaccent{o} @v{o}
+
+This section tests all the accent commands, and should be called:@*
+--- @"o @'o @,{c} @=o @^o @`o @~o @dotaccent{o} @H{o} @ogonek{a} @ogonek{x} @ringaccent{o} @tieaccent{oo} @u{o} @ubaraccent{o} @udotaccent{o} @v{o}
+
+
+
 
 @node Special characters
 @section ~[]"_|<>$#&%+\

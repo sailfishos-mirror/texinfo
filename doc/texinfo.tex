@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-31.19}
+\def\texinfoversion{2025-01-31.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1200,6 +1200,7 @@ output) for that.)}
     % Completely expand, eliminating any control sequences such as \code,
     % leaving only possibly \utfbytes.
     \let\utfbytes\relax
+    \pdfaccentliterals
     \xdef\pdfoutlinetextchecked{#1}%
     \checkutfbytes
   }%
@@ -1364,7 +1365,8 @@ output) for that.)}
           % For LuaTeX with UTF-8.
           % Pass through Unicode characters for title texts.
           \passthroughcharstrue
-          \def\pdfoutlinetext{#1}%
+          \pdfaccentliterals
+          \xdef\pdfoutlinetext{#1}%
         \else
           % For pdfTeX with UTF-8.
           \defpdfoutlinetextunicode{#1}%
@@ -1669,6 +1671,7 @@ output) for that.)}
       % Therefore, the encoding and the language may not be considered.
       %
       \indexnofonts
+      \pdfaccentliterals
       \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
       %
       \setupdatafile
@@ -1875,6 +1878,68 @@ output) for that.)}
   \def\done{\edef\st{\global\noexpand\toksA={\the\toksB}}\st}
 \fi
 
+\ifpdforxetex
+  % for pdftex.
+  {\catcode`^^cc=13
+  \gdef\pdfaccentliteralsutfviii{%
+    % For PDF outline only.  Unicode combining accents follow the
+    % character they modify.  Note we need at least the first byte
+    % of the UTF-8 sequences to have an active catcode to allow the
+    % definitions to do their magic.
+    \def\"##1{##1^^cc^^88}%           U+0308
+    \def\'##1{##1^^cc^^81}%           U+0301
+    \def\,##1{##1^^cc^^a7}%           U+0327
+    \def\=##1{##1^^cc^^85}%           U+0305
+    \def\^##1{##1^^cc^^82}%           U+0302
+    \def\`##1{##1^^cc^^80}%           U+0300
+    \def\~##1{##1^^cc^^83}%           U+0303
+    \def\dotaccent##1{##1^^cc^^87}%   U+0307
+    \def\H##1{##1^^cc^^8b}%           U+030B
+    \def\ogonek##1{##1^^cc^^a8}%      U+0328
+    \def\ringaccent##1{##1^^cc^^8a}%  U+030A
+    \def\u##1{##1^^cc^^8c}%           U+0306
+    \def\ubaraccent##1{##1^^cc^^b1}%  U+0331
+    \def\udotaccent##1{##1^^cc^^a3}%  U+0323
+    \def\v##1{##1^^cc^^8c}%           U+030C
+    % this definition of @tieaccent will only work with exactly two characters
+    % in argument as we need to insert the combining character between them.
+    \def\tieaccent##1{\tieaccentz##1}%
+    \def\tieaccentz##1##2{##1^^cd^^a1##2} % U+0361
+  }}%
+  %
+  % for xetex and luatex, which both support extended ^^^^ escapes and
+  % process the Unicode codepoint as a single token.
+  \gdef\pdfaccentliteralsnative{%
+    \def\"##1{##1^^^^0308}%
+    \def\'##1{##1^^^^0301}%
+    \def\,##1{##1^^^^0327}%
+    \def\=##1{##1^^^^0305}%
+    \def\^##1{##1^^^^0302}%
+    \def\`##1{##1^^^^0300}%
+    \def\~##1{##1^^^^0303}%
+    \def\dotaccent##1{##1^^^^0307}%
+    \def\H##1{##1^^^^030b}%
+    \def\ogonek##1{##1^^^^0328}%
+    \def\ringaccent##1{##1^^^^030a}%
+    \def\u##1{##1^^^^0306}%
+    \def\ubaraccent##1{##1^^^^0331}%
+    \def\udotaccent##1{##1^^^^0323}%
+    \def\v##1{##1^^^^030c}%
+    \def\tieaccent##1{\tieaccentz##1}%
+    \def\tieaccentz##1##2{##1^^^^0361##2} % U+0361
+  }%
+  %
+  % use the appropriate definition
+  \ifluatex
+    \let\pdfaccentliterals\pdfaccentliteralsnative
+  \else
+    \ifxetex
+      \let\pdfaccentliterals\pdfaccentliteralsnative
+    \else
+      \let\pdfaccentliterals\pdfaccentliteralsutfviii
+    \fi
+  \fi
+\fi
 
 %
 \message{fonts,}
@@ -11432,6 +11497,25 @@ directory should work if nowhere else does.}
   %
   \global\mathchardef\checkmark="1370% actually the square root sign
   \DeclareUnicodeCharacter{2713}{\ensuremath\checkmark}%
+  %
+  % These are all the combining accents.  We need these empty definitions
+  % at present for the sake of PDF outlines.
+  \DeclareUnicodeCharacter{0300}{}%
+  \DeclareUnicodeCharacter{0301}{}%
+  \DeclareUnicodeCharacter{0302}{}%
+  \DeclareUnicodeCharacter{0303}{}%
+  \DeclareUnicodeCharacter{0305}{}%
+  \DeclareUnicodeCharacter{0306}{}%
+  \DeclareUnicodeCharacter{0307}{}%
+  \DeclareUnicodeCharacter{0308}{}%
+  \DeclareUnicodeCharacter{030A}{}%
+  \DeclareUnicodeCharacter{030B}{}%
+  \DeclareUnicodeCharacter{030C}{}%
+  \DeclareUnicodeCharacter{0323}{}%
+  \DeclareUnicodeCharacter{0327}{}%
+  \DeclareUnicodeCharacter{0328}{}%
+  \DeclareUnicodeCharacter{0331}{}%
+  \DeclareUnicodeCharacter{0361}{}%
 }% end of \unicodechardefs
 
 % UTF-8 byte sequence (pdfTeX) definitions (replacing and @U command)
