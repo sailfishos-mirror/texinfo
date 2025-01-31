@@ -126,77 +126,66 @@ AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 
-perl_conf_CPPFLAGS=
-perl_conf_CFLAGS=
-platform_LDFLAGS=
-perl_conf_LDFLAGS=
-perl_conf_LIBS=
-XSUBPPARGS=
-PACKAGE_XS_VERSION=0
-
-# See (automake)Conditional Subdirectories.  Even if --disable-perl-xs
-# is given, we still need to configure this directory minimally, so that
-# "make dist" will work.
-if test x$disable_xs != xyes; then
-  #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
-  # to check that Perl module loading the XS objects and XS objects versions
-  # match.  A hyphen is also turned to a dot for the Perl module version.
-  # We remove a "dev" suffix because the XS bootstrap functions choke on
-  # non-numeric versions.
-  PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
-
-  if test -n "$PERL_EXT_CC" ; then
-    CC=$PERL_EXT_CC
-  else
+if test -n "$PERL_EXT_CC" ; then
+  CC=$PERL_EXT_CC
+else
+  if test x$disable_xs != xyes; then
     # It's essential that we use the same compiler that was used to build
     # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
     # the check in AC_PROG_CC below.
     lookup_perl_conf([cc])
     CC=$conf_value
-  fi
+  fi # not disable_xs
+fi
 
-  # Wipe cache values in case -C was given at the top level
-  ac_cv_prog_CC= ; unset ac_cv_prog_CC
-  ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
+# Wipe cache values in case -C was given at the top level
+ac_cv_prog_CC= ; unset ac_cv_prog_CC
+ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
-  # ccflags: contains any additional C compiler flags desired by the user
-  # cccdlflags: compilation flags to compile modules to be used to
-  #             create a shared library that will be used for dynamic loading
-  # ldflags: contains any additional C loader flags desired by the user
-  # optimize: contains any optimizer/debugger flag that should be used
-  # ccdlflags: link flags to link with a shared library for dynamic loading.
-  #            for example -rpath.
-  lookup_perl_conf_values([[ccflags], [cccdlflags], [ldflags], [optimize],
-                           [ccdlflags]])
-  
-  # we do not use PERL_CONF_optimize because it often conflicts with
-  # PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
-  perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
-  perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
+# ccflags: contains any additional C compiler flags desired by the user
+# cccdlflags: compilation flags to compile modules to be used to
+#             create a shared library that will be used for dynamic loading
+# ldflags: contains any additional C loader flags desired by the user
+# optimize: contains any optimizer/debugger flag that should be used
+# ccdlflags: link flags to link with a shared library for dynamic loading.
+#            for example -rpath.
+lookup_perl_conf_values([[ccflags], [cccdlflags], [ldflags], [optimize],
+                         [ccdlflags]])
 
-  # PERL_EXTUTILS_EMBED_ccopts is used for CPPFLAGS and includes ccflags
-  # but not cccdlflags
-  perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
+# we do not use PERL_CONF_optimize because it often conflicts with
+# PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
+perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
+perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
-  # perllibs: The list of libraries needed by Perl only
-  lookup_perl_conf_values([[libperl], [perllibs]])
-  # Change libperl.so into -lperl to indicate a library dependency to 
-  # libtool.
-  # Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl
-  PERL_CONF_libperl=`echo $PERL_CONF_libperl \
+# PERL_EXTUTILS_EMBED_ccopts is used for CPPFLAGS and includes ccflags
+# but not cccdlflags
+perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
+
+# perllibs: The list of libraries needed by Perl only
+lookup_perl_conf_values([[libperl], [perllibs]])
+# Change libperl.so into -lperl to indicate a library dependency to
+# libtool.
+# Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl
+PERL_CONF_libperl=`echo $PERL_CONF_libperl \
              | sed -e 's/^lib/-l/' \
                    -e 's/\..*//' \
                    -e 's/^cygperl.*/-lperl/' `
-  
-  lookup_perl_conf_values([[archlibexp], [privlibexp]])
-  # perl_inc in ExtUtils::Embed
-  perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
-  XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
-  
-  perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
-fi # not disable_xs
 
+lookup_perl_conf_values([[archlibexp], [privlibexp]])
+# perl_inc in ExtUtils::Embed
+perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
+
+perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
+
+XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
+
+#PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
+# to check that Perl module loading the XS objects and XS objects versions
+# match.  A hyphen is also turned to a dot for the Perl module version.
+# We remove a "dev" suffix because the XS bootstrap functions choke on
+# non-numeric versions.
+PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
 
