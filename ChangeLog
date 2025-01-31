@@ -1,5 +1,15 @@
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/configure.ac (PERL_CONF_cc): always define.
+
+	* tp/Texinfo/XS/configure.ac: remove unset and unused
+	perl_conf_EMBED_LDFLAGS variable.
+
+	* tp/Texinfo/XS/configure.ac: move code around, mainly to have Perl
+	variables setting in the same block.
+
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/configure.ac: set variables that do not depend on
 	disable_xs outside of the if disable_xs.  This leaves setting CC
 	depending on disable_xs only, if PERL_EXT_CC is not set.

@@ -25,21 +25,7 @@ AC_SUBST([CONVERTER])
 
 AC_PATH_PROG([PERL], [perl])
 
-# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
-# XS and could lead to memory corruption, depending on the platform.
-usable_getenv_in_XS=no
-AC_MSG_CHECKING([Perl XS with usable getenv])
-if $PERL -e "use 5.038" >/dev/null 2>&1; then
-  usable_getenv_in_XS=yes
-fi
-AC_MSG_RESULT($usable_getenv_in_XS)
-
-if test $usable_getenv_in_XS = yes ; then
-  # currently unused
-  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
-            [Define to 1 if getenv can be used in XS])
-fi
-
+# Get Perl configuration variables and set derived variables
 b='\'
 d='$'
 o='@<:@' dnl quadrigraph for [ - see autoconf documentation
@@ -83,64 +69,8 @@ AC_DEFUN([lookup_perl_conf_values],
           [m4_foreach([var], [$1], [lookup_perl_conf(var)])
 ])
 
-AC_MSG_CHECKING([ExtUtils::Embed])
-if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then
-  extutils_embed='yes'
-else
-  extutils_embed='no'
-fi
-AC_MSG_RESULT($extutils_embed)
-
-PERL_EXTUTILS_EMBED_ccopts=
-PERL_EXTUTILS_EMBED_ldopts=
-if test "z$extutils_embed" = 'zyes' ; then
-  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
-  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
-fi
-
-AC_ARG_ENABLE([additional-checks],
-    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
-    [ enable_additional_tests=$enableval],
-    [ enable_additional_tests=no])
-
-AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
-
-AC_ARG_ENABLE([perl-xs],
-    AS_HELP_STRING([--enable-perl-xs],
-              [build Perl XS modules for speed (default: yes)]),
-    [if test $enableval = 'no'; then
-       disable_xs=yes
-     else
-       disable_xs=no
-     fi],
-     [disable_xs=no])
-
-# PERL_EXT_var are user variables for a Perl XS extension, allowing
-# configuring at the top-level with e.g.
-#     "./configure CFLAGS='-g -O0' PERL_EXT_CFLAGS='-g'".
-# May be useful if the Perl interpreter was compiled with a
-# different compiler.  Also in top-level configure.ac.
-
-AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
-AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
-AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
-AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
-
-if test -n "$PERL_EXT_CC" ; then
-  CC=$PERL_EXT_CC
-else
-  if test x$disable_xs != xyes; then
-    # It's essential that we use the same compiler that was used to build
-    # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
-    # the check in AC_PROG_CC below.
-    lookup_perl_conf([cc])
-    CC=$conf_value
-  fi # not disable_xs
-fi
-
-# Wipe cache values in case -C was given at the top level
-ac_cv_prog_CC= ; unset ac_cv_prog_CC
-ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
+# defines PERL_CONF_cc
+lookup_perl_conf([cc])
 
 # ccflags: contains any additional C compiler flags desired by the user
 # cccdlflags: compilation flags to compile modules to be used to
@@ -177,6 +107,8 @@ perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
 
 perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
 
+AM_MISSING_PROG([XSUBPP], [xsubpp])
+
 XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
@@ -189,10 +121,84 @@ PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
 
+# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
+# XS and could lead to memory corruption, depending on the platform.
+usable_getenv_in_XS=no
+AC_MSG_CHECKING([Perl XS with usable getenv])
+if $PERL -e "use 5.038" >/dev/null 2>&1; then
+  usable_getenv_in_XS=yes
+fi
+AC_MSG_RESULT($usable_getenv_in_XS)
+
+if test $usable_getenv_in_XS = yes ; then
+  # currently unused
+  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
+            [Define to 1 if getenv can be used in XS])
+fi
+
+AC_MSG_CHECKING([ExtUtils::Embed])
+if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then
+  extutils_embed='yes'
+else
+  extutils_embed='no'
+fi
+AC_MSG_RESULT($extutils_embed)
+
+PERL_EXTUTILS_EMBED_ccopts=
+PERL_EXTUTILS_EMBED_ldopts=
+if test "z$extutils_embed" = 'zyes' ; then
+  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
+  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
+fi
+
+AC_ARG_ENABLE([additional-checks],
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
+    [ enable_additional_tests=$enableval],
+    [ enable_additional_tests=no])
+
+AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
+
+AC_ARG_ENABLE([perl-xs],
+    AS_HELP_STRING([--enable-perl-xs],
+              [build Perl XS modules for speed (default: yes)]),
+    [if test $enableval = 'no'; then
+       disable_xs=yes
+     else
+       disable_xs=no
+     fi],
+     [disable_xs=no])
+
+
+# PERL_EXT_var are user variables for a Perl XS extension, allowing
+# configuring at the top-level with e.g.
+#     "./configure CFLAGS='-g -O0' PERL_EXT_CFLAGS='-g'".
+# May be useful if the Perl interpreter was compiled with a
+# different compiler.  Also in top-level configure.ac.
+
+AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
+
 # Override these variables set by configure at the top level, because
 # the compiler used in this subdirectory might be different.
 # Change these now so they are used in the checks that follow so that
 # we are using the same flags for the checks as for the build.
+
+if test -n "$PERL_EXT_CC" ; then
+  CC=$PERL_EXT_CC
+else
+  if test x$disable_xs != xyes; then
+    # It's essential that we use the same compiler that was used to build
+    # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
+    # the check in AC_PROG_CC below.
+    CC=$PERL_CONF_cc
+  fi # not disable_xs
+fi
+
+# Wipe cache values in case -C was given at the top level
+ac_cv_prog_CC= ; unset ac_cv_prog_CC
+ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
 # The usual configure checks use the Autoconf/Gnulib includes, but do not
 # compile nor link against Perl.  The result of those checks are used for
@@ -218,7 +224,6 @@ gl_EARLY
 AM_GNU_GETTEXT_VERSION([0.22.5])
 AM_GNU_GETTEXT([external])
 
-AM_MISSING_PROG([XSUBPP], [xsubpp])
 AM_MISSING_PROG([GAWK], [gawk])
 
 gl_INIT
@@ -260,8 +265,6 @@ fi
 embedded_perl=no
 
 if test x$disable_xs != xyes -a $extutils_embed = yes ; then
-  perl_conf_EMBED_LDFLAGS=
-
   # having XS enabled, the Perl headers corresponding to libperl and
   # ExtUtils::Embed installed do not ensure
   # that the Perl library .so/.a file needed for linking against libperl
