@@ -15,6 +15,8 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
 
+AC_CONFIG_HEADERS([config.h])
+
 TEXINFO_DTD_VERSION=7.2
 AC_SUBST([TEXINFO_DTD_VERSION])
 
@@ -176,14 +178,6 @@ if test x$disable_xs != xyes; then
   # but not cccdlflags
   perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
 
-  # Override these variables set by configure at the top level, because 
-  # the compiler used in this subdirectory might be different.
-  # Change these now so they are used in the checks that follow so that
-  # we are using the same flags for the checks as for the build.
-  CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
-  CPPFLAGS=$PERL_EXT_CPPFLAGS
-  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
-  
   # perllibs: The list of libraries needed by Perl only
   lookup_perl_conf_values([[libperl], [perllibs]])
   # Change libperl.so into -lperl to indicate a library dependency to 
@@ -200,12 +194,28 @@ if test x$disable_xs != xyes; then
   XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
   
   perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
-  AC_CONFIG_HEADERS([config.h])
 fi # not disable_xs
 
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
+
+# Override these variables set by configure at the top level, because
+# the compiler used in this subdirectory might be different.
+# Change these now so they are used in the checks that follow so that
+# we are using the same flags for the checks as for the build.
+
+# The usual configure checks use the Autoconf/Gnulib includes, but do not
+# compile nor link against Perl.  The result of those checks are used for
+# code never compiled with the Perl flags.  Therefore we do not set the Perl
+# flags.
+CFLAGS=$PERL_EXT_CFLAGS
+CPPFLAGS=$PERL_EXT_CPPFLAGS
+LDFLAGS=$PERL_EXT_LDFLAGS
+# Specific checks against Perl should not have the Autoconf/Gnulib includes
+# but could set the following:
+#CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+#LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 
 AC_PROG_CC
 

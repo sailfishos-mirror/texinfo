@@ -1,3 +1,14 @@
+2025-01-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/configure.ac (AC_CONFIG_HEADERS, CFLAGS, CPPFLAGS)
+	(LDFLAGS): move AC_CONFIG_HEADERS outside of the disable_xs block,
+	such that it is always set.
+	Set CFLAGS, CPPFLAGS and LDFLAGS outside of the disable_xs block such
+	that they are set to the PERL_EXT_* values in any case, even if XS is
+	disabled.  Remove Perl flags from CFLAGS and LDFLAGS as these are used
+	for Autoconf/Gnulib tests and the Autoconf/Gnulib tests are for code
+	not compiled with the Perl flags.
+
 2025-01-30  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/Makefile.am (libcallperl_libtexinfo_la_SOURCES): move
