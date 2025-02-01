@@ -44,8 +44,8 @@ MAINTAINERCLEANFILES = $(generated_mans)
 # cross-compiling.  makeinfo needs a bunch of our included modules.
 tpdir = $(top_srcdir)/tp
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
-                       top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
-                       top_builddir="$(top_builddir)" ; export top_builddir ;
+                       tp_srcdir="$(top_srcdir)/tp" ; export tp_srcdir ; \
+                       tp_builddir="$(top_builddir)/tp" ; export tp_builddir ;
 
 mi_env = \
   TEXINFO_DEV_SOURCE=1; export TEXINFO_DEV_SOURCE; ${MAKEINFO_ENVIRONMENT}

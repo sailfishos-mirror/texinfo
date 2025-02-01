@@ -55,6 +55,10 @@ use Carp qw(cluck confess);
 
 use File::Copy qw(copy);
 
+use File::Spec;
+
+my $updir = File::Spec->updir();
+
 use Storable;
 
 use Encode qw(find_encoding decode encode);
@@ -8557,7 +8561,7 @@ sub _load_htmlxref_files {
 
       if ($Texinfo::ModulePath::texinfo_uninstalled) {
         unshift @htmlxref_dirs, join('/', (
-          $Texinfo::ModulePath::top_srcdir, 'tp', 't', 'input_files'));
+          $Texinfo::ModulePath::tp_srcdir, 't', 'input_files'));
       }
     } elsif ($self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')
        and scalar(@{$self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')}) > 0) {
@@ -12624,7 +12628,7 @@ sub _do_js_files($$)
             $Texinfo::ModulePath::converterdatadir, 'js'));
         } else {
           $jssrcdir = join('/', (
-            $Texinfo::ModulePath::top_srcdir, 'js'));
+            $Texinfo::ModulePath::tp_srcdir, $updir, 'js'));
         }
         for my $f ('info.js', 'modernizr.js', 'info.css') {
           my $from = join('/', ($jssrcdir, $f));

@@ -1,3 +1,65 @@
+2025-02-01  Patrice Dumas  <pertusus@free.fr>
+
+	Move tp/Texinfo/XS/configure.ac and tp/Texinfo/XS/gnulib to tp
+
+	* Makefile.am (ACLOCAL_AMFLAGS), configure.ac (AC_CONFIG_MACRO_DIRS)
+	(DIFF_OPTIONS), m4/txi_DIFF_OPTION.m4 (txi_DIFF_OPTIONS): move code
+	setting DIFF_OPTIONS to a macro file, such that it may be shared.
+
+	* autogen.sh, configure.ac (AC_CONFIG_FILES, AC_CONFIG_SUBDIRS),
+	tp/configure.ac (AC_CONFIG_MACRO_DIRS, AC_CONFIG_HEADERS)
+	(ICONV_CONVERTS_EUC_CN, DISABLE_XS, TP_TESTS, PERL_UNICODE_COLLATE_OK)
+	(AC_CONFIG_FILES), tp/Makefile.am (AUTOMAKE_OPTIONS, ACLOCAL_AMFLAGS)
+	(SUBDIRS, DIST_SUBDIRS), tp/Texinfo/TestXS/Makefile.am
+	(ACLOCAL_AMFLAGS), tp/Texinfo/TestXS/configure.ac
+	(AC_CONFIG_MACRO_DIRS), tp/Texinfo/XS/Makefile.am (AUTOMAKE_OPTIONS)
+	(GNULIB_CPPFLAGS, libparagraph_la_LIBADD): move
+	tp/Texinfo/XS/configure.ac and tp/Texinfo/XS/gnulib to tp.  Put code
+	from main/configure.ac to tp/configure.ac.
+
+	* tp/load_txi_modules.pl, tp/texi2any.pl: also match two arguments
+	AC_INIT to get the version.
+
+	* tp/Texinfo/ModulePath.pm.in ($tp_srcdir, init),
+	tp/Texinfo/XS/texi2any.c (main), tp/Texinfo/XS/convert/texinfo.c
+	(txi_setup_main_load_interpreter), tp/Texinfo/XS/main/DocumentXS.xs
+	(init), tp/Texinfo/XS/main/document.c
+	(free_converter_paths_information, setup_txi_paths_information),
+	tp/Texinfo/XS/main/document.h (UNINSTALLED_PATHS),
+	tp/Texinfo/XSLoader.pm (init): set and use tp_srcdir, read tp_builddir
+	env for tp_builddir.  Do not get top_srcdir nor top_builddir.  This
+	change is in line with paths being set from outside of the tp
+	subdirectory, in which case top_srcdir and top_buildir will be
+	different from inside tp.
+
+	* Pod-Simple-Texinfo/pod2texi.pl (BEGIN),
+	Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (BEGIN),
+	tp/load_txi_modules.pl (BEGIN), tp/texi2any.pl (BEGIN),
+	util/txicmdlist (BEGIN), util/txicustomvars (BEGIN),
+	util/txixml2texi.pl (BEGIN): update paths, setting tp_srcdir, using
+	env tp_buildir and tp_srcdir.
+
+	* doc/Makefile.am (MAKEINFO_ENVIRONMENT), doc/tp_api/Makefile.am
+	(MAKEINFO_ENVIRONMENT), man/Makefile.am (MAKEINFO_ENVIRONMENT),
+	tp/Makefile.am (AM_TESTS_ENVIRONMENT), tp/tests/Makefile.am
+	(AM_TESTS_ENVIRONMENT), tp/tests/many_input_files/Makefile.am
+	(AM_TESTS_ENVIRONMENT), tp/Texinfo/Convert/HTML.pm
+	(_load_htmlxref_files, _do_js_files),
+	tp/Texinfo/XS/convert/convert_html.c (html_do_js_files),
+	tp/Texinfo/XS/convert/html_prepare_converter.c (load_htmlxref_files),
+	tp/maintain/catalog.xml.in, tp/t/test_utils.pl, tp/texi2any.pl,
+	tp/load_txi_modules.pl: update paths.
+
+	* tp/t/*.t, tp/t/z_misc/*.t: update updirs argument number.
+
+	* autogen.sh: call autoreconf --no-recursive in the main directory,
+	as there are explicit calls of autoreconf in all the directories
+	with configure.ac.
+
+	* README-hacking: update.
+
+	* tp/Texinfo/TestXS/TestXS.pm: set package to Texinfo::TestXS::TestXS.
+
 2025-01-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/z_misc/html_convert_tree.t (convert tree with tree handle)

@@ -63,15 +63,36 @@ BEGIN
   }
   # in-source run
   if ($in_source) {
-    # To find Texinfo::ModulePath
-    if (defined($ENV{'top_builddir'})) {
-      unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+    my $tp_builddir;
+    if (defined($ENV{'tp_builddir'})) {
+      $tp_builddir = $ENV{'tp_builddir'};
     } else {
-      unshift @INC, File::Spec->catdir($command_directory, $updir, 'tp');
+      if (defined($ENV{'top_builddir'})) {
+        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tp'));
+      } else {
+        $tp_builddir = join('/', ($command_directory, $updir, 'tp'));
+      }
+    }
+
+    # To find Texinfo::ModulePath
+    unshift @INC, $tp_builddir;
+
+    my $tp_srcdir;
+    if (defined($ENV{'tp_srcdir'})) {
+      $tp_srcdir = $ENV{'tp_srcdir'};
+    } else {
+      if (defined($ENV{'top_srcdir'})) {
+        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tp'));
+      } else {
+        $tp_srcdir = join('/', ($command_directory, $updir, 'tp'));
+      }
+      $ENV{'tp_srcdir'} = $tp_srcdir;
     }
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
+    # NOTE updirs argument cannot point to the right place, as it is only
+    # valid in texi2any directory.  tp_srcdir and tp_builddir should be used.
+    Texinfo::ModulePath::init(undef, undef, undef);
 
     # To find Pod::Simple::Texinfo
     if (defined($ENV{'top_srcdir'})) {

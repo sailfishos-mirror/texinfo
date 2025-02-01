@@ -48,15 +48,35 @@ BEGIN
          and $ENV{'TEXINFO_DEV_SOURCE'} ne '0') {
 
     # Use uninstalled modules
-
-    if (defined($ENV{'top_builddir'})) {
-      unshift @INC, File::Spec->catdir($ENV{'top_builddir'}, 'tp');
+    my $tp_builddir;
+    if (defined($ENV{'tp_builddir'})) {
+      $tp_builddir = $ENV{'tp_builddir'};
     } else {
-      unshift @INC, File::Spec->catdir($command_directory, $updir, 'tp');
+      if (defined($ENV{'top_builddir'})) {
+        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tp'));
+      } else {
+        $tp_builddir = join('/', ($command_directory, $updir, 'tp'));
+      }
+      $ENV{'tp_builddir'} = $tp_builddir;
     }
 
+    my $tp_srcdir;
+    if (defined($ENV{'tp_srcdir'})) {
+      $tp_srcdir = $ENV{'tp_srcdir'};
+    } else {
+      if (defined($ENV{'top_srcdir'})) {
+        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tp'));
+      } else {
+        $tp_srcdir = join('/', ($command_directory, $updir, 'tp'));
+      }
+      $ENV{'tp_srcdir'} = $tp_srcdir;
+    }
+
+    # to find Texinfo::ModulePath
+    unshift @INC, $tp_builddir;
+
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
+    Texinfo::ModulePath::init(undef, undef, undef);
   } else {
     # Look for modules in their installed locations.
     my $modules_dir = File::Spec->catdir($datadir, $converter);

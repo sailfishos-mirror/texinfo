@@ -12,7 +12,7 @@
 #
 AUTOMAKE_OPTIONS = foreign
 
-ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../XS/m4
+ACLOCAL_AMFLAGS = -I build-aux/m4 -I ../../m4
 
 EXTRA_DIST =
 

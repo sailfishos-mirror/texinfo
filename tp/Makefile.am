@@ -10,6 +10,20 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+AUTOMAKE_OPTIONS = foreign
+
+ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4 -I m4 -I ../m4
+
+EXTRA_DIST =
+
+######################## Gnulib ################################
+
+SUBDIRS = gnulib/lib
+
+EXTRA_DIST += gnulib/m4/gnulib-cache.m4
+
+################### End Gnulib section #########################
+
 # Generated lists of tests and of test result files.  If tests results are
 # added it should be regenerated manually, as the rule below is only
 # triggered by change in the generating script.
@@ -29,14 +43,13 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 	&& $(SHELL) ./maintain/regenerate_docstr.sh Makefile.docstr
 
 
-SUBDIRS =
 if ! DISABLE_XS
 SUBDIRS += Texinfo/XS
 endif
 
 SUBDIRS += . tests
 
-DIST_SUBDIRS = Texinfo/TestXS Texinfo/XS tests
+DIST_SUBDIRS = gnulib/lib Texinfo/TestXS Texinfo/XS tests
 
 converterdatadir = $(datadir)/$(CONVERTER)
 
@@ -345,7 +358,7 @@ T_LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) \
 T_LOG_COMPILER = $(PERL)
 AM_T_LOG_FLAGS = -w
 
-AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; top_builddir="$(top_builddir)"; export top_builddir;
+AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; tp_srcdir="$(top_srcdir)"; export tp_srcdir; tp_builddir="$(top_builddir)"; export tp_builddir;
 
 maintenance_files = \
   maintain/all_tests.sh \
@@ -368,7 +381,7 @@ maintenance_files = \
   maintain/catalog.xml.in
 
 # test_files_generated_list comes from the generated Makefile.tres
-EXTRA_DIST = \
+EXTRA_DIST += \
   load_txi_modules.pl \
   texi2any.pl \
   texi2any.supp \

@@ -23,12 +23,10 @@ use File::Spec;
 our $texinfo_uninstalled = undef;
 
 # uninstalled locations paths, if $Texinfo::ModulePath::texinfo_uninstalled
-# Pathname of the tp/ build directory.  Used to find the locale
-# data.
+# Pathname of the tp/ build and source directories.  Used to find the locale
+# data and other files.
 our $tp_builddir = '';
-
-our $top_builddir;
-our $top_srcdir;
+our $tp_srcdir;
 
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
 our $converterdatadir;
@@ -46,8 +44,8 @@ our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 # LIBEXEC_DIR is for XS modules.
 # CONVERTERDATADIR is for HTML extensions, javascript
 #
-# otherwise use 'top_srcdir'
-# and 'top_builddir' environment variables.
+# otherwise use 'tp_srcdir'
+# and 'tp_builddir' environment variables.
 sub init {
   my $lib_dir = shift;
   $converterxsdir = shift;
@@ -57,8 +55,8 @@ sub init {
   if (!$named_args{'installed'}) {
     $texinfo_uninstalled = 1;
 
-    if ($ENV{'top_srcdir'}) {
-      $top_srcdir = $ENV{'top_srcdir'};
+    if ($ENV{'tp_srcdir'}) {
+      $tp_srcdir = $ENV{'tp_srcdir'};
     } elsif (defined $named_args{'updirs'}) {
       # the command used is always in the source directory
       my ($real_command_name, $command_directory, $command_suffix)
@@ -67,29 +65,27 @@ sub init {
 
       # e.g. tp/t -> tp/t/../.. for 'updirs' = 2.
       my $count = $named_args{'updirs'};
-      $top_srcdir = $command_directory;
+      $tp_srcdir = $command_directory;
       while ($count-- > 0) {
-        $top_srcdir = join('/', ($top_srcdir, $updir));
+        $tp_srcdir = join('/', ($tp_srcdir, $updir));
       }
     }
 
-    if (defined($top_srcdir)) {
+    if (defined($tp_srcdir)) {
       # For Texinfo::Parser and the rest.
-      unshift @INC, "$top_srcdir/tp";
-      $lib_dir = join('/', ($top_srcdir, 'tp', 'maintain'));
+      unshift @INC, "$tp_srcdir";
+      $lib_dir = join('/', ($tp_srcdir, 'maintain'));
     }
 
     # Find XS modules in the build directory
-    if (defined($ENV{'top_builddir'})) {
-      $top_builddir = $ENV{'top_builddir'};
+    if (defined($ENV{'tp_builddir'})) {
+      $tp_builddir = $ENV{'tp_builddir'};
     } else {
       # this is correct for in-source builds only.
-      $top_builddir = $top_srcdir;
+      $tp_builddir = $tp_srcdir;
     }
-    if (defined($top_builddir)) {
-      unshift @INC, join('/', ($top_builddir, 'tp', 'Texinfo', 'XS'));
-
-      $tp_builddir = "$top_builddir/tp";
+    if (defined($tp_builddir)) {
+      unshift @INC, join('/', ($tp_builddir, 'Texinfo', 'XS'));
     }
 
   } else {

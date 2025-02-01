@@ -322,7 +322,7 @@ sub init {
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
                                  $Texinfo::ModulePath::converterdatadir,
                                  $Texinfo::ModulePath::tp_builddir,
-                                 $Texinfo::ModulePath::top_srcdir)) {
+                                 $Texinfo::ModulePath::tp_srcdir)) {
     _fatal("$module_name: error initializing");
     goto FALLBACK;
   }

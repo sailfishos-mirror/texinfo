@@ -81,7 +81,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
                       int texinfo_uninstalled,
                       const char *converterdatadir,
                       const char *tp_builddir,
-                      const char *top_srcdir,
+                      const char *tp_srcdir,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
                       const char *version_checked)
 {
@@ -91,8 +91,8 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       char *load_modules_path;
       int status;
       if (texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/tp/%s.pl",
-                   top_srcdir, load_txi_modules_basename);
+        xasprintf (&load_modules_path, "%s/%s.pl",
+                   tp_srcdir, load_txi_modules_basename);
       else
         xasprintf (&load_modules_path, "%s/%s", converterdatadir,
                    load_txi_modules_basename);
@@ -117,7 +117,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       /* sets up gettext and iconv */
       messages_and_encodings_setup ();
       setup_texinfo_main (texinfo_uninstalled, converterdatadir,
-                          tp_builddir, top_srcdir);
+                          tp_builddir, tp_srcdir);
 
       set_no_perl_interpreter (1);
     }

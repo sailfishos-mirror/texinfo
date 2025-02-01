@@ -56,7 +56,7 @@ free_converter_paths_information (PATHS_INFORMATION *paths_info)
   if (paths_info->texinfo_uninstalled)
     {
       free (paths_info->p.uninstalled.tp_builddir);
-      free (paths_info->p.uninstalled.top_srcdir);
+      free (paths_info->p.uninstalled.tp_srcdir);
     }
   else
     free (paths_info->p.installed.converterdatadir);
@@ -66,7 +66,7 @@ static void
 setup_txi_paths_information (int texinfo_uninstalled,
                              const char *converterdatadir,
                              const char *tp_builddir,
-                             const char *top_srcdir)
+                             const char *tp_srcdir)
 {
   free_converter_paths_information (&txi_paths_info);
   memset (&txi_paths_info, 0, sizeof (PATHS_INFORMATION));
@@ -78,10 +78,10 @@ setup_txi_paths_information (int texinfo_uninstalled,
           txi_paths_info.p.uninstalled.tp_builddir
             = strdup (tp_builddir);
         }
-      if (top_srcdir)
+      if (tp_srcdir)
         {
-          txi_paths_info.p.uninstalled.top_srcdir
-            = strdup (top_srcdir);
+          txi_paths_info.p.uninstalled.tp_srcdir
+            = strdup (tp_srcdir);
         }
     }
   else
@@ -99,11 +99,11 @@ setup_txi_paths_information (int texinfo_uninstalled,
 void
 setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
-                 const char *tp_builddir, const char *top_srcdir)
+                 const char *tp_builddir, const char *tp_srcdir)
 {
 
   setup_txi_paths_information (texinfo_uninstalled,
-                             converterdatadir, tp_builddir, top_srcdir);
+                             converterdatadir, tp_builddir, tp_srcdir);
 
   set_element_type_name_info ();
   txi_initialise_base_options ();

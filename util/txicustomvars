@@ -21,14 +21,15 @@
 use strict;
 
 BEGIN {
-  (my $mydir = $0) =~ s,/[^/]+$,,;
-  chomp (my $tpdir = `cd $mydir/../tp && pwd`);
-  unshift (@INC, $tpdir);
+  my $mydir = $0;
+  $mydir =~ s,/[^/]+$,,;
+  my $tp_srcdir = `cd $mydir/../tp && pwd`;
+  chomp($tp_srcdir);
   if (defined($ENV{'top_builddir'})) {
-    unshift (@INC, $ENV{'top_builddir'}.'/tp');
+    unshift(@INC, $ENV{'top_builddir'}.'/tp');
   }
 
-  $ENV{top_srcdir} = "$tpdir/..";
+  $ENV{tp_srcdir} = "$tp_srcdir";
   require Texinfo::ModulePath;
   Texinfo::ModulePath::init(undef, undef, undef);
 }

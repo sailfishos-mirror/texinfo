@@ -82,14 +82,14 @@ BEGIN
     # Use uninstalled modules
 
     # To find Texinfo::ModulePath
-    if (defined($ENV{'top_builddir'})) {
-      unshift @INC, join('/', ($ENV{'top_builddir'}, 'tp'));
+    if (defined($ENV{'tp_builddir'})) {
+      unshift @INC, $ENV{'tp_builddir'};
     } else {
       unshift @INC, $command_directory;
     }
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
+    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 0);
   } else {
     # Look for modules in their installed locations.
     my $modules_dir = join('/', ($datadir, $converter));
@@ -187,7 +187,7 @@ if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
 
 my $extensions_dir;
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  $extensions_dir = join('/', ($Texinfo::ModulePath::top_srcdir, 'tp', 'ext'));
+  $extensions_dir = join('/', ($Texinfo::ModulePath::tp_srcdir, 'ext'));
 } else {
   $extensions_dir
     = join('/', ($Texinfo::ModulePath::converterdatadir, 'ext'));
@@ -242,7 +242,6 @@ Locale::Messages->select_package('gettext_pp');
 Locale::Messages::bindtextdomain($messages_textdomain,
                                  join('/', ($datadir, 'locale')));
 
-
 # Set initial configuration
 
 # Version setting is complicated, because we cope with
@@ -265,10 +264,10 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # in configure.ac
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-             "< " . join('/', ($Texinfo::ModulePath::top_srcdir,
+             "< " . join('/', ($Texinfo::ModulePath::tp_srcdir,
                                'configure.ac')))) {
       while (<CONFIGURE>) {
-        if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*,/) {
+        if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
           # add +nc to distinguish from configured and, in general, installed.
           # If called from build directory with TEXINFO_DEV_SOURCE=1, however
           # there will not be +nc as the $configured_version is set.
@@ -319,7 +318,7 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   $texinfo_dtd_version = undef;
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-            "< ".join('/', ($Texinfo::ModulePath::top_srcdir,
+            "< ".join('/', ($Texinfo::ModulePath::tp_srcdir,
                             'configure.ac')))) {
       while (<CONFIGURE>) {
         if (/^TEXINFO_DTD_VERSION=([0-9]\S*)/) {
@@ -1493,7 +1492,7 @@ Texinfo::Convert::Utils->import();
 
 if (not get_conf('TEST') and $Texinfo::ModulePath::texinfo_uninstalled) {
   push @texinfo_language_config_dirs,
-    join('/', ($Texinfo::ModulePath::top_srcdir, 'util'));
+    join('/', ($Texinfo::ModulePath::tp_srcdir, $updir, 'util'));
 }
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {

@@ -3,7 +3,7 @@ use strict;
 use Test::More;
 
 use lib '.';
-use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
+use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 BEGIN { plan tests => 12; }
 

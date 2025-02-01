@@ -906,8 +906,7 @@ main (int argc, char *argv[], char *env[])
   STRING_LIST config_init_files;
   CONVERTER_INITIALIZATION_INFO *format_defaults;
   DEPRECATED_DIRS_LIST deprecated_directories;
-  char *top_srcdir = 0;
-  char *top_builddir = 0;
+  char *tp_srcdir = 0;
   char *tp_builddir = 0;
   OPTION *html_math_option;
   OPTION *highlight_syntax_option;
@@ -1048,33 +1047,29 @@ main (int argc, char *argv[], char *env[])
 
   if (texinfo_uninstalled)
     {
-      top_srcdir = getenv ("top_srcdir");
-      if (top_srcdir)
-        top_srcdir = strdup (top_srcdir);
+      tp_srcdir = getenv ("tp_srcdir");
+      if (tp_srcdir)
+        tp_srcdir = strdup (tp_srcdir);
       else
         {
           /* similar to ModulePath.pm with updir 3 (or 4 for .libs) */
           if (command_directory)
             {/* within tp/Texinfo/XS/.libs */
-              xasprintf (&top_srcdir, "%s/../../../..",
+              xasprintf (&tp_srcdir, "%s/../../..",
                          command_directory);
             }
           else
-            top_srcdir = strdup ("../../..");
+            tp_srcdir = strdup ("../..");
         }
 
-      top_builddir = getenv ("top_builddir");
-      if (!top_builddir)
+      tp_builddir = getenv ("tp_builddir");
+      if (!tp_builddir)
         /* this is correct for in-source builds only. */
-        top_builddir = strdup (top_srcdir);
+        tp_builddir = strdup (tp_srcdir);
       else
-        top_builddir = strdup (top_builddir);
+        tp_builddir = strdup (tp_builddir);
 
-      xasprintf (&tp_builddir, "%s/tp", top_builddir);
-
-      free (top_builddir);
-
-      xasprintf (&extensions_dir, "%s/tp/ext", top_srcdir);
+      xasprintf (&extensions_dir, "%s/ext", tp_srcdir);
     }
   else
     xasprintf (&extensions_dir, "%s/ext", converterdatadir);
@@ -1114,12 +1109,12 @@ main (int argc, char *argv[], char *env[])
      and setup by the interpreter */
   txi_setup_main_load_interpreter (embedded_interpreter,
                         texinfo_uninstalled,
-                        converterdatadir, tp_builddir, top_srcdir,
+                        converterdatadir, tp_builddir, tp_srcdir,
                         &argc, &argv, &env,
                         version_for_embedded_interpreter_check);
 
   free (tp_builddir);
-  free (top_srcdir);
+  free (tp_srcdir);
 
   /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
@@ -2128,11 +2123,11 @@ main (int argc, char *argv[], char *env[])
   output_format = output_format_option->o.string;
 
   if (!test_mode_set && txi_paths_info.texinfo_uninstalled
-      && txi_paths_info.p.uninstalled.top_srcdir)
+      && txi_paths_info.p.uninstalled.tp_srcdir)
     {
       char *in_source_util_dir;
-      xasprintf (&in_source_util_dir, "%s/util",
-                 txi_paths_info.p.uninstalled.top_srcdir);
+      xasprintf (&in_source_util_dir, "%s/../util",
+                 txi_paths_info.p.uninstalled.tp_srcdir);
       add_string (in_source_util_dir, texinfo_language_config_dirs);
       free (in_source_util_dir);
     }

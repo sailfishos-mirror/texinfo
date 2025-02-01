@@ -2647,9 +2647,9 @@ html_do_js_files (CONVERTER *self)
                 }
               else
                 {
-                  if (txi_paths_info.p.uninstalled.top_srcdir)
-                    xasprintf (&jssrcdir, "%s/%s",
-                               txi_paths_info.p.uninstalled.top_srcdir,
+                  if (txi_paths_info.p.uninstalled.tp_srcdir)
+                    xasprintf (&jssrcdir, "%s/../%s",
+                               txi_paths_info.p.uninstalled.tp_srcdir,
                                "js");
                   else
                     jssrcdir = strdup ("js");

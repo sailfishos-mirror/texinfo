@@ -68,14 +68,14 @@ BEGIN
     # Use uninstalled modules
 
     # To find Texinfo::ModulePath
-    if (defined($ENV{'top_builddir'})) {
-      unshift @INC, join('/', ($ENV{'top_builddir'}, 'tp'));
+    if (defined($ENV{'tp_builddir'})) {
+      unshift @INC, $ENV{'tp_builddir'};
     } else {
       unshift @INC, $command_directory;
     }
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
+    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 0);
   } else {
     # Look for modules in their installed locations.
     my $modules_dir = join('/', ($datadir, $converter));
@@ -211,10 +211,10 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # in configure.ac
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-              "< " . join('/', ($Texinfo::ModulePath::top_srcdir,
+              "< " . join('/', ($Texinfo::ModulePath::tp_srcdir,
                                 'configure.ac')))) {
       while (<CONFIGURE>) {
-        if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*,/) {
+        if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
           # add +nc to distinguish from configured and, in general, installed.
           # If called from build directory with TEXINFO_DEV_SOURCE=1, however
           # there will not be +nc as the $configured_version is set.

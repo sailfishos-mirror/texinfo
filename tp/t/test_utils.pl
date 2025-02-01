@@ -95,9 +95,9 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 Locale::Messages->select_package('gettext_pp');
 
 my $srcdir = $ENV{'srcdir'};
-# fallback based on Texinfo::ModulePath $top_srcdir
-if (!defined($srcdir) and defined($Texinfo::ModulePath::top_srcdir)) {
-  $srcdir = join('/', ($Texinfo::ModulePath::top_srcdir, 'tp'));
+# fallback based on Texinfo::ModulePath $tp_srcdir
+if (!defined($srcdir) and defined($Texinfo::ModulePath::tp_srcdir)) {
+  $srcdir = $Texinfo::ModulePath::tp_srcdir;
 }
 
 my $locales_srcdir;

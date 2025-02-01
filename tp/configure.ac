@@ -13,9 +13,10 @@
 AC_INIT([GNU Texinfo], [7.2dev])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
-AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4])
+AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4 ../m4])
+AC_REQUIRE_AUX_FILE([tap-driver.sh])
 
-AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_HEADERS([Texinfo/XS/config.h])
 
 TEXINFO_DTD_VERSION=7.2
 AC_SUBST([TEXINFO_DTD_VERSION])
@@ -69,14 +70,60 @@ if test $usable_getenv_in_XS = yes ; then
 fi
 
 AC_ARG_ENABLE([perl-xs],
-    AS_HELP_STRING([--enable-perl-xs],
-              [build Perl XS modules for speed (default: yes)]),
-    [if test $enableval = 'no'; then
-       disable_xs=yes
-     else
-       disable_xs=no
-     fi],
-     [disable_xs=no])
+    AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]),
+    [ enable_xs=$enableval],
+    [ enable_xs=check])
+
+# Set xs_srcdir to the path from XS builddir to srcdir
+case $srcdir in
+  .)  # We are building in place.
+    xs_srcdir=../.. ;;
+  [[\\/]]* | ?:[[\\/]]* )  # Absolute name.
+    xs_srcdir=$srcdir ;;
+  *) # Relative name.
+    xs_srcdir=../../$srcdir ;;
+esac
+
+# Pass on all the options we were given to the subsidiary configure
+# script.
+# Don't use AC_CONFIG_SUBDIRS for this because it isn't done right away,
+# and we need it for the check that follows.
+# We use the _AC_OUTPUT_SUBDIRS internal autoconf macro
+# (in /usr/share/autoconf/autoconf/status.m4) for this in order to
+# pass on the configure command line correctly; for example, adjusting
+# paths.  It is done in a subshell to be resilient against failure of the
+# subsidiary configure script, which happens if the C compiler is found
+# not to work.
+#
+save_subdirs=$subdirs
+subdirs=Texinfo/TestXS
+( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
+subdirs=$save_subdirs
+
+if test $enable_xs = no; then
+  AC_MSG_NOTICE([building Perl extension (XS) modules will be disabled])
+fi
+
+if test $enable_xs = check; then
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([])
+  enable_xs=no
+  (cd Texinfo/TestXS \
+   && make clean \
+   && make TestXS.la \
+   && TEXINFO_XS=debug ; export TEXINFO_XS \
+   && ${PERL} -I . \
+              -I ${xs_srcdir} \
+              -e 'require Texinfo::TestXS::TestXS;' \
+      | grep 'message from XS module') \
+  && enable_xs=yes
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([$enable_xs])
+fi
+
+AC_SUBST([enable_xs])
+
+AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
 
 # PERL_EXT_var are user variables for a Perl XS extension, allowing
 # configuring at the top-level with e.g.
@@ -97,12 +144,12 @@ AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
 if test -n "$PERL_EXT_CC" ; then
   CC=$PERL_EXT_CC
 else
-  if test x$disable_xs != xyes; then
+  if test x$enable_xs != xno; then
     # It's essential that we use the same compiler that was used to build
     # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
     # the check in AC_PROG_CC below.
     CC=$PERL_CONF_cc
-  fi # not disable_xs
+  fi
 fi
 
 # Wipe cache values in case -C was given at the top level
@@ -141,6 +188,65 @@ LT_INIT([disable-static dlopen])
 
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
+
+# for tests
+ICONV_CONVERTS_EUC_CN=no
+# partly based on gnulib/m4/iconv.m4
+if test "x$am_func_iconv" = "xyes" ; then
+   AC_CACHE_CHECK([whether iconv converts EUC-CN to UTF-8], [texinfo_cv_sys_iconv_converts_euc_cn], [
+      euc_cn_save_LIBS="$LIBS"
+      #if test $am_cv_lib_iconv = yes; then
+        LIBS="$LIBS $LIBICONV"
+      #fi
+      texinfo_cv_sys_iconv_converts_euc_cn=no
+      for euc_cn_iconv_const in '' 'const'; do
+  AC_RUN_IFELSE(
+   [AC_LANG_PROGRAM(
+                  [[
+#include <iconv.h>
+#include <string.h>
+
+#ifndef ICONV_CONST
+# define ICONV_CONST $euc_cn_iconv_const
+#endif
+             ]],
+             [[int result = 0;
+  {
+    iconv_t cd_euc_cn_to_utf8 = iconv_open ("UTF-8", "EUC-CN");
+    if (cd_euc_cn_to_utf8 != (iconv_t)(-1))
+      {
+        static ICONV_CONST char input[] = "abc";
+        char buf[10];
+        ICONV_CONST char *inptr = input;
+        size_t inbytesleft = strlen (input);
+        char *outptr = buf;
+        size_t outbytesleft = sizeof (buf);
+        size_t res = iconv (cd_euc_cn_to_utf8,
+                            &inptr, &inbytesleft,
+                            &outptr, &outbytesleft);
+        if (res != 0)
+          result |= 2;
+        if (strcmp(buf, input))
+          result |= 4;
+        iconv_close (cd_euc_cn_to_utf8);
+      }
+    else
+      result |= 1;
+  }
+  return result;
+]])],
+          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,
+          [texinfo_cv_sys_iconv_converts_euc_cn="cross compile guess no"])
+        test "$texinfo_cv_sys_iconv_converts_euc_cn" = no || break
+      done
+      LIBS="$euc_cn_save_LIBS"
+   ])
+  if test "$texinfo_cv_sys_iconv_converts_euc_cn" = yes; then
+    ICONV_CONVERTS_EUC_CN=yes
+  fi
+fi
+
+AC_SUBST([ICONV_CONVERTS_EUC_CN])
 
 AC_CHECK_FUNCS(newlocale strxfrm_l)
 
@@ -324,7 +430,69 @@ AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
 AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
                    [configure CONVERTER value])
 
+txi_DIFF_OPTIONS
 
-AC_CONFIG_FILES([Makefile gnulib/lib/Makefile])
+# Perl tests requirements
+tp_tests='no'
+AC_ARG_ENABLE([tp-tests],
+    AS_HELP_STRING([--enable-tp-tests],[run the parser and converters testsuite (default: detected)]),
+    [if test $enableval = 'no'; then
+       tp_tests='no'
+     else
+       tp_tests='yes'
+     fi],
+    [
+     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     then
+       tp_tests='yes'
+     else
+       tp_tests='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([parser tests requirements])
+AC_MSG_RESULT([$tp_tests])
+AM_CONDITIONAL([TP_TESTS], [test "z$tp_tests" = 'zyes'])
+
+AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
+if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
+  perl_unicode_collation_requirement='yes'
+else
+  perl_unicode_collation_requirement='no'
+fi
+AC_MSG_RESULT($perl_unicode_collation_requirement)
+PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
+AC_SUBST([PERL_UNICODE_COLLATE_OK])
+
+host_is_windows=no
+case "$host" in
+   *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
+esac
+AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
+HOST_IS_WINDOWS_VARIABLE=
+if test "x$host_is_windows" = "xyes" ; then
+  HOST_IS_WINDOWS_VARIABLE=yes
+fi
+AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
+
+
+AC_CONFIG_FILES([
+  Makefile
+  tests/Makefile
+  tests/many_input_files/Makefile
+  tests/formatting/Makefile
+  tests/encoded/Makefile
+  tests/coverage/Makefile
+  tests/customization/Makefile
+  tests/nested_formats/Makefile
+  tests/layout/Makefile
+  tests/tex_html/Makefile
+  tests/other/Makefile
+  tests/info_tex/Makefile
+  defs
+  Texinfo/XS/Makefile
+  gnulib/lib/Makefile
+])
+
 AC_OUTPUT
 

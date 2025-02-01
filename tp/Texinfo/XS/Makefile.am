@@ -9,8 +9,8 @@
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-#
-AUTOMAKE_OPTIONS=foreign subdir-objects
+
+AUTOMAKE_OPTIONS = subdir-objects
 
 EXTRA_DIST=
 
@@ -22,14 +22,8 @@ MAINTAINERCLEANFILES =
 
 AM_CPPFLAGS = -I$(srcdir)
 
-GNULIB_CPPFLAGS = -I$(srcdir)/gnulib/lib \
-  -I$(builddir)/gnulib/lib
-
-ACLOCAL_AMFLAGS = -I build-aux/m4 -I gnulib/m4 -I m4
-
-SUBDIRS=gnulib/lib
-
-EXTRA_DIST+=gnulib/m4/gnulib-cache.m4
+GNULIB_CPPFLAGS = -I$(top_srcdir)/gnulib/lib \
+  -I$(top_builddir)/gnulib/lib
 
 ################### End Gnulib section #########################
 
@@ -86,7 +80,7 @@ libparagraph_la_SOURCES = xspara.c xspara.h \
                          main/base_utils.c main/base_utils.h \
                          main/text.c main/text.h
 libparagraph_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
-libparagraph_la_LIBADD = $(builddir)/gnulib/lib/libgnu.la
+libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 xs_LTLIBRARIES += XSParagraph.la

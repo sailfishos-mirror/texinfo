@@ -39,7 +39,7 @@ if test '!' -s doc/tp_api/texi2any_internals.texi ; then
   $chicken eval $cmd || exit 1
 fi
 
-cmd="AUTOPOINT=true autoreconf --verbose --install"
+cmd="AUTOPOINT=true autoreconf --verbose --install --no-recursive"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
@@ -49,7 +49,7 @@ cmd="(cd tp/Texinfo/TestXS && ${LIBTOOLIZE} \
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-cmd="(cd tp/Texinfo/XS && ${LIBTOOLIZE} \
+cmd="(cd tp && ${LIBTOOLIZE} \
  && AUTOPOINT=true autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1

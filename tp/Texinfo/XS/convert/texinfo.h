@@ -66,7 +66,7 @@ void txi_setup_main_load_interpreter (int embedded_interpreter,
                       int texinfo_uninstalled,
                       const char *converterdatadir,
                       const char *tp_builddir,
-                      const char *top_srcdir,
+                      const char *tp_srcdir,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
                       const char *version_checked);
 

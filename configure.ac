@@ -17,7 +17,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 dnl tar-ustar because we have long filenames for some test files.
 AM_INIT_AUTOMAKE([1.16.1
                  info-in-builddir parallel-tests tar-ustar])
-AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4])
+AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4])
 
 # Where to generate output; srcdir location.
 AC_CONFIG_HEADERS([config.h])
@@ -114,64 +114,6 @@ gl_EARLY
 # Rest of Gnulib.
 gl_INIT
 
-ICONV_CONVERTS_EUC_CN=no
-# partly based on gnulib/m4/iconv.m4
-if test "x$am_func_iconv" = "xyes" ; then
-   AC_CACHE_CHECK([whether iconv converts EUC-CN to UTF-8], [texinfo_cv_sys_iconv_converts_euc_cn], [
-      euc_cn_save_LIBS="$LIBS"
-      #if test $am_cv_lib_iconv = yes; then
-        LIBS="$LIBS $LIBICONV"
-      #fi
-      texinfo_cv_sys_iconv_converts_euc_cn=no
-      for euc_cn_iconv_const in '' 'const'; do
-  AC_RUN_IFELSE(
-   [AC_LANG_PROGRAM(
-                  [[
-#include <iconv.h>
-#include <string.h>
-
-#ifndef ICONV_CONST
-# define ICONV_CONST $euc_cn_iconv_const
-#endif
-             ]],
-             [[int result = 0;
-  {
-    iconv_t cd_euc_cn_to_utf8 = iconv_open ("UTF-8", "EUC-CN");
-    if (cd_euc_cn_to_utf8 != (iconv_t)(-1))
-      {
-        static ICONV_CONST char input[] = "abc";
-        char buf[10];
-        ICONV_CONST char *inptr = input;
-        size_t inbytesleft = strlen (input);
-        char *outptr = buf;
-        size_t outbytesleft = sizeof (buf);
-        size_t res = iconv (cd_euc_cn_to_utf8,
-                            &inptr, &inbytesleft,
-                            &outptr, &outbytesleft);
-        if (res != 0)
-          result |= 2;
-        if (strcmp(buf, input))
-          result |= 4;
-        iconv_close (cd_euc_cn_to_utf8);
-      }
-    else
-      result |= 1;
-  }
-  return result;
-]])],
-          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,
-          [texinfo_cv_sys_iconv_converts_euc_cn="cross compile guess no"])
-        test "$texinfo_cv_sys_iconv_converts_euc_cn" = no || break
-      done
-      LIBS="$euc_cn_save_LIBS"
-   ])
-  if test "$texinfo_cv_sys_iconv_converts_euc_cn" = yes; then
-    ICONV_CONVERTS_EUC_CN=yes
-  fi
-fi
-
-AC_SUBST([ICONV_CONVERTS_EUC_CN])
-
 # To generate man pages.
 AM_MISSING_PROG(HELP2MAN, help2man)
 AM_MISSING_PROG(POD2MAN, pod2man)
@@ -186,61 +128,7 @@ AC_PROG_MKDIR_P
 MKINSTALLDIRS="\$(top_srcdir)/build-aux/install-sh -d"
 AC_SUBST([MKINSTALLDIRS])
 
-# check whether diff accepts the -u option (not on HP-UX).
-AC_MSG_CHECKING(whether diff accepts -u)
-diff_accepts_u_option=no
-echo foo >conftest.dtx
-echo foo | diff -u - conftest.dtx >/dev/null 2>&1
-error_status_diff_u=$?
-if test $error_status_diff_u = 0; then
-  diff_accepts_u_option=yes
-fi
-AC_MSG_RESULT($diff_accepts_u_option)
-rm -f conftest.dtx
-
-DIFF_U_OPTION=
-if test "z$diff_accepts_u_option" = 'zyes' ; then
-  DIFF_U_OPTION=-u
-fi
-
-# check whether diff accepts the -a option (only needed for GNU diff).
-AC_MSG_CHECKING(whether diff accepts -a)
-diff_accepts_a_option=no
-echo foo >conftest.dtx
-echo foo | diff -a - conftest.dtx >/dev/null 2>&1
-error_status_diff_a=$?
-if test $error_status_diff_a = 0; then
-  diff_accepts_a_option=yes
-fi
-AC_MSG_RESULT($diff_accepts_a_option)
-rm -f conftest.dtx
-
-DIFF_A_OPTION=
-if test "z$diff_accepts_a_option" = 'zyes' ; then
-  DIFF_A_OPTION=-a
-fi
-
-# check whether diff should have --strip-trailing-cr (may be needed on MinGW)
-diff_accepts_cr_option=no
-if echo $host_os | grep mingw >/dev/null ; then
-  AC_MSG_CHECKING(whether diff accepts --strip-trailing-cr)
-  echo foo >conftest.dtx
-  echo foo | diff --strip-trailing-cr - conftest.dtx >/dev/null 2>&1
-  error_status_diff_cr=$?
-  if test $error_status_diff_cr = 0; then
-    diff_accepts_cr_option=yes
-  fi
-  AC_MSG_RESULT($diff_accepts_cr_option)
-  rm -f conftest.dtx
-fi
-
-DIFF_CR_OPTION=
-if test "z$diff_accepts_cr_option" = 'zyes' ; then
-  DIFF_CR_OPTION='--strip-trailing-cr'
-fi
-
-DIFF_OPTIONS="$DIFF_A_OPTION $DIFF_U_OPTION $DIFF_CR_OPTION"
-AC_SUBST([DIFF_OPTIONS])
+txi_DIFF_OPTIONS
 
 # Checks for header files.
 AC_CHECK_HEADERS(io.h pwd.h \
@@ -451,57 +339,6 @@ AC_ARG_ENABLE([perl-xs],
     [ enable_xs=$enableval],
     [ enable_xs=check])
 
-# Set xs_srcdir to the path from XS builddir to srcdir
-case $srcdir in
-  .)  # We are building in place.
-    xs_srcdir=../.. ;;
-  [[\\/]]* | ?:[[\\/]]* )  # Absolute name.
-    xs_srcdir=$srcdir/tp ;;
-  *) # Relative name.
-    xs_srcdir=../../../$srcdir/tp ;;
-esac
-
-# Pass on all the options we were given to the subsidiary configure
-# script.
-# Don't use AC_CONFIG_SUBDIRS for this because it isn't done right away,
-# and we need it for the check that follows.
-# We use the _AC_OUTPUT_SUBDIRS internal autoconf macro
-# (in /usr/share/autoconf/autoconf/status.m4) for this in order to
-# pass on the configure command line correctly; for example, adjusting
-# paths.  It is done in a subshell to be resilient against failure of the
-# subsidiary configure script, which happens if the C compiler is found
-# not to work.
-#
-save_subdirs=$subdirs
-subdirs=tp/Texinfo/TestXS
-( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
-subdirs=$save_subdirs
-
-if test $enable_xs = no; then
-  AC_MSG_NOTICE([building Perl extension (XS) modules will be disabled])
-fi
-
-if test $enable_xs = check; then
-  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
-  AC_MSG_RESULT([])
-  enable_xs=no
-  (cd tp/Texinfo/TestXS \
-   && make clean \
-   && make TestXS.la \
-   && TEXINFO_XS=debug ; export TEXINFO_XS \
-   && ${PERL} -I . \
-              -I ${xs_srcdir} \
-              -e 'require Texinfo::TestXS::TestXS;' \
-      | grep 'message from XS module') \
-  && enable_xs=yes
-  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
-  AC_MSG_RESULT([$enable_xs])
-fi
-
-AC_SUBST([enable_xs])
-
-AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
-
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.  In 2024 this is
 # the case of the musl libc libintl implementation, for example.
@@ -549,37 +386,13 @@ dnl configuring them.  See contrib/nontests/README.
 dnl AC_CONFIG_FILES([util/tests/defs])
 dnl AC_CHECK_PROGS([TEX], [tex], [])
 
-tp_tests='no'
 AC_ARG_ENABLE([tp-tests],
     AS_HELP_STRING([--enable-tp-tests],[run the parser and converters testsuite (default: detected)]),
     [if test $enableval = 'no'; then
        tp_tests='no'
      else
        tp_tests='yes'
-     fi],
-    [
-     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       tp_tests='yes'
-     else
-       tp_tests='no'
-     fi
-    ])
-
-AC_MSG_CHECKING([parser tests requirements])
-AC_MSG_RESULT([$tp_tests])
-AM_CONDITIONAL([TP_TESTS], [test "z$tp_tests" = 'zyes'])
-
-AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
-if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
-  perl_unicode_collation_requirement='yes'
-else
-  perl_unicode_collation_requirement='no'
-fi
-AC_MSG_RESULT($perl_unicode_collation_requirement)
-PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
-AC_SUBST([PERL_UNICODE_COLLATE_OK])
-
+     fi])
 
 pod_simple_texinfo_tests='no'
 AC_ARG_ENABLE([pod-simple-texinfo-tests],
@@ -624,7 +437,6 @@ AC_MSG_CHECKING([Perl Texinfo API Texinfo documentation build requirements])
 AC_MSG_RESULT([$build_perl_api_texi])
 AM_CONDITIONAL([BUILD_PERL_API_TEXI], [test "z$build_perl_api_texi" = 'zyes'])
 
-
 host_is_windows=no
 case "$host" in
    *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
@@ -635,6 +447,7 @@ if test "x$host_is_windows" = "xyes" ; then
   HOST_IS_WINDOWS_VARIABLE=yes
 fi
 AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
+
 
 # The config files to generate.
 AC_CONFIG_FILES([\
@@ -651,19 +464,6 @@ AC_CONFIG_FILES([\
   po_document/Makefile.in
   util/Makefile
   texindex/Makefile
-  tp/Makefile
-  tp/tests/Makefile
-  tp/tests/many_input_files/Makefile
-  tp/tests/formatting/Makefile
-  tp/tests/encoded/Makefile
-  tp/tests/coverage/Makefile
-  tp/tests/customization/Makefile
-  tp/tests/nested_formats/Makefile
-  tp/tests/layout/Makefile
-  tp/tests/tex_html/Makefile
-  tp/tests/other/Makefile
-  tp/tests/info_tex/Makefile
-  tp/defs
   js/Makefile
   Pod-Simple-Texinfo/Makefile
 ])
@@ -671,7 +471,7 @@ AC_CONFIG_FILES([\
 AC_CONFIG_FILES([pre-inst-env:build-aux/pre-inst-env.in],
   [chmod +x pre-inst-env])
 
-AC_CONFIG_SUBDIRS([tp/Texinfo/XS])
+AC_CONFIG_SUBDIRS([tp])
 
 AC_OUTPUT
 
