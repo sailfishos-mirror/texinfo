@@ -1,5 +1,5 @@
 /* ANSI-C code produced by gperf version 3.1 */
-/* Command-line: gperf --output-file=Texinfo/XS/main/txi_documentlanguage_languages.c -N txi_in_language_codes maintain/documentlanguage/languages.gperf  */
+/* Command-line: gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes maintain/documentlanguage/languages.gperf  */
 /* Computed positions: -k'1-3' */
 
 #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \

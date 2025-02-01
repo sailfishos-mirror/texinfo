@@ -109,7 +109,7 @@ foreach my $region (sort keys %regions) {
 }
 print OUT ");\n\n1;\n";
 
-system ("gperf --output-file=Texinfo/XS/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
-system ("gperf --output-file=Texinfo/XS/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
+system ("gperf --output-file=C/main/txi_documentlanguage_languages.c -N txi_in_language_codes $dir/languages.gperf");
+system ("gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions $dir/regions.gperf");
 
 1;

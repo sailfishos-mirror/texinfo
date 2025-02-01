@@ -1,5 +1,9 @@
 2025-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/regenerate_documentlanguages-loc.pl: update paths.
+
+2025-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	Replace XS by C in comments and debugging to use C when relevant
 
 2025-02-01  Patrice Dumas  <pertusus@free.fr>
