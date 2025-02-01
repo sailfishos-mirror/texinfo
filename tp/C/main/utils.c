@@ -670,10 +670,10 @@ clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
 
 
 /* in Texinfo::Convert::Utils in Perl.  Most of the API is in convert_utils.c,
-   this is here to be used in code related to XS */
+   this is here to be used in C code used in XS interfaces */
 
 /* not used a lot, as in general the OUTPUT_FILES_INFORMATION is not allocated
-   as a pointer, but used in code related to XS */
+   as a pointer, used in XS interfaces code */
 
 OUTPUT_FILES_INFORMATION *
 new_output_files_information (void)

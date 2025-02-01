@@ -258,7 +258,7 @@ input_pushback (char *string)
 {
   if (input_pushback_string)
     fprintf (stderr,
-             "texi2any (XS module): bug: input_pushback called twice\n");
+             "texi2any (C): bug: input_pushback called twice\n");
   input_pushback_string = string;
 }
 

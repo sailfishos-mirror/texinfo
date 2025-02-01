@@ -57,7 +57,7 @@ enum command_id element_builtin_data_cmd (const ELEMENT *e);
 #define CF_brace		        0x0010
 #define CF_preamble		        0x0020
 #define CF_accent		        0x0040
-/* CF_math is not used in XS parser */
+/* CF_math is not used in C parser */
 #define CF_math			        0x0080
 /* commands with an unlimited number of arguments */
 #define CF_variadic		        0x0100

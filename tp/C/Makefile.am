@@ -1,4 +1,4 @@
-# Makefile.am for XS modules
+# Makefile.am for texi2any C libraries
 #
 # Copyright 2015-2025 Free Software Foundation, Inc.
 #
@@ -326,7 +326,7 @@ MAINTAINERCLEANFILES += main/html_conversion_data.c main/html_conversion_data.h
 
 
 ################################# common Perl C code shared library used
-# to call libtexinfo from Perl XS *.xs interfaces and other Perl C codes
+# to call libtexinfo from Perl XS .xs interfaces and other Perl C codes
 
 if HAVE_ICONV
 xs_LTLIBRARIES += libtexinfoxs.la

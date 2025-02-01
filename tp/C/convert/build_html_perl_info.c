@@ -757,7 +757,7 @@ pass_sv_converter_info (const CONVERTER *converter,
   converter_info_hv = converter->pl_info_hv;
 
   /* The information is cached in the same place as in Perl code.
-     Either Perl code or XS code is used, so this is for consistency
+     Either Perl code or XS/C code is used, so this is for consistency
      not really for interoperability */
 
   info_sv = hv_fetch (converter_info_hv, converter_info,

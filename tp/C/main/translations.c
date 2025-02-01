@@ -570,7 +570,7 @@ replace_convert_substrings (char *translated_string,
   document_descriptor = parse_string (texinfo_line, 1);
 
   if (debug_level > 0)
-    fprintf (stderr, "XS|IN TR PARSER '%s'\n", texinfo_line);
+    fprintf (stderr, "C|IN TR PARSER '%s'\n", texinfo_line);
 
   document = retrieve_document (document_descriptor);
   if (document->parser_error_messages.number > 0)
@@ -595,7 +595,7 @@ replace_convert_substrings (char *translated_string,
   if (debug_level > 0)
     {
       char *result_texi = convert_to_texinfo (document->tree);
-      fprintf (stderr, "XS|RESULT GDT: '%s'\n", result_texi);
+      fprintf (stderr, "C|RESULT GDT: '%s'\n", result_texi);
       free (result_texi);
     }
 /*

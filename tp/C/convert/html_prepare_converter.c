@@ -4329,7 +4329,7 @@ new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
   if (self->conf->DEBUG.o.integer > 0)
     {
       const char *command_name = element_command_name (command);
-      fprintf (stderr, "XS|Register %s %s\n", command_name, target);
+      fprintf (stderr, "C|Register %s %s\n", command_name, target);
     }
 
   HTML_TARGET *element_target

@@ -1400,7 +1400,7 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
               /* This debug message is C specific
               if (self->conf->DEBUG.o.integer > 0)
                 {
-                  fprintf (stderr, "XS|css: REMARK: %s: get_css no page found\n",
+                  fprintf (stderr, "C|css: REMARK: %s: get_css no page found\n",
                                     filename);
                 }
                */

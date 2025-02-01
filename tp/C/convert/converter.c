@@ -346,7 +346,7 @@ set_converter_init_information (CONVERTER *converter,
                                      converter->conf);
 
   /*
-  fprintf (stderr, "XS|CONVERTER Fill conf: %d; %s, %s\n",
+  fprintf (stderr, "C|CONVERTER Fill conf: %d; %s, %s\n",
                    converter->converter_descriptor,
                    converter->conf->TEXINFO_OUTPUT_FORMAT.o.string);
    */
@@ -523,7 +523,7 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
    /*
   if (document)
     {
-      fprintf (stderr, "XS|CONVERTER %d: Document %d\n",
+      fprintf (stderr, "C|CONVERTER %d: Document %d\n",
            converter->converter_descriptor, document->descriptor);
     }
     */
@@ -1072,7 +1072,7 @@ set_global_document_commands (CONVERTER *converter,
           enum command_id cmd = cmd_list[i];
           if (converter->conf->DEBUG.o.integer > 0)
             {
-              fprintf (stderr, "XS|SET_global(%s) %s\n",
+              fprintf (stderr, "C|SET_global(%s) %s\n",
                        command_location_names[location],
                        builtin_command_data[cmd].cmdname);
             }

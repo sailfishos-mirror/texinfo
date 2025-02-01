@@ -5607,7 +5607,7 @@ html_command_conversion_external (CONVERTER *self, const enum command_id cmd,
                                   const HTML_ARGS_FORMATTED *args_formatted,
                                   const char *content, TEXT *result)
 {
-  /* XS specific debug message */
+  /* C specific debug message */
   /*
   if (self->conf->DEBUG.o.integer > 0)
     fprintf (stderr, "DEBUG: command conversion %s '%s'\n",

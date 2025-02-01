@@ -32,7 +32,7 @@
 
 void bug (char *message)
 {
-  fprintf (stderr, "texi2any (XS): bug: %s\n", message);
+  fprintf (stderr, "texi2any (C): bug: %s\n", message);
 }
 
 void fatal (char *message)

@@ -1336,7 +1336,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   return 1;
 }
 
-/* NOTE in perl there is a separate registrar and customization_information,
+/* NOTE in Perl there is a separate registrar and customization_information,
    here we directly use a document from ARGUMENT for error registration and
    customization.
    It would be more flexible to pass separately error_messages and

@@ -282,7 +282,7 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
     }
 
   if (self->conf->DEBUG.o.integer > 0)
-    fprintf (stderr, "XS|new_fmt_ctx %s%s\n", context_string_str,
+    fprintf (stderr, "C|new_fmt_ctx %s%s\n", context_string_str,
                                               multiple_pass_str);
 
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
@@ -557,7 +557,7 @@ html_translate_names (CONVERTER *self)
 
   if (self->conf->DEBUG.o.integer > 0)
     {
-      fprintf (stderr, "\nXS|TRANSLATE_NAMES encoding_name: %s"
+      fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
                " documentlanguage: %s\n",
                self->conf->OUTPUT_ENCODING_NAME.o.string,
                self->conf->documentlanguage.o.string);
@@ -1256,7 +1256,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
       if (!explanation)
         explanation_str = "NO EXPLANATION";
       text_init (&debug_str);
-      text_printf (&debug_str, "XS|ELEMENT(%s) %s, ->", explanation_str,
+      text_printf (&debug_str, "C|ELEMENT(%s) %s, ->", explanation_str,
                                                         contexts_str);
       free (contexts_str);
       if (command_name)
@@ -1316,7 +1316,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (self->conf->DEBUG.o.integer > 0)
         {
-          fprintf (stderr, "XS|DO TEXT => `%s'\n", text_result.text);
+          fprintf (stderr, "C|DO TEXT => `%s'\n", text_result.text);
         }
 
       ADD(text_result.text);
@@ -1349,7 +1349,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
           && element->type != ET_index_entry_command))
     {
       enum command_id data_cmd = element_builtin_data_cmd (element);
-      /* XS only debug message */
+      /* C only debug message */
       /*
       if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "COMMAND: %s %s\n",
@@ -1741,7 +1741,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (self->conf->DEBUG.o.integer > 0)
         {
-          fprintf (stderr, "XS|DO type (%s) => `%s'\n", type_data[type].name,
+          fprintf (stderr, "C|DO type (%s) => `%s'\n", type_data[type].name,
                            type_result.text);
         }
       ADD(type_result.text);
@@ -1820,7 +1820,7 @@ convert_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit,
   if (self->conf->DEBUG.o.integer > 0)
     {
       char *output_unit_txi = output_unit_texi (output_unit);
-      fprintf (stderr, "XS|UNIT(%s) -> ou: %s '%s'\n", explanation,
+      fprintf (stderr, "C|UNIT(%s) -> ou: %s '%s'\n", explanation,
                   output_unit_type_names[unit_type],
                   output_unit_txi);
       free (output_unit_txi);
