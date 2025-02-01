@@ -1027,10 +1027,9 @@ main (int argc, char *argv[], char *env[])
           size_t nr = file_directories->number;
           char **list = file_directories->list;
 
-          if (nr > 4 && !strcmp (list[nr -1], ".libs")
-                     && !strcmp (list[nr -2], "XS")
-                     && !strcmp (list[nr -3], "Texinfo")
-                     && !strcmp (list[nr -4], "tp"))
+          if (nr > 3 && !strcmp (list[nr -1], ".libs")
+                     && !strcmp (list[nr -2], "C")
+                     && !strcmp (list[nr -3], "tp"))
             texinfo_uninstalled = 1;
           destroy_strings_list (file_directories);
         }
@@ -1052,14 +1051,14 @@ main (int argc, char *argv[], char *env[])
         tp_srcdir = strdup (tp_srcdir);
       else
         {
-          /* similar to ModulePath.pm with updir 3 (or 4 for .libs) */
+          /* similar to ModulePath.pm with updir 2 (or 3 for .libs) */
           if (command_directory)
-            {/* within tp/Texinfo/XS/.libs */
-              xasprintf (&tp_srcdir, "%s/../../..",
+            {/* within tp/C/.libs */
+              xasprintf (&tp_srcdir, "%s/../..",
                          command_directory);
             }
           else
-            tp_srcdir = strdup ("../..");
+            tp_srcdir = strdup ("..");
         }
 
       tp_builddir = getenv ("tp_builddir");
