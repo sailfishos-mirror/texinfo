@@ -353,19 +353,13 @@ tp/gnulib/lib/uniwidth.h
 tp/gnulib/lib/wchar.h
 tp/gnulib/lib/sys/types.h
 
-tp/Texinfo/XS/main/ConfigXS.c
-tp/Texinfo/XS/main/DocumentXS.c
-tp/Texinfo/XS/main/IndicesXS.c
-tp/Texinfo/XS/main/.libs
-tp/Texinfo/XS/main/*.lo
-
-tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.c
-tp/Texinfo/XS/structuring_transfo/.libs
-tp/Texinfo/XS/structuring_transfo/*.lo
-
-tp/Texinfo/XS/parsetexi/Parsetexi.c
-tp/Texinfo/XS/parsetexi/.libs
-tp/Texinfo/XS/parsetexi/*.lo
+tp/Texinfo/XS/parser_document/ConfigXS.c
+tp/Texinfo/XS/parser_document/DocumentXS.c
+tp/Texinfo/XS/parser_document/IndicesXS.c
+tp/Texinfo/XS/parser_document/Parsetexi.c
+tp/Texinfo/XS/parser_document/StructuringTransfoXS.c
+tp/Texinfo/XS/parser_document/.libs
+tp/Texinfo/XS/parser_document/*.lo
 
 tp/Texinfo/XS/convert/ConvertXS.c
 tp/Texinfo/XS/convert/.libs

@@ -1,5 +1,13 @@
 2025-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Parser.pm (BEGIN), tp/Texinfo/XS/Makefile.am (modulesdir)
+	(dist_modules_DATA, *_SOURCES, EXTRA_DIST, CLEANFILES),
+	tp/Texinfo/XS/parser_document*.xs: move XS code from main, parsetexi
+	and structuring_transfo to the parser_document directory to reduce the
+	number of directories.
+
+2025-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/regenerate_documentlanguages-loc.pl: update paths.
 
 2025-02-01  Patrice Dumas  <pertusus@free.fr>

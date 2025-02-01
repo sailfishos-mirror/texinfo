@@ -106,17 +106,17 @@ EXTRA_DIST += XSParagraph.xs MiscXS.xs
 ########################## Parsetexi XS parser
 
 converterdatadir = $(datadir)/$(CONVERTER)
-modulesdir = $(converterdatadir)/Texinfo/XS/parsetexi
-dist_modules_DATA = parsetexi/Parsetexi.pm
+modulesdir = $(converterdatadir)/Texinfo/XS/parser_document
+dist_modules_DATA = parser_document/Parsetexi.pm
 
 if HAVE_ICONV
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
-nodist_Parsetexi_la_SOURCES = parsetexi/Parsetexi.c
-CLEANFILES += parsetexi/Parsetexi.c
+nodist_Parsetexi_la_SOURCES = parser_document/Parsetexi.c
+CLEANFILES += parser_document/Parsetexi.c
 
-EXTRA_DIST += parsetexi/Parsetexi.xs
+EXTRA_DIST += parser_document/Parsetexi.xs
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi $(XSLIBS_CPPFLAGS)
@@ -130,10 +130,10 @@ if HAVE_ICONV
 xs_LTLIBRARIES += DocumentXS.la
 endif
 
-nodist_DocumentXS_la_SOURCES = main/DocumentXS.c
-CLEANFILES += main/DocumentXS.c
+nodist_DocumentXS_la_SOURCES = parser_document/DocumentXS.c
+CLEANFILES += parser_document/DocumentXS.c
 
-EXTRA_DIST += main/DocumentXS.xs
+EXTRA_DIST += parser_document/DocumentXS.xs
 
 # locate include files under out-of-source builds.
 DocumentXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
@@ -148,11 +148,11 @@ xs_LTLIBRARIES += StructuringTransfoXS.la
 endif
 
 nodist_StructuringTransfoXS_la_SOURCES = \
-                    structuring_transfo/StructuringTransfoXS.c
+                    parser_document/StructuringTransfoXS.c
 CLEANFILES += \
-                    structuring_transfo/StructuringTransfoXS.c
+                    parser_document/StructuringTransfoXS.c
 
-EXTRA_DIST += structuring_transfo/StructuringTransfoXS.xs
+EXTRA_DIST += parser_document/StructuringTransfoXS.xs
 
 # locate include files under out-of-source builds.
 StructuringTransfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
@@ -167,12 +167,12 @@ xs_LTLIBRARIES += IndicesXS.la
 endif
 
 nodist_IndicesXS_la_SOURCES = \
-                    main/IndicesXS.c
+                    parser_document/IndicesXS.c
 
 CLEANFILES += \
-                    main/IndicesXS.c
+                    parser_document/IndicesXS.c
 
-EXTRA_DIST += main/IndicesXS.xs
+EXTRA_DIST += parser_document/IndicesXS.xs
 
 # locate include files under out-of-source builds.
 IndicesXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
@@ -208,12 +208,12 @@ if HAVE_ICONV
 xs_LTLIBRARIES += ConfigXS.la
 endif
 
-nodist_ConfigXS_la_SOURCES = main/ConfigXS.c
-CLEANFILES += main/ConfigXS.c
+nodist_ConfigXS_la_SOURCES = parser_document/ConfigXS.c
+CLEANFILES += parser_document/ConfigXS.c
 
 ConfigXS_la_SOURCES =
 
-EXTRA_DIST += main/ConfigXS.xs
+EXTRA_DIST += parser_document/ConfigXS.xs
 
 # To locate include files under out-of-source builds.
 ConfigXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
