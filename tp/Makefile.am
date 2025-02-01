@@ -44,12 +44,13 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 
 
 if ! DISABLE_XS
+SUBDIRS += C
 SUBDIRS += Texinfo/XS
 endif
 
 SUBDIRS += . tests
 
-DIST_SUBDIRS = gnulib/lib Texinfo/TestXS Texinfo/XS tests
+DIST_SUBDIRS = gnulib/lib C Texinfo/TestXS Texinfo/XS tests
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

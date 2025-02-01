@@ -86,6 +86,7 @@ sub init {
     }
     if (defined($tp_builddir)) {
       unshift @INC, join('/', ($tp_builddir, 'Texinfo', 'XS'));
+      unshift @INC, join('/', ($tp_builddir, 'C'));
     }
 
   } else {

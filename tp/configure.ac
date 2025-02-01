@@ -16,7 +16,7 @@ AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4 ../m4])
 AC_REQUIRE_AUX_FILE([tap-driver.sh])
 
-AC_CONFIG_HEADERS([Texinfo/XS/config.h])
+AC_CONFIG_HEADERS([C/config.h])
 
 TEXINFO_DTD_VERSION=7.2
 AC_SUBST([TEXINFO_DTD_VERSION])
@@ -490,6 +490,7 @@ AC_CONFIG_FILES([
   tests/other/Makefile
   tests/info_tex/Makefile
   defs
+  C/Makefile
   Texinfo/XS/Makefile
   gnulib/lib/Makefile
 ])

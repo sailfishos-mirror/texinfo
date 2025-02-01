@@ -84,7 +84,7 @@ cd $dir
 if $missed ; then find_missed ; exit 0 ; fi
 
 current_year=`date "+%Y"`
-prune_dirs="./tp/maintain/lib|./tp/tests/test_scripts|./gnulib|./tp/Texinfo/XS/gnulib|./js/node_modules|./contrib|./tp/t/include"
+prune_dirs="./tp/maintain/lib|./tp/tests/test_scripts|./gnulib|./tp/gnulib|./js/node_modules|./contrib|./tp/t/include"
 
 prune="-regex ($prune_dirs) -prune"
 

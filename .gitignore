@@ -9,12 +9,9 @@ build
 **/aclocal.m4
 **/autom4te.cache
 **/config.cache
-**/config.h
-**/config.h.in
 **/config.status
 **/config.log
 **/configure
-**/stamp-h1
 **/.deps
 **/.dirstamp
 
@@ -26,6 +23,10 @@ build
 **/*.swp
 
 **/test-suite.log
+
+config.h
+config.h.in
+stamp-h1
 
 build-aux/compile
 build-aux/config.guess
@@ -106,8 +107,6 @@ tp/Texinfo/TestXS/TestXS.c
 tp/Texinfo/TestXS/*.la
 tp/Texinfo/TestXS/*.lo
 tp/Texinfo/TestXS/libtool
-
-tp/Texinfo/XS/teximakehtml
 
 tp/gnulib/lib/dirent.h
 tp/gnulib/lib/error.h
@@ -249,8 +248,6 @@ install-info/tests/defs
 tp/Makefile.onetst
 tp/Makefile.docstr
 
-tp/maintain/lib/libintl-perl/blib/**
-
 tp/t/results/**/out_*
 tp/t/results/**/*.new
 
@@ -313,17 +310,14 @@ tp/tests/*.log
 
 tp/Texinfo/ModulePath.pm
 
+tp/Texinfo/XS/MiscXS.c
+tp/Texinfo/XS/XSParagraph.c
 tp/Texinfo/XS/*.lo
 tp/Texinfo/XS/*.la
 tp/Texinfo/XS/.libs
-tp/Texinfo/XS/ctexi2any
 
-tp/Texinfo/XS/MiscXS.c
-tp/Texinfo/XS/XSParagraph.c
-tp/Texinfo/XS/config.h
 tp/config.log
 tp/libtool
-tp/Texinfo/XS/stamp-h1
 
 tp/build-aux/compile
 tp/build-aux/config.guess
@@ -362,24 +356,36 @@ tp/gnulib/lib/sys/types.h
 tp/Texinfo/XS/main/ConfigXS.c
 tp/Texinfo/XS/main/DocumentXS.c
 tp/Texinfo/XS/main/IndicesXS.c
-
+tp/Texinfo/XS/main/.libs
 tp/Texinfo/XS/main/*.lo
 
 tp/Texinfo/XS/structuring_transfo/StructuringTransfoXS.c
-
+tp/Texinfo/XS/structuring_transfo/.libs
 tp/Texinfo/XS/structuring_transfo/*.lo
 
 tp/Texinfo/XS/parsetexi/Parsetexi.c
-
 tp/Texinfo/XS/parsetexi/.libs
-tp/Texinfo/XS/parsetexi/*.la
 tp/Texinfo/XS/parsetexi/*.lo
 
 tp/Texinfo/XS/convert/ConvertXS.c
-
 tp/Texinfo/XS/convert/.libs
-tp/Texinfo/XS/convert/*.la
 tp/Texinfo/XS/convert/*.lo
+
+tp/C/ctexi2any
+tp/C/teximakehtml
+tp/C/.libs
+tp/C/*.la
+tp/C/config.h.in
+tp/C/config.h
+tp/C/stamp-h1
+tp/C/main/.libs
+tp/C/main/*.lo
+tp/C/structuring_transfo/.libs
+tp/C/structuring_transfo/*.lo
+tp/C/parsetexi/.libs
+tp/C/parsetexi/*.lo
+tp/C/convert/.libs
+tp/C/convert/*.lo
 
 texindex/texindex.awk
 texindex/texindex.awk.in

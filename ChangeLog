@@ -1,5 +1,24 @@
 2025-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	Move C libraries and program from tp/Texinfo/XS/ to tp/C
+
+	* tp/Texinfo/XS/xspara.h: include "text.h" without directory.
+
+	* po/POTFILES.in, po_document/POTFILES.in, tp/Makefile.am (SUBDIRS)
+	(DIST_SUBDIRS), tp/Texinfo/ModulePath.pm.in (init),
+	tp/configure.ac (AC_CONFIG_HEADERS, AC_CONFIG_FILES),
+	tp/Texinfo/XS/Makefile.am, tp/C/Makefile.am, tp/C/*: move C code files
+	and Makefile.am associated code from tp/Texinfo/XS/ to tp/C/ for
+	texi2any.c and code used in libraries.  XS objects and C code only
+	used in XS objects remain in tp/Texinfo/XS/.
+
+	* Makefile.am (BUILT_SOURCES, html_conversion_data.c): update paths.
+
+	* grand-replace.sh, tp/maintain/change_perl_modules_version.sh: update
+	paths.
+
+2025-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	Move tp/Texinfo/XS/configure.ac and tp/Texinfo/XS/gnulib to tp
 
 	* Makefile.am (ACLOCAL_AMFLAGS), configure.ac (AC_CONFIG_MACRO_DIRS)
