@@ -47,7 +47,7 @@ clean-tests:
 
 TESTS = $(one_test_files_generated_list)
 
-AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; tp_srcdir="$(top_srcdir)"; export tp_srcdir; tp_builddir="$(top_builddir)"; export tp_builddir;
+AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
 all-checks all-check: all
 	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes OTHER_TESTS=yes

@@ -21,13 +21,13 @@
 BEGIN {
   my $mydir = $0;
   $mydir =~ s,/[^/]+$,,;
-  my $tp_srcdir = `cd $mydir/../tta && pwd`;
-  chomp($tp_srcdir);
+  my $t2a_srcdir = `cd $mydir/../tta && pwd`;
+  chomp($t2a_srcdir);
   if (defined($ENV{'top_builddir'})) {
     unshift(@INC, $ENV{'top_builddir'}.'/tta');
   }
 
-  $ENV{tp_srcdir} = "$tp_srcdir";
+  $ENV{t2a_srcdir} = "$t2a_srcdir";
   require Texinfo::ModulePath;
   Texinfo::ModulePath::init(undef, undef, undef);
 }

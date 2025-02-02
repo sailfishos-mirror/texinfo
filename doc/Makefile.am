@@ -22,8 +22,8 @@ DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 TEXINFO_TEX = texinfo.tex
 
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
-                       tp_srcdir="$(top_srcdir)/tta" \
-                       tp_builddir="$(top_builddir)/tta"
+                       t2a_srcdir="$(top_srcdir)/tta" \
+                       t2a_builddir="$(top_builddir)/tta"
 MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tta/texi2any
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
@@ -117,8 +117,8 @@ gendocs_templates = $(gnulib)/doc
 gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates) \
         MAKEINFO=../$(builddir)/../tta/texi2any \
                        TEXINFO_DEV_SOURCE=1 \
-                       tp_srcdir="../$(top_srcdir)/tta" \
-                       tp_builddir="../$(top_builddir)/tta" \
+                       t2a_srcdir="../$(top_srcdir)/tta" \
+                       t2a_builddir="../$(top_builddir)/tta" \
         TEXI2DVI=../$(srcdir)/../util/texi2dvi \
         TEXINDEX=../../texindex/texindex \
         TEXINDEX_SCRIPT=../$(srcdir)/../texindex/texindex.awk

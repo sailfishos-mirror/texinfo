@@ -42,7 +42,7 @@ use Texinfo::Convert::HTML;
 
 
 # setup translated strings
-my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::tp_builddir,
+my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::t2a_builddir,
                                      'LocaleData');
 my $strings_textdomain = 'texinfo_document';
 if (-d $locales_dir) {

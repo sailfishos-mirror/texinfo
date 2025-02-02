@@ -80,8 +80,8 @@ void
 txi_setup_main_load_interpreter (int embedded_interpreter,
                       int texinfo_uninstalled,
                       const char *converterdatadir,
-                      const char *tp_builddir,
-                      const char *tp_srcdir,
+                      const char *t2a_builddir,
+                      const char *t2a_srcdir,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
                       const char *version_checked)
 {
@@ -92,7 +92,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       int status;
       if (texinfo_uninstalled)
         xasprintf (&load_modules_path, "%s/%s.pl",
-                   tp_srcdir, load_txi_modules_basename);
+                   t2a_srcdir, load_txi_modules_basename);
       else
         xasprintf (&load_modules_path, "%s/%s", converterdatadir,
                    load_txi_modules_basename);
@@ -117,7 +117,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       /* sets up gettext and iconv */
       messages_and_encodings_setup ();
       setup_texinfo_main (texinfo_uninstalled, converterdatadir,
-                          tp_builddir, tp_srcdir);
+                          t2a_builddir, t2a_srcdir);
 
       set_no_perl_interpreter (1);
     }
@@ -188,10 +188,10 @@ txi_general_output_strings_setup (int use_external_translate_string)
       struct stat finfo;
       int not_found = 1;
 
-      if (txi_paths_info.p.uninstalled.tp_builddir)
+      if (txi_paths_info.p.uninstalled.t2a_builddir)
         {
           xasprintf (&locales_dir, "%s/LocaleData",
-                     txi_paths_info.p.uninstalled.tp_builddir);
+                     txi_paths_info.p.uninstalled.t2a_builddir);
 
           if (stat (locales_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
             {

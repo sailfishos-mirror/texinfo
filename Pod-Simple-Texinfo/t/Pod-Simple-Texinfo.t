@@ -10,35 +10,35 @@ BEGIN {
   plan tests => 26;
 
   my $updir = File::Spec->updir();
-  my $tp_builddir;
-  if (defined($ENV{'tp_builddir'})) {
-    $tp_builddir = $ENV{'tp_builddir'};
+  my $t2a_builddir;
+  if (defined($ENV{'t2a_builddir'})) {
+    $t2a_builddir = $ENV{'t2a_builddir'};
   } else {
     if (defined($ENV{'top_builddir'})) {
-      $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
+      $t2a_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
     } else {
-      $tp_builddir = join('/', ($updir, 'tta'));
+      $t2a_builddir = join('/', ($updir, 'tta'));
     }
-    $ENV{'tp_builddir'} = $tp_builddir;
+    $ENV{'t2a_builddir'} = $t2a_builddir;
   }
 
-  if (defined($ENV{'tp_srcdir'})) {
-    $tp_srcdir = $ENV{'tp_srcdir'};
+  if (defined($ENV{'t2a_srcdir'})) {
+    $t2a_srcdir = $ENV{'t2a_srcdir'};
   } else {
     if (defined($ENV{'top_srcdir'})) {
-      $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
+      $t2a_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
     } else {
-      $tp_srcdir = join('/', ($updir, 'tta'));
+      $t2a_srcdir = join('/', ($updir, 'tta'));
     }
-    $ENV{'tp_srcdir'} = $tp_srcdir;
+    $ENV{'t2a_srcdir'} = $t2a_srcdir;
   }
 
   # To find Texinfo::ModulePath
-  unshift @INC, $tp_builddir;
+  unshift @INC, $t2a_builddir;
 
   require Texinfo::ModulePath;
   # NOTE updirs argument cannot point to the right place, as it is only
-  # valid in texi2any directory.  tp_srcdir and tp_builddir should be used.
+  # valid in texi2any directory.  t2a_srcdir and t2a_builddir should be used.
   Texinfo::ModulePath::init(undef, undef, undef);
 
   # To find Pod::Simple::Texinfo

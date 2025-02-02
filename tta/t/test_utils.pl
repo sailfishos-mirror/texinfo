@@ -94,18 +94,18 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 Locale::Messages->select_package('gettext_pp');
 
-my $srcdir = $ENV{'srcdir'};
-# fallback based on Texinfo::ModulePath $tp_srcdir
-if (!defined($srcdir) and defined($Texinfo::ModulePath::tp_srcdir)) {
-  $srcdir = $Texinfo::ModulePath::tp_srcdir;
+my $t2a_srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $t2a_srcdir
+if (!defined($t2a_srcdir) and defined($Texinfo::ModulePath::t2a_srcdir)) {
+  $t2a_srcdir = $Texinfo::ModulePath::t2a_srcdir;
 }
 
 my $locales_srcdir;
-if (defined($srcdir)) {
-  $srcdir =~ s/\/*$/\//;
-  $locales_srcdir = $srcdir;
+if (defined($t2a_srcdir)) {
+  $t2a_srcdir =~ s/\/*$/\//;
+  $locales_srcdir = $t2a_srcdir;
 } else {
-  $srcdir = '';
+  $t2a_srcdir = '';
   $locales_srcdir = '.';
 }
 
@@ -132,7 +132,7 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 my $generated_texis_dir = 't_texis';
 
-my $input_files_dir = $srcdir."t/input_files/";
+my $input_files_dir = $t2a_srcdir."t/input_files/";
 
 my $output_files_dir = 't/output_files/';
 foreach my $dir ('t', 't/results', $output_files_dir) {
@@ -312,7 +312,7 @@ sub new_test($;$$$)
               'DEBUG' => $debug, 'test_formats' => $test_formats};
 
   if ($generate) {
-    mkdir $srcdir."t/results/$name" if (! -d $srcdir."t/results/$name");
+    mkdir $t2a_srcdir."t/results/$name" if (! -d $t2a_srcdir."t/results/$name");
   }
   bless $test;
   return $test;
@@ -808,8 +808,8 @@ sub test($$)
   if (!$self->{'generate'}) {
     mkdir "t/results/$self->{'name'}" if (! -d "t/results/$self->{'name'}");
   } else {
-    mkdir $srcdir."t/results/$self->{'name'}"
-      if (! -d $srcdir."t/results/$self->{'name'}");
+    mkdir $t2a_srcdir."t/results/$self->{'name'}"
+      if (! -d $t2a_srcdir."t/results/$self->{'name'}");
   }
 
   if (!defined $parser_options->{'EXPANDED_FORMATS'}) {
@@ -935,7 +935,7 @@ sub test($$)
         my $base = $test_base_dir;
         my $test_out_dir;
         if ($self->{'generate'}) {
-          $base = $srcdir.$base;
+          $base = $t2a_srcdir.$base;
           $test_out_dir = $base.'res_'.$format_type;
           if (-d $test_out_dir) {
             unlink_dir_files($test_out_dir);
@@ -973,8 +973,8 @@ sub test($$)
   my $init_files_options
       = Texinfo::Config::GNUT_initialize_customization('',
                                    $test_customization_defaults, {});
-  my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/',
-                               $srcdir.'ext/'];
+  my $init_file_directories = [$t2a_srcdir.'init/', $t2a_srcdir.'t/init/',
+                               $t2a_srcdir.'ext/'];
   # the init file names should be binary strings.  Since they
   # are not encoded here, ascii file names should be used or they
   # should be encoded in test specification files.
@@ -1039,7 +1039,7 @@ sub test($$)
   }
 
   my $completed_parser_options =
-          {'INCLUDE_DIRECTORIES' => [$srcdir.'t/include/'],
+          {'INCLUDE_DIRECTORIES' => [$t2a_srcdir.'t/include/'],
            'DEBUG' => $self->{'DEBUG'},
             %$parser_options};
 
@@ -1272,7 +1272,7 @@ sub test($$)
         # except for EPUB, which set (and reuse) SUBDIR internally.
         my $test_out_dir;
         if ($self->{'generate'}) {
-          my $base = $srcdir.$test_base_dir;
+          my $base = $t2a_srcdir.$test_base_dir;
           $test_out_dir = $base.'res_'.$format_type;
         } else {
           my $base = $test_base_dir;
@@ -1285,7 +1285,7 @@ sub test($$)
       $format_converter_options->{'TEST'} = 1
         if (!defined($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
-                                          $srcdir.'t/include/'];
+                                          $t2a_srcdir.'t/include/'];
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type,
@@ -1467,7 +1467,7 @@ sub test($$)
     if (!$self->{'generate'}) {
       $out_file = $new_file;
     } else {
-      $out_file = $srcdir.$file;
+      $out_file = $t2a_srcdir.$file;
     }
     open(OUT, ">$out_file") or die "Open $out_file: $!\n";
     binmode (OUT, ":encoding(utf8)");
@@ -1597,7 +1597,7 @@ sub test($$)
   }
   if (!$self->{'generate'}) {
     %result_converted = ();
-    require "$srcdir$file";
+    require "$t2a_srcdir$file";
 
     cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
                 $test_name.' tree');
@@ -1676,7 +1676,7 @@ sub test($$)
         my $format_type = $format;
         if ($format_type =~ s/^file_//) {
           my $base = $test_base_dir;
-          my $reference_dir = "$srcdir$base".'res_'.$format_type;
+          my $reference_dir = "$t2a_srcdir$base".'res_'.$format_type;
           my $results_dir = $base.'out_'.$format_type;
           if (-d $reference_dir) {
             $reference_exists = 1;

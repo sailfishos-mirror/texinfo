@@ -219,13 +219,13 @@ the Perl interpreter found by configure, so you might want to run that
 instead of texi2any.pl if it's different to the default interpreter in 
 your environment.
 
-To directly run programs out of source, you should set the tp_builddir
+To directly run programs out of source, you should set the t2a_builddir
 variable to the tta/ build directory, in order to have compiled modules
 and translated in-document strings found.  If you use scripts with
 names ending in .pl or .t test files, the source directory obtained
 from the script name might used to determine the source directories and
 you may not need to set them explicitely.  Otherwise, you may need to
-set the srcdir and/or the tp_srcdir variables to the in-source tta/ directory.
+set the srcdir and/or the t2a_srcdir variables to the in-source tta/ directory.
 
 
 

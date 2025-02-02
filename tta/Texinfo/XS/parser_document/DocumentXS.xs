@@ -51,10 +51,10 @@ PROTOTYPES: ENABLE
 # Called from Texinfo::XSLoader.pm.
 # File paths are byte strings and can be in any encoding.
 int
-init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, SV *tp_srcdir_sv)
+init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *t2a_builddir_sv, SV *t2a_srcdir_sv)
       PREINIT:
-        const char *tp_builddir = 0;
-        const char *tp_srcdir = 0;
+        const char *t2a_builddir = 0;
+        const char *t2a_srcdir = 0;
         const char *converterdatadir = 0;
         int texinfo_uninstalled = 0;
       CODE:
@@ -62,10 +62,10 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, S
           texinfo_uninstalled = SvIV (texinfo_uninstalled_sv);
         if (texinfo_uninstalled)
           {
-            if (SvOK (tp_builddir_sv))
-              tp_builddir = SvPVbyte_nolen (tp_builddir_sv);
-            if (SvOK (tp_srcdir_sv))
-              tp_srcdir = SvPVbyte_nolen (tp_srcdir_sv);
+            if (SvOK (t2a_builddir_sv))
+              t2a_builddir = SvPVbyte_nolen (t2a_builddir_sv);
+            if (SvOK (t2a_srcdir_sv))
+              t2a_srcdir = SvPVbyte_nolen (t2a_srcdir_sv);
           }
         else
           converterdatadir = SvPVbyte_nolen (converterdatadir_sv);
@@ -74,7 +74,7 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *tp_builddir_sv, S
         messages_and_encodings_setup ();
 
         setup_texinfo_main (texinfo_uninstalled, converterdatadir,
-                            tp_builddir, tp_srcdir);
+                            t2a_builddir, t2a_srcdir);
         RETVAL = 1;
     OUTPUT:
         RETVAL

@@ -48,32 +48,32 @@ BEGIN
          and $ENV{'TEXINFO_DEV_SOURCE'} ne '0') {
 
     # Use uninstalled modules
-    my $tp_builddir;
-    if (defined($ENV{'tp_builddir'})) {
-      $tp_builddir = $ENV{'tp_builddir'};
+    my $t2a_builddir;
+    if (defined($ENV{'t2a_builddir'})) {
+      $t2a_builddir = $ENV{'t2a_builddir'};
     } else {
       if (defined($ENV{'top_builddir'})) {
-        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
+        $t2a_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
       } else {
-        $tp_builddir = join('/', ($command_directory, $updir, 'tta'));
+        $t2a_builddir = join('/', ($command_directory, $updir, 'tta'));
       }
-      $ENV{'tp_builddir'} = $tp_builddir;
+      $ENV{'t2a_builddir'} = $t2a_builddir;
     }
 
-    my $tp_srcdir;
-    if (defined($ENV{'tp_srcdir'})) {
-      $tp_srcdir = $ENV{'tp_srcdir'};
+    my $t2a_srcdir;
+    if (defined($ENV{'t2a_srcdir'})) {
+      $t2a_srcdir = $ENV{'t2a_srcdir'};
     } else {
       if (defined($ENV{'top_srcdir'})) {
-        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
+        $t2a_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
       } else {
-        $tp_srcdir = join('/', ($command_directory, $updir, 'tta'));
+        $t2a_srcdir = join('/', ($command_directory, $updir, 'tta'));
       }
-      $ENV{'tp_srcdir'} = $tp_srcdir;
+      $ENV{'t2a_srcdir'} = $t2a_srcdir;
     }
 
     # to find Texinfo::ModulePath
-    unshift @INC, $tp_builddir;
+    unshift @INC, $t2a_builddir;
 
     require Texinfo::ModulePath;
     Texinfo::ModulePath::init(undef, undef, undef);

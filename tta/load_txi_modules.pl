@@ -68,8 +68,8 @@ BEGIN
     # Use uninstalled modules
 
     # To find Texinfo::ModulePath
-    if (defined($ENV{'tp_builddir'})) {
-      unshift @INC, $ENV{'tp_builddir'};
+    if (defined($ENV{'t2a_builddir'})) {
+      unshift @INC, $ENV{'t2a_builddir'};
     } else {
       unshift @INC, $command_directory;
     }
@@ -211,7 +211,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # in configure.ac
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-              "< " . join('/', ($Texinfo::ModulePath::tp_srcdir,
+              "< " . join('/', ($Texinfo::ModulePath::t2a_srcdir,
                                 'configure.ac')))) {
       while (<CONFIGURE>) {
         if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
@@ -297,7 +297,7 @@ use Texinfo::Indices;
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir
-     = join('/', ($Texinfo::ModulePath::tp_builddir, 'LocaleData'));
+     = join('/', ($Texinfo::ModulePath::t2a_builddir, 'LocaleData'));
   if (-d $locales_dir) {
     Texinfo::Translations::configure($locales_dir, $strings_textdomain);
   } else {

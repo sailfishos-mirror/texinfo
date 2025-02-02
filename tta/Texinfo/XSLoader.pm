@@ -29,7 +29,7 @@ BEGIN {
     # For configure test in TestXS.pm where Texinfo/ModulePath.pm may
     # not exist yet.
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
-    $Texinfo::ModulePath::tp_builddir = '';
+    $Texinfo::ModulePath::t2a_builddir = '';
   }
 }
 
@@ -321,8 +321,8 @@ sub init {
   if (defined &{"${module}::init"}
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
                                  $Texinfo::ModulePath::converterdatadir,
-                                 $Texinfo::ModulePath::tp_builddir,
-                                 $Texinfo::ModulePath::tp_srcdir)) {
+                                 $Texinfo::ModulePath::t2a_builddir,
+                                 $Texinfo::ModulePath::t2a_srcdir)) {
     _fatal("$module_name: error initializing");
     goto FALLBACK;
   }

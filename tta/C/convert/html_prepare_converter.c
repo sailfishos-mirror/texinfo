@@ -1233,11 +1233,11 @@ load_htmlxref_files (CONVERTER *self)
              directories if TEST is set. */
           if (txi_paths_info.texinfo_uninstalled)
             {
-              if (txi_paths_info.p.uninstalled.tp_srcdir)
+              if (txi_paths_info.p.uninstalled.t2a_srcdir)
                 {
                   char *path;
                   xasprintf (&path, "%s/t/input_files",
-                             txi_paths_info.p.uninstalled.tp_srcdir);
+                             txi_paths_info.p.uninstalled.t2a_srcdir);
                   add_string (path, &htmlxref_dirs);
                   free (path);
                 }

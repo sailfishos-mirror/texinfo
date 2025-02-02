@@ -1,5 +1,11 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	Rename tp_srcdir as t2a_srcdir and tp_builddir as t2a_builddir
+
+	* tta/t/test_utils.pl: rename $srcdir as $t2a_srcdir.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac, tta/tta/Makefile.am (T2A_TESTS): rename TP_TESTS
 	as T2A_TESTS.
 

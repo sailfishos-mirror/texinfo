@@ -25,8 +25,8 @@ our $texinfo_uninstalled = undef;
 # uninstalled locations paths, if $Texinfo::ModulePath::texinfo_uninstalled
 # Pathname of the tta/ build and source directories.  Used to find the locale
 # data and other files.
-our $tp_builddir = '';
-our $tp_srcdir;
+our $t2a_builddir = '';
+our $t2a_srcdir;
 
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
 our $converterdatadir;
@@ -44,8 +44,8 @@ our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 # LIBEXEC_DIR is for XS modules.
 # CONVERTERDATADIR is for HTML extensions, javascript
 #
-# otherwise use 'tp_srcdir'
-# and 'tp_builddir' environment variables.
+# otherwise use 't2a_srcdir'
+# and 't2a_builddir' environment variables.
 sub init {
   my $lib_dir = shift;
   $converterxsdir = shift;
@@ -55,8 +55,8 @@ sub init {
   if (!$named_args{'installed'}) {
     $texinfo_uninstalled = 1;
 
-    if ($ENV{'tp_srcdir'}) {
-      $tp_srcdir = $ENV{'tp_srcdir'};
+    if ($ENV{'t2a_srcdir'}) {
+      $t2a_srcdir = $ENV{'t2a_srcdir'};
     } elsif (defined $named_args{'updirs'}) {
       # the command used is always in the source directory
       my ($real_command_name, $command_directory, $command_suffix)
@@ -65,28 +65,28 @@ sub init {
 
       # e.g. tta/t -> tta/t/../.. for 'updirs' = 2.
       my $count = $named_args{'updirs'};
-      $tp_srcdir = $command_directory;
+      $t2a_srcdir = $command_directory;
       while ($count-- > 0) {
-        $tp_srcdir = join('/', ($tp_srcdir, $updir));
+        $t2a_srcdir = join('/', ($t2a_srcdir, $updir));
       }
     }
 
-    if (defined($tp_srcdir)) {
+    if (defined($t2a_srcdir)) {
       # For Texinfo::Parser and the rest.
-      unshift @INC, "$tp_srcdir";
-      $lib_dir = join('/', ($tp_srcdir, 'maintain'));
+      unshift @INC, "$t2a_srcdir";
+      $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
     }
 
     # Find XS modules in the build directory
-    if (defined($ENV{'tp_builddir'})) {
-      $tp_builddir = $ENV{'tp_builddir'};
+    if (defined($ENV{'t2a_builddir'})) {
+      $t2a_builddir = $ENV{'t2a_builddir'};
     } else {
       # this is correct for in-source builds only.
-      $tp_builddir = $tp_srcdir;
+      $t2a_builddir = $t2a_srcdir;
     }
-    if (defined($tp_builddir)) {
-      unshift @INC, join('/', ($tp_builddir, 'Texinfo', 'XS'));
-      unshift @INC, join('/', ($tp_builddir, 'C'));
+    if (defined($t2a_builddir)) {
+      unshift @INC, join('/', ($t2a_builddir, 'Texinfo', 'XS'));
+      unshift @INC, join('/', ($t2a_builddir, 'C'));
     }
 
   } else {

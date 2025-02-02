@@ -32,7 +32,7 @@ Another way to run a test out-source is:
 
   s=../../tta
   tb=../
-  srcdir=$s tp_builddir=$tb perl -w $s/t/02coverage.t commands
+  srcdir=$s t2a_builddir=$tb perl -w $s/t/02coverage.t commands
 
 where s is the path to the srcdir and tb is the path to the top build dir.
 This allows you to run specific sub-tests, here the sub-test with name

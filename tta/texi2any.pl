@@ -82,8 +82,8 @@ BEGIN
     # Use uninstalled modules
 
     # To find Texinfo::ModulePath
-    if (defined($ENV{'tp_builddir'})) {
-      unshift @INC, $ENV{'tp_builddir'};
+    if (defined($ENV{'t2a_builddir'})) {
+      unshift @INC, $ENV{'t2a_builddir'};
     } else {
       unshift @INC, $command_directory;
     }
@@ -187,7 +187,7 @@ if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
 
 my $extensions_dir;
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
-  $extensions_dir = join('/', ($Texinfo::ModulePath::tp_srcdir, 'ext'));
+  $extensions_dir = join('/', ($Texinfo::ModulePath::t2a_srcdir, 'ext'));
 } else {
   $extensions_dir
     = join('/', ($Texinfo::ModulePath::converterdatadir, 'ext'));
@@ -264,7 +264,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
   # in configure.ac
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-             "< " . join('/', ($Texinfo::ModulePath::tp_srcdir,
+             "< " . join('/', ($Texinfo::ModulePath::t2a_srcdir,
                                'configure.ac')))) {
       while (<CONFIGURE>) {
         if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
@@ -318,7 +318,7 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
   $texinfo_dtd_version = undef;
   if (defined($hardcoded_version)) {
     if (open(CONFIGURE,
-            "< ".join('/', ($Texinfo::ModulePath::tp_srcdir,
+            "< ".join('/', ($Texinfo::ModulePath::t2a_srcdir,
                             'configure.ac')))) {
       while (<CONFIGURE>) {
         if (/^TEXINFO_DTD_VERSION=([0-9]\S*)/) {
@@ -1492,12 +1492,12 @@ Texinfo::Convert::Utils->import();
 
 if (not get_conf('TEST') and $Texinfo::ModulePath::texinfo_uninstalled) {
   push @texinfo_language_config_dirs,
-    join('/', ($Texinfo::ModulePath::tp_srcdir, $updir, 'util'));
+    join('/', ($Texinfo::ModulePath::t2a_srcdir, $updir, 'util'));
 }
 
 if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir
-     = join('/', ($Texinfo::ModulePath::tp_builddir, 'LocaleData'));
+     = join('/', ($Texinfo::ModulePath::t2a_builddir, 'LocaleData'));
   if (-d $locales_dir) {
     Texinfo::Translations::configure($locales_dir, $strings_textdomain);
   } else {

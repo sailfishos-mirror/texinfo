@@ -71,18 +71,18 @@ sub _do_format_test_file($$$$$$)
 my $debug = 0;
 #my $debug = 1;
 
-my $tp_srcdir = $ENV{'srcdir'};
-# fallback based on Texinfo::ModulePath $tp_srcdir
-if (!defined($tp_srcdir) and defined($Texinfo::ModulePath::tp_srcdir)) {
-  $tp_srcdir = $Texinfo::ModulePath::tp_srcdir;
+my $t2a_srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $t2a_srcdir
+if (!defined($t2a_srcdir) and defined($Texinfo::ModulePath::t2a_srcdir)) {
+  $t2a_srcdir = $Texinfo::ModulePath::t2a_srcdir;
 }
 
 my $locales_srcdir;
-if (defined($tp_srcdir)) {
-  $tp_srcdir =~ s/\/*$/\//;
-  $locales_srcdir = $tp_srcdir;
+if (defined($t2a_srcdir)) {
+  $t2a_srcdir =~ s/\/*$/\//;
+  $locales_srcdir = $t2a_srcdir;
 } else {
-  $tp_srcdir = '.';
+  $t2a_srcdir = '.';
   $locales_srcdir = '.';
 }
 
@@ -145,7 +145,7 @@ sub _run_test($$$)
 
     my $format = 'info';
     my ($info_test_out_dir, $info_reference_dir)
-      = prepare_format_directories($tp_srcdir, $test_group,
+      = prepare_format_directories($t2a_srcdir, $test_group,
                                    $test_file_name, $format);
 
     my $info_converter
@@ -156,7 +156,7 @@ sub _run_test($$$)
 
     $format = 'html';
     my ($html_test_out_dir, $html_reference_dir)
-      = prepare_format_directories($tp_srcdir, $test_group,
+      = prepare_format_directories($t2a_srcdir, $test_group,
                                    $test_file_name, $format);
 
     my $html_converter = Texinfo::Convert::HTML->converter({
@@ -173,24 +173,24 @@ Texinfo::Tests::create_group_directory($test_group);
 
 
 my $updir = File::Spec->updir();
-my $manual_file = join('/', ($tp_srcdir, $updir, 'doc', 'texinfo.texi'));
-my $manual_include_dir = join('/', ($tp_srcdir, $updir, 'doc'));
-my $coverage_file = join('/', ($tp_srcdir, 'tests', 'coverage',
+my $manual_file = join('/', ($t2a_srcdir, $updir, 'doc', 'texinfo.texi'));
+my $manual_include_dir = join('/', ($t2a_srcdir, $updir, 'doc'));
+my $coverage_file = join('/', ($t2a_srcdir, 'tests', 'coverage',
                                'formatting.texi'));
-my $coverage_include_dir = join('/', ($tp_srcdir, 'tests'));
+my $coverage_include_dir = join('/', ($t2a_srcdir, 'tests'));
 
-my $cpp_lines_file = join('/', ($tp_srcdir, 't', 'input_files',
+my $cpp_lines_file = join('/', ($t2a_srcdir, 't', 'input_files',
                                 'cpp_lines.texi'));
-my $index_nodes_file = join('/', ($tp_srcdir, 't', 'input_files',
+my $index_nodes_file = join('/', ($t2a_srcdir, 't', 'input_files',
                                   'index_nodes.texi'));
-my $first_file = join('/', ($tp_srcdir, 't', 'input_files',
+my $first_file = join('/', ($t2a_srcdir, 't', 'input_files',
                                     'first_file_same_parser.texi'));
-my $next_file = join('/', ($tp_srcdir, 't', 'input_files',
+my $next_file = join('/', ($t2a_srcdir, 't', 'input_files',
                                     'next_file_same_parser.texi'));
-my $last_file = join('/', ($tp_srcdir, 't', 'input_files',
+my $last_file = join('/', ($t2a_srcdir, 't', 'input_files',
                                     'last_file_same_parser.texi'));
 
-my $t_include_include_dir = join('/', ($tp_srcdir, 't', 'include'));
+my $t_include_include_dir = join('/', ($t2a_srcdir, 't', 'include'));
 
 # Test setting specific values in parser initialization and checking
 # that they are used in both files, but also that the values @set in the

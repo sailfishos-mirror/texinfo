@@ -17,8 +17,8 @@ typedef struct INSTALLED_PATHS {
 } INSTALLED_PATHS;
 
 typedef struct UNINSTALLED_PATHS {
-    char *tp_builddir;
-    char *tp_srcdir;
+    char *t2a_builddir;
+    char *t2a_srcdir;
 } UNINSTALLED_PATHS;
 
 typedef struct PATHS_INFORMATION {
@@ -33,7 +33,7 @@ extern PATHS_INFORMATION txi_paths_info;
 
 void setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
-                 const char *tp_builddir, const char *tp_srcdir);
+                 const char *t2a_builddir, const char *t2a_srcdir);
 
 
 DOCUMENT *retrieve_document (size_t document_descriptor);

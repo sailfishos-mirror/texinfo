@@ -66,16 +66,16 @@ sub _do_format_test_file($$$$$$)
 
 
 
-my $tp_srcdir = $ENV{'srcdir'};
-# fallback based on Texinfo::ModulePath $tp_srcdir
-if (!defined($tp_srcdir) and defined($Texinfo::ModulePath::tp_srcdir)) {
-  $tp_srcdir = $Texinfo::ModulePath::tp_srcdir;
+my $t2a_srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $t2a_srcdir
+if (!defined($t2a_srcdir) and defined($Texinfo::ModulePath::t2a_srcdir)) {
+  $t2a_srcdir = $Texinfo::ModulePath::t2a_srcdir;
 }
 
-if (defined($tp_srcdir)) {
-  $tp_srcdir =~ s/\/*$/\//;
+if (defined($t2a_srcdir)) {
+  $t2a_srcdir =~ s/\/*$/\//;
 } else {
-  $tp_srcdir = '.';
+  $t2a_srcdir = '.';
 }
 
 my $debug = 0;
@@ -138,7 +138,7 @@ my $test_name = 'one';
 
 my $format = 'html';
 my ($html_test_out_dir, $html_reference_dir)
-   = prepare_format_directories($tp_srcdir, $test_group, $test_name, $format);
+   = prepare_format_directories($t2a_srcdir, $test_group, $test_name, $format);
 
 
 my $html_converter = Texinfo::Convert::HTML->converter(
@@ -177,7 +177,7 @@ subsec
 
 $format = 'info';
 my ($info_test_out_dir, $info_reference_dir)
-   = prepare_format_directories($tp_srcdir, $test_group, $test_name, $format);
+   = prepare_format_directories($t2a_srcdir, $test_group, $test_name, $format);
 
 my $info_converter
   = Texinfo::Convert::Info->converter({'SUBDIR' => $info_test_out_dir});

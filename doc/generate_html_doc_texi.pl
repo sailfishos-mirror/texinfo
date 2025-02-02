@@ -37,16 +37,16 @@ BEGIN
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
-  # tp directory
-  my $tp_srcdir;
+  # tta directory
+  my $t2a_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is doc/
-    $tp_srcdir = join('/', ($ENV{'srcdir'}, $updir, 'tta'));
+    $t2a_srcdir = join('/', ($ENV{'srcdir'}, $updir, 'tta'));
   } else {
-    $tp_srcdir = join('/', ($command_directory, $updir, 'tta'));
+    $t2a_srcdir = join('/', ($command_directory, $updir, 'tta'));
   }
-  unshift @INC, $tp_srcdir;
-  my $lib_dir = join('/', ($tp_srcdir, 'maintain'));
+  unshift @INC, $t2a_srcdir;
+  my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
   # we ignore --with-external-*
   unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));
   unshift @INC, join('/', ($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));

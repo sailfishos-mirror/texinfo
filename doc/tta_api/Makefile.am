@@ -16,8 +16,8 @@ AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=compl
 
 # Use the programs built in our distribution.
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
-                       tp_srcdir="$(top_srcdir)/tta" \
-                       tp_builddir="$(top_builddir)/tta"
+                       t2a_srcdir="$(top_srcdir)/tta" \
+                       t2a_builddir="$(top_builddir)/tta"
 MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_srcdir)/tta/texi2any.pl
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \

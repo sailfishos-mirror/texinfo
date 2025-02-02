@@ -8561,7 +8561,7 @@ sub _load_htmlxref_files {
 
       if ($Texinfo::ModulePath::texinfo_uninstalled) {
         unshift @htmlxref_dirs, join('/', (
-          $Texinfo::ModulePath::tp_srcdir, 't', 'input_files'));
+          $Texinfo::ModulePath::t2a_srcdir, 't', 'input_files'));
       }
     } elsif ($self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')
        and scalar(@{$self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')}) > 0) {
@@ -12628,7 +12628,7 @@ sub _do_js_files($$)
             $Texinfo::ModulePath::converterdatadir, 'js'));
         } else {
           $jssrcdir = join('/', (
-            $Texinfo::ModulePath::tp_srcdir, $updir, 'js'));
+            $Texinfo::ModulePath::t2a_srcdir, $updir, 'js'));
         }
         for my $f ('info.js', 'modernizr.js', 'info.css') {
           my $from = join('/', ($jssrcdir, $f));

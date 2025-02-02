@@ -16,16 +16,16 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 
-my $tp_srcdir = $ENV{'srcdir'};
-# fallback based on Texinfo::ModulePath $tp_srcdir
-if (!defined($tp_srcdir) and defined($Texinfo::ModulePath::tp_srcdir)) {
-  $tp_srcdir = $Texinfo::ModulePath::tp_srcdir;
+my $t2a_srcdir = $ENV{'srcdir'};
+# fallback based on Texinfo::ModulePath $t2a_srcdir
+if (!defined($t2a_srcdir) and defined($Texinfo::ModulePath::t2a_srcdir)) {
+  $t2a_srcdir = $Texinfo::ModulePath::t2a_srcdir;
 }
 
-if (defined($tp_srcdir)) {
-  $tp_srcdir =~ s/\/*$/\//;
+if (defined($t2a_srcdir)) {
+  $t2a_srcdir =~ s/\/*$/\//;
 } else {
-  $tp_srcdir = '.';
+  $t2a_srcdir = '.';
 }
 
 my $debug = 0;
@@ -164,13 +164,13 @@ is($texi_tree_with_sec, $texi_copy_with_sec,
    'tree after sectioning and copy to texi match');
 
 my $updir = File::Spec->updir();
-my $manual_file = join('/', ($tp_srcdir, $updir, 'doc', 'texinfo.texi'));
-my $manual_include_dir = join('/', ($tp_srcdir, $updir, 'doc'));
+my $manual_file = join('/', ($t2a_srcdir, $updir, 'doc', 'texinfo.texi'));
+my $manual_include_dir = join('/', ($t2a_srcdir, $updir, 'doc'));
 #print STDERR "$manual_file $manual_include_dir\n";
 
-my $coverage_file = join('/', ($tp_srcdir, 'tests',
+my $coverage_file = join('/', ($t2a_srcdir, 'tests',
                                'coverage', 'formatting.texi'));
-my $coverage_include_dir = join('/', ($tp_srcdir, 'tests'));
+my $coverage_include_dir = join('/', ($t2a_srcdir, 'tests'));
 
 foreach my $file_include (['Texinfo', $manual_file, $manual_include_dir],
                           ['formatting', $coverage_file, $coverage_include_dir]) {
