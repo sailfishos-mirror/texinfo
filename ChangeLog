@@ -1,5 +1,16 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/t/test_utils.pl: fix script name in message.
+
+	* doc/refcard/txicmdcheck (main): rename tp_cmds as t2a_cmds, tp_only
+	as t2a_only and read_tp as read_cmds.
+
+	* doc/refcard/txivarcheck (main): rename tp_vars as t2a_vars,
+	tp_cmds_vars as t2a_cmds_vars, tp_vars_only as t2a_vars_only,
+	tp_cmds_vars_only as t2a_cmds_vars_only and read_tp as read_vars. 
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	Rename tp_srcdir as t2a_srcdir and tp_builddir as t2a_builddir
 
 	* tta/t/test_utils.pl: rename $srcdir as $t2a_srcdir.

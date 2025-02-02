@@ -35,21 +35,21 @@ sub main {
                              = &read_refman ("$srcdir/../texinfo.texi");
   my @man_vars = @$man_customization_vars;
   my @man_cmds_vars = @$man_cmds_customization_vars;
-  my @tp_vars = &read_tp ("$srcdir/../../util/txicustomvars");
-  my @tp_cmds_vars = &read_tp ("$srcdir/../../util/txicustomvars --commands");
+  my @t2a_vars = &read_vars ("$srcdir/../../util/txicustomvars");
+  my @t2a_cmds_vars = &read_vars ("$srcdir/../../util/txicustomvars --commands");
 
-  my (%man_vars, %tp_vars, %man_cmds_vars, %tp_cmds_vars);  # list to hash
+  my (%man_vars, %t2a_vars, %man_cmds_vars, %t2a_cmds_vars);  # list to hash
   @man_vars{@man_vars} = ();
-  @tp_vars{@tp_vars} = ();
+  @t2a_vars{@t2a_vars} = ();
   @man_cmds_vars{@man_cmds_vars} = ();
-  @tp_cmds_vars{@tp_cmds_vars} = ();
+  @t2a_cmds_vars{@t2a_cmds_vars} = ();
 
   my @found_vars = ();
-  for my $name (@tp_vars) {
+  for my $name (@t2a_vars) {
     if (exists $man_vars{$name}) {
       push (@found_vars, $name);
       delete $man_vars{$name};
-      delete $tp_vars{$name};
+      delete $t2a_vars{$name};
     }
   }
 
@@ -62,15 +62,15 @@ sub main {
   my @man_vars_only = sort(keys(%man_vars));
   printf "man only %3s: @man_vars_only\n", scalar(@man_vars_only);
 
-  my @tp_vars_only = sort(keys(%tp_vars));
-  printf "texi2any only %3s: @tp_vars_only\n", scalar(@tp_vars_only);
+  my @t2a_vars_only = sort(keys(%t2a_vars));
+  printf "texi2any only %3s: @t2a_vars_only\n", scalar(@t2a_vars_only);
 
   my @found_cmds_vars = ();
-  for my $name (@tp_cmds_vars) {
+  for my $name (@t2a_cmds_vars) {
     if (exists $man_cmds_vars{$name}) {
       push (@found_cmds_vars, $name);
       delete $man_cmds_vars{$name};
-      delete $tp_cmds_vars{$name};
+      delete $t2a_cmds_vars{$name};
     }
   }
 
@@ -81,12 +81,12 @@ sub main {
   my @man_cmds_vars_only = sort(keys(%man_cmds_vars));
   printf "man only cmds %3s: @man_cmds_vars_only\n", scalar(@man_cmds_vars_only);
 
-  my @tp_cmds_vars_only = sort(keys(%tp_cmds_vars));
-  printf "texi2any only cmds %3s: @tp_cmds_vars_only\n",
-                                     scalar(@tp_cmds_vars_only);
+  my @t2a_cmds_vars_only = sort(keys(%t2a_cmds_vars));
+  printf "texi2any only cmds %3s: @t2a_cmds_vars_only\n",
+                                     scalar(@t2a_cmds_vars_only);
 
 
-  return scalar(@tp_vars_only) + scalar(@tp_cmds_vars_only);
+  return scalar(@t2a_vars_only) + scalar(@t2a_cmds_vars_only);
 }
 
 
@@ -164,7 +164,7 @@ sub read_refman {
 # Return customization variable names implemented in the general parser.
 # The argument is the command to run which returns the list.
 #
-sub read_tp {
+sub read_vars {
   my ($prog) = @_;
   my @ret = ();
 

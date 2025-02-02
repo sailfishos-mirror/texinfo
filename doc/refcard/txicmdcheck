@@ -33,19 +33,19 @@ sub main {
   my %card_cmds = &read_refcard ("$srcdir/txirefcard.tex");
   my %idx_cmds = &read_refidx ("$srcdir/../texinfo.texi");
   my %man_cmds = &read_appendix ("$srcdir/../texinfo.texi");
-  my %tp_cmds = &read_tp ("$srcdir/../../util/txicmdlist");
+  my %t2a_cmds = &read_cmds ("$srcdir/../../util/txicmdlist");
 
   # find the commands that are covered everywhere.
   my @found = ();
   for my $cc (keys %card_cmds) {
     if (exists $idx_cmds{$cc}
         && exists $man_cmds{$cc}
-        && exists $tp_cmds{$cc}) {
+        && exists $t2a_cmds{$cc}) {
       push (@found, $cc);
       delete $card_cmds{$cc};
       delete $idx_cmds{$cc};
       delete $man_cmds{$cc};
-      delete $tp_cmds{$cc};
+      delete $t2a_cmds{$cc};
     }
   }
 
@@ -62,11 +62,11 @@ sub main {
   # other lists.
   my @idx_missing = ();
   for my $cc (sort keys %card_cmds) {
-    if (exists $man_cmds{$cc} && exists $tp_cmds{$cc}) {
+    if (exists $man_cmds{$cc} && exists $t2a_cmds{$cc}) {
       push (@idx_missing, $cc);
       delete $card_cmds{$cc};
       delete $man_cmds{$cc};
-      delete $tp_cmds{$cc};
+      delete $t2a_cmds{$cc};
     }
   }
   printf "findex missing %d: @idx_missing\n", scalar(@idx_missing)
@@ -79,10 +79,10 @@ sub main {
   my @man_only = sort(keys(%man_cmds));
   printf "appendix only %d: @man_only\n", scalar(@man_only);
 
-  my @tp_only = sort(keys(%tp_cmds));
-  printf "texi2any only %d: @tp_only\n", scalar(@tp_only);
+  my @t2a_only = sort(keys(%t2a_cmds));
+  printf "texi2any only %d: @t2a_only\n", scalar(@t2a_only);
 
-  return scalar(@card_only) + scalar(@man_only) + scalar(@tp_only);
+  return scalar(@card_only) + scalar(@man_only) + scalar(@t2a_only);
 }
 
 
@@ -207,7 +207,7 @@ sub read_appendix {
 # a hash (empty values).  The argument is the command to run to return
 # the list.
 #
-sub read_tp {
+sub read_cmds {
   my ($prog) = @_;
   my %ret = ();
 

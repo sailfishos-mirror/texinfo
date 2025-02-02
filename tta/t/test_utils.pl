@@ -457,7 +457,7 @@ sub close_files($)
         }
       }
       if (!close($fh)) {
-        warn(sprintf("tp_utils.pl: error on closing %s: %s\n",
+        warn(sprintf("test_utils.pl: error on closing %s: %s\n",
                      $unclosed_file, $!));
         $close_error_nr++;
       }
