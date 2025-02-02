@@ -18,7 +18,7 @@ if ! DISABLE_XS
 SUBDIRS += Texinfo/XS
 endif
 
-DIST_SUBDIRS = Texinfo/TestXS Texinfo/XS
+DIST_SUBDIRS = TestXS Texinfo/XS
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

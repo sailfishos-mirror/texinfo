@@ -1,5 +1,14 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	Move tta/perl/Texinfo/TestXS to tta/perl/TestXS
+
+	* autogen.sh, tta/configure.ac (TestXS), tta/perl/TestXS,
+	tta/perl/Makefile.am (DIST_SUBDIRS), tta/perl/TestXS/Makefile.am
+	(ACLOCAL_AMFLAGS), tta/perl/TestXS/configure.ac
+	(AC_CONFIG_MACRO_DIRS): move tta/perl/Texinfo/TestXS up.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/Makefile.am (distclean-local), tta/perl/Makefile.am
 	(distclean-local): add distclean-local target to tta/perl/Makefile.am
 	and move the t/*.t related rules from tta/Makefile.am to

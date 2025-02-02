@@ -12,7 +12,7 @@
 AC_INIT([GNU Texinfo], [7.2dev])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
-AC_CONFIG_MACRO_DIRS([build-aux/m4 ../../../m4])
+AC_CONFIG_MACRO_DIRS([build-aux/m4 ../../m4])
 
 AC_PATH_PROG([PERL], [perl])
 
