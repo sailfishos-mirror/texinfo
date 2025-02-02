@@ -405,7 +405,6 @@ util/defs
 
 util/testSubDir
 util/texindex
-util/texinfo.cat
 util/txixml2texi
 util/*.sig
 

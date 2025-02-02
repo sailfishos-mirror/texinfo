@@ -42,15 +42,7 @@ AM_CPPFLAGS = 					\
   -DLOCALEDIR=\"$(localedir)\"
 LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(LIBINTL)
 
-dist_pkgdata_DATA = htmlxref.cnf texinfo.dtd #texinfo.cat
-
-# This fails distcheck:
-#texinfo.cat: texinfo-cat.in Makefile
-#	sed 's/__VERSION__/$(TEXINFO_DTD_VERSION)/g' $(srcdir)/texinfo-cat.in >$@
-# used to be:
-#texinfo.cat: texinfo-cat.in $(top_srcdir)/doc/version.texi
-#	sed 's/__VERSION__/@VERSION@/g' $(srcdir)/texinfo-cat.in >$@
-# Let's try just getting rid of it; not aware of its being used.
+dist_pkgdata_DATA = htmlxref.cnf texinfo.dtd
 
 # Most of these are for fun.  The only official/installed ones are the
 # *texi2* scripts.
