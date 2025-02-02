@@ -44,7 +44,7 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
-cmd="(cd tta/perl/TestXS && ${LIBTOOLIZE} \
+cmd="(cd tta/perl/CheckXS && ${LIBTOOLIZE} \
  && autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1

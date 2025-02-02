@@ -26,7 +26,7 @@ use DynaLoader;
 BEGIN {
   eval 'require Texinfo::ModulePath';
   if ($@ ne '') {
-    # For configure test in TestXS.pm where Texinfo/ModulePath.pm may
+    # For configure test in CheckXS where Texinfo/ModulePath.pm may
     # not exist yet.
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';

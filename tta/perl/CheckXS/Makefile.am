@@ -1,4 +1,4 @@
-# Makefile.am for TestXS
+# Makefile.am for CheckXS
 #
 # Copyright 2015-2025 Free Software Foundation, Inc.
 #

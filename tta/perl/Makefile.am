@@ -18,7 +18,7 @@ if ! DISABLE_XS
 SUBDIRS += XSTexinfo
 endif
 
-DIST_SUBDIRS = TestXS XSTexinfo
+DIST_SUBDIRS = CheckXS XSTexinfo
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

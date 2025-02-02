@@ -101,12 +101,12 @@ gnulib/po/POTFILES
 gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
 
-tta/perl/TestXS/build-aux/**
-tta/perl/TestXS/.libs
-tta/perl/TestXS/TestXS.c
-tta/perl/TestXS/*.la
-tta/perl/TestXS/*.lo
-tta/perl/TestXS/libtool
+tta/perl/CheckXS/build-aux/**
+tta/perl/CheckXS/.libs
+tta/perl/CheckXS/TestXS.c
+tta/perl/CheckXS/*.la
+tta/perl/CheckXS/*.lo
+tta/perl/CheckXS/libtool
 
 tta/gnulib/lib/dirent.h
 tta/gnulib/lib/error.h
