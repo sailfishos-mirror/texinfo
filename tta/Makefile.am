@@ -349,7 +349,7 @@ document_domain = $(PACKAGE)_document
 # $(document_strings_mo_files) comes from the generated Makefile.docstr.
 all-local: maintain/catalog.xml $(document_strings_mo_files)
 
-if TP_TESTS
+if T2A_TESTS
 TESTS = $(test_tap_files_generated_list)
 endif
 

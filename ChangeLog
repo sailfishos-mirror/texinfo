@@ -1,5 +1,10 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac, tta/tta/Makefile.am (T2A_TESTS): rename TP_TESTS
+	as T2A_TESTS.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	Rename tp directory as tta and tp_api as tta_api
 
 	* configure.ac (--enable-t2a-tests), tta/configure.ac

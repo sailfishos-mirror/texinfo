@@ -452,7 +452,7 @@ AC_ARG_ENABLE([t2a-tests],
 
 AC_MSG_CHECKING([parser tests requirements])
 AC_MSG_RESULT([$t2a_tests])
-AM_CONDITIONAL([TP_TESTS], [test "z$t2a_tests" = 'zyes'])
+AM_CONDITIONAL([T2A_TESTS], [test "z$t2a_tests" = 'zyes'])
 
 AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
 if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
