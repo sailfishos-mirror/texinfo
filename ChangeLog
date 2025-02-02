@@ -1,5 +1,10 @@
 2025-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/setup_accent_tables.pl (BEGIN),
+	tp/maintain/setup_converters_code_tables.pl (BEGIN): update paths.
+
+2025-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Parser.pm (BEGIN), tp/Texinfo/XS/Makefile.am (modulesdir)
 	(dist_modules_DATA, *_SOURCES, EXTRA_DIST, CLEANFILES),
 	tp/Texinfo/XS/parser_document*.xs: move XS code from main, parsetexi

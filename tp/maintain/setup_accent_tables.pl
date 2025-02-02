@@ -29,7 +29,7 @@ my $program_name = basename($0);
 BEGIN
 {
   # NOTE we do not use Texinfo::ModulePath as it may not have been
-  # created yet, as tp/Texinfo/XS may be processed before tp.
+  # created yet, as tp/C may be processed before tp.
   # Also we have less modules to find, only pure perl code.
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
@@ -37,8 +37,8 @@ BEGIN
   # tp directory
   my $tp_srcdir;
   if (defined($ENV{'srcdir'})) {
-    # srcdir is tp/Texinfo/XS
-    $tp_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir, $updir);
+    # srcdir is tp/C
+    $tp_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir);
   } else {
     $tp_srcdir = File::Spec->catdir($command_directory, $updir);
   }
