@@ -27,6 +27,12 @@ of the code?
 
 Document TEXINFO_C_EMBED_PERL
 
+Run the tests testsuite both in C and in perl directory, by having different
+defs.in
+
+Check again whether TEXINFO_XS* can be obeyed when embedding a Perl
+interpreter in stead of forcing XS at the fullest level.
+
 
 Bugs
 ====
@@ -74,6 +80,9 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 Delayed bugs/features
 =====================
+
+Could libraries be compiled with Perl C compiler or other C compiler
+and be mixed at the library level?  Ask on the list.
 
 Gavin on using CSV files and a Perl script to generate code for Perl and C.
 For something like html_style_commands_element.csv, it could potentially
