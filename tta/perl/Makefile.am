@@ -322,6 +322,7 @@ test_files = \
 
 # test_files_generated_list comes from the generated Makefile.tres
 EXTRA_DIST += \
+  Convert_format_template.pod \
   load_txi_modules.pl \
   prove.sh \
   texi2any.pl \

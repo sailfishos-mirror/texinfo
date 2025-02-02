@@ -19,16 +19,16 @@ for format in HTML TexinfoXML DocBook Info Plaintext; do
   sed -e '/^__END__/q' Texinfo/Convert/$format.pm \
     > Texinfo/Convert/$format.pm.$$.tmp || exit 1
 
-  sed -e "s/OUTFORMAT/$format/g" ../maintain/template.pod \
+  sed -e "s/OUTFORMAT/$format/g" Convert_format_template.pod \
   | if test $format = HTML; then
       sed 's/^__HTML \?//'
     else
       sed -e '/^__HTML/d'
     fi \
-  > ../maintain/$format.pod || exit 1
+  > $format.pod.$$.tmp || exit 1
   
-  sed -e "/^__END__/r ../maintain/$format.pod" Texinfo/Convert/$format.pm.$$.tmp \
+  sed -e "/^__END__/r $format.pod.$$.tmp" Texinfo/Convert/$format.pm.$$.tmp \
     > Texinfo/Convert/$format.pm || exit 1
 
-  rm -f ../maintain/$format.pod Texinfo/Convert/$format.pm.$$.tmp
+  rm -f $format.pod.$$.tmp Texinfo/Convert/$format.pm.$$.tmp
 done

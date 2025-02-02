@@ -67,7 +67,6 @@ maintenance_files = \
   maintain/regenerate_C_options_info.pl \
   maintain/setup_accent_tables.pl \
   maintain/setup_converters_code_tables.pl \
-  maintain/template.pod \
   maintain/catalog.xml.in
 
 # test_files_generated_list comes from the generated Makefile.tres
