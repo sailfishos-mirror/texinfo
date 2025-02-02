@@ -1,5 +1,9 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* util/Makefile.am (EXTRA_DIST): remove deleted texinfo-cat.in.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/Makefile.am (maintenance_files),
 	tta/maintain/regenerate_converters_documentation.sh,
 	tta/perl/Makefile.am (EXTRA_DIST),
