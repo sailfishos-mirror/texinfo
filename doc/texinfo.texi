@@ -3997,7 +3997,8 @@ and used for the whole manual.  But you can turn it off if you want
 including some other sub-document that doesn't have suitable section
 names.  This setting also applies to node headers in HTML, if
 @code{@@xrefautomaticsectiontitle} is on, the sections names are used
-in node headers instead of the node names when possible.
+in node headers instead of the node names when possible.  This setting has
+no effect in Info or plain text output.
 
 
 @node Four and Five Arguments
