@@ -85,7 +85,7 @@ sub init {
       $t2a_builddir = $t2a_srcdir;
     }
     if (defined($t2a_builddir)) {
-      unshift @INC, join('/', ($t2a_builddir, 'perl', 'Texinfo', 'XS'));
+      unshift @INC, join('/', ($t2a_builddir, 'perl', 'XSTexinfo'));
       unshift @INC, join('/', ($t2a_builddir, 'C'));
     }
 

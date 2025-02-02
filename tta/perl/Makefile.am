@@ -15,10 +15,10 @@ EXTRA_DIST =
 SUBDIRS = 
 
 if ! DISABLE_XS
-SUBDIRS += Texinfo/XS
+SUBDIRS += XSTexinfo
 endif
 
-DIST_SUBDIRS = TestXS Texinfo/XS
+DIST_SUBDIRS = TestXS XSTexinfo
 
 converterdatadir = $(datadir)/$(CONVERTER)
 

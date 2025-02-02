@@ -147,7 +147,7 @@ sub load_libtool_library {
       return 0;
     }
 
-    # Look for the line in XS*.la giving the name of the loadable object.
+    # Look for the line in *.la giving the name of the loadable object.
     while (my $line = <$fh>) {
       if ($line =~ /^\s*dlname\s*=\s*'([^']+)'\s$/) {
         $dlname = $1;

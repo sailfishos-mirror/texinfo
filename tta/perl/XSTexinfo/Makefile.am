@@ -18,7 +18,7 @@ CLEANFILES =
 
 ######################## Texinfo libraries dependencies #######
 
-txi_libs_srcdir = $(srcdir)/../../../C
+txi_libs_srcdir = $(srcdir)/../../C
 
 $(top_builddir)/C/libtexinfo-convertxs.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-convertxs.la
@@ -73,8 +73,8 @@ xs_LTLIBRARIES =
 xs_LTLIBRARIES += MiscXS.la
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
-MiscXS_la_SOURCES = xsmisc.c xsmisc.h ../../../C/main/base_utils.c \
-                    ../../../C/main/base_utils.h
+MiscXS_la_SOURCES = xsmisc.c xsmisc.h ../../C/main/base_utils.c \
+                    ../../C/main/base_utils.h
 # Include Perl headers, do not include Gnulib/configure generated config.h
 MiscXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS) -UHAVE_CONFIG_H
 MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
@@ -87,8 +87,8 @@ MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 # configure/Gnulib headers but no Perl header.
 noinst_LTLIBRARIES += libparagraph.la
 libparagraph_la_SOURCES = xspara.c xspara.h \
-                 ../../../C/main/base_utils.c ../../../C/main/base_utils.h \
-                 ../../../C/main/text.c ../../../C/main/text.h
+                 ../../C/main/base_utils.c ../../C/main/base_utils.h \
+                 ../../C/main/text.c ../../C/main/text.h
 libparagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(GNULIB_CPPFLAGS)
 libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)

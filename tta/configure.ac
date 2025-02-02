@@ -496,7 +496,7 @@ AC_CONFIG_FILES([
   defs
   C/Makefile
   perl/Makefile
-  perl/Texinfo/XS/Makefile
+  perl/XSTexinfo/Makefile
   gnulib/lib/Makefile
 ])
 

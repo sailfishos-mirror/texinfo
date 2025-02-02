@@ -101,12 +101,12 @@ gnulib/po/POTFILES
 gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
 
-tta/perl/Texinfo/TestXS/build-aux/**
-tta/perl/Texinfo/TestXS/.libs
-tta/perl/Texinfo/TestXS/TestXS.c
-tta/perl/Texinfo/TestXS/*.la
-tta/perl/Texinfo/TestXS/*.lo
-tta/perl/Texinfo/TestXS/libtool
+tta/perl/TestXS/build-aux/**
+tta/perl/TestXS/.libs
+tta/perl/TestXS/TestXS.c
+tta/perl/TestXS/*.la
+tta/perl/TestXS/*.lo
+tta/perl/TestXS/libtool
 
 tta/gnulib/lib/dirent.h
 tta/gnulib/lib/error.h
@@ -251,18 +251,7 @@ install-info/tests/defs
 tta/Makefile.onetst
 tta/Makefile.docstr
 
-tta/perl/t/results/**/out_*
-tta/perl/t/results/**/*.new
-
 tta/maintain/catalog.xml
-
-tta/perl/t/include_dir
-tta/perl/t/locales
-tta/perl/t/output_files
-tta/perl/t/*.trs
-tta/perl/t/*.log
-tta/perl/t/z_misc/*.trs
-tta/perl/t/z_misc/*.log
 
 tta/tests/*/tests.log
 tta/tests/*/tests.out
@@ -275,8 +264,7 @@ tta/tests/*/raw_out_parser_info
 tta/tests/*/raw_out_parser_html
 tta/tests/*/test_log
 
-tta/tests/*.log
-tta/tests/*.trs
+tta/tests/test-suite.log
 tta/tests/test_scripts/*.log
 tta/tests/test_scripts/*.trs
 tta/tests/input_file_names_recoded_stamp.txt
@@ -300,23 +288,7 @@ tta/tests/many_input_files/*.log
 tta/tests/many_input_files/*.trs
 
 tta/LocaleData
-
 tta/defs
-tta/load_txi_modules
-tta/makeinfo
-tta/t_texis
-tta/texi2any
-tta/texi_sort_elements_count
-tta/tests/*.log
-
-tta/perl/Texinfo/ModulePath.pm
-
-tta/perl/Texinfo/XS/MiscXS.c
-tta/perl/Texinfo/XS/XSParagraph.c
-tta/perl/Texinfo/XS/*.lo
-tta/perl/Texinfo/XS/*.la
-tta/perl/Texinfo/XS/.libs
-
 tta/config.log
 tta/libtool
 
@@ -354,17 +326,38 @@ tta/gnulib/lib/uniwidth.h
 tta/gnulib/lib/wchar.h
 tta/gnulib/lib/sys/types.h
 
-tta/perl/Texinfo/XS/parser_document/ConfigXS.c
-tta/perl/Texinfo/XS/parser_document/DocumentXS.c
-tta/perl/Texinfo/XS/parser_document/IndicesXS.c
-tta/perl/Texinfo/XS/parser_document/Parsetexi.c
-tta/perl/Texinfo/XS/parser_document/StructuringTransfoXS.c
-tta/perl/Texinfo/XS/parser_document/.libs
-tta/perl/Texinfo/XS/parser_document/*.lo
+tta/perl/load_txi_modules
+tta/perl/makeinfo
+tta/perl/t_texis
+tta/perl/texi2any
 
-tta/perl/Texinfo/XS/convert/ConvertXS.c
-tta/perl/Texinfo/XS/convert/.libs
-tta/perl/Texinfo/XS/convert/*.lo
+tta/perl/Texinfo/ModulePath.pm
+
+tta/perl/t/output_files
+tta/perl/t/results/**/out_*
+tta/perl/t/results/**/*.new
+tta/perl/t/*.trs
+tta/perl/t/*.log
+tta/perl/t/z_misc/*.trs
+tta/perl/t/z_misc/*.log
+
+tta/perl/XSTexinfo/MiscXS.c
+tta/perl/XSTexinfo/XSParagraph.c
+tta/perl/XSTexinfo/*.lo
+tta/perl/XSTexinfo/*.la
+tta/perl/XSTexinfo/.libs
+
+tta/perl/XSTexinfo/parser_document/ConfigXS.c
+tta/perl/XSTexinfo/parser_document/DocumentXS.c
+tta/perl/XSTexinfo/parser_document/IndicesXS.c
+tta/perl/XSTexinfo/parser_document/Parsetexi.c
+tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.c
+tta/perl/XSTexinfo/parser_document/.libs
+tta/perl/XSTexinfo/parser_document/*.lo
+
+tta/perl/XSTexinfo/convert/ConvertXS.c
+tta/perl/XSTexinfo/convert/.libs
+tta/perl/XSTexinfo/convert/*.lo
 
 tta/C/ctexi2any
 tta/C/teximakehtml
