@@ -41,16 +41,16 @@ BEGIN
   my $tp_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is doc/
-    $tp_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir, 'tp');
+    $tp_srcdir = join('/', ($ENV{'srcdir'}, $updir, 'tta'));
   } else {
-    $tp_srcdir = File::Spec->catdir($command_directory, $updir, 'tp');
+    $tp_srcdir = join('/', ($command_directory, $updir, 'tta'));
   }
   unshift @INC, $tp_srcdir;
-  my $lib_dir = File::Spec->catdir($tp_srcdir, 'maintain');
+  my $lib_dir = join('/', ($tp_srcdir, 'maintain'));
   # we ignore --with-external-*
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'libintl-perl', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
 use Texinfo::Convert::HTML;

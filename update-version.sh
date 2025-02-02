@@ -34,6 +34,6 @@ perl -wpli -e \
   's/(\\versionTexinfo\{).*$/${1}'$version'}/' \
   doc/refcard/txirefcard.tex
 
-(cd tp && ./maintain/change_perl_modules_version.sh auto)
+(cd tta && ./maintain/change_perl_modules_version.sh auto)
 
 

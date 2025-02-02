@@ -7,7 +7,7 @@ find_missed () {
   find . \
     -name autom4te.cache -prune -o \
     -name .git -prune -o \
-    -wholename ./tp/maintain/lib -prune -o \
+    -wholename ./tta/maintain/lib -prune -o \
     -name test -prune -o \
     -name "test-infodir" -prune -o \
     -name "gnulib" -prune -o \
@@ -16,8 +16,8 @@ find_missed () {
     -name "build-aux" -prune -o \
     -name "contrib" -prune -o \
     -wholename "./js/node_modules" -prune -o \
-    -wholename "./tp/t/results" -prune -o \
-    -wholename "./tp/tests/*/{res,out}_*" -prune -o \
+    -wholename "./tta/t/results" -prune -o \
+    -wholename "./tta/tests/*/{res,out}_*" -prune -o \
     -type f \
     \( -name '*' \) \
     -not -name 'Makefile.in' \
@@ -39,7 +39,7 @@ find_missed () {
     -not -name "ChangeLog.*" \
     -not -name "COPYING" \
     -not -name "fdl.texi" \
-    -not -wholename "./tp/texi2any" \
+    -not -wholename "./tta/texi2any" \
     -not -wholename "./util/htmlxref.cnf" \
     -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
     -not -wholename "./install-info/tests/defs" \
@@ -84,7 +84,7 @@ cd $dir
 if $missed ; then find_missed ; exit 0 ; fi
 
 current_year=`date "+%Y"`
-prune_dirs="./tp/maintain/lib|./tp/tests/test_scripts|./gnulib|./tp/gnulib|./js/node_modules|./contrib|./tp/t/include"
+prune_dirs="./tta/maintain/lib|./tta/tests/test_scripts|./gnulib|./tta/gnulib|./js/node_modules|./contrib|./tta/t/include"
 
 prune="-regex ($prune_dirs) -prune"
 
@@ -128,7 +128,7 @@ not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
 
 change_files
 
-find_dir=tp/Texinfo
+find_dir=tta/Texinfo
 extensions='txt|awk'
 ext_pattern=".*\.($extensions)"
 named_files=""

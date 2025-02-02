@@ -42,10 +42,10 @@ MAINTAINERCLEANFILES = $(generated_mans)
 # 
 # Use the programs built in our distribution, taking account of possible
 # cross-compiling.  makeinfo needs a bunch of our included modules.
-tpdir = $(top_srcdir)/tp
+tp_srcdir = $(top_srcdir)/tta
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
-                       tp_srcdir="$(top_srcdir)/tp" ; export tp_srcdir ; \
-                       tp_builddir="$(top_builddir)/tp" ; export tp_builddir ;
+                       tp_srcdir="$(top_srcdir)/tta" ; export tp_srcdir ; \
+                       tp_builddir="$(top_builddir)/tta" ; export tp_builddir ;
 
 mi_env = \
   TEXINFO_DEV_SOURCE=1; export TEXINFO_DEV_SOURCE; ${MAKEINFO_ENVIRONMENT}
@@ -55,7 +55,7 @@ man_rule_0 = \
   exe_ext="$(EXEEXT)" \
   && program=`expr '/$@' : '.*/\(.*\)\.1'` \
   && case $$program in \
-         makeinfo) dir=tp; $(mi_env) exe_ext="";; \
+         makeinfo) dir=tta; $(mi_env) exe_ext="";; \
             info*) dir=info; test $$program != info || program=g$$program;; \
     *install-info) dir=install-info; program=g$$program;; \
         *texindex) dir=texindex; exe_ext="";; \
@@ -87,7 +87,7 @@ $(srcdir)/install-info.1: $(top_srcdir)/install-info/install-info.c \
 	@name="update info/dir entries" && $(man_rule_bin)
 
 # Here we need some postprocessing to avoid man misformatting.
-$(srcdir)/makeinfo.1: $(tpdir)/texi2any.pl $(common_mandeps)
+$(srcdir)/makeinfo.1: $(tp_srcdir)/texi2any.pl $(common_mandeps)
 	@name="translate Texinfo documents" && $(man_rule_bin)
 	mv $@ $@.tmp
 	sed '/^\.IP$$/N;/\nAlso/s/I//;/\nThe/s/I//' $@.tmp >$@

@@ -58,7 +58,7 @@ fi
 
 # User variables for a Perl XS extension, which may be different, for
 # example if the Perl interpreter being used was compiled with a
-# different compiler.  Also in tp/Texinfo/XS/configure.ac.
+# different compiler.  Also in tta/Texinfo/XS/configure.ac.
 AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
@@ -345,7 +345,7 @@ AC_ARG_ENABLE([perl-xs],
 # Setting locale through LANGUAGE is not automatically detected, but it
 # is possible to manually set --enable-xs-perl-libintl to use libintl-perl
 # to always get the correct output (there is a TODO for automatic detection in
-# tp/Texinfo/XS/configure.ac).
+# tta/Texinfo/XS/configure.ac).
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]),
@@ -386,12 +386,12 @@ dnl configuring them.  See contrib/nontests/README.
 dnl AC_CONFIG_FILES([util/tests/defs])
 dnl AC_CHECK_PROGS([TEX], [tex], [])
 
-AC_ARG_ENABLE([tp-tests],
-    AS_HELP_STRING([--enable-tp-tests],[run the parser and converters testsuite (default: detected)]),
+AC_ARG_ENABLE([t2a-tests],
+    AS_HELP_STRING([--enable-t2a-tests],[run the parser and converters testsuite (default: detected)]),
     [if test $enableval = 'no'; then
-       tp_tests='no'
+       t2a_tests='no'
      else
-       tp_tests='yes'
+       t2a_tests='yes'
      fi])
 
 pod_simple_texinfo_tests='no'
@@ -454,7 +454,7 @@ AC_CONFIG_FILES([\
   Makefile
   doc/Makefile
   doc/refcard/Makefile
-  doc/tp_api/Makefile
+  doc/tta_api/Makefile
   gnulib/lib/Makefile
   info/Makefile
   install-info/Makefile
@@ -471,7 +471,7 @@ AC_CONFIG_FILES([\
 AC_CONFIG_FILES([pre-inst-env:build-aux/pre-inst-env.in],
   [chmod +x pre-inst-env])
 
-AC_CONFIG_SUBDIRS([tp])
+AC_CONFIG_SUBDIRS([tta])
 
 AC_OUTPUT
 

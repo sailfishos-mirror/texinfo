@@ -21,10 +21,10 @@
 BEGIN {
   my $mydir = $0;
   $mydir =~ s,/[^/]+$,,;
-  my $tp_srcdir = `cd $mydir/../tp && pwd`;
+  my $tp_srcdir = `cd $mydir/../tta && pwd`;
   chomp($tp_srcdir);
   if (defined($ENV{'top_builddir'})) {
-    unshift(@INC, $ENV{'top_builddir'}.'/tp');
+    unshift(@INC, $ENV{'top_builddir'}.'/tta');
   }
 
   $ENV{tp_srcdir} = "$tp_srcdir";

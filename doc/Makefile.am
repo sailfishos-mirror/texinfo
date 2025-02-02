@@ -13,7 +13,7 @@
 # The links to texi2any_internals require that to avoid many warnings
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 
-SUBDIRS = tp_api refcard
+SUBDIRS = tta_api refcard
 
 info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
 texinfo_TEXINFOS = pod2texi.texi html_default_commands_args.texi
@@ -22,9 +22,9 @@ DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 TEXINFO_TEX = texinfo.tex
 
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
-                       tp_srcdir="$(top_srcdir)/tp" \
-                       tp_builddir="$(top_builddir)/tp"
-MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tp/texi2any
+                       tp_srcdir="$(top_srcdir)/tta" \
+                       tp_builddir="$(top_builddir)/tta"
+MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tta/texi2any
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
                        TEXINDEX_SCRIPT=${abs_top_srcdir}/texindex/texindex.awk
@@ -52,7 +52,7 @@ endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
-$(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tp/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
+$(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tta/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/generate_html_doc_texi.pl $(srcdir)/html_default_commands_args.texi
 
 # We'd also like to use something like this, but Automake calls
@@ -115,10 +115,10 @@ gnulib = $(abs_top_srcdir)/../gnulib
 gendocs = $(gnulib)/build-aux/gendocs.sh
 gendocs_templates = $(gnulib)/doc
 gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates) \
-        MAKEINFO=../$(builddir)/../tp/texi2any \
+        MAKEINFO=../$(builddir)/../tta/texi2any \
                        TEXINFO_DEV_SOURCE=1 \
-                       top_srcdir="../$(top_srcdir)" \
-                       top_builddir="../$(top_builddir)" \
+                       tp_srcdir="../$(top_srcdir)/tta" \
+                       tp_builddir="../$(top_builddir)/tta" \
         TEXI2DVI=../$(srcdir)/../util/texi2dvi \
         TEXINDEX=../../texindex/texindex \
         TEXINDEX_SCRIPT=../$(srcdir)/../texindex/texindex.awk
@@ -172,8 +172,8 @@ wwwdoc-build:
 	&& $(MKDIR_P) Pod/Simple \
 	&& ln -s ../$(srcdir)/texinfo.tex . \
 	&& ln -s ../$(srcdir)/*.texi . \
-	&& ln -s ../$(srcdir)/tp_api/*.texi . \
-	&& ln -s ../$(srcdir)/tp_api/api_includes . \
+	&& ln -s ../$(srcdir)/tta_api/*.texi . \
+	&& ln -s ../$(srcdir)/tta_api/api_includes . \
 	&& ln -s ../../../$(srcdir)/../Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm Pod/Simple \
 	&& $(gendocs_invoke) -o $(manual1) $(manual1) $(manual1_title) \
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \

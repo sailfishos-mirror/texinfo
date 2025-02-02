@@ -10,31 +10,31 @@ fi
 
 echo "Preparing Texinfo development infrastructure:"
 
-# Generates tp/Makefile.tres (included by tp/Makefile.am).
-cmd="./tp/maintain/regenerate_file_lists.pl"
+# Generates tta/Makefile.tres (included by tta/Makefile.am).
+cmd="./tta/maintain/regenerate_file_lists.pl"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-# Generates tp/Makefile.docstr (included by tp/Makefile.am).
-cmd="(cd tp && ./maintain/regenerate_docstr.sh Makefile.docstr)"
+# Generates tta/Makefile.docstr (included by tta/Makefile.am).
+cmd="(cd tta && ./maintain/regenerate_docstr.sh Makefile.docstr)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-# Generates tp/tests/Makefile.onetst (included by tp/tests/Makefile.am).
-cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other info_tex')"
+# Generates tta/tests/Makefile.onetst (included by tta/tests/Makefile.am).
+cmd="(cd tta/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base 'formatting encoded nested_formats customization coverage layout' -tex_html 'tex_html' -other 'other info_tex')"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-# Same rule in tp/tests/Makefile.am
-cmd="tp/maintain/regenerate_non_ascii_tar_file.sh tp/tests/input"
+# Same rule in tta/tests/Makefile.am
+cmd="tta/maintain/regenerate_non_ascii_tar_file.sh tta/tests/input"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 # missing texi2any_internals.texi stops automake.  Set up a fake
 # texi2any_internals.texi with a file timestamp set in the past,
 # if texi2any_internals.texi is not present
-if test '!' -s doc/tp_api/texi2any_internals.texi ; then
-  cmd="echo '@setfilename texi2any_internals.info' > doc/tp_api/texi2any_internals.texi; touch -t 200001010000 doc/tp_api/texi2any_internals.texi"
+if test '!' -s doc/tta_api/texi2any_internals.texi ; then
+  cmd="echo '@setfilename texi2any_internals.info' > doc/tta_api/texi2any_internals.texi; touch -t 200001010000 doc/tta_api/texi2any_internals.texi"
   echo "  $cmd"
   $chicken eval $cmd || exit 1
 fi
@@ -44,12 +44,12 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
-cmd="(cd tp/Texinfo/TestXS && ${LIBTOOLIZE} \
+cmd="(cd tta/Texinfo/TestXS && ${LIBTOOLIZE} \
  && autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
-cmd="(cd tp && ${LIBTOOLIZE} \
+cmd="(cd tta && ${LIBTOOLIZE} \
  && AUTOPOINT=true autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1

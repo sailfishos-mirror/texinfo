@@ -18,7 +18,7 @@
 # Original author: Karl Berry.
 #
 # Kludge of a script to check command lists in refcard vs. appendix vs.
-# tp for consistency.
+# texi2any for consistency.
 
 use strict;
 
@@ -80,7 +80,7 @@ sub main {
   printf "appendix only %d: @man_only\n", scalar(@man_only);
 
   my @tp_only = sort(keys(%tp_cmds));
-  printf "tp       only %d: @tp_only\n", scalar(@tp_only);
+  printf "texi2any only %d: @tp_only\n", scalar(@tp_only);
 
   return scalar(@card_only) + scalar(@man_only) + scalar(@tp_only);
 }

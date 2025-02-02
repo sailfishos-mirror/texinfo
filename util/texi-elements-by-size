@@ -27,17 +27,17 @@ use Getopt::Long qw(GetOptions);
 Getopt::Long::Configure("gnu_getopt");
 
 BEGIN {
-  # The purpose of these includes is to make it possible to run the
-  # script from a Texinfo source checkout.  If that's not relevant,
-  # probably best to simply assume all the needed packages are in the
-  # Perl include path.
-  #
-  (my $mydir = $0) =~ s,/[^/]*$,,;  # dir we are in
-  my $txi_libdir = "$mydir/../tp";  # find tp relative to $0
-  unshift (@INC, $txi_libdir);
-  #
-  my @txi_maint_dirs = qw(Text-Unidecode Unicode-EastAsianWidth libintl-perl);
-  unshift (@INC, map { "$txi_libdir/maintain/lib/$_/lib" } @txi_maint_dirs );
+  my $mydir = $0;
+  $mydir =~ s,/[^/]+$,,;
+  my $tp_srcdir = `cd $mydir/../tta && pwd`;
+  chomp($tp_srcdir);
+  if (defined($ENV{'top_builddir'})) {
+    unshift(@INC, $ENV{'top_builddir'}.'/tta');
+  }
+
+  $ENV{tp_srcdir} = "$tp_srcdir";
+  require Texinfo::ModulePath;
+  Texinfo::ModulePath::init(undef, undef, undef);
 }
 
 use Texinfo::Parser;

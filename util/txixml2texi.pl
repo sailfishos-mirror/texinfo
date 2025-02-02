@@ -53,9 +53,9 @@ BEGIN
       $tp_builddir = $ENV{'tp_builddir'};
     } else {
       if (defined($ENV{'top_builddir'})) {
-        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tp'));
+        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
       } else {
-        $tp_builddir = join('/', ($command_directory, $updir, 'tp'));
+        $tp_builddir = join('/', ($command_directory, $updir, 'tta'));
       }
       $ENV{'tp_builddir'} = $tp_builddir;
     }
@@ -65,9 +65,9 @@ BEGIN
       $tp_srcdir = $ENV{'tp_srcdir'};
     } else {
       if (defined($ENV{'top_srcdir'})) {
-        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tp'));
+        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
       } else {
-        $tp_srcdir = join('/', ($command_directory, $updir, 'tp'));
+        $tp_srcdir = join('/', ($command_directory, $updir, 'tta'));
       }
       $ENV{'tp_srcdir'} = $tp_srcdir;
     }
@@ -79,21 +79,21 @@ BEGIN
     Texinfo::ModulePath::init(undef, undef, undef);
   } else {
     # Look for modules in their installed locations.
-    my $modules_dir = File::Spec->catdir($datadir, $converter);
+    my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
     my $modules_converterdatadir = $modules_dir;
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
-    if (! -f File::Spec->catfile($modules_dir, 'Texinfo', 'Parser.pm')
-        and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   $converter, 'Texinfo', 'Parser.pm')) {
-      $modules_dir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $converter);
-      $modules_converterdatadir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $converter);
-      $xsdir = File::Spec->catdir($command_directory, $updir,
-                                          'lib', $converter);
+    if (! -f join('/', ($modules_dir, 'Texinfo', 'Parser.pm'))
+        and -f join('/', ($command_directory, $updir, 'share',
+                                   $converter, 'Texinfo', 'Parser.pm'))) {
+      $modules_dir = join('/', ($command_directory, $updir,
+                                          'share', $converter));
+      $modules_converterdatadir = join('/', ($command_directory, $updir,
+                                          'share', $converter));
+      $xsdir = join('/', ($command_directory, $updir,
+                                          'lib', $converter));
     }
     unshift @INC, $modules_dir;
 
@@ -241,9 +241,6 @@ my $reader_options = {'location' => $infile,
                      };
 my $reader = XML::LibXML::Reader->new($reader_options)
        or die "cannot read $infile\n";
-
-#(my $mydir = $0) =~ s,/[^/]*$,,;  # dir we are in
-#my $txi_dtd_libdir = "$mydir";  # find tp relative to $0
 
 sub skip_until_end($$)
 {

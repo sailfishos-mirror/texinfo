@@ -1,0 +1,499 @@
+# configure.ac for XS modules
+#
+# Copyright 2015-2025 Free Software Foundation, Inc.
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+AC_INIT([GNU Texinfo], [7.2dev])
+AC_CONFIG_AUX_DIR([build-aux])
+AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIRS([build-aux/m4 gnulib/m4 m4 ../m4])
+AC_REQUIRE_AUX_FILE([tap-driver.sh])
+
+AC_CONFIG_HEADERS([C/config.h])
+
+TEXINFO_DTD_VERSION=7.2
+AC_SUBST([TEXINFO_DTD_VERSION])
+
+CONVERTER=texi2any
+AC_SUBST([CONVERTER])
+
+AC_ARG_ENABLE([additional-checks],
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
+    [ enable_additional_tests=$enableval],
+    [ enable_additional_tests=no])
+
+AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
+
+AC_PATH_PROG([PERL], [perl])
+
+# setup perl_conf*, XSUBPP* and XS_VERSION variables to build Perl XS modules
+txi_PERL_CONF
+
+AC_MSG_CHECKING([ExtUtils::Embed])
+if $PERL -e "use 5.008_001; use ExtUtils::Embed;" >/dev/null 2>&1; then
+  extutils_embed='yes'
+else
+  extutils_embed='no'
+fi
+AC_MSG_RESULT($extutils_embed)
+
+PERL_EXTUTILS_EMBED_ccopts=
+PERL_EXTUTILS_EMBED_ldopts=
+if test "z$extutils_embed" = 'zyes' ; then
+  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
+  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
+fi
+
+AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
+AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
+
+# Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
+# XS and could lead to memory corruption, depending on the platform.
+usable_getenv_in_XS=no
+AC_MSG_CHECKING([Perl XS with usable getenv])
+if $PERL -e "use 5.038" >/dev/null 2>&1; then
+  usable_getenv_in_XS=yes
+fi
+AC_MSG_RESULT($usable_getenv_in_XS)
+
+if test $usable_getenv_in_XS = yes ; then
+  # currently unused
+  AC_DEFINE([HAVE_USABLE_GETENV_IN_XS], [1],
+            [Define to 1 if getenv can be used in XS])
+fi
+
+AC_ARG_ENABLE([perl-xs],
+    AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]),
+    [ enable_xs=$enableval],
+    [ enable_xs=check])
+
+# Set xs_srcdir to the path from XS builddir to srcdir
+case $srcdir in
+  .)  # We are building in place.
+    xs_srcdir=../.. ;;
+  [[\\/]]* | ?:[[\\/]]* )  # Absolute name.
+    xs_srcdir=$srcdir ;;
+  *) # Relative name.
+    xs_srcdir=../../$srcdir ;;
+esac
+
+# Pass on all the options we were given to the subsidiary configure
+# script.
+# Don't use AC_CONFIG_SUBDIRS for this because it isn't done right away,
+# and we need it for the check that follows.
+# We use the _AC_OUTPUT_SUBDIRS internal autoconf macro
+# (in /usr/share/autoconf/autoconf/status.m4) for this in order to
+# pass on the configure command line correctly; for example, adjusting
+# paths.  It is done in a subshell to be resilient against failure of the
+# subsidiary configure script, which happens if the C compiler is found
+# not to work.
+#
+save_subdirs=$subdirs
+subdirs=Texinfo/TestXS
+( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
+subdirs=$save_subdirs
+
+if test $enable_xs = no; then
+  AC_MSG_NOTICE([building Perl extension (XS) modules will be disabled])
+fi
+
+if test $enable_xs = check; then
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([])
+  enable_xs=no
+  (cd Texinfo/TestXS \
+   && make clean \
+   && make TestXS.la \
+   && TEXINFO_XS=debug ; export TEXINFO_XS \
+   && ${PERL} -I . \
+              -I ${xs_srcdir} \
+              -e 'require Texinfo::TestXS::TestXS;' \
+      | grep 'message from XS module') \
+  && enable_xs=yes
+  AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
+  AC_MSG_RESULT([$enable_xs])
+fi
+
+AC_SUBST([enable_xs])
+
+AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
+
+# PERL_EXT_var are user variables for a Perl XS extension, allowing
+# configuring at the top-level with e.g.
+#     "./configure CFLAGS='-g -O0' PERL_EXT_CFLAGS='-g'".
+# May be useful if the Perl interpreter was compiled with a
+# different compiler.  Also in top-level configure.ac.
+
+AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
+AC_ARG_VAR([PERL_EXT_CC], [Compiler for a Perl extension])
+
+# Override these variables set by configure at the top level, because
+# the compiler used in this subdirectory might be different.
+# Change these now so they are used in the checks that follow so that
+# we are using the same flags for the checks as for the build.
+
+if test -n "$PERL_EXT_CC" ; then
+  CC=$PERL_EXT_CC
+else
+  if test x$enable_xs != xno; then
+    # It's essential that we use the same compiler that was used to build
+    # Perl.  Otherwise Perl's "config.h" will be incorrect.  This overrides
+    # the check in AC_PROG_CC below.
+    CC=$PERL_CONF_cc
+  fi
+fi
+
+# Wipe cache values in case -C was given at the top level
+ac_cv_prog_CC= ; unset ac_cv_prog_CC
+ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
+
+# The usual configure checks use the Autoconf/Gnulib includes, but do not
+# compile nor link against Perl.  The result of those checks are used for
+# code never compiled with the Perl flags.  Therefore we do not set the Perl
+# flags.
+CFLAGS=$PERL_EXT_CFLAGS
+CPPFLAGS=$PERL_EXT_CPPFLAGS
+LDFLAGS=$PERL_EXT_LDFLAGS
+# Specific checks against Perl should not have the Autoconf/Gnulib includes
+# but could set the following:
+#CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+#LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
+
+AC_PROG_CC
+
+gl_EARLY
+
+# i18n support.  We need to use the same GNU gettext version as the main
+# configure.ac file since the version of the gettext.m4 and related files
+# must be in sync with the Makefile.in.in in the shared po/ directory.
+# See the README-hacking file at top level for how to upgrade gettext.
+#
+AM_GNU_GETTEXT_VERSION([0.22.5])
+AM_GNU_GETTEXT([external])
+
+AM_MISSING_PROG([GAWK], [gawk])
+
+gl_INIT
+
+LT_INIT([disable-static dlopen])
+
+AM_CONDITIONAL([HAVE_ICONV],
+               [test "x$am_func_iconv" = "xyes"])
+
+# for tests
+ICONV_CONVERTS_EUC_CN=no
+# partly based on gnulib/m4/iconv.m4
+if test "x$am_func_iconv" = "xyes" ; then
+   AC_CACHE_CHECK([whether iconv converts EUC-CN to UTF-8], [texinfo_cv_sys_iconv_converts_euc_cn], [
+      euc_cn_save_LIBS="$LIBS"
+      #if test $am_cv_lib_iconv = yes; then
+        LIBS="$LIBS $LIBICONV"
+      #fi
+      texinfo_cv_sys_iconv_converts_euc_cn=no
+      for euc_cn_iconv_const in '' 'const'; do
+  AC_RUN_IFELSE(
+   [AC_LANG_PROGRAM(
+                  [[
+#include <iconv.h>
+#include <string.h>
+
+#ifndef ICONV_CONST
+# define ICONV_CONST $euc_cn_iconv_const
+#endif
+             ]],
+             [[int result = 0;
+  {
+    iconv_t cd_euc_cn_to_utf8 = iconv_open ("UTF-8", "EUC-CN");
+    if (cd_euc_cn_to_utf8 != (iconv_t)(-1))
+      {
+        static ICONV_CONST char input[] = "abc";
+        char buf[10];
+        ICONV_CONST char *inptr = input;
+        size_t inbytesleft = strlen (input);
+        char *outptr = buf;
+        size_t outbytesleft = sizeof (buf);
+        size_t res = iconv (cd_euc_cn_to_utf8,
+                            &inptr, &inbytesleft,
+                            &outptr, &outbytesleft);
+        if (res != 0)
+          result |= 2;
+        if (strcmp(buf, input))
+          result |= 4;
+        iconv_close (cd_euc_cn_to_utf8);
+      }
+    else
+      result |= 1;
+  }
+  return result;
+]])],
+          [texinfo_cv_sys_iconv_converts_euc_cn=yes], ,
+          [texinfo_cv_sys_iconv_converts_euc_cn="cross compile guess no"])
+        test "$texinfo_cv_sys_iconv_converts_euc_cn" = no || break
+      done
+      LIBS="$euc_cn_save_LIBS"
+   ])
+  if test "$texinfo_cv_sys_iconv_converts_euc_cn" = yes; then
+    ICONV_CONVERTS_EUC_CN=yes
+  fi
+fi
+
+AC_SUBST([ICONV_CONVERTS_EUC_CN])
+
+AC_CHECK_FUNCS(newlocale strxfrm_l)
+
+# This is useful on platforms where gettext functions are present, but
+# setting the locale through LANGUAGE is not implemented.
+AC_ARG_ENABLE([xs-perl-libintl],
+    AS_HELP_STRING([--enable-xs-perl-libintl],
+              [prefer Perl libintl-perl gettext in XS modules]),
+    [if test $enableval = 'yes'; then
+       use_libintl_perl_in_xs=yes
+     else
+       use_libintl_perl_in_xs=no
+     fi],
+     [
+      if test $usable_getenv_in_XS = yes ; then
+        use_libintl_perl_in_xs=no
+        # TODO add a check of working C libintl gettext for the locale
+        # switching using LANGUAGE and translated output string retrieval
+      else
+        use_libintl_perl_in_xs=yes
+      fi
+     ])
+
+if test $use_libintl_perl_in_xs = yes ; then
+  AC_DEFINE([USE_LIBINTL_PERL_IN_XS], [1],
+            [Define to 1 if Perl libintl-perl should be called from XS])
+fi
+
+
+embedded_perl=no
+
+if test x$disable_xs != xyes -a $extutils_embed = yes ; then
+  # having XS enabled, the Perl headers corresponding to libperl and
+  # ExtUtils::Embed installed do not ensure
+  # that the Perl library .so/.a file needed for linking against libperl
+  # to embed a Perl interpreter is present.  In Debian, for instance,
+  # it is in the libperl-dev package that contain only the static library
+  # and the .so symlink.
+  AC_MSG_CHECKING(for embedded Perl)
+
+  old_LIBS=$LIBS
+  # NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
+  # linker flags that should be in LDFLAGS according to the automake
+  # documentation, but also -L and -l flags that need to be last.
+  # We favor having the variable last and use LIBS otherwise linking fails.
+
+  LIBS="$PERL_EXTUTILS_EMBED_ldopts"
+  # In the actual build variables, PERL_EXTUTILS_EMBED_ccopts is used for
+  # CPPFLAGS, but we do not differenciate CPPFLAGS and CFLAGS here.
+  CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts $perl_conf_EMBED_CFLAGS"
+  LDFLAGS="$PERL_EXT_LDFLAGS"
+
+  # NOTE The tested code is a simplified version of
+  # tta/C/convert/call_embed_perl.c
+  # NOTE Code requiring ppport.h for pTHX_ and PERL_UNUSED_CONTEXT is
+  # commented out.
+  # We need to avoid Autoconf and Gnulib defines, as they clash with Perl
+  # defines on some platforme.
+  # Therefore AC_LINK_IFELSE cannot be used, as there is no way to avoid that
+  # the source file also contains the results of all of the AC_DEFINE
+  # performed so far.
+  # https://lists.gnu.org/archive/html/autoconf/2025-01/msg00008.html
+  # The shell code used is almost the same as the code generated by
+  # by Autoconf 2.72 AC_LINK_IFELSE.  It relies on $ac_ext and
+  # ac_fn_c_try_link Autoconf internal variable and function.
+  dnl AC_LINK_IFELSE([[
+  dnl use a single bracket to protect code, to protect brackets in code and
+  dnl also do not get spurious brackets
+  cat <<_ACEOF >conftest.$ac_ext
+[
+#define context perl_context
+
+#define PERL_NO_GET_CONTEXT
+#include "EXTERN.h"
+#include "perl.h"
+#include "XSUB.h"
+
+#undef context
+
+static PerlInterpreter *my_perl;
+
+EXTERN_C void xs_init (pTHX);
+
+/*
+EXTERN_C void boot_DynaLoader (pTHX_ CV* cv);
+ */
+
+EXTERN_C void
+xs_init(pTHX)
+{
+    /*
+    static const char file[] = __FILE__;
+     */
+    dXSUB_SYS;
+    /*
+    PERL_UNUSED_CONTEXT;
+
+    newXS("DynaLoader::boot_DynaLoader", boot_DynaLoader, file);
+     */
+}
+
+int
+call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref)
+{
+  int parse_status, run_status;
+  char *embedding[] = { "", NULL };
+  PERL_SYS_INIT3 (argc_ref, argv_ref, env_ref);
+  my_perl = perl_alloc();
+  perl_construct(my_perl);
+  PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
+  parse_status = perl_parse(my_perl, xs_init, 1, embedding, (char **)NULL);
+  if (parse_status)
+    return parse_status;
+  run_status = perl_run(my_perl);
+  if (run_status)
+    return run_status;
+  return 0;
+}
+
+void
+call_finish_perl (void)
+{
+  perl_destruct(my_perl);
+  perl_free(my_perl);
+  PERL_SYS_TERM();
+}
+
+int
+main (void)
+{
+ call_init_perl (0, 0, 0);
+ call_finish_perl ();
+ return 0;
+}
+]
+_ACEOF
+
+  if ac_fn_c_try_link "$LINENO"
+  then
+    embedded_perl=yes
+  else
+    embedded_perl=no
+  fi
+
+  rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext conftest.$ac_ext
+
+dnl ]], [embedded_perl=yes], [embedded_perl=no])
+
+  AC_MSG_RESULT($embedded_perl)
+  LIBS=$old_LIBS
+fi
+
+AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
+
+# Do not include Perl configuration values when outputting these variables,
+# as advised in the automake manual for CFLAGS and LDFLAGS, which could be
+# reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the
+# same role as CFLAGS and LDFLAGS.  The Perl configuration values are then
+# readded in Makefile.am.
+# For CPPFLAGS we do not follow the same rule because we want to keep the
+# flags added by gnulib macros, as for libunistring there is no separate
+# CPPFLAGS-like variable, the main CPPFLAGS is modified.
+CFLAGS=$PERL_EXT_CFLAGS
+LDFLAGS=$PERL_EXT_LDFLAGS
+
+# Output these with the _CONFIG suffix as we use the originals as names
+# of customization variables.
+AC_DEFINE_UNQUOTED([PACKAGE_CONFIG], ["$PACKAGE"],
+                   [autoconf PACKAGE value])
+AC_DEFINE_UNQUOTED([PACKAGE_NAME_CONFIG], ["$PACKAGE_NAME"],
+                   [autoconf PACKAGE_NAME value])
+AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
+                   [autoconf PACKAGE_URL value])
+AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
+                   [autoconf PACKAGE_VERSION value])
+AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
+                   [configure TEXINFO_DTD_VERSION value])
+
+# Output with the _CONFIG suffix as the original is a type name
+AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
+                   [configure CONVERTER value])
+
+txi_DIFF_OPTIONS
+
+# Perl tests requirements
+t2a_tests='no'
+AC_ARG_ENABLE([t2a-tests],
+    AS_HELP_STRING([--enable-t2a-tests],[run the parser and converters testsuite (default: detected)]),
+    [if test $enableval = 'no'; then
+       t2a_tests='no'
+     else
+       t2a_tests='yes'
+     fi],
+    [
+     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     then
+       t2a_tests='yes'
+     else
+       t2a_tests='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([parser tests requirements])
+AC_MSG_RESULT([$t2a_tests])
+AM_CONDITIONAL([TP_TESTS], [test "z$t2a_tests" = 'zyes'])
+
+AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
+if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
+  perl_unicode_collation_requirement='yes'
+else
+  perl_unicode_collation_requirement='no'
+fi
+AC_MSG_RESULT($perl_unicode_collation_requirement)
+PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
+AC_SUBST([PERL_UNICODE_COLLATE_OK])
+
+host_is_windows=no
+case "$host" in
+   *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
+esac
+AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
+HOST_IS_WINDOWS_VARIABLE=
+if test "x$host_is_windows" = "xyes" ; then
+  HOST_IS_WINDOWS_VARIABLE=yes
+fi
+AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
+
+
+AC_CONFIG_FILES([
+  Makefile
+  tests/Makefile
+  tests/many_input_files/Makefile
+  tests/formatting/Makefile
+  tests/encoded/Makefile
+  tests/coverage/Makefile
+  tests/customization/Makefile
+  tests/nested_formats/Makefile
+  tests/layout/Makefile
+  tests/tex_html/Makefile
+  tests/other/Makefile
+  tests/info_tex/Makefile
+  defs
+  C/Makefile
+  Texinfo/XS/Makefile
+  gnulib/lib/Makefile
+])
+
+AC_OUTPUT
+

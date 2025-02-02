@@ -93,7 +93,7 @@ Source directories:
   info/                    Standalone Info reader.
   install-info/            Maintain the Info dir file.
   js/                      Enhanced browsing of HTML manuals with JavaScript.
-  tp/                      Texinfo Parser in Perl, includes texi2any.
+  tta/                     Texinfo Parser in Perl or C, includes texi2any.
   texindex/                The `texindex' program that generates
                            sorted indices used by TeX when
                            typesetting a file for printing.

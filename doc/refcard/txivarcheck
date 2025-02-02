@@ -16,7 +16,7 @@
 #
 # Original author: Karl Berry.
 #
-# Kludge of a script to check customization variables in refman vs. tp
+# Kludge of a script to check customization variables in refman vs. texi2any
 # for consistency.  Although this has nothing to do with the reference
 # card, since it's similar to the txicmdcheck script, keep them
 # together.  And maybe we'll add the cust.vars to the refcard.
@@ -63,7 +63,7 @@ sub main {
   printf "man only %3s: @man_vars_only\n", scalar(@man_vars_only);
 
   my @tp_vars_only = sort(keys(%tp_vars));
-  printf "tp only %3s: @tp_vars_only\n", scalar(@tp_vars_only);
+  printf "texi2any only %3s: @tp_vars_only\n", scalar(@tp_vars_only);
 
   my @found_cmds_vars = ();
   for my $name (@tp_cmds_vars) {
@@ -82,7 +82,8 @@ sub main {
   printf "man only cmds %3s: @man_cmds_vars_only\n", scalar(@man_cmds_vars_only);
 
   my @tp_cmds_vars_only = sort(keys(%tp_cmds_vars));
-  printf "tp only cmds %3s: @tp_cmds_vars_only\n", scalar(@tp_cmds_vars_only);
+  printf "texi2any only cmds %3s: @tp_cmds_vars_only\n",
+                                     scalar(@tp_cmds_vars_only);
 
 
   return scalar(@tp_vars_only) + scalar(@tp_cmds_vars_only);

@@ -1,3 +1,29 @@
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
+	Rename tp directory as tta and tp_api as tta_api
+
+	* configure.ac (--enable-t2a-tests), tta/configure.ac
+	(--enable-t2a-tests): rename --enable-tp-tests as --enable-t2a-tests
+	and tp_tests as t2a_tests.
+
+	* doc/Makefile.am (gendocs_envvars): use tp_srcdir and tp_builddir
+	instead of top_srcdir and top_builddir.
+
+	* man/Makefile.am: rename tpdir as tp_srcdir.
+
+	* tta/t/z_misc/no_structure_test.t,
+	tta/t/z_misc/same_parser_multiple_files.t,
+	tta/t/z_misc/test_tree_copy.t: rename $srcdir as $tp_srcdir.  Fix
+	fallback based on Texinfo::ModulePath::tp_srcdir.
+
+	* util/texi-elements-by-size (BEGIN): update BEGIN block to be like
+	other similar scripts in util.
+
+	* doc/generate_html_doc_texi.pl,
+	tta/t/z_misc/same_parser_multiple_files.t,
+	tta/t/z_misc/test_tree_copy.t, util/txixml2texi.pl: use only forward
+	slashes.
+
 2025-02-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/texinfo-cat.in: deleted

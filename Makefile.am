@@ -29,19 +29,19 @@ TEXINFO_TEX = doc/texinfo.tex
 # Ensure that this file is built early, as it is needed to run texi2any
 # and pod2texi in rules under "man" and "doc".  This helps in running
 # "make dist" without running "make" first.
-BUILT_SOURCES = tp/Texinfo/ModulePath.pm
-tp/Texinfo/ModulePath.pm:
-	cd tp && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
+BUILT_SOURCES = tta/Texinfo/ModulePath.pm
+tta/Texinfo/ModulePath.pm:
+	cd tta && $(MAKE) $(AM_MAKEFLAGS) Texinfo/ModulePath.pm
 
 # Ensure that those files are built early, as they are needed in po*
 # directories.  This allows to run configure and make after make distclean
-BUILT_SOURCES += $(top_srcdir)/tp/Texinfo/HTMLData.pm \
-                 $(top_srcdir)/tp/C/main/html_conversion_data.c
-$(top_srcdir)/tp/Texinfo/HTMLData.pm:
-	cd tp && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
+BUILT_SOURCES += $(top_srcdir)/tta/Texinfo/HTMLData.pm \
+                 $(top_srcdir)/tta/C/main/html_conversion_data.c
+$(top_srcdir)/tta/Texinfo/HTMLData.pm:
+	cd tta && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
 
-$(top_srcdir)/tp/C/main/html_conversion_data.c:
-	cd tp/C && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
+$(top_srcdir)/tta/C/main/html_conversion_data.c:
+	cd tta/C && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
 
 # One special target for installers to use by hand if desired.
 install-tex:
@@ -51,7 +51,7 @@ install-tex:
 SUBDIRS =
 if TOOLS_ONLY
   # Build native tools only.
-  SUBDIRS += gnulib/lib install-info tp util
+  SUBDIRS += gnulib/lib install-info tta util
 if HAVE_TERMLIBS
     SUBDIRS += info
 else
@@ -74,7 +74,7 @@ if HOST_IS_WINDOWS
   SUBDIRS += info
 endif
 endif
-  SUBDIRS += install-info po po_document tp Pod-Simple-Texinfo \
+  SUBDIRS += install-info po po_document tta Pod-Simple-Texinfo \
              texindex util doc man
   SUBDIRS += js
 endif
@@ -115,7 +115,7 @@ update-po:
 # Run this before making pretests, as well as official releases, so that
 # translators will see changed strings.  See README-hacking.
 # Note that pgettext is not matched to avoid a false positive in
-# tp/Texinfo/Translations.pm, but it is not problematic as it appears
+# tta/Texinfo/Translations.pm, but it is not problematic as it appears
 # only in errors.c, which matches other function names.
 # False positive in ConvertXS.c with function definition but no
 # translated strings
@@ -132,10 +132,10 @@ po-check:
 	      man/* ) continue;;	\
 	      gnulib/lib/*) continue;;					\
 	      texinfo-*/*) continue;;					\
-              tp/maintain/* ) continue;;				\
-              tp/t/results* ) continue;;				\
-	      tp/gnulib/lib/*) continue;;			\
-	      tp/Texinfo/XS/convert/ConvertXS.c) continue;;			\
+              tta/maintain/* ) continue;;				\
+              tta/t/results* ) continue;;				\
+	      tta/gnulib/lib/*) continue;;			\
+	      tta/Texinfo/XS/convert/ConvertXS.c) continue;;			\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
@@ -146,7 +146,7 @@ po-check:
 	  rm -f $@-1 $@-2;						\
 	fi
 
-# false positive in tp/Texinfo/XS/main/DocumentXS.c with function definition
+# false positive in tta/Texinfo/XS/main/DocumentXS.c with function definition
 # but no translated strings
 po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
@@ -159,9 +159,9 @@ po_document-check:
 	      contrib/* ) continue;;					\
 	      man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
-	      tp/maintain/*) continue;;					\
-	      tp/init/documentation_examples.pm) continue;;		\
-	      tp/Texinfo/XS/main/DocumentXS.c) continue;;		\
+	      tta/maintain/*) continue;;				\
+	      tta/init/documentation_examples.pm) continue;;		\
+	      tta/Texinfo/XS/main/DocumentXS.c) continue;;		\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\

@@ -68,9 +68,9 @@ BEGIN
       $tp_builddir = $ENV{'tp_builddir'};
     } else {
       if (defined($ENV{'top_builddir'})) {
-        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tp'));
+        $tp_builddir = join('/', ($ENV{'top_builddir'}, 'tta'));
       } else {
-        $tp_builddir = join('/', ($command_directory, $updir, 'tp'));
+        $tp_builddir = join('/', ($command_directory, $updir, 'tta'));
       }
     }
 
@@ -82,9 +82,9 @@ BEGIN
       $tp_srcdir = $ENV{'tp_srcdir'};
     } else {
       if (defined($ENV{'top_srcdir'})) {
-        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tp'));
+        $tp_srcdir = join('/', ($ENV{'top_srcdir'}, 'tta'));
       } else {
-        $tp_srcdir = join('/', ($command_directory, $updir, 'tp'));
+        $tp_srcdir = join('/', ($command_directory, $updir, 'tta'));
       }
       $ENV{'tp_srcdir'} = $tp_srcdir;
     }

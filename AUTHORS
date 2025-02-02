@@ -9,9 +9,9 @@ Texinfo authors.
 Karl Berry		all files.
 Per Bothner		js/*
 Torsten Bronger         texinfo.dtd.
-Bob Chassell		texinfo.tex, original texinfo.txi.
+Bob Chassell		texinfo.tex, original texinfo.texi.
 Akim Demaille		texi2dvi, util/* tests.
-Patrice Dumas		texinfo.txi, tp author.
+Patrice Dumas		texinfo.texi, tta author.
 Brian Fox		all info/* files, info-stnd.texi.
 Noah Friedman		original texi2dvi.
 Oleg Katsitadze		doc/*
@@ -21,9 +21,9 @@ Arnold Robbins		literate (texi+awk) texindex.
 Andreas Schwab		texinfo.tex, configure.ac
 Gavin Smith		all files.
 Richard Stallman	original texinfo.tex, install-info.c,
-			texindex.c, texinfo.txi.
+			texindex.c, texinfo.texi.
 Zack Weinberg		texinfo.tex: @macro implementation.
-Ralf Wildenhues		util/gendocs.sh, doc/texinfo.txi,
+Ralf Wildenhues		util/gendocs.sh, doc/texinfo.texi,
 			Makefile.am, configure.ac.
 Eli Zaretskii		all files.
 

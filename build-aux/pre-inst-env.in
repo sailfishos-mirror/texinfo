@@ -17,10 +17,10 @@
 abs_top_srcdir="`cd "@abs_top_srcdir@" > /dev/null; pwd`"
 abs_top_builddir="`cd "@abs_top_builddir@" > /dev/null; pwd`"
 
-PERL5LIB="$abs_top_builddir/tp/:$abs_top_srcdir/tp/${PERL5LIB:+:}$PERL5LIB"
+PERL5LIB="$abs_top_builddir/tta/:$abs_top_srcdir/tta/${PERL5LIB:+:}$PERL5LIB"
 export PERL5LIB
 
-PATH="$abs_top_builddir/tp:$PATH"
+PATH="$abs_top_builddir/tta:$PATH"
 export PATH
 
 # Trigger the use of local modules.

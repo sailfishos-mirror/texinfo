@@ -14,7 +14,7 @@ if test z"$srcdir" = "z"; then
 fi
 
 # for DIFF_OPTIONS and PERL
-. $testdir/../tp/defs || exit 1
+. $testdir/../tta/defs || exit 1
 
 mkdir -p out_tests
 

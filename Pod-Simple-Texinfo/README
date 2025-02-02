@@ -43,7 +43,7 @@ Makefile.PL, you can do something like the following, with a sed command
 that understands -i to modify the scripts such that they do not need the
 defs file present in the Autoconf and Automake built environment:
 for script in test_scripts/*.sh; do
-  sed -i -e 's;^\. \$testdir/\.\./tp/defs.*;#&\nPERL=perl;' $script;
+  sed -i -e 's;^\. \$testdir/\.\./tta/defs.*;#&\nPERL=perl;' $script;
 done
 
 COPYRIGHT AND LICENCE
