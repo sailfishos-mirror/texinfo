@@ -387,6 +387,10 @@ AM_T_LOG_FLAGS = -w
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
+distclean-local:
+	rm -f t/results/*/*.pl.new
+	rm -rf t/results/*/*/out_*/
+
 CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm
 MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm \
       Texinfo/HTMLData.pm

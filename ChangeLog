@@ -1,5 +1,13 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/Makefile.am (distclean-local), tta/perl/Makefile.am
+	(distclean-local): add distclean-local target to tta/perl/Makefile.am
+	and move the t/*.t related rules from tta/Makefile.am to
+	tta/perl/Makefile.am.
+	Remove obsolete rules.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* util/Makefile.am (EXTRA_DIST): remove deleted texinfo-cat.in.
 
 2025-02-02  Patrice Dumas  <pertusus@free.fr>

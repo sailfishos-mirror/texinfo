@@ -115,9 +115,5 @@ uninstall-local:
 
 distclean-local:
 	rm -rf LocaleData
-	rm -f t/results/*/*.pl.new
-	rm -rf t/results/*/*/out_*/
-	rm -rf t/include_dir
-	rm -rf po po_document
 
 DISTCLEANFILES = maintain/catalog.xml
