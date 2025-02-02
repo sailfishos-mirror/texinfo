@@ -1236,7 +1236,7 @@ load_htmlxref_files (CONVERTER *self)
               if (txi_paths_info.p.uninstalled.t2a_srcdir)
                 {
                   char *path;
-                  xasprintf (&path, "%s/t/input_files",
+                  xasprintf (&path, "%s/perl/t/input_files",
                              txi_paths_info.p.uninstalled.t2a_srcdir);
                   add_string (path, &htmlxref_dirs);
                   free (path);

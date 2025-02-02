@@ -10,7 +10,7 @@ fi
 
 echo "Preparing Texinfo development infrastructure:"
 
-# Generates tta/Makefile.tres (included by tta/Makefile.am).
+# Generates tta/perl/Makefile.tres (included by tta/perl/Makefile.am).
 cmd="./tta/maintain/regenerate_file_lists.pl"
 echo "  $cmd"
 $chicken eval $cmd || exit 1
@@ -44,7 +44,7 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 : ${LIBTOOLIZE=libtoolize}
-cmd="(cd tta/Texinfo/TestXS && ${LIBTOOLIZE} \
+cmd="(cd tta/perl/Texinfo/TestXS && ${LIBTOOLIZE} \
  && autoreconf --verbose --install)"
 echo "  $cmd"
 $chicken eval $cmd || exit 1

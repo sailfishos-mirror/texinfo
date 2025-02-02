@@ -74,14 +74,15 @@ AC_ARG_ENABLE([perl-xs],
     [ enable_xs=$enableval],
     [ enable_xs=check])
 
-# Set xs_srcdir to the path from XS builddir to srcdir
+# Set xs_srcdir to the path from XS builddir to source directory containing
+# Texinfo/XSLoader.pm and Texinfo/TestXS/TestXS.pm
 case $srcdir in
   .)  # We are building in place.
     xs_srcdir=../.. ;;
   [[\\/]]* | ?:[[\\/]]* )  # Absolute name.
-    xs_srcdir=$srcdir ;;
+    xs_srcdir=$srcdir/perl ;;
   *) # Relative name.
-    xs_srcdir=../../$srcdir ;;
+    xs_srcdir=../../../$srcdir/perl ;;
 esac
 
 # Pass on all the options we were given to the subsidiary configure
@@ -96,7 +97,7 @@ esac
 # not to work.
 #
 save_subdirs=$subdirs
-subdirs=Texinfo/TestXS
+subdirs=perl/Texinfo/TestXS
 ( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
 subdirs=$save_subdirs
 
@@ -108,15 +109,18 @@ if test $enable_xs = check; then
   AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
   AC_MSG_RESULT([])
   enable_xs=no
-  (cd Texinfo/TestXS \
+  (cd perl/Texinfo/TestXS \
    && make clean \
    && make TestXS.la \
    && TEXINFO_XS=debug ; export TEXINFO_XS \
    && ${PERL} -I . \
               -I ${xs_srcdir} \
               -e 'require Texinfo::TestXS::TestXS;' \
-      | grep 'message from XS module') \
+      | grep 'message from XS module') 2>_txi_msg_$$.txt \
   && enable_xs=yes
+  cat _txi_msg_$$.txt >&AS_MESSAGE_LOG_FD
+  cat _txi_msg_$$.txt 1>&2
+  rm -f _txi_msg_$$.txt
   AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
   AC_MSG_RESULT([$enable_xs])
 fi
@@ -491,7 +495,8 @@ AC_CONFIG_FILES([
   tests/info_tex/Makefile
   defs
   C/Makefile
-  Texinfo/XS/Makefile
+  perl/Makefile
+  perl/Texinfo/XS/Makefile
   gnulib/lib/Makefile
 ])
 

@@ -12,11 +12,30 @@ diffs_dir=diffs
 raw_output_dir=raw_out
 logfile=$basename.log
 stdout_file=stdout_$basename.out
+main_command='perl/texi2any.pl'
 prepended_command=
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
 . ../../defs || exit 1
+
+if test $main_command = 'perl/texi2any.pl' ; then
+  prepended_command="$prepended_command $PERL -w"
+fi
+
+command_run=
+for command_location_dir in "$srcdir/../../" ../../ ; do
+  echo "${command_location_dir}${main_command}"
+  if test -f "${command_location_dir}${main_command}" ; then
+    command_run="${command_location_dir}${main_command}"
+    break
+  fi
+done
+
+if test -z "$command_run"; then
+  echo "$0: Command $main_command not found" >&2
+  exit 1
+fi
 
 if which httexi > /dev/null 2>&1; then
   :
@@ -36,7 +55,7 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-cmd="$prepended_command $PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../ext --init-file tex4ht.pm --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../perl/ext --init-file tex4ht.pm --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

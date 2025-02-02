@@ -20,11 +20,30 @@ diffs_dir=diffs
 raw_output_dir=raw_out
 logfile=$basename.log
 stdout_file=stdout_$basename.out
+main_command='perl/texi2any.pl'
 prepended_command=
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
 . ../../defs || exit 1
+
+if test $main_command = 'perl/texi2any.pl' ; then
+  prepended_command="$prepended_command $PERL -w"
+fi
+
+command_run=
+for command_location_dir in "$srcdir/../../" ../../ ; do
+  echo "${command_location_dir}${main_command}"
+  if test -f "${command_location_dir}${main_command}" ; then
+    command_run="${command_location_dir}${main_command}"
+    break
+  fi
+done
+
+if test -z "$command_run"; then
+  echo "$0: Command $main_command not found" >&2
+  exit 1
+fi
 
 if sed 1q ../non_ascii_extracted_stamp.txt | grep 'OK' >/dev/null; then
   :
@@ -48,7 +67,7 @@ mkdir $basename
 
 # note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
 # such that --out is correctly decoded
-cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../formatting/simplest.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable 'TEST 1' -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../formatting/simplest.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

@@ -75,7 +75,7 @@ BEGIN
     }
 
     # To find Texinfo::ModulePath
-    unshift @INC, $t2a_builddir;
+    unshift @INC, join('/', ($t2a_builddir, 'perl'));
 
     my $t2a_srcdir;
     if (defined($ENV{'t2a_srcdir'})) {

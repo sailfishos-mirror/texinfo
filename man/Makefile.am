@@ -55,7 +55,7 @@ man_rule_0 = \
   exe_ext="$(EXEEXT)" \
   && program=`expr '/$@' : '.*/\(.*\)\.1'` \
   && case $$program in \
-         makeinfo) dir=tta; $(mi_env) exe_ext="";; \
+         makeinfo) dir=tta/perl; $(mi_env) exe_ext="";; \
             info*) dir=info; test $$program != info || program=g$$program;; \
     *install-info) dir=install-info; program=g$$program;; \
         *texindex) dir=texindex; exe_ext="";; \
@@ -87,7 +87,7 @@ $(srcdir)/install-info.1: $(top_srcdir)/install-info/install-info.c \
 	@name="update info/dir entries" && $(man_rule_bin)
 
 # Here we need some postprocessing to avoid man misformatting.
-$(srcdir)/makeinfo.1: $(t2a_srcdir)/texi2any.pl $(common_mandeps)
+$(srcdir)/makeinfo.1: $(t2a_srcdir)/perl/texi2any.pl $(common_mandeps)
 	@name="translate Texinfo documents" && $(man_rule_bin)
 	mv $@ $@.tmp
 	sed '/^\.IP$$/N;/\nAlso/s/I//;/\nThe/s/I//' $@.tmp >$@

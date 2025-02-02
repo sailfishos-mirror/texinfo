@@ -1029,7 +1029,7 @@ main (int argc, char *argv[], char *env[])
 
           if (nr > 3 && !strcmp (list[nr -1], ".libs")
                      && !strcmp (list[nr -2], "C")
-                     && !strcmp (list[nr -3], "tp"))
+                     && !strcmp (list[nr -3], "tta"))
             texinfo_uninstalled = 1;
           destroy_strings_list (file_directories);
         }
@@ -1053,7 +1053,7 @@ main (int argc, char *argv[], char *env[])
         {
           /* similar to ModulePath.pm with updir 2 (or 3 for .libs) */
           if (command_directory)
-            {/* within tp/C/.libs */
+            {/* within tta/C/.libs */
               xasprintf (&t2a_srcdir, "%s/../..",
                          command_directory);
             }
@@ -1068,7 +1068,7 @@ main (int argc, char *argv[], char *env[])
       else
         t2a_builddir = strdup (t2a_builddir);
 
-      xasprintf (&extensions_dir, "%s/ext", t2a_srcdir);
+      xasprintf (&extensions_dir, "%s/perl/ext", t2a_srcdir);
     }
   else
     xasprintf (&extensions_dir, "%s/ext", converterdatadir);

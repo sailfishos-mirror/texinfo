@@ -58,7 +58,7 @@ fi
 
 # User variables for a Perl XS extension, which may be different, for
 # example if the Perl interpreter being used was compiled with a
-# different compiler.  Also in tta/Texinfo/XS/configure.ac.
+# different compiler.  Also in tta/configure.ac.
 AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_CPPFLAGS], [C preprocessor flags for a Perl extension])
 AC_ARG_VAR([PERL_EXT_LDFLAGS], [Linker flags for a Perl extension])
@@ -345,7 +345,7 @@ AC_ARG_ENABLE([perl-xs],
 # Setting locale through LANGUAGE is not automatically detected, but it
 # is possible to manually set --enable-xs-perl-libintl to use libintl-perl
 # to always get the correct output (there is a TODO for automatic detection in
-# tta/Texinfo/XS/configure.ac).
+# tta/configure.ac).
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]),

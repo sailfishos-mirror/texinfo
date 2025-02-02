@@ -24,7 +24,7 @@ TEXINFO_TEX = texinfo.tex
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
                        t2a_srcdir="$(top_srcdir)/tta" \
                        t2a_builddir="$(top_builddir)/tta"
-MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tta/texi2any
+MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tta/perl/texi2any
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
                        TEXINDEX_SCRIPT=${abs_top_srcdir}/texindex/texindex.awk
@@ -52,7 +52,7 @@ endif
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
-$(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tta/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
+$(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tta/perl/Texinfo/Convert/HTML.pm $(srcdir)/generate_html_doc_texi.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/generate_html_doc_texi.pl $(srcdir)/html_default_commands_args.texi
 
 # We'd also like to use something like this, but Automake calls
@@ -115,7 +115,7 @@ gnulib = $(abs_top_srcdir)/../gnulib
 gendocs = $(gnulib)/build-aux/gendocs.sh
 gendocs_templates = $(gnulib)/doc
 gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates) \
-        MAKEINFO=../$(builddir)/../tta/texi2any \
+        MAKEINFO=../$(builddir)/../tta/perl/texi2any \
                        TEXINFO_DEV_SOURCE=1 \
                        t2a_srcdir="../$(top_srcdir)/tta" \
                        t2a_builddir="../$(top_builddir)/tta" \

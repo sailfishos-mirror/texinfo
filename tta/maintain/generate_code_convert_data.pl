@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # generate_convert_data_perl_code.pl: generate perl hashes based on
-# data information also used in XS.
+# data information also used in C.
 #
 # Copyright 2024-2025 Free Software Foundation, Inc.
 #
@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# ./maintain/generate_convert_data_perl_code.pl Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv Texinfo/Data.pm
+# ../maintain/generate_convert_data_perl_code.pl Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv Texinfo/Data.pm
 
 use strict;
 

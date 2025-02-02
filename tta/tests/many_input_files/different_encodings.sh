@@ -19,11 +19,31 @@ diffs_dir=diffs
 raw_output_dir=raw_out
 logfile=$basename.log
 stdout_file=stdout_$basename.out
+main_command='perl/texi2any.pl'
+
 prepended_command=
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
 . ../../defs || exit 1
+
+if test $main_command = 'perl/texi2any.pl' ; then
+  prepended_command="$prepended_command $PERL -w"
+fi
+
+command_run=
+for command_location_dir in "$srcdir/../../" ../../ ; do
+  echo "${command_location_dir}${main_command}"
+  if test -f "${command_location_dir}${main_command}" ; then
+    command_run="${command_location_dir}${main_command}"
+    break
+  fi
+done
+
+if test -z "$command_run"; then
+  echo "$0: Command $main_command not found" >&2
+  exit 1
+fi
 
 if test "z$PERL_UNICODE_COLLATE_OK" = 'zno' ; then
   echo "Skipping tests that require compatible unicode collation"
@@ -43,7 +63,7 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 set -x
-cmd="$prepended_command $PERL -I $srcdir/../.. -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --conf-dir $srcdir/../../init --out $basename/ $srcdir/../../t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

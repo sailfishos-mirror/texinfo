@@ -47,16 +47,19 @@ BEGIN
   my $t2a_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is tta/C
-    $t2a_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir);
+    $t2a_srcdir = join('/', ($ENV{'srcdir'}, $updir));
   } else {
-    $t2a_srcdir = File::Spec->catdir($command_directory, $updir);
+    $t2a_srcdir = join('/', ($command_directory, $updir));
   }
-  unshift @INC, $t2a_srcdir;
-  my $lib_dir = File::Spec->catdir($t2a_srcdir, 'maintain');
+
+  # find Perl Texinfo modules in srcdir
+  unshift @INC, join('/', ($t2a_srcdir, 'perl'));
+
+  my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
   # we ignore --with-external-*
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'libintl-perl', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
 use Texinfo::Common;

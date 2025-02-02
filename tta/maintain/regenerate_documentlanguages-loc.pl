@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # regenerate_documentlanguages-loc.pl: download the ISO 639-2 files language
-# and ISO 3166-1 alpha-2 codes and regenerate Texinfo/Documentlanguages.pm
+# and ISO 3166-1 alpha-2 codes and regenerate perl/Texinfo/Documentlanguages.pm
 # list of languages and regions
 #
 # Copyright 2022-2025 Free Software Foundation, Inc.
@@ -81,7 +81,9 @@ $regions{'NA'} = 1;
 
 my $program_name = basename($0);
 
-open(OUT, ">Texinfo/Documentlanguages.pm") or die "Open Texinfo/Documentlanguages.pm: $!\n";
+my $perl_out_file_name = 'perl/Texinfo/Documentlanguages.pm';
+
+open(OUT, ">$perl_out_file_name") or die "Open $perl_out_file_name: $!\n";
 
 my $declarations = "%{\n#include <config.h>\n%}\n"
                    ."%includes\n%%\n";

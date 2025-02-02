@@ -400,7 +400,7 @@ available version, then run:
 Check that this results in a newer version.
 
 Check what changes ppport.h reports:
-  perl ppport.h --compat-version=5.8.1 ../Texinfo/XS/*.xs ../Texinfo/XS/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* ../Texinfo/XS/convert/get_html_perl_info.*
+  perl ppport.h --compat-version=5.8.1 ../perl/Texinfo/XS/*.xs ../perl/Texinfo/XS/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* ../perl/Texinfo/XS/convert/get_html_perl_info.*
 
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
@@ -538,7 +538,7 @@ to check that LINGUAS under po and po_document match actual file list.
 - Official releases only:
 version and date in NEWS.
 (cd tta && ./maintain/regenerate_documentlanguages-loc.pl)
-  -- regenerates tta/Texinfo/Documentlanguages.pm and
+  -- regenerates tta/perl/Texinfo/Documentlanguages.pm and
      tta/C/main/txi_documentlanguage_*.c (requires Text::CSV
      Perl module, wget and gperf and access to the internet)
 

@@ -45,7 +45,10 @@ BEGIN
   } else {
     $t2a_srcdir = join('/', ($command_directory, $updir, 'tta'));
   }
-  unshift @INC, $t2a_srcdir;
+
+  # find Perl Texinfo modules in srcdir
+  unshift @INC, join('/', ($t2a_srcdir, 'perl'));
+
   my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
   # we ignore --with-external-*
   unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));

@@ -20,7 +20,8 @@ use File::Basename;
 use File::Spec;
 
 my ($program_name, $mydir, $suffix) = fileparse($0);
-my $parent = File::Spec->catdir($mydir, File::Spec->updir());
+my $updir = File::Spec->updir();
+my $parent = join('/', ($mydir, $updir, 'perl'));
 chdir($parent) || die "chdir $parent: $!";
 -d "t" || (die "goodbye, no t directory in " . `pwd`);
 

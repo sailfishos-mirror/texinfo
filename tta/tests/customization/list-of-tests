@@ -12,9 +12,9 @@ sectioning_without_anchors sectioning.texi --html --no-split -c 'COPIABLE_LINKS=
 # many other tests using double_contents.texi are in t/*.t, but customization
 # variables set in init files are not used in the t/*.t test suite, so there cannot
 # be proper testing with book.pm
-double_contents_book ../../t/input_files/double_contents.texi --html --no-split -c FORMAT_MENU=nomenu --init book.pm
-double_contents_after_title_book ../../t/input_files/double_contents.texi --html --no-split --init book.pm -c 'CONTENTS_OUTPUT_LOCATION after_title'
-double_contents_after_title_book_chapter ../../t/input_files/double_contents.texi --html --init book.pm --split chapter -c 'CONTENTS_OUTPUT_LOCATION after_title'
+double_contents_book ../../perl/t/input_files/double_contents.texi --html --no-split -c FORMAT_MENU=nomenu --init book.pm
+double_contents_after_title_book ../../perl/t/input_files/double_contents.texi --html --no-split --init book.pm -c 'CONTENTS_OUTPUT_LOCATION after_title'
+double_contents_after_title_book_chapter ../../perl/t/input_files/double_contents.texi --html --init book.pm --split chapter -c 'CONTENTS_OUTPUT_LOCATION after_title'
 
 # test wrong return value from init file handler.
 simplest_stage_handler_bad_return ../formatting/simplest.texi --html --init stage_handler_bad_return.pm

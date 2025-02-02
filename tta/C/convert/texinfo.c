@@ -91,7 +91,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       char *load_modules_path;
       int status;
       if (texinfo_uninstalled)
-        xasprintf (&load_modules_path, "%s/%s.pl",
+        xasprintf (&load_modules_path, "%s/perl/%s.pl",
                    t2a_srcdir, load_txi_modules_basename);
       else
         xasprintf (&load_modules_path, "%s/%s", converterdatadir,

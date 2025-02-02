@@ -76,7 +76,7 @@ check_latex2html_and_tex4ht ()
          exit 1
        fi
     fi
-    l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../t/init/l2h.init"
+    l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../perl/t/init/l2h.init"
   else
     maybe_use_tex4ht=no
     if echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
@@ -199,12 +199,12 @@ prepended_command=
 # can also be put in ../defs to also affect tests in many_input_files
 #prepended_command='valgrind -q'
 
-main_command='texi2any.pl'
+main_command='perl/texi2any.pl'
 #main_command='C/ctexi2any'
 
 # formats can be specified by first line of list-of-tests.
-#commands='texi2any.pl:_html texi2any.pl:_info'
-#commands=': texi2any.pl:_info'
+#commands='perl/texi2any.pl:_html perl/texi2any.pl:_info'
+#commands=': perl/texi2any.pl:_info'
 commands=':'
 
 clean=no
@@ -239,7 +239,7 @@ fi
 
 . $testdir/../../defs || exit 1
 
-if test $main_command = 'texi2any.pl' ; then
+if test $main_command = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
 fi
 
@@ -458,7 +458,7 @@ while read line; do
     mkdir "${outdir}$dir"
     remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
     echo "$command $dir -> ${outdir}$dir" >> $logfile
-    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../t/init/ --conf-dir $srcdir/../init --conf-dir $srcdir/../ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
+    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
     echo "$cmd" >>$logfile
     eval $cmd
     ret=$?

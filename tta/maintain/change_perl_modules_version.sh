@@ -16,7 +16,7 @@ if test z"$VERS" = "zauto" ; then
 fi
  
 
-find Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
+find perl/Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
   perl -pi -e 's/\$VERSION = '"'([0-9.]+[^']*)'"'/\$VERSION = '"'$VERS'"'/'
 
 # change also tta/Texinfo/XS/configure.ac version, it is used to set
@@ -25,7 +25,7 @@ find Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
 # by XSLoader.pm init through DynaLoader to check that the XS modules
 # versions are the same than the XSLoader.pm Perl module $VERSION.
 perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" configure.ac
-perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" Texinfo/TestXS/configure.ac
+perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" perl/Texinfo/TestXS/configure.ac
 
 # do the same for TEXINFO_DTD_VERSION.  It is not easy to pass information
 # from the top configure to the subdirectory configure.

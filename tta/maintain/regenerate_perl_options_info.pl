@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # regenerate_options_infos.pl: generate perl hashes based on
-# commands information, structure and code used in XS.
+# commands information, structure and code used in C.
 #
 # Copyright 2022-2025 Free Software Foundation, Inc.
 #

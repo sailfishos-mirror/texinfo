@@ -248,9 +248,9 @@ MAINTAINERCLEANFILES += main/element_types.c main/element_types.h
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
-$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: ../Texinfo/command_data.txt main/command_data.awk
+$(srcdir)/main/command_data.c $(srcdir)/main/command_ids.h $(srcdir)/main/global_multi_commands_case.c $(srcdir)/main/global_unique_commands_case.c $(srcdir)/main/global_commands_types.h: ../perl/Texinfo/command_data.txt main/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/main -f $(srcdir)/main/command_data.awk \
-	     $(srcdir)/../Texinfo/command_data.txt
+	     $(srcdir)/../perl/Texinfo/command_data.txt
 
 MAINTAINERCLEANFILES += main/command_data.c main/command_ids.h
 MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
@@ -258,19 +258,19 @@ MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
 MAINTAINERCLEANFILES += main/global_commands_types.h
 
 # NOTE duplicate of a rule in ../../Makefile.am
-$(srcdir)/../Texinfo/Commands.pm: ../Texinfo/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
+$(srcdir)/../perl/Texinfo/Commands.pm: ../perl/Texinfo/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl \
-	  $(srcdir)/../Texinfo/Commands.pm \
-	    < $(srcdir)/../Texinfo/command_data.txt
+	  $(srcdir)/../perl/Texinfo/Commands.pm \
+	    < $(srcdir)/../perl/Texinfo/command_data.txt
 
 # NOTE duplicate of a rule in ../Makefile.am
-$(srcdir)/../Texinfo/Options.pm: ../Texinfo/Convert/converters_defaults.txt ../Texinfo/options_data.txt $(srcdir)/../maintain/regenerate_perl_options_info.pl
+$(srcdir)/../perl/Texinfo/Options.pm: ../perl/Texinfo/Convert/converters_defaults.txt ../perl/Texinfo/options_data.txt $(srcdir)/../maintain/regenerate_perl_options_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_perl_options_info.pl \
-	  $(srcdir)/../Texinfo/Convert/converters_defaults.txt \
-	  $(srcdir)/../Texinfo/Options.pm \
-	    < $(srcdir)/../Texinfo/options_data.txt
+	  $(srcdir)/../perl/Texinfo/Convert/converters_defaults.txt \
+	  $(srcdir)/../perl/Texinfo/Options.pm \
+	    < $(srcdir)/../perl/Texinfo/options_data.txt
 
-$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_text.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../Texinfo/Commands.pm ../Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
+$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_text.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
 	      $(srcdir)/main/cmd_normalization.c \
@@ -288,11 +288,11 @@ $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../maintain/setup_acce
 
 MAINTAINERCLEANFILES += main/accent_tables_8bit_codepoints.c
 
-$(srcdir)/main/options_init_free.c $(srcdir)/main/options_data.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: ../Texinfo/options_data.txt ../Texinfo/Convert/converters_defaults.txt main/command_data.c $(srcdir)/../maintain/regenerate_C_options_info.pl
+$(srcdir)/main/options_init_free.c $(srcdir)/main/options_data.h $(srcdir)/main/options_defaults.c $(srcdir)/main/options_defaults.h $(srcdir)/convert/converters_options.c $(srcdir)/convert/converters_options.h $(srcdir)/main/options_get_perl.c: ../perl/Texinfo/options_data.txt ../perl/Texinfo/Convert/converters_defaults.txt main/command_data.c $(srcdir)/../maintain/regenerate_C_options_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_C_options_info.pl \
-	        < $(srcdir)/../Texinfo/options_data.txt \
+	        < $(srcdir)/../perl/Texinfo/options_data.txt \
 	              $(srcdir)/main/command_data.c \
-	              $(srcdir)/../Texinfo/Convert/converters_defaults.txt \
+	              $(srcdir)/../perl/Texinfo/Convert/converters_defaults.txt \
 	              $(srcdir)/main/options_init_free.c \
 	              $(srcdir)/main/options_data.h \
 	              $(srcdir)/main/options_defaults.c \
@@ -312,13 +312,13 @@ MAINTAINERCLEANFILES += main/options_init_free.c main/options_data.h \
 # avoid make failing in po* directories.
 translated_source_files: $(srcdir)/main/html_conversion_data.c
 
-$(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: main/command_data.c $(srcdir)/../Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/../Texinfo/Data/default_direction_strings.csv $(srcdir)/../Texinfo/Data/default_special_unit_info.csv $(srcdir)/../Texinfo/Data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
+$(srcdir)/main/html_conversion_data.c $(srcdir)/main/html_conversion_data.h: main/command_data.c $(srcdir)/../perl/Texinfo/Data/default_css_element_class_styles.csv $(srcdir)/../perl/Texinfo/Data/default_direction_strings.csv $(srcdir)/../perl/Texinfo/Data/default_special_unit_info.csv $(srcdir)/../perl/Texinfo/Data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
 	$(PERL) $(srcdir)/../maintain/generate_code_convert_data.pl \
 	        < $(srcdir)/main/command_data.c \
-	            $(srcdir)/../Texinfo/Data/default_css_element_class_styles.csv \
-	            $(srcdir)/../Texinfo/Data/default_direction_strings.csv \
-	            $(srcdir)/../Texinfo/Data/default_special_unit_info.csv \
-	            $(srcdir)/../Texinfo/Data/html_style_commands_element.csv \
+	            $(srcdir)/../perl/Texinfo/Data/default_css_element_class_styles.csv \
+	            $(srcdir)/../perl/Texinfo/Data/default_direction_strings.csv \
+	            $(srcdir)/../perl/Texinfo/Data/default_special_unit_info.csv \
+	            $(srcdir)/../perl/Texinfo/Data/html_style_commands_element.csv \
 	            C $(srcdir)/main/html_conversion_data.c \
 	            $(srcdir)/main/html_conversion_data.h
 

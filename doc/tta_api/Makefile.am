@@ -18,7 +18,7 @@ AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0 -c TREE_TRANSFORMATIONS=compl
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 \
                        t2a_srcdir="$(top_srcdir)/tta" \
                        t2a_builddir="$(top_builddir)/tta"
-MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_srcdir)/tta/texi2any.pl
+MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_srcdir)/tta/perl/texi2any.pl
 
 TEXI2DVI_ENVIRONMENT = TEXINDEX=${abs_top_builddir}/texindex/texindex \
                        TEXINDEX_SCRIPT=${abs_top_srcdir}/texindex/texindex.awk
@@ -54,29 +54,29 @@ BUILT_SOURCES = texi2any_internals.texi
 # all the modules with some interesting public interfaces.
 # The order matters for the result.
 texi2any_internals_dependencies = \
-  $(top_srcdir)/tta/Texinfo/Commands.pod \
-  $(top_srcdir)/tta/Texinfo/Common.pm \
-  $(top_srcdir)/tta/Texinfo/ParserNonXS.pm \
-  $(top_srcdir)/tta/Texinfo/Document.pm \
-  $(top_srcdir)/tta/Texinfo/ManipulateTree.pm \
-  $(top_srcdir)/tta/Texinfo/Structuring.pm \
-  $(top_srcdir)/tta/Texinfo/Report.pm \
-  $(top_srcdir)/tta/Texinfo/Translations.pm \
-  $(top_srcdir)/tta/Texinfo/Transformations.pm \
-  $(top_srcdir)/tta/Texinfo/Indices.pm \
-  $(top_srcdir)/tta/Texinfo/OutputUnits.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Texinfo.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Utils.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Unicode.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/NodeNameNormalization.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Text.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Converter.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Info.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/HTML.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/DocBook.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/TexinfoMarkup.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/TexinfoXML.pm \
-  $(top_srcdir)/tta/Texinfo/Convert/Plaintext.pm
+  $(top_srcdir)/tta/perl/Texinfo/Commands.pod \
+  $(top_srcdir)/tta/perl/Texinfo/Common.pm \
+  $(top_srcdir)/tta/perl/Texinfo/ParserNonXS.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Document.pm \
+  $(top_srcdir)/tta/perl/Texinfo/ManipulateTree.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Structuring.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Report.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Translations.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Transformations.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Indices.pm \
+  $(top_srcdir)/tta/perl/Texinfo/OutputUnits.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Texinfo.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Utils.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Unicode.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/NodeNameNormalization.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Text.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Converter.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Info.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/HTML.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/DocBook.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoMarkup.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoXML.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm
 
 $(srcdir)/texi2any_internals.texi: $(texi2any_internals_dependencies) $(srcdir)/texi2any_internals_indices.texi $(srcdir)/texi2any_internals_preamble.texi
 	target=$(srcdir)/texi2any_internals.texi ; \

@@ -101,12 +101,12 @@ gnulib/po/POTFILES
 gnulib/po/remove-potcdate.sed
 gnulib/po/stamp-po
 
-tta/Texinfo/TestXS/build-aux/**
-tta/Texinfo/TestXS/.libs
-tta/Texinfo/TestXS/TestXS.c
-tta/Texinfo/TestXS/*.la
-tta/Texinfo/TestXS/*.lo
-tta/Texinfo/TestXS/libtool
+tta/perl/Texinfo/TestXS/build-aux/**
+tta/perl/Texinfo/TestXS/.libs
+tta/perl/Texinfo/TestXS/TestXS.c
+tta/perl/Texinfo/TestXS/*.la
+tta/perl/Texinfo/TestXS/*.lo
+tta/perl/Texinfo/TestXS/libtool
 
 tta/gnulib/lib/dirent.h
 tta/gnulib/lib/error.h
@@ -251,18 +251,18 @@ install-info/tests/defs
 tta/Makefile.onetst
 tta/Makefile.docstr
 
-tta/t/results/**/out_*
-tta/t/results/**/*.new
+tta/perl/t/results/**/out_*
+tta/perl/t/results/**/*.new
 
 tta/maintain/catalog.xml
 
-tta/t/include_dir
-tta/t/locales
-tta/t/output_files
-tta/t/*.trs
-tta/t/*.log
-tta/t/z_misc/*.trs
-tta/t/z_misc/*.log
+tta/perl/t/include_dir
+tta/perl/t/locales
+tta/perl/t/output_files
+tta/perl/t/*.trs
+tta/perl/t/*.log
+tta/perl/t/z_misc/*.trs
+tta/perl/t/z_misc/*.log
 
 tta/tests/*/tests.log
 tta/tests/*/tests.out
@@ -307,17 +307,15 @@ tta/makeinfo
 tta/t_texis
 tta/texi2any
 tta/texi_sort_elements_count
-tta/*.trs
-tta/t/*.log
 tta/tests/*.log
 
-tta/Texinfo/ModulePath.pm
+tta/perl/Texinfo/ModulePath.pm
 
-tta/Texinfo/XS/MiscXS.c
-tta/Texinfo/XS/XSParagraph.c
-tta/Texinfo/XS/*.lo
-tta/Texinfo/XS/*.la
-tta/Texinfo/XS/.libs
+tta/perl/Texinfo/XS/MiscXS.c
+tta/perl/Texinfo/XS/XSParagraph.c
+tta/perl/Texinfo/XS/*.lo
+tta/perl/Texinfo/XS/*.la
+tta/perl/Texinfo/XS/.libs
 
 tta/config.log
 tta/libtool
@@ -356,17 +354,17 @@ tta/gnulib/lib/uniwidth.h
 tta/gnulib/lib/wchar.h
 tta/gnulib/lib/sys/types.h
 
-tta/Texinfo/XS/parser_document/ConfigXS.c
-tta/Texinfo/XS/parser_document/DocumentXS.c
-tta/Texinfo/XS/parser_document/IndicesXS.c
-tta/Texinfo/XS/parser_document/Parsetexi.c
-tta/Texinfo/XS/parser_document/StructuringTransfoXS.c
-tta/Texinfo/XS/parser_document/.libs
-tta/Texinfo/XS/parser_document/*.lo
+tta/perl/Texinfo/XS/parser_document/ConfigXS.c
+tta/perl/Texinfo/XS/parser_document/DocumentXS.c
+tta/perl/Texinfo/XS/parser_document/IndicesXS.c
+tta/perl/Texinfo/XS/parser_document/Parsetexi.c
+tta/perl/Texinfo/XS/parser_document/StructuringTransfoXS.c
+tta/perl/Texinfo/XS/parser_document/.libs
+tta/perl/Texinfo/XS/parser_document/*.lo
 
-tta/Texinfo/XS/convert/ConvertXS.c
-tta/Texinfo/XS/convert/.libs
-tta/Texinfo/XS/convert/*.lo
+tta/perl/Texinfo/XS/convert/ConvertXS.c
+tta/perl/Texinfo/XS/convert/.libs
+tta/perl/Texinfo/XS/convert/*.lo
 
 tta/C/ctexi2any
 tta/C/teximakehtml

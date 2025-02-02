@@ -1,5 +1,40 @@
 2025-02-02  Patrice Dumas  <pertusus@free.fr>
 
+	Put tta Perl code and t/*.t tests in a perl subdir in tta
+
+	* tta/Makefile.am, tta/perl/Makefile.am: move code related to Perl
+	only from tta/Makefile.am to tta/perl/Makefile.am, including tests in
+	t/*.t.
+	Update directories and 'updirs'.
+
+	* tta/configure.ac (enable_xs): redirect stderror of build, call and
+	grep module output to stderror but also to AS_MESSAGE_LOG_FD, using a
+	temporary file.
+
+	* tta/perl/t/test_utils.pl: distinguish directories more clearly, with
+	$srcdir for input files, and locales in builddir.  Always add a / in
+	code using directories names.
+
+	* tta/perl/t/z_misc/no_structure_test.t: distinguish directories more
+	clearly, with $srcdir for test results and $t2a_srcdir for input
+	files.
+
+	* tta/perl/t/z_misc/same_parser_multiple_files.t: distinguish
+	directories more clearly, with $srcdir for test results, $t2a_srcdir
+	for input files and locales in builddir.
+
+	* tta/tests/many_input_files/*.sh (main_command, command_run, cmd):
+	use main_command, set command_run based on source directory and build
+	directory, add PERL to prepended_command automatically if main_command
+	is perl/texi2any.pl and update cmd to remove PERL arguments.  This
+	allows to set main_command='C/ctexi2any'.
+
+	* tta/maintain/setup_converters_code_tables.pl,
+	tta/maintain/regenerate_file_lists.pl,
+	tta/maintain/setup_converters_code_tables.pl: use forward slashes.
+
+2025-02-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/t/test_utils.pl: fix script name in message.
 
 	* doc/refcard/txicmdcheck (main): rename tp_cmds as t2a_cmds, tp_only
