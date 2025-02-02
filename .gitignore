@@ -162,6 +162,8 @@ doc/texinfo-tex-test.??s
 doc/texinfo-tex-test.aux
 doc/texinfo-tex-test.bar
 doc/texinfo-tex-test.bars
+doc/texinfo-tex-test.dvi
+doc/texinfo-tex-test.pdf
 doc/texinfo-tex-test.log
 doc/texinfo-tex-test.toc
 doc/short-sample-ja.aux
@@ -190,6 +192,7 @@ doc/texinfo.txicmd
 doc/texinfo.txicmds
 doc/texinfo.aux
 doc/texinfo.dvi
+doc/texinfo.pdf
 doc/texinfo.html
 doc/texinfo.log
 doc/texinfo.tex.sig
