@@ -24,6 +24,36 @@ AC_SUBST([TEXINFO_DTD_VERSION])
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 
+USE_EXTERNAL_EASTASIANWIDTH=no
+AC_ARG_WITH([external-Unicode-EastAsianWidth],
+   AS_HELP_STRING([--with-external-Unicode-EastAsianWidth],[use external Unicode-EastAsianWidth (default: no)]),
+   [if test $withval = 'yes'; then
+      USE_EXTERNAL_EASTASIANWIDTH=yes
+   fi]
+)
+
+AC_SUBST([USE_EXTERNAL_EASTASIANWIDTH])
+
+USE_EXTERNAL_UNIDECODE=no
+AC_ARG_WITH([external-Text-Unidecode],
+    AS_HELP_STRING([--with-external-Text-Unidecode],[use external Text::Unidecode (default: no)]),
+   [if test $withval = 'yes'; then
+      USE_EXTERNAL_UNIDECODE=yes
+   fi]
+)
+
+AC_SUBST([USE_EXTERNAL_UNIDECODE])
+
+USE_EXTERNAL_LIBINTL_PERL=no
+AC_ARG_WITH([external-libintl-perl],
+   AS_HELP_STRING([--with-external-libintl-perl],[use external libintl-perl (default: no)]),
+   [if test $withval = 'yes'; then
+      USE_EXTERNAL_LIBINTL_PERL=yes
+   fi]
+)
+
+AC_SUBST([USE_EXTERNAL_LIBINTL_PERL])
+
 AC_ARG_ENABLE([additional-checks],
     AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
     [ enable_additional_tests=$enableval],
@@ -412,6 +442,22 @@ dnl ]], [embedded_perl=yes], [embedded_perl=no])
 fi
 
 AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
+
+AC_ARG_ENABLE([c-texi2any],
+    AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]),
+    [ prefer_c_t2a=$enableval],
+    [ prefer_c_t2a=no])
+
+if test "z$embedded_perl" != 'zyes' -o "x$am_func_iconv" != "xyes" ; then
+  prefer_c_t2a=no
+fi
+
+AM_CONDITIONAL([PREFER_C_TEXI2ANY], [test "z$prefer_c_t2a" = 'zyes'])
+
+if test z$prefer_c_t2a = 'zyes' ; then
+  TESTS_MAIN_COMMAND=C/ctexi2any
+fi
+AC_SUBST([TESTS_MAIN_COMMAND])
 
 # Do not include Perl configuration values when outputting these variables,
 # as advised in the automake manual for CFLAGS and LDFLAGS, which could be

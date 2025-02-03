@@ -19,28 +19,32 @@ prepended_command=
 
 . ../../defs || exit 1
 
-if test $main_command = 'perl/texi2any.pl' ; then
+if which httexi > /dev/null 2>&1; then
+  :
+else
+  exit 77
+fi
+
+if test z"$TESTS_MAIN_COMMAND" = z ; then
+  TESTS_MAIN_COMMAND=$main_command
+fi
+
+if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
 fi
 
 command_run=
 for command_location_dir in "$srcdir/../../" ../../ ; do
-  echo "${command_location_dir}${main_command}"
-  if test -f "${command_location_dir}${main_command}" ; then
-    command_run="${command_location_dir}${main_command}"
+  echo "${command_location_dir}${TESTS_MAIN_COMMAND}"
+  if test -f "${command_location_dir}${TESTS_MAIN_COMMAND}" ; then
+    command_run="${command_location_dir}${TESTS_MAIN_COMMAND}"
     break
   fi
 done
 
 if test -z "$command_run"; then
-  echo "$0: Command $main_command not found" >&2
+  echo "$0: Command $TESTS_MAIN_COMMAND not found" >&2
   exit 1
-fi
-
-if which httexi > /dev/null 2>&1; then
-  :
-else
-  exit 77
 fi
 
 [ -d $diffs_dir ] || mkdir $diffs_dir

@@ -293,51 +293,28 @@ AC_ARG_ENABLE(install-warnings,
 AM_CONDITIONAL(INSTALL_WARNINGS,
    test x"$install_warnings" = xtrue || test x"$install_warnings" = xyes)
 
-USE_EXTERNAL_EASTASIANWIDTH=no
-AC_ARG_WITH([external-Unicode-EastAsianWidth],
-   AS_HELP_STRING([--with-external-Unicode-EastAsianWidth],[use external Unicode-EastAsianWidth (default: no)]),
-   [if test $withval = 'yes'; then
-      USE_EXTERNAL_EASTASIANWIDTH=yes
-   fi]
-)
-
-AC_SUBST([USE_EXTERNAL_EASTASIANWIDTH])
-
-USE_EXTERNAL_UNIDECODE=no
-AC_ARG_WITH([external-Text-Unidecode],
-    AS_HELP_STRING([--with-external-Text-Unidecode],[use external Text::Unidecode (default: no)]),
-   [if test $withval = 'yes'; then
-      USE_EXTERNAL_UNIDECODE=yes
-   fi]
-)
-
-AC_SUBST([USE_EXTERNAL_UNIDECODE])
-
 # i18n support.
 # See README-hacking for how to upgrade to a new version of gettext
 AM_GNU_GETTEXT_VERSION([0.22.5])
 AM_GNU_GETTEXT([external])
 
-USE_EXTERNAL_LIBINTL=no
-AC_ARG_WITH([external-libintl-perl],
-   AS_HELP_STRING([--with-external-libintl-perl],[use external libintl-perl (default: no)]),
-   [if test $withval = 'yes'; then
-      USE_EXTERNAL_LIBINTL=yes
-   fi]
-)
+AC_ARG_WITH([external-Unicode-EastAsianWidth],
+   AS_HELP_STRING([--with-external-Unicode-EastAsianWidth],[use external Unicode-EastAsianWidth (default: no)]))
 
-AC_SUBST([USE_EXTERNAL_LIBINTL])
+AC_ARG_WITH([external-Text-Unidecode],
+    AS_HELP_STRING([--with-external-Text-Unidecode],[use external Text::Unidecode (default: no)]))
+
+AC_ARG_WITH([external-libintl-perl],
+   AS_HELP_STRING([--with-external-libintl-perl],[use external libintl-perl (default: no)]))
 
 AC_ARG_ENABLE([additional-checks],
-    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]),
-    [ enable_additional_tests=$enableval],
-    [ enable_additional_tests=no])
-
+    AS_HELP_STRING([--enable-additional-checks], [run tests on non-distributed components]))
 
 AC_ARG_ENABLE([perl-xs],
-    AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]),
-    [ enable_xs=$enableval],
-    [ enable_xs=check])
+    AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]))
+
+AC_ARG_ENABLE([c-texi2any],
+    AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]))
 
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.  In 2024 this is
@@ -348,13 +325,7 @@ AC_ARG_ENABLE([perl-xs],
 # tta/configure.ac).
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
-            [prefer Perl libintl-perl gettext in XS modules]),
-    [if test $enableval = 'yes'; then
-       prefer_libintl_perl=yes
-     else
-       prefer_libintl_perl=no
-     fi],
-     [])
+            [prefer Perl libintl-perl gettext in XS modules]))
 
 # Texinfo JS Interface
 npm_path="${srcdir}/js/node_modules/.bin"

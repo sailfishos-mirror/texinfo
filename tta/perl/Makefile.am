@@ -31,7 +31,11 @@ include $(srcdir)/Makefile.tres
 $(srcdir)/Makefile.tres: ../maintain/regenerate_file_lists.pl
 	cd $(srcdir)/ && $(PERL) ../maintain/regenerate_file_lists.pl
 
+if !PREFER_C_TEXI2ANY
 bin_SCRIPTS = texi2any
+else
+noinst_SCRIPTS = texi2any
+endif
 
 converterdata_SCRIPTS = load_txi_modules
 

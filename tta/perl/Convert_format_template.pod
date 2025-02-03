@@ -1,4 +1,4 @@
-# Automatically generated from maintain/template.pod
+# Automatically generated from Convert_format_template.pod
 
 =head1 NAME
 

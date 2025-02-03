@@ -33,7 +33,7 @@ BEGIN {
       "Texinfo::Parser",
       "Texinfo::ParserNonXS",
       $shared_library_name,
-      "XSTexinfo::parser_document::Parsetexi",
+      "XSTexinfo::Parsetexi",
       ['texinfo', 'texinfoxs'],
   );
 }

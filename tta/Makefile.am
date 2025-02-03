@@ -84,7 +84,7 @@ maintain/catalog.xml: maintain/catalog.xml.in Makefile
 libsrcdir = $(srcdir)/maintain/lib
 
 install-data-local:
-	if test $(USE_EXTERNAL_LIBINTL) != 'yes' ; then \
+	if test $(USE_EXTERNAL_LIBINTL_PERL) != 'yes' ; then \
 	  $(MKDIR_P) $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/Recode \
 	    $(DESTDIR)$(converterdatadir)/lib/libintl-perl/lib/Locale/RecodeData; \
 	  $(INSTALL_DATA) $(libsrcdir)/libintl-perl/lib/Locale/*.pm \

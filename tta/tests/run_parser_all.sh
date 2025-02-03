@@ -239,7 +239,11 @@ fi
 
 . $testdir/../../defs || exit 1
 
-if test $main_command = 'perl/texi2any.pl' ; then
+if test z"$TESTS_MAIN_COMMAND" = z ; then
+  TESTS_MAIN_COMMAND=$main_command
+fi
+
+if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
 fi
 
@@ -413,7 +417,7 @@ while read line; do
     format=`echo $dir_suffix |sed 's/^_//'`
     #
     if test -z "$command"; then
-      command=$main_command
+      command=$TESTS_MAIN_COMMAND
       if test -n "$format"; then
         format_option="--$format"
       fi

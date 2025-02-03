@@ -553,7 +553,20 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
+# in configure.ac, it is checked that Perl is embedded and iconv is available
+if PREFER_C_TEXI2ANY
+bin_PROGRAMS = texi2any
+endif
 
+texi2any_SOURCES = $(ctexi2any_SOURCES)
+texi2any_LDADD = $(ctexi2any_LDADD)
+texi2any_CPPFLAGS = $(ctexi2any_CPPFLAGS)
+
+if PREFER_C_TEXI2ANY
+install-exec-hook:
+	makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; rm -f $(DESTDIR)$(bindir)/$$makeinfo_f
+	-makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; texi2any_f=`echo texi2any$(EXEEXT)| sed -e '$(transform)'`; $(LN_S) $$texi2any_f $(DESTDIR)$(bindir)/$$makeinfo_f
+endif
 
 ################################# C only static main program demonstrator
 # The same effect can be obtained with the main program in C with

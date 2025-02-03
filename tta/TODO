@@ -12,22 +12,12 @@ Before next release
 
 system.h macros are duplicated in XS/main/utils.h.  Ok?
 
-Reorganize code.
-
 Version libraries?
 
 use directories for files used for htmlxref.conf
 https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00087.html
 
-Add a configure flag to install ctexi2any instead of texi2any.pl.  Could
-be easy to do now, as enable_xs and $embedded_perl are determined in
-tta/C/configure.ac and both need to be on for ctexi2any to be built.
-Still wait for reorganization of the code to proceed.
-
 Document TEXINFO_C_EMBED_PERL
-
-Run the tests testsuite both in C and in perl directory, by having different
-defs.in
 
 
 Bugs
@@ -957,5 +947,6 @@ our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses 
 our_CFLAGS='-g -O2 -D_FORTIFY_SOURCE=2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -fstack-protector-all -Wextra -fno-omit-frame-pointer'
 our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra'
 ./configure --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
+./configure --enable-c-texi2any --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
