@@ -1318,11 +1318,11 @@ Each array specifies which buttons are included, and how they are
 displayed.  Each array item is associated with a button of the
 navigation panel from left to right.  The simplest way to specify
 a button formatting is to use a direction name and let the navigation panel
-code formatting format the button based in the direction name.
+code formatting format the button based on the direction name.
 
 An output unit direction string is associated to a link to the corresponding
 output unit, possibly formatted with an icon.  A direction text string
-is associated to the text string.  Default (@pxref{Default Directions}) and
+is associated to the text.  Default (@pxref{Default Directions}) and
 added directions (@pxref{Adding Text And Global Output Units Directions}) can
 be used in buttons list arrays.
 
@@ -1497,7 +1497,7 @@ is a continuation of the previous registered message.
 @end defun
 
 To report a warning or an error in element conversion, use
-@code{converter_line_warn} or @code{converter_line_error}
+@code{converter_line_warn} or @code{converter_line_error}:
 @defun @var{$converter}->converter_line_error ($text, \%location_info, $continuation)
 @defunx @var{$converter}->converter_line_warn ($text, \%location_info, $continuation)
 Register a warning or an error.  @var{$text} is the text of the
@@ -2046,7 +2046,7 @@ is 100.
 
 HTML output formatting in user-defined code should take into account the
 conversion context, can access converter information and use converter functions
-to convert Perl Texinfo trees.  There are also several conventions and
+to convert Texinfo trees.  There are also several conventions and
 constraints that user defined code should abide to when formatting HTML, in
 order to comply with customization option values, avoid modifying structures
 that should not be modified, and also to have information correctly registered
@@ -3308,7 +3308,7 @@ Return the node element associated with @var{\%target_element}.
 @end deftypefun
 
 For elements that are not target elements, use
-@code{get_element_root_command_element} to get the root level Perl tree
+@code{get_element_root_command_element} to get the root level tree
 element and the output unit containing the element:
 
 @anchor{@code{get_element_root_command_element}}
@@ -3459,7 +3459,7 @@ sub my_tree_element_convert_paragraph_type($$$$)
 @end group
 
 @group
-  my @@contents = @{$element->@{'contents'@}@};
+  my @@contents = @@@{$element->@{'contents'@}@};
   push @@contents, @{'text' => ' <code>HTML</code> text ',
                    'type' => '_converted'@};
   my $result = $converter->convert_tree(@{'type' => '_code',
@@ -3710,7 +3710,7 @@ sub my_final_convert_paragraph_type($$$$)
 @end group
 
 @group
-  my @@contents = @{$element->@{'contents'@}@};
+  my @@contents = @@@{$element->@{'contents'@}@};
   push @@contents, @{'text' => ' <code>HTML</code> text ',
                    'type' => '_converted'@};
   my $result = $converter->convert_tree(@{'type' => '_code',

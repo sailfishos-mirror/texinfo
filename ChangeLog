@@ -1,5 +1,10 @@
 2025-02-03  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: fix typo, remove Perl as an adjective for the
+	Texinfo tree and fix examples of Texinfo code.
+
+2025-02-03  Patrice Dumas  <pertusus@free.fr>
+
 	NEWS: add information on texi2any program implementation in C.
 
 2025-02-03  Patrice Dumas  <pertusus@free.fr>
