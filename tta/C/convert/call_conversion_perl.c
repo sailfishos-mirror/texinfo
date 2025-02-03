@@ -137,7 +137,7 @@ call_module_converter_defaults (const char *module_name,
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_module_converter_defaults should return 1 item\n");
+    croak ("call: module converter_defaults should return 1 item\n");
 
   result_sv = POPs;
 
@@ -185,7 +185,7 @@ call_module_converter (const char *module_name,
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_module_converter should return 1 item\n");
+    croak ("call: module converter should return 1 item\n");
 
   result_sv = POPs;
   result = get_sv_converter (result_sv, "call_module_converter");
@@ -245,7 +245,7 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_output should return 1 item\n");
+    croak ("call: converter output should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);
@@ -258,7 +258,8 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   LEAVE;
 
   /* already set in the converter, no need to get from Perl.
-     Case of converters implemented in C, for instance HTML */
+     Case of converters with file opening implemented in C,
+     for instance HTML, called through XS interfaces */
   if (self->output_files_information.opened_files.number > 0
       || self->output_files_information.unclosed_files.number > 0)
     return result;
@@ -280,7 +281,7 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_output should return 1 item\n");
+    croak ("call: converter output_files_information should return 1 item\n");
 
   result_sv = POPs;
   result->output_files_information = get_output_files_information (result_sv);
@@ -341,7 +342,7 @@ call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
   SPAGAIN;
 
   if (count != 1)
-    croak ("call_sort_element_counts should return 1 item\n");
+    croak ("call: sort_element_counts should return 1 item\n");
 
   result_sv = POPs;
   result_ret = SvPVutf8 (result_sv, len);

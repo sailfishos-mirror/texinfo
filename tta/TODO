@@ -29,9 +29,6 @@ Document TEXINFO_C_EMBED_PERL
 Run the tests testsuite both in C and in perl directory, by having different
 defs.in
 
-Check again whether TEXINFO_XS* can be obeyed when embedding a Perl
-interpreter in stead of forcing XS at the fullest level.
-
 
 Bugs
 ====

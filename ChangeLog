@@ -38,6 +38,14 @@
 
 2025-02-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/call_conversion_perl.c: change failure messages and
+	comments.
+
+	* tta/perl/Texinfo/XSLoader.pm (init): simplify condition.  Change in
+	comments.
+
+2025-02-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac (ICONV_CONVERTS_EUC_CN): Solaris iconv does not lead
 	to the same output than GNU libiconv for some characters used in
 	tests, so we do not set ICONV_CONVERTS_EUC_CN if the platform is

@@ -26,8 +26,8 @@ use DynaLoader;
 BEGIN {
   eval 'require Texinfo::ModulePath';
   if ($@ ne '') {
-    # For configure test in CheckXS where Texinfo/ModulePath.pm may
-    # not exist yet.
+    # For configure test in CheckXS where Texinfo/ModulePath.pm is
+    # not loaded.
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';
   }
@@ -45,7 +45,12 @@ $xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 #my $xs_version = version->declare($VERSION)->numify;
 
 # Set from code to notify that Perl is embedded in C, and that XS needs to
-# be used.
+# be used.  When Perl is embedded in C, many computations are done in C and
+# are not directly passed to Perl.  These C data should be accessed/modified
+# through XS interfaces.  The situation is similar to setting only handlers
+# when calling XS methods from Perl, such that the data is not built to Perl,
+# the changes are done in C only, at least until Perl structures are explicitly
+# required through an XS interface.
 our $embedded_xs;
 
 sub set_XS_embedded {
@@ -220,10 +225,10 @@ sub init {
   # Possible values for TEXINFO_XS environment variable:
   #
   # TEXINFO_XS=omit         # don't try loading xs at all
-  # TEXINFO_XS=default      # try xs, libtool, silent fallback
-  # TEXINFO_XS=warn         # try xs, libtool warn on failure
-  # TEXINFO_XS=required     # abort if not loadable, no fallback
-  # TEXINFO_XS=debug        # voluminuous debugging
+  # TEXINFO_XS=default      # try xs, silent fallback
+  # TEXINFO_XS=warn         # try xs, warn on failure
+  # TEXINFO_XS=required     # try xs, abort if not loadable, no fallback
+  # TEXINFO_XS=debug        # try xs, voluminuous debugging, fallback
   #
   # Other values are treated at the moment as 'default'.
 
@@ -338,13 +343,11 @@ sub init {
   return $module;
 
  FALLBACK:
-  if ($TEXINFO_XS eq 'required' or $embedded_xs) {
-    if ($embedded_xs) {
-      die "Cannot load XS with embedded Perl\n";
-    } else {
-      die "set the TEXINFO_XS environment variable to 'omit' to use the "
-         ."pure Perl modules\n";
-    }
+  if ($TEXINFO_XS eq 'required') {
+    die "set the TEXINFO_XS environment variable to 'omit' to use the "
+       ."pure Perl modules\n";
+  } elsif ($embedded_xs) {
+    die "Perl is embedded, unexpected failure loading $module XS, aborting\n";
   } elsif ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
     if (defined($fallback_module)) {
       warn "falling back to pure Perl module $fallback_module\n";
@@ -357,8 +360,6 @@ sub init {
       warn "no fallback module for $module\n";
     }
     return undef;
-    #die "set/unset the TEXINFO_XS, TEXINFO_XS_PARSER and TEXINFO_XS_CONVERT "
-    #   ."environment variables to use the pure Perl modules\n";
   }
 
   # Fall back to using the Perl code.
