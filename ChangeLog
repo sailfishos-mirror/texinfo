@@ -1,3 +1,23 @@
+2025-02-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Tips):
+	Reference GNU Coding Standards.
+	Remove pronunciation of "Texinfo" as this is not a writing tip
+	and is covered elsewhere in the manual.
+	Remove example of K&R C function definition to show what not to
+	do.
+	Change "an @code" to "a @code command".
+	Change "nodes (sections)" to "nodes".
+	Move info on capitalizing "TeX" etc. later.
+	Cut down verbiage in section on indexing.  Remove recommendation to
+	"write each index entry differently" as it not clear what this means.
+	Remove section on Definition Commands as it doesn't add much
+	beyond what is in the main section of the manual.
+	Move section on Spaces next to that on Blank Lines.
+	Reorder section on "Bad Examples" to put corrections after the
+	example.  Change @code to @t to prevent quotes appearing in
+	Info output.
+
 2025-02-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	No xrefautomaticsectiontitle for links to @anchor commands

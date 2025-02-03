@@ -20820,7 +20820,9 @@ command even if the @code{@@shortcontents} command was at the end.
 @nodedescription Hints on how to write a Texinfo document.
 @appendix Tips and Hints
 
-Here are some tips for writing Texinfo documentation:
+Writers of GNU manuals should consult @ref{GNU Manuals,,, standards,
+GNU Coding Standards}.  Here are some other tips for writing Texinfo
+documentation:
 
 @cindex Tips
 @cindex Usage tips
@@ -20834,36 +20836,25 @@ Write actively!  For example, write ``We recommend that @dots{}'' rather
 than ``It is recommended that @dots{}''.
 
 @item
+Design your manual so that it can be read sequentially, as far as
+possible.  People tire of flipping back and forth to find information
+that should be presented to them as they need it.
+
+@item
 Use 70 or 72 as your fill column.  Longer lines are hard to read.
 
 @item
 Include a copyright notice and copying permissions.
-
-@item
-Design your manual so that it can be read sequentially, as far as
-possible.  People tire of flipping back and forth to find information
-that should be presented to them as they need it.
 
 @end itemize
 
 
 @subsubheading Index, Index, Index!
 
-Write many index entries, in different ways.
-Readers like indices; they are helpful and convenient.
-
-Although it is easiest to write index entries as you write the body of
-the text, some people prefer to write entries afterwards.  In either
-case, write an entry before the paragraph to which it applies.  This
-way, an index entry points to the first page of a paragraph that is
-split across pages.
-
-Here are more index-related hints we have found valuable:
-
 @itemize @bullet
 @item
-Write each index entry differently, so each entry refers to a different
-place in the document.
+Write many index entries, in different ways.  You can write index entries
+as you write the body of the text, or write them afterwards.
 
 @item
 Write index entries only where a topic is discussed significantly.  For
@@ -20872,22 +20863,10 @@ chapter on reporting bugs.  Someone who wants to know about debugging
 information will certainly not find it in that chapter.
 
 @item
-Consistently capitalize the first word of every concept index entry,
-or else consistently use lowercase.  Terse entries often call for
-lowercase; longer entries for capitalization.  Whichever case
-convention you use, please use one or the other consistently!  Mixing
-the two styles looks bad.
-
-@item
-Always capitalize or use uppercase for those words in an index for
-which this is proper, such as names of countries or acronyms.  Always
-use the appropriate case for case-sensitive names, such as those in C or
-Lisp.
-
-@item
 Write the indexing commands that refer to a whole section immediately
-after the section command, and write the indexing commands that refer to
-a paragraph before that paragraph.
+after the section command.  Write the indexing commands that refer to
+a paragraph before that paragraph; this way, an index entry points to
+the first page of a paragraph that is split across pages.
 
 In the example that follows, a blank line comes after the index
 entry for ``Leaping'':
@@ -20910,7 +20889,106 @@ The quick brown fox jumps over the lazy dog.
 (Note that the example shows entries for the same concept that are
 written in different ways---@samp{Lazy dog}, and @samp{Dog, lazy}---so
 readers can look up the concept in different ways.)
+
+@item
+Consistently capitalize the first word of every concept index entry,
+or else consistently use lowercase.  Terse entries often call for
+lowercase; longer entries for capitalization.  Whichever case
+convention you use, please use one or the other consistently!  Mixing
+the two styles looks bad.
+
+@item
+Always capitalize or use uppercase for those words in an index for
+which this is proper, such as names of countries or acronyms.  Always
+use the appropriate case for case-sensitive names, such as those in C or
+Lisp.
+
 @end itemize
+
+
+@subsubheading Complete Phrases
+
+Complete phrases are easier to read than @dots{}
+
+@itemize @bullet
+@item
+Write entries in an itemized list as complete sentences; or at least, as
+complete phrases.  Incomplete expressions @dots{} awkward @dots{} like
+this.
+
+@item
+Write the prefatory sentence or phrase for a multi-item list or table as
+a complete expression.  Do not write ``You can set:''; instead, write
+``You can set these variables:''.  The former expression sounds cut off.
+@end itemize
+
+
+@subsubheading Introducing New Terms
+
+@itemize @bullet
+@item
+Introduce new terms so that a reader who does not know them can
+understand them from context; or write a definition for the term.
+
+For example, in the following, the terms ``check in'', ``register'' and
+``delta'' are all appearing for the first time; the example sentence should be
+rewritten so they are understandable.
+
+@quotation
+The major function assists you in checking in a file to your
+version control system and registering successive sets of changes to
+it as deltas.
+@end quotation
+
+@item
+Use the @code{@@dfn} command around a word being introduced, to indicate
+that the reader should not expect to know the meaning already, and
+should expect to learn the meaning from this passage.
+@end itemize
+
+
+@subsubheading Bad Examples
+
+Here are a few examples of bad writing to avoid:
+
+@quotation
+When you are done editing the file, you must perform a
+@t{@@dfn}@{check in@}.
+@end quotation
+
+@noindent
+In this example, say, `` @dots{} you must @t{@@dfn}@{check
+in@} the new version.''  That flows better.
+
+@quotation
+SCCS, RCS and other version-control systems all perform similar
+functions in broadly similar ways (it is this resemblance which makes
+a unified control mode like this possible).
+@end quotation
+
+@noindent
+In this example, say, ``@dots{} makes a unified interface such as VC
+mode possible.''
+
+
+@subsubheading Periods Outside of Quotes
+
+Place periods and other punctuation marks @emph{outside} of quotations,
+unless the punctuation is part of the quotation.  This practice goes
+against some publishing conventions in the United States, but enables the
+reader to distinguish between the contents of the quotation and the
+whole passage.
+
+For example, you should write the following sentence with the period
+outside the end quotation marks:
+
+@example
+Evidently, @samp{au} is an abbreviation for ``author''.
+@end example
+
+@noindent
+since @samp{au} does @emph{not} serve as an  abbreviation for
+@samp{author.} (with a period following the word).
 
 
 @subsubheading Blank Lines
@@ -20954,73 +21032,6 @@ On the other hand, @dots{}
 Insert blank lines before and after @code{@@itemize} @dots{} @code{@@end
 itemize} and @code{@@enumerate} @dots{} @code{@@end enumerate} in the
 same way.
-@end itemize
-
-
-@subsubheading Complete Phrases
-
-Complete phrases are easier to read than @dots{}
-
-@itemize @bullet
-@item
-Write entries in an itemized list as complete sentences; or at least, as
-complete phrases.  Incomplete expressions @dots{} awkward @dots{} like
-this.
-
-@item
-Write the prefatory sentence or phrase for a multi-item list or table as
-a complete expression.  Do not write ``You can set:''; instead, write
-``You can set these variables:''.  The former expression sounds cut off.
-@end itemize
-
-
-@subsubheading Editions, Dates and Versions
-
-Include edition numbers, version numbers, and dates in the
-@code{@@copying} text (for people reading the Texinfo file, and for the
-legal copyright in the output files).  Then use @code{@@insertcopying}
-in the @code{@@titlepage} section for people reading the printed
-output (@pxref{Short Sample}).
-
-It is easiest to handle such version information using @code{@@set}
-and @code{@@value}.  @xref{@code{@@value} Example}, and @ref{GNU
-Sample Texts}.
-
-
-@subsubheading Definition Commands
-
-Definition commands are @code{@@deffn}, @code{@@defun},
-@code{@@defmac}, and the like, and enable you to write descriptions in
-a uniform format.
-
-@itemize @bullet
-@item
-Write just one definition command for each entity you define with a
-definition command.  The automatic indexing feature creates an index
-entry that leads the reader to the definition.
-
-@item
-Use @code{@@table} @dots{} @code{@@end table} in an appendix that
-contains a summary of functions, not @code{@@deffn} or other definition
-commands.
-@end itemize
-
-
-@subsubheading Capitalization
-
-@itemize @bullet
-@item
-Capitalize ``Texinfo''; it is a name.  Do not write the @samp{x} or
-@samp{i} in uppercase.
-
-@item
-Capitalize ``Info''; it is a name.
-
-@item
-Write @TeX{} using the @code{@@TeX@{@}} command.  Note the uppercase
-@samp{T} and @samp{X}.  This command causes the formatters to
-typeset the name according to the wishes of Donald Knuth, who wrote
-@TeX{}.  (Likewise @code{@@LaTeX@{@}} for @LaTeX{}.)
 @end itemize
 
 
@@ -21079,8 +21090,8 @@ The main function is @@code@{vc-next-action@}, @dots{}
 @end example
 
 @item
-Avoid putting letters such as @samp{s} immediately after an
-@samp{@@code}.  Such letters look bad.
+Avoid putting letters such as @samp{s} immediately after a
+@samp{@@code} command.  Such letters look bad.
 
 @item
 Use @code{@@var} around meta-variables.  Do not write angle brackets
@@ -21093,48 +21104,17 @@ typeset in other output formats.
 @end itemize
 
 
-@subsubheading Periods Outside of Quotes
+@subsubheading Editions, Dates and Versions
 
-Place periods and other punctuation marks @emph{outside} of quotations,
-unless the punctuation is part of the quotation.  This practice goes
-against some publishing conventions in the United States, but enables the
-reader to distinguish between the contents of the quotation and the
-whole passage.
+Include edition numbers, version numbers, and dates in the
+@code{@@copying} text (for people reading the Texinfo file, and for the
+legal copyright in the output files).  Then use @code{@@insertcopying}
+in the @code{@@titlepage} section for people reading the printed
+output (@pxref{Short Sample}).
 
-For example, you should write the following sentence with the period
-outside the end quotation marks:
-
-@example
-Evidently, @samp{au} is an abbreviation for ``author''.
-@end example
-
-@noindent
-since @samp{au} does @emph{not} serve as an  abbreviation for
-@samp{author.} (with a period following the word).
-
-
-@subsubheading Introducing New Terms
-
-@itemize @bullet
-@item
-Introduce new terms so that a reader who does not know them can
-understand them from context; or write a definition for the term.
-
-For example, in the following, the terms ``check in'', ``register'' and
-``delta'' are all appearing for the first time; the example sentence should be
-rewritten so they are understandable.
-
-@quotation
-The major function assists you in checking in a file to your
-version control system and registering successive sets of changes to
-it as deltas.
-@end quotation
-
-@item
-Use the @code{@@dfn} command around a word being introduced, to indicate
-that the reader should not expect to know the meaning already, and
-should expect to learn the meaning from this passage.
-@end itemize
+It is easiest to handle such version information using @code{@@set}
+and @code{@@value}.  @xref{@code{@@value} Example}, and @ref{GNU
+Sample Texts}.
 
 
 @subsubheading Program Invocation Nodes
@@ -21149,7 +21129,7 @@ with the word `Invoking', as in `Invoking Emacs'; this way, users can
 find the section easily.
 
 
-@subsubheading ANSI C Syntax
+@subsubheading C functions
 
 When you use @code{@@example} to describe a C function's calling
 conventions, use the ANSI C syntax, like this:
@@ -21162,16 +21142,6 @@ void dld_init (char *@@var@{path@});
 And in the subsequent discussion, refer to the argument values by
 writing the same argument names, again highlighted with
 @code{@@var}.
-
-@need 800
-Avoid the obsolete style that looks like this:
-
-@example
-#include <dld.h>
-
-dld_init (path)
-  char *path;
-@end example
 
 Also, it is best to avoid writing @code{#include} above the
 declaration just to indicate that the function is declared in a
@@ -21197,43 +21167,27 @@ lines or words), to find candidates for splitting.  It's in the
 @file{util/} subdirectory of the Texinfo sources.
 
 
-@subsubheading Bad Examples
+@subsubheading Capitalization
 
-Here are several examples of bad writing to avoid:
+@itemize @bullet
+@item
+Capitalize ``Texinfo''; it is a name.  Do not write the @samp{x} or
+@samp{i} in uppercase.
 
-In this example, say, `` @dots{} you must @code{@@dfn}@{check
-in@} the new version.''  That flows better.
+@item
+Capitalize ``Info''; it is a name.
 
-@quotation
-When you are done editing the file, you must perform a
-@code{@@dfn}@{check in@}.
-@end quotation
-
-In the following example, say, ``@dots{} makes a unified interface such as VC
-mode possible.''
-
-@quotation
-SCCS, RCS and other version-control systems all perform similar
-functions in broadly similar ways (it is this resemblance which makes
-a unified control mode like this possible).
-@end quotation
-
-And in this example, you should specify what `it' refers to:
-
-@quotation
-If you are working with other people, it assists in coordinating
-everyone's changes so they do not step on each other.
-@end quotation
+@item
+Write @TeX{} using the @code{@@TeX@{@}} command.  Note the uppercase
+@samp{T} and @samp{X}.  This command causes the formatters to
+typeset the name according to the wishes of Donald Knuth, who wrote
+@TeX{}.  (Likewise @code{@@LaTeX@{@}} for @LaTeX{}.)
+@end itemize
 
 
 @subsubheading And Finally @dots{}
 
 @itemize @bullet
-@item
-Pronounce @TeX{} as if the @samp{X} were a Greek `chi', as the last
-sound in the name `Bach'.  But pronounce Texinfo as in `speck':
-``teckinfo''.
-
 @item
 Write notes for yourself at the very end of a Texinfo file after the
 @code{@@bye}.  None of the processors process text after the
