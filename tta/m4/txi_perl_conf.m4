@@ -112,10 +112,12 @@ esac
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
-AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
 AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
+
+# not really related to Perl
+AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 
 #PACKAGE_XS_VERSION=`${PERL} -e 'use version; print version->declare('"$PACKAGE_VERSION"')->numify;'`
 # to check that Perl module loading the XS objects and XS objects versions
