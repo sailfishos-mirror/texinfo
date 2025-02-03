@@ -1,5 +1,18 @@
 2025-02-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No xrefautomaticsectiontitle for links to @anchor commands
+
+	* doc/texinfo.tex (\Yanchor): new macro.
+	(\anchor): output \Yanchor in .aux file.
+	(\getprintedrefname): check for reference to anchor and use anchor
+	name regardless of xrefautomaticsectiontitle setting.
+	(\getrefx): helper macro to retrieve xref strings.
+	* NEWS: mention
+
+	Report from Werner.
+
+2025-02-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Three Arguments) <xrefautomaticsectiontitle>:
 	state that this option does not do anything for Info output.
 

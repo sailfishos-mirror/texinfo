@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-01-31.21}
+\def\texinfoversion{2025-02-03.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -8978,7 +8978,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 \def\savesf{\relax \ifhmode \savesfregister=\spacefactor \fi}
 \def\restoresf{\relax \ifhmode \spacefactor=\savesfregister \fi}
-\def\anchor#1{\savesf \setref{#1}{Ynothing}\restoresf \ignorespaces}
+\def\anchor#1{\savesf \setref{#1}{Yanchor}\restoresf \ignorespaces}
 
 % \setref{NAME}{SNT} defines a cross-reference point NAME (a node or an
 % anchor), which consists of three parts:
@@ -9163,13 +9163,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         % It is in another manual, so we don't have it; use node name.
         \def\printedrefname{\ignorespaces #1}%
       \else
-        \ifhavexrefs
-          % We (should) know the real title if we have the xref values.
-          \def\printedrefname{\refx{#1-title}}%
-        \else
-          % Otherwise just copy the Info node name.
+        \getrefx{#1-snt}\tmp
+        \ifx\tmp\Yanchor % reference to anchor
           \def\printedrefname{\ignorespaces #1}%
-        \fi%
+        \else
+          \ifhavexrefs
+            % We (should) know the real title if we have the xref values.
+            \def\printedrefname{\refx{#1-title}}%
+          \else
+            % Otherwise just copy the Info node name.
+            \def\printedrefname{\ignorespaces #1}%
+          \fi
+        \fi
       \fi
     \fi
   \fi
@@ -9281,6 +9286,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 \def\Ynothing{}
 \def\Yomitfromtoc{}
+\def\Yanchor{\isanchor} \let\isanchor\relax
 \def\Ynumbered{%
   \ifnum\secno=0
     \putwordChapter@tie \the\chapno
@@ -9333,6 +9339,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % It's defined, so just use it.
     \thisrefX
   \fi
+}
+
+% Set #2 to xref string #1
+\def\getrefx#1#2{%
+  \expandafter\let\expandafter#2\csname XR#1\endcsname
 }
 
 % This is the macro invoked by entries in the aux file.  Define a control 
