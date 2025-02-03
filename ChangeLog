@@ -1,5 +1,9 @@
 2025-02-03  Patrice Dumas  <pertusus@free.fr>
 
+	NEWS: add information on texi2any program implementation in C.
+
+2025-02-03  Patrice Dumas  <pertusus@free.fr>
+
 	Add --enable-c-texi2any to use C implementation for tests and install
 
 	* configure.ac (USE_EXTERNAL_LIBINTL_PERL), tta/Makefile.am: rename

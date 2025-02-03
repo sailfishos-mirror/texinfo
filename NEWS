@@ -13,6 +13,8 @@ See the manual for detailed information.
   . '@set xrefautomaticsectiontitle on' does not affect cross-references
      to anchors, matching the HTML output
 * texi2any
+  . texi2any program implementation in C embedding Perl.
+    Use --enable-c-texi2any to prefer the C implementation
   . remove USE_REL_REV variable; former effect is now always on
   . rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
   . rename space direction ' ' to 'Space'

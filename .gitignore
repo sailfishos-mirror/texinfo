@@ -360,6 +360,7 @@ tta/perl/XSTexinfo/convert/.libs
 tta/perl/XSTexinfo/convert/*.lo
 
 tta/C/ctexi2any
+tta/C/texi2any
 tta/C/teximakehtml
 tta/C/.libs
 tta/C/*.la
