@@ -39,7 +39,7 @@ BEGIN
   $ENV{'TEXINFO_XS'} = 'omit';
   # NOTE we do not use Texinfo::ModulePath as it may not have been
   # created yet, as tta/C may be processed before tta.
-  # Also we have less modules to find, only pure perl code.
+  # Also we have less modules to find, only pure Perl code.
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();

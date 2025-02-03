@@ -21,16 +21,19 @@ use warnings;
 
 # for file names portability
 use File::Spec;
-# for dirname and fileparse
+# for fileparse and basename
 use File::Basename;
 
 my $program_name = basename($0);
 
 BEGIN
 {
+  # do not load XS code, to avoid both depending on and generating
+  # XS code.  Also we do not want to have to find XS object files.
+  $ENV{'TEXINFO_XS'} = 'omit';
   # NOTE we do not use Texinfo::ModulePath as it may not have been
   # created yet, as tta/C may be processed before tta.
-  # Also we have less modules to find, only pure perl code.
+  # Also we have less modules to find, only pure Perl code.
   my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
@@ -38,16 +41,19 @@ BEGIN
   my $t2a_srcdir;
   if (defined($ENV{'srcdir'})) {
     # srcdir is tta/C
-    $t2a_srcdir = File::Spec->catdir($ENV{'srcdir'}, $updir);
+    $t2a_srcdir = join('/', ($ENV{'srcdir'}, $updir));
   } else {
-    $t2a_srcdir = File::Spec->catdir($command_directory, $updir);
+    $t2a_srcdir = join('/', ($command_directory, $updir));
   }
-  unshift @INC, $t2a_srcdir;
-  my $lib_dir = File::Spec->catdir($t2a_srcdir, 'maintain');
+
+  # find Perl Texinfo modules in srcdir
+  unshift @INC, join('/', ($t2a_srcdir, 'perl'));
+
+  my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
   # we ignore --with-external-*
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'libintl-perl', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
-  unshift @INC, (File::Spec->catdir($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
+  unshift @INC, join('/', ($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
 use Texinfo::Convert::Unicode;

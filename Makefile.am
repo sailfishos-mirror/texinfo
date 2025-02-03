@@ -38,7 +38,7 @@ tta/perl/Texinfo/ModulePath.pm:
 BUILT_SOURCES += $(top_srcdir)/tta/perl/Texinfo/HTMLData.pm \
                  $(top_srcdir)/tta/C/main/html_conversion_data.c
 $(top_srcdir)/tta/perl/Texinfo/HTMLData.pm:
-	cd tta && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
+	cd tta/perl && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
 
 $(top_srcdir)/tta/C/main/html_conversion_data.c:
 	cd tta/C && $(MAKE) $(AM_MAKEFLAGS) translated_source_files
@@ -135,7 +135,7 @@ po-check:
               tta/maintain/* ) continue;;				\
               tta/t/results* ) continue;;				\
 	      tta/gnulib/lib/*) continue;;			\
-	      tta/perl/Texinfo/XS/convert/ConvertXS.c) continue;;	\
+	      tta/perl/XSTexinfo/convert/ConvertXS.c) continue;;	\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
@@ -146,7 +146,7 @@ po-check:
 	  rm -f $@-1 $@-2;						\
 	fi
 
-# false positive in tta/perl/Texinfo/XS/parser_document/DocumentXS.c with function definition
+# false positive in DocumentXS.c with function definition
 # but no translated strings
 po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
@@ -161,7 +161,7 @@ po_document-check:
 	      texinfo-*/*) continue;;					\
 	      tta/maintain/*) continue;;				\
 	      tta/init/documentation_examples.pm) continue;;		\
-	      tta/perl/Texinfo/XS/parser_document/DocumentXS.c) continue;;		\
+	      tta/perl/XSTexinfo/parser_document/DocumentXS.c) continue;;		\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\

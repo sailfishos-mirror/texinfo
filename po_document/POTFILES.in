@@ -7,8 +7,9 @@
 # List of source files containing translatable strings that end up in
 # the output from processing Texinfo documents.
 
-tta/ext/epub3.pm
-tta/init/html32.pm
+tta/perl/ext/epub3.pm
+tta/perl/init/documentation_examples.pm
+tta/perl/init/html32.pm
 tta/perl/Texinfo/Common.pm
 tta/perl/Texinfo/HTMLData.pm
 tta/perl/Texinfo/Structuring.pm
