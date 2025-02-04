@@ -1,5 +1,13 @@
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* README-hacking, tta/C/parsetexi/README, tta/README, tta/TODO,
+	tta/perl/t/README, tta/tests/README: update paths.
+
+	* tta/README: add information on C and Perl and on the conversion of
+	Texinfo to output formats.
+
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/data/command_data.txt, tta/data/options_data.txt,
 	tta/data/converters_defaults.txt, tta/data/*.csv: move
 	tta/perl/Texinfo/Data/*.csv, tta/perl/Texinfo/*.txt and

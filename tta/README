@@ -6,11 +6,17 @@ texinfo/tta/README
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
-texi2any is a Perl or C program for converting Texinfo input to to divers
-output formats.  Texinfo::Parser is a Perl module for parsing Texinfo code
-into a tree representing the Texinfo code structure.
+texi2any is a Perl or C program for converting Texinfo input to diverse
+output formats.  All the code is available in pure Perl, the C code
+coverage is partial.  The Perl code can call native code extensions for
+speed, while the C code can call Perl modules and embed a Perl
+interpreter.  The Perl code, Perl extension interfaces (XS) code and
+embedded Perl initialization code are in the perl/ subdirectory.  The C
+code, including code calling Perl modules, code called by the extension
+interfaces and code loading embedded Perl is in the C/ subdirectory.
 
-These other modules and libraries are required (all have been standard
+
+These modules and libraries are required (all have been standard
 parts of Perl for years, at least since 5.7.3):
   Carp, Config, Data::Dumper, Encode, File::Basename, File::Spec
   Getopt::Long, Unicode::Normalize, Storable
@@ -25,41 +31,55 @@ part of Texinfo (not disturbing the Perl installation at all) (although
 see the output of 'configure --help' for how to use externally installed
 modules).
 
-
 Archive::Zip is needed for the EPUB output format final file creation.
 It is not included in Texinfo; it is detected at runtime and an error is
 issued if it cannot be loaded.
 
 
-To run the tests you also need:
+Tests in perl/t/ test the Perl modules used by the texi2any command/
+To run those tests, you also need:
   Test::More, Data::Compare, Test::Deep
-On Debian-based distros, Test::More is part of perl-modules and thus 
+On Debian-based distros, Test::More is part of perl-modules and thus
 installed with perl, the packages corresponding to the other modules
 are named:
   libdata-compare-perl libtest-deep-perl
 
-The tests are in the subdirectories t/ and test/.  The tests in t/ test 
-the Perl modules used by the makeinfo command, and the tests in test/ 
-test the command itself.
+The tests in tests/ test the command itself.
 
 
-If you want to delve into making a new backend, the documentation in
-tta/Texinfo/Convert/Converter.pm is a good starting point, as it
-describes the existing backends and other places to look.  To do a good
-job, expect to spend a lot of time making it do the right thing with the
-existing tests.
+The conversion of Texinfo to output formats is done in three steps:
+1) input Texinfo code parsing into a Texinfo tree representing the
+   Texinfo code structure.  Using the Texinfo::ParserNonXS Perl module
+   or C code in the C/parsetexi directory.
+2) information gathering on the document structure and Texinfo tree
+   transformations.  Using the Texinfo::Structuding and
+   Texinfo::Transformation Perl modules or C code in the C/structuring_transfo
+   directory.
+3) conversion of the Texinfo tree to output format by a converter
+   backend.  Using Texinfo::Converter::**** Perl modules or C code in
+   C/convert.
+
+The C converage of steps 1) and 2) is complete.  Many converter backends
+are only available in Perl.
+
+
+If you want to delve into making a new Perl converter backend, the
+documentation in perl/Texinfo/Convert/Converter.pm is a good starting
+point, as it describes the existing backends and other places to look.
 
 The Texinfo parser builds a complicated parse tree.  It can output a lot of
 debug information about the tree, and what it's doing generally.  For example,
 these commands output the tree (in different forms):
-  makeinfo -c DUMP_TREE=1 -c TEXINFO_OUTPUT_FORMAT=parse document.texi
-  makeinfo -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
+  texi2any -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
+For the Perl implementation only:
+  texi2any -c DUMP_TREE=1 -c TEXINFO_OUTPUT_FORMAT=parse document.texi
 In addition (or instead) setting the DEBUG configuration variable will
 dump more information about what it's doing.
 
 
 Sometime the messages on syntax errors can be incomplete because of the
 system used to set the paths.  It is possible in that case to use something
-along the following line to test the validity of one source file:
+along the following line to test the validity of one source file from
+the perl/ subdirectory:
 
-perl -c -I '.' -I './maintain/lib/libintl-perl/lib/' -I './maintain/lib/Unicode-EastAsianWidth/lib/' -I './maintain/lib/Text-Unidecode/lib' Texinfo/Convert/HTML.pm
+perl -c -I '.' -I '../maintain/lib/libintl-perl/lib/' -I '../maintain/lib/Unicode-EastAsianWidth/lib/' -I '../maintain/lib/Text-Unidecode/lib' Texinfo/Convert/HTML.pm

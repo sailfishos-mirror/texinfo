@@ -6,7 +6,7 @@ tta/t/README
   modification, are permitted in any medium without royalty provided the
   copyright notice and this notice are preserved.
 
-Files anywhere within the tta/t subdirectory which have no
+Files anywhere within the tta/perl/t subdirectory which have no
 other copyright notice are hereby placed in the public domain.
 
 See also the tests in the tta/tests directory.
@@ -14,8 +14,8 @@ See also the tests in the tta/tests directory.
 See tta/README for the Perl module requirements for running these
 tests.
 
-These tests are run by "make check" under tta/.  (The test files are
-listed in tta/Makefile.tres, which is a generated file.)
+These tests are run by "make check" under tta/perl.  (The test files are
+listed in tta/perl/Makefile.tres, which is a generated file.)
 
 When running the tests after a git pull, if getting failures, re-run
 make to ensure XS modules are rebuilt.
@@ -30,11 +30,11 @@ Another way, which works when doing an out-of-source build, is
 
 Another way to run a test out-source is:
 
-  s=../../tta
-  tb=../
+  s=../../../tta/perl
+  tb=..
   srcdir=$s t2a_builddir=$tb perl -w $s/t/02coverage.t commands
 
-where s is the path to the srcdir and tb is the path to the top build dir.
+where s is the path to the srcdir and tb is the path to the tta build dir.
 This allows you to run specific sub-tests, here the sub-test with name
 "commands".
 
@@ -105,19 +105,19 @@ is to use a command like
 
 Some tests under this directory use input files in the 'input_files'
 subdirectory.  When adding a test that uses an input file, add its path
-to tta/Makefile.am.
+to tta/perl/Makefile.am.
 
-Customization files from the tta/init and tta/t/init directories can
+Customization files from the tta/perl/init and tta/perl/t/init directories can
 be used in tests.
 
 
-Tests can be managed using the script in ./maintain/all_tests.sh.  For
-example, "./maintain/all_tests.sh generate" regenerates all of the
+Tests can be managed using the script in ../maintain/all_tests.sh.  For
+example, "../maintain/all_tests.sh generate" regenerates all of the
 reference test results (run from the upper-level directory), and
-"./maintain/all_tests.sh diff" makes a diff of all resulting files
+"../maintain/all_tests.sh diff" makes a diff of all resulting files
 against references.
 
-From the top directory, you can also create Texinfo files corresponding to
+From the tta/perl directory, you can also create Texinfo files corresponding to
 tests in t_texis/$test_category/ by running something along the lines of:
 
   perl -w t/60macro.t -c
@@ -139,5 +139,5 @@ tests cause this warning, as long as it is on purpose.
 The output files will be created with -o, in t/output_files/$test_category/
 
 When adding Perl (sub)tests under t/, also run
-./maintain/regenerate_file_lists.pl to regenerate Makefile.tres, or a
+../maintain/regenerate_file_lists.pl to regenerate Makefile.tres, or a
 "plan" (aka results file) will be missing at distcheck.

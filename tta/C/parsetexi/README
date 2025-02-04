@@ -8,7 +8,7 @@ should be able to debug with gdb.  Add
 
 ./configure PERL_EXT_CFLAGS='-g -O0'
 
-For individual tests can do "gdb perl" followed by e.g.
+For individual tests can do "gdb perl" in ../../perl followed by e.g.
 
 (gdb) r -w t/27float.t comment_space_comand_in_float
 
@@ -17,22 +17,22 @@ After a single run can set breakpoints.
 How to debug with valgrind -
 export PERL5LIB to the value in the makeinfo script
 
-with alias VAL='valgrind --log-file=val.log', can do e.g.
+with alias VAL='valgrind --log-file=val.log', can do from the doc directory e.g.
 
-VAL perl ./texi2any.pl texinfo.texi
+VAL perl ../tta/perl/texi2any.pl texinfo.texi
 
 also
 
-valgrind --vgdb-error=0 perl texi2any.pl texinfo.texi
+valgrind --vgdb-error=0 perl ../tta/perl/texi2any.pl texinfo.texi
 
 =====================================================================
 
 To see contents of leaked memory
 
-Run with valgrind, e.g.
+Run with valgrind, in the ../../perl directory e.g.
 
 valgrind --leak-check=full --vgdb-error=0 --vgdb-stop-at=exit \
-  perl -w $s/t/18itemize.t
+  perl -w t/18itemize.t
 
 at end of run, in gdb:
 
@@ -46,9 +46,9 @@ at end of run, in gdb:
 
 Get log files specific to tests with
 
-$ grep '^\['\' $s/t/18itemize.t | sed -e 's/^..//' -e 's/..$//' >test-list
+$ grep '^\['\' t/18itemize.t | sed -e 's/^..//' -e 's/..$//' >test-list
 $ for t in `cat test-list` ;  do valgrind --log-file=val.log.$t  \
---leak-check=full perl -w $s/t/18itemize.t $t ; done
+--leak-check=full perl -w t/18itemize.t $t ; done
 
 
 %
