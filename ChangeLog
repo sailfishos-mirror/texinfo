@@ -1,3 +1,24 @@
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Adding Output Formats): precise that the
+	Texinfo::Convert::Converter documentation is for backends in Perl.
+
+	* doc/texinfo.texi (History): describe the change in 2012 in the past.
+	Update with information on the use of C.
+
+	* doc/texinfo.texi (Generic Translator @command{texi2any}): describe
+	that two implementations, in Perl and in C exist and how to install
+	teh C implementation.
+
+	* doc/texinfo.texi (@command{texi2any} Environment Variables): update
+	to clearly explain the differences between the Perl and C
+	implementations for environment variables.  Document
+	TEXINFO_C_EMBED_PERL.
+
+	* doc/texinfo.texi (Global Customization Variables): explain that
+	DUMP_TREE is not available in th eC implementation.  Expand on TEST
+	description.
+
 2025-02-03  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi: fix typo, remove Perl as an adjective for the
