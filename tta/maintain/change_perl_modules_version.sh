@@ -19,7 +19,7 @@ fi
 find perl/Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
   perl -pi -e 's/\$VERSION = '"'([0-9.]+[^']*)'"'/\$VERSION = '"'$VERS'"'/'
 
-# change also tta/Texinfo/XS/configure.ac version, it is used to set
+# change also tta/configure.ac version, it is used to set
 # XS_VERSION through Makefile.am.  XS_VERSION in XS objects in turn is
 # used in xsubpp generated code in XS object bootstrap function called
 # by XSLoader.pm init through DynaLoader to check that the XS modules

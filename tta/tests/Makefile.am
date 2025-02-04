@@ -119,6 +119,8 @@ endif
 
 # tar m discards file modification dates from the archive.
 
-EXTRA_DIST = run_parser_all.sh parser_tests.sh escape_file_names.pl \
+EXTRA_DIST = run_parser_all.sh parser_tests.sh \
+ README \
+ escape_file_names.pl \
  $(one_test_files_generated_list) coverage_macro.texi \
  input/included_latin1.texi input/non_ascii.tar

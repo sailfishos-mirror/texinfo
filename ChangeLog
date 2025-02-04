@@ -1,5 +1,16 @@
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/README: move tta/C/parsetexi/README to tta/C/README.
+
+	* tta/tests/Makefile.am (EXTRA_DIST): distribute the README.
+
+	* tta/TODO, tta/data/command_data.txt,
+	tta/maintain/change_perl_modules_version.sh: fix paths.
+
+	* doc/texinfo.texi (Generic Translator @command{texi2any}): fix typo.
+
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking, tta/C/parsetexi/README, tta/README, tta/TODO,
 	tta/perl/t/README, tta/tests/README: update paths.
 
