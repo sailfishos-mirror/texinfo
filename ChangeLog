@@ -6,6 +6,7 @@
 	tta/perl/Texinfo/Convert/HTML.pm (output_internal_links): change 'toc'
 	to 'unit' item type name in --internal-links file output.  Add
 	sections, nodes, anchors and float items.
+	Based on Werner report.
 
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
