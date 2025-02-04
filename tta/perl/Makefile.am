@@ -100,11 +100,7 @@ dist_modules_DATA = \
  Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \
- Texinfo/ModulePath.pm.in \
- Texinfo/Data/default_css_element_class_styles.csv \
- Texinfo/Data/default_direction_strings.csv \
- Texinfo/Data/default_special_unit_info.csv \
- Texinfo/Data/html_style_commands_element.csv
+ Texinfo/ModulePath.pm.in
 
 modules_DATA = \
  Texinfo/ModulePath.pm
@@ -331,10 +327,7 @@ EXTRA_DIST += \
   prove.sh \
   texi2any.pl \
   $(test_files) \
-  $(test_files_generated_list) \
-  Texinfo/command_data.txt \
-  Texinfo/options_data.txt \
-  Texinfo/Convert/converters_defaults.txt
+  $(test_files_generated_list)
 
 # template.pod is the basis for the .pm documentation, and the script
 # invoked here updates them; to be run when template.pod changes.
@@ -353,26 +346,26 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 # FIXME duplicated in C/Makefile.am. Remove from here?
-$(srcdir)/Texinfo/Commands.pm: Texinfo/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
-	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/Texinfo/command_data.txt
+$(srcdir)/Texinfo/Commands.pm: ../data/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
+	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/../data/command_data.txt
 
-$(srcdir)/Texinfo/Options.pm: Texinfo/Convert/converters_defaults.txt Texinfo/options_data.txt $(srcdir)/../maintain/regenerate_perl_options_info.pl
+$(srcdir)/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/options_data.txt $(srcdir)/../maintain/regenerate_perl_options_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_perl_options_info.pl \
-	    $(srcdir)/Texinfo/Convert/converters_defaults.txt \
+	    $(srcdir)/../data/converters_defaults.txt \
 	    $(srcdir)/Texinfo/Options.pm \
-	       < $(srcdir)/Texinfo/options_data.txt
+	       < $(srcdir)/../data/options_data.txt
 
 # target that can be built upon cd'ing to the build directory, as needed
 # when building translated source files from the top level directory to
 # avoid make failing in po* directories.
 translated_source_files: $(srcdir)/Texinfo/HTMLData.pm
 
-$(srcdir)/Texinfo/HTMLData.pm: Texinfo/Data/default_css_element_class_styles.csv Texinfo/Data/default_direction_strings.csv Texinfo/Data/default_special_unit_info.csv Texinfo/Data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
+$(srcdir)/Texinfo/HTMLData.pm: ../data/default_css_element_class_styles.csv ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
 	$(srcdir)/../maintain/generate_code_convert_data.pl \
-	      $(srcdir)/Texinfo/Data/default_css_element_class_styles.csv \
-	      $(srcdir)/Texinfo/Data/default_direction_strings.csv \
-	      $(srcdir)/Texinfo/Data/default_special_unit_info.csv \
-	      $(srcdir)/Texinfo/Data/html_style_commands_element.csv \
+	      $(srcdir)/../data/default_css_element_class_styles.csv \
+	      $(srcdir)/../data/default_direction_strings.csv \
+	      $(srcdir)/../data/default_special_unit_info.csv \
+	      $(srcdir)/../data/html_style_commands_element.csv \
 	      perl $@
 
 install-exec-hook:

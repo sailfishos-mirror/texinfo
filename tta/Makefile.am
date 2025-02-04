@@ -69,6 +69,16 @@ maintenance_files = \
   maintain/setup_converters_code_tables.pl \
   maintain/catalog.xml.in
 
+# data used to generate both C and Perl code
+dist_noinst_DATA = \
+ data/default_css_element_class_styles.csv \
+ data/default_direction_strings.csv \
+ data/default_special_unit_info.csv \
+ data/html_style_commands_element.csv \
+ data/command_data.txt \
+ data/options_data.txt \
+ data/converters_defaults.txt
+
 # test_files_generated_list comes from the generated Makefile.tres
 EXTRA_DIST += \
   texi2any.supp \

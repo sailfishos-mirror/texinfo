@@ -1,5 +1,16 @@
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/data/command_data.txt, tta/data/options_data.txt,
+	tta/data/converters_defaults.txt, tta/data/*.csv: move
+	tta/perl/Texinfo/Data/*.csv, tta/perl/Texinfo/*.txt and
+	tta/perl/Texinfo/Convert/converters_defaults.txt to tta/data/.
+
+	* tta/Makefile.am (dist_noinst_DATA), tta/perl/Makefile.am,
+	tta/C/Makefile.am: update rules, prerequisites and variables for the
+	move to tta/data/.
+
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Adding Output Formats): precise that the
 	Texinfo::Convert::Converter documentation is for backends in Perl.
 
