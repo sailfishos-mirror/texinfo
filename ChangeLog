@@ -1,5 +1,11 @@
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_output_internal_links),
+	tta/perl/Texinfo/Convert/HTML.pm (output_internal_links): use 'unit'
+	instead of 'toc' for output units targets.
+
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/README: move tta/C/parsetexi/README to tta/C/README.
 
 	* tta/tests/Makefile.am (EXTRA_DIST): distribute the README.

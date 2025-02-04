@@ -12496,7 +12496,7 @@ sub output_internal_links($)
       }
       if (defined($href) or defined($text)) {
         $out_string .= $href if (defined($href));
-        $out_string .= "\ttoc\t";
+        $out_string .= "\tunit\t";
         $out_string .= $text if (defined($text));
         $out_string .= "\n";
       }

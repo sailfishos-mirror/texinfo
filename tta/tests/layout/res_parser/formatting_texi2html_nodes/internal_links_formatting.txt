@@ -1,10 +1,10 @@
-index.html	toc	Top section
-chapter.html	toc	1 chapter
-s_002d_002dect_002cion.html	toc	1.1 A section
-subsection.html	toc	1.1.1 subsection
-subsubsection-_0060_0060simple_002ddouble_002d_002d.html	toc	1.1.1.1 subsubsection "simple-double-
-subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html	toc	1.1.1.2 three--four---"
-chapter2.html	toc	chapter 2
+index.html	unit	Top section
+chapter.html	unit	1 chapter
+s_002d_002dect_002cion.html	unit	1.1 A section
+subsection.html	unit	1.1.1 subsection
+subsubsection-_0060_0060simple_002ddouble_002d_002d.html	unit	1.1.1.1 subsubsection "simple-double-
+subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html	unit	1.1.1.2 three--four---"
+chapter2.html	unit	chapter 2
 chapter.html#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i	codeidx	a index---entry tẽ --- î
 index.html#index-copying-_002d_002doption	cp	-option
 index.html#index-titlepage-_002d_002doption	cp	-option

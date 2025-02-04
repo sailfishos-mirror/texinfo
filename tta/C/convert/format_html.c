@@ -12857,7 +12857,7 @@ html_output_internal_links (CONVERTER *self)
                       text_append (&out_string, href);
                       free (href);
                     }
-                  text_append_n (&out_string, "\ttoc\t", 5);
+                  text_append_n (&out_string, "\tunit\t", 6);
                   if (text)
                     {
                       text_append (&out_string, text);
