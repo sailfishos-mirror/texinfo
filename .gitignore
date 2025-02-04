@@ -413,11 +413,13 @@ contrib/perldoc-all/*.aux
 contrib/perldoc-all/perldoc-all.??
 contrib/perldoc-all/perldoc-all.???
 
-contrib/mass_test/download
 contrib/mass_test/compare_C_HTML
+contrib/mass_test/compare_native_HTML
+contrib/mass_test/download
 contrib/mass_test/manuals
 contrib/mass_test/normalized
 contrib/mass_test/perl_HTML_refs
+contrib/mass_test/result_check_CVSC
 contrib/mass_test/result_check_perlVSC
 
 contrib/nontests/logs

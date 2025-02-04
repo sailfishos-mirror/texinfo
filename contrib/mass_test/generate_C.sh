@@ -1,6 +1,5 @@
 #! /bin/sh
-# Compare output obtained using XS converter and output obtained with
-# the Perl converter.
+# Output HTML
 #
 # Copyright 2024-2025 Free Software Foundation, Inc.
 #
@@ -13,10 +12,13 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 
-# if set -e is used, diff call should be protected
-#set -e
+set -e
 
-dir=result_check_perlVSC
+dir=$1
+
+test -z $dir && exit 1
+
+shift
 
 one_test=no
 if test -n "$1"; then
@@ -24,20 +26,14 @@ if test -n "$1"; then
   the_test=$1
 fi
 
-if test $one_test != 'yes' ; then
-  rm -rf result_check_perlVSC
-  rm -rf result_check_CVSC
-fi
-
-mkdir -p result_check_perlVSC
-mkdir -p result_check_CVSC
+mkdir -p $dir
 
 #set -x
 
 for manual_proj_dir in manuals/*/ ; do
   proj_dir=`basename $manual_proj_dir`
+  test $one_test != 'yes' && rm -rf $dir/$proj_dir
   for manual_dir in $manual_proj_dir/*/ ; do
-    manual_name=`basename $manual_dir`
     one_manual_found=no
     for file in $manual_dir/*.texi* ; do
       if grep -q -s '^ *@node \+[tT][Oo][Pp] *\(,.*\)\?$' $file; then
@@ -49,16 +45,20 @@ for manual_proj_dir in manuals/*/ ; do
           continue
         fi
 
-        diff_file=result_check_perlVSC/${proj_dir}-${manual_name}-${bfile}.diff
-        diff -u -r perl_HTML_refs/$proj_dir/$bfile/ compare_C_HTML/$proj_dir/$bfile/ > $diff_file
-        diff_file_CVSC=result_check_CVSC/${proj_dir}-${manual_name}-${bfile}.diff
-        diff -u -r compare_C_HTML/$proj_dir/$bfile/ compare_native_HTML/$proj_dir/$bfile/ > $diff_file_CVSC
-        #echo "diffing ${proj_dir}-${manual_name}-${bfile}" 1>&2
-        if test -s $diff_file ; then :
-        else rm -f $diff_file
+        echo "doing $file"
+        mkdir -p $dir/$proj_dir
+
+        out_dir=$dir/$proj_dir/$bfile
+        rm -rf $out_dir
+        mkdir $out_dir
+        err_file=${out_dir}/${bfile}-html_nodes.err
+        # the -I directory is for gcc, could add more
+        if test $one_test = 'yes' ; then
+          echo "../../tta/C/ctexi2any -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file"
         fi
-        if test -s $diff_file_CVSC ; then :
-        else rm -f $diff_file_CVSC
+        ../../tta/C/ctexi2any -I manuals/$proj_dir/include/ --force --error-limit=10000 -c TEST=1 --html -o ${out_dir}/html_nodes/ $file 2>$err_file
+        if test -s $err_file ; then :
+        else rm -f $err_file
         fi
       fi
     done

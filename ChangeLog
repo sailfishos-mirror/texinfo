@@ -1,5 +1,19 @@
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/generate_perlVSC.sh: update paths.
+
+	* contrib/mass_test/get_manuals.sh: add or modify manuals and add
+	notes on missing manuals.
+
+	* contrib/mass_test/extract_manuals.sh: add more manuals.
+
+	* contrib/mass_test/generate_C.sh,
+	contrib/mass_test/output_convert_C.sh,
+	contrib/mass_test/check_perlVSC.sh: generate output from C texi2any
+	implementation and compare.
+
+2025-02-04  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, doc/texinfo.texi (Invoking @command{texi2any}),
 	tta/C/convert/format_html.c (enum label_cmd_types)
 	(label_cmd_types_ids, html_output_internal_links),
