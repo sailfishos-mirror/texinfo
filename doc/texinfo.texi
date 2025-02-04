@@ -14901,9 +14901,25 @@ of directories in which these customization files are searched for.
 @cindex Internal links, of HTML
 @vindex INTERNAL_LINKS
 In HTML mode, output a tab-separated file containing three columns:
-the internal link to an indexed item or item in the table of contents,
-the name of the index (or table of contents) in which it occurs, and
-the term which was indexed or entered.  The items are in the natural
+the internal link to an item, the type of the item and the name of the item
+or the term corresponding to the item which was indexed or entered.
+
+The item output are:
+@table @asis
+@item output units
+Output units are the main unit of output documents.  Output units contain the
+content associated with a node or a sectioning command.  The item name is
+the associated node or a sectioning command name.
+@item sectioning commands
+The command name without @code{@@}, adjusted for raise/lowersections is
+prepended to the item name.
+@item nodes, anchors and floats
+The type of the element is the command name without @code{@@}.
+@item index entries
+The type of the element is the name of the index.
+@end table
+
+The items are in the natural
 sorting order for the given element.  This dump can be useful for
 post-processors.
 

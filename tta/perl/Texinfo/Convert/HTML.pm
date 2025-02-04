@@ -12503,6 +12503,62 @@ sub output_internal_links($)
     }
   }
 
+  if ($self->{'document'}) {
+    my $sections_list = $self->{'document'}->sections_list();
+    foreach my $command (@{$sections_list}) {
+      my $href = $self->command_href($command, '');
+      my $tree = $self->command_tree($command);
+      my $text;
+      if ($tree) {
+        $text = Texinfo::Convert::Text::convert_to_text($tree,
+                                  $self->{'convert_text_options'});
+      }
+      if (defined($href) or defined($text)) {
+        $out_string .= $href if (defined($href));
+        $out_string .= "\tsection\t";
+        my $command_name
+          = Texinfo::Structuring::section_level_adjusted_command_name($command);
+        $out_string .= $command_name.' ';
+        $out_string .= $text if (defined($text));
+        $out_string .= "\n";
+      }
+    }
+
+    my $labels_list = $self->{'document'}->labels_list();
+    if ($labels_list) {
+      my %commands_lists;
+      foreach my $target_element (@$labels_list) {
+        next if (not $target_element->{'extra'}
+                 or not $target_element->{'extra'}->{'is_target'});
+
+        my $cmdname = $target_element->{'cmdname'};
+        if (!$commands_lists{$cmdname}) {
+          $commands_lists{$cmdname} = [];
+        }
+        push @{$commands_lists{$cmdname}}, $target_element;
+      }
+      foreach my $cmdtype ('node', 'anchor', 'float') {
+        next unless ($commands_lists{$cmdtype});
+        foreach my $target_element (@{$commands_lists{$cmdtype}}) {
+          my $label_element
+            = Texinfo::Common::get_label_element($target_element);
+          my $href = $self->command_href($target_element, '');
+          my $text;
+          if ($label_element) {
+            $text = Texinfo::Convert::Text::convert_to_text($label_element,
+                                    $self->{'convert_text_options'});
+          }
+          if (defined($href) or defined($text)) {
+            $out_string .= $href if (defined($href));
+            $out_string .= "\t${cmdtype}\t";
+            $out_string .= $text if (defined($text));
+            $out_string .= "\n";
+          }
+        }
+      }
+    }
+  }
+
   my $index_entries_by_letter
     = $self->get_converter_indices_sorted_by_letter();
   if ($index_entries_by_letter) {

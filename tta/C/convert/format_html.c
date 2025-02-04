@@ -12812,6 +12812,16 @@ html_default_format_special_body_about (CONVERTER *self,
 
 
 
+enum label_cmd_types {
+  label_cmd_type_node,
+  label_cmd_type_anchor,
+  label_cmd_type_float,
+};
+
+static const enum command_id label_cmd_types_ids[label_cmd_type_float+1] = {
+  CM_node, CM_anchor, CM_float
+};
+
 /* This is called from the main program on the converter. */
 char *
 html_output_internal_links (CONVERTER *self)
@@ -12864,6 +12874,123 @@ html_output_internal_links (CONVERTER *self)
                       free (text);
                     }
                   text_append_n (&out_string, "\n", 1);
+                }
+            }
+        }
+    }
+
+  if (self->document)
+    {
+      if (self->document->sections_list->number > 0)
+        {
+          size_t i;
+          for (i = 0; i < self->document->sections_list->number; i++)
+            {
+              const ELEMENT *command = self->document->sections_list->list[i];
+              char *href = html_command_href (self, command, "", 0, 0);
+              char *text = 0;
+              TREE_ADDED_ELEMENTS *command_tree
+               = html_internal_command_tree (self, command, 0);
+              enum command_id level_corrected_cmd
+                = section_level_adjusted_command_name (command);
+              const char *command_name
+                 = builtin_command_name (level_corrected_cmd);
+
+              if (command_tree->tree)
+                {
+                  text = convert_to_text (command_tree->tree,
+                                      self->convert_text_options);
+                }
+
+              if (href || text)
+                {
+                  if (href)
+                    {
+                      text_append (&out_string, href);
+                      free (href);
+                    }
+                  text_append_n (&out_string, "\tsection\t", 9);
+                  text_append (&out_string, command_name);
+                  text_append_n (&out_string, " ", 1);
+                  if (text)
+                    {
+                      text_append (&out_string, text);
+                      free (text);
+                    }
+                  text_append_n (&out_string, "\n", 1);
+                }
+            }
+        }
+
+      if (self->document->identifiers_target.number > 0)
+        {
+          /* use labels_list and not identifiers_target to process in the
+             document order */
+          const LABEL_LIST *label_targets = &self->document->labels_list;
+          size_t i;
+          const ELEMENT *target_element;
+          static CONST_ELEMENT_LIST commands_lists[label_cmd_type_float+1];
+          enum label_cmd_types j;
+
+          for (i = 0; i < label_targets->number; i++)
+            {
+              int called = 0;
+              LABEL *label = &label_targets->list[i];
+
+              if (!label->identifier || label->reference)
+                continue;
+
+              target_element = label->element;
+              for (j = 0; j < label_cmd_type_float+1; j++)
+                {
+                  if (target_element->e.c->cmd == label_cmd_types_ids[j])
+                    {
+                      add_to_const_element_list(&commands_lists[j],
+                                                target_element);
+                      break;
+                    }
+                }
+            }
+
+          for (j = 0; j < label_cmd_type_float+1; j++)
+            {
+              if (commands_lists[j].number > 0)
+                {
+                  const char *cmdname
+                     = builtin_command_name (label_cmd_types_ids[j]);
+                  for (i = 0; i < commands_lists[j].number; i++)
+                    {
+                      target_element = commands_lists[j].list[i];
+                      const ELEMENT *label_element
+                        = get_label_element (target_element);
+                      char *text = 0;
+                      char *href = html_command_href (self, target_element,
+                                                      "", 0, 0);
+                      if (label_element)
+                        {
+                          text = convert_to_text (label_element,
+                                      self->convert_text_options);
+                        }
+
+                      if (href || text)
+                        {
+                          if (href)
+                            {
+                              text_append (&out_string, href);
+                              free (href);
+                            }
+                          text_printf (&out_string, "\t%s\t", cmdname);
+                          if (text)
+                            {
+                              text_append (&out_string, text);
+                              free (text);
+                            }
+                          text_append_n (&out_string, "\n", 1);
+                        }
+                    }
+
+                  /* reset the list */
+                  commands_lists[i].number = 0;
                 }
             }
         }
