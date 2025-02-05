@@ -75,8 +75,8 @@ sub XS_structuring_enabled {
 sub XS_convert_enabled {
   return ($embedded_xs or
           (XS_structuring_enabled()
-            and defined $ENV{TEXINFO_XS_CONVERT}
-            and $ENV{TEXINFO_XS_CONVERT} eq '1'));
+            and (not defined $ENV{TEXINFO_XS_CONVERT}
+                 or $ENV{TEXINFO_XS_CONVERT} ne '0')));
 }
 
 

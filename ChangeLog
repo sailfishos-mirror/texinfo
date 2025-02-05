@@ -1,3 +1,18 @@
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	Enable XS for conversion in the default case, update documentation
+
+	* tta/perl/Texinfo/XSLoader.pm (XS_convert_enabled): enable XS for
+	conversion in the default case.
+
+	* INSTALL: update for XS enabled for conversion in the default case.
+	Add information on C implementation.  Document TEXINFO_XS=warn.
+
+	* doc/texinfo.texi (@command{texi2any} Environment Variables):
+	document TEXINFO_XS required.  Document the 3 steps of texi2any and
+	TEXINFO_XS_STRUCTURE and TEXINFO_XS_CONVERT.  Move and reword C
+	implementation information and use of TEXINFO_XS=debug in that case.
+
 2025-02-04  Patrice Dumas  <pertusus@free.fr>
 
 	* contrib/mass_test/generate_perlVSC.sh: update paths.

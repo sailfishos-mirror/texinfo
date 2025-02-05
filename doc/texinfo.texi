@@ -15277,6 +15277,10 @@ back to the interpreted Perl implementations if this fails.
 Try to load extension modules, and if this fails, give a warning message
 before falling back to the interpreted Perl implementations.
 
+@item required
+Try to load extension modules, and if this fails, give a message
+and abort.
+
 @item debug
 Try to load extension modules, printing many messages while doing so.
 
@@ -15285,20 +15289,41 @@ Do not use extension modules.
 
 @end table
 
-The C @command{texi2any} implementation loads all the Perl extension
-modules, and is never silent when failing to load an extension.  Setting
-@env{TEXINFO_XS} to @code{debug} may still be useful to get more informations.
-Setting @env{TEXINFO_XS} to @code{omit} with the C @command{texi2any}
-implementation is an error.
+You can disable the use of the native code implementation in the Perl
+@command{texi2any} implementation for the main processing steps more finely.
+If native code modules are not used for a step, they cannot be used for the
+following steps.  Three steps are distinguished, each associated with an
+environment variable:
 
+@table @emph
+@item parsing
 @vindex TEXINFO_XS_PARSER
-Set @env{TEXINFO_XS_PARSER} to @samp{0} to disable the use of the native code
-implementation of the parser module in the Perl @command{texi2any}
-implementaion.  This is the part of @command{texi2any} that converts Texinfo
-input into an internal tree format used for further processing into output
-formats.  This may be useful for working around bugs or incompatibilities
+Corresponds to the conversion of Texinfo input into an internal tree format
+used for further processing.  Set @env{TEXINFO_XS_PARSER} to @samp{0} to
+disable the use of the native code implementation of the parser module.
+@item structure
+@vindex TEXINFO_XS_STRUCTURE
+Corresponds to the determination of sectioning and node structures.
+Set @env{TEXINFO_XS_STRUCTURE} to @samp{0} to disable the use of the native code
+implementation of Perl modules in that step.
+@item conversion
+@vindex TEXINFO_XS_CONVERT
+Set @env{TEXINFO_XS_CONVERT} to @samp{0} to disable the use of the native code
+for conversion of the tree to output format.  Note that many output formats
+do not have a native code implementation for this step.
+@end table
+
+This may be useful for working around bugs or incompatibilities
 between the native code implementation and the implementation in pure Perl
 code.
+
+The C @command{texi2any} implementation uses only native code for the
+@emph{parsing} and @emph{structure} steps.  For the @emph{conversion} step,
+native code is used if possible.  If Perl code is called, the program always
+try to load available Perl extension modules.  Failing to load an extension is
+reported and the program aborts.  Setting @env{TEXINFO_XS} to @code{debug} may
+still be useful to get more information.  Setting @env{TEXINFO_XS} to
+@code{omit} with the C @command{texi2any} implementation is an error.
 
 @vindex TEXINFO_C_EMBED_PERL
 @cindex Embedded Perl in C @command{texi2any}
