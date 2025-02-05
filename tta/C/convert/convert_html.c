@@ -330,7 +330,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
      = &html_default_css_string_format_protect_text;
 
   if (context_str)
-    xasprintf (&css_string_context_str, "CSS string %s");
+    xasprintf (&css_string_context_str, "CSS string %s", context_str);
   else
     css_string_context_str = "CSS string ";
 

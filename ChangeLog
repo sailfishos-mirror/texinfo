@@ -1,5 +1,12 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_convert_css_string): add missing
+	%s xasprintf argument.
+
+	* tta/C/convert/format_html.h: remove duplicate ;.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac: move gl_INIT before AM_GNU_GETTEXT, otherwise
 	LTLIBINTL may not be defined (tested on Solaris).
 

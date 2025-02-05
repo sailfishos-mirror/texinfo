@@ -256,8 +256,8 @@ void html_convert_##name (CONVERTER *self, \
                           const OUTPUT_UNIT *output_unit, const char *content, \
                           TEXT *result);
 
-UNIT_CONVERSION_FUNCTION(unit_type);
-UNIT_CONVERSION_FUNCTION(special_unit_type);
+UNIT_CONVERSION_FUNCTION(unit_type)
+UNIT_CONVERSION_FUNCTION(special_unit_type)
 
 #undef UNIT_CONVERSION_FUNCTION
 
