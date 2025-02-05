@@ -545,11 +545,10 @@ ctexi2any_SOURCES = \
 # linker flags that should be in LDFLAGS according to the automake
 # documentation, but also -L and -l flags that need to be last
 # on LDADD.  We favor LDADD otherwise linking fails.
-# Gnulib is directly needed on some platforms for getopt-gnu
-ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts)
-# Most likely unneeded, libtool shall add the needed flags specified for
-# .la linking when linking the program
-#ctexi2any_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+# Gnulib is directly needed on some platforms for getopt-gnu.
+# The Gnulib link variables are needed at least on Solaris and not added
+# by libtool.
+ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 

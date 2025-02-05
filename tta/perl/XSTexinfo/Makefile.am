@@ -122,7 +122,10 @@ EXTRA_DIST += parser_document/Parsetexi.xs
 Parsetexi_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi $(XSLIBS_CPPFLAGS)
 Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
 Parsetexi_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+# the Gnulib link flags are needed at least on Solaris.  They only need to
+# be present for one dlopened object, once loaded in Perl, it can be used
+# by other modules.
+Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## Document XS
 
@@ -200,7 +203,7 @@ EXTRA_DIST += convert/ConvertXS.xs
 ConvertXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo -I$(txi_libs_srcdir)/convert -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
 ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
 
 ########################## ConfigXS
 

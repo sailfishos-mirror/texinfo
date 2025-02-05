@@ -1,5 +1,12 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (ctexi2any_LDADD), tta/perl/XSTexinfo/Makefile.am
+	(Parsetexi_la_LDFLAGS, ConvertXS_la_LDFLAGS): add Gnulib link flags to
+	ctexi2any_LDADD and to one module in XSTexinfo for Solaris to get the
+	symbols after linking.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_compatibility_idify)
 	(new, _texinfo_handle_element_end): add _compatibility_idify in case
 	idify method is missing for old Pod::Simple::XHTML.
