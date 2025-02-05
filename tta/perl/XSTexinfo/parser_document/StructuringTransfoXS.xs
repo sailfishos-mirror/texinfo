@@ -206,21 +206,19 @@ number_floats (SV *document_in)
           number_floats (document);
 
 void
-complete_tree_nodes_menus (SV *tree_in, SV *use_sections_in=0)
+complete_tree_nodes_menus_in_document (SV *document_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
         int use_sections = 0;
      CODE:
-        document = get_sv_tree_document (tree_in, "complete_tree_nodes_menus");
+        document = get_sv_document_document (document_in,
+                                 "complete_tree_nodes_menus_in_document");
         if (use_sections_in && SvOK (use_sections_in))
           {
             use_sections = SvIV (use_sections_in);
           }
         if (document)
-          {
-            complete_tree_nodes_menus (document->tree, use_sections);
-            document->modified_information |= F_DOCM_tree;
-          }
+          complete_tree_nodes_menus_in_document (document, use_sections);
 
 void
 complete_tree_nodes_missing_menu (SV *document_in, SV *use_sections_in=0)

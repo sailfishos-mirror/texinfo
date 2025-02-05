@@ -461,10 +461,10 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
     warn_non_empty_parts (document);
 
   if (flags & STTF_complete_tree_nodes_menus)
-    complete_tree_nodes_menus (document->tree, use_sections);
+    complete_tree_nodes_menus_in_document (document, use_sections);
 
   if (flags & STTF_complete_tree_nodes_missing_menu)
-    complete_tree_nodes_menus (document->tree, use_sections);
+    complete_tree_nodes_menus_in_document (document, use_sections);
 
   if (flags & STTF_regenerate_master_menu)
     regenerate_master_menu (document, use_sections);

@@ -1149,11 +1149,10 @@ get_non_automatic_nodes_with_sections (const ELEMENT *root)
 }
 
 /* This should be called after structuring.c sectioning_structure */
-/* The document is not given as an argument.  In general, the caller should
-   set F_DOCM_tree in the document modification flags */
 void
-complete_tree_nodes_menus (const ELEMENT *root, int use_sections)
+complete_tree_nodes_menus_in_document (DOCUMENT *document, int use_sections)
 {
+  const ELEMENT *root = document->tree;
   ELEMENT_LIST *non_automatic_nodes
      = get_non_automatic_nodes_with_sections (root);
   size_t i;
@@ -1161,6 +1160,7 @@ complete_tree_nodes_menus (const ELEMENT *root, int use_sections)
     {
       ELEMENT *node = non_automatic_nodes->list[i];
       complete_node_menu (node, use_sections);
+      document->modified_information |= F_DOCM_tree;
     }
   destroy_list (non_automatic_nodes);
 }

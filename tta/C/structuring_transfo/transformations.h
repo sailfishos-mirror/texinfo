@@ -11,7 +11,8 @@ void relate_index_entries_to_table_items_in_document (DOCUMENT *document);
 void move_index_entries_after_items_in_document (DOCUMENT *document);
 ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
 void reference_to_arg_in_document (DOCUMENT *document);
-void complete_tree_nodes_menus (const ELEMENT *root, int use_sections);
+void complete_tree_nodes_menus_in_document (DOCUMENT *document,
+                                            int use_sections);
 void complete_tree_nodes_missing_menu (DOCUMENT *document, int use_sections);
 int regenerate_master_menu (DOCUMENT *document, int use_sections);
 ELEMENT_LIST *insert_nodes_for_sectioning_commands (DOCUMENT *document);

@@ -58,8 +58,8 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::fill_gaps_in_sectioning",
   "Texinfo::Transformations::reference_to_arg_in_document"
     => "Texinfo::StructTransfXS::reference_to_arg_in_document",
-  "Texinfo::Transformations::complete_tree_nodes_menus"
-    => "Texinfo::StructTransfXS::complete_tree_nodes_menus",
+  "Texinfo::Transformations::complete_tree_nodes_menus_in_document"
+    => "Texinfo::StructTransfXS::complete_tree_nodes_menus_in_document",
   "Texinfo::Transformations::complete_tree_nodes_missing_menu"
     => "Texinfo::StructTransfXS::complete_tree_nodes_missing_menu",
   "Texinfo::Transformations::regenerate_master_menu"
@@ -591,7 +591,9 @@ sub complete_node_menu($;$)
 
 sub _get_non_automatic_nodes_with_sections($)
 {
-  my $root = shift;
+  my $document = shift;
+
+  my $root = $document->tree();
 
   my @non_automatic_nodes;
   foreach my $content (@{$root->{'contents'}}) {
@@ -606,16 +608,15 @@ sub _get_non_automatic_nodes_with_sections($)
 }
 
 # This should be called after Texinfo::Structuring::sectioning_structure.
-sub complete_tree_nodes_menus($;$)
+sub complete_tree_nodes_menus_in_document($;$)
 {
-  my $root = shift;
+  my $document = shift;
   my $use_sections = shift;
 
-  my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
+  my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node (@{$non_automatic_nodes}) {
     complete_node_menu($node, $use_sections);
   }
-
 }
 
 # this only complete menus if there was no menu
@@ -626,9 +627,8 @@ sub complete_tree_nodes_missing_menu($;$)
   my $use_sections = shift;
 
   my $customization_information = $document;
-  my $root = $document->tree();
 
-  my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
+  my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node (@{$non_automatic_nodes}) {
     if (not $node->{'extra'}->{'menus'}
         or not scalar(@{$node->{'extra'}->{'menus'}})) {
@@ -983,7 +983,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 Includes miscellaneous methods such as as
 C<insert_nodes_for_sectioning_commands> that adds nodes for sectioning commands
-without nodes and C<complete_tree_nodes_menus> and
+without nodes and C<complete_tree_nodes_menus_in_document> and
 C<complete_tree_nodes_missing_menu> that completes the node menus based on the
 sectioning tree.
 
@@ -996,8 +996,8 @@ No method is exported in the default case.
 
 =over
 
-=item complete_tree_nodes_menus($tree, $add_section_names_in_entries)
-X<C<complete_tree_nodes_menus>>
+=item complete_tree_nodes_menus_in_document($document, $add_section_names_in_entries)
+X<C<complete_tree_nodes_menus_in_document>>
 
 Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional

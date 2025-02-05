@@ -1,6 +1,22 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/transformations.c
+	(complete_tree_nodes_menus_in_document),
+	tta/perl/Texinfo/Transformations.pm (%XS_overrides)
+	(complete_tree_nodes_menus_in_document),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(complete_tree_nodes_menus_in_document): replace
+	complete_tree_nodes_menus by complete_tree_nodes_menus_in_document,
+	using document in argument.  Set document->modified_information in
+	complete_tree_nodes_menus_in_document.  Update callers.
+
+	* tta/perl/Texinfo/Transformations.pm
+	(complete_tree_nodes_menus_in_document): use document in argument.
+	Update callers.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/structuring_transfo/transformations.c
 	(move_index_entries_after_items)
 	(move_index_entries_after_items_internal)
 	(move_index_entries_after_items_in_document),

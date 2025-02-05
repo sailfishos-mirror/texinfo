@@ -36,7 +36,8 @@ sub test($$$;$$)
                                                                $use_sections);
     #print STDERR Texinfo::Common::debug_print_tree($tree)."\n";
   } else {
-    Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
+    Texinfo::Transformations::complete_tree_nodes_menus_in_document($document,
+                                                                $use_sections);
   }
 
   # rebuild the tree
@@ -331,7 +332,7 @@ test('@node Top
 ', 'menu not closed');
 
 # test complete_tree_nodes_missing_menu and use the
-# same input for complete_tree_nodes_menus too
+# same input for complete_tree_nodes_menus_in_document too
 my $partial_menu_section_input = '@node Top
 @top top
 
