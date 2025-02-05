@@ -206,6 +206,9 @@ AC_PROG_CC
 
 gl_EARLY
 
+dnl do not put after AM_GNU_GETTEXT, otherwise LTLIBINTL may not be defined
+gl_INIT
+
 # i18n support.  We need to use the same GNU gettext version as the main
 # configure.ac file since the version of the gettext.m4 and related files
 # must be in sync with the Makefile.in.in in the shared po/ directory.
@@ -215,8 +218,6 @@ AM_GNU_GETTEXT_VERSION([0.22.5])
 AM_GNU_GETTEXT([external])
 
 AM_MISSING_PROG([GAWK], [gawk])
-
-gl_INIT
 
 LT_INIT([disable-static dlopen])
 

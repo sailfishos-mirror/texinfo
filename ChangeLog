@@ -1,5 +1,10 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac: move gl_INIT before AM_GNU_GETTEXT, otherwise
+	LTLIBINTL may not be defined (tested on Solaris).
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (ctexi2any_LDADD), tta/perl/XSTexinfo/Makefile.am
 	(Parsetexi_la_LDFLAGS, ConvertXS_la_LDFLAGS): add Gnulib link flags to
 	ctexi2any_LDADD and to one module in XSTexinfo for Solaris to get the

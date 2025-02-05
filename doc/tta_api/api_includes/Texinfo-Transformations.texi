@@ -17,7 +17,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 Includes miscellaneous methods such as as
 @code{insert_nodes_for_sectioning_commands} that adds nodes for sectioning commands
-without nodes and @code{complete_tree_nodes_menus} and
+without nodes and @code{complete_tree_nodes_menus_in_document} and
 @code{complete_tree_nodes_missing_menu} that completes the node menus based on the
 sectioning tree.
 
@@ -30,9 +30,9 @@ conversion to output formats are in @ref{Texinfo@asis{::}ManipulateTree NAME,, T
 No method is exported in the default case.
 
 @table @asis
-@item complete_tree_nodes_menus($tree, $add_section_names_in_entries)
-@anchor{Texinfo@asis{::}Transformations complete_tree_nodes_menus($tree@comma{} $add_section_names_in_entries)}
-@cindex @code{complete_tree_nodes_menus}
+@item complete_tree_nodes_menus_in_document($document, $add_section_names_in_entries)
+@anchor{Texinfo@asis{::}Transformations complete_tree_nodes_menus_in_document($document@comma{} $add_section_names_in_entries)}
+@cindex @code{complete_tree_nodes_menus_in_document}
 
 Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
@@ -50,14 +50,13 @@ If the optional @emph{$add_section_names_in_entries} argument is set, a menu ent
 name is added using the section name.  This function should be
 called after @ref{Texinfo@asis{::}Structuring $sections_list = sectioning_structure($document),, sectioning_structure}.
 
-@item fill_gaps_in_sectioning($tree, $commands_heading_tree)
-@anchor{Texinfo@asis{::}Transformations fill_gaps_in_sectioning($tree@comma{} $commands_heading_tree)}
-@cindex @code{fill_gaps_in_sectioning}
+@item fill_gaps_in_sectioning_in_document($document, $commands_heading_tree)
+@anchor{Texinfo@asis{::}Transformations fill_gaps_in_sectioning_in_document($document@comma{} $commands_heading_tree)}
+@cindex @code{fill_gaps_in_sectioning_in_document}
 
-This function adds empty @code{@@unnumbered} and similar commands in a tree
-to fill gaps in sectioning.  This may be used, for example, when converting
-from a format that can handle gaps in sectioning.  @emph{$tree} is the tree
-root, which is modified by adding the new sectioning commands.
+This function adds empty @code{@@unnumbered} and similar commands in a
+@emph{$document} tree to fill gaps in sectioning.  This may be used, for example,
+when converting from a format that can handle gaps in sectioning.
 
 In the default case, the added sectioning commands headings are empty.  It is
 possible to use instead the @emph{$commands_heading_tree} Texinfo tree element.

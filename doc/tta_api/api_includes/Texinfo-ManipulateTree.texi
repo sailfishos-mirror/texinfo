@@ -37,12 +37,12 @@ expected, normally a @ref{Texinfo@asis{::}Document Getting customization
 options values registered in document} object.
 
 @table @asis
-@item move_index_entries_after_items_in_tree($tree)
-@anchor{Texinfo@asis{::}ManipulateTree move_index_entries_after_items_in_tree($tree)}
-@cindex @code{move_index_entries_after_items_in_tree}
+@item move_index_entries_after_items_in_document($document)
+@anchor{Texinfo@asis{::}ManipulateTree move_index_entries_after_items_in_document($document)}
+@cindex @code{move_index_entries_after_items_in_document}
 
-In @code{@@enumerate} and @code{@@itemize} from the tree, move index entries
-appearing just before @code{@@item} after the @code{@@item}.  Comment lines
+In @code{@@enumerate} and @code{@@itemize} from the @emph{$document} tree, move index
+entries appearing just before @code{@@item} after the @code{@@item}.  Comment lines
 between index entries are moved too.
 
 @item protect_colon_in_tree($tree)
@@ -72,9 +72,9 @@ Protect comma characters, replacing @code{,} with @@comma@{@} in tree.
 Modify @emph{$element} contents by protecting the first parenthesis.
 If @emph{$element} is undef a fatal error with a backtrace will be emitted.
 
-@item relate_index_entries_to_table_items_in_tree($document)
-@anchor{Texinfo@asis{::}ManipulateTree relate_index_entries_to_table_items_in_tree($document)}
-@cindex @code{relate_index_entries_to_table_items_in_tree}
+@item relate_index_entries_to_table_items_in_document($document)
+@anchor{Texinfo@asis{::}ManipulateTree relate_index_entries_to_table_items_in_document($document)}
+@cindex @code{relate_index_entries_to_table_items_in_document}
 
 In tables, relate index entries preceding and following an
 entry with said item.  Reference one of them in the entry's
