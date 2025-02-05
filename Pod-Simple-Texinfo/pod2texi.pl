@@ -379,9 +379,9 @@ sub _parsed_manual_tree($$$$$)
   Texinfo::Structuring::sectioning_structure($document);
   $document->internal_references_information();
   # this is needed to set 'normalized' for menu entries, they are
-  # used in complete_tree_nodes_menus.
+  # used in complete_tree_nodes_menus_in_document.
   Texinfo::Structuring::associate_internal_references($document);
-  Texinfo::Transformations::complete_tree_nodes_menus($tree)
+  Texinfo::Transformations::complete_tree_nodes_menus_in_document($document)
     if ($section_nodes and $do_node_menus);
 
   if ($debug > 1) {
