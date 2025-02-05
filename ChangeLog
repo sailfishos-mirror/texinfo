@@ -1,5 +1,15 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_perl_conf.m4 (PACKAGE_XS_VERSION): use -e to have two sed
+	instructions instead of ;, which does not seems to be portable to
+	Solaris sed.
+
+	* tta/maintain/regenerate_non_ascii_tar_file.sh: redirect stderr of
+	tar --version test to /dev/null to avoid an error message being shown
+	if tar do not understand long options, as is the case on Solaris.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_complete_document),
 	tta/perl/texi2any.pl: call fill_gaps_in_sectioning_in_document if the
 	fill_gaps_in_sectioning tree transformation is set.

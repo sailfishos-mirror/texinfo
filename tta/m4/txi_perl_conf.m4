@@ -124,7 +124,7 @@ AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])
 # match.  A hyphen is also turned to a dot for the Perl module version.
 # We remove a "dev" suffix because the XS bootstrap functions choke on
 # non-numeric versions.
-PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed 's/-/./g ; s/dev$//'`
+PACKAGE_XS_VERSION=`echo $PACKAGE_VERSION | sed -e 's/-/./g' -e 's/dev$//'`
 
 AC_SUBST([XS_VERSION], [$PACKAGE_XS_VERSION])
 

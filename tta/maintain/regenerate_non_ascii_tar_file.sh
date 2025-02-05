@@ -21,7 +21,10 @@ if test -d $input ; then true ; else
     exit 1
 fi
 
-if tar --version | grep "GNU tar" >/dev/null \
+# if tar do not handle long options, it can output error messages on
+# stderr.  Redirect to /dev/null to avoid an error message that looks
+# like an error happened even though it is not the case.
+if tar --version 2>/dev/null | grep "GNU tar" >/dev/null \
    && tar --usage | grep [-]-sort >/dev/null
 then
   # Used with GNU tar to try to get a reproducible file.
