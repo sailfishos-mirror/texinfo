@@ -1149,7 +1149,7 @@ sub test($$)
   }
 
   if ($tree_transformations{'relate_index_entries_to_table_items'}) {
-    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree(
+    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document(
                                                                    $document);
   }
 

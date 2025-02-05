@@ -324,14 +324,17 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
   return added_sections;
 }
 
-void
+static void
 relate_index_entries_to_table_items_in (ELEMENT *table,
-                                        INDEX_LIST *indices_info)
+                                        DOCUMENT *document)
 {
   size_t i;
+  const INDEX_LIST *indices_info;
 
   if (table->e.c->contents.number <= 0)
     return;
+
+  indices_info = &document->indices_info;
 
   for (i = 0; i < table->e.c->contents.number; i++)
     {
@@ -375,6 +378,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                                           nr_index_entry_command);
               remove_slice_from_contents (definition, 0,
                                           nr_index_entry_command);
+              document->modified_information |= F_DOCM_tree;
             }
         }
       if (term->type == ET_table_term)
@@ -423,6 +427,8 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                   holds important information.
                   */
                   entry_idx_info->index_entry->entry_associated_element = item;
+                  document->modified_information |= F_DOCM_tree
+                                                    | F_DOCM_index_names;
                /* also add a reference from element to index entry in index */
                   index_entry = (INDEX_ENTRY_LOCATION *)
                      malloc (sizeof (INDEX_ENTRY_LOCATION));
@@ -438,7 +444,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
     }
 }
 
-ELEMENT_LIST *
+static ELEMENT_LIST *
 relate_index_entries_to_table_items_internal (const char *type,
                                               ELEMENT *current,
                                               void *argument)
@@ -446,20 +452,17 @@ relate_index_entries_to_table_items_internal (const char *type,
   if (!(type_data[current->type].flags & TF_text)
       && current->e.c->cmd == CM_table)
     {
-      INDEX_LIST *indices_info = (INDEX_LIST *)argument;
-      relate_index_entries_to_table_items_in (current, indices_info);
+      DOCUMENT *document = (DOCUMENT *)argument;
+      relate_index_entries_to_table_items_in (current, document);
     }
   return 0;
 }
 
-/* The document is not given as an argument.  In general, the caller should
-   set F_DOCM_tree in the document modification flags */
 void
-relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
-                                             INDEX_LIST *indices_info)
+relate_index_entries_to_table_items_in_document (DOCUMENT *document)
 {
-  modify_tree (tree, &relate_index_entries_to_table_items_internal,
-               indices_info);
+  modify_tree (document->tree, &relate_index_entries_to_table_items_internal,
+               document);
 }
 
 /* in itemize or enumerate */

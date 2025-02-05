@@ -7,8 +7,7 @@
 
 ELEMENT_LIST *fill_gaps_in_sectioning (ELEMENT *root,
                                    ELEMENT *commands_heading_content);
-void relate_index_entries_to_table_items_in_tree (ELEMENT *tree,
-                                        INDEX_LIST *indices_info);
+void relate_index_entries_to_table_items_in_document (DOCUMENT *document);
 void move_index_entries_after_items_in_tree (ELEMENT *tree);
 ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);
 void reference_to_arg_in_document (DOCUMENT *document);

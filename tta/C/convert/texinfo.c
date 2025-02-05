@@ -445,8 +445,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
   if (flags & STTF_relate_index_entries_to_table_items)
-    relate_index_entries_to_table_items_in_tree (document->tree,
-                                           &document->indices_info);
+    relate_index_entries_to_table_items_in_document (document);
 
   if (flags & STTF_move_index_entries_after_items)
     move_index_entries_after_items_in_tree (document->tree);

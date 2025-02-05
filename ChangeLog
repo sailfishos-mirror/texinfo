@@ -1,5 +1,28 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(relate_index_entries_to_table_items_in)
+	(relate_index_entries_to_table_items_internal)
+	(relate_index_entries_to_table_items_in_document): rename
+	relate_index_entries_to_table_items_in_tree as
+	relate_index_entries_to_table_items_in_document.  Pass only a document
+	to functions.  Update callers.  Get the indices info in
+	relate_index_entries_to_table_items_in from the document.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (%XS_overrides)
+	(relate_index_entries_to_table_items_in_document),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(relate_index_entries_to_table_items_in_document),
+	tta/C/structuring_transfo/transformations.c
+	(relate_index_entries_to_table_items_in): rename
+	relate_index_entries_to_table_items_in_tree as
+	relate_index_entries_to_table_items_in_document.  Update callers.  Set
+	document->modified_information in
+	relate_index_entries_to_table_items_in, where the tree or indices
+	information is actually modified.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	Enable XS for conversion in the default case, update documentation
 
 	* tta/perl/Texinfo/XSLoader.pm (XS_convert_enabled): enable XS for

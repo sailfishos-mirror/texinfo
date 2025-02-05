@@ -1877,7 +1877,7 @@ while(@input_files) {
 
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
-    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree(
+    Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document(
                                                                  $document);
   }
 

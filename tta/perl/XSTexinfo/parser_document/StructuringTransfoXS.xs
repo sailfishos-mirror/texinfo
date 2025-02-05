@@ -100,19 +100,14 @@ copy_tree (SV *tree_in)
         RETVAL
 
 void
-relate_index_entries_to_table_items_in_tree (SV *document_in)
+relate_index_entries_to_table_items_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
         document = get_sv_document_document (document_in,
-                   "relate_index_entries_to_table_items_in_tree");
+                   "relate_index_entries_to_table_items_in_document");
         if (document)
-          {
-            relate_index_entries_to_table_items_in_tree (document->tree,
-                                                  &document->indices_info);
-            document->modified_information |= F_DOCM_tree
-                                             | F_DOCM_index_names;
-          }
+          relate_index_entries_to_table_items_in_document (document);
 
 void
 move_index_entries_after_items_in_tree (SV *tree_in)

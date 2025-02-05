@@ -16,7 +16,6 @@ use Texinfo::Document;
 use Texinfo::Parser;
 use Texinfo::Transformations;
 
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
 # For consistent error message, use the C locale
@@ -38,7 +37,8 @@ sub run_test($$$;$)
 
   Texinfo::Transformations::protect_hashchar_at_line_beginning_in_document(
                                     $document);
-  # rebuild tree if structuring with XS but conversion in pure Perl.
+  # rebuild tree if structuring with XS but conversion is in pure Perl,
+  # use a handler only if everything is in XS, with XS_convert set
   my $corrected_tree = $document->tree($XS_convert);
 
   my $reference_error_nrs = 0;

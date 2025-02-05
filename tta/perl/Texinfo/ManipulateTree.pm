@@ -53,7 +53,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw(
 move_index_entries_after_items_in_tree
-relate_index_entries_to_table_items_in_tree
+relate_index_entries_to_table_items_in_document
 protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
@@ -67,8 +67,8 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our %XS_overrides = (
   "Texinfo::ManipulateTree::copy_tree"
     => "Texinfo::StructTransfXS::copy_tree",
-  "Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_tree"
-    => "Texinfo::StructTransfXS::relate_index_entries_to_table_items_in_tree",
+  "Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document"
+    => "Texinfo::StructTransfXS::relate_index_entries_to_table_items_in_document",
   "Texinfo::ManipulateTree::move_index_entries_after_items_in_tree"
     => "Texinfo::StructTransfXS::move_index_entries_after_items_in_tree",
   "Texinfo::ManipulateTree::protect_colon_in_document"
@@ -778,7 +778,7 @@ sub _relate_index_entries_to_table_items($$$)
   return undef;
 }
 
-sub relate_index_entries_to_table_items_in_tree($)
+sub relate_index_entries_to_table_items_in_document($)
 {
   my $document = shift;
 
@@ -927,8 +927,8 @@ X<C<protect_first_parenthesis>>
 Modify I<$element> contents by protecting the first parenthesis.
 If I<$element> is undef a fatal error with a backtrace will be emitted.
 
-=item relate_index_entries_to_table_items_in_tree($document)
-X<C<relate_index_entries_to_table_items_in_tree>>
+=item relate_index_entries_to_table_items_in_document($document)
+X<C<relate_index_entries_to_table_items_in_document>>
 
 In tables, relate index entries preceding and following an
 entry with said item.  Reference one of them in the entry's
