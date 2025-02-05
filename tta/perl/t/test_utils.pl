@@ -1145,7 +1145,7 @@ sub test($$)
   $document->register_document_options($document_options);
 
   if ($tree_transformations{'fill_gaps_in_sectioning'}) {
-    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+    Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
   }
 
   if ($tree_transformations{'relate_index_entries_to_table_items'}) {

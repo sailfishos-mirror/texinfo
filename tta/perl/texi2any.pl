@@ -1875,6 +1875,10 @@ while(@input_files) {
     goto NEXT;
   }
 
+  if ($tree_transformations{'fill_gaps_in_sectioning'}) {
+    Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
+  }
+
   if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
     Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document(

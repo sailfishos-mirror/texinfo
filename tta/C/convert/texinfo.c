@@ -444,6 +444,9 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
 {
   int use_sections = (flags & STTF_complete_menus_use_sections);
 
+  if (flags & STTF_fill_gaps_in_sectioning)
+    fill_gaps_in_sectioning_in_document (document, 0);
+
   if (flags & STTF_relate_index_entries_to_table_items)
     relate_index_entries_to_table_items_in_document (document);
 
