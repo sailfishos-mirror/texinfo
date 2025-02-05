@@ -339,7 +339,6 @@ sub _parsed_manual_tree($$$$$)
   }
   my $texi_parser = Texinfo::Parser::parser($parser_options);
   my $document = $texi_parser->parse_texi_text($manual_texi);
-  my $tree = $document->tree();
 
   if ($debug > 1) {
     my ($error_messages, $error_count) = $document->parser_errors();
@@ -369,8 +368,8 @@ sub _parsed_manual_tree($$$$$)
       my $parser = Texinfo::Parser::parser();
       $commands_heading_content = $parser->parse_texi_line($manual_title_texi);
     }
-    Texinfo::Transformations::fill_gaps_in_sectioning($tree,
-                                              $commands_heading_content);
+    Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document,
+                                                  $commands_heading_content);
     if ($section_nodes) {
       Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                                                                $document);

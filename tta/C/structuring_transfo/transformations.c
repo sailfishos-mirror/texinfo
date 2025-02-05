@@ -162,8 +162,8 @@ protect_first_parenthesis (ELEMENT *element)
    If MODIFIER is set to -1, add raise/lowersections to go from
    the normal level to the SECTION level.
  */
-void
-correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
+static void
+correct_level (const ELEMENT *section, ELEMENT *parent, int modifier)
 {
   int status;
   int section_modifier = lookup_extra_integer (section, AI_key_level_modifier,
@@ -194,20 +194,23 @@ correct_level (ELEMENT *section, ELEMENT *parent, int modifier)
     }
 }
 
-/* The document is not given as an argument.  In general, the caller should
-   set F_DOCM_tree in the document modification flags */
+/* COMMAND_HEADING_CONTENT is an element whose content can be used for the
+   heading of the sectioning command used to fill a gap in sectioning.
+ */
 ELEMENT_LIST *
-fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
+fill_gaps_in_sectioning_in_document (DOCUMENT *document,
+                                     const ELEMENT *commands_heading_content)
 {
   ELEMENT_LIST *added_sections = new_list ();
   size_t nr_current_section = 0;
   size_t nr_next_section = 0;
   size_t idx = 0;
   size_t idx_current_section, idx_next_section;
+  ELEMENT *root = document->tree;
 
   while (idx < root->e.c->contents.number)
     {
-      ELEMENT *content = root->e.c->contents.list[idx];
+      const ELEMENT *content = root->e.c->contents.list[idx];
       enum command_id data_cmd = element_builtin_data_cmd (content);
       unsigned long flags = builtin_command_data[data_cmd].flags;
 
@@ -236,7 +239,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
   while (1)
     {
       ELEMENT *current_section = root->e.c->contents.list[idx_current_section];
-      ELEMENT *next_section = root->e.c->contents.list[idx_next_section];
+      const ELEMENT *next_section = root->e.c->contents.list[idx_next_section];
       int current_section_level = section_level (current_section);
       int next_section_level = section_level (next_section);
 
@@ -303,6 +306,8 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
           correct_level (next_section,
                          new_sections->list[new_sections->number -1], -1);
           destroy_list (new_sections);
+
+          document->modified_information |= F_DOCM_tree;
         }
       idx_current_section = idx_next_section;
 
@@ -310,7 +315,7 @@ fill_gaps_in_sectioning (ELEMENT *root, ELEMENT *commands_heading_content)
       idx_next_section = idx_current_section +1;
       while (idx_next_section < root->e.c->contents.number)
         {
-          ELEMENT *content = root->e.c->contents.list[idx_next_section];
+          const ELEMENT *content = root->e.c->contents.list[idx_next_section];
           enum command_id data_cmd = element_builtin_data_cmd (content);
           unsigned long flags = builtin_command_data[data_cmd].flags;
 

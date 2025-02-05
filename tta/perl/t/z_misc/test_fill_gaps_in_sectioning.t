@@ -19,7 +19,7 @@ sub test_correction($$$;$)
   my $in = shift;
   my $out = shift;
   my $name = shift;
-  # if set, test _correct_level instead of fill_gaps_in_sectioning
+  # if set, test _correct_level instead of fill_gaps_in_sectioning_in_document
   my $test_correct_level = shift;
 
   my $parser = Texinfo::Parser::parser();
@@ -27,7 +27,7 @@ sub test_correction($$$;$)
   my $tree = $document->tree();
 
   if (! defined($test_correct_level)) {
-    Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+    Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
   } else {
     # If set to 0, undef to mimic not giving the argument
     $test_correct_level = undef if (!$test_correct_level);

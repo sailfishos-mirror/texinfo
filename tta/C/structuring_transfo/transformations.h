@@ -5,8 +5,8 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-ELEMENT_LIST *fill_gaps_in_sectioning (ELEMENT *root,
-                                   ELEMENT *commands_heading_content);
+ELEMENT_LIST *fill_gaps_in_sectioning_in_document (DOCUMENT *document,
+                                const ELEMENT *commands_heading_content);
 void relate_index_entries_to_table_items_in_document (DOCUMENT *document);
 void move_index_entries_after_items_in_document (DOCUMENT *document);
 ELEMENT *reference_to_arg_in_tree (ELEMENT *tree, DOCUMENT *document);

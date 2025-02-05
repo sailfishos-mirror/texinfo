@@ -44,16 +44,17 @@ MODULE = Texinfo::StructTransfXS	PACKAGE = Texinfo::StructTransfXS
 PROTOTYPES: ENABLE
 
 void
-fill_gaps_in_sectioning (SV *tree_in, ...)
+fill_gaps_in_sectioning_in_document (SV *document_in, ...)
     PROTOTYPE: $;$
     PREINIT:
         ELEMENT_LIST *added_sections;
         DOCUMENT *document;
      CODE:
-        document = get_sv_tree_document (tree_in, "fill_gaps_in_sectioning");
+        document = get_sv_document_document (document_in,
+                              "fill_gaps_in_sectioning_in_document");
         if (document)
           {
-            ELEMENT *commands_heading_content = 0;
+            const ELEMENT *commands_heading_content = 0;
             if (items > 1 && SvOK(ST(1)))
               {
                 DOCUMENT *commands_heading_document
@@ -61,10 +62,8 @@ fill_gaps_in_sectioning (SV *tree_in, ...)
                 if (commands_heading_document)
                   commands_heading_content = commands_heading_document->tree;
               }
-            added_sections = fill_gaps_in_sectioning (document->tree,
+            added_sections = fill_gaps_in_sectioning_in_document (document,
                                                    commands_heading_content);
-            if (added_sections && added_sections->number > 0)
-              document->modified_information |= F_DOCM_tree;
             /* cannot easily be used as it does not match with perl tree.
                Also the return would not be usable as error status */
             destroy_list (added_sections);
