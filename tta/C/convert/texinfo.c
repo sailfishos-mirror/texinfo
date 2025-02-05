@@ -448,7 +448,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
     relate_index_entries_to_table_items_in_document (document);
 
   if (flags & STTF_move_index_entries_after_items)
-    move_index_entries_after_items_in_tree (document->tree);
+    move_index_entries_after_items_in_document (document);
 
   if (flags & STTF_insert_nodes_for_sectioning_commands)
     insert_nodes_for_sectioning_commands (document);

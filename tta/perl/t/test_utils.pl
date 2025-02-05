@@ -1154,7 +1154,8 @@ sub test($$)
   }
 
   if ($tree_transformations{'move_index_entries_after_items'}) {
-    Texinfo::ManipulateTree::move_index_entries_after_items_in_tree($tree);
+    Texinfo::ManipulateTree::move_index_entries_after_items_in_document(
+                                                                   $document);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {

@@ -55,7 +55,7 @@
 /* in Common.pm */
 INDEX_ENTRY_AND_INDEX *
 lookup_index_entry (const INDEX_ENTRY_LOCATION *index_entry_info,
-                    INDEX_LIST *indices_info)
+                    const INDEX_LIST *indices_info)
 {
   INDEX_ENTRY_AND_INDEX *result = 0;
   size_t entry_number = index_entry_info->number;
@@ -466,8 +466,8 @@ relate_index_entries_to_table_items_in_document (DOCUMENT *document)
 }
 
 /* in itemize or enumerate */
-void
-move_index_entries_after_items (ELEMENT *current)
+static void
+move_index_entries_after_items (ELEMENT *current, DOCUMENT *document)
 {
   ELEMENT *previous = 0;
   size_t i;
@@ -544,13 +544,14 @@ move_index_entries_after_items (ELEMENT *current)
                                           last_entry_idx, contents_nr);
               remove_slice_from_contents (previous_ending_container,
                                           last_entry_idx, contents_nr);
+              document->modified_information |= F_DOCM_tree;
             }
         }
       previous = item;
     }
 }
 
-ELEMENT_LIST *
+static ELEMENT_LIST *
 move_index_entries_after_items_internal (const char *type,
                                          ELEMENT *current,
                                          void *argument)
@@ -559,17 +560,17 @@ move_index_entries_after_items_internal (const char *type,
       && (current->e.c->cmd == CM_enumerate
           || current->e.c->cmd == CM_itemize))
     {
-      move_index_entries_after_items (current);
+      DOCUMENT *document = (DOCUMENT *)argument;
+      move_index_entries_after_items (current, document);
     }
   return 0;
 }
 
-/* The document is not given as an argument.  In general, the caller should
-   set F_DOCM_tree in the document modification flags */
 void
-move_index_entries_after_items_in_tree (ELEMENT *tree)
+move_index_entries_after_items_in_document (DOCUMENT *document)
 {
-  modify_tree (tree, &move_index_entries_after_items_internal, 0);
+  modify_tree (document->tree, &move_index_entries_after_items_internal,
+               document);
 }
 
 /* ERROR_MESSAGES is not actually useful, as the code checks that

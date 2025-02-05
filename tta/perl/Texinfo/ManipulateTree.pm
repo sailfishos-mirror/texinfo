@@ -52,7 +52,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw(
-move_index_entries_after_items_in_tree
+move_index_entries_after_items_in_document
 relate_index_entries_to_table_items_in_document
 protect_colon_in_tree
 protect_comma_in_tree
@@ -69,8 +69,8 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::copy_tree",
   "Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document"
     => "Texinfo::StructTransfXS::relate_index_entries_to_table_items_in_document",
-  "Texinfo::ManipulateTree::move_index_entries_after_items_in_tree"
-    => "Texinfo::StructTransfXS::move_index_entries_after_items_in_tree",
+  "Texinfo::ManipulateTree::move_index_entries_after_items_in_document"
+    => "Texinfo::StructTransfXS::move_index_entries_after_items_in_document",
   "Texinfo::ManipulateTree::protect_colon_in_document"
     => "Texinfo::StructTransfXS::protect_colon_in_document",
   "Texinfo::ManipulateTree::protect_comma_in_document"
@@ -685,12 +685,21 @@ sub _move_index_entries_after_items($$)
   return undef;
 }
 
-# For @itemize/@enumerate
+# Not documented, should not be generally useful, this is a transformation
+# that makes more sense for a whole document.
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
 
   modify_tree($tree, \&_move_index_entries_after_items);
+}
+
+# For @itemize/@enumerate
+sub move_index_entries_after_items_in_document($)
+{
+  my $document = shift;
+
+  move_index_entries_after_items_in_tree($document->tree());
 }
 
 sub _relate_index_entries_to_table_items_in($$)
@@ -897,11 +906,11 @@ options values registered in document> object.
 
 =over
 
-=item move_index_entries_after_items_in_tree($tree)
-X<C<move_index_entries_after_items_in_tree>>
+=item move_index_entries_after_items_in_document($document)
+X<C<move_index_entries_after_items_in_document>>
 
-In C<@enumerate> and C<@itemize> from the tree, move index entries
-appearing just before C<@item> after the C<@item>.  Comment lines
+In C<@enumerate> and C<@itemize> from the I<$document> tree, move index
+entries appearing just before C<@item> after the C<@item>.  Comment lines
 between index entries are moved too.
 
 =item protect_colon_in_tree($tree)

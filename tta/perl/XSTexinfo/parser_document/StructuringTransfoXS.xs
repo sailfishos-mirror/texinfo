@@ -110,17 +110,14 @@ relate_index_entries_to_table_items_in_document (SV *document_in)
           relate_index_entries_to_table_items_in_document (document);
 
 void
-move_index_entries_after_items_in_tree (SV *tree_in)
+move_index_entries_after_items_in_document (SV *document_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
-        document = get_sv_tree_document (tree_in,
-                                        "move_index_entries_after_items_in_tree");
+        document = get_sv_document_document (document_in,
+                            "move_index_entries_after_items_in_document");
         if (document)
-          {
-            move_index_entries_after_items_in_tree (document->tree);
-            document->modified_information |= F_DOCM_tree;
-          }
+          move_index_entries_after_items_in_document (document);
 
 void
 reference_to_arg_in_document (SV *document_in)
