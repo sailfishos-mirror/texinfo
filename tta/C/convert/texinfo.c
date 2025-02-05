@@ -464,7 +464,7 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
     complete_tree_nodes_menus_in_document (document, use_sections);
 
   if (flags & STTF_complete_tree_nodes_missing_menu)
-    complete_tree_nodes_menus_in_document (document, use_sections);
+    complete_tree_nodes_missing_menu (document, use_sections);
 
   if (flags & STTF_regenerate_master_menu)
     regenerate_master_menu (document, use_sections);

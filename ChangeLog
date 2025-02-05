@@ -1,5 +1,11 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_complete_document): call
+	complete_tree_nodes_missing_menu for
+	STTF_complete_tree_nodes_missing_menu.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): replace
 	complete_tree_nodes_menus by complete_tree_nodes_menus_in_document.
 
