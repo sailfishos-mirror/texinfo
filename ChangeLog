@@ -1,5 +1,11 @@
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_compatibility_idify)
+	(new, _texinfo_handle_element_end): add _compatibility_idify in case
+	idify method is missing for old Pod::Simple::XHTML.
+
+2025-02-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_perl_conf.m4 (PACKAGE_XS_VERSION): use -e to have two sed
 	instructions instead of ;, which does not seems to be portable to
 	Solaris sed.

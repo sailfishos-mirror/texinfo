@@ -16,7 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
-# Parts from L<Pod::Simple::HTML>.
+# Parts from Pod::Simple::HTML
+# Parts (for compatibility) from Pod::Simple::XHTML
 #
 #
 # The code is organized such that it is easy to use any Pod::Simple
@@ -123,6 +124,34 @@ my $man_url_prefix = 'http://man.he.net/man';
 
 my $pod_links_html_parser = Pod::Simple::XHTML->new();
 
+# taken from recent Pod::Simple::XHTML in case it is missing (on Solaris
+# for example).
+# COPYRIGHT AND DISCLAIMERS for Pod::Simple::XHTML:
+# Copyright (c) 2003-2005 Allison Randal.
+#
+# This library is free software; you can redistribute it and/or modify it
+# under the same terms as Perl itself.
+#
+# This program is distributed in the hope that it will be useful, but
+# without any warranty; without even the implied warranty of
+# merchantability or fitness for a particular purpose.
+
+sub _compatibility_idify {
+    my ($self, $t, $not_unique) = @_;
+    for ($t) {
+        s/[<>&'"]//g;            # Strip HTML special characters
+        s/^\s+//; s/\s+$//;      # Strip white space.
+        s/^([^a-zA-Z]+)$/pod$1/; # Prepend "pod" if no valid chars.
+        s/^[^a-zA-Z]+//;         # First char must be a letter.
+        s/[^-a-zA-Z0-9_:.]+/-/g; # All other chars must be valid.
+        s/[-:.]+$//;             # Strip trailing punctuation.
+    }
+    return $t if $not_unique;
+    my $i = '';
+    $i++ while $self->{_compatibility_idify_ids}{"$t$i"}++;
+    return "$t$i";
+}
+
 sub new
 {
   my $class = shift;
@@ -139,6 +168,9 @@ sub new
   $new->texinfo_add_upper_sectioning_command(1);
   $new->texinfo_external_pod_as_url(1);
   $new->texinfo_perldoc_url_prefix($pod_links_html_parser->perldoc_url_prefix);
+
+  # from recent recent Pod::Simple::XHTML, see above
+  $new->{'_compatibility_idify_ids'} = { '_podtop_' => 1 }; # used in <body>
   return $new;
 }
 
@@ -988,7 +1020,12 @@ sub _texinfo_handle_element_end($$$)
               my $href = $self->texinfo_perldoc_url_prefix
                   . $manual_text;
               if (defined($explanation)) {
-                my $target = $pod_links_html_parser->idify($section_text, 1);
+                my $target;
+                if ($pod_links_html_parser->can('idify')) {
+                  $target = $pod_links_html_parser->idify($section_text, 1);
+                } else {
+                  $target = $self->_compatibility_idify($section_text, 1);
+                }
                 $href .= '#'.$target if ($target ne '');
               }
               _output($fh, $self->{'texinfo_accumulated'},
