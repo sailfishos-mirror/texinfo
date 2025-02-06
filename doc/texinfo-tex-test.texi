@@ -635,8 +635,7 @@ exceeds @math{1 @over 16} pt
 <X\a\X\b\X>
 @end macro
 
-No trimming for single-arg macros.  Trimming from front of argument only
-for other macros.
+No trimming for single-arg macros.
 
 @noindent @Mac{b} @Mac{ b} @Mac{b  } @Mac{ b }
 
@@ -644,7 +643,7 @@ for other macros.
 
 @noindent @Mactwo{b,c} @Mactwo{ b, c} @Mactwo{b  ,c  } @Mactwo{ b , c }
 
-@noindent <XbXcX> <XbXcX> <Xb  Xc  X> <Xb Xc X>
+@noindent <XbXcX> <XbXcX> <XbXcX> <XbXcX>
 
 
 

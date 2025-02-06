@@ -1,3 +1,19 @@
+2025-02-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Macro argument space trimming
+
+	* doc/texinfo.tex (\eatleadingcr): replace with implementation
+	that deals with an empty argument and only handles an active
+	newline.
+	(\parsemargdef): do not use an \xempty macro in the definition
+	of the macro arguments.
+	* doc/texinfo-tex-test.texi: Update test case.  This means that
+	spaces are once again trimmed from the end of macro arguments.
+	
+	\xempty could appear in macro expansions and be undefined.  Report
+	from Werner.  Rather than providing it with a definition, it is
+	simpler to get rid of it.
+
 2025-02-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_convert_css_string): add missing
