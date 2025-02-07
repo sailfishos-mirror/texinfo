@@ -23,6 +23,9 @@ if (!close ($fh)) {
     exit 1;
 }
 
+# TODO: record date in this file for when each issue started, and the
+# last date the issue was found still to exist.
+
 # Strip out lines marking translations as fuzzy if a message context is
 # provided.  This is because translations contexts were added to several
 # strings, so translations will not work unless or until translation
@@ -34,6 +37,10 @@ $data =~ s/#, fuzzy\n((#.*\n)*msgctxt)/$1/g;
 $data =~ s/#, fuzzy, perl-brace-format\n#\| msgid "\@tie\{\}-- .*\n(msgid "\@tie\{)/$1/g;
 $data =~ s/msgstr "\@tie\{\}-- /msgstr "\@tie\{\}--- /g;
 $data =~ s/msgstr "\@tie\{ \}-- /msgstr "\@tie\{\}--- /g;
+
+# Incorrect use of Texinfo accent command in ca.po [2015-06-08 edition].
+# Still a problem as of 2025-02-07.
+$data =~ s/\@'\@dotless\{i\}/\@'\{\@dotless\{i\}\}/g;
 
 # Overwrite original file
 print $data >$input_file;

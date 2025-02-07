@@ -1,5 +1,11 @@
 2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* po_document/adjust-translations.pl: add missing braces
+	for argument of accent command, for Catalan translation.
+	Report from Werner.
+
+2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\eatleadingcr, \eatleadingcrthen):
 	Rename to \eatleadingcrthen and pass extra argument to pass
 	the result of expansion to.

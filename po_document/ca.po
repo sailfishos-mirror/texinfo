@@ -222,12 +222,12 @@ msgstr "Secci@'o pr@`evia a l'ordre de lectura"
 #: tp/Texinfo/HTMLData.pm:260 tp/Texinfo/XS/main/html_conversion_data.c:231
 msgctxt "FastForward direction description"
 msgid "Next chapter"
-msgstr "Cap@'@dotless{i}tol seg@\"uent"
+msgstr "Cap@'{@dotless{i}}tol seg@\"uent"
 
 #: tp/Texinfo/HTMLData.pm:261 tp/Texinfo/XS/main/html_conversion_data.c:232
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
-msgstr "Inici del cap@'@dotless{i}tol actual o previ"
+msgstr "Inici del cap@'{@dotless{i}}tol actual o previ"
 
 #: tp/Texinfo/HTMLData.pm:262 tp/Texinfo/XS/main/html_conversion_data.c:233
 msgctxt "Next direction description"
@@ -1260,7 +1260,7 @@ msgstr "Subsecci@'o U-Quatre"
 
 #: tp/Texinfo/Convert/HTML.pm:12731 tp/Texinfo/XS/convert/convert_html.c:1023
 msgid "Untitled Document"
-msgstr "Document sense t@'@dotless{i}tol"
+msgstr "Document sense t@'{@dotless{i}}tol"
 
 #: tp/Texinfo/Convert/Utils.pm:198 tp/Texinfo/XS/main/convert_utils.c:46
 msgid "January"
@@ -1337,7 +1337,7 @@ msgid "{category} of @code{{class}}"
 msgstr "{category} de {class}"
 
 #~ msgid "Index Entry"
-#~ msgstr "Entrada d'@'@dotless{i}ndex"
+#~ msgstr "Entrada d'@'{@dotless{i}}ndex"
 
 #~ msgid "Section"
 #~ msgstr "Secci@'o"
