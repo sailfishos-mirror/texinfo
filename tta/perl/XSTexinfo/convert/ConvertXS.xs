@@ -56,6 +56,7 @@
 #include "html_conversion_state.h"
 #include "convert_html.h"
 #include "format_html.h"
+/* html_setup_global_texts_direction_names ... */
 #include "html_prepare_converter.h"
 #include "html_conversion_api.h"
 #include "html_converter_api.h"
@@ -2334,6 +2335,8 @@ html_global_direction_text (SV *converter_in, direction_name)
                                  "html_global_direction_text");
         if (self)
           {
+            if (self->global_texts_direction_names.number == 0)
+              html_setup_global_texts_direction_names (self);
             if (string_exists_in_sorted_strings_list (
                   &self->global_texts_direction_names, direction_name))
               found = 1;

@@ -1,6 +1,17 @@
 2025-02-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/build_html_perl_info.c
+	(html_pass_units_directions_files)
+	(html_pass_output_units_global_targets),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_global_direction_text):
+	call html_setup_global_texts_direction_names in
+	html_global_direction_text just before it is used, and call it only if
+	not already filled.  Do not call in html_pass_units_directions_files
+	nor html_pass_output_units_global_targets.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/build_html_perl_info.c
 	(html_pass_units_directions_files): remove
 	pass_html_elements_in_file_count, as the information is accessed
 	through an XS interface only.
