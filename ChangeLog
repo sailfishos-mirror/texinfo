@@ -1,5 +1,14 @@
 2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\eatleadingcr, \eatleadingcrthen):
+	Rename to \eatleadingcrthen and pass extra argument to pass
+	the result of expansion to.
+	(\scanmacro) <\xeatspaces>: Call \eatleadingcrthen with
+	\eatspaces.  This avoids having to provide the right number
+	of \expandafter's to expand \eatleadingcr exactly three times.
+
+2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\xrefX): Use \getrefx.
 
 2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>

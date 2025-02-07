@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-07.12}
+\def\texinfoversion{2025-02-07.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -8170,17 +8170,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   }
 \fi
 
-\let\E=\expandafter
-
 % Used at the time of macro expansion.
 % Argument is macro body with arguments substituted
 \def\scanmacro#1{%
   \newlinechar`\^^M
-  % expand \eatleadingcr three times to maybe remove a leading
-  % newline, then call \eatspaces on the result.
-  \def\xeatspaces##1{%
-    \E\E\E\E\E\E\E\eatspaces\E\E\E\E\E\E\E{\eatleadingcr{##1}%
-  }}%
+  \def\xeatspaces##1{\eatleadingcrthen\eatspaces{##1}}%
   %
   % Process the macro body under the current catcode regime.
   \scantokens{#1@comment}%
@@ -8233,11 +8227,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \unbrace{\gdef\trim@@@ #1 } #2@{#1}
 }
 
-% Trim a single leading ^^M off a string.
+% Trim a single leading ^^M off a string, then call #1
 {\catcode`\^^M=\active \catcode`\Q=3%
-\gdef\eatleadingcr #1{\eatlcra Q#1Q^^MQ}%
-\gdef\eatlcra #1Q^^M{\eatlcrb #1Q}%
-\gdef\eatlcrb Q#1Q#2Q{#1}%
+\gdef\eatleadingcrthen #1#2{\eatlcra #1Q#2Q^^MQ}%
+\gdef\eatlcra #1#2Q^^M{\eatlcrb #1#2Q}%
+\gdef\eatlcrb #1Q#2Q#3Q{#1{#2}}%
 }
 
 % Trim a single trailing ^^M off a string.
@@ -9089,14 +9083,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       % Cross-manual reference with a printed manual name.
       %
       \crossmanualxref{\cite{\printedmanual\unskip}}%
-    %
     \else\ifdim \wd\infofilenamebox > 0pt
       % Cross-manual reference with only an info filename (arg 4), no
       % printed manual name (arg 5).  This is essentially the same as
       % the case above; we output the filename, since we have nothing else.
       %
       \crossmanualxref{\code{\infofilename\unskip}}%
-    %
     \else
       % Reference within this manual.
       %
