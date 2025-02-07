@@ -6,8 +6,16 @@ my $document_name;
 sub _button_show_document_name($)
 {
   my $self = shift;
-  #print STDERR "CURENT_UNIT ".$self->current_output_unit()."\n";
-  return $document_name, 1;
+
+  my $text = 'NO_ELEMENT';
+  my $output_unit = $self->current_output_unit();
+  if ($output_unit->{'unit_command'}) {
+    # arguments_line type element
+    my $arguments_line = $output_unit->{'unit_command'}->{'contents'}->[0];
+    my $line_arg = $arguments_line->{'contents'}->[0];
+    $text = $self->convert_tree($line_arg);
+  }
+  return $document_name.' '.$text, 1;
 }
 
 # avoid doing twice if there are more than one manual processed

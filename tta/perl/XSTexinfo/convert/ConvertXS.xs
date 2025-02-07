@@ -1813,19 +1813,26 @@ html_current_filename (SV *converter_in)
 SV *
 html_current_output_unit (SV *converter_in)
      PREINIT:
-        const CONVERTER *self;
+        CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in, "html_current_output_unit");
         if (!self->current_output_unit)
           RETVAL = newSV (0);
-        else if (!self->current_output_unit->hv)
-          {
-            fprintf (stderr, "BUG: html_current_output_unit No hv: %zu %s\n",
-                     self->current_output_unit->index,
-                     self->current_output_unit->unit_filename);
-          }
         else
-          RETVAL = newRV_inc ((SV *) self->current_output_unit->hv);
+          {
+            store_output_units_texinfo_tree (self, 0, 0, 0);
+
+            if (!self->current_output_unit->hv)
+              {
+                fprintf (stderr,
+                         "BUG: html_current_output_unit No hv: %zu %s\n",
+                         self->current_output_unit->index,
+                         self->current_output_unit->unit_filename);
+                RETVAL = newSV (0);
+              }
+            else
+              RETVAL = newRV_inc ((SV *) self->current_output_unit->hv);
+          }
     OUTPUT:
         RETVAL
 

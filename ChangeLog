@@ -1,5 +1,19 @@
 2025-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash): if output
+	units are built late, there will already be directions but no hv, so
+	it is not an error to have no hv where a direction points to.
+
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs (html_current_output_unit):
+	call store_output_units_texinfo_tree to rebuild output units to Perl
+	before returning the output unit Perl reference.
+
+	* tta/perl/t/init/access_document_name_in_handler.pm
+	(_button_show_document_name): also access current_output_unit to
+	trigger an error with XS if the output unit is not built to Perl.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_output_internal_links): remove
 	unused variable.
 

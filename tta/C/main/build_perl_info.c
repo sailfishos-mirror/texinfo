@@ -1969,16 +1969,24 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
       if (output_unit->directions[i])
         {
           const char *direction_name = relative_unit_direction_name[i];
-          const OUTPUT_UNIT *direction_unit = output_unit->directions[i];
+          /* remove const in case hv needs to be added */
+          OUTPUT_UNIT *direction_unit
+               = (OUTPUT_UNIT *) output_unit->directions[i];
           SV *unit_sv;
           if (!direction_unit->hv)
             {
-  /* the Perl references should exist for all the output units because
-     they are setup and built to Perl if needed in _prepare_conversion_units,
+  /* If it is known in advance that Perl data needs to be rebuilt, the Perl
+     references should exist for all the output units because they are
+     setup and built to Perl if needed in _prepare_conversion_units,
      while directions are setup afterwards in _prepare_units_directions_files.
      external_node_target are not set in _prepare_conversion_units, but
      are set before rebuilding the other output units in
-     _prepare_units_directions_files XS code */
+     _prepare_units_directions_files XS code.
+
+     However, if the output units are built late because they are built
+     to Perl from a user function, the output units were never built
+     to Perl and there are already directions that will point to output
+     units not already built to Perl, so it is not an error.
 
               char *msg;
               xasprintf (&msg, "BUG: %s: no output unit Perl ref: %s",
@@ -1986,6 +1994,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
                                    output_unit_texi (direction_unit));
               fatal (msg);
               non_perl_free (msg);
+   */
+              direction_unit->hv = newHV ();
             }
           unit_sv = newRV_inc ((SV *) direction_unit->hv);
           hv_store (directions_hv, direction_name, strlen (direction_name),
