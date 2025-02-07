@@ -44,6 +44,9 @@ SV *build_document (size_t document_descriptor, int no_store);
 SV *build_minimal_document (size_t document_descriptor);
 
 SV *store_document_texinfo_tree (DOCUMENT *document);
+SV *store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
+                                 SV **special_units_sv,
+                                 SV **associated_special_units_sv);
 
 SV *document_tree (SV *document_in, int handler_only);
 SV *document_indices_information (SV *document_in);
@@ -68,14 +71,10 @@ HV *build_sorted_indices_by_index (
                       const INDEX_SORTED_BY_INDEX *index_entries_by_index,
                       HV *indices_information_hv);
 
-SV *build_output_units_list (const DOCUMENT *document,
-                             size_t output_units_descriptor);
-void rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
-                                size_t output_units_descriptor);
 SV *setup_output_units_handler (const DOCUMENT *document,
                                 size_t output_units_descriptor);
-void output_units_list_to_perl_hash (const DOCUMENT *document,
-                                     size_t output_units_descriptor);
+void pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
+                             size_t output_units_descriptor);
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 

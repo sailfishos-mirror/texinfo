@@ -1898,6 +1898,272 @@ store_document_texinfo_tree (DOCUMENT *document)
   return result_sv;
 }
 
+/* Build Output unit and output units lists to Perl*/
+
+static void
+output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
+{
+  int i;
+  SV *sv;
+  HV *directions_hv;
+
+  dTHX;
+
+  /* output_unit->hv may already exist because of directions or if there was a
+     first_in_page referring to output_unit, or because the output units
+     list is being rebuilt */
+  if (!output_unit->hv)
+    output_unit->hv = newHV ();
+  else
+    hv_clear (output_unit->hv);
+
+#define STORE(key) hv_store (output_unit->hv, key, strlen (key), sv, 0)
+  sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
+  STORE("unit_type");
+
+  if (output_unit->unit_type == OU_special_unit)
+    {
+      ELEMENT *command = output_unit->uc.special_unit_command;
+      if (!command->hv)
+        {
+          SV *unit_sv;
+
+          /* a virtual out of tree element, add it to perl */
+          element_to_perl_hash (command, 0);
+
+          unit_sv = newRV_inc ((SV *) output_unit->hv);
+          hv_store (command->hv, "associated_unit",
+                    strlen ("associated_unit"), unit_sv, 0);
+        }
+      sv = newRV_inc ((SV *) command->hv);
+      STORE("unit_command");
+    }
+  else
+    {
+      const ELEMENT *command = output_unit->uc.unit_command;
+
+      if (command)
+        {
+          if (!command->hv)
+            fatal ("Missing output unit unit_command hv");
+
+          sv = newRV_inc ((SV *) command->hv);
+          STORE("unit_command");
+        }
+   /* there is nothing else of use for external_node_unit, exit now */
+      if (output_unit->unit_type == OU_external_node_unit)
+        return;
+    }
+
+  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
+  sv = newSViv ((IV) output_unit->index);
+  STORE("unit_index");
+
+  /* setup an hash reference in any case */
+  directions_hv = newHV ();
+  sv = newRV_noinc ((SV *) directions_hv);
+  STORE("directions");
+
+  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
+    {
+      if (output_unit->directions[i])
+        {
+          const char *direction_name = relative_unit_direction_name[i];
+          const OUTPUT_UNIT *direction_unit = output_unit->directions[i];
+          SV *unit_sv;
+          if (!direction_unit->hv)
+            {
+  /* the Perl references should exist for all the output units because
+     they are setup and built to Perl if needed in _prepare_conversion_units,
+     while directions are setup afterwards in _prepare_units_directions_files.
+     external_node_target are not set in _prepare_conversion_units, but
+     are set before rebuilding the other output units in
+     _prepare_units_directions_files XS code */
+
+              char *msg;
+              xasprintf (&msg, "BUG: %s: no output unit Perl ref: %s",
+                                   direction_name,
+                                   output_unit_texi (direction_unit));
+              fatal (msg);
+              non_perl_free (msg);
+            }
+          unit_sv = newRV_inc ((SV *) direction_unit->hv);
+          hv_store (directions_hv, direction_name, strlen (direction_name),
+                    unit_sv, 0);
+        }
+    }
+
+  if (output_unit->associated_document_unit)
+    {
+      sv = newRV_inc ((SV *) output_unit->associated_document_unit->hv);
+      STORE("associated_document_unit");
+    }
+
+  if (output_unit->unit_filename)
+    {
+      sv = newSVpv_utf8 (output_unit->unit_filename,
+                         strlen (output_unit->unit_filename));
+      STORE("unit_filename");
+    }
+
+  if (output_unit->unit_contents.number)
+    {
+      AV *av;
+      size_t i;
+
+      av = newAV ();
+      sv = newRV_noinc ((SV *) av);
+      STORE("unit_contents");
+
+      for (i = 0; i < output_unit->unit_contents.number; i++)
+        {
+          HV *element_hv = output_unit->unit_contents.list[i]->hv;
+          SV *unit_sv;
+
+          if (!element_hv)
+            fatal ("Missing output unit unit_contents element hv");
+
+          sv = newRV_inc ((SV *) element_hv);
+
+          av_push (av, sv);
+
+          unit_sv = newRV_inc ((SV *) output_unit->hv);
+          /* set the tree element associated_unit */
+          hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
+                    unit_sv, 0);
+        }
+    }
+
+  if (output_unit->tree_unit_directions[0]
+      || output_unit->tree_unit_directions[1])
+    {
+      size_t i;
+      size_t directions_nr = sizeof (output_unit->tree_unit_directions)
+                           / sizeof (output_unit->tree_unit_directions[0]);
+      HV *hv_tree_unit_directions = newHV ();
+      sv = newRV_noinc ((SV *) hv_tree_unit_directions);
+      STORE("tree_unit_directions");
+
+      for (i = 0; i < directions_nr; i++)
+        {
+          OUTPUT_UNIT *target = output_unit->tree_unit_directions[i];
+          if (target)
+            {
+              if (!target->hv)
+                target->hv = newHV ();
+              sv = newRV_inc ((SV *) target->hv);
+              hv_store (hv_tree_unit_directions, direction_names[i],
+                        strlen (direction_names[i]), sv, 0);
+            }
+        }
+    }
+
+  if (output_unit->first_in_page)
+    {
+      OUTPUT_UNIT *target = output_unit->first_in_page;
+      if (!target->hv)
+        target->hv = newHV ();
+      sv = newRV_inc ((SV *) target->hv);
+      STORE("first_in_page");
+    }
+
+  if (output_unit->special_unit_variety)
+    {
+      sv = newSVpv_utf8 (output_unit->special_unit_variety,
+                         strlen (output_unit->special_unit_variety));
+      STORE("special_unit_variety");
+    }
+
+#undef STORE
+}
+
+/* build output unit hashes but do not put output units hashes in
+   an array.  Useful for external_nodes_units, which are to be
+   built to Perl, but have no array in Perl, they are only referred to
+   in directions. */
+static void
+output_units_list_to_perl_hash (const DOCUMENT *document,
+                                size_t output_units_descriptor)
+{
+  const OUTPUT_UNIT_LIST *output_units;
+  size_t i;
+
+  output_units = retrieve_output_units (document, output_units_descriptor);
+
+  if (!output_units || !output_units->number)
+    return;
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      output_unit_to_perl_hash (output_unit);
+    }
+}
+
+SV *
+store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
+                                 SV **special_units_sv,
+                                 SV **associated_special_units_sv)
+{
+  SV *result_sv = 0;
+
+  dTHX;
+
+  if (converter->document)
+    {
+ /* need to setup the Perl tree before rebuilding the output units as
+    they refer to Perl root command elements */
+
+      if (converter->document->tree)
+        result_sv = store_document_texinfo_tree (converter->document);
+
+      if (converter->document->modified_information & F_DOCM_output_units)
+        {
+          int associated;
+
+          if (!output_units_sv && converter->sv)
+            {
+              HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
+              output_units_sv = hv_fetch (converter_hv, "document_units",
+                                          strlen ("document_units"), 0);
+            }
+
+          associated = output_units_sv && (*output_units_sv)
+                           && SvOK (*output_units_sv);
+
+      /* build external_nodes_units before rebuilding the other
+         output units as the external_nodes_units may have never been built,
+         while other units were already built without directions
+         information in html_prepare_conversion_units.
+       */
+
+          output_units_list_to_perl_hash (converter->document,
+            converter->output_units_descriptors[OUDT_external_nodes_units]);
+
+          pass_output_units_list (converter->document, output_units_sv,
+                           converter->output_units_descriptors[OUDT_units]);
+          pass_output_units_list (converter->document, special_units_sv,
+                      converter->output_units_descriptors[OUDT_special_units]);
+          pass_output_units_list (converter->document,
+                                  associated_special_units_sv,
+           converter->output_units_descriptors[OUDT_associated_special_units]);
+
+          if (!associated && (*output_units_sv) && converter->sv)
+            {
+              HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
+
+              SvREFCNT_inc (*output_units_sv);
+              hv_store (converter_hv, "document_units",
+                       strlen ("document_units"), *output_units_sv, 0);
+            }
+
+          converter->document->modified_information &= ~F_DOCM_output_units;
+        }
+    }
+
+  return result_sv;
+}
+
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -2373,184 +2639,6 @@ build_sorted_indices_by_letter (
 
 
 
-/* Build Output unit and output units lists to Perl*/
-
-static void
-output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
-{
-  int i;
-  SV *sv;
-  HV *directions_hv;
-
-  dTHX;
-
-  /* output_unit->hv may already exist because of directions or if there was a
-     first_in_page referring to output_unit, or because the output units
-     list is being rebuilt */
-  if (!output_unit->hv)
-    output_unit->hv = newHV ();
-  else
-    hv_clear (output_unit->hv);
-
-#define STORE(key) hv_store (output_unit->hv, key, strlen (key), sv, 0)
-  sv = newSVpv (output_unit_type_names[output_unit->unit_type], 0);
-  STORE("unit_type");
-
-  if (output_unit->unit_type == OU_special_unit)
-    {
-      ELEMENT *command = output_unit->uc.special_unit_command;
-      if (!command->hv)
-        {
-          SV *unit_sv;
-
-          /* a virtual out of tree element, add it to perl */
-          element_to_perl_hash (command, 0);
-
-          unit_sv = newRV_inc ((SV *) output_unit->hv);
-          hv_store (command->hv, "associated_unit",
-                    strlen ("associated_unit"), unit_sv, 0);
-        }
-      sv = newRV_inc ((SV *) command->hv);
-      STORE("unit_command");
-    }
-  else
-    {
-      const ELEMENT *command = output_unit->uc.unit_command;
-
-      if (command)
-        {
-          if (!command->hv)
-            fatal ("Missing output unit unit_command hv");
-
-          sv = newRV_inc ((SV *) command->hv);
-          STORE("unit_command");
-        }
-   /* there is nothing else of use for external_node_unit, exit now */
-      if (output_unit->unit_type == OU_external_node_unit)
-        return;
-    }
-
-  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
-  sv = newSViv ((IV) output_unit->index);
-  STORE("unit_index");
-
-  /* setup an hash reference in any case */
-  directions_hv = newHV ();
-  sv = newRV_noinc ((SV *) directions_hv);
-  STORE("directions");
-
-  for (i = 0; i < RUD_type_FirstInFileNodeBack+1; i++)
-    {
-      if (output_unit->directions[i])
-        {
-          const char *direction_name = relative_unit_direction_name[i];
-          const OUTPUT_UNIT *direction_unit = output_unit->directions[i];
-          SV *unit_sv;
-          if (!direction_unit->hv)
-            {
-  /* the Perl references should exist for all the output units because
-     they are setup and built to Perl if needed in _prepare_conversion_units,
-     while directions are setup afterwards in _prepare_units_directions_files.
-     external_node_target are not set in _prepare_conversion_units, but
-     are set before rebuilding the other output units in
-     _prepare_units_directions_files XS code */
-
-              char *msg;
-              xasprintf (&msg, "BUG: no output unit Perl ref: %s",
-                                   output_unit_texi (direction_unit));
-              fatal (msg);
-              non_perl_free (msg);
-            }
-          unit_sv = newRV_inc ((SV *) direction_unit->hv);
-          hv_store (directions_hv, direction_name, strlen (direction_name),
-                    unit_sv, 0);
-        }
-    }
-
-  if (output_unit->associated_document_unit)
-    {
-      sv = newRV_inc ((SV *) output_unit->associated_document_unit->hv);
-      STORE("associated_document_unit");
-    }
-
-  if (output_unit->unit_filename)
-    {
-      sv = newSVpv_utf8 (output_unit->unit_filename,
-                         strlen (output_unit->unit_filename));
-      STORE("unit_filename");
-    }
-
-  if (output_unit->unit_contents.number)
-    {
-      AV *av;
-      size_t i;
-
-      av = newAV ();
-      sv = newRV_noinc ((SV *) av);
-      STORE("unit_contents");
-
-      for (i = 0; i < output_unit->unit_contents.number; i++)
-        {
-          HV *element_hv = output_unit->unit_contents.list[i]->hv;
-          SV *unit_sv;
-
-          if (!element_hv)
-            fatal ("Missing output unit unit_contents element hv");
-
-          sv = newRV_inc ((SV *) element_hv);
-
-          av_push (av, sv);
-
-          unit_sv = newRV_inc ((SV *) output_unit->hv);
-          /* set the tree element associated_unit */
-          hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
-                    unit_sv, 0);
-        }
-    }
-
-  if (output_unit->tree_unit_directions[0]
-      || output_unit->tree_unit_directions[1])
-    {
-      size_t i;
-      size_t directions_nr = sizeof (output_unit->tree_unit_directions)
-                           / sizeof (output_unit->tree_unit_directions[0]);
-      HV *hv_tree_unit_directions = newHV ();
-      sv = newRV_noinc ((SV *) hv_tree_unit_directions);
-      STORE("tree_unit_directions");
-
-      for (i = 0; i < directions_nr; i++)
-        {
-          OUTPUT_UNIT *target = output_unit->tree_unit_directions[i];
-          if (target)
-            {
-              if (!target->hv)
-                target->hv = newHV ();
-              sv = newRV_inc ((SV *) target->hv);
-              hv_store (hv_tree_unit_directions, direction_names[i],
-                        strlen (direction_names[i]), sv, 0);
-            }
-        }
-    }
-
-  if (output_unit->first_in_page)
-    {
-      OUTPUT_UNIT *target = output_unit->first_in_page;
-      if (!target->hv)
-        target->hv = newHV ();
-      sv = newRV_inc ((SV *) target->hv);
-      STORE("first_in_page");
-    }
-
-  if (output_unit->special_unit_variety)
-    {
-      sv = newSVpv_utf8 (output_unit->special_unit_variety,
-                         strlen (output_unit->special_unit_variety));
-      STORE("special_unit_variety");
-    }
-
-#undef STORE
-}
-
 static int
 fill_output_units_descriptor_av (const DOCUMENT *document,
                                  AV *av_output_units,
@@ -2574,6 +2662,8 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
       /* we do not transfer the hv ref to the perl av because we consider
          that output_unit->hv still own a reference, which should only be
          released when the output_unit is destroyed in C */
+      /* FIXME check whether there can be too many reference retained if
+         called more than once */
       sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
@@ -2587,27 +2677,6 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
             strlen ("output_units_document_descriptor"),
             newSViv ((IV)document->descriptor), 0);
   return 1;
-}
-
-SV *
-build_output_units_list (const DOCUMENT *document,
-                         size_t output_units_descriptor)
-{
-  AV *av_output_units;
-
-  dTHX;
-
-  av_output_units = newAV ();
-
-  if (!fill_output_units_descriptor_av (document,
-                                        av_output_units,
-                                        output_units_descriptor))
-    {/* no output unit */
-      av_undef (av_output_units);
-      return newSV (0);
-    }
-  else
-    return newRV_noinc ((SV *) av_output_units);
 }
 
 /* a fake output units list that only holds a descriptor allowing
@@ -2643,29 +2712,43 @@ setup_output_units_handler (const DOCUMENT *document,
 }
 
 void
-rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
-                           size_t output_units_descriptor)
+pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
+                        size_t output_units_descriptor)
 {
   AV *av_output_units;
 
   dTHX;
 
-  if (!SvOK (output_units_sv))
+  if (!output_units_sv)
     {
-      const OUTPUT_UNIT_LIST *output_units
-        = retrieve_output_units (document, output_units_descriptor);
-      if (output_units && output_units->number)
-        fprintf (stderr, "BUG: no input sv for %zu output units (%zu)\n",
-                 output_units->number, output_units_descriptor);
+      output_units_list_to_perl_hash (document, output_units_descriptor);
       return;
     }
 
-  av_output_units = (AV *) SvRV (output_units_sv);
-  av_clear (av_output_units);
+  if ((*output_units_sv) && SvOK (*output_units_sv))
+    {
+      av_output_units = (AV *) SvRV (*output_units_sv);
+      av_clear (av_output_units);
+    }
+  else
+    {
+      if (*output_units_sv)
+        { /* !SvOK (*output_units_sv) */
+          const OUTPUT_UNIT_LIST *output_units
+            = retrieve_output_units (document, output_units_descriptor);
+          if (output_units && output_units->number)
+            fprintf (stderr, "BUG: undef input sv for %zu output units (%zu)\n",
+                     output_units->number, output_units_descriptor);
+          *output_units_sv = 0;
+        }
+      av_output_units = newAV ();
+    }
 
   if (!fill_output_units_descriptor_av (document, av_output_units,
                                         output_units_descriptor))
     {
+      if (*output_units_sv)
+        {
  /* the output_units_descriptor is not found.  In the codes calling
     this function, the output_units_descriptor should have been found
     within the Perl reference used as argument here.  If there is
@@ -2674,33 +2757,17 @@ rebuild_output_units_list (const DOCUMENT *document, SV *output_units_sv,
     be redundant with errors output earlier in calling code, but it
     is better to have more debug messages.
   */
-      fprintf (stderr, "BUG: rebuild_output_units_list: output unit"
+          fprintf (stderr, "BUG: pass_output_units_list: output unit"
                   " descriptor not found: %zu\n", output_units_descriptor);
-      return;
+        }
+      else
+        {/* no output unit */
+          av_undef (av_output_units);
+          *output_units_sv = newSV (0);
+        }
     }
-}
-
-/* build output unit hashes but do not put output units hashes in
-   an array.  Useful for external_nodes_units, which are to be
-   built to Perl, but have no array in Perl, they are only referred to
-   in directions. */
-void
-output_units_list_to_perl_hash (const DOCUMENT *document,
-                                size_t output_units_descriptor)
-{
-  const OUTPUT_UNIT_LIST *output_units;
-  size_t i;
-
-  output_units = retrieve_output_units (document, output_units_descriptor);
-
-  if (!output_units || !output_units->number)
-    return;
-
-  for (i = 0; i < output_units->number; i++)
-    {
-      OUTPUT_UNIT *output_unit = output_units->list[i];
-      output_unit_to_perl_hash (output_unit);
-    }
+  else if (!(*output_units_sv))
+    *output_units_sv = newRV_noinc ((SV *) av_output_units);
 }
 
 

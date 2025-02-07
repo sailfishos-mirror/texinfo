@@ -340,8 +340,10 @@ split_by_node (SV *document_in)
         if (document)
           {
             size_t output_units_descriptor = split_by_node (document);
-            RETVAL = build_output_units_list (document,
-                                              output_units_descriptor);
+            SV *output_units_sv = 0;
+            pass_output_units_list (document, &output_units_sv,
+                                    output_units_descriptor);
+            RETVAL = output_units_sv;
           }
         else
           RETVAL = newSV(0);
@@ -357,8 +359,10 @@ split_by_section (SV *document_in)
         if (document)
           {
             size_t output_units_descriptor = split_by_section (document);
-            RETVAL = build_output_units_list (document,
-                                              output_units_descriptor);
+            SV *output_units_sv = 0;
+            pass_output_units_list (document, &output_units_sv,
+                                    output_units_descriptor);
+            RETVAL = output_units_sv;
           }
         else
           RETVAL = newSV(0);
@@ -394,8 +398,8 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
             output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in, 0, 0);
             if (output_units_descriptor)
-              rebuild_output_units_list (document, output_units_in,
-                                         output_units_descriptor);
+              pass_output_units_list (document, &output_units_in,
+                                      output_units_descriptor);
           }
 
 void

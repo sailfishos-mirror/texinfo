@@ -487,21 +487,9 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
 
   if (converter->external_references_number > 0)
     {
- /* need to setup the Perl tree before rebuilding the output units as
-    they refer to Perl root command elements */
-      if (converter->document)
-        {
-          store_document_texinfo_tree (converter->document);
-        }
-
-      *output_units_sv = build_output_units_list
-        (converter->document, converter->output_units_descriptors[OUDT_units]);
-      *special_units_sv = build_output_units_list
-        (converter->document,
-         converter->output_units_descriptors[OUDT_special_units]);
-      *associated_special_units_sv = build_output_units_list
-        (converter->document,
-         converter->output_units_descriptors[OUDT_associated_special_units]);
+      store_output_units_texinfo_tree (converter, output_units_sv,
+                                       special_units_sv,
+                                       associated_special_units_sv);
     }
   else
     {
@@ -513,11 +501,12 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
       *associated_special_units_sv = setup_output_units_handler
         (converter->document,
          converter->output_units_descriptors[OUDT_associated_special_units]);
+
+      SvREFCNT_inc (*output_units_sv);
+      hv_store (converter_hv, "document_units", strlen ("document_units"),
+                *output_units_sv, 0);
     }
 
-  SvREFCNT_inc (*output_units_sv);
-  hv_store (converter_hv, "document_units", strlen ("document_units"),
-            *output_units_sv, 0);
 }
 
 HV *
@@ -576,20 +565,8 @@ html_pass_units_directions_files (CONVERTER *converter,
 {
   if (converter->external_references_number > 0)
     {
-      /* build external_nodes_units before rebuilding the other
-         output units as the external_nodes_units have never been built,
-         while other units were already built without directions
-         information in html_prepare_conversion_units */
-      output_units_list_to_perl_hash (converter->document,
-            converter->output_units_descriptors[OUDT_external_nodes_units]);
-
-      rebuild_output_units_list (converter->document, output_units_sv,
-                    converter->output_units_descriptors[OUDT_units]);
-      rebuild_output_units_list (converter->document, special_units_sv,
-               converter->output_units_descriptors[OUDT_special_units]);
-      rebuild_output_units_list (converter->document,
-                                 associated_special_units_sv,
-         converter->output_units_descriptors[OUDT_associated_special_units]);
+      store_output_units_texinfo_tree (converter, &output_units_sv,
+                               &special_units_sv, &associated_special_units_sv);
 
       html_setup_global_units_direction_names (converter);
       html_setup_global_texts_direction_names (converter);
@@ -608,13 +585,8 @@ html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
 {
   if (self->external_references_number > 0)
     {
-      rebuild_output_units_list (self->document, output_units_sv,
-                         self->output_units_descriptors[OUDT_units]);
-      rebuild_output_units_list (self->document, special_units_sv,
-                 self->output_units_descriptors[OUDT_special_units]);
-      rebuild_output_units_list (self->document,
-                                 associated_special_units_sv,
-        self->output_units_descriptors[OUDT_associated_special_units]);
+      store_output_units_texinfo_tree (self, &output_units_sv,
+                               &special_units_sv, &associated_special_units_sv);
 
       html_setup_global_units_direction_names (self);
       html_setup_global_texts_direction_names (self);

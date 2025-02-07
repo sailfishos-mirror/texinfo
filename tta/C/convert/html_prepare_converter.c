@@ -3999,6 +3999,8 @@ html_prepare_conversion_units (CONVERTER *self)
 
   /* reset to the default */
   set_global_document_commands (self, CL_before, conf_for_special_units);
+
+  self->document->modified_information |= F_DOCM_output_units;
 }
 
 
@@ -5771,6 +5773,8 @@ html_prepare_units_directions_files (CONVERTER *self,
   prepare_special_units_directions (self, special_units);
 
   units_file_directions (output_units);
+
+  self->document->modified_information |= F_DOCM_output_units;
 
  /* elements_in_file_count is only set in HTML, not in
     Texinfo::Convert::Converter */

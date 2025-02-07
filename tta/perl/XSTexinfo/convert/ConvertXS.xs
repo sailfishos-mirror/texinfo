@@ -920,7 +920,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
                                      &associated_special_units_sv);
 
         /* calls Perl customization functions, so need to be done after
-           build_output_units_list calls to be able to retrieve Perl
+           pass_output_units_list calls to be able to retrieve Perl
            output units references */
         html_prepare_conversion_units_targets (self, self->document_name);
 
@@ -1132,9 +1132,9 @@ html_output (SV *converter_in, SV *document_in)
         const char *destination_directory;
         const char *output_filename;
         const char *document_name;
-        SV *output_units_sv;
-        SV *special_units_sv;
-        SV *associated_special_units_sv;
+        SV *output_units_sv = 0;
+        SV *special_units_sv = 0;
+        SV *associated_special_units_sv = 0;
       CODE:
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
@@ -1169,7 +1169,7 @@ html_output (SV *converter_in, SV *document_in)
                                      &associated_special_units_sv);
 
         /* calls Perl customization functions, so need to be done after
-            build_output_units_list calls to be able to retrieve Perl
+            pass_output_units_list calls to be able to retrieve Perl
             output units references */
         html_prepare_conversion_units_targets (self, self->document_name);
 
@@ -1253,9 +1253,9 @@ html_convert (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
         char *result;
-        SV *output_units_sv;
-        SV *special_units_sv;
-        SV *associated_special_units_sv;
+        SV *output_units_sv = 0;
+        SV *special_units_sv = 0;
+        SV *associated_special_units_sv = 0;
       CODE:
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
@@ -1279,7 +1279,7 @@ html_convert (SV *converter_in, SV *document_in)
                                      &associated_special_units_sv);
 
         /* calls Perl customization functions, so need to be done after
-           build_output_units_list calls to be able to retrieve Perl
+           pass_output_units_list calls to be able to retrieve Perl
            output units references */
         html_prepare_conversion_units_targets (self, self->document_name);
 
@@ -1818,6 +1818,12 @@ html_current_output_unit (SV *converter_in)
         self = get_sv_converter (converter_in, "html_current_output_unit");
         if (!self->current_output_unit)
           RETVAL = newSV (0);
+        else if (!self->current_output_unit->hv)
+          {
+            fprintf (stderr, "BUG: html_current_output_unit No hv: %zu %s\n",
+                     self->current_output_unit->index,
+                     self->current_output_unit->unit_filename);
+          }
         else
           RETVAL = newRV_inc ((SV *) self->current_output_unit->hv);
     OUTPUT:

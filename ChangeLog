@@ -1,5 +1,38 @@
 2025-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (pass_output_units_list): new function
+	to build output unit array to Perl.  Can set output units arrays, if
+	they are not set in input, or reuse them if they are passed.
+
+	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree): add
+	function that rebuild the tree and all the output units to Perl,
+	setting "document_units" in Perl converter too.  Move function needed
+	before store_output_units_texinfo_tree.
+
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_conversion_output_units, html_pass_units_directions_files)
+	(html_pass_output_units_global_targets),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_prepare_conversion_units),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_convert): use
+	store_output_units_texinfo_tree instead of build_output_units_list
+	or rebuild_output_units_list.  Set arrays references to 0 in callers
+	in xs.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_prepare_conversion_units, html_prepare_units_directions_files),
+	tta/C/main/build_perl_info.c (store_output_units_texinfo_tree): use
+	F_DOCM_output_units document->modified_information flag to notify that
+	the output_units should be rebuilt to Perl.
+
+	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(split_by_node, split_by_section), tta/C/main/build_perl_info.c: use
+	pass_output_units_list instead of
+	build_output_units_list/rebuild_output_units_list.  Remove
+	build_output_units_list and rebuild_output_units_list.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_prepare_converter.c: add const.
 
 	* tta/C/convert/html_prepare_converter.c
