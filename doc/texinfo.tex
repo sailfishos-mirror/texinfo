@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-07.09}
+\def\texinfoversion{2025-02-07.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -9056,15 +9056,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \setbox\infofilenamebox = \hbox{\infofilename\unskip}%
   %
   \startxreflink{#1}{#4}%
-  {%
-    % Have to otherify everything special to allow the \csname to
-    % include an _ in the xref name, etc.
-    \indexnofonts
-    \turnoffactive
-    \def\value##1{##1}%
-    \expandafter\global\expandafter\let\expandafter\Xthisreftitle
-      \csname XR#1-title\endcsname
-  }%
+  \getrefx{#1-title}\Xthisreftitle
   %
   % Float references are printed completely differently: "Figure 1.2"
   % instead of "[somenode], p.3".  \iffloat distinguishes them by
@@ -9108,10 +9100,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \else
       % Reference within this manual.
       %
-      % Only output a following space if the -snt ref is nonempty, as the ref
-      % will be empty for @unnumbered and @anchor.
-      \setbox2 = \hbox{\ignorespaces \refx{#1-snt}}%
-      \ifdim \wd2 > 0pt \refx{#1-snt}\space\fi
+      % Only output a following space if the -snt ref is nonempty, as is
+      % the case for @unnumbered and @anchor.
+      \getrefx{#1-snt}\tmp
+      \ifx\tmp\empty\else
+        \ifx\tmp\Yanchor\else
+          \tmp\space
+        \fi
+      \fi
       %
       % output the `[mynode]' via the macro below so it can be overridden.
       \xrefprintnodename\printedrefname
