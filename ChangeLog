@@ -1,5 +1,15 @@
 2025-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_output_internal_links): remove
+	unused variable.
+
+	* tta/perl/t/init/access_document_name_in_handler.pm
+	(_texi2any_tests_access_document_name_in_handler): return 0.
+
+	Changes in comments.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (pass_output_units_list): new function
 	to build output unit array to Perl.  Can set output units arrays, if
 	they are not set in input, or reuse them if they are passed.

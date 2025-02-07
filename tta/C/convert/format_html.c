@@ -12934,7 +12934,6 @@ html_output_internal_links (CONVERTER *self)
 
           for (i = 0; i < label_targets->number; i++)
             {
-              int called = 0;
               LABEL *label = &label_targets->list[i];
 
               if (!label->identifier || label->reference)

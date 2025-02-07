@@ -496,6 +496,16 @@ get_sv_option (OPTION *option, SV *value, int force,
         option->o.buttons
            = html_get_button_specification_list (converter, value);
         if (option->o.buttons && options)
+          /* FIXME options->BIT_user_function_number is checked relatively
+             early in html_converter_customize to set self->external_references_number,
+             called through html_converter_get_customization_sv called in
+             converter_initialize.
+             if a button with a reference to a Perl function is
+             added after converter initialization, for instance in an handler,
+             nothing makes sure that 1) self->external_references_number is
+             updated. 2) that the code that was not run, for instance
+             when preparing output units is run
+           */
           options->BIT_user_function_number
             += option->o.buttons->BIT_user_function_number;
         break;

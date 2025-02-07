@@ -184,6 +184,10 @@ destroy_indices_sorted_by_letter (
 
 /* corresponding perl code in Texinfo::Common */
 
+/* It would have been better to return a const element, as the calling codes
+   are not supposed to modify the tree, however in the calling code the
+   elements are put in arrays of non-const elements, even though they are not
+   modified */
 ELEMENT *
 index_content_element (const ELEMENT *element, int prefer_reference_element)
 {

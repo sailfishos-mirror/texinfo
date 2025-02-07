@@ -6,6 +6,7 @@ my $document_name;
 sub _button_show_document_name($)
 {
   my $self = shift;
+  #print STDERR "CURENT_UNIT ".$self->current_output_unit()."\n";
   return $document_name, 1;
 }
 
@@ -25,6 +26,7 @@ sub _texi2any_tests_access_document_name_in_handler
     $self->set_conf('SECTION_BUTTONS', \@section_buttons);
     $button_added = 1;
   }
+  return 0;
 }
 
 texinfo_register_handler('structure',
