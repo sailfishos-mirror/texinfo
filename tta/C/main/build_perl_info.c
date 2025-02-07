@@ -3380,8 +3380,8 @@ pass_output_unit_files (SV *converter_sv,
   hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
   SvREFCNT_inc (key##_sv);
   STORE(filenames);
-  STORE (file_counters);
-  STORE (out_filepaths);
+  STORE(file_counters);
+  STORE(out_filepaths);
 #undef STORE
 }
 

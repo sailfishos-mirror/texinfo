@@ -24,6 +24,9 @@ Perl trees and modify the Perl tree only, and, if they have modified the tree,
 in general need to remove the link to C data, as the unmodified C data would be
 converted instead.
 
+XS interface for output_unit_files initialize_output_units_files,
+register_normalize_case_filename...
+
 
 Bugs
 ====

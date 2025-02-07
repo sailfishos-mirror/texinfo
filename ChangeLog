@@ -1,5 +1,17 @@
 2025-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_units_directions_files): remove
+	pass_html_elements_in_file_count, as the information is accessed
+	through an XS interface only.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: remove unused
+	registered_filename function.
+
+	* tta/C/main/build_perl_info.c: change in spacing.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash): if output
 	units are built late, there will already be directions but no hv, so
 	it is not an error to have no hv where a direction points to.

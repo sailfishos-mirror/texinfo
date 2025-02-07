@@ -538,26 +538,6 @@ build_html_elements_in_file_count (
 }
 
 void
-pass_html_elements_in_file_count (SV *converter_sv,
-                   FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
-{
-  HV *elements_in_file_count_hv;
-  HV *converter_hv;
-
-  dTHX;
-
-  converter_hv = (HV *) SvRV (converter_sv);
-
-  elements_in_file_count_hv
-   = build_html_elements_in_file_count (output_unit_files);
-
-  hv_store (converter_hv, "elements_in_file_count",
-            strlen ("elements_in_file_count"),
-            newRV_noinc ((SV *) elements_in_file_count_hv), 0);
-}
-
-
-void
 html_pass_units_directions_files (CONVERTER *converter,
                                   SV *converter_sv, SV *output_units_sv,
                                   SV *special_units_sv,
@@ -570,9 +550,6 @@ html_pass_units_directions_files (CONVERTER *converter,
 
       html_setup_global_units_direction_names (converter);
       html_setup_global_texts_direction_names (converter);
-
-      pass_html_elements_in_file_count (converter_sv,
-                                        &converter->output_unit_files);
 
       /* file names API */
       pass_output_unit_files (converter_sv, &converter->output_unit_files);

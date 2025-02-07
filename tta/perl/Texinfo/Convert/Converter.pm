@@ -786,25 +786,6 @@ sub register_normalize_case_filename($$)
   return $filename;
 }
 
-# return the registered filename if there is one, else return undef.
-# Note that it only tells that a file name has been its name considered,
-# not that the corresponding file is created.
-# currently unused.
-sub registered_filename($$)
-{
-  my $self = shift;
-  my $filename = shift;
-
-  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
-    if (exists($self->{'filenames'}->{lc($filename)})) {
-      return $self->{'filenames'}->{lc($filename)};
-    }
-  } elsif (exists($self->{'filenames'}->{$filename})) {
-    return $self->{'filenames'}->{$filename};
-  }
-  return undef;
-}
-
 # Sets $output_unit->{'unit_filename'}.
 sub set_output_unit_file($$$)
 {
