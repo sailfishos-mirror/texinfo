@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-07.20}
+\def\texinfoversion{2025-02-07.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -8384,7 +8384,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % That gets used by \mbodybackslash (above).
 %
 % If there are 10 or more arguments, a different technique is used: see
-% \parsemmanyargdef.
+% \parsemmanyargdef@@.
 %
 \def\parsemargdef#1;{%
   \paramno=0\def\paramlist{}%
@@ -8681,15 +8681,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         \noexpand\expandafter
         \expandafter\noexpand\csname\the\macname @@\endcsname}%
       \expandafter\xdef\csname\the\macname @@\endcsname##1{%
-          \noexpand\passargtomacro
-          \expandafter\noexpand\csname\the\macname @@@\endcsname{##1,}}%
+        \noexpand\passargtomacro
+        \expandafter\noexpand\csname\the\macname @@@\endcsname{##1,}}%
       \expandafter\xdef\csname\the\macname @@@\endcsname##1{%
-          \expandafter\noexpand\csname\the\macname @@@@\endcsname ##1}%
-      \expandafter\expandafter
-      \expandafter\xdef
-      \expandafter\expandafter
-        \csname\the\macname @@@@\endcsname\paramlist{%
-          \endgroup\noexpand\scanmacro{\macrobody}}%
+        \expandafter\noexpand\csname\the\macname @@@@\endcsname ##1}%
+      \expandaftergroup{\expandafter\xdef\csname\the\macname @@@@\endcsname}%
+                       \paramlist{%
+        \endgroup\noexpand\scanmacro{\macrobody}}%
     \else % 10 or more:
       \expandafter\xdef\csname\the\macname\endcsname{%
         \noexpand\getargvals@{\the\macname}{\argl}%
@@ -8700,6 +8698,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi}
 
 \catcode `\@\texiatcatcode\relax % end private-to-Texinfo catcodes
+
+% utility definition to avoid excessive use of \expandafter.  call
+% as \expandaftergroup{CONTENT}\WORD to expand \WORD exactly once and remove
+% braces around CONTENT.
+\def\expandaftergroup#1#2{%
+  \expandafter\expandaftergroupx\expandafter{#2}{#1}%
+}
+\def\expandaftergroupx#1#2{%
+  #2#1%
+}
 
 \def\norecurse#1{\bgroup\cslet{#1}{macsave.#1}}
 
@@ -8870,9 +8878,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \expandafter\noexpand
     \csname\the\macname @@@\endcsname##1\noexpand\endlinemacro
   }
-  \expandafter\expandafter
-  \expandafter\xdef
-  \expandafter\expandafter\csname\the\macname @@@\endcsname\paramlist{%
+  \expandaftergroup{\expandafter\xdef\csname\the\macname @@@\endcsname}%
+                     \paramlist{%
     \newlinechar=13 % split \macrobody into lines
     \noexpand\scantokens{\macrobody}%
   }
