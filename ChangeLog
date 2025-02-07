@@ -1,3 +1,11 @@
+2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\getrefx): Call \turnoffactive and make the
+	other changes to make node names expandable, as was done in \refx.
+	(\refx): Call \getrefx.
+	
+	Report from Werner.
+
 2025-02-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Macro argument space trimming

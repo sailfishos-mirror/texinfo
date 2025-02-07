@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-06.22}
+\def\texinfoversion{2025-02-07.09}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -9311,14 +9311,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % \refx{NAME} - reference a cross-reference string named NAME.
 \def\refx#1{%
-  \requireauxfile
-  {%
-    \indexnofonts
-    \turnoffactive
-    \def\value##1{##1}%
-    \expandafter\global\expandafter\let\expandafter\thisrefX
-      \csname XR#1\endcsname
-  }%
+  \getrefx{#1}\thisrefX
   \ifx\thisrefX\relax
     % If not defined, say something at least.
     \angleleft un\-de\-fined\angleright
@@ -9341,7 +9334,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % Set #2 to xref string #1
 \def\getrefx#1#2{%
-  \expandafter\let\expandafter#2\csname XR#1\endcsname
+  \requireauxfile
+  {%
+    \indexnofonts
+    \turnoffactive
+    \def\value##1{##1}%
+    \expandafter\global\expandafter\let\expandafter#2\csname XR#1\endcsname
+  }%
 }
 
 % This is the macro invoked by entries in the aux file.  Define a control 
