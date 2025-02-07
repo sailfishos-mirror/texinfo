@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-07.13}
+\def\texinfoversion{2025-02-07.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -8368,6 +8368,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % <parameter list> is #, then the preceding argument is delimited by
 % an opening brace, and that opening brace is not consumed.
 
+% Make @ a letter, so that we can make private-to-Texinfo macro names.
+\edef\texiatcatcode{\the\catcode`\@}
+\catcode `@=11\relax
+
 % Parse the optional {params} list to @macro or @rmacro.
 % Set \paramno to the number of arguments,
 % and \paramlist to a parameter text for the macro (e.g. #1,#2,#3 for a
@@ -8411,14 +8415,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % body to be transformed.
 % Set \macrobody to the body of the macro, and call \macrodef.
 %
+\catcode `\@\texiatcatcode
 {\catcode`\ =\other\long\gdef\parsemacbody#1@end macro{%
 \xdef\macrobody{\eatcr{#1}}\endgroup\macrodef}}%
 {\catcode`\ =\other\long\gdef\parsermacbody#1@end rmacro{%
 \xdef\macrobody{\eatcr{#1}}\endgroup\macrodef}}%
-
-% Make @ a letter, so that we can make private-to-Texinfo macro names.
-\edef\texiatcatcode{\the\catcode`\@}
-\catcode `@=11\relax
+\catcode `\@=11\relax
 
 %%%%%%%%%%%%%% Code for > 10 arguments only   %%%%%%%%%%%%%%%%%%
 

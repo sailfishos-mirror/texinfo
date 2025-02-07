@@ -703,6 +703,20 @@ Like an argument to @b{@@footnote}.
 @end example
 
 
+@chapter More than ten arguments
+
+@macro Many {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u}
+\a\ \b\ \c\ \d\ \e\ \f\
+ok
+\p\ \q\ \s\ \t\ \u\
+@end macro
+
+@Many{a1,b1,c1,d1,e1,f1,g1,h1,i1,j1,k1,l1,m1,n1,o1,p1,q1,r1,s1,t1,u1}
+
+a1 b1 c1 d1 e1 f1
+ok
+p1 q1 s1 t1 u1
+
 
 
 @chapter Line macros

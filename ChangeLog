@@ -1,5 +1,14 @@
 2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Macros with > 10 arguments
+
+	* doc/texinfo.tex (\parsemargdef): Move change of catcode of @,
+	as we were unable to call \parsemmanyargdef@@.  This has apparently
+	been broken for many years.
+	* doc/texinfo-tex-test.texi (More than ten arguments): add test case.
+
+2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po_document/adjust-translations.pl: add missing braces
 	for argument of accent command, for Catalan translation.
 	Report from Werner.
