@@ -4094,7 +4094,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
 {
   size_t i;
   TEXT text_name;
-  OUTPUT_UNIT_LIST *special_units = retrieve_output_units
+  const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_special_units]);
 
   char *extension = "";
@@ -4108,7 +4108,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
       TARGET_FILENAME *target_filename;
       char *default_filename = 0;
       char *filename = 0;
-      OUTPUT_UNIT *special_unit = special_units->list[i];
+      const OUTPUT_UNIT *special_unit = special_units->list[i];
       const char *special_unit_variety = special_unit->special_unit_variety;
 
       /* refers to self->special_unit_info */
@@ -4185,7 +4185,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
 static void
 prepare_associated_special_units_targets (CONVERTER *self)
 {
-  OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
+  const OUTPUT_UNIT_LIST *associated_special_units = retrieve_output_units
    (self->document,
     self->output_units_descriptors[OUDT_associated_special_units]);
 
@@ -4197,8 +4197,8 @@ prepare_associated_special_units_targets (CONVERTER *self)
           HTML_TARGET *element_target;
           TARGET_FILENAME *target_filename;
           char *filename = 0;
-          OUTPUT_UNIT *special_unit = associated_special_units->list[i];
-          char *special_unit_variety = special_unit->special_unit_variety;
+          const OUTPUT_UNIT *special_unit = associated_special_units->list[i];
+          const char *special_unit_variety = special_unit->special_unit_variety;
 
           /* it may be undef'ined in user customization code */
           const char *target = html_special_unit_info (self, SUI_type_target,
@@ -4393,7 +4393,7 @@ set_root_commands_targets_node_files (CONVERTER *self)
           char *user_node_filename;
           const ELEMENT *label_element;
           const ELEMENT *target_element;
-          LABEL *label = &label_targets->list[i];
+          const LABEL *label = &label_targets->list[i];
 
           if (!label->identifier || label->reference)
             continue;
@@ -4490,17 +4490,19 @@ prepare_index_entries_targets (CONVERTER *self)
                   0, idx->entries_number * sizeof (int));
           for (j = 0; j < idx->entries_number; j++)
             {
-              INDEX_ENTRY *index_entry;
+              const INDEX_ENTRY *index_entry;
               const ELEMENT *main_entry_element;
               const ELEMENT *seeentry;
               const ELEMENT *seealso;
+              /* not modified, but cannot be explicit const as it is inserted
+                 in an array of non-const elements */
               ELEMENT *entry_reference_content_element;
               ELEMENT *normalize_index_element;
               ELEMENT_LIST *subentries_tree;
               const ELEMENT *target_element;
               TEXT target_base;
               char *normalized_index;
-              char *region = 0;
+              const char *region;
               char *target;
 
               index_entry = &idx->index_entries[j];
@@ -4812,6 +4814,8 @@ ids_hashmap_predicted_values (CONVERTER *self)
    requiring elements and output units except for external nodes formatting */
 /* for conversion units except for associated special units that require
    files for document units to be set */
+/* does not modify the structures the labels are prepared for (output units,
+   command elements, index entries...) */
 void
 html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
@@ -4936,13 +4940,13 @@ html_prepare_output_units_global_targets (CONVERTER *self)
       size_t l;
       for (l = 0; l < self->customized_global_units_directions.number; l++)
         {
-          ELEMENT *node_element = 0;
-          DIRECTION_NODE_NAME *direction_node_name
+          const ELEMENT *node_element = 0;
+          const DIRECTION_NODE_NAME *direction_node_name
             = &self->customized_global_units_directions.list[l];
           size_t global_directions_idx;
-          size_t document_descriptor;
-          DOCUMENT *document;
-          ELEMENT *tree;
+          size_t label_document_descriptor;
+          DOCUMENT *label_document;
+          ELEMENT *label_tree;
 
           if (direction_node_name->direction_nr <= D_Last+1)
             /* replace a default global direction */
@@ -4963,12 +4967,13 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           parser_conf_set_NO_INDEX (1);
           parser_conf_set_NO_USER_COMMANDS (1);
 
-          document_descriptor = parse_string (direction_node_name->node_name, 1);
-          document = retrieve_document (document_descriptor);
-          if (document->parser_error_messages.number > 0)
+          label_document_descriptor
+            = parse_string (direction_node_name->node_name, 1);
+          label_document = retrieve_document (label_document_descriptor);
+          if (label_document->parser_error_messages.number > 0)
             {
-              ERROR_MESSAGE_LIST *error_messages
-                = &document->parser_error_messages;
+              const ERROR_MESSAGE_LIST *error_messages
+                = &label_document->parser_error_messages;
               size_t j;
               fprintf (stderr, "Global %s node name parsing %zu error(s)\n",
                        direction_node_name->direction,
@@ -4979,16 +4984,16 @@ html_prepare_output_units_global_targets (CONVERTER *self)
               for (j = 0; j < error_messages->number; j++)
                 fprintf (stderr, "%s", error_messages->list[j].error_line);
             }
-          wipe_document_parser_errors (document_descriptor);
-          tree = unregister_document_merge_with_document (document_descriptor,
-                                                          self->document);
+          wipe_document_parser_errors (label_document_descriptor);
+          label_tree = unregister_document_merge_with_document (
+                              label_document_descriptor, self->document);
 
-          if (tree)
+          if (label_tree)
             {
-              char *normalized_node = convert_to_identifier (tree);
+              char *normalized_node = convert_to_identifier (label_tree);
               if (normalized_node)
                 {
-                  char *non_hyphen_char = normalized_node
+                  const char *non_hyphen_char = normalized_node
                                      + strspn (normalized_node, "-");
                   if (*non_hyphen_char)
                     {
@@ -4998,7 +5003,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
                     }
                   free (normalized_node);
                 }
-              destroy_element_and_children (tree);
+              destroy_element_and_children (label_tree);
             }
           if (!node_element)
             {
@@ -5062,7 +5067,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           for (j = 0; j < units_list->number; j++)
             {
               const OUTPUT_UNIT *special_unit = units_list->list[j];
-              const char *special_unit_variety = special_unit->special_unit_variety;
+              const char *special_unit_variety
+                = special_unit->special_unit_variety;
               int special_unit_direction_index
                 = html_special_unit_variety_direction_index (self,
                                                 special_unit_variety);
