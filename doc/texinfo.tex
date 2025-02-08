@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-07.21}
+\def\texinfoversion{2025-02-08.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1388,9 +1388,6 @@ output) for that.)}
     \safewhatsit{\pdfdest name{\pdfdestname} xyz}%
   }
   %
-  % used to mark target names; must be expandable.
-  \def\pdfmkpgn#1{#1}
-  %
   % Adding outlines to PDF; macros for calculating structure of outlines
   % come from Petr Olsak
   \def\expnumber#1{\expandafter\ifx\csname#1\endcsname\relax 0%
@@ -1416,7 +1413,7 @@ output) for that.)}
       \def\pdfdestname{#4}%
     \fi
     %
-    \pdfoutline goto name{\pdfmkpgn{\pdfdestname}}#2{\pdfoutlinetext}%
+    \pdfoutline goto name{\pdfdestname}#2{\pdfoutlinetext}%
   }
   %
   \def\pdfmakeoutlines{%
@@ -1541,7 +1538,7 @@ output) for that.)}
   %
   \def\pdflink#1{\pdflinkpage{#1}{#1}}%
   \def\pdflinkpage#1#2{%
-    \startlink attr{/Border [0 0 0]} goto name{\pdfmkpgn{#1}}
+    \startlink attr{/Border [0 0 0]} goto name{#1}
     \setcolor{\linkcolor}#2\endlink}
 \else
   % non-pdf mode
@@ -9201,7 +9198,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
        \ifnum\filenamelength>0
          goto file{\the\filename.pdf} name{\pdfdestname}%
        \else
-         goto name{\pdfmkpgn{\pdfdestname}}%
+         goto name{\pdfdestname}%
        \fi
      \else % XeTeX
        \ifnum\filenamelength>0

@@ -1,3 +1,8 @@
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\pdfmkpgn): Remove completely, as it appears to
+	be useless.
+
 2025-02-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\expandaftergroup): add utility definition.
