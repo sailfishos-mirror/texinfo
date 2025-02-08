@@ -1,5 +1,11 @@
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]: Make
+	\idxinitialentry capture arguments otherwise we typeset
+	junk at the end of the table of contents.
+
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfmakeoutlines) [xetex]: Output index
 	initials at the right level.
 
