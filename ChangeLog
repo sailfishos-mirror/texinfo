@@ -1,5 +1,10 @@
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\pdfmakeoutlines) [xetex]: Output index
+	initials at the right level.
+
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]: Output entries
 	for index initials at the right level if @printindex is used
 	at the level of @section or below.
