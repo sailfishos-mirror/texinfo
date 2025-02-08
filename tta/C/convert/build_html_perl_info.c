@@ -548,8 +548,6 @@ html_pass_units_directions_files (CONVERTER *converter,
       store_output_units_texinfo_tree (converter, &output_units_sv,
                                &special_units_sv, &associated_special_units_sv);
 
-      html_setup_global_units_direction_names (converter);
-
       /* file names API */
       pass_output_unit_files (converter_sv, &converter->output_unit_files);
     }
@@ -563,8 +561,6 @@ html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
     {
       store_output_units_texinfo_tree (self, &output_units_sv,
                                &special_units_sv, &associated_special_units_sv);
-
-      html_setup_global_units_direction_names (self);
     }
 }
 

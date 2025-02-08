@@ -297,6 +297,14 @@ In quotation
 @chapter Chap
 ', {'init_files' => ['access_document_name_in_handler.pm']},
 ],
+['access_global_direction_unit_in_handler',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+', {'init_files' => ['access_global_direction_unit_in_handler.pm']},
+],
 # a series of tests with special unit direction customization showing the
 # effect of adding customization information needed by the change.
 ['ref_for_special_unit_direction',
@@ -358,7 +366,7 @@ $directions_buttons_text,
 ', {'init_files' => ['index_direction_from_index_name.pm']},
 ],
 # TODO different result in XS (abort) and in Perl (sets the relative
-# direction to th eglobal direction) to be "fixed" before enabling the
+# direction to the global direction) to be "fixed" before enabling the
 # test.
 #['set_global_direction_for_relative_direction',
 #$direction_strings_test_text,

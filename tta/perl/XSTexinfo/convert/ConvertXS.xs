@@ -2313,6 +2313,10 @@ html_global_direction_unit (SV *converter_in, direction_name)
                                  "html_global_direction_unit");
         if (self)
           {
+            if (self->global_units_direction_names.number == 0)
+              html_setup_global_units_direction_names (self);
+            store_output_units_texinfo_tree (self, 0, 0, 0);
+
             output_unit
               = html_find_direction_name_global_unit (self, direction_name);
           }

@@ -3,6 +3,24 @@
 	* tta/C/convert/build_html_perl_info.c
 	(html_pass_units_directions_files)
 	(html_pass_output_units_global_targets),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_global_direction_unit):
+	call html_setup_global_units_direction_names directly in
+	html_global_direction_unit before calling
+	html_find_direction_name_global_unit.  Call also
+	store_output_units_texinfo_tree.
+
+	* tta/perl/t/init_files_tests.t
+	(access_global_direction_unit_in_handler),
+	tta/perl/t/init/access_global_direction_unit_in_handler.pm,
+	tta/perl/Makefile.am (test_files), tta/perl/Makefile.tres: add test
+	with set_global_direction called in setup handler and
+	global_direction_unit called in button formatting function.
+
+2025-02-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_units_directions_files)
+	(html_pass_output_units_global_targets),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_global_direction_text):
 	call html_setup_global_texts_direction_names in
 	html_global_direction_text just before it is used, and call it only if
