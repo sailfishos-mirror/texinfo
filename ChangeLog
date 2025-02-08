@@ -1,5 +1,12 @@
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\listoffloats): Define \entry as \entryinternal.
+
+	* doc/texinfo-tex-test.texi: Define \entry for tests of index
+	formatting.
+
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Index page links
 
 	* doc/texinfo.tex (\entry, \entryinternal): Rename to \entryinternal.

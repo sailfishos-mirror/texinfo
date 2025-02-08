@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-08.14}
+\def\texinfoversion{2025-02-08.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -10012,6 +10012,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \toksA = \expandafter{\csname XR#1-lof\endcsname}%
   %
   % use the same \entry macro we use to generate the TOC and index.
+  \let\entry\entryinternal
   \edef\writeentry{\noexpand\entry{\the\toksA}{\csname XR#1-pg\endcsname}}%
   \writeentry
 }}

@@ -1516,6 +1516,7 @@ ee
 \tolerance = 9500
 \plainfrenchspacing
 \everypar = {}%
+\let\entry\indexentry
 }
 
 \gdef \commenceindex{%
