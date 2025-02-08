@@ -1,5 +1,16 @@
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Index page links
+
+	* doc/texinfo.tex (\entry, \entryinternal): Rename to \entryinternal.
+	For PDF output, if \linkentrytextfalse and \entrypagetarget is set,
+	use \pdlinkpage to link the entry text to the page number.
+	(\indexentry): Add wrapper for \entryinternal.  Check if index
+	page number list has a comma in it, and if not, set \entrypagetarget.
+	(\printindex): Use \indexentry for \entry.
+
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfmkpgn): Remove completely, as it appears to
 	be useless.
 

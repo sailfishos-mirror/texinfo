@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-08.11}
+\def\texinfoversion{2025-02-08.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -5520,6 +5520,7 @@ $$%
   \tolerance = 9500
   \plainfrenchspacing
   \everypar = {}% don't want the \kern\-parindent from indentation suppression.
+  \let\entry\indexentry
   %
   % See comment in \requireopenindexfile.
   \def\indexname{#1}\ifx\indexname\indexisfl\def\indexname{f1}\fi
@@ -5595,6 +5596,32 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \enddoublecolumns
   }%
 }
+
+\def\indexentry#1#2{%
+  \let\entrypagetarget\empty
+  \ifpdforxetex
+    % only link the index text to the page if no comma appears in the
+    % list of pages, i.e. there is only one page
+    \checkpagelistcomma{#2}\pagelistcomma
+    \expandafter\ifcase\pagelistcomma
+      \def\entrypagetarget{#2}%
+    \fi
+  \fi%
+  \entryinternal{#1}{#2}%
+}
+
+\def\checkpagelistcomma#1#2{%
+  \checkpagelistcommaxx#2#1,\finish
+}
+\def\checkpagelistcommaxx#1#2,#3\finish{%
+  \def\tmp{#3}%
+  \ifx\tmp\empty
+    \def#1{0\relax}
+  \else
+    \def#1{1\relax}
+  \fi
+}
+
 
 % These macros are used by the sorted index file itself.
 % Change them to control the appearance of the index.
@@ -5701,16 +5728,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \newdimen\entrycontskip
 \entrycontskip=1em
 
-% for PDF output, whether to make the text of the entry a link to the page
-% number.  set for @contents and @shortcontents where there is only one
-% page number.
+% for PDF output, whether to make the text of the entry a link to the section.
+% set for @contents and @shortcontents.
 \newif\iflinkentrytext
 
-% \entry typesets a paragraph consisting of the text (#1), dot leaders, and
-% then page number (#2) flushed to the right margin.  It is used for index
-% and table of contents entries.  The paragraph is indented by \leftskip.
-% If \tocnodetarget is set, link text to the referenced node.
-\def\entry{%
+% \entryinternal typesets a paragraph consisting of the text (#1), dot
+% leaders, and then page number (#2) flushed to the right margin.  It is
+% used for index and table of contents entries.  The paragraph is indented
+% by \leftskip.
+% For PDF output, if \linkentrytexttrue and \tocnodetarget is set, link text
+% to the referenced node.  Else if \entrypagetarget is set, link text to the
+% page.
+\def\entryinternal{%
   \begingroup
     %
     % Start a new paragraph if necessary, so our assignments below can't
@@ -5758,7 +5787,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
             \endlink
           \fi
         \else
-          \unhbox\boxA
+          \ifx\entrypagetarget\empty
+            \unhbox\boxA
+          \else
+            \pdflinkpage{\entrypagetarget}{\unhbox\boxA}%
+          \fi
         \fi
       \else
         \unhbox\boxA
@@ -7164,6 +7197,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \extrasecnoskip=0pt
 
 \let\tocnodetarget\empty
+\let\entrypagetarget\empty
 
 % \tocentry{TITLE}{SEC NO}{NODE}{PAGE}
 %
@@ -7171,7 +7205,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \def\tocnodetarget{#3}%
   \def\secno{#2}%
   \ifx\empty\secno
-    \entry{#1}{#4}%
+    \entryinternal{#1}{#4}%
   \else
     \ifdim 0pt=\secnowidth
       \setbox0=\hbox{#2\hskip\labelspace\hskip\extrasecnoskip}%
@@ -7182,7 +7216,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         #2\hskip\labelspace\hskip\extrasecnoskip\hfill}%
     \fi
     \entrycontskip=\wd0
-    \entry{\box0 #1}{#4}%
+    \entryinternal{\box0 #1}{#4}%
   \fi
 }
 \newdimen\labelspace
