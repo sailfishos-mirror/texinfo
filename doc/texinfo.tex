@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-08.16}
+\def\texinfoversion{2025-02-08.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1424,15 +1424,18 @@ output) for that.)}
 	\def\thischapnum{##2}%
 	\def\thissecnum{0}%
 	\def\thissubsecnum{0}%
+	\def\indexlastsec{chap\thischapnum}%
       }%
       \def\numsecentry##1##2##3##4{%
 	\advancenumber{chap\thischapnum}%
 	\def\thissecnum{##2}%
 	\def\thissubsecnum{0}%
+	\def\indexlastsec{sec\thissecnum}%
       }%
       \def\numsubsecentry##1##2##3##4{%
 	\advancenumber{sec\thissecnum}%
 	\def\thissubsecnum{##2}%
+	\def\indexlastsec{subsec\thissecnum}%
       }%
       \def\numsubsubsecentry##1##2##3##4{%
 	\advancenumber{subsec\thissubsecnum}%
@@ -1440,7 +1443,13 @@ output) for that.)}
       \def\thischapnum{0}%
       \def\thissecnum{0}%
       \def\thissubsecnum{0}%
+      \let\indexlastsec\empty
       %
+      % Index initials are subsidiary to whatever sectioning command just
+      % occurred, usually @appendix or @chapter but occasionally a lower level.
+      \def\idxinitialentry{%
+        \expandafter\advancenumber\expandafter{\indexlastsec}%
+      }%
       % use \def rather than \let here because we redefine \chapentry et
       % al. a second time, below.
       \def\appentry{\numchapentry}%
@@ -1452,9 +1461,6 @@ output) for that.)}
       \def\unnsubsecentry{\numsubsecentry}%
       \def\unnsubsubsecentry{\numsubsubsecentry}%
       %
-      % Treat index initials like @section.  Note that this is the wrong
-      % level if the index is not at the level of @appendix or @chapter.
-      \def\idxinitialentry{\numsecentry}%
       \readdatafile{toc}%
       %
       % Read toc second time, this time actually producing the outlines.
@@ -1478,19 +1484,7 @@ output) for that.)}
         \dopdfoutline{##1}{}{##3}{##4}}%
       \def\idxinitialentry##1##2##3##4{%
         \dopdfoutline{##1}{}{idx.##1.##2}{##4}}%
-      %
-      % PDF outlines are displayed using system fonts, instead of
-      % document fonts.  Therefore we cannot use special characters,
-      % since the encoding is unknown.  For example, the eogonek from
-      % Latin 2 (0xea) gets translated to a | character.  Info from
-      % Staszek Wawrykiewicz, 19 Jan 2004 04:09:24 +0100.
-      %
-      % TODO this right, we have to translate 8-bit characters to
-      % their "best" equivalent, based on the @documentencoding.  Too
-      % much work for too little return.  Just use the ASCII equivalents
-      % we use for the index sort strings.
       % 
-      \indexnofonts
       \ifnodeseen\else \dopdfoutlinecontents \fi % for @contents at beginning
       \setupdatafile
       % We can have normal brace characters in the PDF outlines, unlike

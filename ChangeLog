@@ -1,5 +1,14 @@
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]: Output entries
+	for index initials at the right level if @printindex is used
+	at the level of @section or below.
+	(\pdfmakeoutlines): Remove obsolete comment about Latin-2 encoding.
+	Remove unnecessary call to \indexnofonts as this is also done
+	later in \setpdfoutlinetext.
+
+2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\listoffloats): Define \entry as \entryinternal.
 
 	* doc/texinfo-tex-test.texi: Define \entry for tests of index
