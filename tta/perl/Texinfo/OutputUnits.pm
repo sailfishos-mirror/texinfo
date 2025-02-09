@@ -69,8 +69,10 @@ my %XS_overrides = (
 # used in conversion only, and should only be loaded with XS converters
 my %XS_convert_overrides = (
   # Not useful for HTML as functions, as the calling functions are
-  # already overriden
-  # Could be readded when other converters than HTML are done in C
+  # already overriden.
+  # Could be readded for other converters than HTML with C implementation.
+  # It should be avoided, though, it is preferrable to avoid mixing Perl and C
+  # and to override the functions calling those functions instead.
   #  "Texinfo::OutputUnits::split_by_node"
   #    => "Texinfo::StructTransfXS::split_by_node");
   #  "Texinfo::OutputUnits::split_by_section"

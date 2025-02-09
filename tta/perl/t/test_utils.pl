@@ -1417,8 +1417,9 @@ sub test($$)
     if ($self->{'DEBUG'} and $unsplit_needed);
 
   # There is no XS overriding for the following codes. rebuild_output_units
-  # does nothing if there is no XS structures, which allows to have tests
-  # passing when XS is used (in the default case).  If overriding
+  # does nothing if there is no output unit descriptor, the function may
+  # be called when XS is used but there is nothing setup for output units
+  # in C/XS (as is the case in the code below).  If overriding
   # of XS is setup, most likely all the functions should have an XS override
   # (units_directions has not, though there is an implementation in C),
   # otherwise some information will be missing in the rebuild_output_units
@@ -1446,10 +1447,11 @@ sub test($$)
     Texinfo::OutputUnits::split_pages($output_units, $split_pages);
   }
 
-  # FIXME does nothing, no XS?
-  if ($test_split or $split_pages) {
-    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
-  }
+  # There are no XS overrides, so the changes are in Perl only, no need
+  # to rebuild Perl from C.
+  #if ($test_split or $split_pages) {
+  #  Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
+  #}
 
  COMPARE:
 
