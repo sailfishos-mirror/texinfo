@@ -547,9 +547,6 @@ html_pass_units_directions_files (CONVERTER *converter,
     {
       store_output_units_texinfo_tree (converter, &output_units_sv,
                                &special_units_sv, &associated_special_units_sv);
-
-      /* file names API */
-      pass_output_unit_files (converter_sv, &converter->output_unit_files);
     }
 }
 

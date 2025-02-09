@@ -3422,6 +3422,11 @@ build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
   return newRV_noinc ((SV *) hv);
 }
 
+/* currently unused */
+/* Not needed because all the information is already in overriden functions,
+   setup in _prepare_units_directions_files (calling _html_set_pages_files)
+   and _node_redirections, and accessed through _html_convert_output
+   and count_elements_in_filename. */
 void
 pass_output_unit_files (SV *converter_sv,
                         const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)

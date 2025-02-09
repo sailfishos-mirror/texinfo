@@ -17,16 +17,6 @@ Version libraries?
 use directories for files used for htmlxref.conf
 https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00087.html
 
-Check uses of document->tree() and uses of Document rebuild_tree to see
-which possibilities are used and where.  Indeed, now most if not all
-methods on tree do not have XS interfaces, therefore should be used on
-Perl trees and modify the Perl tree only, and, if they have modified the tree,
-in general need to remove the link to C data, as the unmodified C data would be
-converted instead.
-
-XS interface for output_unit_files initialize_output_units_files,
-register_normalize_case_filename...
-
 
 Bugs
 ====

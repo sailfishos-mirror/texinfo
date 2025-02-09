@@ -322,7 +322,7 @@ document_internal_references_information (SV *document_in)
 SV *
 document_labels_list (SV *document_in)
 
-# customization_information
+# optional argument is customization_information
 void
 setup_indices_sort_strings (SV *document_in, ...)
     PROTOTYPE: $$
@@ -335,7 +335,7 @@ setup_indices_sort_strings (SV *document_in, ...)
           document_indices_sort_strings (document, &document->error_messages,
                                          document->options);
 
-# customization_information
+# optional argument is customization_information
 SV *
 indices_sort_strings (SV *document_in, ...)
     PROTOTYPE: $$

@@ -809,7 +809,7 @@ sub set_output_unit_file($$$)
       print STDERR "set_output_unit_file: already set: $filename\n"
          if ($self->get_conf('DEBUG'));
     } else {
-      print STDERR  "set_output_unit_file: unit_filename reset: "
+      print STDERR "set_output_unit_file: unit_filename reset: "
         .$output_unit->{'unit_filename'}.", $filename\n"
            if ($self->get_conf('DEBUG'));
     }
