@@ -948,7 +948,8 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_sv, SV *
                    output_file, destination_directory, output_filename,
                                 document_name);
 
-        store_output_units_texinfo_tree (self, &output_units_sv,
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self, &output_units_sv,
                              &special_units_sv, &associated_special_units_sv);
 
         RETVAL = newSV (0);
@@ -967,7 +968,8 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_sv,
                                  "html_prepare_output_units_global_targets");
         html_prepare_output_units_global_targets (self);
 
-        store_output_units_texinfo_tree (self, &output_units_sv,
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self, &output_units_sv,
                       &special_units_sv, &associated_special_units_sv);
 
 void
@@ -1182,7 +1184,8 @@ html_output (SV *converter_in, SV *document_in)
                    output_file, destination_directory, output_filename,
                                 document_name);
 
-        store_output_units_texinfo_tree (self, &output_units_sv,
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self, &output_units_sv,
                              &special_units_sv, &associated_special_units_sv);
 
         /* html_prepare_converted_output_info */
@@ -1296,7 +1299,8 @@ html_convert (SV *converter_in, SV *document_in)
          */
         html_prepare_output_units_global_targets (self);
 
-        store_output_units_texinfo_tree (self, &output_units_sv,
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self, &output_units_sv,
                       &special_units_sv, &associated_special_units_sv);
 
         /* html_translate_names */

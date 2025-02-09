@@ -1,5 +1,13 @@
 2025-02-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_prepare_units_directions_files)
+	(html_prepare_output_units_global_targets, html_output, html_convert):
+	call store_output_units_texinfo_tree only if
+	self->external_references_number.
+
+2025-02-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_info.c,
 	tta/perl/XSTexinfo/convert/ConvertXS.xs
 	(html_prepare_units_directions_files)
