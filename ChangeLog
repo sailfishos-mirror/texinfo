@@ -1,3 +1,9 @@
+2025-02-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\doindexinitialentry): Remove output
+	of empty vbox as it appears to mess up the double column
+	index formatting in some cases.
+
 2025-02-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/maintain/all_tests.sh: update defs path.  Use DIFF_OPTIONS.

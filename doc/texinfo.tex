@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-09.21}
+\def\texinfoversion{2025-02-09.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -5693,18 +5693,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\doindexinitialentry#1{%
   \ifpdforxetex
     \global\advance\idxinitialno by 1
-    \def\indexlbrace{\{}
-    \def\indexrbrace{\}}
-    \def\indexbackslash{\realbackslash}
-    \def\indexatchar{\@}
+    \def\indexlbrace{\{}%
+    \def\indexrbrace{\}}%
+    \def\indexbackslash{\realbackslash}%
+    \def\indexatchar{\@}%
     \writetocentry{idxinitial}{\asis #1}{IDX\the\idxinitialno}%
     % The @asis removes a pair of braces around e.g. {@indexatchar} that
     % are output by texindex.
     %
-    \vbox to 0pt{}%
-    % This vbox fixes the \pdfdest location for double column formatting.
-    % Without it, the \pdfdest is output above topskip glue at the top
-    % of a column as this glue is not added until the first box.
     \pdfmkdest{idx.\asis #1.IDX\the\idxinitialno}%
   \fi
 }
