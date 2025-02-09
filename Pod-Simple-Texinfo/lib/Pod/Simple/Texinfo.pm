@@ -426,7 +426,7 @@ sub _protect_hashchar($)
     # the modified Perl tree.  Another option could have been to call
     # protect_hashchar_at_line_beginning_in_document, but it is supposed
     # to be internal for tests only.
-    $tree = Texinfo::Document::rebuild_tree($tree, 1);
+    $tree = Texinfo::Document::build_tree($tree, 1);
     Texinfo::Transformations::protect_hashchar_at_line_beginning($tree);
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
@@ -442,7 +442,7 @@ sub _reference_to_text_in_texi($)
   my $tree = $document->tree();
   # Remove the link to C data, such that convert_to_texinfo converts
   # the modified Perl tree.
-  $tree = Texinfo::Document::rebuild_tree($tree, 1);
+  $tree = Texinfo::Document::build_tree($tree, 1);
   Texinfo::Transformations::reference_to_arg_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -541,7 +541,7 @@ sub _normalize_texinfo_name($$;$)
                          '_normalize_texinfo_name');
   }
   # Remove the link with C data to modify and convert a Perl tree
-  $tree = Texinfo::Document::rebuild_tree($tree, 1);
+  $tree = Texinfo::Document::build_tree($tree, 1);
 
   if ($command eq 'anchor') {
     Texinfo::Transformations::protect_first_parenthesis_in_targets($tree);

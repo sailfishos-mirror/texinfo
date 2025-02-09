@@ -72,7 +72,7 @@ is($result_from_handle, $reference_from_handle,
    'convert tree with tree handle');
 }
 
-my $tree_rebuilt = Texinfo::Document::rebuild_tree($tree_handle, 0);
+my $tree_rebuilt = Texinfo::Document::build_tree($tree_handle, 0);
 my $result_from_rebuilt = $converter->convert_tree($tree_rebuilt);
 
 is($result_from_rebuilt, $reference_output,
@@ -82,7 +82,7 @@ my $other_document = $parser->parse_texi_piece('AA @emph{bb}');
 my $other_tree_handle = $other_document->tree(1);
 
 my $other_tree_rebuilt_to_perl_only
-  = Texinfo::Document::rebuild_tree($other_tree_handle, 1);
+  = Texinfo::Document::build_tree($other_tree_handle, 1);
 my $result_from_rebuild_perl_only
   = $converter->convert_tree($other_tree_rebuilt_to_perl_only);
 

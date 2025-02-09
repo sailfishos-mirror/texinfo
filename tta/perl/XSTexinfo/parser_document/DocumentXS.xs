@@ -92,12 +92,12 @@ configure_output_strings_translations (localesdir, strings_textdomain="texinfo_d
                                               use_external_translate_string);
 
 # This XS interface is rarely used, as, in general, a document is available
-# and document_tree can be used instead.  It may be used to force the C
-# data to be removed, with no_store set to 1 to ensure that the resulting tree
-# modified by pure Perl functions is not taken unmodified from C again.
-# TODO change that no_store set to 1 is the default?  Change name?
+# and document_tree can be used instead.  It may be useful for a tree from
+# parse_texi_piece to force the C data to be removed, with no_store set to
+# 1 to ensure that the resulting tree modified by pure Perl functions is not
+# taken unmodified from C again.
 SV *
-rebuild_tree (SV *tree_in, ...)
+build_tree (SV *tree_in, ...)
       PROTOTYPE: $;$
       PREINIT:
         int no_store = 0;

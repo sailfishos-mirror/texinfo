@@ -42,7 +42,7 @@ sub run_test($$$$)
   my $tree_as_text = $document->tree();
 
   my $line_parser = Texinfo::Parser::parser();
-  # turned to a Perl ony tree, no test of XS
+  # turned to a Perl only tree, no test of XS
   my $tree_as_line = $line_parser->parse_texi_line($in, undef, 1);
 
   if ($do->{'protect_colon'}) {

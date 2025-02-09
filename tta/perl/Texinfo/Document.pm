@@ -54,8 +54,8 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::document_errors",
   "Texinfo::Document::parser_errors"
     => "Texinfo::DocumentXS::document_parser_errors",
-  "Texinfo::Document::rebuild_tree"
-    => "Texinfo::DocumentXS::rebuild_tree",
+  "Texinfo::Document::build_tree"
+    => "Texinfo::DocumentXS::build_tree",
   "Texinfo::Document::tree"
     => "Texinfo::DocumentXS::document_tree",
   "Texinfo::Document::register_document_options"
@@ -240,7 +240,7 @@ sub remove_document($)
 
 # this method does nothing, but the XS override rebuilds the Perl
 # tree based on XS data.
-sub rebuild_tree($;$)
+sub build_tree($;$)
 {
   my $tree = shift;
   my $no_store = shift;
@@ -934,43 +934,43 @@ C<global_information>.
 
 =head2 Methods for Perl and C code interactions
 
-The parsing of Texinfo code, structuring and transformations of the tree
-called through Texinfo Perl modules may be done by pure Perl modules or
+The parsing of Texinfo code, structuring and transformations of the document
+and tree called through Texinfo Perl modules may be done by pure Perl modules or
 by C code called through XS interfaces.  In general, it makes no difference
 whether pure Perl or C code is used.  When the document and tree are
-modified by C code, the Perl structures are automatically rebuilt when
+modified by C code, the Perl data are automatically rebuilt when
 calling the accessors described previously.  In some cases, however, specific
 functions need to be called to pass information from C to Perl or perform
 actions related to C data.
 
-The methods can always be called on pure Perl modules even if they do nothing.
-Therefore it is, in general, better to call them assuming that modules
-setting up C data were called, even when it is not the case.
-
 When the tree is directly accessed in Perl (not through a document)
-but is modified by C code, for instance called through L<Texinfo::Common> or
-L<Texinfo::Transformations> methods, the Perl structures need to be rebuilt
-from the C data with C<rebuild_tree>:
+but is modified by C code, or when the Perl tree holds only a reference to
+C data, but no Perl data, you can build the Perl data from the C data
+with C<build_tree>:
 
 =over
 
-=item $rebuilt_tree = rebuild_tree($tree, $no_store)
-X<C<rebuild_tree>>
+=item $tree = build_tree($tree, $no_store)
+X<C<build_tree>>
 
-Return a I<$rebuilt_tree>, rebuilt from C data if needed.  If there
-is no C data, the tree is returned as is.  The tree rebuilt is
-based on the Texinfo parsed document associated to the Texinfo
-tree I<$tree>.
+Return a I<$tree>, built from C data.  If there is no Perl extensions in C,
+the tree is returned as is.  The tree built is based on the Texinfo parsed
+document associated to the Texinfo tree I<$tree>.
 
-If the optional I<$no_store> argument is set, remove the C data.
+If the optional I<$no_store> argument is set, remove the C data.  It may be
+useful if you call functions that modify the Perl tree only, and not the C data,
+followed by functions call that output the result and uses the C data if present.
+Removing the C data makes sure that the output is not based on unmodified C data,
+but on the modified Perl data.
 
 =back
 
 Note that the Perl tree associated to a document is rebuilt from C data
 when calling C<< $document->tree() >>.  Similarly, the tree is rebuilt when
 calling other accessors that depend on the document tree.  Therefore
-C<rebuild_tree> should only be called when there is no document associated to a
-tree and C<< $document->tree() >> cannot be called to rebuild the tree.
+C<build_tree> should only be called when there is no document associated to a
+tree and C<< $document->tree() >> cannot be called to rebuild the tree,
+or with the I<$no_store> argument, if you want to remove the link with C data.
 
 Some methods allow to release the memory held by C data associated
 to a Texinfo parsed document:
