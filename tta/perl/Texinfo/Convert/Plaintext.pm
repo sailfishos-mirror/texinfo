@@ -699,6 +699,7 @@ sub output($$)
 
   Texinfo::OutputUnits::split_pages($output_units, $self->get_conf('SPLIT'));
 
+  # FIXME does nothing, no XS?
   Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
 
   # determine file names associated with the different pages

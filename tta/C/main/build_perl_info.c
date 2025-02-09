@@ -906,7 +906,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 HV *
 build_texinfo_tree (ELEMENT *root, int avoid_recursion)
 {
-  /* should not happen because called should make sure to call with a tree */
+  /* should not happen because caller should make sure to call with a tree */
   if (! root)
     return 0;
   /*
@@ -2027,7 +2027,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
       for (i = 0; i < output_unit->unit_contents.number; i++)
         {
-          HV *element_hv = output_unit->unit_contents.list[i]->hv;
+          const ELEMENT *element = output_unit->unit_contents.list[i];
+          HV *element_hv = element->hv;
           SV *unit_sv;
 
           if (!element_hv)
@@ -2037,10 +2038,14 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
 
           av_push (av, sv);
 
-          unit_sv = newRV_inc ((SV *) output_unit->hv);
-          /* set the tree element associated_unit */
-          hv_store (element_hv, "associated_unit", strlen ("associated_unit"),
-                    unit_sv, 0);
+          if (element->e.c->associated_unit == output_unit)
+            {
+              unit_sv = newRV_inc ((SV *) output_unit->hv);
+              /* set the tree element associated_unit */
+              hv_store (element_hv, "associated_unit",
+                        strlen ("associated_unit"),
+                        unit_sv, 0);
+            }
         }
     }
 
@@ -2174,6 +2179,44 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
   return result_sv;
 }
 
+SV *
+store_document_tree_output_units (DOCUMENT *document)
+{
+  SV *result_sv = 0;
+
+  dTHX;
+
+  if (document)
+    {
+ /* need to setup the Perl tree before rebuilding the output units as
+    they refer to Perl root command elements */
+
+      if (document->tree)
+        result_sv = store_document_texinfo_tree (document);
+
+      /* we hope that there are not two output units lists referring to the
+         tree... */
+      if (document->modified_information & F_DOCM_output_units)
+        {
+          const OUTPUT_UNIT_LISTS *output_units_lists
+            = &document->output_units_lists;
+          size_t i;
+
+          if (output_units_lists->number > OUDT_external_nodes_units+1)
+            fprintf (stderr, "WARNING: %zu output units built to Perl\n",
+                     output_units_lists->number);
+
+          for (i = 0; i < output_units_lists->number; i++)
+            {
+              output_units_list_to_perl_hash (document, i+1);
+            }
+
+          document->modified_information &= ~F_DOCM_output_units;
+        }
+    }
+  return result_sv;
+}
+
 /* Get a reference to the document tree.  Either from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -2239,7 +2282,7 @@ funcname (SV *document_in) \
 \
   if (document && document->fieldname)\
     {\
-      store_document_texinfo_tree (document);\
+      store_document_tree_output_units (document);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (document->fieldname);\
@@ -2291,7 +2334,7 @@ funcname (SV *document_in) \
 \
   if (document)\
     {\
-      store_document_texinfo_tree (document);\
+      store_document_tree_output_units (document);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (&document->fieldname);\

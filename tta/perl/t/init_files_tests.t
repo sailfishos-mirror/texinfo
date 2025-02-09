@@ -305,6 +305,14 @@ In quotation
 @chapter Chap
 ', {'init_files' => ['access_global_direction_unit_in_handler.pm']},
 ],
+['access_output_unit_in_handler',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+', {'init_files' => ['access_output_unit_in_handler.pm']},
+],
 # a series of tests with special unit direction customization showing the
 # effect of adding customization information needed by the change.
 ['ref_for_special_unit_direction',

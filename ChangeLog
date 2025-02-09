@@ -1,3 +1,36 @@
+2025-02-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/converter.c (set_output_unit_file),
+	tta/C/main/output_unit.c (destroy_output_unit): duplicate
+	output_unit->unit_filename in set_output_unit_file, such that, if
+	output_unit_file is destroyed, the string still exists.  Free it.
+
+	* tta/C/main/output_unit.c (destroy_output_unit): set associated_unit
+	to 0 for all the elements in output_unit->unit_contents that are
+	associated to an output unit being destroyed.
+
+	* tta/C/convert/converter.c (reset_generic_converter): free output
+	units lists associated to the converter.
+
+	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash): set
+	associated_unit in Perl output unit only if there is an associated
+	unit for the element in C.
+
+	* tta/C/main/build_perl_info.c (store_document_tree_output_units): add
+	to be able to build Perl output units with the information on document
+	only.
+
+	* tta/C/main/build_perl_info.c (BUILD_PERL_DOCUMENT_ITEM)
+	(BUILD_PERL_DOCUMENT_LIST): call store_document_tree_output_units
+	instead of store_document_texinfo_tree in the macros used to set the
+	document XS interface functions.
+
+	* tta/perl/t/init/access_output_unit_in_handler.pm,
+	tta/perl/Makefile.am (test_files), tta/perl/Makefile.tres,
+	tta/perl/t/init_files_tests.t (access_output_unit_in_handler): add
+	test testing access to output units from an handler from the tree
+	elements.
+
 2025-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]: Make

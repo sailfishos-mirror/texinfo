@@ -1402,9 +1402,8 @@ sub test($$)
   # remove the association of top-level commands with element units, in case
   # a converter split the document.
   # It may be noticed that this is only done after all conversions.  This
-  # means that depending on the order of converters call, trees feed to
-  # converters may have element units.  All the converters will have the
-  # document_root as argument.
+  # means that depending on the order of converters call, documents feed to
+  # converters may have element units.
   # It could be possible to unsplit before each converter call, but it is
   # better to check that this does not have an effect on conversion.
   # Any conversion to Info, Plaintext or HTML (both with output and convert)
@@ -1447,6 +1446,7 @@ sub test($$)
     Texinfo::OutputUnits::split_pages($output_units, $split_pages);
   }
 
+  # FIXME does nothing, no XS?
   if ($test_split or $split_pages) {
     Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
   }

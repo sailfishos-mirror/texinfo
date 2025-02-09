@@ -311,10 +311,19 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
      as they are not in the document Texinfo tree */
   if (output_unit->special_unit_variety)
     destroy_element (output_unit->uc.special_unit_command);
+  else if (output_unit->unit_contents.number)
+    {
+      size_t i;
+      for (i = 0; i < output_unit->unit_contents.number; i++)
+        {
+          ELEMENT *element = output_unit->unit_contents.list[i];
+          if (element->e.c->associated_unit
+              && element->e.c->associated_unit == output_unit)
+            element->e.c->associated_unit = 0;
+        }
+    }
   free (output_unit->unit_contents.list);
-  /* no need to free output_unit->unit_filename as it is a
-     reference on output_unit_files list FILE_NAME_PATH_COUNTER
-   */
+  free (output_unit->unit_filename);
   free (output_unit);
 }
 
@@ -328,6 +337,7 @@ free_output_unit_list (OUTPUT_UNIT_LIST *output_units_list)
       destroy_output_unit (output_units_list->list[i]);
     }
   free (output_units_list->list);
+  memset (output_units_list, 0, sizeof (OUTPUT_UNIT_LIST));
 }
 
 void

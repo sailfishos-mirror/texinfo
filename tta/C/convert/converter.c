@@ -59,6 +59,7 @@
 #include "manipulate_tree.h"
 #include "unicode.h"
 #include "manipulate_indices.h"
+#include "output_unit.h"
 #include "document.h"
 #include "api_to_perl.h"
 #include "html_converter_api.h"
@@ -1727,10 +1728,10 @@ register_normalize_case_filename (CONVERTER *self, const char *filename)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
-              fprintf (stderr, "Reusing case-insensitive %s for %s\n",
+              fprintf (stderr, "C|Reusing case-insensitive %s for %s\n",
                        output_unit_file->filename, filename);
               /*
-              fprintf (stderr, "Reusing case-insensitive %s(%zu) for %s\n",
+              fprintf (stderr, "C|Reusing case-insensitive %s(%zu) for %s\n",
                        output_unit_file->filename, output_unit_file_idx,
                        filename);
                */
@@ -1754,10 +1755,10 @@ register_normalize_case_filename (CONVERTER *self, const char *filename)
             {
               FILE_NAME_PATH_COUNTER *output_unit_file
                 = &self->output_unit_files.list[output_unit_file_idx];
-              fprintf (stderr, "Reusing %s for %s\n",
+              fprintf (stderr, "C|Reusing %s for %s\n",
                        output_unit_file->filename, filename);
               /*
-              fprintf (stderr, "Reusing %s(%zu) for %s\n",
+              fprintf (stderr, "C|Reusing %s(%zu) for %s\n",
                        output_unit_file->filename, output_unit_file_idx,
                        filename);
                */
@@ -1779,7 +1780,8 @@ set_output_unit_file (CONVERTER *self, OUTPUT_UNIT *output_unit,
     = &self->output_unit_files.list[output_unit_file_idx];
   if (set_counter)
     output_unit_file->counter++;
-  output_unit->unit_filename = output_unit_file->filename;
+  free (output_unit->unit_filename);
+  output_unit->unit_filename = strdup (output_unit_file->filename);
   return output_unit_file_idx;
 }
 
@@ -1809,14 +1811,14 @@ set_file_path (CONVERTER *self, const char *filename, const char *filepath,
       if (!strcmp (output_unit_file->filepath, filepath_str))
         {
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "set_file_path: filepath set: %s\n",
+            fprintf (stderr, "C: set_file_path: filepath set: %s\n",
                              filepath_str);
           free (filepath_str);
         }
       else
         {
           if (self->conf->DEBUG.o.integer > 0)
-            fprintf (stderr, "set_file_path: filepath reset: %s, %s\n",
+            fprintf (stderr, "C: set_file_path: filepath reset: %s, %s\n",
                              output_unit_file->filepath, filepath_str);
           free (output_unit_file->filepath);
           output_unit_file->filepath = filepath_str;
@@ -1862,8 +1864,26 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 void
 reset_generic_converter (CONVERTER *self)
 {
+  int i;
+
   clear_output_files_information (&self->output_files_information);
   clear_output_unit_files (&self->output_unit_files);
+
+  for (i = 0; i < OUDT_external_nodes_units+1; i++)
+    {
+      if (self->output_units_descriptors[i])
+        {
+          OUTPUT_UNIT_LIST *output_unit_list
+            = retrieve_output_units (self->document,
+                                     self->output_units_descriptors[i]);
+          if (output_unit_list)
+            free_output_unit_list (output_unit_list);
+          self->output_units_descriptors[i] = 0;
+        }
+    }
+
+  /* FIXME check if the following could make cleaner status/code */
+  /* self->document = 0; */
 }
 
 void

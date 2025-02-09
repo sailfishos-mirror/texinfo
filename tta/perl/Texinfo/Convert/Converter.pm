@@ -918,7 +918,7 @@ sub set_output_units_files($$$$$$)
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my ($node_top_unit) = $self->_get_root_element($node_top);
+      my $node_top_unit = $self->_get_root_element($node_top);
       if (!defined($node_top_unit)) {
         print STDERR "No element for top node (".scalar(@$output_units)." units)\n"
          if ($self->get_conf('DEBUG'));
