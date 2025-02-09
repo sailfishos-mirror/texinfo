@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-08.19}
+\def\texinfoversion{2025-02-09.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -5170,8 +5170,8 @@ $$%
   %
   \uccode`\1=`\{ \uppercase{\def\{{1}}%
   \uccode`\1=`\} \uppercase{\def\}{1}}%
-  \let\lbracechar\{%
-  \let\rbracechar\}%
+  \def\lbracechar##1{\{}%
+  \def\rbracechar##1{\}}%
   %
   %
   % We need to get rid of all macros, leaving only the arguments (if present).
