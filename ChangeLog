@@ -1,5 +1,26 @@
 2025-02-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (build_tree): fix
+	warning string.
+
+	* tta/perl/Texinfo/Structuring.pm
+	(associate_internal_referencesNonXS): add for
+	t/z_misc/automatic_nodes.t test.
+
+	* tta/perl/t/z_misc/automatic_nodes.t (test_new_node): setup a @ref to
+	the added node (unprotected) to verify that
+	associate_internal_references actually use the new node.  Since the
+	node is unprotected, there will be errors for some nodes that get
+	protection in _new_node without being test failures.  Use
+	associate_internal_referencesNonXS instead of
+	associate_internal_references as everything needs to happen in pure
+	Perl.  Add a comment explaining why $document->labels_information()
+	returns labels information modified by pure Perl code in _new_node and
+	not C data, which is not modified.
+	Add references of error messages and check them.
+
+2025-02-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (%XS_overrides, build_tree),
 	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (build_tree):
 	rename rebuild_tree as build_tree.  Updte callers.

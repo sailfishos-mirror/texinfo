@@ -107,7 +107,7 @@ build_tree (SV *tree_in, ...)
         if (items > 1 && SvOK(ST(1)))
           no_store = SvIV (ST(1));
 
-        document = get_sv_tree_document (tree_in, "rebuild_tree");
+        document = get_sv_tree_document (tree_in, "build_tree");
         if (document)
           {
             SV *document_sv = build_document (document->descriptor, no_store);

@@ -482,9 +482,9 @@ sub set_labels_identifiers_target($$;$)
 
 # Not clear whether this should be considered as a private function
 # here solely to reuse code, or if it should be considered to be public.
-# There is no XS override but the function modifies data that is in C
-# when XS is used.  Therefore this function should only be called from Perl
-# if there is no XS used.
+# There is no XS override but the function modifies Perl data that is also
+# in C when XS is used.  Therefore this function should only be called from
+# Perl if there is no XS used.
 sub register_label_element($$;$$)
 {
   my $self = shift;

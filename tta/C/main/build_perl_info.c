@@ -2274,6 +2274,15 @@ document_tree (SV *document_in, int handler_only)
 
 /* Build Texinfo Document registered data to Perl */
 
+/* Note that the built Perl data is cached in the same place where pure Perl
+   code looks for.  The Perl data is returned if nothing changed in C.  It
+   means that after the first build to Perl, pure Perl code can change the
+   Perl data and get the modified Perl data back even if XS is used, without
+   XS/C code noticing any change.  In that case the C data will drift away
+   from the Perl data, which could lead to subtle bugs.
+ */
+
+/* FIXME not clear that the next comment is right */
 /* there are 2 differences between BUILD_PERL_DOCUMENT_ITEM and
    BUILD_PERL_DOCUMENT_LIST: in BUILD_PERL_DOCUMENT_LIST no check on existing
     and the address of document->fieldname is passed.

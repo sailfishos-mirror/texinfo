@@ -1074,7 +1074,8 @@ sub construct_nodes_tree($)
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-sub associate_internal_references($)
+# NonXS version, used in a test of internal pure Perl function.
+sub associate_internal_referencesNonXS($)
 {
   my $document = shift;
 
@@ -1137,6 +1138,13 @@ sub associate_internal_references($)
       }
     }
   }
+}
+
+sub associate_internal_references($)
+{
+  my $document = shift;
+
+  associate_internal_referencesNonXS($document);
 }
 
 sub number_floats($)
