@@ -102,6 +102,7 @@ rebuild_tree (SV *tree_in, ...)
       PREINIT:
         int no_store = 0;
         DOCUMENT *document = 0;
+        SV *result_sv = 0;
       CODE:
         if (items > 1 && SvOK(ST(1)))
           no_store = SvIV (ST(1));
@@ -109,23 +110,24 @@ rebuild_tree (SV *tree_in, ...)
         document = get_sv_tree_document (tree_in, "rebuild_tree");
         if (document)
           {
-       /* if no_store is set, get the reference on the tree HV before calling
-          build_document, as the tree is gonna be destroyed.  This requires
-          that the document the tree comes from to have already been built to
-          Perl.  If not, built it here. */
-
-            ELEMENT *tree = document->tree;
-            if (no_store)
-              {
-                if (!tree->hv)
-                  store_document_texinfo_tree (document);
-                RETVAL = newRV_inc ((SV *) tree->hv);
-              }
-
-            build_document (document->descriptor, no_store);
+            SV *document_sv = build_document (document->descriptor, no_store);
             if (!no_store)
-              RETVAL = newRV_inc ((SV *) tree->hv);
+              {
+                if (document->tree)
+                  result_sv = newRV_inc ((SV *) document->tree->hv);
+              }
+            else
+              { /* no more document->tree, get from Perl data */
+                HV *document_hv = (HV *) SvRV (document_sv);
+                SV **tree_sv = hv_fetch (document_hv, "tree",
+                                         strlen("tree"), 0);
+                if (tree_sv && SvOK (*tree_sv))
+                  result_sv = SvREFCNT_inc (*tree_sv);
+              }
           }
+
+        if (result_sv)
+          RETVAL = result_sv;
         else
           RETVAL = newSV(0);
     OUTPUT:

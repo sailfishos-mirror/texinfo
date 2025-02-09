@@ -1,5 +1,14 @@
 2025-02-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_document): setup registrar only
+	if a new Perl hash is setup.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (rebuild_tree):
+	change the logic of the code.  build document first, and get tree from
+	Perl hash if no_store is set.
+
+2025-02-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (document_tree): call
 	store_document_tree_output_units instead of
 	store_document_texinfo_tree.

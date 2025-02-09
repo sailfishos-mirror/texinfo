@@ -1860,15 +1860,17 @@ build_document (size_t document_descriptor, int no_store)
       SvREFCNT_inc ((SV *) hv);
     }
   else
-    hv = newHV ();
+    {
+      hv = newHV ();
+
+      /* error registrar for document to be used after parsing, for
+         structuring and tree modifications */
+      registrar_sv = new_texinfo_report ();
+      SvREFCNT_inc (registrar_sv);
+      hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+    }
 
   fill_document_hv (hv, document_descriptor, no_store);
-
-  /* New error registrar for document to be used after parsing, for
-     structuring and tree modifications */
-  registrar_sv = new_texinfo_report ();
-  SvREFCNT_inc (registrar_sv);
-  hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);
