@@ -26,15 +26,6 @@ void html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
                                    SV **output_units_sv, SV **special_units_sv,
                                    SV **associated_special_units_sv);
 
-void html_pass_units_directions_files (CONVERTER *converter,
-                                  SV *converter_sv, SV *output_units_sv,
-                                  SV *special_units_sv,
-                                  SV *associated_special_units_sv);
-
-void html_pass_output_units_global_targets (CONVERTER *self,
-                                            SV *output_units_sv,
-                        SV *special_units_sv, SV *associated_special_units_sv);
-
 SV *build_html_files_source_info
                           (const FILE_SOURCE_INFO_LIST *files_source_info);
 void pass_html_global_units_directions (SV *converter_sv,

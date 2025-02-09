@@ -537,30 +537,6 @@ build_html_elements_in_file_count (
   return hv;
 }
 
-void
-html_pass_units_directions_files (CONVERTER *converter,
-                                  SV *converter_sv, SV *output_units_sv,
-                                  SV *special_units_sv,
-                                  SV *associated_special_units_sv)
-{
-  if (converter->external_references_number > 0)
-    {
-      store_output_units_texinfo_tree (converter, &output_units_sv,
-                               &special_units_sv, &associated_special_units_sv);
-    }
-}
-
-void
-html_pass_output_units_global_targets (CONVERTER *self, SV *output_units_sv,
-                        SV *special_units_sv, SV *associated_special_units_sv)
-{
-  if (self->external_references_number > 0)
-    {
-      store_output_units_texinfo_tree (self, &output_units_sv,
-                               &special_units_sv, &associated_special_units_sv);
-    }
-}
-
 SV *
 build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 {

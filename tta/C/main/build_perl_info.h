@@ -93,8 +93,6 @@ SV *build_sv_converter_info_from_converter_initialization_info
        (const CONVERTER_INITIALIZATION_INFO *conf, CONVERTER *converter);
 void pass_generic_converter_to_converter_sv (SV *converter_sv,
                                              const CONVERTER *converter);
-void pass_output_unit_files (SV *converter_sv,
-                       const FILE_NAME_PATH_COUNTER_LIST *output_unit_files);
 
 void build_output_files_information (SV *converter_sv,
                 const OUTPUT_FILES_INFORMATION *output_files_information);

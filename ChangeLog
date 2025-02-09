@@ -1,5 +1,15 @@
 2025-02-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c,
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_prepare_units_directions_files)
+	(html_prepare_output_units_global_targets, html_output, html_convert):
+	inline html_prepare_units_directions_files and
+	html_prepare_output_units_global_targets in calling functions, and
+	remove the inlined functions.
+
+2025-02-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_info.c
 	(html_pass_units_directions_files): do not call
 	pass_output_unit_files, it is not needed, everything it sets is only

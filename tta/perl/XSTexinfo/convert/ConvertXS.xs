@@ -934,7 +934,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
 # the return value is not really used with XS, it is passed to another
 # XS function, but the value is ignored there.
 SV *
-html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in, output_file, destination_directory, output_filename, document_name)
+html_prepare_units_directions_files (SV *converter_in, SV *output_units_sv, SV *special_units_sv, SV *associated_special_units_sv, output_file, destination_directory, output_filename, document_name)
         const char *output_file = (char *)SvPVutf8_nolen($arg);
         const char *destination_directory = (char *)SvPVutf8_nolen($arg);
         const char *output_filename = (char *)SvPVutf8_nolen($arg);
@@ -948,9 +948,8 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
                    output_file, destination_directory, output_filename,
                                 document_name);
 
-        html_pass_units_directions_files (self, converter_in, output_units_in,
-                                          special_units_in,
-                                          associated_special_units_in);
+        store_output_units_texinfo_tree (self, &output_units_sv,
+                             &special_units_sv, &associated_special_units_sv);
 
         RETVAL = newSV (0);
     OUTPUT:
@@ -960,7 +959,7 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_in, SV *
 # Not called through output, as the Perl function is only called from
 # an overriden function in that case.
 void
-html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in, SV *special_units_in, SV *associated_special_units_in)
+html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_sv, SV *special_units_sv, SV *associated_special_units_sv)
   PREINIT:
         CONVERTER *self = 0;
      CODE:
@@ -968,8 +967,8 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_in,
                                  "html_prepare_output_units_global_targets");
         html_prepare_output_units_global_targets (self);
 
-        html_pass_output_units_global_targets (self, output_units_in,
-                              special_units_in, associated_special_units_in);
+        store_output_units_texinfo_tree (self, &output_units_sv,
+                      &special_units_sv, &associated_special_units_sv);
 
 void
 html_prepare_simpletitle (SV *converter_in)
@@ -1183,9 +1182,8 @@ html_output (SV *converter_in, SV *document_in)
                    output_file, destination_directory, output_filename,
                                 document_name);
 
-        html_pass_units_directions_files (self, converter_in, output_units_sv,
-                                          special_units_sv,
-                                          associated_special_units_sv);
+        store_output_units_texinfo_tree (self, &output_units_sv,
+                             &special_units_sv, &associated_special_units_sv);
 
         /* html_prepare_converted_output_info */
         status = html_prepare_converted_output_info (self, output_file,
@@ -1298,8 +1296,8 @@ html_convert (SV *converter_in, SV *document_in)
          */
         html_prepare_output_units_global_targets (self);
 
-        html_pass_output_units_global_targets (self, output_units_sv,
-                               special_units_sv, associated_special_units_sv);
+        store_output_units_texinfo_tree (self, &output_units_sv,
+                      &special_units_sv, &associated_special_units_sv);
 
         /* html_translate_names */
         /* setup untranslated strings */
