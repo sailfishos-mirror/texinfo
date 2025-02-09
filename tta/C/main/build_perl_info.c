@@ -2115,6 +2115,9 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
     }
 }
 
+/* Can be called to rebuild output units when the converter
+   is available, and also when the lists should be built/rebuilt.
+ */
 SV *
 store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
                                  SV **special_units_sv,
@@ -2179,6 +2182,11 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
   return result_sv;
 }
 
+/* Can be called to rebuild output units when the converter is not known.
+   Output units are kept in the document, but are setup and destroyed by
+   converters.  If converters accessed concurently documents, there may
+   be trouble here (and in other codes too).
+ */
 SV *
 store_document_tree_output_units (DOCUMENT *document)
 {
@@ -2234,7 +2242,7 @@ document_tree (SV *document_in, int handler_only)
   document = get_sv_document_document (document_in, 0);
 
   if (!handler_only && document)
-    result_sv = store_document_texinfo_tree (document);
+    result_sv = store_document_tree_output_units (document);
 
   if (!result_sv)
     {
