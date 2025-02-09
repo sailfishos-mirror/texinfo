@@ -23,6 +23,9 @@ if [ $# -gt 0 ]; then
  test_name=$1
 fi
 
+# for PERL and DIFF_OPTIONS
+. ../defs || exit 1
+
 cmds_list="clean|generate|output|diff|texis"
 
 if [ z"$command" = 'z' ]; then
@@ -36,24 +39,23 @@ if [ "$command" = 'clean' ]; then
 elif [ "$command" = 'diff' ]; then
   if [ z"$test_name" = 'z' ]; then
     for result in `cd $srcdir && echo t/results/*/*.pl`; do
-      diff -a -U 3 ${srcdir}/$result $result.new
+      diff $DIFF_OPTIONS -U 3 ${srcdir}/$result $result.new
     done
     for result in `cd $srcdir && echo t/results/*/*/res*/`; do
       out=`echo $result | sed 's;res\([^/]*/\)$;out\1;'`
-      diff -a -u -r ${srcdir}/$result $out
+      diff $DIFF_OPTIONS -r ${srcdir}/$result $out
     done
   else
     for result in `cd $srcdir && echo t/results/$test_name/*.pl`; do
-      diff -a -u ${srcdir}/$result $result.new
+      diff $DIFF_OPTIONS ${srcdir}/$result $result.new
     done
     for result in `cd $srcdir && echo t/results/$test_name/*/res*/`; do
       out=`echo $result | sed 's;res\([^/]*/\)$;out\1;'`
-      diff -a -u -r ${srcdir}/$result $out
+      diff $DIFF_OPTIONS -r ${srcdir}/$result $out
     done
   fi 
 else
   # commands that require PERL
-  . ./defs || exit 1
 
   if [ "$command" = 'generate' ]; then
     for file in ${srcdir}/t/*.t; do
