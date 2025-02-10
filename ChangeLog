@@ -1,5 +1,24 @@
 2025-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): increase
+	converter->external_references_number if the version of Perl prevents
+	C functions to be used for default buttons, such that Perl will
+	necessarily be called in default buttons.
+
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): increase
+	converter->external_references_number when handlers are registered, as
+	they could directly access Perl or setup buttons that will access Perl
+	later on.
+
+	* tta/C/convert/html_prepare_converter.c (html_converter_customize):
+	add to converter->external_references_number instead of setting it
+	since it may now already be set in
+	html_converter_get_customization_sv.
+
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/call_perl_function.c
 	(call_nodenamenormalization_unicode_to_transliterate),
 	tta/C/main/node_name_normalization.c (unicode_to_transliterate)

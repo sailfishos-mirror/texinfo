@@ -80,7 +80,7 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *t2a_builddir_sv, 
         RETVAL
 
 # More related to translations than to the Texinfo Document, but we do not
-# to add another XS file for only one function.
+# want to add another XS file for only one function.
 # There is no calling code that sets use_external_translate_string.
 void
 configure_output_strings_translations (localesdir, strings_textdomain="texinfo_document", int use_external_translate_string=0)

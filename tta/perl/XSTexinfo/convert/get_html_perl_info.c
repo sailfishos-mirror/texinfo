@@ -297,6 +297,14 @@ html_converter_get_customization_sv (SV *converter_sv,
 
   converter_hv = (HV *)SvRV (converter_sv);
 
+#if PERL_VERSION > 21 || (PERL_VERSION == 21 && PERL_SUBVERSION > 4)
+      /* see html_get_button_specification_list, in that case the Perl
+         function for default buttons is always selected, requiring
+         Perl converter state initialization.
+       */
+  converter->external_references_number++;
+#endif
+
   default_formatting_references_hv
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
@@ -1350,6 +1358,9 @@ html_converter_get_customization_sv (SV *converter_sv,
                       fprintf (stderr, "REGISTER handler %s: %s %p\n", stage_name,
                                handler_info->priority, handler_info->sv);
                         */
+     /* through a handler Perl may be accessed directly, especially in finish
+        but also buttons may be set that access to Perl relatively late */
+                      converter->external_references_number++;
                     }
                 }
             }

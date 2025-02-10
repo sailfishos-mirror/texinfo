@@ -178,7 +178,6 @@ build_html_formatting_state (CONVERTER *converter)
       return;
     }
 
-
   converter_hv = (HV *) SvRV ((SV *) converter->sv);
 
 #define STORE(key, value) hv_store (converter_hv, key, strlen (key), value, 0)

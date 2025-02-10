@@ -1992,6 +1992,7 @@ html_converter_customize (CONVERTER *self)
   int external_type_conversion_function = 0;
   int external_type_open_function = 0;
   int external_formatting_function = 0;
+  int added_external_references;
 
   /* for @sc */
   for (l = 0; default_upper_case_commands[l]; l++)
@@ -2618,7 +2619,7 @@ html_converter_customize (CONVERTER *self)
     }
 
  out:
-  self->external_references_number = self->conf->BIT_user_function_number
+  added_external_references = self->conf->BIT_user_function_number
         + self->file_id_setting_ref_number
         + external_special_unit_body_formatting_function
         + external_output_unit_conversion_function
@@ -2628,9 +2629,12 @@ html_converter_customize (CONVERTER *self)
         + external_type_open_function
         + external_formatting_function;
 
+  self->external_references_number += added_external_references;
+
    /*
-  fprintf (stderr, "TOTAL: %d. conf %zu fi %d sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
+  fprintf (stderr, "TOTAL: %d. prev %d conf %zu fi %d sbf %d ouc %d cc %d co %d tc %d to %d f %d\n",
            self->external_references_number,
+           self->external_references_number - added_external_references,
            self->conf->BIT_user_function_number,
            self->file_id_setting_ref_number,
            external_special_unit_body_formatting_function,

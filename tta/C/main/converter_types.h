@@ -838,7 +838,7 @@ typedef struct CONVERTER {
   /* HTML specific */
     /* set for a converter */
     int external_references_number; /* total number of external references
-                                       that could be called */
+                              that could be called during conversion */
     int code_types[TXI_TREE_TYPES_NUMBER];
     COMMAND_INTEGER_INFORMATION *html_customized_upper_case_commands;
     TYPE_INTEGER_INFORMATION *html_customized_code_types;
