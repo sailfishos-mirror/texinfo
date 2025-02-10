@@ -25,7 +25,16 @@ use File::Copy;
 use File::Basename;
 use File::Path;
 
+use Encode;
+use Unicode::Normalize;
+
 my @files;
+
+my $utf8_argument = 0;
+if (defined($ARGV[0]) and $ARGV[0] eq '--utf8-argument') {
+  $utf8_argument = 1;
+  shift;
+}
 
 # Read all of input first
 while (<>) {
@@ -39,12 +48,21 @@ while (<>) {
 
 my @moved_files;
 
-for my $file (@files) {
-  if ($file =~ /[^[:ascii:]]/) {
-    unshift @moved_files, $file;
+for my $in_file (@files) {
+  if ($in_file =~ /[^[:ascii:]]/) {
+    my $file_name;
+    if ($utf8_argument) {
+      # normalize to get a file name independent of the platform normalization
+      my $decoded_file_name = Encode::decode('UTF-8', $in_file);
+      my $normalized_file_name = Unicode::Normalize::NFC($decoded_file_name);
+      $file_name = Encode::encode('UTF-8', $normalized_file_name);
+    } else {
+      $file_name = $in_file;
+    }
+    unshift @moved_files, $in_file;
 
     my $ascii_name = '';
-    for my $char (split('', $file)) {
+    for my $char (split('', $file_name)) {
         if (ord($char) < 0x80) {
           $ascii_name .= $char;
         } else {
@@ -54,12 +72,12 @@ for my $file (@files) {
 
     my $dest_path = $ascii_name;
 
-    if (-d $file) {
+    if (-d $in_file) {
         mkdir $dest_path;
     } else {
-        my $copy_succeeded = copy($file, $dest_path);
+        my $copy_succeeded = copy($in_file, $dest_path);
         if (not $copy_succeeded) {
-          warn "could not move $file: $!\n";
+          warn "could not move $in_file: $!\n";
           exit(1);
         }
     }

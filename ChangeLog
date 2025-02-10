@@ -1,5 +1,22 @@
 2025-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	Normalize UTF-8 tests output file names for reproducibility
+
+	* tta/tests/escape_file_names.pl: if --utf8-argument is given, decode,
+	normalize and reencode input file name.
+
+	* tta/tests/run_parser_all.sh (escape_file_names): if
+	OUTPUT_FILE_NAME_ENCODING=UTF-8 appears on the command line pass
+	utf8_output_file argument to escape_file_names and have
+	escape_file_names pass the --utf8-argument command-line option to
+	escape_file_names.pl.
+
+	This allows to normalize output files to get the same result
+	independently of the platform notmalization of UTF-8 file names.
+	Report from Daniel Macks.
+
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
 	(html_converter_get_customization_sv): increase
 	converter->external_references_number if the version of Perl prevents

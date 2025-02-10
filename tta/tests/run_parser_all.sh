@@ -188,7 +188,11 @@ post_process_output ()
 # ensure only ASCII filenames are used in output
 escape_file_names ()
 {
-    find "${outdir}${dir}" | $PERL ${srcdir}/escape_file_names.pl
+    utf8_argument=
+    if test "z$1" = zutf8_output_file ; then
+      utf8_argument=--utf8-argument
+    fi
+    find "${outdir}${dir}" | $PERL ${srcdir}/escape_file_names.pl $utf8_argument
 }
 
 LC_ALL=C; export LC_ALL
@@ -457,6 +461,11 @@ while read line; do
       continue 2
     fi
 
+    utf8_output_file=no
+    if echo "$remaining" | grep 'OUTPUT_FILE_NAME_ENCODING=UTF-8' >/dev/null; then
+      utf8_output_file=utf8_output_file
+    fi
+
     dir=$current
     test -d "${outdir}$dir" && rm -rf "${outdir}$dir"
     mkdir "${outdir}$dir"
@@ -480,7 +489,7 @@ while read line; do
       rm -rf "${raw_outdir}$dir"
 
       post_process_output
-      escape_file_names
+      escape_file_names $utf8_output_file
 
       if test "z$res_dir_used" != 'z' ; then
         diff $DIFF_OPTIONS -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
