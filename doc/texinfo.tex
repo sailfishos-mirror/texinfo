@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-10.11}
+\def\texinfoversion{2025-02-10.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -985,12 +985,14 @@ where each line of input produces a line of output.}
   \luatextrue
 \fi
 
+% Whether to use non-ASCII bytes in internal link targets.  Presently this
+% is almost always on.
+\newif\iftxiuseunicodedestname
+\txiuseunicodedestnametrue
+
 %
 % For LuaTeX
 %
-
-\newif\iftxiuseunicodedestname
-\txiuseunicodedestnamefalse % For pdfTeX etc.
 
 \ifluatex
   % Use Unicode destination names

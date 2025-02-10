@@ -2619,6 +2619,23 @@ This test requires newer @command{pdfetex}.
 
 @fi
 
+@node Test of diacritics in node names
+@section Test of diacritics in node names
+
+The two nodes below differ by only a diacritic over the `o'.  Check links
+work.
+
+@node Bogen
+@subsection Bogen
+
+@xref{Bögen}.
+
+@page
+@node Bögen
+@subsection Bögen
+
+@xref{Bogen}.
+
 
 
 

@@ -1,5 +1,15 @@
 2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\iftxiuseunicodedestname): Set to true by
+	default to avoid clashes between node names that differ only
+	by an accent, such as "Bogen" vs. "Bögen".
+	* doc/texinfo-tex-test.texi (Test of diacritics in node names):
+	Add section.
+	
+	Report from Werner.
+
+2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]:
 	Move output of contents at end inside the group with the definitions
 	and catcode changes for the rest of the outline.
