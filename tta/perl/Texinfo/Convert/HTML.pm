@@ -6148,6 +6148,11 @@ sub _convert_printindex_command($$$$)
   # First collect the links that are used in entries and in letter summaries
   my $symbol_idx = 0;
   my $normalized_letter_idx = 0;
+
+  my $no_unidecode;
+  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
+                        and !$self->get_conf('USE_UNIDECODE'));
+
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $is_symbol = $letter !~ /^\p{Alpha}/;
@@ -6159,7 +6164,7 @@ sub _convert_printindex_command($$$$)
     } else {
       my $normalized_letter =
   Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-               {'text' => $letter});
+               {'text' => $letter}, $no_unidecode);
       my $letter_identifier = $normalized_letter;
       if ($normalized_letter ne $letter) {
         # disambiguate, as it could be another letter, case of @l, for example
