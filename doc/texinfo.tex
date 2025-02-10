@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-09.22}
+\def\texinfoversion{2025-02-10.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1492,9 +1492,9 @@ output) for that.)}
       \def\{{\lbracecharliteral}%
       \def\}{\rbracecharliteral}%
       \catcode`\\=\active \otherbackslash
-      \input \tocreadfilename
+      \input \tocreadfilename\relax
+      \ifnodeseen \dopdfoutlinecontents \fi % for @contents at end
     \endgroup
-    \ifnodeseen \dopdfoutlinecontents \fi % for @contents at end
   }
   \def\dopdfoutlinecontents{%
     \expandafter\dopdfoutline\expandafter{\putwordTOC}{}{txi.CONTENTS}{}%

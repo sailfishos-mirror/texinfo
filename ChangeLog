@@ -1,3 +1,9 @@
+2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\pdfmakeoutlines) [pdftex]:
+	Move output of contents at end inside the group with the definitions
+	and catcode changes for the rest of the outline.
+
 2025-02-10  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@direntry): pod2texi manual is included in texinfo
