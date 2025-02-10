@@ -50,7 +50,7 @@ Texts.  A copy of the license is included in the section entitled
 * install-info: (texinfo)Invoking install-info. Update info/dir entries.
 * texi2any: (texinfo)Invoking texi2any.         Translate Texinfo source.
 * makeinfo: (texinfo)Invoking texi2any.         Translate Texinfo source.
-* pod2texi: (pod2texi)Invoking pod2texi.        Translate Perl Pod to Texinfo.
+* pod2texi: (texinfo)Invoking pod2texi.         Translate Perl Pod to Texinfo.
 * texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
 * texi2pdf: (texinfo)PDF Output.                PDF output for Texinfo.
 * pdftexi2dvi: (texinfo)PDF Output.             PDF output for Texinfo.

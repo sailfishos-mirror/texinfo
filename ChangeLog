@@ -1,5 +1,11 @@
 2025-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@direntry): pod2texi manual is included in texinfo
+	manual.  Report from
+	https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1012612
+
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (ICONV_CONVERTS_EUC_CN): use *-solaris* to match
 	solaris host.
 
