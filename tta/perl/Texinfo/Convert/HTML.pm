@@ -6152,6 +6152,8 @@ sub _convert_printindex_command($$$$)
   my $no_unidecode;
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
+  my $in_test;
+  $in_test = 1 if ($self->get_conf('TEST'));
 
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
@@ -6164,7 +6166,7 @@ sub _convert_printindex_command($$$$)
     } else {
       my $normalized_letter =
   Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-               {'text' => $letter}, $no_unidecode);
+               {'text' => $letter}, $in_test, $no_unidecode);
       my $letter_identifier = $normalized_letter;
       if ($normalized_letter ne $letter) {
         # disambiguate, as it could be another letter, case of @l, for example
@@ -10633,6 +10635,8 @@ sub _prepare_index_entries_targets($)
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
+    my $in_test;
+    $in_test = 1 if ($self->get_conf('TEST'));
 
     foreach my $index_name (sort(keys(%$indices_information))) {
       foreach my $index_entry (@{$indices_information->{$index_name}
@@ -10662,7 +10666,7 @@ sub _prepare_index_entries_targets($)
 
         my $normalized_index =
           Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-             $normalize_index_element, $no_unidecode);
+             $normalize_index_element, $in_test, $no_unidecode);
         my $target_base = "index-" . $region .$normalized_index;
         my $target = _unique_target($self, $target_base);
         _register_id($self, $target);

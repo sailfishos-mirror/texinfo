@@ -910,6 +910,8 @@ sub _prepare_floats($)
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
+    my $in_test;
+    $in_test = 1 if ($self->get_conf('TEST'));
 
     foreach my $normalized_float_type (sort(keys(%{$floats}))) {
       my $latex_variable_float_name;
@@ -919,7 +921,7 @@ sub _prepare_floats($)
           = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
            {'contents' => $float->{'contents'}->[0]
                                      ->{'contents'}->[0]->{'contents'}},
-           $no_unidecode);
+           $in_test, $no_unidecode);
       } else {
         $latex_variable_float_name = $normalized_float_type;
       }

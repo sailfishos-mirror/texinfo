@@ -4,6 +4,37 @@
 	(call_nodenamenormalization_unicode_to_transliterate),
 	tta/C/main/node_name_normalization.c (unicode_to_transliterate)
 	(normalize_transliterate_texinfo)
+	(normalize_transliterate_texinfo_contents),
+	tta/perl/Texinfo/Convert/NodeNameNormalization.pm
+	(normalize_transliterate_texinfo, transliterate_texinfo)
+	(transliterate_protect_file_name, _unicode_to_transliterate),
+	tta/perl/Texinfo/Convert/Unicode.pm (%transliterate_map)
+	(%tests_specific_transliterate_map, %tests_transliterate_map):
+	split characters that need to be transliterated to the same value
+	than with unidecode for tests out of %transliterate_map to
+	%tests_specific_transliterate_map and merge with %transliterate_map to
+	set %tests_transliterate_map.  Add in_test argument for
+	_unicode_to_transliterate, if set, use %tests_transliterate_map
+	instead of %transliterate_map.  Update callers, including through
+	call_nodenamenormalization_unicode_to_transliterate XS.
+
+	* tta/C/convert/converter.c (normalized_sectioning_command_filename)
+	(node_information_filename), tta/C/convert/format_html.c
+	(html_convert_printindex_command),
+	tta/C/convert/html_prepare_converter.c
+	(prepare_index_entries_targets), tta/perl/Texinfo/Convert/Converter.pm
+	(normalized_sectioning_command_filename, node_information_filename),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries_targets), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_prepare_floats), tta/perl/t/z_misc/nodenormalization.t: add argument
+	based on TESTS for the new argument of transliteration functions.
+
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/call_perl_function.c
+	(call_nodenamenormalization_unicode_to_transliterate),
+	tta/C/main/node_name_normalization.c (unicode_to_transliterate)
+	(normalize_transliterate_texinfo)
 	(normalize_transliterate_texinfo_contents): add no_unidecode argument
 	to call_nodenamenormalization_unicode_to_transliterate and to callers.
 

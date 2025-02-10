@@ -9652,6 +9652,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   char *language;
   INDEX_SORTED_BY_LETTER *index_entries_by_letter
     = get_converter_indices_sorted_by_letter (self, &language);
+  int in_test;
 
   if (!index_entries_by_letter)
     return;
@@ -9707,6 +9708,9 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   formatted_letters = (char **) malloc
       (index_sorted->letter_number * sizeof (char *));
 
+  /* used both to select an 'external' Perl call and pass in_test */
+  in_test = (self->conf->TEST.o.integer > 0);
+
   for (i = 0; i < index_sorted->letter_number; i++)
     {
       const char *letter = index_sorted->letter_entries[i].letter;
@@ -9728,7 +9732,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT *letter_text = new_text_element (ET_normal_text);
           text_append (letter_text->e.text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
-                                           (self->conf->TEST.o.integer > 0),
+                                                          in_test, in_test,
                                  (self->conf->USE_UNIDECODE.o.integer == 0));
           destroy_element (letter_text);
 

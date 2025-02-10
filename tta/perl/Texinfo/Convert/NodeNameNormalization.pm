@@ -109,34 +109,37 @@ sub convert_to_identifier($)
   return $result;
 }
 
-sub normalize_transliterate_texinfo($;$)
+sub normalize_transliterate_texinfo($;$$)
 {
   my $root = shift;
+  my $in_test = shift;
   my $no_unidecode = shift;
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
-                _unicode_to_transliterate($result, $no_unidecode));
+                _unicode_to_transliterate($result, $in_test, $no_unidecode));
   return $result;
 }
 
-sub transliterate_texinfo($;$)
+sub transliterate_texinfo($;$$)
 {
   my $root = shift;
+  my $in_test = shift;
   my $no_unidecode = shift;
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
-  $result = _unicode_to_transliterate($result, $no_unidecode);
+  $result = _unicode_to_transliterate($result, $in_test, $no_unidecode);
   return $result;
 }
 
-sub transliterate_protect_file_name($;$)
+sub transliterate_protect_file_name($;$$)
 {
   my $input_text = shift;
+  my $in_test = shift;
   my $no_unidecode = shift;
   my $result = Unicode::Normalize::NFC($input_text);
   $result = _unicode_to_file_name(
-                _unicode_to_transliterate($result, $no_unidecode));
+                _unicode_to_transliterate($result, $in_test, $no_unidecode));
   return $result;
 }
 
@@ -203,9 +206,10 @@ sub _unicode_to_file_name($)
   return $result;
 }
 
-sub _unicode_to_transliterate($;$)
+sub _unicode_to_transliterate($;$$)
 {
   my $text = shift;
+  my $in_test = shift;
   my $no_unidecode = shift;
   if (chomp($text)) {
      warn "Bug: end of line to transliterate: $text\n";
@@ -226,12 +230,16 @@ sub _unicode_to_transliterate($;$)
         } else {
           $hex_repr = '';
         }
-        if ($hex_repr and exists(
+        if ($hex_repr and $in_test and exists(
+             $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr})) {
+          $result
+           .= $Texinfo::Convert::Unicode::tests_transliterate_map{$hex_repr};
+        } elsif ($hex_repr and exists(
                  $Texinfo::Convert::Unicode::transliterate_map{$hex_repr})) {
           $result .= $Texinfo::Convert::Unicode::transliterate_map{$hex_repr};
         } elsif ($hex_repr and exists(
            $Texinfo::Convert::Unicode::diacritics_accent_commands{$hex_repr})) {
-        $result .= '';
+          $result .= '';
       # in those cases, we want to avoid calling unidecode, as there is no
       # useful transliteration of the unicode character, instead we want to
       # keep it as is such that it is protected as itself.

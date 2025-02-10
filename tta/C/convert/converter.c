@@ -1125,6 +1125,8 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
   char *normalized_file_name;
   char *normalized_name;
   const ELEMENT *label_element;
+  /* used both to select an 'external' Perl call and pass in_test */
+  int in_test = (self->conf->TEST.o.integer > 0);
 
   if (builtin_command_data[command->e.c->cmd].flags & CF_root)
     /* for root level sectioning commands, the first element is the
@@ -1135,8 +1137,7 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
     label_element = command->e.c->contents.list[0];
 
   normalized_name
-    = normalize_transliterate_texinfo_contents (label_element,
-                                           (self->conf->TEST.o.integer > 0),
+    = normalize_transliterate_texinfo_contents (label_element, in_test, in_test,
                                  (self->conf->USE_UNIDECODE.o.integer == 0));
 
   normalized_file_name = strdup (normalized_name);
@@ -1164,13 +1165,16 @@ node_information_filename (CONVERTER *self, const char *normalized,
 {
   char *filename;
 
+  /* used both to select an 'external' Perl call and pass in_test */
+  int in_test = (self->conf->TEST.o.integer > 0);
+
   if (normalized)
     {
       if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
           filename = normalize_transliterate_texinfo_contents (label_element,
-                                            (self->conf->TEST.o.integer > 0),
-                                 (self->conf->USE_UNIDECODE.o.integer == 0));
+                                                            in_test, in_test,
+                                   (self->conf->USE_UNIDECODE.o.integer == 0));
         }
       else
         filename = strdup (normalized);

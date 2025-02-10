@@ -666,6 +666,8 @@ our %transliterate_map = (
                '00F0' => 'd',
                '00DE' => 'TH',
                '00FE' => 'th',
+               # Cyrillic.  Based on Sergey Poznyakoff when different from
+               # unidecode.
                '0415'  => 'E',
                '0435'  => 'e',
                '0426'  => 'C',
@@ -679,9 +681,11 @@ our %transliterate_map = (
                '0433'  => 'g',
                '0446'  => 'c',
                '04D7'  => 'IO',
+               # other unidecode considered wrong
                '00DD'  => 'Y', # unidecode gets this wrong ?
                '0237'  => 'j', # unknown dotless j for unidecode, returns [?]
-               '20AC'  => 'EUR', # iconv and unidecode
+               # iconv and unidecode
+               '20AC'  => 'EUR',
                # following based on iconv
                '2022'  => 'o', # bullet
                '2026'  => '...', # ellipsis
@@ -695,14 +699,17 @@ our %transliterate_map = (
                #'22A3'  => '?', # print, probably no translit
                #'22C6'  => '?', # point, probably no translit
 
-               # following appears in tests, this is required to have
-               # the same output with and without unidecode
-               # unidecode for the following
+               # unidecode for the following fullwidth characters
                'FF08' => '(',
                'FF09' => ')',
                'FF0C' => ',',
+          );
 
-               # FIXME use the following map only if TEST is set
+my %tests_specific_transliterate_map = (
+               # following appears in tests, this is required to have
+               # the same output with and without unidecode.
+               # East asian fullwidth and japanese characters.
+               # based on unidecode.
                '4E00'  => 'Yi',
                '4E2D'  => 'Zhong',
                '6587'  => 'Wen',
@@ -720,6 +727,9 @@ our %transliterate_map = (
                '30A2' => 'a',
                '30EB' => 'ru',
           );
+
+our %tests_transliterate_map = (%transliterate_map,
+                                %tests_specific_transliterate_map);
 
 our %no_transliterate_map;
 foreach my $symbol(keys(%unicode_map)) {
@@ -1124,7 +1134,8 @@ foreach my $unicode_point (keys(%{$unicode_to_eight_bit{'koi8-r'}})) {
     = $unicode_to_eight_bit{'koi8-r'}->{$unicode_point};
 }
 
-# currently unused
+# currently unused.  Probably the map used in makeinfo for the latest
+# Texinfo 4 release.
 my %makeinfo_transliterate_map = (
   '0416' => 'ZH',
   '0447' => 'ch',
