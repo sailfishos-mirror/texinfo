@@ -16,6 +16,16 @@
 
 2025-02-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_prepare_floats): set
+	systematically the no_unidecode argument.
+
+	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm
+	(_unicode_to_transliterate): use a variable for the representation of
+	a character as hexadecimal for a more readable code.
+
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@direntry): pod2texi manual is included in texinfo
 	manual.  Report from
 	https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1012612
