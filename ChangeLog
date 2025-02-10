@@ -1,3 +1,11 @@
+2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\ifpdf, \ifpdforxetex):
+	Move definitions before block of LuaTeX code so it is easier to
+	see the conditions under which they are set. Set \ifpdf directly
+	depending on LuaTeX version rather than indirectly depending on
+	setting \pdfoutput.  No functional change intended.
+
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/tests/many_input_files/*.sh: comment out escape_file_names.pl

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-10.12}
+\def\texinfoversion{2025-02-10.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -980,10 +980,41 @@ where each line of input produces a line of output.}
 \newif\ifpdf
 \newif\ifpdfmakepagedest
 
+% when pdftex is run in dvi mode, \pdfoutput is defined (so \pdfoutput=1
+% can be set).  So we test for \relax and 0 as well as being undefined.
+\ifx\pdfoutput\thisisundefined
+\else
+  \ifx\pdfoutput\relax
+  \else
+    \ifcase\pdfoutput
+    \else
+      \pdftrue
+    \fi
+  \fi
+\fi
+
+\newif\ifxetex
+\ifx\XeTeXrevision\thisisundefined\else
+  \xetextrue
+\fi
+
 \newif\ifluatex
 \ifx\luatexversion\thisisundefined\else
   \luatextrue
+  \ifnum\luatexversion>84
+    \pdftrue
+  \fi
 \fi
+
+\newif\ifpdforxetex
+\ifpdf
+  \pdforxetextrue
+\fi
+\ifxetex
+  \pdforxetextrue
+\fi
+
+
 
 % Whether to use non-ASCII bytes in internal link targets.  Presently this
 % is almost always on.
@@ -1047,7 +1078,7 @@ where each line of input produces a line of output.}
     %
   \endgroup
   \def\pdfescapestring#1{\directlua{PDFescstr('\luaescapestring{#1}')}}
-  \ifnum\luatexversion>84
+  \ifpdf
     % For LuaTeX >= 0.85
     \def\pdfdest{\pdfextension dest}
     \let\pdfoutput\outputmode
@@ -1068,33 +1099,6 @@ where each line of input produces a line of output.}
     \edef\pdfhorigin{\pdfvariable horigin}
     \edef\pdfvorigin{\pdfvariable vorigin}
   \fi
-\fi
-
-% when pdftex is run in dvi mode, \pdfoutput is defined (so \pdfoutput=1
-% can be set).  So we test for \relax and 0 as well as being undefined.
-\ifx\pdfoutput\thisisundefined
-\else
-  \ifx\pdfoutput\relax
-  \else
-    \ifcase\pdfoutput
-    \else
-      \pdftrue
-    \fi
-  \fi
-\fi
-
-\newif\ifxetex
-\ifx\XeTeXrevision\thisisundefined\else
-  \xetextrue
-\fi
-
-\newif\ifpdforxetex
-\pdforxetexfalse
-\ifpdf
-  \pdforxetextrue
-\fi
-\ifxetex
-  \pdforxetextrue
 \fi
 
 
