@@ -538,7 +538,7 @@ our %unicode_map = (
 # For commands where ASCII output is acceptable and may be wanted by the users
 # as ASCII instead of encoded characters
 our %extra_unicode_map = (
-               # symbols (11 + 3)
+               # symbols (11)
                'arrow'             => '2192',
                'bullet'            => '2022',
                'copyright'         => '00A9',
@@ -559,7 +559,7 @@ our %extra_unicode_map = (
                'result'            => '21D2',
                #'TeX'
 
-               # quotes
+               # quotes (4)
                'quotedblleft'      => '201C',
                'quotedblright'     => '201D',
                'quoteleft'         => '2018',
@@ -697,6 +697,13 @@ our %transliterate_map = (
 
                # following appears in tests, this is required to have
                # the same output with and without unidecode
+               # unidecode for the following
+               'FF08' => '(',
+               'FF09' => ')',
+               'FF0C' => ',',
+
+               # FIXME use the following map only if TEST is set
+               '4E00'  => 'Yi',
                '4E2D'  => 'Zhong',
                '6587'  => 'Wen',
                '793A'  => 'Shi',
@@ -705,12 +712,6 @@ our %transliterate_map = (
                '7AE0'  => 'Zhang',
                '53E6'  => 'Ling',
                '4E2A'  => 'Ge',
-               # in http://www.cantonese.sheik.co.uk/dictionary/characters/7/
-               # unidecode certainly gets it wrong
-               '4E00'  => 'Yi',
-               'FF08' => '(',
-               'FF09' => ')',
-               'FF0C' => ',',
                '5B66' => 'Xue',
                '7FD2' => 'Xi',
                '30DE' => 'ma',

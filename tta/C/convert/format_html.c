@@ -9728,7 +9728,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           ELEMENT *letter_text = new_text_element (ET_normal_text);
           text_append (letter_text->e.text, letter);
           normalized_letter = normalize_transliterate_texinfo (letter_text,
-                                             (self->conf->TEST.o.integer > 0));
+                                           (self->conf->TEST.o.integer > 0),
+                                 (self->conf->USE_UNIDECODE.o.integer == 0));
           destroy_element (letter_text);
 
           if (strcmp (letter, normalized_letter))

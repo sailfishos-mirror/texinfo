@@ -60,7 +60,8 @@ register_perl_data (void *sv)
 
 /* it is up to the caller to do something useful if NULL is returned */
 char *
-call_nodenamenormalization_unicode_to_transliterate (const char *text)
+call_nodenamenormalization_unicode_to_transliterate (const char *text,
+                                                     int no_unidecode)
 {
   return 0;
 }

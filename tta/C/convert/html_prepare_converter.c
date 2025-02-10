@@ -4539,7 +4539,8 @@ prepare_index_entries_targets (CONVERTER *self)
                 }
               normalized_index
                 = normalize_transliterate_texinfo (normalize_index_element,
-                                            (self->conf->TEST.o.integer > 0));
+                                            (self->conf->TEST.o.integer > 0),
+                                 (self->conf->USE_UNIDECODE.o.integer == 0));
 
               destroy_element (normalize_index_element);
               if (subentries_tree)

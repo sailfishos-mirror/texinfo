@@ -1,3 +1,21 @@
+2025-02-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/call_perl_function.c
+	(call_nodenamenormalization_unicode_to_transliterate),
+	tta/C/main/node_name_normalization.c (unicode_to_transliterate)
+	(normalize_transliterate_texinfo)
+	(normalize_transliterate_texinfo_contents): add no_unidecode argument
+	to call_nodenamenormalization_unicode_to_transliterate and to callers.
+
+	* tta/C/convert/converter.c (normalized_sectioning_command_filename)
+	(node_information_filename), tta/C/convert/format_html.c
+	(html_convert_printindex_command),
+	tta/C/convert/html_prepare_converter.c
+	(prepare_index_entries_targets): use USE_UNIDECODE to set no_unidecode
+	argument.
+
+	* tta/perl/Texinfo/Convert/Unicode.pm: changes in comments.
+
 2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\iftxiuseunicodedestname): Set to true by

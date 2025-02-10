@@ -326,13 +326,14 @@ convert_contents_to_identifier (const ELEMENT *e)
 }
 
 static char *
-unicode_to_transliterate (char *text, int external)
+unicode_to_transliterate (char *text, int external, int no_unidecode)
 {
   char *result;
   int status;
   if (external)
     {
-      result = call_nodenamenormalization_unicode_to_transliterate (text);
+      result = call_nodenamenormalization_unicode_to_transliterate (text,
+                                                                no_unidecode);
       if (result)
         return result;
     }
@@ -343,12 +344,13 @@ unicode_to_transliterate (char *text, int external)
 }
 
 char *
-normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
+normalize_transliterate_texinfo (const ELEMENT *e, int external_translit,
+                                 int no_unidecode)
 {
   char *converted_name = convert_to_normalized (e);
   char *normalized_name = normalize_NFC (converted_name);
   char *transliterated = unicode_to_transliterate (normalized_name,
-                                                   external_translit);
+                                       external_translit, no_unidecode);
   char *result = unicode_to_protected (transliterated);
 
   free (converted_name);
@@ -359,13 +361,14 @@ normalize_transliterate_texinfo (const ELEMENT *e, int external_translit)
 
 char *
 normalize_transliterate_texinfo_contents (const ELEMENT *e,
-                                          int external_translit)
+                              int external_translit, int no_unidecode)
 {
   ELEMENT *tmp = new_element (ET_NONE);
   char *result;
 
   tmp->e.c->contents = e->e.c->contents;
-  result = normalize_transliterate_texinfo (tmp, external_translit);
+  result = normalize_transliterate_texinfo (tmp, external_translit,
+                                            no_unidecode);
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);
 

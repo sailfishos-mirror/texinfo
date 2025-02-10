@@ -1136,7 +1136,8 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
 
   normalized_name
     = normalize_transliterate_texinfo_contents (label_element,
-                                           (self->conf->TEST.o.integer > 0));
+                                           (self->conf->TEST.o.integer > 0),
+                                 (self->conf->USE_UNIDECODE.o.integer == 0));
 
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
@@ -1168,7 +1169,8 @@ node_information_filename (CONVERTER *self, const char *normalized,
       if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
           filename = normalize_transliterate_texinfo_contents (label_element,
-                                            (self->conf->TEST.o.integer > 0));
+                                            (self->conf->TEST.o.integer > 0),
+                                 (self->conf->USE_UNIDECODE.o.integer == 0));
         }
       else
         filename = strdup (normalized);

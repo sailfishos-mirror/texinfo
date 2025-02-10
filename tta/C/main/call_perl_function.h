@@ -8,7 +8,8 @@
 
 void call_common_set_output_perl_encoding (const CONVERTER *self);
 
-char *call_nodenamenormalization_unicode_to_transliterate (const char *text);
+char *call_nodenamenormalization_unicode_to_transliterate (const char *text,
+                                                           int no_unidecode);
 
 char *call_translations_translate_string (const char *string,
                                           const char *in_lang,

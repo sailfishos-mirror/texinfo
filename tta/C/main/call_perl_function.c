@@ -88,7 +88,8 @@ call_common_set_output_perl_encoding (const CONVERTER *self)
 }
 
 char *
-call_nodenamenormalization_unicode_to_transliterate (const char *text)
+call_nodenamenormalization_unicode_to_transliterate (const char *text,
+                                                     int no_unidecode)
 {
   int count;
   char *result;
@@ -109,9 +110,10 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text)
   SAVETMPS;
 
   PUSHMARK(SP);
-  EXTEND(SP, 1);
+  EXTEND(SP, 2);
 
   PUSHs(sv_2mortal (newSVpv_utf8 (text, 0)));
+  PUSHs(sv_2mortal (newSViv (no_unidecode)));
   PUTBACK;
 
   count = call_pv (
