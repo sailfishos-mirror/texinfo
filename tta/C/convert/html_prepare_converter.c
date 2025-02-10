@@ -929,7 +929,6 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
                       STRING_LIST *htmlxref_files)
 {
   size_t i;
-  int line_nr = 0;
 
   STRING_VARIABLES_LIST variables;
   memset (&variables, 0, sizeof (STRING_VARIABLES_LIST));
@@ -938,6 +937,7 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
     {
       const char *file = htmlxref_files->list[i];
       FILE *stream = 0;
+      int line_nr = 0;
 
       if (self->conf->DEBUG.o.integer > 0)
         fprintf (stderr, "html refs config file: %s\n", file);
