@@ -1888,8 +1888,9 @@ reset_generic_converter (CONVERTER *self)
         }
     }
 
-  /* FIXME check if the following could make cleaner status/code */
-  /* self->document = 0; */
+  /* should be cleaner.  Probably not much effect as long as converters
+     are destroyed right after being reset in most cases */
+  self->document = 0;
 }
 
 void
