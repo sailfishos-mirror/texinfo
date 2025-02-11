@@ -1817,8 +1817,7 @@ while(@input_files) {
     require Texinfo::Convert::Texinfo;
     Texinfo::Convert::Texinfo->import();
     # if convert_to_texinfo is not XS code get Perl tree.
-    if (not (defined $ENV{TEXINFO_XS_CONVERT}
-             and $ENV{TEXINFO_XS_CONVERT} eq '1')) {
+    if (not Texinfo::XSLoader::XS_convert_enabled()) {
       $tree = $document->tree();
     }
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
