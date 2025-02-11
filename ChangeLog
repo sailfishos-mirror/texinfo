@@ -1,5 +1,19 @@
 2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix auxiliary files for xetex with Latin-1 or Latin-2.
+
+	* doc/texinfo.tex (\xetexpreauxfile, \xetexpostauxfile): New macros.
+	(\setbytewiseio) [xetex]: Set these new macros to specify "UTF-8"
+	encoding for input files, even if we are otherwise using "bytes".
+	This is necessary as XeTeX always writes files in UTF-8.
+	(\pdfmakeoutlines) [xetex],
+	(\printindex, \contents, \summarycontents, \tryauxfile):
+	Use new macros to read auxiliary files with UTF-8 encoding.
+	(\documentwarning) [xetex]: Remove warning about non-ASCII
+	characters in auxiliary files.
+
+2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\ifpdf, \ifpdforxetex):
 	Move definitions before block of LuaTeX code so it is easier to
 	see the conditions under which they are set. Set \ifpdf directly

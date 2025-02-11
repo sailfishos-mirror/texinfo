@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-10.15}
+\def\texinfoversion{2025-02-11.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -1679,7 +1679,9 @@ output) for that.)}
       \def\{{\lbracecharliteral}%
       \def\}{\rbracecharliteral}%
       \catcode`\\=\active \otherbackslash
+      \xetexpreauxfile
       \input \tocreadfilename\relax
+      \xetexpostauxfile
       \ifnodeseen \dopdfoutlinecontents \fi % for @contents at end
     \endgroup
   }
@@ -5523,6 +5525,7 @@ $$%
   \plainfrenchspacing
   \everypar = {}% don't want the \kern\-parindent from indentation suppression.
   \let\entry\indexentry
+  \ifxetex\xetexpreauxfile\fi
   %
   % See comment in \requireopenindexfile.
   \def\indexname{#1}\ifx\indexname\indexisfl\def\indexname{f1}\fi
@@ -5548,6 +5551,7 @@ $$%
     \fi
   \fi
   \closein 1
+  \ifxetex\xetexpostauxfile\fi
 \endgroup}
 
 % Checked in @bye
@@ -5583,7 +5587,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       }%
     \else
       \begindoublecolumns
+      \ifxetex\xetexpreauxfile\fi
       \input \jobname.\indexname s
+      \ifxetex\xetexpostauxfile\fi
       \enddoublecolumns
     \fi
   }{%
@@ -5594,7 +5600,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % should work because we (hopefully) don't otherwise use @ in index files.
     %\catcode`\@=12\relax
     \catcode`\@=0\relax
+    \ifxetex\xetexpreauxfile\fi
     \input \jobname.\indexname s
+    \ifxetex\xetexpostauxfile\fi
     \enddoublecolumns
   }%
 }
@@ -6983,6 +6991,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 %
 \def\contents{%
   \startcontents{\putwordTOC}{\contentsmkdest}%
+    \ifxetex\xetexpreauxfile\fi
     \openin 1 \tocreadfilename\space
     \ifeof 1 \else
       \findsecnowidths
@@ -6994,6 +7003,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \pdfmakeoutlines
     \fi
     \closein 1
+    \ifxetex\xetexpostauxfile\fi
   \endgroup
   \contentsendroman
 }
@@ -7027,11 +7037,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \let\numsubsubsecentry = \numsecentry
     \let\appsubsubsecentry = \numsecentry
     \let\unnsubsubsecentry = \numsecentry
+    \ifxetex\xetexpreauxfile\fi
     \openin 1 \tocreadfilename\space
     \ifeof 1 \else
       \readtocfile
     \fi
     \closein 1
+    \ifxetex\xetexpostauxfile\fi
     \vfill \eject
     \contentsalignmacro % in case @setchapternewpage odd is in effect
   \endgroup
@@ -9433,12 +9445,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Read the last existing aux file, if any.  No error if none exists.
 %
 \def\tryauxfile{%
+  \ifxetex\xetexpreauxfile\fi
   \openin 1 \jobname.aux
   \ifeof 1 \else
     \readdatafile{aux}%
     \global\havexrefstrue
   \fi
   \closein 1
+  \ifxetex\xetexpostauxfile\fi
 }
 
 \def\setupdatafile{%
@@ -10106,17 +10120,24 @@ directory should work if nowhere else does.}
   \fi
 \fi
 
+\let\xetexpreauxfile\relax
+\let\xetexpostauxfile\relax
+
 % Set I/O by bytes instead of UTF-8 sequence for XeTeX and LuaTex
 % for non-UTF-8 (byte-wise) encodings.
 %
 \def\setbytewiseio{%
   \ifxetex
-    \XeTeXdefaultencoding "bytes"  % For subsequent files to be read
-    \XeTeXinputencoding "bytes"  % For document root file
-    % Unfortunately, there seems to be no corresponding XeTeX command for
-    % output encoding.  This is a problem for auxiliary index and TOC files.
-    % The only solution would be perhaps to write out @U{...} sequences in
-    % place of non-ASCII characters.
+    % For document root file
+    \XeTeXinputencoding "bytes"
+    %
+    % Setting for subsequent files to be read with @include.
+    \XeTeXdefaultencoding "bytes"
+    %
+    % Use UTF-8 for reading auxiliary index and TOC files, which are
+    % always output in UTF-8 with XeTeX.
+    \def\xetexpreauxfile{\XeTeXdefaultencoding "UTF-8"}%
+    \def\xetexpostauxfile{\XeTeXdefaultencoding "bytes"}%
   \fi
 
   \ifluatex
