@@ -22,6 +22,10 @@
 
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	README-hacking: update paths.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/many_input_files/*.sh: comment out escape_file_names.pl
 	call when there are no non-ASCII output file names.
 	Add --utf8-argument option to escape_file_names.pl to normalize UTF-8

@@ -177,8 +177,8 @@ the output of "gnulib-tool --add-import", and work out which program
 needs them.  You can look at the modules/* files in the gnulib checkout
 to help work out which gnulib module is demanding which variable.
 
-For the gnulib checkout in the tta/ directory, it is just
-tta/C/Makefile.am that may need to be updated.
+For the gnulib checkout in the tta/ directory, tta/C/Makefile.am and
+tta/perl/XSTexinfo/Makefile.am may need to be updated.
 
 
 
@@ -208,24 +208,25 @@ are standalone and don't require compilation.  For the same reasons,
 they are officially updated between full Texinfo releases, at
 http://ftpmirror.gnu.org/texinfo.
 
-- Regarding texi2any (aka makeinfo), you can run tta/texi2any.pl
+- Regarding texi2any (aka makeinfo), you can run tta/perl/texi2any.pl
 directly.  This is the original source file for the program, so it's
 convenient to be able to make changes and then run it.
 
-To run the output "tta/texi2any" instead, you can set the environment
+To run the output "tta/perl/texi2any" instead, you can set the environment
 variable TEXINFO_DEV_SOURCE to 1.  Otherwise, it will try to use
-Texinfo's Perl modules in the installed locations.  "tta/texi2any" uses
-the Perl interpreter found by configure, so you might want to run that 
-instead of texi2any.pl if it's different to the default interpreter in 
-your environment.
+Texinfo's Perl modules in the installed locations.  "tta/perl/texi2any"
+uses the Perl interpreter found by configure, so you might want to run
+that script instead of texi2any.pl if it's different from the default
+interpreter in your environment.
 
 To directly run programs out of source, you should set the t2a_builddir
 variable to the tta/ build directory, in order to have compiled modules
 and translated in-document strings found.  If you use scripts with
 names ending in .pl or .t test files, the source directory obtained
-from the script name might used to determine the source directories and
-you may not need to set them explicitely.  Otherwise, you may need to
-set the srcdir and/or the t2a_srcdir variables to the in-source tta/ directory.
+from the script name might be used to determine the source directories
+and you may not need to set them explicitely.  Otherwise, you could
+need to set the srcdir environment variable, and/or set the t2a_srcdir
+environment variables to the in-source tta/ directory.
 
 
 
@@ -286,10 +287,10 @@ identical.
 - When close to making a release:
 
 NYTProf profiling for Perl code
-* e.g. 'perl -d:NYTProf ../tta/texi2any.pl FILE.texi'.  See Devel::NYTProf
-  man page.
+* e.g. 'perl -d:NYTProf ../tta/perl/texi2any.pl FILE.texi'.
+  See Devel::NYTProf man page.
 callgrind profiling for XS code
-* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tta/texi2any.pl \
+* e.g. 'LD_BIND_NOW=1 valgrind --tool=callgrind perl ../tta/perl/texi2any.pl \
   FILE.texi' then 'kcachegrind callgrind.out.*'.
 
 run all tests with valgrind:
@@ -307,7 +308,7 @@ run all tests with valgrind:
   its allocations.  Run e.g.
       valgrind --suppressions=texi2any.supp --log-file=val.log \
                --leak-check=full \
-        perl ../tta/texi2any.pl ../doc/info-stnd.texi
+        perl ../tta/perl/texi2any.pl ../doc/info-stnd.texi
   and other input files.
 
   Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
@@ -325,9 +326,9 @@ verification.  The module turning off autovivification is not in Perl
 core, so when commiting the lines turning autovivification off should
 always be commented out.
 To turn off autovivification, you can use:
- find tta/Texinfo tta/ext tta/init -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+ find tta/perl/Texinfo tta/perl/ext tta/perl/init -type f -name '*.pm' -execdir perl -wpli -e 's/^#no autovivification qw\(fetch delete exists store strict\);/no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
 To get back to the default:
- find tta/Texinfo tta/ext tta/init -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
+ find tta/perl/Texinfo tta/perl/ext tta/perl/init -type f -name '*.pm' -execdir perl -wpli -e 's/^no autovivification qw\(fetch delete exists store strict\);/#no autovivification qw\(fetch delete exists store strict\);/' '{}' ';'
 
 Manual testing:
 . process doc/texinfo-tex-test.texi with TeX and check that output is good.
@@ -379,8 +380,8 @@ check at latest automake/autoconf/gettext/help2man version:
 
   . In tta/configure.ac the check "for embedded Perl" uses an
     internal Autoconf variable and an internal shell function; it may be
-    relevant to check that it is still right, maybe compare to code generated
-    in configure by the used Autoconf version.
+    relevant to check that it is still right, maybe compare to code
+    generated in configure by the used Autoconf version.
 
   . help2man upgrade -
       make -C man maintainer-clean ; ./config.status man/Makefile ; make -C man
