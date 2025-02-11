@@ -1,5 +1,13 @@
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c: try to have better comments, remove a
+	FIXME.
+
+	* tta/tests/many_input_files/*.sh: remove spurious echo, harmonize
+	somewhat spacing and remove set -x.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c: remove FIXME, change comment.
 
 	* tta/C/main/output_unit.c (destroy_output_unit): call

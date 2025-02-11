@@ -42,7 +42,6 @@ fi
 
 command_run=
 for command_location_dir in "$srcdir/../../" ../../ ; do
-  echo "${command_location_dir}${TESTS_MAIN_COMMAND}"
   if test -f "${command_location_dir}${TESTS_MAIN_COMMAND}" ; then
     command_run="${command_location_dir}${TESTS_MAIN_COMMAND}"
     break

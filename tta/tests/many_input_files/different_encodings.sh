@@ -20,7 +20,6 @@ raw_output_dir=raw_out
 logfile=$basename.log
 stdout_file=stdout_$basename.out
 main_command='perl/texi2any.pl'
-
 prepended_command=
 
 [ "z$srcdir" = 'z' ] && srcdir=.
@@ -37,7 +36,6 @@ fi
 
 command_run=
 for command_location_dir in "$srcdir/../../" ../../ ; do
-  echo "${command_location_dir}${TESTS_MAIN_COMMAND}"
   if test -f "${command_location_dir}${TESTS_MAIN_COMMAND}" ; then
     command_run="${command_location_dir}${TESTS_MAIN_COMMAND}"
     break
@@ -66,7 +64,7 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-set -x
+
 cmd="$prepended_command $command_run --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd

@@ -41,7 +41,6 @@ fi
 
 command_run=
 for command_location_dir in "$srcdir/../../" ../../ ; do
-  echo "${command_location_dir}${TESTS_MAIN_COMMAND}"
   if test -f "${command_location_dir}${TESTS_MAIN_COMMAND}" ; then
     command_run="${command_location_dir}${TESTS_MAIN_COMMAND}"
     break
@@ -77,6 +76,7 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
+
 cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../perl/ext --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../perl/t/init/l2h.init --set-customization-variable 'L2H_CLEAN=0' --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd

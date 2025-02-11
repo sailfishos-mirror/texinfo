@@ -1915,6 +1915,8 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
      first_in_page referring to output_unit, or because the output units
      list is being rebuilt */
   if (!output_unit->hv)
+    /* the reference created by newHV is considered to be retained by the
+       C code and is released when the output unit is destroyed in C */
     output_unit->hv = newHV ();
   else
     hv_clear (output_unit->hv);
@@ -2731,11 +2733,7 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
       SV *sv;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       output_unit_to_perl_hash (output_unit);
-      /* we do not transfer the hv ref to the perl av because we consider
-         that output_unit->hv still own a reference, which should only be
-         released when the output_unit is destroyed in C */
-      /* FIXME check whether there can be too many reference retained if
-         called more than once */
+      /* increase counter for the reference in the array */
       sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
