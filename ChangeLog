@@ -1,3 +1,21 @@
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	* util/texi-elements-by-size: update using texi2any.pl and other
+	scripts code.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	* util/Makefile.am: remove AM_CPPFLAGS and LDADD that do not seem to
+	be used.  Remove localedir that is not used anymore.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	* util/txicmdlist (BEGIN), util/txicustomvars (BEGIN): update paths.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
+	README-hacking: update paths.
+
 2025-02-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix auxiliary files for xetex with Latin-1 or Latin-2.
@@ -19,19 +37,6 @@
 	see the conditions under which they are set. Set \ifpdf directly
 	depending on LuaTeX version rather than indirectly depending on
 	setting \pdfoutput.  No functional change intended.
-
-2025-02-11  Patrice Dumas  <pertusus@free.fr>
-
-	* util/Makefile.am: remove AM_CPPFLAGS and LDADD that do not seem to
-	be used.  Remove localedir that is not used anymore.
-
-2025-02-11  Patrice Dumas  <pertusus@free.fr>
-
-	* util/txicmdlist (BEGIN), util/txicustomvars (BEGIN): update paths.
-
-2025-02-11  Patrice Dumas  <pertusus@free.fr>
-
-	README-hacking: update paths.
 
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
