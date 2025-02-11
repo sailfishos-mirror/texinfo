@@ -74,7 +74,8 @@ else
   rm -f $outdir/*_tex4ht_*.log \
       $outdir/*_tex4ht_*.idv $outdir/*_tex4ht_*.dvi \
       $outdir/*_tex4ht_tex.html $outdir/*.png $outdir/$stdout_file
-  find $outdir | $PERL $srcdir/../escape_file_names.pl
+  # no non-ASCII output file names
+  #find $outdir | $PERL $srcdir/../escape_file_names.pl
 
   dir=${basename}
   if [ -d $srcdir/${dir}_res ]; then

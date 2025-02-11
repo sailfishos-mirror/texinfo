@@ -1,5 +1,12 @@
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/many_input_files/*.sh: comment out escape_file_names.pl
+	call when there are no non-ASCII output file names.
+	Add --utf8-argument option to escape_file_names.pl to normalize UTF-8
+	encoded files before escaping.  Report from Daniel Macks.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c: try to have better comments, remove a
 	FIXME.
 

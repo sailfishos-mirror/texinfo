@@ -104,11 +104,13 @@ else
         -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' \
          "$file" > "$outdir/$filename"
   done
-    
+
   for file in "$raw_outdir/"*_l2h_labels.pl; do
     filename=`basename "$file"`
     sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$outdir/$filename"
   done
+  # no non-ASCII output file names
+  #find $outdir | $PERL $srcdir/../escape_file_names.pl
 
   dir=$basename
   if [ -d "$srcdir/${dir}_res" ]; then
