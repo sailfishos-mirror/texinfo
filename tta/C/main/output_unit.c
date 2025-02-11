@@ -39,6 +39,7 @@
 #include "targets.h"
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
+#include "api_to_perl.h"
 #include "output_unit.h"
 
 const char *relative_unit_direction_name[] = {
@@ -324,6 +325,8 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
     }
   free (output_unit->unit_contents.list);
   free (output_unit->unit_filename);
+  if (output_unit->hv)
+    unregister_perl_data (output_unit->hv);
   free (output_unit);
 }
 

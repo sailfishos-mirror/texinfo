@@ -1,5 +1,12 @@
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c: remove FIXME, change comment.
+
+	* tta/C/main/output_unit.c (destroy_output_unit): call
+	unregister_perl_data.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (reset_generic_converter): set converter
 	document to NULL.
 

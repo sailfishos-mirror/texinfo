@@ -2282,10 +2282,10 @@ document_tree (SV *document_in, int handler_only)
    from the Perl data, which could lead to subtle bugs.
  */
 
-/* FIXME not clear that the next comment is right */
 /* there are 2 differences between BUILD_PERL_DOCUMENT_ITEM and
    BUILD_PERL_DOCUMENT_LIST: in BUILD_PERL_DOCUMENT_LIST no check on existing
-    and the address of document->fieldname is passed.
+   document->fieldname and the address of document->fieldname is passed,
+   not document->fieldname directly.
  */
 
 #define BUILD_PERL_DOCUMENT_ITEM(funcname,fieldname,keyname,flagname,buildname,HVAV) \
