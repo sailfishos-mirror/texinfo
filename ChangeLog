@@ -22,6 +22,10 @@
 
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	* util/txicmdlist (BEGIN), util/txicustomvars (BEGIN): update paths.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	README-hacking: update paths.
 
 2025-02-11  Patrice Dumas  <pertusus@free.fr>

@@ -24,7 +24,7 @@ BEGIN {
   my $t2a_srcdir = `cd $mydir/../tta && pwd`;
   chomp($t2a_srcdir);
   if (defined($ENV{'top_builddir'})) {
-    unshift(@INC, $ENV{'top_builddir'}.'/tta');
+    unshift(@INC, join('/', ($ENV{'top_builddir'}, 'tta', 'perl')));
   }
 
   $ENV{t2a_srcdir} = "$t2a_srcdir";
