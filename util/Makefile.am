@@ -1,5 +1,4 @@
 # Makefile.am for texinfo/util.
-# Run automake in .. to produce Makefile.in from this.
 #
 # Copyright 2005-2025 Free Software Foundation, Inc.
 #
@@ -33,14 +32,6 @@ txixml2texi: txixml2texi.pl Makefile
 	-e '1 s,/usr/bin/env perl,$(PERL),g' \
 	   $(srcdir)/txixml2texi.pl >$@
 	chmod a+x $@
-
-localedir = $(datadir)/locale
-AM_CPPFLAGS = 					\
-  -I$(top_srcdir)				\
-  -I$(top_srcdir)/gnulib/lib			\
-  -I$(top_builddir)/gnulib/lib			\
-  -DLOCALEDIR=\"$(localedir)\"
-LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(LIBINTL)
 
 dist_pkgdata_DATA = htmlxref.cnf texinfo.dtd
 
