@@ -1,5 +1,15 @@
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main): move call to nl_langinfo after
+	txi_setup_main_load_interpreter call, to have setlocale be called
+	before nl_langinfo.
+
+	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: decode input file
+	name and corrected input file name for the message on .info and
+	replacement by .texi.
+
+2025-02-11  Patrice Dumas  <pertusus@free.fr>
+
 	* util/texi-elements-by-size: update using texi2any.pl and other
 	scripts code.
 

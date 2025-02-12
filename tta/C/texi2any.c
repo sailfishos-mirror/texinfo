@@ -52,7 +52,7 @@
 /* for xvasprintf */
 #include "text.h"
 /* parse_file_path whitespace_chars encode_string xasprintf digit_chars
-   wipe_values locate_file_in_dirs messages_and_encodings_setup */
+   wipe_values locate_file_in_dirs */
 #include "utils.h"
 #include "customization_options.h"
 #include "txi_config.h"
@@ -1079,22 +1079,6 @@ main (int argc, char *argv[], char *env[])
 
   add_string (extensions_dir, &internal_extension_dirs);
 
-  /* the encoding used to decode command line arguments, and also for
-     file names encoding */
-  /* from Gnulib codeset.m4 */
-#ifdef HAVE_LANGINFO_CODESET
-  langinfo_locale_encoding = nl_langinfo (CODESET);
-  if (langinfo_locale_encoding)
-    locale_encoding = strdup (langinfo_locale_encoding);
-#endif
-
-#ifdef _WIN32
-  if (!locale_encoding)
-    {
-      unsigned cp = GetACP ();
-      xasprintf (&locale_encoding, "cp%u", cp);
-    }
-#endif
 
   if (texinfo_uninstalled)
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
@@ -1114,6 +1098,24 @@ main (int argc, char *argv[], char *env[])
 
   free (t2a_builddir);
   free (t2a_srcdir);
+
+  /* the encoding used to decode command line arguments, and also for
+     file names encoding */
+  /* needs to be called after setlocale */
+  /* from Gnulib codeset.m4 */
+#ifdef HAVE_LANGINFO_CODESET
+  langinfo_locale_encoding = nl_langinfo (CODESET);
+  if (langinfo_locale_encoding)
+    locale_encoding = strdup (langinfo_locale_encoding);
+#endif
+
+#ifdef _WIN32
+  if (!locale_encoding)
+    {
+      unsigned cp = GetACP ();
+      xasprintf (&locale_encoding, "cp%u", cp);
+    }
+#endif
 
   /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
@@ -2483,6 +2485,8 @@ main (int argc, char *argv[], char *env[])
         {
           char *corrected;
           char *arg_basename;
+          char *decoded_corrected;
+          char *decoded_arg_basename;
 
           parse_file_path (input_file_arg, input_file_name_and_directory);
           arg_basename = input_file_name_and_directory[0];
@@ -2490,10 +2494,17 @@ main (int argc, char *argv[], char *env[])
           corrected = strdup (arg_basename);
           memcpy (corrected + strlen (corrected) -strlen (".info"), ".texi",
                   strlen (".texi"));
+
+          decoded_corrected = GNUT_decode_input (corrected);
+          decoded_arg_basename = GNUT_decode_input (arg_basename);
+
           txi_config_document_warn ("input file %s; did you mean %s?",
-                                    arg_basename, corrected);
+                                    decoded_arg_basename,
+                                    decoded_corrected);
           free (corrected);
           free (arg_basename);
+          free (decoded_arg_basename);
+          free (decoded_corrected);
         }
 
      /* try to concatenate with different suffixes. The last suffix is ''

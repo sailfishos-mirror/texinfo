@@ -1688,7 +1688,8 @@ while(@input_files) {
       my $corrected = $basename;
       $corrected =~ s/\.info$/.texi/;
       document_warn(sprintf(
-          __('input file %s; did you mean %s?'), $basename, $corrected));
+          __('input file %s; did you mean %s?'), _decode_input($basename),
+                    _decode_input($corrected)));
   }
   # try to concatenate with different suffixes. The last suffix is ''
   # such that the plain file name is checked.
