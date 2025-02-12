@@ -96,28 +96,27 @@ BEGIN
 
     # To find Pod::Simple::Texinfo
     if (defined($ENV{'top_srcdir'})) {
-      unshift @INC, File::Spec->catdir($ENV{'top_srcdir'},
-                                       'Pod-Simple-Texinfo', 'lib');
+      unshift @INC, join('/', ($ENV{'top_srcdir'},
+                               'Pod-Simple-Texinfo', 'lib'));
     } else {
-      unshift @INC, File::Spec->catdir($command_directory, 'lib');
+      unshift @INC, join('/', ($command_directory, 'lib'));
     }
   } elsif (!$keep_paths) {
     # Look for modules in their installed locations.
-    my $modules_dir = File::Spec->catdir($datadir, $converter);
+    my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
     my $modules_converterdatadir = $modules_dir;
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
-    if (! -f File::Spec->catfile($modules_dir, 'Texinfo', 'Parser.pm')
-        and -f File::Spec->catfile($command_directory, $updir, 'share',
-                                   $converter, 'Texinfo', 'Parser.pm')) {
-      $modules_dir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $converter);
-      $modules_converterdatadir = File::Spec->catdir($command_directory, $updir,
-                                          'share', $converter);
-      $xsdir = File::Spec->catdir($command_directory, $updir,
-                                          'lib', $converter);
+    if (! -f join('/', ($modules_dir, 'Texinfo', 'Parser.pm'))
+        and -f join('/', ($command_directory, $updir, 'share',
+                                   $converter, 'Texinfo', 'Parser.pm'))) {
+      $modules_dir = join('/', ($command_directory, $updir,
+                                          'share', $converter));
+      $modules_converterdatadir = join('/', ($command_directory, $updir,
+                                          'share', $converter));
+      $xsdir = join('/', ($command_directory, $updir, 'lib', $converter));
     }
 
     unshift @INC, $modules_dir;
@@ -126,8 +125,7 @@ BEGIN
                               'installed' => 1);
 
     # To find Pod::Simple::Texinfo
-    unshift @INC, File::Spec->catdir($modules_converterdatadir,
-                                     'Pod-Simple-Texinfo');
+    unshift @INC, join('/', ($modules_converterdatadir, 'Pod-Simple-Texinfo'));
   }
 }
 
@@ -497,7 +495,7 @@ foreach my $file (@input_files) {
     }
     $outfile_name .= '.texi';
     if (defined($outdir)) {
-      $outfile = File::Spec->catfile($outdir, $outfile_name);
+      $outfile = join('/', ($outdir, $outfile_name));
     } else {
       $outfile = $outfile_name;
     }
@@ -601,7 +599,7 @@ foreach my $file (@input_files) {
         $new_outfile_name .= '.texi';
         my $new_outfile;
         if (defined($outdir)) {
-          $new_outfile = File::Spec->catfile($outdir, $new_outfile_name);
+          $new_outfile = join('/', ($outdir, $new_outfile_name));
         } else {
           $new_outfile = $new_outfile_name;
         }

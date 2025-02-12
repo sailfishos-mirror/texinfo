@@ -43,14 +43,13 @@ BEGIN {
 
   # To find Pod::Simple::Texinfo
   if (defined($ENV{'top_srcdir'})) {
-    unshift @INC, File::Spec->catdir($ENV{'top_srcdir'},
-                                     'Pod-Simple-Texinfo', 'lib');
+    unshift @INC, join('/', ($ENV{'top_srcdir'}, 'Pod-Simple-Texinfo', 'lib'));
   } else {
-    unshift @INC, File::Spec->catdir('lib');
+    unshift @INC, 'lib';
   }
 };
 use Pod::Simple::Texinfo;
-ok(1); # If we made it this far, we're ok.
+ok(1, 'modules loading'); # If we made it this far, we're ok.
 
 #########################
 
