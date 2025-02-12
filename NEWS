@@ -15,6 +15,8 @@ See the manual for detailed information.
 * texi2any
   . texi2any program implementation in C embedding Perl.
     Use --enable-c-texi2any to prefer the C implementation
+  . texi2any uses the Perl extensions in C for converters when possible.
+    Set the `TEXINFO_XS_CONVERT' environment variable to 0 for pure Perl
   . remove USE_REL_REV variable; former effect is now always on
   . rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
   . rename space direction ' ' to 'Space'

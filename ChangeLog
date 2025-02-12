@@ -1,3 +1,8 @@
+2025-02-12  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS: texi2any uses the Perl extensions in C for converters
+	in the default case now.
+
 2025-02-11  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/pod2texi.pl,
