@@ -8576,6 +8576,8 @@ sub _load_htmlxref_files {
     }
     unshift @htmlxref_dirs, '.';
 
+    my $cnf_directory_name;
+
     # no htmlxref for tests, unless explicitly specified
     if ($self->get_conf('TEST')) {
       if (defined($self->get_conf('HTMLXREF_FILE'))) {
@@ -8583,35 +8585,98 @@ sub _load_htmlxref_files {
       } else {
         $htmlxref_file_name = undef;
       }
-    } elsif (defined($self->get_conf('HTMLXREF_FILE'))) {
-      $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');
+    } else {
+      $cnf_directory_name = 'htmlxref.d';
+      if (defined($self->get_conf('HTMLXREF_FILE'))) {
+        $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');
+      }
     }
 
+    my ($encoded_htmlxref_file_name, $htmlxref_file_encoding);
+    # encode file name and handle specific cases for the main htmlxref file
+    # without search in directories.
     if (defined($htmlxref_file_name)) {
-      my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
+      ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
         = $self->encoded_output_file_name($htmlxref_file_name);
-      my ($htmlxref_files_array_ref, $deprecated_dirs_used)
-        = Texinfo::Common::locate_file_in_dirs($encoded_htmlxref_file_name,
-                                               \@htmlxref_dirs, 1,
-                                               $deprecated_dirs);
-      if (defined($htmlxref_files_array_ref)) {
-        @htmlxref_files = @$htmlxref_files_array_ref;
-
-        if (defined($deprecated_dirs_used)) {
-          foreach my $dir (@$deprecated_dirs_used) {
-            my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
-            my ($dir_name, $replacement_dir);
-            if (defined($encoding)) {
-              $dir_name = decode($encoding, $dir);
-              $replacement_dir = decode($encoding, $deprecated_dirs->{$dir})
-            } else {
-              $dir_name = $dir;
-              $replacement_dir = $deprecated_dirs->{$dir};
-            }
-            $self->converter_document_warn(sprintf(__(
-                      "%s directory is deprecated. Use %s instead"),
-                             $dir_name, $replacement_dir));
+      if (File::Spec->file_name_is_absolute($encoded_htmlxref_file_name)) {
+        if (-e $encoded_htmlxref_file_name and -r $encoded_htmlxref_file_name) {
+          push @htmlxref_files, $encoded_htmlxref_file_name;
+        }
+        $htmlxref_file_name = undef;
+      } else {
+        my ($volume, $path_directories, $file)
+          = File::Spec->splitpath($htmlxref_file_name);
+        my @path_directories = File::Spec->splitdir($path_directories);
+        # do not search in directories if the file name already contains
+        # directories.
+        if (scalar(@path_directories) > 0) {
+          if (-e $encoded_htmlxref_file_name
+              and -r $encoded_htmlxref_file_name) {
+            push @htmlxref_files, $encoded_htmlxref_file_name;
           }
+          $htmlxref_file_name = undef;
+        }
+      }
+    }
+
+    # now search in directories
+    if (defined($htmlxref_file_name) or defined($cnf_directory_name)) {
+      my ($encoded_cnf_directory_name, $cnf_directory_encoding);
+      if (defined($cnf_directory_name)) {
+        ($encoded_cnf_directory_name, $cnf_directory_encoding)
+          = $self->encoded_output_file_name($cnf_directory_name);
+      }
+
+      my $deprecated_dirs_used;
+      foreach my $dir (@htmlxref_dirs) {
+        next unless (-d $dir);
+        my $deprecated_dir_set = 0;
+        if (defined($htmlxref_file_name)) {
+          my $possible_file = "$dir/$encoded_htmlxref_file_name";
+          if (-e $possible_file and -r $possible_file) {
+            if ($deprecated_dirs and $deprecated_dirs->{$dir}) {
+              $deprecated_dirs_used = [] if (!defined($deprecated_dirs_used));
+              push @$deprecated_dirs_used, $dir;
+              $deprecated_dir_set = 1;
+            }
+            push (@htmlxref_files, $possible_file);
+          }
+        }
+        if (defined($cnf_directory_name)) {
+          my $cnf_dir = "$dir/$encoded_cnf_directory_name";
+          if (-d $cnf_dir) {
+            my $file_found = 0;
+            # the internal simple quotes are for the case of spaces in $cnf_dir.
+            my @possible_files = glob("'$cnf_dir/*.cnf'");
+            foreach my $possible_file (sort(@possible_files)) {
+              if (-e $possible_file and -r $possible_file) {
+                push (@htmlxref_files, $possible_file);
+                $file_found = 1;
+              }
+            }
+            if (!$deprecated_dir_set and $file_found
+                and $deprecated_dirs and $deprecated_dirs->{$dir}) {
+              $deprecated_dirs_used = [] if (!defined($deprecated_dirs_used));
+              push @$deprecated_dirs_used, $dir;
+              $deprecated_dir_set = 1;
+            }
+          }
+        }
+      }
+      if (defined($deprecated_dirs_used)) {
+        foreach my $dir (@$deprecated_dirs_used) {
+          my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
+          my ($dir_name, $replacement_dir);
+          if (defined($encoding)) {
+            $dir_name = decode($encoding, $dir);
+            $replacement_dir = decode($encoding, $deprecated_dirs->{$dir})
+          } else {
+            $dir_name = $dir;
+            $replacement_dir = $deprecated_dirs->{$dir};
+          }
+          $self->converter_document_warn(sprintf(__(
+                    "%s directory is deprecated. Use %s instead"),
+                           $dir_name, $replacement_dir));
         }
       }
     }

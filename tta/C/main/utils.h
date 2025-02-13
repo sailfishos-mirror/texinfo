@@ -172,6 +172,7 @@ char *collapse_spaces (const char *text);
 char *parse_line_directive (const char *line, int *retval, int *out_line_no);
 int file_name_is_absolute (const char *filename);
 void parse_file_path (const char *input_file_path, char **result);
+void splitpath (const char *input_file_path, char **result);
 STRING_LIST *splitdir (char *directories_str);
 char *analyze_documentlanguage_argument (const char *text,
                                    const char **region_code_out,
@@ -214,6 +215,8 @@ char *locate_file_in_dirs (const char *filename,
 DEPRECATED_DIR_INFO *find_deprecated_dir_info (
                           const DEPRECATED_DIRS_LIST *deprecated_dirs,
                           const char *directory_name);
+void add_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,
+                         const DEPRECATED_DIR_INFO *deprecated_dir_info);
 void copy_deprecated_dirs (DEPRECATED_DIRS_LIST *deprecated_dirs_dst,
                            const DEPRECATED_DIRS_LIST *deprecated_dirs_src);
 void add_new_deprecated_dir_info (DEPRECATED_DIRS_LIST *deprecated_dirs,

@@ -1,5 +1,16 @@
 2025-02-12  Patrice Dumas  <pertusus@free.fr>
 
+	Use htmlxref.d/*.cnf files as htmlxref files
+
+	* tta/C/convert/html_prepare_converter.c (load_htmlxref_files),
+	tta/perl/Texinfo/Convert/HTML.pm (_load_htmlxref_files): do not call
+	locate_file_in_dirs, instead reuse locate_file_in_dirs relevant code
+	and add code to also get htmlxref.d/*.cnf files in the same
+	directories where htmlxref.cnf files are searched for.  Also based on
+	Gavin idea.
+
+2025-02-12  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: texi2any uses the Perl extensions in C for converters
 	in the default case now.
 

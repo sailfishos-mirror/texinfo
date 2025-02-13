@@ -21,6 +21,8 @@
 #include <string.h>
 #include <errno.h>
 #include <inttypes.h>
+#include <sys/stat.h>
+#include <glob.h>
 /* for euidaccess.  Not portable, use gnulib */
 #include <unistd.h>
 
@@ -1223,6 +1225,10 @@ load_htmlxref_files (CONVERTER *self)
   else
     {
       STRING_LIST htmlxref_dirs;
+      const char *cnf_directory_name = "htmlxref.d";
+      char *encoded_htmlxref_file_name;
+      char *path_encoding;
+
       memset (&htmlxref_dirs, 0, sizeof (STRING_LIST));
 
       add_string (".", &htmlxref_dirs);
@@ -1253,16 +1259,18 @@ load_htmlxref_files (CONVERTER *self)
         }
 
       if (self->conf->TEST.o.integer > 0)
-        htmlxref_file_name = self->conf->HTMLXREF_FILE.o.string;
+        {
+          htmlxref_file_name = self->conf->HTMLXREF_FILE.o.string;
+          cnf_directory_name = 0;
+        }
       else if (self->conf->HTMLXREF_FILE.o.string)
         htmlxref_file_name = self->conf->HTMLXREF_FILE.o.string;
 
+      /* encode file name and handle specific cases for the main htmlxref file
+         without search in directories.
+       */
       if (htmlxref_file_name)
         {
-          char *encoded_htmlxref_file_name;
-          char *path_encoding;
-          static DEPRECATED_DIRS_LIST deprecated_dirs_used;
-
           /* cast to remove const */
           encoded_htmlxref_file_name
             = encoded_output_file_name (self->conf,
@@ -1271,10 +1279,146 @@ load_htmlxref_files (CONVERTER *self)
                                         &path_encoding, 0);
           free (path_encoding);
 
-          locate_file_in_dirs (encoded_htmlxref_file_name,
-                               &htmlxref_dirs, &htmlxref_files,
-                               &self->deprecated_config_directories,
-                               &deprecated_dirs_used);
+          if (file_name_is_absolute (encoded_htmlxref_file_name))
+            {
+              if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
+                add_string (encoded_htmlxref_file_name, &htmlxref_dirs);
+
+              free (encoded_htmlxref_file_name);
+              htmlxref_file_name = 0;
+            }
+          else
+            {
+              char *file_name_and_directories[3];
+              int file_with_directories = 0;
+
+              splitpath (encoded_htmlxref_file_name, file_name_and_directories);
+              free (file_name_and_directories[0]);
+              free (file_name_and_directories[2]);
+              if (file_name_and_directories[1])
+                {
+                  STRING_LIST *file_directories
+                    = splitdir (file_name_and_directories[1]);
+                  free (file_name_and_directories[1]);
+                  if (file_directories->number)
+                    file_with_directories = 1;
+
+                  destroy_strings_list (file_directories);
+                }
+
+              if (file_with_directories)
+                {
+                  if (euidaccess (encoded_htmlxref_file_name, R_OK) == 0)
+                    add_string (encoded_htmlxref_file_name, &htmlxref_dirs);
+
+                  free (encoded_htmlxref_file_name);
+                  htmlxref_file_name = 0;
+                }
+            }
+        }
+
+      /* now search in directories */
+      if (htmlxref_file_name || cnf_directory_name)
+        {
+          static DEPRECATED_DIRS_LIST deprecated_dirs_used;
+          DEPRECATED_DIRS_LIST *deprecated_dirs
+            = &self->deprecated_config_directories;
+          char *encoded_cnf_directory_name;
+          size_t i;
+
+          if (cnf_directory_name)
+            {
+              /* cast to remove const */
+              encoded_cnf_directory_name
+                = encoded_output_file_name (self->conf,
+                                        &self->document->global_info,
+                                        (char *)cnf_directory_name,
+                                        &path_encoding, 0);
+              free (path_encoding);
+            }
+
+          for (i = 0; i < htmlxref_dirs.number; i++)
+            {
+              char *fullpath;
+              int deprecated_dir_set = 0;
+
+              if (htmlxref_file_name)
+                {
+                  xasprintf (&fullpath, "%s/%s", htmlxref_dirs.list[i],
+                             encoded_htmlxref_file_name);
+                  if (euidaccess (fullpath, R_OK) == 0)
+                    {
+                      if (deprecated_dirs)
+                        {
+                          DEPRECATED_DIR_INFO *deprecated_dir_info
+                            = find_deprecated_dir_info (deprecated_dirs,
+                                                    htmlxref_dirs.list[i]);
+                          if (deprecated_dir_info)
+                            add_deprecated_dir_info (&deprecated_dirs_used,
+                                                     deprecated_dir_info);
+                          deprecated_dir_set = 1;
+                        }
+                      add_string (fullpath, &htmlxref_files);
+                    }
+
+                  free (fullpath);
+                }
+
+              if (cnf_directory_name)
+                {
+                  char *cnf_dir;
+                  struct stat finfo;
+
+                  xasprintf (&cnf_dir, "%s/%s", htmlxref_dirs.list[i],
+                             encoded_cnf_directory_name);
+
+                  if (stat (cnf_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
+                    {
+                      int file_found = 0;
+                      glob_t possible_files;
+                      int glob_status;
+                      char *glob_format;
+
+                      xasprintf (&glob_format, "%s/*.cnf", cnf_dir);
+
+                      glob_status = glob (glob_format, 0, 0, &possible_files);
+
+                      if (!glob_status)
+                        {
+                          size_t j;
+
+                          for (j = 0; j < possible_files.gl_pathc; j++)
+                            {
+                              if (possible_files.gl_pathv[j]
+                                  && euidaccess (possible_files.gl_pathv[j],
+                                                 R_OK) == 0)
+                                {
+                                  add_string (possible_files.gl_pathv[j],
+                                              &htmlxref_files);
+                                  file_found = 1;
+                                }
+                            }
+                          if (!deprecated_dir_set && file_found
+                              && deprecated_dirs)
+                            {
+                              DEPRECATED_DIR_INFO *deprecated_dir_info
+                                = find_deprecated_dir_info (deprecated_dirs,
+                                                        htmlxref_dirs.list[i]);
+                              if (deprecated_dir_info)
+                                add_deprecated_dir_info (&deprecated_dirs_used,
+                                                         deprecated_dir_info);
+                              deprecated_dir_set = 1;
+                            }
+                        }
+                      globfree (&possible_files);
+                      free (glob_format);
+                    }
+                  free (cnf_dir);
+                }
+            }
+
+          if (cnf_directory_name)
+            free (encoded_cnf_directory_name);
 
           if (deprecated_dirs_used.number)
             {
@@ -1314,7 +1458,8 @@ load_htmlxref_files (CONVERTER *self)
                 }
               deprecated_dirs_used.number = 0;
             }
-          free (encoded_htmlxref_file_name);
+          if (htmlxref_file_name)
+            free (encoded_htmlxref_file_name);
         }
       free_strings_list (&htmlxref_dirs);
     }
