@@ -40,7 +40,8 @@ find_missed () {
     -not -name "COPYING" \
     -not -name "fdl.texi" \
     -not -wholename "./tta/texi2any" \
-    -not -wholename "./util/htmlxref.cnf" \
+    -not -wholename "./util/htmlxref.d/Texinfo_GNU.cnf" \
+    -not -wholename "./util/htmlxref.d/Texinfo_nonGNU.cnf" \
     -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
     -not -wholename "./install-info/tests/defs" \
     -not -wholename "./INSTALL.generic" \

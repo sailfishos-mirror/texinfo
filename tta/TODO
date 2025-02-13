@@ -14,7 +14,8 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 
 Version libraries?
 
-Split htmlxref.cnf in GNU/nonGNU and install files in htmlxref.d
+Update paths to htmlxref.d/Texinfo_*.cnf in these files and in README-hacking
+and in texinfo.texi
 
 
 Bugs
@@ -551,8 +552,9 @@ The @FIGURE @macro is, for html:
 @end macro
 
 
-In general, the htmlxref.cnf file should be filled and used to determine
-the split of a reference manual, and if no htmlxref.cnf file is used, it
+In general, external information for cross-references to other manuals from
+htmlxref.cnf or htmlxref.d/*.cnf files should be used to determine
+the split of a reference manual, and if no information is set, it
 is a good idea to generate both a mono and a split manual.  Therefore the
 following situation is not something that needs to be supported/implemented,
 however we keep the information on the javascript code here.

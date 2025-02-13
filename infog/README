@@ -6,7 +6,8 @@ Then configure and make.
 
 Set INFO_HTML_DIR to the directory containing the documentation files.
 Each manual is in its own directory, named with the name of the manual.
-For links to work, the htmlxref.cnf file should not be used.
+For links to work, cross-references should link to manuals installed
+locally, not to manuals published on the World Wide Web.
 
 texi2any --html --no-number-sections -c HTMLXREF_MODE=none ../../../hello.texi
 

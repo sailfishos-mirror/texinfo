@@ -33,7 +33,9 @@ txixml2texi: txixml2texi.pl Makefile
 	   $(srcdir)/txixml2texi.pl >$@
 	chmod a+x $@
 
-dist_pkgdata_DATA = htmlxref.cnf texinfo.dtd
+nobase_dist_pkgdata_DATA = htmlxref.d/Texinfo_GNU.cnf \
+          htmlxref.d/Texinfo_nonGNU.cnf \
+          texinfo.dtd
 
 # Most of these are for fun.  The only official/installed ones are the
 # *texi2* scripts.

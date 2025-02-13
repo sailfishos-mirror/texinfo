@@ -1,4 +1,4 @@
-# htmlxref.cnf - reference file for free Texinfo manuals on the web.
+# Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
 htmlxrefversion=2024-09-17.20; # UTC
 
@@ -11,8 +11,7 @@ htmlxrefversion=2024-09-17.20; # UTC
 # The latest version of this file is available at
 # http://ftpmirror.gnu.org/texinfo/htmlxref.cnf.
 # Email corrections or additions to bug-texinfo@gnu.org.
-# The primary goal is to list all relevant GNU manuals;
-# other free manuals are also welcome.
+# The primary goal is to list all relevant GNU manuals.
 #
 # To be included in this list, a manual must:
 #
@@ -615,6 +614,9 @@ make		node	${GS}/make/manual/html_node/
 mdk		mono	${GS}/mdk/manual/mdk.html
 mdk		node	${GS}/mdk/manual/html_node/
 
+# GNU Metadata Exchange Utilities.  Documentation is the IWF Metadata
+# Harvester documentation, which is the package the GNU Metadata Exchange
+# Utilities is derived from.
 METAEXCHANGE = https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/texinfo
  iwf_mh		node	${METAEXCHANGE}/iwf_mh.html
  scantest	node	${METAEXCHANGE}/scantest.html
@@ -779,18 +781,6 @@ xboard		mono	${GS}/xboard/manual/xboard.html
 xboard		node	${GS}/xboard/manual/html_node/
 
 # emacs-page
-# Free TeX-related Texinfo manuals on tug.org.
-
-T = https://tug.org/texinfohtml
-
-dvipng		mono	${T}/dvipng.html
-dvips		mono	${T}/dvips.html
-eplain		mono	${T}/eplain.html
-kpathsea	mono	${T}/kpathsea.html
-latex2e		mono	${T}/latex2e.html
-tlbuild		mono	${T}/tlbuild.html
-web2c		mono	${T}/web2c.html
-
 
 # Local Variables:
 # eval: (add-hook 'write-file-hooks 'time-stamp)
