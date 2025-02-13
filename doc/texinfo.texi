@@ -17948,14 +17948,15 @@ web.
 
 
 @node HTML Xref Configuration
-@nodedescription @file{htmlxref.cnf}.
-@subsection HTML Cross-reference Configuration: @file{htmlxref.cnf}
+@nodedescription @file{htmlxref.cnf} and @file{htmlxref.d/*.cnf}.
+@subsection HTML Cross-reference Configuration
 
 @c the "HTML Xref Mismatch" was removed.  Placing the anchor here as
 @c it is the most relevant node for that subject.
 @anchor{HTML Xref Mismatch}
 
 @pindex htmlxref.cnf
+@pindex htmlxref.d/*.cnf
 @cindex HTML cross-references @subentry configuration
 @cindex Cross-reference configuration, for HTML
 @cindex Configuration, for HTML cross-manual references
@@ -17968,9 +17969,11 @@ Similarly, for your manual in HTML format to have correct
 cross-references to other manuals, @command{texi2any} needs to know
 how to construct the URLs for other manuals.
 
-@command{texi2any} reads a file named @file{htmlxref.cnf} to gather
-information for cross-references to other manuals in HTML output.  It
-is looked for in the following directories, based on the
+@command{texi2any} reads a file named @file{htmlxref.cnf} and all the
+files ending with the @file{.cnf} extension in the @file{htmlxref.d}
+directory to gather information for cross-references to other manuals in HTML
+output.  @file{htmlxref.cnf} and @file{htmlxref.d} are looked for in the
+following directories, based on the
 @url{https://specifications.freedesktop.org/basedir-spec/latest/, XDG Base
 Directory Specification} with defaults based on installation directories:
 
@@ -17981,7 +17984,8 @@ Directory Specification} with defaults based on installation directories:
 @item leading input file path directory
 If there is a leading directory and it is not the current directory.
 For example, if the input file is @file{some/dir/mymanual.texi},
-@file{htmlxref.cnf} is searched for in @file{some/dir}.
+@file{htmlxref.cnf} is searched for in @file{some/dir} and files matching
+@file{some/dir/htmlxref.d/*.cnf} are read too.
 
 @item ./.texinfo/
 (under the current directory)
@@ -18029,7 +18033,9 @@ one of the last of the above directories.
 You can use a local @file{htmlxref.cnf} to complete or correct the
 default file from the Texinfo distribution.  This could be useful to
 correct outdated data, or even to generate cross-references to local
-files for some manuals.
+files for some manuals.  Other software packages managing lists of manuals
+following the HTML cross-references specification could install @file{.cnf}
+files in @file{@var{datadir}/texinfo/htmlxref.d/}.
 
 The @code{HTMLXREF_MODE} customization variable can be set to modify how the
 files are found.  For instance, if set to @samp{none}, no external information
@@ -18068,7 +18074,7 @@ with @var{manual} the short identifier for a manual, @var{keyword}
 being one of: @code{mono}, @code{node}, @code{section},
 @code{chapter}, and @var{urlprefix} described below.  Variable
 references can occur only in the @var{urlprefix}.  For example (used
-in the canonical @file{htmlxref.cnf}):
+in the canonical file):
 
 @example
 G = http://www.gnu.org

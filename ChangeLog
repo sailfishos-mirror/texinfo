@@ -1,3 +1,8 @@
+2025-02-13  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (HTML Xref Configuration): describe
+	htmlxref.d/*.cnf.
+
 2025-02-12  Patrice Dumas  <pertusus@free.fr>
 
 	Use htmlxref.d/*.cnf files as htmlxref files
