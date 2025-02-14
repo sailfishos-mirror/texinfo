@@ -985,10 +985,10 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_no_use_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
+    'error_line' => 'warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
 ',
     'line_nr' => 5,
-    'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
+    'text' => 'no HTML cross-references entry found for `no_existing_no_manual.info\'',
     'type' => 'warning'
   },
   {
@@ -999,24 +999,24 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_no_use_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
+    'error_line' => 'warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
 ',
     'line_nr' => 6,
-    'text' => 'no htmlxref.cnf entry found for `no_existing_no_manual.info\'',
+    'text' => 'no HTML cross-references entry found for `no_existing_no_manual.info\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `dir\'
+    'error_line' => 'warning: no HTML cross-references entry found for `dir\'
 ',
     'line_nr' => 2,
-    'text' => 'no htmlxref.cnf entry found for `dir\'',
+    'text' => 'no HTML cross-references entry found for `dir\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `../there/no_existing_no_manual_direction\'
+    'error_line' => 'warning: no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'
 ',
     'line_nr' => 2,
-    'text' => 'no htmlxref.cnf entry found for `../there/no_existing_no_manual_direction\'',
+    'text' => 'no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'',
     'type' => 'warning'
   },
   {
@@ -1027,24 +1027,24 @@ $result_converted_errors{'file_html'}->{'check_htmlxref_no_use_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `some_name_inf.inf\'
+    'error_line' => 'warning: no HTML cross-references entry found for `some_name_inf.inf\'
 ',
     'line_nr' => 19,
-    'text' => 'no htmlxref.cnf entry found for `some_name_inf.inf\'',
+    'text' => 'no HTML cross-references entry found for `some_name_inf.inf\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `chap_not_existing\'
+    'error_line' => 'warning: no HTML cross-references entry found for `chap_not_existing\'
 ',
     'line_nr' => 16,
-    'text' => 'no htmlxref.cnf entry found for `chap_not_existing\'',
+    'text' => 'no HTML cross-references entry found for `chap_not_existing\'',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: no htmlxref.cnf entry found for `dir\'
+    'error_line' => 'warning: no HTML cross-references entry found for `dir\'
 ',
     'line_nr' => 16,
-    'text' => 'no htmlxref.cnf entry found for `dir\'',
+    'text' => 'no HTML cross-references entry found for `dir\'',
     'type' => 'warning'
   }
 ];

@@ -10913,13 +10913,13 @@ sub _external_node_href($$$)
           if (!_check_htmlxref_already_warned($self, $manual_name,
                                          $source_command->{'source_info'})) {
             $self->converter_line_warn(sprintf(__(
-                    "no htmlxref.cnf entry found for `%s'"), $manual_name),
+            "no HTML cross-references entry found for `%s'"), $manual_name),
                              $source_command->{'source_info'});
           }
         } else {
           if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
             $self->converter_document_warn(sprintf(__(
-              "no htmlxref.cnf entry found for `%s'"), $manual_name),
+              "no HTML cross-references entry found for `%s'"), $manual_name),
               );
             cluck;
           }

@@ -844,7 +844,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                       message_list_command_warn (&self->error_messages,
                                                  self->conf,
                                                  source_command, 0,
-                             "no htmlxref.cnf entry found for `%s'",
+                             "no HTML cross-references entry found for `%s'",
                                                  manual_name);
                     }
                 }
@@ -854,8 +854,9 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                                                            manual_name, 0))
                     {
                       message_list_document_warn (&self->error_messages,
-                        self->conf, 0,
-                        "no htmlxref.cnf entry found for `%s'", manual_name);
+                                                  self->conf, 0,
+                        "no HTML cross-references entry found for `%s'",
+                                                  manual_name);
                     }
                 }
             }
