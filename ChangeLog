@@ -1,5 +1,10 @@
 2025-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/run_parser_all.sh (check_strxfrm_ok): check more
+	environment variable to determine if conversion with XS is set.
+
+2025-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (external_node_href),
 	tta/perl/Texinfo/Convert/HTML.pm (_external_node_href): do not mention
 	explicitly the htmlxref.cnf file name.
