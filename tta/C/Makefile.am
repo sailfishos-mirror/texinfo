@@ -210,8 +210,8 @@ libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 # locate include files under out-of-source builds.
 libtexinfo_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_la_LIBADD = libcallperl_libtexinfo.la $(platform_PERL_LIBADD)
-libtexinfo_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-#libtexinfo_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 convert/cmd_converter.c \
@@ -343,9 +343,9 @@ libtexinfoxs_la_SOURCES= \
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
 libtexinfoxs_la_CFLAGS = $(perl_conf_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libperlcall_utils.la $(platform_PERL_LIBADD)
-libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
+libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
-#libtexinfoxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS)
+#libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS)
 
 ########################## shared C library for conversion
 # Conversion to raw text and to Texinfo code is in the libtexinfo library.
@@ -414,9 +414,9 @@ libtexinfo_convert_la_SOURCES = \
 # locate include files under out-of-source builds.
 libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_convert_la_LIBADD = libtexinfoxs.la libtexinfo.la libcallperl_libtexinfo_convert.la $(top_builddir)/gnulib/lib/libgnu.la $(platform_PERL_LIBADD)
-libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 # example to trigger errors associated with no undefined
-#libtexinfo_convert_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ################################# common Perl C code shared library used
 # to call libtexinfo-convert from Perl XS *.xs interfaces
@@ -435,9 +435,9 @@ libtexinfo_convertxs_la_SOURCES = \
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
 libtexinfo_convertxs_la_CFLAGS = $(perl_conf_CFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
-libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LDFLAGS)
+libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
-#libtexinfo_convertxs_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS)
+#libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 -Wl,--no-undefined $(perl_conf_LDFLAGS) $(perl_conf_LIBS)
 
 
 ############################################### main program library

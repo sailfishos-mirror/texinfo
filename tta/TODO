@@ -12,8 +12,6 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
-Version libraries?
-
 Update paths to htmlxref.d/Texinfo_*.cnf in these files and in README-hacking
 and in texinfo.texi
 
@@ -64,6 +62,14 @@ Document *XS_EXTERNAL_FORMATTING *XS_EXTERNAL_CONVERSION?
 
 Delayed bugs/features
 =====================
+
+There is disagreement on the strategy to use for libraries versioning.
+For Gavin, the code that can link against libraries should be the code
+with the exact same version than the libraries.
+For Patrice it is possible to explicitly say that mixing versions is
+not supported, but still follow the libtool versioning scheme such that
+if better and compatible libraries are installed they will be prefered
+to same version library.
 
 Could libraries be compiled with Perl C compiler or other C compiler
 and be mixed at the library level?  Ask on the list.
