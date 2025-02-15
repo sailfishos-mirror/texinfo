@@ -1,3 +1,16 @@
+Association of default directions to associated information
+rel: used for the rel attribute
+accesskey: used for the accesskey attribute
+example: Section number corresponding to the example used in the About special
+         output unit to show which section the direction links to
+text converted: direction text in a few words already converted to HTML
+text to_convert string: direction text in a few words as Texinfo code
+description converted: elaborate description of the direction already converted to HTML
+description to_convert string: elaborate description of the direction as Texinfo code
+button converted: direction short name typically used for buttons already converted to HTML
+button to_convert string: direction short name typically used for buttons as Texinfo code
+Either 'converted' or 'to_convert string' should be given not both
+
 direction|rel|accesskey|example|text converted|text to_convert string|description converted|description to_convert string|button converted|button to_convert string|
 First|||1.| ${bar}&lt; |||First section in reading order||First|
 Top|start|| $html_default_entity_nbsp ||Top||Cover (top) of document||Top|

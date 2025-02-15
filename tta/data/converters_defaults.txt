@@ -16,7 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # this information is used to setup customization options for both C and
-# Perl.
+# Perl.  For C complex option types are not actually handled, only
+# strings and integers.
+# The list of options, information about options types, defaults and
+# categories can be taken from the main options data source.
 
 # for Texinfo::Parser
 # variables not specific of Parser, used in other contexts.  Spread over

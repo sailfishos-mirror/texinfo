@@ -48,10 +48,17 @@ open (SCE, "<$style_commands_element_file")
   or die "open $style_commands_element_file failed: $!";
 
 
-my $header_line = <BDCSS>;
-chomp($header_line);
-#print STDERR "$header_line\n";
-my @header = split(/\|/, $header_line);
+my @header;
+while (1) {
+  my $header_line = <BDCSS>;
+  chomp($header_line);
+  #print STDERR "$header_line\n";
+  @header = split(/\|/, $header_line);
+  if (scalar(@header) > 1) {
+    last;
+  }
+}
+
 my ($selector_index, $style_index, $notes_index);
 my $header_index = 0;
 foreach my $header (@header) {
@@ -182,10 +189,17 @@ if ($perl_format) {
 my @su_ordered_untranslated_hashes;
 my @su_ordered_translated_hashes;
 
-my $su_header_line = <DSUI>;
-chomp($su_header_line);
-#print STDERR "$su_header_line\n";
-my @su_header = split(/\|/, $su_header_line);
+my @su_header;
+while (1) {
+  my $su_header_line = <DSUI>;
+  chomp($su_header_line);
+  #print STDERR "$su_header_line\n";
+  @su_header = split(/\|/, $su_header_line);
+  if (scalar(@su_header) > 1) {
+    last;
+  }
+}
+
 my $special_unit_header = shift @su_header;
 
 my $su_header_index = 1;
@@ -369,10 +383,17 @@ my @orders_order = ('global', 'relative', 'file');
 my @d_ordered_untranslated_hashes;
 my @d_ordered_translated_hashes;
 
-my $d_header_line = <DDS>;
-chomp($d_header_line);
-#print STDERR "$d_header_line\n";
-my @d_header = split(/\|/, $d_header_line);
+my @d_header;
+while (1) {
+  my $d_header_line = <DDS>;
+  chomp($d_header_line);
+  #print STDERR "$d_header_line\n";
+  @d_header = split(/\|/, $d_header_line);
+  if (scalar(@d_header) > 1) {
+    last;
+  }
+}
+
 my $direction_header = shift @d_header;
 
 my $d_header_index = 1;
@@ -632,10 +653,17 @@ if ($perl_format) {
   print OUT "};\n\n";
 }
 
-my $sce_header_line = <SCE>;
-chomp($sce_header_line);
-#print STDERR "$sce_header_line\n";
-my @sce_header = split(/\|/, $sce_header_line);
+my @sce_header;
+while (1) {
+  my $sce_header_line = <SCE>;
+  chomp($sce_header_line);
+  #print STDERR "$sce_header_line\n";
+  @sce_header = split(/\|/, $sce_header_line);
+  if (scalar(@sce_header) > 1) {
+    last;
+  }
+}
+
 my ($sce_command_index, $sce_html_element_index, $sce_notes_index);
 my $sce_header_index = 0;
 foreach my $header (@sce_header) {
