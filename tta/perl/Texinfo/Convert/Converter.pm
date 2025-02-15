@@ -41,6 +41,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Options;
 use Texinfo::CommandsValues;
+use Texinfo::UnicodeData;
 use Texinfo::Common;
 
 use Texinfo::Report;
@@ -1861,10 +1862,10 @@ sub xml_numeric_entity_accent($$)
   my $accent = shift;
   my $text = shift;
 
-  if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
-      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})) {
+  if (exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
+      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})) {
     return '&#' .
-      hex($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}). ';';
+      hex($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text}). ';';
   }
   if (exists($Texinfo::CommandsValues::unicode_diacritics{$accent})) {
     my $diacritic = '&#'
@@ -1902,12 +1903,12 @@ sub xml_accent($$$;$$$)
   # do not return a dotless i or j as such if it is further composed
   # with an accented letter, return the letter as is
   if ($accent eq 'dotless') {
-    if ($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}
-        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})
+    if ($Texinfo::UnicodeData::unicode_accented_letters{$accent}
+        and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})
         and ($command->{'parent'}
              and $command->{'parent'}->{'parent'}
              and $command->{'parent'}->{'parent'}->{'cmdname'}
-             and $Texinfo::Convert::Unicode::unicode_accented_letters{$command->{'parent'}
+             and $Texinfo::UnicodeData::unicode_accented_letters{$command->{'parent'}
                                         ->{'parent'}->{'cmdname'}})) {
       return $text;
     }

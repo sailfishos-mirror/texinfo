@@ -267,7 +267,7 @@ $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_struct
 MAINTAINERCLEANFILES += main/cmd_unicode.c \
                 main/cmd_structuring.c main/cmd_symbol.c main/cmd_text.c
 
-$(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../maintain/setup_accent_tables.pl
+$(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../perl/Texinfo/UnicodeData.pm $(srcdir)/../maintain/setup_accent_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_accent_tables.pl \
 	              $(srcdir)/main/accent_tables_8bit_codepoints.c
 

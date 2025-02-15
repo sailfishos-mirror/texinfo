@@ -48,15 +48,9 @@ BEGIN
 
   # find Perl Texinfo modules in srcdir
   unshift @INC, join('/', ($t2a_srcdir, 'perl'));
-
-  my $lib_dir = join('/', ($t2a_srcdir, 'maintain'));
-  # we ignore --with-external-*
-  unshift @INC, join('/', ($lib_dir, 'lib', 'libintl-perl', 'lib'));
-  unshift @INC, join('/', ($lib_dir, 'lib', 'Unicode-EastAsianWidth', 'lib'));
-  unshift @INC, join('/', ($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
-use Texinfo::Convert::Unicode;
+use Texinfo::UnicodeData;
 
 my $unicode_to_eight_bit_file_name = $ARGV[0];
 die "Need a file\n"
@@ -70,7 +64,7 @@ print UEB "/* Automatically generated from $program_name */\n\n";
 print UEB "/* NOTE encodings codepoints are sorted as strings */\n";
 print UEB "const struct ENCODING_CODEPOINTS unicode_to_eight_bit[] = {\n";
 
-my %unicode_to_eight_bit = %Texinfo::Convert::Unicode::unicode_to_eight_bit;
+my %unicode_to_eight_bit = %Texinfo::UnicodeData::unicode_to_eight_bit;
 foreach my $encoding (sort (keys (%unicode_to_eight_bit))) {
   my @codepoints = sort (keys (%{$unicode_to_eight_bit{$encoding}}));
   print UEB '{"'.$encoding.'", '.scalar(@codepoints).", {\n";

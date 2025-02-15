@@ -6685,7 +6685,7 @@ css_string_accent (CONVERTER *self, const char *text,
   if (element->e.c->cmd == CM_dotless)
     {
       /* corresponds in perl, and for dotless, to
- Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text} */
+   Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text} */
       if (!strcmp (text_set, "i"))
         {
           free (text_set);

@@ -39,6 +39,7 @@ use Text::Unidecode;
 use Texinfo::Commands;
 # for nobrace_symbol_text and text_brace_no_arg_commands
 use Texinfo::CommandsValues;
+use Texinfo::UnicodeData;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
 
@@ -152,8 +153,8 @@ sub convert_to_normalized($)
 sub _protect_unicode_char($)
 {
   my $char = shift;
-  if (exists($Texinfo::Convert::Unicode::unicode_simple_character_map{$char})) {
-    return '_' . lc($Texinfo::Convert::Unicode::unicode_simple_character_map{$char});
+  if (exists($Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
+    return '_' . lc($Texinfo::UnicodeData::unicode_simple_character_map{$char});
   } else {
     if (ord($char) <= hex(0xFFFF)) {
       return '_' . lc(sprintf("%04x",ord($char)));
@@ -221,7 +222,7 @@ sub _unicode_to_transliterate($;$$)
     } elsif ($text =~ s/^(.)//s) {
       my $char = $1;
       if (exists(
-           $Texinfo::Convert::Unicode::unicode_simple_character_map{$char})) {
+           $Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
         $result .= $char;
       } else {
         my $hex_repr;

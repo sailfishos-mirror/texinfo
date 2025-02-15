@@ -1,5 +1,16 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/Convert/Unicode.pm, tta/perl/Texinfo/UnicodeData.pm:
+	split Texinfo/UnicodeData.pm out of Texinfo/Convert/Unicode.pm, moving
+	hashes that are either big, used to generate C, not used in
+	Texinfo/Convert/Unicode.pm or not used.  Update users.
+
+	* tta/C/Makefile.am (accent_tables_8bit_codepoints.c): add a
+	dependency on Texinfo/UnicodeData.pm.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (convert/cmd_converter.c),
 	tta/data/commands_values.txt,
 	tta/maintain/generate_code_commands_text.pl,

@@ -78,6 +78,7 @@ dist_modules_DATA = \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
  Texinfo/Commands.pm \
+ Texinfo/CommandsValues.pm \
  Texinfo/HTMLData.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
@@ -95,9 +96,9 @@ dist_modules_DATA = \
  Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \
  Texinfo/Tests.pm \
- Texinfo/CommandsValues.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
+ Texinfo/UnicodeData.pm \
  Texinfo/XSLoader.pm
 
 dist_noinst_DATA = \

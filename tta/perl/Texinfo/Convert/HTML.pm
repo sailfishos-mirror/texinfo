@@ -70,8 +70,10 @@ use Texinfo::XSLoader;
 use Texinfo::Commands;
 use Texinfo::Options;
 use Texinfo::CommandsValues;
-use Texinfo::Common;
+use Texinfo::UnicodeData;
 use Texinfo::HTMLData;
+use Texinfo::Common;
+
 use Texinfo::Config;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
@@ -3684,13 +3686,13 @@ sub _accent_entities_html_accent($$$;$$$)
   # do not return a dotless i or j as such if it is further composed
   # with an accented letter, return the letter as is
   if ($accent eq 'dotless') {
-    if ($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}
-        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{
+    if ($Texinfo::UnicodeData::unicode_accented_letters{$accent}
+        and exists($Texinfo::UnicodeData::unicode_accented_letters{
                                                              $accent}->{$text})
         and ($command->{'parent'}
              and $command->{'parent'}->{'parent'}
              and $command->{'parent'}->{'parent'}->{'cmdname'}
-             and $Texinfo::Convert::Unicode::unicode_accented_letters{
+             and $Texinfo::UnicodeData::unicode_accented_letters{
                    $command->{'parent'}->{'parent'}->{'cmdname'} })) {
       return $text;
     }
@@ -3772,11 +3774,11 @@ sub _css_string_accent($$$;$)
   if ($in_upper_case and $text =~ /^\p{Word}$/) {
     $text = uc($text);
   }
-  if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
-      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{
+  if (exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
+      and exists($Texinfo::UnicodeData::unicode_accented_letters{
                                                           $accent}->{$text})) {
     return '\\' .
-      $Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}. ' ';
+      $Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text}. ' ';
   }
   if (exists($Texinfo::CommandsValues::unicode_diacritics{$accent})) {
     my $diacritic = '\\'
