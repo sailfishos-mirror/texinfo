@@ -178,7 +178,7 @@ use File::Spec;
 use Carp qw(cluck confess);
 
 use Texinfo::Commands;
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
@@ -236,7 +236,7 @@ my %inline_format_commands = %Texinfo::Commands::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
 my %non_formatted_brace_command = %Texinfo::Commands::non_formatted_brace_command;
 
-my %nobrace_symbol_text = %Texinfo::TextData::nobrace_symbol_text;
+my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
 
 foreach my $kept_command (keys(%informative_commands),
    keys(%default_index_commands),

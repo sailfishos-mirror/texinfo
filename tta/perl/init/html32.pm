@@ -36,7 +36,7 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Texinfo::Commands;
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 
 texinfo_set_from_init_file('INDENTED_BLOCK_COMMANDS_IN_TABLE', 1);
 
@@ -90,7 +90,7 @@ foreach my $command ('euro', 'geq', 'leq',
    'quotedblbase', 'quotesinglbase', 'guillemetleft', 'guillemetright',
    'guillemotleft', 'guillemotright', 'guilsinglleft', 'guilsinglright') {
   my $formatted_command = html32_format_protect_text(undef,
-             $Texinfo::TextData::text_brace_no_arg_commands{$command});
+             $Texinfo::CommandsValues::text_brace_no_arg_commands{$command});
   texinfo_register_no_arg_command_formatting($command, undef, $formatted_command);
 }
 

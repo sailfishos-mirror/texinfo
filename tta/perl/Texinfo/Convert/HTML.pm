@@ -69,7 +69,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Commands;
 use Texinfo::Options;
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 use Texinfo::Common;
 use Texinfo::HTMLData;
 use Texinfo::Config;
@@ -360,7 +360,7 @@ sub import {
 
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
-my %nobrace_symbol_text = %Texinfo::TextData::nobrace_symbol_text;
+my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
 my %accent_commands = %Texinfo::Commands::accent_commands;
 my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 my %def_commands = %Texinfo::Commands::def_commands;
@@ -2993,10 +2993,10 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   } elsif (exists($nobrace_symbol_text{$command})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}
       = {'text' => $nobrace_symbol_text{$command}};
-  } elsif (exists($Texinfo::TextData::text_brace_no_arg_commands{$command})) {
+  } elsif (exists($Texinfo::CommandsValues::text_brace_no_arg_commands{$command})) {
     # complete the commands not in unicode maps: TeX, enddots, LaTeX, tie
     $default_no_arg_commands_formatting{'css_string'}->{$command}
-     = {'text' => $Texinfo::TextData::text_brace_no_arg_commands{$command}};
+     = {'text' => $Texinfo::CommandsValues::text_brace_no_arg_commands{$command}};
   } else {
     warn "BUG: $command: no css_string\n";
   }
@@ -3778,9 +3778,9 @@ sub _css_string_accent($$$;$)
     return '\\' .
       $Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}. ' ';
   }
-  if (exists($Texinfo::TextData::unicode_diacritics{$accent})) {
+  if (exists($Texinfo::CommandsValues::unicode_diacritics{$accent})) {
     my $diacritic = '\\'
-       .$Texinfo::TextData::unicode_diacritics{$accent}. ' ';
+       .$Texinfo::CommandsValues::unicode_diacritics{$accent}. ' ';
     if ($accent ne 'tieaccent') {
       return $text . $diacritic;
     } else {

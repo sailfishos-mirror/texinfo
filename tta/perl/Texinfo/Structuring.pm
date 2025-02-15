@@ -104,7 +104,7 @@ sub import {
   goto &Exporter::import;
 }
 
-my %command_structuring_level = %Texinfo::Common::command_structuring_level;
+my %command_structuring_level = %Texinfo::CommandsValues::command_structuring_level;
 
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
@@ -1200,7 +1200,7 @@ sub section_level_adjusted_command_name($)
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'section_level'})) {
     my $heading_level = $element->{'extra'}->{'section_level'};
-    if ($heading_level ne $Texinfo::Common::command_structuring_level{
+    if ($heading_level ne $Texinfo::CommandsValues::command_structuring_level{
                                                        $element->{'cmdname'}}) {
       my $command
         = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}

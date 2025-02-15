@@ -107,36 +107,8 @@ sub _protect_char
   return join('', map {"\\x".sprintf("%02x",ord($_))} split('', $encoded));
 }
 
-my $structuring_file = $ARGV[0];
-die "Need a file for structuring tables\n" if (!defined($structuring_file));
-
-my $converter_file = $ARGV[1];
+my $converter_file = $ARGV[0];
 die "Need a file for converter tables\n" if (!defined($converter_file));
-
-my %command_structuring_level = %Texinfo::Common::command_structuring_level;
-my %level_to_structuring_command
-  = %Texinfo::Common::level_to_structuring_command;
-
-open(STRUC, '>', $structuring_file) or die "Open $structuring_file: $!\n";
-
-print STRUC "/* Automatically generated from $program_name */\n\n";
-
-print STRUC "#include \"command_ids.h\"\n\n";
-print STRUC "int const command_structuring_level[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if (defined($command_structuring_level{$command_name})) {
-    print STRUC "$command_structuring_level{$command_name},  /* $command */\n";
-  } else {
-    print STRUC "-1,\n";
-  }
-}
-print STRUC "};\n\n";
-
-close (STRUC);
 
 my %xml_text_entity_no_arg_commands
  = %Texinfo::Convert::Converter::xml_text_entity_no_arg_commands;

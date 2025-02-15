@@ -77,7 +77,7 @@ dist_noinst_DATA = \
  data/default_special_unit_info.csv \
  data/html_style_commands_element.csv \
  data/command_data.txt \
- data/command_text.txt \
+ data/commands_values.txt \
  data/options_data.txt \
  data/converters_defaults.txt
 

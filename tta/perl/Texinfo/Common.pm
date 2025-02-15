@@ -46,6 +46,7 @@ use Locale::Messages;
 use Texinfo::Documentlanguages;
 use Texinfo::Commands;
 use Texinfo::Options;
+use Texinfo::CommandsValues;
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -368,30 +369,8 @@ for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
   $small_block_associated_command{'small'.$cmd} = $cmd;
 };
 
-# Section and heading commands hierarchical levels
-our %command_structuring_level = (
-              'top'               => 0,
-              'part'              => 0, # out of the main hierarchy
-              'chapter'           => 1,
-              'majorheading'      => 1, # same as chapheading
-              'unnumbered'        => 1,
-              'centerchap'        => 1, # like unnumbered
-              'chapheading'       => 1,
-              'appendix'          => 1,
-              'section'           => 2,
-              'unnumberedsec'     => 2,
-              'heading'           => 2,
-              'appendixsec'       => 2,
-              'appendixsection'   => 2, # same as appendixsec
-              'subsection'        => 3,
-              'unnumberedsubsec'  => 3,
-              'subheading',       => 3,
-              'appendixsubsec'    => 3,
-              'subsubsection'     => 4,
-              'unnumberedsubsubsec' => 4,
-              'subsubheading'     => 4,
-              'appendixsubsubsec' => 4,
-         );
+my %command_structuring_level
+  = %Texinfo::CommandsValues::command_structuring_level;
 
 our %level_to_structuring_command;
 

@@ -40,7 +40,7 @@ use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Options;
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 use Texinfo::Common;
 
 use Texinfo::Report;
@@ -1883,19 +1883,21 @@ our %xml_text_entity_no_arg_commands_formatting
   = %xml_text_entity_no_arg_commands;
 
 foreach my $brace_no_arg_command
-     (keys(%Texinfo::TextData::text_brace_no_arg_commands)) {
+     (keys(%Texinfo::CommandsValues::text_brace_no_arg_commands)) {
   if (!defined($xml_text_entity_no_arg_commands_formatting{
                                                 $brace_no_arg_command})) {
     $xml_text_entity_no_arg_commands_formatting{$brace_no_arg_command}
-      = $Texinfo::TextData::text_brace_no_arg_commands{$brace_no_arg_command};
+      = $Texinfo::CommandsValues::text_brace_no_arg_commands{
+                                                $brace_no_arg_command};
   }
 }
 
-foreach my $no_brace_command (keys(%Texinfo::TextData::nobrace_symbol_text)) {
+foreach my $no_brace_command
+                (keys(%Texinfo::CommandsValues::nobrace_symbol_text)) {
   if (!defined($xml_text_entity_no_arg_commands_formatting{
                                                 $no_brace_command})) {
     $xml_text_entity_no_arg_commands_formatting{$no_brace_command}
-      = $Texinfo::TextData::nobrace_symbol_text{$no_brace_command};
+      = $Texinfo::CommandsValues::nobrace_symbol_text{$no_brace_command};
   }
 }
 
@@ -1944,9 +1946,9 @@ sub xml_numeric_entity_accent($$)
     return '&#' .
       hex($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}). ';';
   }
-  if (exists($Texinfo::TextData::unicode_diacritics{$accent})) {
+  if (exists($Texinfo::CommandsValues::unicode_diacritics{$accent})) {
     my $diacritic = '&#'
-       .hex($Texinfo::TextData::unicode_diacritics{$accent}). ';';
+       .hex($Texinfo::CommandsValues::unicode_diacritics{$accent}). ';';
     if ($accent ne 'tieaccent') {
       return $text . $diacritic;
     } else {

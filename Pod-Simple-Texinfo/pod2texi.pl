@@ -130,6 +130,7 @@ BEGIN
 }
 
 use Pod::Simple::Texinfo;
+use Texinfo::CommandsValues;
 use Texinfo::Common;
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
@@ -223,8 +224,8 @@ There is NO WARRANTY, to the extent permitted by law.")."\n", "2024";
   'base-level=s' => sub {
      if ($_[1] =~ /^[0-4]$/) {
        $base_level = $_[1];
-     } elsif (defined($Texinfo::Common::command_structuring_level{$_[1]})) {
-       $base_level = $Texinfo::Common::command_structuring_level{$_[1]};
+     } elsif (defined($Texinfo::CommandsValues::command_structuring_level{$_[1]})) {
+       $base_level = $Texinfo::CommandsValues::command_structuring_level{$_[1]};
      } else {
        die sprintf(__("%s: wrong argument for --base-level")."\n",
                    $real_command_name);

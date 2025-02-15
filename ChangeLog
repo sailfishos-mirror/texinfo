@@ -1,5 +1,22 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/CommandsValues.pm, tta/data/commands_values.txt,
+	tta/C/Makefile.am, tta/perl/Makefile.am (Texinfo/CommandsValues.pm),
+	tta/Makefile.am, tta/maintain/generate_code_commands_text.pl: rename
+	command_text.txt as commands_values.txt and TextData.pm as
+	CommandsValues.pm.  Update users.
+
+	* tta/data/commands_values.txt, tta/C/Makefile.am
+	(main/cmd_structuring.c), tta/maintain/generate_code_commands_text.pl,
+	tta/maintain/setup_converters_code_tables.pl, tta/perl/Makefile.am
+	(Texinfo/CommandsValues.pm), tta/perl/Texinfo/Common.pm: add
+	command_structuring_level to commands_values.txt.  Generate
+	command_structuring_level in generate_code_commands_text.pl, remove
+	from Texinfo/Common.pm and setup_converters_code_tables.pl.  Update
+	callers.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (setup_texinfo_main), tta/C/main/utils.c
 	(enum structuring_commands_categories, structuring_commands_levels)
 	(level_to_structuring_command, setup_structuring_data),

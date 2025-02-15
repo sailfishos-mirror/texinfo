@@ -38,7 +38,7 @@ use Text::Unidecode;
 # commands classes
 use Texinfo::Commands;
 # for nobrace_symbol_text and text_brace_no_arg_commands
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
 
@@ -61,7 +61,7 @@ our $VERSION = '7.2dev';
 
 
 my %normalize_node_brace_no_arg_commands
-  = %Texinfo::TextData::text_brace_no_arg_commands;
+  = %Texinfo::CommandsValues::text_brace_no_arg_commands;
 
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands)) {
   $normalize_node_brace_no_arg_commands{$command} =
@@ -69,7 +69,7 @@ foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no
 }
 
 my %normalize_node_nobrace_symbol_text
-  = %Texinfo::TextData::nobrace_symbol_text;
+  = %Texinfo::CommandsValues::nobrace_symbol_text;
 $normalize_node_nobrace_symbol_text{'*'} = ' ';
 $normalize_node_nobrace_symbol_text{'today'} = '';
 

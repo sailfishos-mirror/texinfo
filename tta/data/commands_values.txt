@@ -245,3 +245,32 @@ O                  O
 l                  l
 L                  L
 
+# Section and heading commands hierarchical levels
+-- command_structuring_level
+top                0
+# out of the main hierarchy
+part               0
+chapter            1
+# same as chapheading
+majorheading       1
+unnumbered         1
+# like unnumbered
+centerchap         1
+chapheading        1
+appendix           1
+section            2
+unnumberedsec      2
+heading            2
+appendixsec        2
+# same as appendixsec
+appendixsection    2
+subsection         3
+unnumberedsubsec   3
+subheading         3
+appendixsubsec     3
+subsubsection      4
+unnumberedsubsubsec  4
+subsubheading      4
+appendixsubsubsec  4
+
+

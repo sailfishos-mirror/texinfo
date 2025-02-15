@@ -39,7 +39,7 @@ use charnames ();
 use Texinfo::XSLoader;
 use Texinfo::MiscXS;
 
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 
 require Exporter;
 
@@ -67,7 +67,7 @@ our @EXPORT_OK = qw(
 
 our $VERSION = '7.2dev';
 
-my %unicode_diacritics = %Texinfo::TextData::unicode_diacritics;
+my %unicode_diacritics = %Texinfo::CommandsValues::unicode_diacritics;
 
 our %diacritics_accent_commands;
 foreach my $diacritic(keys(%unicode_diacritics)) {
@@ -453,8 +453,8 @@ our %unicode_simple_character_map = (
             '~' => '007E',
 );
 
-our %unicode_map = (%Texinfo::TextData::base_unicode_map,
-                    %Texinfo::TextData::extra_unicode_map);
+our %unicode_map = (%Texinfo::CommandsValues::base_unicode_map,
+                    %Texinfo::CommandsValues::extra_unicode_map);
 
 # set the %unicode_character_brace_no_arg_commands value to the character
 # corresponding to the textual hex value in %unicode_map.

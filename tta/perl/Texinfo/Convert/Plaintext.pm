@@ -37,7 +37,7 @@ use Carp qw(cluck confess);
 use Encode;
 
 use Texinfo::Commands;
-use Texinfo::TextData;
+use Texinfo::CommandsValues;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;
@@ -114,7 +114,7 @@ my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Commands::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Commands::letter_no_arg_commands;
 
-my %nobrace_symbol_text = %Texinfo::TextData::nobrace_symbol_text;
+my %nobrace_symbol_text = %Texinfo::CommandsValues::nobrace_symbol_text;
 my %explained_commands = %Texinfo::Commands::explained_commands;
 my %inline_format_commands = %Texinfo::Commands::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;

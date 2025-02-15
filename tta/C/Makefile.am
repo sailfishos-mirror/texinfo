@@ -268,17 +268,17 @@ $(srcdir)/../perl/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/op
 	  $(srcdir)/../perl/Texinfo/Options.pm \
 	    < $(srcdir)/../data/options_data.txt
 
-$(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
+$(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
-	      $(srcdir)/main/cmd_structuring.c \
 	      $(srcdir)/convert/cmd_converter.c
 
-$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c: ../data/command_text.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
+$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
 	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
-	      $(srcdir)/../data/command_text.txt C \
+	      $(srcdir)/../data/commands_values.txt C \
 	      $(srcdir)/main/cmd_text.c \
 	      $(srcdir)/main/cmd_unicode.c \
+	      $(srcdir)/main/cmd_structuring.c \
 	      $(srcdir)/main/command_data.c
 
 MAINTAINERCLEANFILES += main/cmd_unicode.c \

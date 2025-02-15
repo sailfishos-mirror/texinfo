@@ -1,5 +1,5 @@
 /* Automatically generated from generate_code_commands_text.pl */
-/* Generated from command_text.txt */
+/* Generated from commands_values.txt */
 
 #include <config.h>
 

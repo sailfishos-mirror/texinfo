@@ -1,4 +1,5 @@
-/* Automatically generated from setup_converters_code_tables.pl */
+/* Automatically generated from generate_code_commands_text.pl */
+/* Generated from commands_values.txt */
 
 #include "command_ids.h"
 
