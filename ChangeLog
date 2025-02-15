@@ -1,5 +1,11 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/generate_code_convert_data.pl: give the name of the
+	input CSV file in comments in the generated code for each of the
+	sections in the generated file.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/data/default_direction_strings.csv,
 	tta/data/default_special_unit_info.csv,
 	tta/maintain/generate_code_convert_data.pl: add a metadata header for
