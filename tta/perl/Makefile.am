@@ -95,6 +95,7 @@ dist_modules_DATA = \
  Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \
  Texinfo/Tests.pm \
+ Texinfo/TextData.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \
  Texinfo/XSLoader.pm
@@ -357,6 +358,11 @@ $(srcdir)/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/options_da
 	    $(srcdir)/../data/converters_defaults.txt \
 	    $(srcdir)/Texinfo/Options.pm \
 	       < $(srcdir)/../data/options_data.txt
+
+$(srcdir)/Texinfo/TextData.pm: ../data/command_text.txt $(srcdir)/../maintain/generate_code_commands_text.pl
+	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
+	    $(srcdir)/../data/command_text.txt perl \
+	    $(srcdir)/Texinfo/TextData.pm
 
 # target that can be built upon cd'ing to the build directory, as needed
 # when building translated source files from the top level directory to

@@ -36,7 +36,10 @@ use Unicode::EastAsianWidth;
 # strings
 use charnames ();
 
+use Texinfo::XSLoader;
 use Texinfo::MiscXS;
+
+use Texinfo::TextData;
 
 require Exporter;
 
@@ -64,25 +67,7 @@ our @EXPORT_OK = qw(
 
 our $VERSION = '7.2dev';
 
-
-our %unicode_diacritics = (
-       'H'          => '030B',
-       'ringaccent' => '030A',
-       "'"          => '0301',
-       'v'          => '030C',
-       ','          => '0327',
-       '^'          => '0302',
-       'dotaccent'  => '0307',
-       '`'          => '0300',
-       '='          => '0304',
-       '~'          => '0303',
-       '"'          => '0308',
-       'udotaccent' => '0323',
-       'ubaraccent' => '0332',
-       'u'          => '0306',
-       'tieaccent'  => '0361',
-       'ogonek'     => '0328'
-);
+my %unicode_diacritics = %Texinfo::TextData::unicode_diacritics;
 
 our %diacritics_accent_commands;
 foreach my $diacritic(keys(%unicode_diacritics)) {
@@ -468,113 +453,8 @@ our %unicode_simple_character_map = (
             '~' => '007E',
 );
 
-
-# Also discussed on the texinfo list.
-# taken from
-#Latin extended additionnal
-#http://www.alanwood.net/unicode/latin_extended_additional.html
-#C1 Controls and Latin-1 Supplement
-#http://www.alanwood.net/unicode/latin_1_supplement.html
-#Latin Extended-A
-#http://www.alanwood.net/unicode/latin_extended_a.html
-#Latin Extended-B
-#http://www.alanwood.net/unicode/latin_extended_b.html
-#dotless i: 0131
-
-#http://www.alanwood.net/unicode/arrows.html 21**
-#http://www.alanwood.net/unicode/general_punctuation.html 20**
-#http://www.alanwood.net/unicode/mathematical_operators.html 22**
-
-# 'today' is not set here.
-our %unicode_map = (
-               # characters
-               'atchar'            => '0040',
-               'ampchar'           => '0026',
-               'backslashchar'     => '005C',
-               'comma'             => '002C',
-               'hashchar'          => '0023',
-               'lbracechar'        => '007B',
-               'rbracechar'        => '007D',
-
-               # symbols (9)
-               'euro'              => '20AC',
-               'exclamdown'        => '00A1',
-               'geq'               => '2265',
-               'leq'               => '2264',
-               'ordf'              => '00AA',
-               'ordm'              => '00BA',
-               'pounds'            => '00A3',
-               'questiondown'      => '00BF',
-               'textdegree'        => '00B0',
-
-               # quotes
-               'guillemetleft'     => '00AB',
-               'guillemetright'    => '00BB',
-               'guillemotleft'     => '00AB',
-               'guillemotright'    => '00BB',
-               'guilsinglleft'     => '2039',
-               'guilsinglright'    => '203A',
-               'quotedblbase'      => '201E',
-               'quotesinglbase'    => '201A',
-
-               # letters
-               'AA'                => '00C5',
-               'aa'                => '00E5',
-               'AE'                => '00C6',
-               'ae'                => '00E6',
-               'DH'                => '00D0',
-               'dh'                => '00F0',
-               'L'                 => '0141',
-               'l'                 => '0142',
-               'O'                 => '00D8',
-               'o'                 => '00F8',
-               'OE'                => '0152',
-               'oe'                => '0153',
-               'ss'                => '00DF',
-               'TH'                => '00DE',
-               'th'                => '00FE',
-             );
-
-# For commands where ASCII output is acceptable and may be wanted by the users
-# as ASCII instead of encoded characters
-our %extra_unicode_map = (
-               # symbols (11)
-               'arrow'             => '2192',
-               'bullet'            => '2022',
-               'copyright'         => '00A9',
-               'dots'              => '2026',
-               #'enddots'           => '',
-               'equiv'             => '2261',
-               'expansion'         => '21A6',
-               #'LaTeX'
-               'minus'             => '2212', # in mathematical operators
-#               'minus'             => '002D', # in latin1
-               'point'             => '22C6', # another candidate is 2605
-                                              # corresponding to a bigger star
-                                              # (and to \bigstar in LaTeX)
-                                              # but less consistent with TeX
-                                              # \star
-               'print'             => '22A3',
-               'registeredsymbol'  => '00AE',
-               'result'            => '21D2',
-               #'TeX'
-
-               # quotes (4)
-               'quotedblleft'      => '201C',
-               'quotedblright'     => '201D',
-               'quoteleft'         => '2018',
-               'quoteright'        => '2019',
-
-               # other
-               # this should only happen if the @clickstyle argument isn't a
-               # command with braces and no argument.
-               'click'             => '2192',
-               #'error'             => '',
-               #'tie'               => '',
-#               'tie'               => '0020',
-);
-
-%unicode_map = (%unicode_map, %extra_unicode_map);
+our %unicode_map = (%Texinfo::TextData::base_unicode_map,
+                    %Texinfo::TextData::extra_unicode_map);
 
 # set the %unicode_character_brace_no_arg_commands value to the character
 # corresponding to the textual hex value in %unicode_map.

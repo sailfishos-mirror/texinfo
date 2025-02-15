@@ -26,7 +26,7 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Texinfo::Commands;
-use Texinfo::Common;
+use Texinfo::TextData;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
@@ -159,8 +159,8 @@ sub _convert($$)
   }
 
   if (defined($element->{'cmdname'})) {
-    if (exists($Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}})) {
-      return $Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}};
+    if (exists($Texinfo::TextData::nobrace_symbol_text{$element->{'cmdname'}})) {
+      return $Texinfo::TextData::nobrace_symbol_text{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
       if ($self->get_conf('TEST')) {
         return 'a sunny day';
@@ -169,7 +169,7 @@ sub _convert($$)
         = localtime(time);
       $year += ($year < 70) ? 2000 : 1900;
       return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
-    } elsif (defined($Texinfo::Common::text_brace_no_arg_commands{$element->{'cmdname'}})) {
+    } elsif (defined($Texinfo::TextData::text_brace_no_arg_commands{$element->{'cmdname'}})) {
       return Texinfo::Convert::Text::brace_no_arg_command($element, undef);
     } elsif ($Texinfo::Commands::accent_commands{$element->{'cmdname'}}) {
       my $result = Texinfo::Convert::Text::text_accents($element,

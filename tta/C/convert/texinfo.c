@@ -114,6 +114,9 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
     }
   else
     {
+  /* The script loaded by the embedded interpreter calls the next two functions.
+     Loading Texinfo::Document causes XSLoader init to calls DocumentXS init,
+     which calls the functions */
       /* sets up gettext and iconv */
       messages_and_encodings_setup ();
       setup_texinfo_main (texinfo_uninstalled, converterdatadir,

@@ -38,10 +38,36 @@
 #include "debug.h"
 #include "call_perl_function.h"
 #include "unicode.h"
+/* nobrace_symbol_text */
+#include "convert_to_text.h"
 #include "node_name_normalization.h"
 
-/* put in another file? Add an extern declaration in the .h file?*/
-#include "cmd_normalization.c"
+static const char *command_normalization_text[BUILTIN_CMD_NUMBER];
+
+void
+setup_node_name_normalization (void)
+{
+  int i;
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      /* avoid an arrow as default value, the mapping depends on clickstyle */
+      if (i == CM_click)
+        continue;
+      if (unicode_character_brace_no_arg_commands[i].codepoint)
+        command_normalization_text[i]
+          = unicode_character_brace_no_arg_commands[i].text;
+      else if (text_brace_no_arg_commands[i])
+        command_normalization_text[i] = text_brace_no_arg_commands[i];
+      else if (nobrace_symbol_text[i])
+        {
+          if (i == CM_ASTERISK)
+            command_normalization_text[i] = " ";
+          else
+            command_normalization_text[i] = nobrace_symbol_text[i];
+        }
+    }
+}
 
 #define ADD(x) text_append (result, x)
 void

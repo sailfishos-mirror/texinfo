@@ -1,5 +1,50 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	Generate commands text and unicode characters information from data
+
+	* tta/perl/Texinfo/Convert/Unicode.pm (%base_unicode_map): add
+	%base_unicode_map for the %unicode_map that is not %extra_unicode_map.
+
+	* tta/data/command_text.txt, tta/Makefile.am (dist_noinst_DATA): add
+	information on commands as text with Texinfo::Common
+	nobrace_symbol_text and text_brace_no_arg_commands,
+	Texinfo::Convert::Unicode base_unicode_map, extra_unicode_map and
+	unicode_diacritics and Texinfo::Convert::Text
+	sort_brace_no_arg_commands.
+
+	* tta/maintain/generate_code_commands_text.pl,
+	tta/perl/Texinfo/Convert/Unicode.pm, tta/Makefile.am
+	(maintenance_files), tta/perl/Makefile.am (dist_modules_DATA)
+	(Texinfo/TextData.pm), tta/perl/Texinfo/Common.pm,
+	tta/perl/Texinfo/Convert/Text.pm: generate %base_unicode_map,
+	%extra_unicode_map and %unicode_diacritics in
+	generate_code_commands_text.pl, remove from Unicode.pm.  Generate
+	%nobrace_symbol_text and %text_brace_no_arg_commands in
+	generate_code_commands_text.pl, remove from Common.pm.  Generate
+	%sort_brace_no_arg_commands in generate_code_commands_text.pl, remove
+	from Text.pm.  Update callers to use Texinfo::TextData data.
+
+	* tta/maintain/generate_code_commands_text.pl, tta/C/Makefile.am
+	(cmd_unicode.c, cmd_text.c), tta/C/main/document.c
+	(setup_texinfo_main), tta/C/main/unicode.c (setup_unicode_data),
+	tta/C/main/unicode.h (COMMAND_UNICODE_CHARACTER),
+	tta/maintain/setup_converters_code_tables.pl: generate
+	base_unicode_map and extra_unicode_map in
+	generate_code_commands_text.pl.  Add setup_unicode_data to setup
+	unicode_character_brace_no_arg_commands.  Call setup_unicode_data in
+	setup_texinfo_main.
+
+	* tta/C/Makefile.am (EXTRA_DIST, BUILT_SOURCES),
+	tta/maintain/setup_converters_code_tables.pl, tta/C/main/document.c
+	(setup_texinfo_main), tta/C/main/node_name_normalization.c
+	(setup_node_name_normalization): add setup_node_name_normalization to
+	setup command_normalization_text.  Call in setup_texinfo_main.  Remove
+	cmd_normalization.c.
+
+	* tta/maintain/generate_code_convert_data.pl: update comments.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/generate_code_convert_data.pl: give the name of the
 	input CSV file in comments in the generated code for each of the
 	sections in the generated file.

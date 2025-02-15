@@ -4,6 +4,8 @@
 
 #include "tree_types.h"
 
+void setup_node_name_normalization (void);
+
 char *convert_to_normalized (const ELEMENT *e);
 char *convert_to_identifier (const ELEMENT *root);
 char *convert_contents_to_identifier (const ELEMENT *e);

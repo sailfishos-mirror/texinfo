@@ -15,6 +15,12 @@ typedef struct ENCODING_CODEPOINTS {
     const char *codepoints[96]; /* A0 to FF 16*6 */
 } ENCODING_CODEPOINTS;
 
+typedef struct COMMAND_UNICODE_CHARACTER {
+    const char *codepoint;
+    const char *text; /* UTF-8 encoded */
+    const char *css_string;
+} COMMAND_UNICODE_CHARACTER;
+
 typedef struct COMMAND_UNICODE {
     const char *codepoint;
     const char *text; /* UTF-8 encoded */
@@ -80,7 +86,12 @@ typedef struct DIACRITIC_UNICODE {
 
 
 extern const DIACRITIC_UNICODE unicode_diacritics[];
-extern const COMMAND_UNICODE unicode_character_brace_no_arg_commands[];
+extern COMMAND_UNICODE
+  unicode_character_brace_no_arg_commands[BUILTIN_CMD_NUMBER];
+extern const COMMAND_UNICODE_CHARACTER base_unicode_map[];
+extern const COMMAND_UNICODE_CHARACTER extra_unicode_map[];
+
+void setup_unicode_data (void);
 
 uint8_t *utf8_from_string (const char *text);
 char *string_from_utf8 (const uint8_t *encoded_u8);

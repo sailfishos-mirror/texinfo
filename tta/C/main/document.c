@@ -40,6 +40,10 @@
 #include "convert_to_text.h"
 #include "output_unit.h"
 #include "api_to_perl.h"
+/* for setup_unicode_data */
+#include "unicode.h"
+/* for setup_node_name_normalization */
+#include "node_name_normalization.h"
 #include "document.h"
 
 static DOCUMENT **document_list;
@@ -95,18 +99,22 @@ setup_txi_paths_information (int texinfo_uninstalled,
 }
 
 /* should be called only once. */
-/* used in converters and in main C program at earlier steps, not in Parser */
 void
 setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
                  const char *t2a_builddir, const char *t2a_srcdir)
 {
 
+  /* used in converters and in main C program at early steps, not in Parser */
   setup_txi_paths_information (texinfo_uninstalled,
                              converterdatadir, t2a_builddir, t2a_srcdir);
 
   set_element_type_name_info ();
   txi_initialise_base_options ();
+
+  /* used in Parser */
+  setup_unicode_data ();
+  setup_node_name_normalization ();
 }
 
 

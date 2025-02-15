@@ -96,24 +96,6 @@ while (<STDIN>) {
   #print STDERR "$command\n";
 }
 
-# Texinfo::Convert::NodeNameNormalization
-my %normalize_node_brace_no_arg_commands
-  = %Texinfo::Common::text_brace_no_arg_commands;
-foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands)) {
-  $normalize_node_brace_no_arg_commands{$command} =
-     $Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands{$command};
-}
-
-my %normalize_node_nobrace_symbol_text
-  = %Texinfo::Common::nobrace_symbol_text;
-$normalize_node_nobrace_symbol_text{'*'} = ' ';
-
-
-# remove click to avoid having an arrow, the mapping depends on
-# the clickstyle value
-
-delete $normalize_node_brace_no_arg_commands{'click'};
-
 sub _protect_char
 {
   my $char = shift;
@@ -125,79 +107,11 @@ sub _protect_char
   return join('', map {"\\x".sprintf("%02x",ord($_))} split('', $encoded));
 }
 
-my $normalization_file = $ARGV[0];
-die "Need a file for normalization tables\n"
-   if (!defined($normalization_file));
-
-my $unicode_file = $ARGV[1];
-die "Need a file for unicode tables\n" if (!defined($unicode_file));
-
-my $structuring_file = $ARGV[2];
+my $structuring_file = $ARGV[0];
 die "Need a file for structuring tables\n" if (!defined($structuring_file));
 
-my $text_file = $ARGV[3];
-die "Need a file for text tables\n" if (!defined($text_file));
-
-my $converter_file = $ARGV[4];
+my $converter_file = $ARGV[1];
 die "Need a file for converter tables\n" if (!defined($converter_file));
-
-my %unicode_diacritics = %Texinfo::Convert::Unicode::unicode_diacritics;
-my %unicode_character_brace_no_arg_commands
-   = %Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands;
-my %unicode_map = %Texinfo::Convert::Unicode::unicode_map;
-my %extra_unicode_map = %Texinfo::Convert::Unicode::extra_unicode_map;
-
-open(UNIC, '>', $unicode_file) or die "Open $unicode_file: $!\n";
-
-print UNIC "/* Automatically generated from $program_name */\n\n";
-
-print UNIC "#include \"unicode.h\"\n\n";
-print UNIC "const DIACRITIC_UNICODE unicode_diacritics[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-
-  if (defined($unicode_diacritics{$command_name})) {
-    my $numeric_codepoint = hex($unicode_diacritics{$command_name});
-    my $result = chr($numeric_codepoint);
-    my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print UNIC "{\"$protected\", \"$numeric_codepoint\","
-              ." \"$unicode_diacritics{$command_name}\"},  /* $command */\n";
-  } else {
-    print UNIC "{0, 0, 0},\n";
-  }
-}
-print UNIC "};\n\n";
-
-print UNIC "const COMMAND_UNICODE unicode_character_brace_no_arg_commands[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  #print UNIC "$command; ";
-
-  if (defined($unicode_map{$command_name})) {
-    my $result = $unicode_character_brace_no_arg_commands{$command_name};
-    my $protected = '"'.join ('', map {_protect_char($_)} split ('', $result)).'"';
-    my $codepoint = '"'.$unicode_map{$command_name}.'"';
-    # note that this is not used for ASCII characters and some specific
-    # characters
-    my $css_string = '"\\\\'.$unicode_map{$command_name}.' "';
-    my $is_extra = 0;
-    if (defined($extra_unicode_map{$command_name})) {
-      $is_extra = 1;
-    }
-    print UNIC "{$codepoint, $protected, $css_string, $is_extra},   /* $command */\n";
-  } else {
-    print UNIC "{0, 0, 0, -1},\n";
-  }
-}
-print UNIC "};\n\n";
-
-close(UNIC);
 
 my %command_structuring_level = %Texinfo::Common::command_structuring_level;
 my %level_to_structuring_command
@@ -244,96 +158,6 @@ foreach my $command_name (@commands_order) {
 print STRUC "};\n\n";
 
 close (STRUC);
-
-open(TEXT, '>', $text_file) or die "Open $text_file: $!\n";
-
-print TEXT "/* Automatically generated from $program_name */\n\n";
-
-print TEXT "#include <config.h>\n\n";
-print TEXT "#include \"convert_to_text.h\"\n\n";
-
-print TEXT "const char *nobrace_symbol_text[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if (defined($Texinfo::Common::nobrace_symbol_text{$command_name})) {
-    my $symbol = $Texinfo::Common::nobrace_symbol_text{$command_name};
-    my $protected = join ('', map {_protect_char($_)} split ('', $symbol));
-    print TEXT "\"$protected\",   /* $command */\n";
-  } else {
-    print TEXT "0,\n";
-  }
-}
-print TEXT "};\n\n";
-
-print TEXT "/* Automatically generated from $program_name */\n\n";
-
-print TEXT "const char *text_brace_no_arg_commands[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if (defined($Texinfo::Common::text_brace_no_arg_commands{$command_name})) {
-    my $result = $Texinfo::Common::text_brace_no_arg_commands{$command_name};
-    my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print TEXT "\"$protected\",   /* $command */\n";
-  } else {
-    print TEXT "0,\n";
-  }
-}
-print TEXT "};\n\n";
-
-print TEXT "const char *sort_brace_no_arg_commands[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if (defined($Texinfo::Convert::Text::sort_brace_no_arg_commands{$command_name})) {
-    my $result = $Texinfo::Convert::Text::sort_brace_no_arg_commands{$command_name};
-    my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print TEXT "\"$protected\",   /* $command */\n";
-  } else {
-    print TEXT "0,\n";
-  }
-}
-print TEXT "};\n\n";
-
-close(TEXT);
-
-open(NORM, '>', $normalization_file) or die "Open $normalization_file: $!\n";
-
-print NORM "/* Automatically generated from $program_name */\n\n";
-
-print NORM "const char *command_normalization_text[] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  #print NORM "$command; ";
-
-  my $result;
-  if (defined($normalize_node_nobrace_symbol_text{$command_name})) {
-    $result = $normalize_node_nobrace_symbol_text{$command_name};
-  } elsif (defined($normalize_node_brace_no_arg_commands{$command_name})) {
-    $result = $normalize_node_brace_no_arg_commands{$command_name};
-  }
-
-  if (defined($result)) {
-    my $protected = join ('', map {_protect_char($_)} split ('', $result));
-    print NORM "\"$protected\",  /* $command */\n";
-  } else {
-    print NORM "0,\n";
-  }
-}
-print NORM "};\n\n";
-
-close(NORM);
-
 
 my %xml_text_entity_no_arg_commands
  = %Texinfo::Convert::Converter::xml_text_entity_no_arg_commands;

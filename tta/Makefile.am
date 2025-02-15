@@ -56,6 +56,7 @@ maintenance_files = \
   maintain/copy_change_file_name_encoding.pl \
   maintain/language-subtag-registry \
   maintain/generate_code_convert_data.pl \
+  maintain/generate_code_commands_text.pl \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \
@@ -76,6 +77,7 @@ dist_noinst_DATA = \
  data/default_special_unit_info.csv \
  data/html_style_commands_element.csv \
  data/command_data.txt \
+ data/command_text.txt \
  data/options_data.txt \
  data/converters_defaults.txt
 

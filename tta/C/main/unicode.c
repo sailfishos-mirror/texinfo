@@ -39,10 +39,46 @@
 #include "utils.h"
 #include "unicode.h"
 
-/* define unicode_diacritics and unicode_character_brace_no_arg_commands */
+/* define unicode_diacritics base_unicode_map extra_unicode_map */
 #include "cmd_unicode.c"
 
 #include "accent_tables_8bit_codepoints.c"
+
+
+COMMAND_UNICODE unicode_character_brace_no_arg_commands[BUILTIN_CMD_NUMBER];
+
+void
+setup_unicode_data (void)
+{
+  int i;
+
+  memset (&unicode_character_brace_no_arg_commands, 0,
+          BUILTIN_CMD_NUMBER * sizeof (COMMAND_UNICODE));
+
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      const COMMAND_UNICODE_CHARACTER *unicode_character = 0;
+      int is_extra = 0;
+      if (base_unicode_map[i].codepoint)
+        unicode_character = &base_unicode_map[i];
+      else if (extra_unicode_map[i].codepoint)
+        {
+          unicode_character = &extra_unicode_map[i];
+          is_extra = 1;
+        }
+
+      if (unicode_character)
+        {
+          unicode_character_brace_no_arg_commands[i].codepoint
+            = unicode_character->codepoint;
+          unicode_character_brace_no_arg_commands[i].text
+            = unicode_character->text;
+          unicode_character_brace_no_arg_commands[i].css_string
+            = unicode_character->css_string;
+          unicode_character_brace_no_arg_commands[i].is_extra = is_extra;
+        }
+    }
+}
 
 uint8_t *
 utf8_from_string (const char *text)

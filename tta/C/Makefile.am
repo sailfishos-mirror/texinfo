@@ -179,7 +179,6 @@ C_libtexinfo_sources = \
 
 EXTRA_DIST += main/accent_tables_8bit_codepoints.c
 EXTRA_DIST += main/command_data.c
-EXTRA_DIST += main/cmd_normalization.c
 EXTRA_DIST += main/cmd_unicode.c
 EXTRA_DIST += main/cmd_text.c
 EXTRA_DIST += main/global_multi_commands_case.c
@@ -217,7 +216,6 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 convert/cmd_converter.c \
                 convert/converters_options.c \
                 convert/converters_options.h \
-                main/cmd_normalization.c \
                 main/cmd_structuring.c \
                 main/cmd_text.c \
                 main/cmd_unicode.c \
@@ -270,16 +268,20 @@ $(srcdir)/../perl/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/op
 	  $(srcdir)/../perl/Texinfo/Options.pm \
 	    < $(srcdir)/../data/options_data.txt
 
-$(srcdir)/main/cmd_normalization.c $(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_structuring.c $(srcdir)/main/cmd_text.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
+$(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
 	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_converters_code_tables.pl \
 	    < $(srcdir)/main/command_data.c \
-	      $(srcdir)/main/cmd_normalization.c \
-	      $(srcdir)/main/cmd_unicode.c \
 	      $(srcdir)/main/cmd_structuring.c \
-	      $(srcdir)/main/cmd_text.c \
 	      $(srcdir)/convert/cmd_converter.c
 
-MAINTAINERCLEANFILES += main/cmd_normalization.c main/cmd_unicode.c \
+$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c: ../data/command_text.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
+	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
+	      $(srcdir)/../data/command_text.txt C \
+	      $(srcdir)/main/cmd_text.c \
+	      $(srcdir)/main/cmd_unicode.c \
+	      $(srcdir)/main/command_data.c
+
+MAINTAINERCLEANFILES += main/cmd_unicode.c \
                 main/cmd_structuring.c main/cmd_symbol.c main/cmd_text.c
 
 $(srcdir)/main/accent_tables_8bit_codepoints.c: $(srcdir)/../maintain/setup_accent_tables.pl

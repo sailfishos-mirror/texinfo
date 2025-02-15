@@ -37,6 +37,7 @@ use Texinfo::XSLoader;
 
 use Texinfo::Report;
 use Texinfo::Commands;
+use Texinfo::TextData;
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 # for debugging
@@ -114,19 +115,8 @@ foreach my $ignored_command ('html', 'tex', 'xml', 'docbook', 'latex') {
   $ignored_format_raw_commands{$ignored_command} = 1;
 }
 
-# used in C commands table generation
-our %sort_brace_no_arg_commands = (
-  'copyright' => 'C',
-  'registeredsymbol' => 'R',
-  'today' => 't',
-);
-
-foreach my $accent_letter ('o','O','l','L') {
-  $sort_brace_no_arg_commands{$accent_letter} = $accent_letter;
-}
-
 my %accent_commands = %Texinfo::Commands::accent_commands;
-my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
+my %nobrace_symbol_text = %Texinfo::TextData::nobrace_symbol_text;
 my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
 my %def_commands = %Texinfo::Commands::def_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
@@ -354,12 +344,12 @@ sub brace_no_arg_command($;$)
   $command_name = $element->{'extra'}->{'clickstyle'}
      if ($element->{'extra'}
       and defined($element->{'extra'}->{'clickstyle'})
-      and defined($Texinfo::Common::text_brace_no_arg_commands{
+      and defined($Texinfo::TextData::text_brace_no_arg_commands{
                                   $element->{'extra'}->{'clickstyle'}}));
   my $result;
   if (defined($encoding) and
       (!($options and $options->{'ASCII_GLYPH'})
-       or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command_name}))) {
+       or !exists($Texinfo::TextData::extra_unicode_map{$command_name}))) {
     $result
       = Texinfo::Convert::Unicode::brace_no_arg_command($command_name,
                                                         $encoding);
@@ -374,10 +364,10 @@ sub brace_no_arg_command($;$)
   }
   if (!defined($result)) {
     if ($options and $options->{'sort_string'}
-        and $sort_brace_no_arg_commands{$command_name}) {
-      $result = $sort_brace_no_arg_commands{$command_name};
+        and $Texinfo::TextData::sort_brace_no_arg_commands{$command_name}) {
+      $result = $Texinfo::TextData::sort_brace_no_arg_commands{$command_name};
     } else {
-      $result = $Texinfo::Common::text_brace_no_arg_commands{$command_name};
+      $result = $Texinfo::TextData::text_brace_no_arg_commands{$command_name};
     }
   }
   if ($options and $Texinfo::Commands::letter_no_arg_commands{$command_name}) {
@@ -576,8 +566,8 @@ sub _convert($$)
       return $nobrace_symbol_text{$cmdname};
     } elsif ($cmdname eq 'today') {
       if ($options->{'sort_string'}
-          and $sort_brace_no_arg_commands{$cmdname}) {
-        return $sort_brace_no_arg_commands{$cmdname};
+          and $Texinfo::TextData::sort_brace_no_arg_commands{$cmdname}) {
+        return $Texinfo::TextData::sort_brace_no_arg_commands{$cmdname};
       } elsif ($options->{'converter'}) {
         return _convert($options,
                         Texinfo::Convert::Utils::expand_today(
@@ -590,7 +580,7 @@ sub _convert($$)
         $year += ($year < 70) ? 2000 : 1900;
         return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
       }
-    } elsif (defined($Texinfo::Common::text_brace_no_arg_commands{$cmdname})) {
+    } elsif (defined($Texinfo::TextData::text_brace_no_arg_commands{$cmdname})) {
       return brace_no_arg_command($element, $options);
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {

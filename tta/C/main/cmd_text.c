@@ -1,4 +1,5 @@
-/* Automatically generated from setup_converters_code_tables.pl */
+/* Automatically generated from generate_code_commands_text.pl */
+/* Generated from command_text.txt */
 
 #include <config.h>
 
@@ -395,8 +396,6 @@ const char *nobrace_symbol_text[] = {
 "}",   /* } */
 0,
 };
-
-/* Automatically generated from setup_converters_code_tables.pl */
 
 const char *text_brace_no_arg_commands[] = {
 0,
