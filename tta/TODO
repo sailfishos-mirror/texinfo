@@ -15,6 +15,9 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 Update paths to htmlxref.d/Texinfo_*.cnf in these files and in README-hacking
 and in texinfo.texi
 
+Add pod for Texinfo::TextData and move documentation from Texinfo::Common
+(and others?) to that file
+
 
 Bugs
 ====

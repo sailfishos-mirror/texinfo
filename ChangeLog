@@ -1,5 +1,16 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/document.c (setup_texinfo_main), tta/C/main/utils.c
+	(enum structuring_commands_categories, structuring_commands_levels)
+	(level_to_structuring_command, setup_structuring_data),
+	tta/maintain/setup_converters_code_tables.pl: new function,
+	setup_structuring_data to setup level_to_structuring_command with C
+	code.  Call it in setup_texinfo_main, do not set
+	level_to_structuring_command anymore in
+	setup_converters_code_tables.pl.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	Generate commands text and unicode characters information from data
 
 	* tta/perl/Texinfo/Convert/Unicode.pm (%base_unicode_map): add

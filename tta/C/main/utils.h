@@ -62,12 +62,14 @@
 # define FILE_SLASH      "/"
 #endif /* not O_BINARY */
 
+#define SECTION_LEVEL_NR 5
 
 extern const char *null_device_names[];
 
 extern const char *whitespace_chars;
 extern const char *digit_chars;
-extern enum command_id const level_to_structuring_command[][5];
+extern enum command_id
+  level_to_structuring_command[BUILTIN_CMD_NUMBER][SECTION_LEVEL_NR];
 extern int const command_structuring_level[];
 
 extern const char *direction_names[];
@@ -146,6 +148,8 @@ int width_multibyte (const char *text);
 int word_bytes_len_multibyte (const char *text);
 
 void messages_and_encodings_setup (void);
+
+void setup_structuring_data (void);
 
 void store_value (VALUE_LIST *values, const char *name, const char *value);
 void clear_value (VALUE_LIST *values, const char *name);

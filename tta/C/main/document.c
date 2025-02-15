@@ -29,7 +29,7 @@
 #include "tree.h"
 #include "errors.h"
 #include "debug.h"
-/* for delete_global_info and wipe_index */
+/* for delete_global_info wipe_index setup_structuring_data */
 #include "utils.h"
 #include "customization_options.h"
 /* for library initialization, not for document code.
@@ -115,6 +115,7 @@ setup_texinfo_main (int texinfo_uninstalled,
   /* used in Parser */
   setup_unicode_data ();
   setup_node_name_normalization ();
+  setup_structuring_data ();
 }
 
 

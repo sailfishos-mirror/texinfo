@@ -136,27 +136,6 @@ foreach my $command_name (@commands_order) {
 }
 print STRUC "};\n\n";
 
-print STRUC "enum command_id const level_to_structuring_command[][5] = {\n";
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if (defined($level_to_structuring_command{$command_name})) {
-    print STRUC "{";
-    foreach my $structuring_command
-        (@{$level_to_structuring_command{$command_name}}) {
-      # level 0 not defined except for unnumbered
-      $structuring_command = 'NONE' if (!defined($structuring_command));
-      print STRUC "CM_$structuring_command, ";
-    }
-    print STRUC "},  /* $command */\n";
-  } else {
-    print STRUC "{0, 0, 0, 0, 0},\n";
-  }
-}
-print STRUC "};\n\n";
-
 close (STRUC);
 
 my %xml_text_entity_no_arg_commands

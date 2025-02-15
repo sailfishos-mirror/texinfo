@@ -231,6 +231,81 @@ messages_and_encodings_setup (void)
 
 
 
+/* Here to avoid an include in structuring transfo by the caller */
+
+enum structuring_commands_categories {
+  SCMC_section,
+  SCMC_unnumbered,
+  SCMC_appendix,
+  SCMC_heading
+};
+
+static enum command_id
+   const structuring_commands_levels[SCMC_heading +1][SECTION_LEVEL_NR] = {
+{CM_NONE, CM_chapter, CM_section, CM_subsection, CM_subsubsection, },
+{CM_top, CM_unnumbered, CM_unnumberedsec, CM_unnumberedsubsec, CM_unnumberedsubsubsec, },
+{CM_NONE, CM_appendix, CM_appendixsec, CM_appendixsubsec, CM_appendixsubsubsec, },
+{CM_NONE, CM_chapheading, CM_heading, CM_subheading, CM_subsubheading, },
+};
+
+enum command_id
+  level_to_structuring_command[BUILTIN_CMD_NUMBER][SECTION_LEVEL_NR];
+
+void
+setup_structuring_data (void)
+{
+  enum command_id i;
+
+  memset (&level_to_structuring_command, 0, BUILTIN_CMD_NUMBER
+          * SECTION_LEVEL_NR * sizeof (enum command_id));
+  for (i = 0; i < BUILTIN_CMD_NUMBER; i++)
+    {
+      if (builtin_command_data[i].flags & CF_sectioning_heading)
+        {
+          enum structuring_commands_categories category;
+
+          /* no mapping for part, it is outside of the main hierarchy */
+          if (i == CM_part)
+            continue;
+
+          /* set category for synonyms */
+          if (i == CM_appendixsection)
+            category = SCMC_appendix;
+          else if (i == CM_majorheading)
+            category = SCMC_heading;
+          else if (i == CM_centerchap)
+            category = SCMC_unnumbered;
+          else
+            {/* find in the default levels */
+              int found = 0;
+              enum structuring_commands_categories j;
+              for (j = 0; j < SCMC_heading +1; j++)
+                {
+                  int k;
+                  for (k = 0; k < SECTION_LEVEL_NR; k++)
+                    {
+                      if (structuring_commands_levels[j][k] == i)
+                        {
+                          category = j;
+                          found = 1;
+                          break;
+                        }
+                    }
+                  if (found)
+                    break;
+                }
+              if (!found)
+                bug ("structuring_commands_levels command not found");
+            }
+          memcpy (level_to_structuring_command[i],
+                  structuring_commands_levels[category],
+                  SECTION_LEVEL_NR * sizeof (enum command_id));
+        }
+    }
+}
+
+
+
 /* operations on strings considered as multibytes.  Use libunistring */
 
 /* count characters, not bytes. */
