@@ -1,5 +1,20 @@
 2025-02-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (convert/cmd_converter.c),
+	tta/data/commands_values.txt,
+	tta/maintain/generate_code_commands_text.pl,
+	tta/perl/Texinfo/Convert/Converter.pm : add
+	xml_text_entity_no_arg_commands to commands_values.txt, remove from
+	Texinfo/Convert/Converter.pm, generate in
+	generate_code_commands_text.pl, not in
+	setup_converters_code_tables.pl.
+
+	* tta/C/Makefile.am, tta/Makefile.am (maintenance_files): remove
+	setup_converters_code_tables.pl and dependences rules, it is not used
+	anymore.
+
+2025-02-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/CommandsValues.pm, tta/data/commands_values.txt,
 	tta/C/Makefile.am, tta/perl/Makefile.am (Texinfo/CommandsValues.pm),
 	tta/Makefile.am, tta/maintain/generate_code_commands_text.pl: rename

@@ -255,30 +255,13 @@ MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
                         main/global_unique_commands_case.c
 MAINTAINERCLEANFILES += main/global_commands_types.h
 
-# NOTE duplicate of a rule in ../../Makefile.am
-$(srcdir)/../perl/Texinfo/Commands.pm: ../data/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
-	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl \
-	  $(srcdir)/../perl/Texinfo/Commands.pm \
-	    < $(srcdir)/../data/command_data.txt
-
-# NOTE duplicate of a rule in ../perl/Makefile.am
-$(srcdir)/../perl/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/options_data.txt $(srcdir)/../maintain/regenerate_perl_options_info.pl
-	$(PERL) $(srcdir)/../maintain/regenerate_perl_options_info.pl \
-	  $(srcdir)/../data/converters_defaults.txt \
-	  $(srcdir)/../perl/Texinfo/Options.pm \
-	    < $(srcdir)/../data/options_data.txt
-
-$(srcdir)/convert/cmd_converter.c: main/command_data.c ../perl/Texinfo/Commands.pm ../perl/Texinfo/Options.pm $(srcdir)/../maintain/setup_converters_code_tables.pl
-	$(TXI_MODULES_ENV) $(PERL) $(srcdir)/../maintain/setup_converters_code_tables.pl \
-	    < $(srcdir)/main/command_data.c \
-	      $(srcdir)/convert/cmd_converter.c
-
-$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
+$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
 	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
 	      $(srcdir)/../data/commands_values.txt C \
 	      $(srcdir)/main/cmd_text.c \
 	      $(srcdir)/main/cmd_unicode.c \
 	      $(srcdir)/main/cmd_structuring.c \
+	      $(srcdir)/convert/cmd_converter.c \
 	      $(srcdir)/main/command_data.c
 
 MAINTAINERCLEANFILES += main/cmd_unicode.c \

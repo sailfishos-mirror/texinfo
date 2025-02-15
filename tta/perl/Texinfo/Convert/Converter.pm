@@ -1799,88 +1799,8 @@ sub xml_protect_text($$)
   return $text;
 }
 
-# 'today' is not set here.
-our %xml_text_entity_no_arg_commands = (
-               # nobrace_symbol_text
-               '&'             => '&amp;',
-
-# commands taken from text_brace_no_arg_commands
-# are kept in comments to ease visual comparisons.
-               # characters
-               #'atchar'        => '@',
-               'ampchar'       => '&amp;',
-               #'backslashchar' => '\\',
-               #'comma'         => ',',
-               #'hashchar'      => '#',
-               #'lbracechar'    => '{',
-               #'rbracechar'    => '}',
-
-               # symbols
-               'arrow'             => '&rarr;',
-               'bullet'            => '&bull;',
-               'copyright'         => '&copy;',
-               'dots'              => '&hellip;',
-               #'enddots'           => '...',
-               'equiv'             => '&equiv;',
-               'euro'              => '&euro;',
-               'exclamdown'        => '&iexcl;',
-               'expansion'         => '&rarr;',
-               'geq'               => '&ge;',
-               #'LaTeX'             => 'LaTeX',
-               'leq'               => '&le;',
-               'minus'             => '&minus;',
-               'ordf'              => '&ordf;',
-               'ordm'              => '&ordm;',
-               'point'             => '&lowast;',
-               'pounds'            => '&pound;',
-               #'print'             => '-|',
-               'questiondown'      => '&iquest;',
-               'registeredsymbol'  => '&reg;',
-               'result'            => '&rArr;',
-               #'TeX'               => 'TeX',
-               'textdegree'        => '&deg;',
-
-               # quotes
-               'guillemetleft'     => '&laquo;',
-               'guillemetright'    => '&raquo;',
-               'guillemotleft'     => '&laquo;',
-               'guillemotright'    => '&raquo;',
-               'guilsinglleft'     => '&lsaquo;',
-               'guilsinglright'    => '&rsaquo;',
-               'quotedblbase'      => '&bdquo;',
-               'quotedblleft'      => '&ldquo;',
-               'quotedblright'     => '&rdquo;',
-               'quoteleft'         => '&lsquo;',
-               'quoteright'        => '&rsquo;',
-               'quotesinglbase'    => '&sbquo;',
-
-               # letters
-               'AA'           => '&Aring;',
-               'aa'           => '&aring;',
-               'AE'           => '&AElig;',
-               'ae'           => '&aelig;',
-               'DH'           => '&ETH;',
-               'dh'           => '&eth;',
-               'L'            => '&#321;',
-               'l'            => '&#322;',
-               'OE'           => '&OElig;', # &OElig; not in html 3.2
-               'oe'           => '&oelig;', # &oelig; not in html 3.2
-               'O'            => '&Oslash;',
-               'o'            => '&oslash;',
-               'ss'           => '&szlig;',
-               'TH'           => '&THORN;',
-               'th'           => '&thorn;',
-
-               # other
-               'click'        => '&rarr;',
-               # in general the following is not used since error
-               # appears in 'translated_commands'
-               'error'        => 'error--&gt;',
-               'tie'          => '&nbsp;',
-);
-
 our %xml_text_entity_no_arg_commands_formatting
-  = %xml_text_entity_no_arg_commands;
+  = %Texinfo::CommandsValues::xml_text_entity_no_arg_commands;
 
 foreach my $brace_no_arg_command
      (keys(%Texinfo::CommandsValues::text_brace_no_arg_commands)) {

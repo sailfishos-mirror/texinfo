@@ -127,7 +127,7 @@ tie            \x20
 #Latin Extended-B
 #http://www.alanwood.net/unicode/latin_extended_b.html
 #dotless i: 0131
-               
+
 #http://www.alanwood.net/unicode/arrows.html 21**
 #http://www.alanwood.net/unicode/general_punctuation.html 20**
 #http://www.alanwood.net/unicode/mathematical_operators.html 22**
@@ -273,4 +273,85 @@ unnumberedsubsubsec  4
 subsubheading      4
 appendixsubsubsec  4
 
+
+# 'today' is not set here.
+-- xml_text_entity_no_arg_commands
+# nobrace_symbol_text
+&              &amp;
+
+# commands taken from text_brace_no_arg_commands
+# are kept in comments to ease visual comparisons.
+# characters
+# atchar         @
+ampchar        &amp;
+# backslashchar  \\
+# comma          ,
+# hashchar       #
+# lbracechar     {
+# rbracechar     }
+
+# symbols
+arrow              &rarr;
+bullet             &bull;
+copyright          &copy;
+dots               &hellip;
+# enddots            ...
+equiv              &equiv;
+euro               &euro;
+exclamdown         &iexcl;
+expansion          &rarr;
+geq                &ge;
+# LaTeX              LaTeX
+leq                &le;
+minus              &minus;
+ordf               &ordf;
+ordm               &ordm;
+point              &lowast;
+pounds             &pound;
+# print              -|
+questiondown       &iquest;
+registeredsymbol   &reg;
+result             &rArr;
+# TeX                TeX
+textdegree         &deg;
+
+# quotes
+guillemetleft      &laquo;
+guillemetright     &raquo;
+guillemotleft      &laquo;
+guillemotright     &raquo;
+guilsinglleft      &lsaquo;
+guilsinglright     &rsaquo;
+quotedblbase       &bdquo;
+quotedblleft       &ldquo;
+quotedblright      &rdquo;
+quoteleft          &lsquo;
+quoteright         &rsquo;
+quotesinglbase     &sbquo;
+
+# letters
+AA            &Aring;
+aa            &aring;
+AE            &AElig;
+ae            &aelig;
+DH            &ETH;
+dh            &eth;
+L             &#321;
+l             &#322;
+# &OElig; not in html 3.2
+OE            &OElig;
+# &oelig; not in html 3.2
+oe            &oelig;
+O             &Oslash;
+o             &oslash;
+ss            &szlig;
+TH            &THORN;
+th            &thorn;
+
+# other
+click         &rarr;
+# in general the following is not used since error
+# appears in 'translated_commands'
+error         error--&gt;
+tie           &nbsp;
 

@@ -67,7 +67,6 @@ maintenance_files = \
   maintain/regenerate_perl_options_info.pl \
   maintain/regenerate_C_options_info.pl \
   maintain/setup_accent_tables.pl \
-  maintain/setup_converters_code_tables.pl \
   maintain/catalog.xml.in
 
 # data used to generate both C and Perl code
