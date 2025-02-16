@@ -16216,7 +16216,7 @@ The main unit of output documents is an @dfn{output unit}.  Usually a node is
 associated with a following sectioning command, while a sectioning command is
 associated with a previous node; they both together make up the output unit.
 
-For Plaintext and HTML.  Preferentially use nodes to decide where output units
+For Plaintext and HTML@.  Preferentially use nodes to decide where output units
 are separated if @code{USE_NODES} is set.  If set to false, preferentially use
 sectioning to decide where output units are separated.  The default is true.
 
