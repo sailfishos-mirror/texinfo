@@ -360,8 +360,8 @@ $(srcdir)/Texinfo/Options.pm: ../data/converters_defaults.txt ../data/options_da
 	    $(srcdir)/Texinfo/Options.pm \
 	       < $(srcdir)/../data/options_data.txt
 
-$(srcdir)/Texinfo/CommandsValues.pm: ../data/commands_values.txt $(srcdir)/../maintain/generate_code_commands_text.pl
-	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
+$(srcdir)/Texinfo/CommandsValues.pm: ../data/commands_values.txt $(srcdir)/../maintain/generate_code_commands_values.pl
+	$(PERL) $(srcdir)/../maintain/generate_code_commands_values.pl \
 	    $(srcdir)/../data/commands_values.txt perl \
 	    $(srcdir)/Texinfo/CommandsValues.pm
 

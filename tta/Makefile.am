@@ -56,7 +56,7 @@ maintenance_files = \
   maintain/copy_change_file_name_encoding.pl \
   maintain/language-subtag-registry \
   maintain/generate_code_convert_data.pl \
-  maintain/generate_code_commands_text.pl \
+  maintain/generate_code_commands_values.pl \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \

@@ -255,8 +255,8 @@ MAINTAINERCLEANFILES += main/global_multi_commands_case.c \
                         main/global_unique_commands_case.c
 MAINTAINERCLEANFILES += main/global_commands_types.h
 
-$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_text.pl
-	$(PERL) $(srcdir)/../maintain/generate_code_commands_text.pl \
+$(srcdir)/main/cmd_unicode.c $(srcdir)/main/cmd_text.c $(srcdir)/main/cmd_structuring.c $(srcdir)/convert/cmd_converter.c: ../data/commands_values.txt main/command_data.c $(srcdir)/../maintain/generate_code_commands_values.pl
+	$(PERL) $(srcdir)/../maintain/generate_code_commands_values.pl \
 	      $(srcdir)/../data/commands_values.txt C \
 	      $(srcdir)/main/cmd_text.c \
 	      $(srcdir)/main/cmd_unicode.c \

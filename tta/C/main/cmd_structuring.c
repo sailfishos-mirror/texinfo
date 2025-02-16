@@ -1,4 +1,4 @@
-/* Automatically generated from generate_code_commands_text.pl */
+/* Automatically generated from generate_code_commands_values.pl */
 /* Generated from commands_values.txt */
 
 #include "command_ids.h"
