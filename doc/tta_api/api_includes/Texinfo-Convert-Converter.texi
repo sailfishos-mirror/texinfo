@@ -558,6 +558,20 @@ entity, or @code{undef} is there is no such entity.
 
 @end table
 
+The following hashes, defined as @code{our} variable are also available:
+
+@table @asis
+@item %xml_text_entity_no_arg_commands_formatting
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter %xml_text_entity_no_arg_commands_formatting}
+@cindex @code{%xml_text_entity_no_arg_commands_formatting}
+
+Values are entities or, if not available, ASCII representation of
+single character non-alphabetical commands without brace such as @code{*} or @code{:}
+and of commands with empty braces such as @code{atchar}, @code{LaTeX}, @code{arrow},
+@code{quoteleft} or @code{AA}.
+
+@end table
+
 @node Texinfo@asis{::}Convert@asis{::}Converter Helper methods
 @subsection Helper methods
 

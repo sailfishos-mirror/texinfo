@@ -132,10 +132,11 @@ foreach my $command (keys(%default_xml_no_arg_commands_formatting)) {
 
 my %accents = (
  '=' => 'macr',
-# following are not entities
- 'H' => 'doubleacute',
+# following were not entities in HTML 4
  'u' => 'breve',
  'v' => 'caron',
+# FIXME the entity is dblac
+ 'H' => 'doubleacute',
 );
 
 # our because it is used in the xml to texi translator
@@ -145,8 +146,10 @@ our %accent_types = (%Texinfo::Convert::Converter::xml_accent_entities, %accents
 # together with brace commands.
 delete $accent_types{'dotless'};
 
+# no entity in HTML 4
+my @other_accents = ('dotaccent',
 # no entity
-my @other_accents = ('dotaccent', 'tieaccent', 'ubaraccent', 'udotaccent');
+                     'tieaccent', 'ubaraccent', 'udotaccent');
 foreach my $accent (@other_accents) {
   $accent_types{$accent} = $accent;
 }

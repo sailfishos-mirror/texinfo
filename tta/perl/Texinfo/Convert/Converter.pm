@@ -1831,6 +1831,9 @@ sub xml_comment($$)
   return '<!--' . $text . ' -->' . "\n";
 }
 
+# FIXME more exist in HTML 5.0, see
+# https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+# https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
 our %xml_accent_entities = (
           '"',  'uml',
           '~',  'tilde',
@@ -1841,8 +1844,15 @@ our %xml_accent_entities = (
           'ringaccent', 'ring',
           'ogonek', 'ogon',
           'dotless', 'nodot',
+          # HTML 5
+          #'dotaccent', 'dot',
+          #'=', 'macr',
+          #'u', 'breve',
+          #'v', 'caron',
+          #'H', 'dblac',
          );
 
+# more accented letters in HTML 5
 our %xml_accent_text_with_entities = (
       'ringaccent' => 'aA',
       "'"          => 'aeiouyAEIOUY',
@@ -1852,8 +1862,7 @@ our %xml_accent_text_with_entities = (
       '~'          => 'nNaoAO',
       '"'          => 'aeiouyAEIOU',
       'dotless'    => 'i',
-# according to http://www2.lib.virginia.edu/small/vhp/download/ISO.txt
-# however this doesn't seems to work in firefox
+# HTML 5
 #      'ogonek'     => 'aeiuAEIU',
 );
 
@@ -2479,6 +2488,20 @@ X<C<xml_numeric_entity_accent>>
 I<$accent_command_name> is the name of an accent command.  I<$text> is the text
 appearing within the accent command.  Returns the accented letter as XML numeric
 entity, or C<undef> is there is no such entity.
+
+=back
+
+The following hashes, defined as C<our> variable are also available:
+
+=over
+
+=item %xml_text_entity_no_arg_commands_formatting
+X<C<%xml_text_entity_no_arg_commands_formatting>>
+
+Values are entities or, if not available, ASCII representation of
+single character non-alphabetical commands without brace such as C<*> or C<:>
+and of commands with empty braces such as C<atchar>, C<LaTeX>, C<arrow>,
+C<quoteleft> or C<AA>.
 
 =back
 

@@ -17,8 +17,6 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 Update paths to htmlxref.d/Texinfo_*.cnf in these files and in README-hacking
 and in texinfo.texi
 
-Texinfo/Convert/Converter.pm: document xml_text_entity_no_arg_commands_formatting
-
 
 Bugs
 ====

@@ -1,5 +1,9 @@
 2025-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm: change in comments and Pod.
+
+2025-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
 	tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/CommandsValues.pod: add separate Pod file with the
