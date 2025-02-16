@@ -111,12 +111,13 @@ COMMAND_ACCENT_ENTITY_INFO xml_accent_text_entities[] = {
   {CM_APOSTROPHE,    {"acute", "aeiouyAEIOUY"}},
   {CM_COMMA,         {"cedil", "cC"}},
   {CM_ringaccent,    {"ring",  "aA"}},
-/* according to http://www2.lib.virginia.edu/small/vhp/download/ISO.txt
-   however this doesn't seems to work in firefox
-   ogonek:  "aeiuAEIU"
- */
   {CM_ogonek,        {"ogon",  0}},
   {CM_dotless,       {"nodot", "i"}},
+  {CM_dotaccent,     {"dot", 0}},
+  {CM_EQUALS,        {"macr", 0}},
+  {CM_u,             {"breve", 0}},
+  {CM_v,             {"caron", 0}},
+  {CM_H,             {"dblac", 0}},
   {0,                {0,       0}}
 };
 

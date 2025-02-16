@@ -1,5 +1,16 @@
 2025-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	Register new HTML base accent entities
+
+	* tta/C/convert/converter.c (xml_accent_text_entities),
+	tta/perl/Texinfo/Convert/Converter.pm (%xml_accent_entities),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (%accent_types): add dot,
+	macr, breve, caron and dblac as XML accents base entities.
+
+	* NEWS: document that the type of some accents changed in TexinfoXML.
+
+2025-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm: change in comments and Pod.
 
 2025-02-16  Patrice Dumas  <pertusus@free.fr>

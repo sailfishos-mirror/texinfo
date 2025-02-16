@@ -1256,8 +1256,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
 </para>
-<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="dblac">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dot">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
 </para>
 <para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
@@ -1276,8 +1276,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
 </para>
-<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="dblac">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dot">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
 </para>
 <para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
@@ -2251,7 +2251,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <!-- c With @. the error is strangely about @mathaccent -->
 <displaymath endspaces=" ">
 <accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
-<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="dblac">a</accent> <accent type="dot">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
 <accent type="breve">a</accent> <accent type="caron">a</accent>
 &noeos; &eosquest; &eosperiod;
 </displaymath>
@@ -2428,8 +2428,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
 </para>
-<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="dblac">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dot">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
 </para>
 <para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
@@ -2448,8 +2448,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
 </para>
-<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="dblac">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dot">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
 </para>
 <para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
@@ -3423,7 +3423,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <!-- c With @. the error is strangely about @mathaccent -->
 <displaymath endspaces=" ">
 <accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
-<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="dblac">a</accent> <accent type="dot">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
 <accent type="breve">a</accent> <accent type="caron">a</accent>
 &noeos; &eosquest; &eosperiod;
 </displaymath>
@@ -3640,8 +3640,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
 </para>
-<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<para><code>&arobase;H&lbrace;a&rbrace;</code> <accent type="dblac">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dot">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
 </para>
 <para><code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
@@ -3660,8 +3660,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
 </para>
-<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="dblac">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dot">&textndash;a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
 </para>
 <para><code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
@@ -4635,7 +4635,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <!-- c With @. the error is strangely about @mathaccent -->
 <displaymath endspaces=" ">
 <accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
-<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="dblac">a</accent> <accent type="dot">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
 <accent type="breve">a</accent> <accent type="caron">a</accent>
 &noeos; &eosquest; &eosperiod;
 </displaymath>
@@ -4806,8 +4806,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
 
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="dblac">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dot">a</accent> (ȧ)
 <code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
 
 <code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
@@ -4826,8 +4826,8 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;,&lbrace;&arobase;'C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
 
-<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">--a</accent>
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">--a</accent>
+<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="dblac">--a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dot">--a</accent>
 <code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">--a</accent>
 
 <code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">--a</accent>
@@ -5801,7 +5801,7 @@ Invalid use of &arobase;':&linebreak;
 <!-- c With @. the error is strangely about @mathaccent -->
 </pre><displaymath endspaces=" ">
 <accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
-<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="dblac">a</accent> <accent type="dot">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
 <accent type="breve">a</accent> <accent type="caron">a</accent>
 &noeos; &eosquest; &eosperiod;
 </displaymath>

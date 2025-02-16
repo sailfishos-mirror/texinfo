@@ -26,6 +26,8 @@ See the manual for detailed information.
         text or functions references should be used instead
       . change --internal-links file item types names and output more item
         types
+  . XML output:
+      . use HTML entities names for @H and @dotaccent accents types
 
 
 7.2 (23 December 2024)

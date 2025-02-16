@@ -2352,9 +2352,9 @@ $result_converted{'xml'}->{'accent'} = '<node name="first" spaces=" "><nodename>
 </para>
 <para>should be e=: <accent type="macr">e</accent> <accent type="macr" bracketed="off">e</accent>
 </para>
-<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="doubleacute">e</accent> <accent type="doubleacute" spacesaftercmd=" " bracketed="off">e</accent>
+<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="dblac">e</accent> <accent type="dblac" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
-<para>should be e.: <accent type="dotaccent">e</accent> <accent type="dotaccent" spacesaftercmd=" " bracketed="off">e</accent>
+<para>should be e.: <accent type="dot">e</accent> <accent type="dot" spacesaftercmd=" " bracketed="off">e</accent>
 </para>
 <para>should be e*: <accent type="ring">e</accent> <accent type="ring" spacesaftercmd=" " bracketed="off">e</accent>
 </para>

@@ -1845,11 +1845,11 @@ our %xml_accent_entities = (
           'ogonek', 'ogon',
           'dotless', 'nodot',
           # HTML 5
-          #'dotaccent', 'dot',
-          #'=', 'macr',
-          #'u', 'breve',
-          #'v', 'caron',
-          #'H', 'dblac',
+          'dotaccent', 'dot',
+          '=', 'macr',
+          'u', 'breve',
+          'v', 'caron',
+          'H', 'dblac',
          );
 
 # more accented letters in HTML 5
