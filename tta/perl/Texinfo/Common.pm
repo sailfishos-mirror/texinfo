@@ -229,7 +229,7 @@ foreach my $output_format_command ('info', 'plaintext',
 # constants.  Set by the main program.
 my %build_constants;
 
-# Functions documented in customization API
+# should only be called from the main program, not documented
 sub set_build_constant($$)
 {
   my $key = shift;
@@ -1857,9 +1857,6 @@ methods.
 
 =head1 MISC INFORMATION
 
-Hashes are defined as C<our> variables, and are therefore available
-outside of the module.
-
 Values defined for a Texinfo build independently of any document or
 output format are available by calling C<get_build_constant>:
 
@@ -1902,7 +1899,19 @@ C<PACKAGE_VERSION>, set to the C<PACKAGE_VERSION> value set by configure.
 
 =back
 
+Hashes are defined as C<our> variables, and are therefore available
+outside of the module.
+
 =over
+
+=item %document_settable_at_commands
+
+Keys are customization options corresponding to @-commands.  For example
+C<frenchspacing> or C<footnotestyle>.
+
+=item %null_device_file
+
+Keys are null devices names, such as C</dev/null> or C<NUL>.
 
 =item %texinfo_output_formats
 X<C<%texinfo_output_formats>>
@@ -1913,8 +1922,6 @@ and C<plaintext>.
 
 =back
 
-TODO undocumented data structures:
-%null_device_file %document_settable_at_commands
 
 =head1 @-COMMAND INFORMATION
 

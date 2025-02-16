@@ -38,9 +38,6 @@ methods.
 @node Texinfo@asis{::}Common MISC INFORMATION
 @section MISC INFORMATION
 
-Hashes are defined as @code{our} variables, and are therefore available
-outside of the module.
-
 Values defined for a Texinfo build independently of any document or
 output format are available by calling @code{get_build_constant}:
 
@@ -92,7 +89,21 @@ C.  So, for example @code{PACKAGE_VERSION_CONFIG} value is the same as
 
 @end table
 
+Hashes are defined as @code{our} variables, and are therefore available
+outside of the module.
+
 @table @asis
+@item %document_settable_at_commands
+@anchor{Texinfo@asis{::}Common %document_settable_at_commands}
+
+Keys are customization options corresponding to @@-commands.  For example
+@code{frenchspacing} or @code{footnotestyle}.
+
+@item %null_device_file
+@anchor{Texinfo@asis{::}Common %null_device_file}
+
+Keys are null devices names, such as @code{/dev/null} or @code{NUL}.
+
 @item %texinfo_output_formats
 @anchor{Texinfo@asis{::}Common %texinfo_output_formats}
 @cindex @code{%texinfo_output_formats}
@@ -102,9 +113,6 @@ practice corresponds to @code{format_raw} @code{%block_commands} plus @code{info
 and @code{plaintext}.
 
 @end table
-
-TODO undocumented data structures:
-%null_device_file %document_settable_at_commands
 
 @node Texinfo@asis{::}Common @@-COMMAND INFORMATION
 @section @@-COMMAND INFORMATION

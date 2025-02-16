@@ -56,6 +56,7 @@ gnulib/lib/ref-del.sed
 gnulib/lib/libgnu.a
 gnulib/lib/alloca.h
 gnulib/lib/argz.h
+gnulib/lib/assert.h
 gnulib/lib/configmake.h
 gnulib/lib/errno.h
 gnulib/lib/error.h
@@ -108,6 +109,7 @@ tta/perl/CheckXS/*.la
 tta/perl/CheckXS/*.lo
 tta/perl/CheckXS/libtool
 
+tta/gnulib/lib/assert.h
 tta/gnulib/lib/dirent.h
 tta/gnulib/lib/error.h
 tta/gnulib/lib/fcntl.h
