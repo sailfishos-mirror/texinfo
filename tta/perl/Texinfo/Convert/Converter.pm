@@ -1831,9 +1831,6 @@ sub xml_comment($$)
   return '<!--' . $text . ' -->' . "\n";
 }
 
-# FIXME more exist in HTML 5.0, see
-# https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
-# https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
 our %xml_accent_entities = (
           '"',  'uml',
           '~',  'tilde',
@@ -1852,7 +1849,9 @@ our %xml_accent_entities = (
           'H', 'dblac',
          );
 
-# more accented letters in HTML 5
+# FIXME more in HTML 5.0, see
+# https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
+# https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
 our %xml_accent_text_with_entities = (
       'ringaccent' => 'aA',
       "'"          => 'aeiouyAEIOUY',

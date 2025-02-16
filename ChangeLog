@@ -1,5 +1,12 @@
 2025-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac (ICONV_CONVERTS_EUC_CN): add a missing NUL to the
+	out buffer.  Check that the input counter is set to 0.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: move comments.
+
+2025-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	Register new HTML base accent entities
 
 	* tta/C/convert/converter.c (xml_accent_text_entities),

@@ -255,18 +255,22 @@ if test "x$am_func_iconv" = "xyes" ; then
         ICONV_CONST char *inptr = input;
         size_t inbytesleft = strlen (input);
         char *outptr = buf;
-        size_t outbytesleft = sizeof (buf);
+        size_t outputbytesstart = sizeof (buf)-1;
+        size_t outbytesleft = outputbytesstart;
         size_t res = iconv (cd_euc_cn_to_utf8,
                             &inptr, &inbytesleft,
                             &outptr, &outbytesleft);
+        if (inbytesleft != 0)
+          result += 2;
         if (res != 0)
-          result |= 2;
+          result += 4;
+        buf[outputbytesstart - outbytesleft] = '\0';
         if (strcmp(buf, input))
-          result |= 4;
+          result += 8;
         iconv_close (cd_euc_cn_to_utf8);
       }
     else
-      result |= 1;
+      result += 1;
   }
   return result;
 ]])],
