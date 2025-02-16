@@ -55,6 +55,7 @@ BUILT_SOURCES = texi2any_internals.texi
 # The order matters for the result.
 texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Commands.pod \
+  $(top_srcdir)/tta/perl/Texinfo/CommandsValues.pod \
   $(top_srcdir)/tta/perl/Texinfo/Common.pm \
   $(top_srcdir)/tta/perl/Texinfo/ParserNonXS.pm \
   $(top_srcdir)/tta/perl/Texinfo/Document.pm \

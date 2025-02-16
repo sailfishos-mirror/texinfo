@@ -17,12 +17,6 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 Update paths to htmlxref.d/Texinfo_*.cnf in these files and in README-hacking
 and in texinfo.texi
 
-Add pod for Texinfo::CommandsValues and document the following hashes that
-could be useful in converters:
-%nobrace_symbol_text (used in many, documented in Texinfo::Common)
-text_brace_no_arg_commands (used in many)
-unicode_diacritics (used in Texinfo::Convert::HTML)
-
 Texinfo/Convert/Converter.pm: document xml_text_entity_no_arg_commands_formatting
 
 

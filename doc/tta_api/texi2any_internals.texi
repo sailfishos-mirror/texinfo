@@ -22,6 +22,7 @@
 
 @menu
 * Texinfo@asis{::}Commands::
+* Texinfo@asis{::}CommandsValues::
 * Texinfo@asis{::}Common::
 * Texinfo@asis{::}Parser::
 * Texinfo@asis{::}Document::
@@ -59,6 +60,17 @@ Texinfo::Commands
 * Texinfo@asis{::}Commands SEE ALSO::
 * Texinfo@asis{::}Commands AUTHOR::
 * Texinfo@asis{::}Commands COPYRIGHT AND LICENSE::
+
+Texinfo::CommandsValues
+
+* Texinfo@asis{::}CommandsValues NAME::
+* Texinfo@asis{::}CommandsValues SYNOPSIS::
+* Texinfo@asis{::}CommandsValues NOTES::
+* Texinfo@asis{::}CommandsValues DESCRIPTION::
+* Texinfo@asis{::}CommandsValues @@-COMMAND ASSOCIATED INFORMATION::
+* Texinfo@asis{::}CommandsValues SEE ALSO::
+* Texinfo@asis{::}CommandsValues AUTHOR::
+* Texinfo@asis{::}CommandsValues COPYRIGHT AND LICENSE::
 
 Texinfo::Common
 
@@ -363,6 +375,7 @@ Texinfo::Convert::Plaintext
 @end menu
 
 @include api_includes/Texinfo-Commands.texi
+@include api_includes/Texinfo-CommandsValues.texi
 @include api_includes/Texinfo-Common.texi
 @include api_includes/Texinfo-Parser.texi
 @include api_includes/Texinfo-Document.texi

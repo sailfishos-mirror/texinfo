@@ -79,6 +79,7 @@ dist_modules_DATA = \
  Texinfo/Commands.pod \
  Texinfo/Commands.pm \
  Texinfo/CommandsValues.pm \
+ Texinfo/CommandsValues.pod \
  Texinfo/HTMLData.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
@@ -350,7 +351,6 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
-# FIXME duplicated in C/Makefile.am. Remove from here?
 $(srcdir)/Texinfo/Commands.pm: ../data/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/../data/command_data.txt
 
@@ -399,5 +399,5 @@ distclean-local:
 	rm -rf t/results/*/*/out_*/
 
 CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm
-MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/Options.pm \
-      Texinfo/HTMLData.pm
+MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/CommandsValues.pm \
+                       Texinfo/HTMLData.pm Texinfo/Options.pm

@@ -1946,12 +1946,6 @@ non-metasyntactic variables.  For instance, it is true for C<deftypevr>
 but false for C<defun>, since C<@defun> I<argument> is supposed to contain
 metasyntactic variables only.
 
-=item %nobrace_symbol_text
-X<C<%nobrace_symbol_text>>
-
-Values are ASCII representation of single character non-alphabetical commands
-without brace such as C<*> or C<:>.  The value may be an empty string.
-
 =item %small_block_associated_command
 X<C<%small_block_associated_command>>
 

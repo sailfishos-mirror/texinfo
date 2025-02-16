@@ -1,5 +1,12 @@
 2025-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
+	tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/CommandsValues.pod: add separate Pod file with the
+	documentation of the relevant hashes from Texinfo/CommandsValues.pm.
+
+2025-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/generate_code_commands_values.pl: add 1 at the end of
 	the generated Perl module.
 
