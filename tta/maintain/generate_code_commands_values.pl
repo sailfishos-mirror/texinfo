@@ -195,6 +195,8 @@ if ($perl_format) {
     print TEXT ");\n\n";
   }
 
+  print print TEXT "1;\n";
+
   close(TEXT);
   exit(0);
 }

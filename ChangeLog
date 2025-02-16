@@ -1,5 +1,13 @@
 2025-02-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/generate_code_commands_values.pl: add 1 at the end of
+	the generated Perl module.
+
+	* tta/TODO, tta/perl/Texinfo/Common.pm: update TODO and comments
+	related to documentation of hashes mainly.
+
+2025-02-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am, tta/perl/Makefile.am, tta/Makefile.am
 	(maintenance_files), tta/maintain/generate_code_commands_values.pl:
 	rename generate_code_commands_text.pl as

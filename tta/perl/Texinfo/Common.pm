@@ -108,6 +108,7 @@ sub pgdt_context($$)
 
 # determine the null device
 my $default_null_device = File::Spec->devnull();
+# Used in many converters and init files
 our %null_device_file = (
   $default_null_device => 1
 );
@@ -115,14 +116,14 @@ our %null_device_file = (
 
 # Customization options
 
-# used in main program too
+# used in main program too, not documented
 our %non_decoded_customization_variables;
 foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
   $non_decoded_customization_variables{$variable_name} = 1;
 }
 
 # can be modified through command-line, but not customization options
-our %parser_document_state_configuration = (
+my %parser_document_state_configuration = (
   # parsed document parsing information still relevant after parsing
   'values' => {'txicommandconditionals' => 1},
                               # the key is the name, the value the @set name
@@ -144,11 +145,12 @@ my %parser_inner_options = (
 # valid for the parser.
 my $common_parser_regular_options_defaults
   = Texinfo::Options::get_regular_options('common_parser');
+# used in main program, not documented
 our %default_parser_customization_values = (
                   %Texinfo::Options::parser_options,
                   %$common_parser_regular_options_defaults);
 
-
+# used in Parser, not documented
 our %parser_document_parsing_options = (
                   %default_parser_customization_values,
                   %parser_document_state_configuration,
@@ -182,7 +184,9 @@ if (0) {
   }
 }
 
-# defaults for the main program.  In general transmitted to converters as defaults
+# defaults for the main program.
+# In general transmitted to converters as defaults.
+# Not used in converters, not documented
 our %default_main_program_customization_options = (
  %Texinfo::Options::program_cmdline_options,
  %Texinfo::Options::program_customization_options);
@@ -213,6 +217,7 @@ sub valid_customization_option($)
 
 # Output formats
 
+# used in main program
 our %texinfo_output_formats;
 foreach my $output_format_command ('info', 'plaintext',
        grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
@@ -224,6 +229,7 @@ foreach my $output_format_command ('info', 'plaintext',
 # constants.  Set by the main program.
 my %build_constants;
 
+# Functions documented in customization API
 sub set_build_constant($$)
 {
   my $key = shift;
@@ -283,6 +289,8 @@ sub valid_tree_transformation ($)
 # the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
 # we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
 # ISO-8859-1 but not in US-ASCII.
+# Used in Parser, not documented in Pod nor in the manual on purpose, to
+# be considered as not guaranteed backward compatibility.
 our %encoding_name_conversion_map;
 %encoding_name_conversion_map = (
   'us-ascii' => 'iso-8859-1',
@@ -301,6 +309,7 @@ our %encoding_name_conversion_map;
 
 # information on @-commands
 
+# used in Parser, not documented
 our %def_map = (
     # basic commands.
     # 'arg' and 'argtype' are for everything appearing after the other
@@ -372,6 +381,7 @@ for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
 my %command_structuring_level
   = %Texinfo::CommandsValues::command_structuring_level;
 
+# Not directly used in converters, not documented
 our %level_to_structuring_command;
 
 {
@@ -1904,7 +1914,7 @@ and C<plaintext>.
 =back
 
 TODO undocumented data structures:
-%null_device_file %default_parser_customization_values %multiple_at_command_options %unique_at_command_options %converter_cmdline_options %default_main_program_customization_options %converter_customization_options %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command %encoding_name_conversion_map %text_brace_no_arg_commands
+%null_device_file %document_settable_at_commands
 
 =head1 @-COMMAND INFORMATION
 

@@ -253,3 +253,4 @@ our %xml_text_entity_no_arg_commands = (
     'tie'    => '&nbsp;',
 );
 
+1;
