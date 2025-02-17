@@ -15,17 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# this information is used to setup customization options for both C and
+# This information is used to setup customization options for both C and
 # Perl.  For C complex option types are not actually handled, only
 # strings and integers.
 # The list of options, information about options types, defaults and
 # categories can be taken from the main options data source.
 
+# The interfaces to this information setup by scripts processing this file
+# are not documented, under the assumption that this information is only
+# used for officially maintained converters with more than one implementation
+# language and that user-defined converters can use their own way to
+# store their defaults.
+
+
 # for Texinfo::Parser
 # variables not specific of Parser, used in other contexts.  Spread over
 # the different categories set below.  The default values are in general
 # the same as elsewhere, but occasionally may be specific of the Parser.
-- common_parser
+-- common_parser
 
 # not 'en' as it is better to specify that there is no
 # need for translation since the strings are in english
@@ -49,12 +56,12 @@ LOCALE_ENCODING            undef
 
 # for Texinfo::Convert::Converter, used when a Converter does not redefine
 # the converter_defaults method
-- converter_defaults
+-- converter_defaults
 
 documentlanguage undef
 
 # in Texinfo::Convert::Converter, common to all the converters
-- converter_common
+-- converter_common
 
 # This is the default, mainly for tests; the caller should set them.  These
 # values are what is used in tests of the Converters.  These variables are
@@ -68,11 +75,11 @@ PACKAGE_URL           https://www.gnu.org/software/texinfo/
 PROGRAM               
 
 # Texinfo::Convert::PlainTexinfo
-- plaintexinfo_converter
+-- plaintexinfo_converter
 EXTENSION             texi
 OUTFILE               -
 
-- html_converter
+-- html_converter
 
 BIG_RULE               <hr>
 BODY_ELEMENT_ATTRIBUTES  undef
@@ -135,7 +142,7 @@ XREF_USE_FLOAT_LABEL    0
 xrefautomaticsectiontitle  on
 
 
-- texi2html
+-- texi2html
 
 # added hopefully temporarily to be able to validate with W3C validator
 #DOCTYPE                     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -65,7 +65,7 @@ my $format;
 my $line = 1;
 while (<CDEF>) {
   if (not (/^ *#/ or /^ *$/)) {
-    if (/^ *- *(\S+)/) {
+    if (/^ *-- *(\S+)/) {
       $format = $1;
       if (!defined($converter_defaults{$format})) {
         $converter_defaults{$format} = [];

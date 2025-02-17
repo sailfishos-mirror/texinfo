@@ -65,10 +65,6 @@ No documentation of Texinfo::Options hashes used in converters:
 multiple_at_command_options, converter_cmdline_options,
 converter_customization_options, unique_at_command_options.
 
-No documentation of Texinfo::Options get_regular_options, used
-in converters with the option type strings corresponding to the different
-converters (XXX_converter).
-
 
 Delayed bugs/features
 =====================

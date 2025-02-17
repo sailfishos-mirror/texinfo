@@ -1,3 +1,10 @@
+2025-02-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/data/converters_defaults.txt,
+	tta/maintain/regenerate_C_options_info.pl,
+	tta/maintain/regenerate_perl_options_info.pl: use two - for new format
+	name, to be consistent with commands values format.
+
 2025-02-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Customization Variables for Multiple Formats):
