@@ -1,5 +1,10 @@
 2025-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\getprintedrefname): remove unnecessary call
+	to \getrefx.
+
+2025-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@namedanchor
 
 	* doc/texinfo.tex (\namedanchor): Implement @namedanchor command
