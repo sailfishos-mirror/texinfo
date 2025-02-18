@@ -1,3 +1,19 @@
+2025-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@namedanchor
+
+	* doc/texinfo.tex (\namedanchor): Implement @namedanchor command
+	with second argument giving text for cross-references to an
+	@anchor.
+	(\anchor): Set \currentsection to the anchor name so that it
+	will be output as NAME-title in the .aux file.
+	(\getprintedrefname) <xrefautomaticsectiontitle>:
+	Eliminate special case for @anchor and unconditionally use the
+	"-title" string for the anchor.
+	
+	Discussion on bug-texinfo, February 2025.  Suggestions from
+	Werner Lemberg and Patrice Dumas.
+
 2025-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/errors.c (reallocate_error_messages, new_error_message)
