@@ -54,6 +54,7 @@
 /* parse_file_path whitespace_chars encode_string xasprintf digit_chars
    wipe_values locate_file_in_dirs */
 #include "utils.h"
+#include "errors.h"
 #include "customization_options.h"
 #include "txi_config.h"
 /* set_document_options */
@@ -549,6 +550,17 @@ handle_errors (size_t additional_error_count, size_t error_count,
   error_count += additional_error_count;
   exit_if_errors (error_count, opened_files);
   return error_count;
+}
+
+static size_t
+handle_parser_errors (DOCUMENT *document, int no_warn, int test_mode_set,
+                      const char *set_message_encoding, size_t error_count,
+                      STRING_LIST *opened_files)
+{
+  size_t errors_nr
+        = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
+                                            set_message_encoding);
+  return handle_errors (errors_nr, error_count, opened_files);
 }
 
 /* NOTE could also have used strtol */
@@ -2556,18 +2568,19 @@ main (int argc, char *argv[], char *env[])
       /* In Perl, the tree can be dumped with Data::Dumper here, we do not
          provide the same in C */
 
-      errors_nr
-        = txi_handle_parser_error_messages (document, no_warn, test_mode_set,
-                                            set_message_encoding);
       if (status)
         {
-          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
+                                               set_message_encoding,
+                                               errors_count, &opened_files);
           goto next_input_file;
         }
 
       if (!strcmp (output_format, "parse"))
         {
-          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
+                                               set_message_encoding,
+                                               errors_count, &opened_files);
           goto next_input_file;
         }
 
@@ -2575,7 +2588,9 @@ main (int argc, char *argv[], char *env[])
          = GNUT_get_conf (program_options.options->TRACE_INCLUDES.number);
       if (trace_includes_option && trace_includes_option->o.integer > 0)
         {
-          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
+                                               set_message_encoding,
+                                               errors_count, &opened_files);
           if (document->global_info.included_files.number)
             {
               for (i = 0; i < document->global_info.included_files.number;
@@ -2587,8 +2602,6 @@ main (int argc, char *argv[], char *env[])
             }
           goto next_input_file;
         }
-
-      errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 
       set_document_options (document, &program_options, &cmdline_options,
                             init_files_options);
@@ -2670,7 +2683,9 @@ main (int argc, char *argv[], char *env[])
       if ((dump_texi_option && dump_texi_option->o.integer > 0)
           || format_specification->flags & STTF_texi2dvi_format)
         {
-          errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+          errors_count = handle_parser_errors (document, no_warn, test_mode_set,
+                                               set_message_encoding,
+                                               errors_count, &opened_files);
           goto next_input_file;
         }
 
@@ -2679,10 +2694,13 @@ main (int argc, char *argv[], char *env[])
       txi_complete_document (document, format_specification->flags
                                        | transformation_flags, do_menu);
 
+      merge_error_messages_lists (&document->parser_error_messages,
+                                  &document->error_messages);
+
       errors_nr
-        = txi_handle_document_error_messages (document, no_warn,
-                                              test_mode_set,
-                                              set_message_encoding);
+        = txi_handle_parser_error_messages (document, no_warn,
+                                            test_mode_set,
+                                            set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
 

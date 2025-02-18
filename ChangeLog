@@ -1,3 +1,17 @@
+2025-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/errors.c (reallocate_error_messages, new_error_message)
+	(merge_error_messages_lists): split reallocate_error_messages in two
+	with reallocation remaining in reallocate_error_messages and adding
+	new error message in new_error_message.  Update callers.  Add
+	merge_error_messages_lists.
+
+	* tta/C/texi2any.c (handle_parser_errors, main): do not handle parser
+	errors immediately, instead merge with structuring errors and handle
+	afterwards (like in texi2any.pl).  Add handle_parser_errors to output
+	parser errors and exit if needed.  Use it when parser errors need to
+	be handled before structuring.
+
 2025-02-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/data/converters_defaults.txt,

@@ -56,4 +56,7 @@ void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               int no_warn, int use_filename,
                               const char *message_encoding);
+
+void merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
+                                 ERROR_MESSAGE_LIST *src);
 #endif

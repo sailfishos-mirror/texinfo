@@ -37,15 +37,26 @@
 #include "errors.h"
 
 
-static ERROR_MESSAGE *
-reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages)
+#define MAX_INT(a,b) (((a)>(b))?(a):(b))
+static void
+reallocate_error_messages (ERROR_MESSAGE_LIST *error_messages,
+                           size_t messages_number)
 {
-  ERROR_MESSAGE *error_message;
-  if (error_messages->number == error_messages->space)
+  if (messages_number > error_messages->space)
     {
       error_messages->list = realloc (error_messages->list,
-         (error_messages->space += 10) * sizeof (ERROR_MESSAGE));
+         (error_messages->space += MAX_INT(10,
+                             messages_number - error_messages->space))
+           * sizeof (ERROR_MESSAGE));
     }
+}
+#undef MAX_INT
+
+static ERROR_MESSAGE *
+new_error_message (ERROR_MESSAGE_LIST *error_messages)
+{
+  ERROR_MESSAGE *error_message;
+  reallocate_error_messages (error_messages, error_messages->number +1);
   error_message = &error_messages->list[error_messages->number];
   memset (error_message, 0, sizeof (ERROR_MESSAGE));
 
@@ -68,7 +79,7 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
   TEXT error_line;
   ERROR_MESSAGE *error_message;
 
-  error_message = reallocate_error_messages (error_messages);
+  error_message = new_error_message (error_messages);
 
   error_message->message = strdup (message);
   error_message->type = type;
@@ -181,7 +192,7 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
   TEXT error_line;
   ERROR_MESSAGE *error_message;
 
-  error_message = reallocate_error_messages (error_messages);
+  error_message = new_error_message (error_messages);
 
   error_message->message = strdup (message);
   error_message->type = type;
@@ -476,3 +487,15 @@ output_error_messages (ERROR_MESSAGE_LIST *error_messages,
   return error_nrs;
 }
 
+void
+merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
+                            ERROR_MESSAGE_LIST *src)
+{
+  reallocate_error_messages (dst, dst->number + src->number);
+
+  memcpy (&dst->list[dst->number], &src->list[0],
+          sizeof (ERROR_MESSAGE) * src->number);
+  dst->number += src->number;
+  src->number = 0;
+  wipe_error_message_list (src);
+}
