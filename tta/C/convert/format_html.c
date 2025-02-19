@@ -1935,6 +1935,67 @@ html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
   return html_internal_command_tree (self, command, no_number);
 }
 
+static char *
+html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
+                           const enum html_text_type type,
+                           ELEMENT *selected_tree,
+                           const char *command_info)
+{
+  ELEMENT *tree_root;
+  char *explanation = 0;
+  const char *context_name;
+  char *result;
+
+  if (command->e.c->cmd)
+    {
+      const char *command_name = element_command_name (command);
+      context_name = command_name;
+      xasprintf (&explanation, "%s:%s @%s", command_info,
+                 html_command_text_type_name[type],
+                 command_name);
+    }
+  else
+    {
+      context_name = type_data[command->type].name;
+      if (command->type == ET_special_unit_element)
+        {
+          char *special_unit_variety
+            = command->e.c->associated_unit->special_unit_variety;
+          xasprintf (&explanation, "%s %s", command_info,
+                     special_unit_variety);
+        }
+    }
+  html_new_document_context (self, context_name, explanation, 0);
+
+  if (type == HTT_string)
+    {
+      tree_root = new_element (ET__string);
+      add_to_contents_as_array (tree_root, selected_tree);
+      add_tree_to_build (self, tree_root);
+    }
+  else
+    tree_root = selected_tree;
+
+  html_set_multiple_conversions (self, 0);
+  push_element_reference_stack_element (&self->referred_command_stack,
+                                        command, command->hv);
+  result
+    = html_convert_tree_explanation (self, tree_root, explanation);
+  free (explanation);
+  pop_element_reference_stack (&self->referred_command_stack);
+
+  html_unset_multiple_conversions (self);
+
+  html_pop_document_context (self);
+
+  if (type == HTT_string)
+    {
+      remove_tree_to_build (self, tree_root);
+      destroy_element (tree_root);
+    }
+  return result;
+}
+
 /* return value to be freed by caller */
 char *
 html_internal_command_text (CONVERTER *self, const ELEMENT *command,
@@ -1948,9 +2009,6 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
         return strdup (target_info->command_text[type]);
       else
         {
-          ELEMENT *tree_root;
-          char *explanation = 0;
-          const char *context_name;
           ELEMENT *selected_tree;
           TREE_ADDED_ELEMENTS *command_tree
             = html_internal_command_tree (self, command, 0);
@@ -1958,59 +2016,15 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           if (!command_tree->tree)
             return strdup ("");
 
-          if (command->e.c->cmd)
-            {
-              const char *command_name = element_command_name (command);
-              context_name = command_name;
-              xasprintf (&explanation, "command_text:%s @%s",
-                         html_command_text_type_name[type],
-                         command_name);
-            }
-          else
-            {
-              context_name = type_data[command->type].name;
-              if (command->type == ET_special_unit_element)
-                {
-                  char *special_unit_variety
-                    = command->e.c->associated_unit->special_unit_variety;
-                  xasprintf (&explanation, "command_text %s",
-                             special_unit_variety);
-                }
-            }
-          html_new_document_context (self, context_name, explanation, 0);
-
           if ((type == HTT_text_nonumber || type == HTT_string_nonumber)
               && target_info->tree_nonumber.tree)
             selected_tree = target_info->tree_nonumber.tree;
           else
             selected_tree = command_tree->tree;
 
-          if (type == HTT_string)
-            {
-              tree_root = new_element (ET__string);
-              add_to_contents_as_array (tree_root, selected_tree);
-              add_tree_to_build (self, tree_root);
-            }
-          else
-            tree_root = selected_tree;
-
-          html_set_multiple_conversions (self, 0);
-          push_element_reference_stack_element (&self->referred_command_stack,
-                                                command, command->hv);
           target_info->command_text[type]
-            = html_convert_tree_explanation (self, tree_root, explanation);
-          free (explanation);
-          pop_element_reference_stack (&self->referred_command_stack);
-
-          html_unset_multiple_conversions (self);
-
-          html_pop_document_context (self);
-
-          if (type == HTT_string)
-            {
-              remove_tree_to_build (self, tree_root);
-              destroy_element (tree_root);
-            }
+            = html_convert_command_tree (self, command, type, selected_tree,
+                                         "command_text");
           return strdup (target_info->command_text[type]);
         }
     }
@@ -2083,6 +2097,89 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
     }
 
   return html_internal_command_text (self, command, type);
+}
+
+TREE_ADDED_ELEMENTS *
+html_internal_command_name_tree (CONVERTER *self, const ELEMENT *command,
+                                 int no_number)
+{
+  TREE_ADDED_ELEMENTS *tree;
+  HTML_TARGET *target_info;
+
+  target_info = html_get_target (self, command);
+  if (target_info)
+    {
+      if (!target_info->name_tree.status)
+        {
+          tree = &target_info->name_tree;
+          if (command->e.c->cmd == CM_namedanchor
+              && command->e.c->contents.number > 1
+              && command->e.c->contents.list[1]->e.c->contents.number > 0)
+            {
+              tree->status = tree_added_status_reused_tree;
+              tree->tree = command->e.c->contents.list[1];
+            }
+        }
+
+      /* cannot happen currently */
+      if (no_number && target_info->name_tree_nonumber.tree)
+        return &target_info->name_tree_nonumber;
+      else
+        return &target_info->name_tree;
+    }
+
+  return 0;
+}
+
+
+/* return value to be freed by caller */
+char *
+html_internal_command_name (CONVERTER *self, const ELEMENT *command,
+                            const enum html_text_type type)
+{
+  HTML_TARGET *target_info = html_get_target (self, command);
+
+  if (target_info)
+    {
+      if (target_info->command_name[type])
+        return strdup (target_info->command_name[type]);
+      else
+        {
+          ELEMENT *selected_tree;
+          TREE_ADDED_ELEMENTS *command_name_tree
+            = html_internal_command_name_tree (self, command, 0);
+
+          if (!command_name_tree->tree)
+            command_name_tree = html_internal_command_tree (self, command, 0);
+
+          if (!command_name_tree->tree)
+            return strdup ("");
+
+          if ((type == HTT_text_nonumber || type == HTT_string_nonumber)
+              && target_info->name_tree_nonumber.tree)
+            selected_tree = target_info->name_tree_nonumber.tree;
+          else
+            selected_tree = command_name_tree->tree;
+
+          target_info->command_name[type]
+            = html_convert_command_tree (self, command, type, selected_tree,
+                                         "command_name");
+          return strdup (target_info->command_name[type]);
+        }
+    }
+  return 0;
+}
+
+char *
+html_command_name (CONVERTER *self, const ELEMENT *command,
+                   const enum html_text_type type)
+{
+  ELEMENT *manual_content = lookup_extra_container (command,
+                                                  AI_key_manual_content);
+  if (manual_content)
+    return html_command_text (self, command, type);
+
+  return html_internal_command_name (self, command, type);
 }
 
 /*
@@ -7617,7 +7714,16 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
                    && !command_is_in_referred_command_stack (
                          &self->referred_command_stack, target_root, 0))
             {
-              if (html_in_string (self))
+              if (self->conf->xrefautomaticsectiontitle.o.string
+           && !strcmp (self->conf->xrefautomaticsectiontitle.o.string, "on"))
+                {
+                  if (html_in_string (self))
+                    name = html_command_name (self, target_root, HTT_string);
+                  else
+                    name
+                     = html_command_name (self, target_root, HTT_text_nonumber);
+                }
+              else if (html_in_string (self))
                 name = html_command_text (self, target_root, HTT_string);
               else
                 name = html_command_text (self, target_root, HTT_text_nonumber);

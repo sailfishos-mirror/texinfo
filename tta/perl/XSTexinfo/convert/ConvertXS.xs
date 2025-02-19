@@ -2235,6 +2235,37 @@ html_internal_command_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
         RETVAL
 
 SV *
+html_internal_command_name_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
+     PREINIT:
+        CONVERTER *self;
+        ELEMENT *command_tree = 0;
+        const ELEMENT *element;
+     CODE:
+        element = element_converter_from_sv (converter_in, element_sv,
+                                   "html_internal_command_name_tree", &self);
+        if (element)
+          {
+            int no_number = 0;
+            TREE_ADDED_ELEMENTS *tree;
+
+            if (SvOK (no_number_sv))
+              no_number = SvIV (no_number_sv);
+
+            tree = html_internal_command_name_tree (self, element, no_number);
+            build_tree_to_build (&self->tree_to_build);
+
+            if (tree)
+              command_tree = tree->tree;
+          }
+
+        if (command_tree)
+          RETVAL = newRV_inc ((SV *) command_tree->hv);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
 html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
      PREINIT:
         CONVERTER *self;
@@ -2257,6 +2288,41 @@ html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
               }
             text
               = html_internal_command_text (self, element, text_type);
+          }
+
+        if (text)
+          {
+            RETVAL = newSVpv_utf8 (text, 0);
+            non_perl_free (text);
+          }
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
+html_internal_command_name (SV *converter_in, SV *element_sv, const char *type)
+     PREINIT:
+        CONVERTER *self;
+        char *text = 0;
+        const ELEMENT *element;
+     CODE:
+        element = element_converter_from_sv (converter_in, element_sv,
+                                     "html_internal_command_name", &self);
+        if (element)
+          {
+            int j;
+            enum html_text_type text_type = 0;
+            for (j = 0; j < HTT_section +1; j++)
+              {
+                if (!strcmp (html_command_text_type_name[j], type))
+                  {
+                    text_type = j;
+                    break;
+                  }
+              }
+            text
+              = html_internal_command_name (self, element, text_type);
           }
 
         if (text)

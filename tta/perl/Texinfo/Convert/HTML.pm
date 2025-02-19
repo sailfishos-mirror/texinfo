@@ -172,8 +172,12 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_command_contents_href",
   "Texinfo::Convert::HTML::_internal_command_tree"
    => "Texinfo::Convert::ConvertXS::html_internal_command_tree",
+  "Texinfo::Convert::HTML::_internal_command_name_tree"
+   => "Texinfo::Convert::ConvertXS::html_internal_command_name_tree",
   "Texinfo::Convert::HTML::_internal_command_text"
    => "Texinfo::Convert::ConvertXS::html_internal_command_text",
+  "Texinfo::Convert::HTML::_internal_command_name"
+   => "Texinfo::Convert::ConvertXS::html_internal_command_name",
   "Texinfo::Convert::HTML::command_description"
    => "Texinfo::Convert::ConvertXS::html_command_description",
   "Texinfo::Convert::HTML::global_direction_unit"
@@ -1315,7 +1319,6 @@ sub _internal_command_tree($$$)
         # to be a target, the node or anchor cannot be empty (nor expand to
         # spaces only), so argument is necessarily set.
         my $label_element;
-        # FIXME for @namedanchor, $command->{'contents'}->[1] may be better
         if ($command->{'cmdname'} eq 'anchor'
             or $command->{'cmdname'} eq 'namedanchor') {
           $label_element = $command->{'contents'}->[0];
@@ -1431,6 +1434,51 @@ sub _command_is_in_referred_command_stack($$)
   return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
 }
 
+sub _convert_command_tree($$$$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+  my $selected_tree = shift;
+  my $command_info = shift;
+
+  my $explanation;
+  my $context_name;
+
+  if (defined($command->{'cmdname'})) {
+    my $cmdname = $command->{'cmdname'};
+    $context_name = $cmdname;
+    $explanation = "$command_info:$type \@$cmdname";
+  } else {
+    $context_name = $command->{'type'};
+    if ($command->{'type'} eq 'special_unit_element') {
+      my $special_unit_variety
+        = $command->{'associated_unit'}->{'special_unit_variety'};
+      $explanation = "$command_info $special_unit_variety";
+    }
+  }
+
+  $self->_new_document_context($context_name, $explanation);
+
+  my $tree_root;
+  if ($type eq 'string') {
+    $tree_root = {'type' => '_string',
+                  'contents' => [$selected_tree]};
+  } else {
+    $tree_root = $selected_tree;
+  }
+
+  _set_multiple_conversions($self, undef);
+
+  _push_referred_command_stack_command($self, $command);
+  my $result = $self->_convert($tree_root, $explanation);
+  _pop_referred_command_stack($self);
+  _unset_multiple_conversions($self);
+
+  $self->_pop_document_context();
+  return $result;
+}
+
 sub _internal_command_text($$$)
 {
   my $self = shift;
@@ -1445,24 +1493,6 @@ sub _internal_command_text($$$)
     my $command_tree = _internal_command_tree($self, $command, 0);
     return '' if (!defined($command_tree));
 
-    my $explanation;
-    my $context_name;
-
-    if (defined($command->{'cmdname'})) {
-      my $cmdname = $command->{'cmdname'};
-      $context_name = $cmdname;
-      $explanation = "command_text:$type \@$cmdname";
-    } else {
-      $context_name = $command->{'type'};
-      if ($command->{'type'} eq 'special_unit_element') {
-        my $special_unit_variety
-          = $command->{'associated_unit'}->{'special_unit_variety'};
-        $explanation = "command_text $special_unit_variety";
-      }
-    }
-
-    $self->_new_document_context($context_name, $explanation);
-
     my $selected_tree;
 
     if ($type =~ /^(.*)_nonumber$/
@@ -1472,22 +1502,9 @@ sub _internal_command_text($$$)
       $selected_tree = $command_tree;
     }
 
-    my $tree_root;
-    if ($type eq 'string') {
-      $tree_root = {'type' => '_string',
-                    'contents' => [$selected_tree]};
-    } else {
-      $tree_root = $selected_tree;
-    }
-
-    _set_multiple_conversions($self, undef);
-
-    _push_referred_command_stack_command($self, $command);
-    $target->{$type} = $self->_convert($tree_root, $explanation);
-    _pop_referred_command_stack($self);
-    _unset_multiple_conversions($self);
-
-    $self->_pop_document_context();
+    $target->{$type}
+      = _convert_command_tree($self, $command, $type, $selected_tree,
+                              'command_text');
     return $target->{$type};
   }
   # Can happen
@@ -1548,6 +1565,97 @@ sub command_text($$;$)
   }
 
   return _internal_command_text($self, $command, $type);
+}
+
+sub _internal_command_name_tree($$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $no_number = shift;
+
+  my $target = $self->_get_target($command);
+  if ($target) {
+    if (!exists($target->{'name_tree'})) {
+      my $tree;
+      if ($command->{'cmdname'}
+          and $command->{'cmdname'} eq 'namedanchor') {
+        if ($command->{'contents'}->[1]
+            and $command->{'contents'}->[1]->{'contents'}) {
+          $tree = $command->{'contents'}->[1];
+        }
+      }
+      $target->{'name_tree'} = $tree;
+    }
+
+    # currently not possible
+    #return $target->{'name_tree_nonumber'} if ($no_number
+    #                                  and $target->{'name_tree_nonumber'});
+    return $target->{'name_tree'};
+  }
+  return undef;
+}
+
+sub _internal_command_name($$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+  my $name_type = "name_$type";
+
+  my $target = $self->_get_target($command);
+  if ($target) {
+    if (defined($target->{$name_type})) {
+      return $target->{$name_type};
+    }
+    my $command_name_tree = _internal_command_name_tree($self, $command, 0);
+
+    if (!defined($command_name_tree)) {
+      $command_name_tree = _internal_command_tree($self, $command, 0);
+    }
+    return '' if (!defined($command_name_tree));
+
+    my $selected_tree;
+
+    if ($type =~ /^(.*)_nonumber$/
+        and defined($target->{'name_tree_nonumber'})) {
+      $selected_tree = $target->{'name_tree_nonumber'};
+    } else {
+      $selected_tree = $command_name_tree;
+    }
+
+    $target->{$name_type}
+      = _convert_command_tree($self, $command, $type, $selected_tree,
+                              'command_name');
+    return $target->{$name_type};
+  }
+  return undef;
+}
+
+# Return text to be used for $COMMAND using the name rather than an
+# identifier, when the distinction exists.
+# $TYPE refers to the type of value returned from this function:
+#  'text' - return text
+#  'text_nonumber' - return text, without the section/chapter number
+#  'string' - return simpler text that can be used in element attributes
+sub command_name($$;$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $type = shift;
+
+  if (!defined($type)) {
+    $type = 'text';
+  }
+
+  if (!defined($command)) {
+    cluck "in command_name($type) command not defined";
+  }
+
+  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+    return command_text($self, $command, $type);
+  }
+
+  return _internal_command_name($self, $command, $type);
 }
 
 # Return text to be used for $COMMAND description.
@@ -5909,7 +6017,13 @@ sub _convert_xref_commands($$$$)
          # to the node
               and not _command_is_in_referred_command_stack($self,
                                                             $target_root)) {
-        if (in_string($self)) {
+        if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
+          if (in_string($self)) {
+            $name = $self->command_name($target_root, 'string');
+          } else {
+            $name = $self->command_name($target_root, 'text_nonumber');
+          }
+        } elsif (in_string($self)) {
           $name = $self->command_text($target_root, 'string');
         } else {
           $name = $self->command_text($target_root, 'text_nonumber');

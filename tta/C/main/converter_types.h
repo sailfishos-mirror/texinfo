@@ -277,8 +277,11 @@ typedef struct HTML_TARGET {
 
     char *command_text[HTT_string_nonumber+1];
     char *command_description[HTT_string_nonumber+1];
+    char *command_name[HTT_string_nonumber+1];
     TREE_ADDED_ELEMENTS tree;
     TREE_ADDED_ELEMENTS tree_nonumber;
+    TREE_ADDED_ELEMENTS name_tree;
+    TREE_ADDED_ELEMENTS name_tree_nonumber;
     FILE_NUMBER_NAME file_number_name;
     int filename_set;
     const ELEMENT *root_element_command;

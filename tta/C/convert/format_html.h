@@ -75,6 +75,10 @@ TREE_ADDED_ELEMENTS *html_internal_command_tree (CONVERTER *self,
                             const ELEMENT *command, int no_number);
 char *html_internal_command_text (CONVERTER *self, const ELEMENT *command,
                                   const enum html_text_type type);
+TREE_ADDED_ELEMENTS *html_internal_command_name_tree (CONVERTER *self,
+                            const ELEMENT *command, int no_number);
+char *html_internal_command_name (CONVERTER *self, const ELEMENT *command,
+                                  const enum html_text_type type);
 char *html_command_description (CONVERTER *self, const ELEMENT *command,
                                 const enum html_text_type type);
 

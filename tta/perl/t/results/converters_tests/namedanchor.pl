@@ -2149,12 +2149,12 @@ See <a class="xref" href="#normal">no</a>
 See <a class="xref" href="#in-chap-empty-name">xat on t</a>
 See <a class="xref" href="#in-chap-empty-name">xat on o</a>
 </p>
-<p>See <a class="xref" href="#normal">normal</a>
+<p>See <a class="xref" href="#normal">here we are</a>
 See <a class="xref" href="#normal">xat on nt</a>
 See <a class="xref" href="#normal">xat on no</a>
 </p>
-<p>See <a class="xref" href="#in-Top">in Top</a>
-See <a class="xref" href="#Not-here_0021">Not here!</a>
+<p>See <a class="xref" href="#in-Top"><em class="emph">n in Top</em></a>
+See <a class="xref" href="#Not-here_0021">There</a>
 </p>
 <hr>
 </div>

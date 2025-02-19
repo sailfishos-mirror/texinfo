@@ -83,8 +83,13 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
           for (j = 0; j < HTT_string_nonumber+1; j++)
             free (html_target->command_description[j]);
 
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_name[j]);
+
           free_tree_added_elements (self, &html_target->tree);
           free_tree_added_elements (self, &html_target->tree_nonumber);
+          free_tree_added_elements (self, &html_target->name_tree);
+          free_tree_added_elements (self, &html_target->name_tree_nonumber);
         }
       memset (targets->list, 0,
               sizeof (HTML_TARGET) * targets->number);
