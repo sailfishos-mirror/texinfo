@@ -371,12 +371,12 @@ td.menu-entry-destination {vertical-align: top}
 ';
 
 
-$result_converted{'xml'}->{'menu_pointing_to_anchor'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">An anchor</nodenext></node>
+$result_converted{'xml'}->{'menu_pointing_to_anchor'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">An anchor</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>Text
 </para>
-<anchor name="An-anchor">An anchor</anchor>
+<anchor identifier="An-anchor">An anchor</anchor>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>An anchor</menunode><menuseparator>::                </menuseparator><menudescription><pre xml:space="preserve">menu entry pointing to the anchor.

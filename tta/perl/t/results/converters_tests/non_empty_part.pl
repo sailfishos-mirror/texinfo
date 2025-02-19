@@ -1493,7 +1493,7 @@ $result_converted{'xml'}->{'non_empty_part'} = '<part spaces=" "><sectiontitle>p
 <para>Content before
 </para>
 </part>
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">part chapter node</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">part chapter node</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1515,7 +1515,7 @@ $result_converted{'xml'}->{'non_empty_part'} = '<part spaces=" "><sectiontitle>p
 <para>Content II
 </para>
 </part>
-<node name="part-chapter-node" spaces=" "><nodename>part chapter node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="part-chapter-node" spaces=" "><nodename>part chapter node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <part spaces=" "><sectiontitle>part III</sectiontitle>
 
 <para>Content III
@@ -1541,7 +1541,7 @@ $result_converted{'xml'}->{'non_empty_part'} = '<part spaces=" "><sectiontitle>p
 
 <para>Content VI
 </para>
-<node name="node-between-part-and-chapter" spaces=" "><nodename>node between part and chapter</nodename><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-between-part-and-chapter" spaces=" "><nodename>node between part and chapter</nodename><nodeup automatic="on">Top</nodeup></node>
 
 <chapter spaces=" "><sectiontitle>chapter after part node</sectiontitle>
 

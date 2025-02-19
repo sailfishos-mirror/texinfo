@@ -4,11 +4,11 @@
 <filename file="setfilename_no_extension.xml"></filename>
 <setfilename file="setfilename_no_extension" spaces=" ">setfilename_no_extension</setfilename>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <para>Text.
 </para></texinfo>

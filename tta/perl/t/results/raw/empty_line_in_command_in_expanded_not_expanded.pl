@@ -296,7 +296,7 @@ n}
 </tex>
 
 <html endspaces=" ">
-<anchor name="ha-hb">ha
+<anchor identifier="ha-hb">ha
 
 hb</anchor>.
 

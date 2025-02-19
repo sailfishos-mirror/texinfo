@@ -457,12 +457,12 @@ $result_converted_errors{'html'}->{'footnote_in_caption_and_error'} = [
 
 
 
-$result_converted{'xml'}->{'footnote_in_caption_and_error'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'footnote_in_caption_and_error'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <listoffloats type="fl" spaces=" ">fl</listoffloats>
 
-<float name="label" type="fl" number="1" spaces=" " endspaces=" "><floattype>fl</floattype><floatname spaces=" ">label</floatname>
+<float identifier="label" type="fl" number="1" spaces=" " endspaces=" "><floattype>fl</floattype><floatname spaces=" ">label</floatname>
 <para>In float.
 </para><caption><para>in caption<footnote><para>in footnote &errorglyph;</para></footnote></para></caption>
 </float>

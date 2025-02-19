@@ -1288,7 +1288,7 @@ Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a h
 ';
 
 
-$result_converted{'xml'}->{'two_nodes_between_chapters'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter 1</nodenext></node>
+$result_converted{'xml'}->{'two_nodes_between_chapters'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter 1</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1298,13 +1298,13 @@ $result_converted{'xml'}->{'two_nodes_between_chapters'} = '<node name="Top" spa
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="chapter-1" spaces=" "><nodename>chapter 1</nodename><nodenext spaces=" ">Top</nodenext><nodeprev spaces=" ">node between chapters</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node identifier="chapter-1" spaces=" "><nodename>chapter 1</nodename><nodenext spaces=" ">Top</nodenext><nodeprev spaces=" ">node between chapters</nodeprev><nodeup spaces=" ">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter c1</sectiontitle>
 
 </chapter>
-<node name="node-between-chapters" spaces=" "><nodename>node between chapters</nodename><nodenext automatic="on">chapter 2</nodenext><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-between-chapters" spaces=" "><nodename>node between chapters</nodename><nodenext automatic="on">chapter 2</nodenext><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
-<node name="chapter-2" spaces=" "><nodename>chapter 2</nodename><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter-2" spaces=" "><nodename>chapter 2</nodename><nodeprev automatic="on">chapter 1</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter c2</sectiontitle>
 </chapter>
 ';

@@ -151,7 +151,7 @@ $result_converted{'plaintext'}->{'ignored_text'} = 'in ifinfo
 ';
 
 
-$result_converted{'xml'}->{'ignored_text'} = '<node name="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node><para>in ifinfo
+$result_converted{'xml'}->{'ignored_text'} = '<node identifier="before-ignore" spaces=" "><nodename trailingspaces=" ">before ignore</nodename></node><para>in ifinfo
 </para>';
 
 1;

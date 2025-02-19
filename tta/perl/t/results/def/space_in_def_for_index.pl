@@ -612,8 +612,8 @@ $result_converted_errors{'html'}->{'space_in_def_for_index'} = [
 
 
 
-$result_converted{'xml'}->{'space_in_def_for_index'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'space_in_def_for_index'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">name</indexterm><defcategory bracketed="on" spaces=" " trailingspaces=" ">Category</defcategory> <deffunction bracketed="on" spaces=" " trailingspaces=" ">name</deffunction> <defparam bracketed="on" spaces=" " trailingspaces=" ">argument</defparam> <defparam>argument2...</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="2">AAA2</indexterm><defcategory bracketed="on">AAA1</defcategory> <deffunction bracketed="on">AAA2</deffunction> <defparam>arg3</defparam></definitionterm></deffnx>

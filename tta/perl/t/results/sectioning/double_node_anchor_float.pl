@@ -790,15 +790,15 @@ $result_converted_errors{'html'}->{'double_node_anchor_float'} = [
 
 
 
-$result_converted{'xml'}->{'double_node_anchor_float'} = '<node name="node1" spaces=" "><nodename>node1</nodename></node>
+$result_converted{'xml'}->{'double_node_anchor_float'} = '<node identifier="node1" spaces=" "><nodename>node1</nodename></node>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 
-<anchor name="">node1</anchor>
+<anchor identifier="">node1</anchor>
 
-<anchor name="anchor1">anchor1</anchor>
+<anchor identifier="anchor1">anchor1</anchor>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 
 <float type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">node1</floatname>
 </float>
@@ -806,10 +806,10 @@ $result_converted{'xml'}->{'double_node_anchor_float'} = '<node name="node1" spa
 <float type="Text" number="2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">anchor1</floatname>
 </float>
 
-<float name="float1" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float1</floatname>
+<float identifier="float1" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float1</floatname>
 </float>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 ';
 
 

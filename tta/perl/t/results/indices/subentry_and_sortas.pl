@@ -700,11 +700,11 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 ';
 
 
-$result_converted{'xml'}->{'subentry_and_sortas'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter index</nodenext></node>
+$result_converted{'xml'}->{'subentry_and_sortas'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter index</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="chapter-index" spaces=" "><nodename>chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter-index" spaces=" "><nodename>chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Index</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa <sortas>A&textmdash;S</sortas></indexterm></cindex> <subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>

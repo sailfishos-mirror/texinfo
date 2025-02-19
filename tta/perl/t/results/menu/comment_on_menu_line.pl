@@ -414,7 +414,7 @@ $result_converted_errors{'html'}->{'comment_on_menu_line'} = [
 
 
 
-$result_converted{'xml'}->{'comment_on_menu_line'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
+$result_converted{'xml'}->{'comment_on_menu_line'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>
 
 <menu spaces="  " endspaces=" "><!-- c -->
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -422,7 +422,7 @@ $result_converted{'xml'}->{'comment_on_menu_line'} = '<node name="Top" spaces=" 
 
 <chapter spaces=" "><sectiontitle>first</sectiontitle>
 </chapter>
-<node name="first" spaces=" "><nodename>first</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="first" spaces=" "><nodename>first</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 ';
 
 1;

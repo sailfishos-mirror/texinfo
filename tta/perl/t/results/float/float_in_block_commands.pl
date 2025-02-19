@@ -680,19 +680,19 @@ $result_converted_errors{'html'}->{'float_in_block_commands'} = [
 
 
 $result_converted{'xml'}->{'float_in_block_commands'} = '<example endspaces=" ">
-<float name="in-example" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in example</floatname>
+<float identifier="in-example" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in example</floatname>
 <caption><para>float in example</para></caption><pre xml:space="preserve">
 </pre></float>
 </example>
 
 <quotation endspaces=" ">
-<float name="in-quotation" type="Text" number="2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in quotation</floatname>
+<float identifier="in-quotation" type="Text" number="2" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in quotation</floatname>
 <caption><para>float in quotation</para></caption>
 </float>
 </quotation>
 
 <cartouche endspaces=" ">
-<float name="in-cartouche" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in cartouche</floatname>
+<float identifier="in-cartouche" type="Text" number="3" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">in cartouche</floatname>
 <caption><para>float in cartouche</para></caption>
 </float>
 </cartouche>

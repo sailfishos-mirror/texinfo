@@ -562,11 +562,11 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 
 $result_converted{'xml'}->{'ignored_sort_char_empty_entries'} = '<set name="txiindexhyphenignore" line=" txiindexhyphenignore"></set>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">-</indexterm></findex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="2">--</indexterm></findex>

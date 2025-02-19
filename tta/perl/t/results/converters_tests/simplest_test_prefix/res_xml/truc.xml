@@ -4,7 +4,7 @@
 <filename file="truc.xml"></filename>
 <preamblebeforebeginning>\input texinfo @c -*-texinfo-*-
 
-</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename></node>
+</preamblebeforebeginning><node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
 <para>This is a very simple texi manual <spacecmd type="spc"/> &lt;&gt;.
 </para>

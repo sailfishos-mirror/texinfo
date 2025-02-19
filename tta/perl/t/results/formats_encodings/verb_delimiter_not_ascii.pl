@@ -338,11 +338,11 @@ $result_converted{'html_text'}->{'verb_delimiter_not_ascii'} = '<div class="top-
 ';
 
 
-$result_converted{'xml'}->{'verb_delimiter_not_ascii'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'verb_delimiter_not_ascii'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 <para><verb delimiter="ê"> some text </verb>
 </para></chapter>

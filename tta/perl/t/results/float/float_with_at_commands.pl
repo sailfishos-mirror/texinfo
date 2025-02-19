@@ -442,7 +442,7 @@ $result_converted_errors{'html'}->{'float_with_at_commands'} = [
 
 
 
-$result_converted{'xml'}->{'float_with_at_commands'} = '<float name="premi_00e8re-entr_00e9e" type="entrée" number="1" spaces=" " endspaces=" "><floattype>entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname spaces=" ">premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
+$result_converted{'xml'}->{'float_with_at_commands'} = '<float identifier="premi_00e8re-entr_00e9e" type="entrée" number="1" spaces=" " endspaces=" "><floattype>entr<accent type="acute" bracketed="off">e</accent>e</floattype><floatname spaces=" ">premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e</floatname>
 
 <para>Ceci est notre premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e.
 </para><caption><para>La premi<accent type="grave" bracketed="off">e</accent>re entr<accent type="acute" bracketed="off">e</accent>e est importante</para></caption>

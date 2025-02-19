@@ -209,8 +209,8 @@ $result_converted{'html_text'}->{'empty_cindex_entry'} = '<h1 class="node" id="T
 ';
 
 
-$result_converted{'xml'}->{'empty_cindex_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'empty_cindex_entry'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 <cindex></cindex>
 ';
 

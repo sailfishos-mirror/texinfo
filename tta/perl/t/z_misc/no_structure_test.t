@@ -249,17 +249,17 @@ is($texinfoxml_text, '<contents></contents>
 
 <top spaces=" "><sectiontitle>First File</sectiontitle>
 </top>
-<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
-<node name="chap" spaces=" "><nodename>chap</nodename></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
-<anchor name="point">point</anchor>
+<anchor identifier="point">point</anchor>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">c</indexterm></cindex>
 
 </chapter>
-<node name="results" spaces=" "><nodename>results</nodename></node>
+<node identifier="results" spaces=" "><nodename>results</nodename></node>
 <appendix spaces=" "><sectiontitle>Results</sectiontitle>
 
 <para><xref label="point"><xrefnodename>point</xrefnodename></xref>.

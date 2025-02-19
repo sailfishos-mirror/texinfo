@@ -416,8 +416,8 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 ';
 
 
-$result_converted{'xml'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
 

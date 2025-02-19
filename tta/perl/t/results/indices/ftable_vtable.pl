@@ -896,8 +896,8 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<a class="node-id" id="Top"
 
 
 $result_converted{'xml'}->{'ftable_vtable'} = '<preamblebeforebeginning>
-</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+</preamblebeforebeginning><node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <ftable commandarg="emph" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="fn" number="1">function1</indexterm>function1</itemformat></item>

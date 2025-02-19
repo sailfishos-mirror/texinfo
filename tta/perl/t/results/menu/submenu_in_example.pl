@@ -815,7 +815,7 @@ $result_converted_errors{'html'}->{'submenu_in_example'} = [
 
 
 
-$result_converted{'xml'}->{'submenu_in_example'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'submenu_in_example'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <example endspaces=" ">
 <pre xml:space="preserve">

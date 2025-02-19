@@ -565,11 +565,11 @@ $result_converted{'html_text'}->{'subentries_and_comments'} = '<div class="top-l
 ';
 
 
-$result_converted{'xml'}->{'subentries_and_comments'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter one</nodenext></node>
+$result_converted{'xml'}->{'subentries_and_comments'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter one</nodenext></node>
 <top><sectiontitle></sectiontitle>
 
 </top>
-<node name="chapter-one" spaces=" "><nodename>chapter one</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter-one" spaces=" "><nodename>chapter one</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>one</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">aa</indexterm></cindex> <subentry spaces=" ">bb</subentry><!-- c comment -->

@@ -225,7 +225,7 @@ $result_converted_errors{'html'}->{'multiple_spaces_in_float_type'} = [
 
 
 
-$result_converted{'xml'}->{'multiple_spaces_in_float_type'} = '<float name="myfloat" type="Type of Float" number="1" spaces=" " endspaces=" "><floattype>Type  of  &formfeed;  Float</floattype><floatname spaces=" ">myfloat</floatname>
+$result_converted{'xml'}->{'multiple_spaces_in_float_type'} = '<float identifier="myfloat" type="Type of Float" number="1" spaces=" " endspaces=" "><floattype>Type  of  &formfeed;  Float</floattype><floatname spaces=" ">myfloat</floatname>
 <para>inside
 </para></float>
 

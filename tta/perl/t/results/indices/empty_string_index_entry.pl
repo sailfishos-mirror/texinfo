@@ -777,8 +777,8 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-i
 ';
 
 
-$result_converted{'xml'}->{'empty_string_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+$result_converted{'xml'}->{'empty_string_index_entry'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1"><w></w></indexterm></findex>
 

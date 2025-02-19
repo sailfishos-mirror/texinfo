@@ -1038,7 +1038,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 
 $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
-<node name="node_0021-After-punc" spaces=" "><nodename>node! After punc</nodename></node>
+<node identifier="node_0021-After-punc" spaces=" "><nodename>node! After punc</nodename></node>
 <top spaces=" "><sectiontitle>top! After punc</sectiontitle>
 
 <table commandarg="asis" spaces=" " endspaces=" ">
@@ -1050,12 +1050,12 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 </para><exdent spaces=" ">exdent quotation! After punc</exdent>
 </quotation>
 
-<float name="float-label_0021-After-punc" type="float type! After punc" number="1" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">float label! After punc</floatname>
+<float identifier="float-label_0021-After-punc" type="float type! After punc" number="1" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">float label! After punc</floatname>
 <para>In float
 </para><shortcaption><para>shortcaption! After punc</para></shortcaption>
 </float>
 
-<float name="label-with-caption" type="float type! After punc" number="2" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">label with caption</floatname>
+<float identifier="label-with-caption" type="float type! After punc" number="2" spaces=" " endspaces=" "><floattype>float type! After punc</floattype><floatname spaces=" ">label with caption</floatname>
 <para>In float with caption.
 </para><caption><para>caption! After punc</para></caption>
 </float>

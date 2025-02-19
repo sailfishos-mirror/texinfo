@@ -1945,11 +1945,11 @@ $result_converted_errors{'html_text'}->{'various_vtable_command_as_argument'} = 
 
 
 
-$result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">Indices</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">Indices</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
 <vtable commandarg="inlineraw" spaces=" " endspaces=" ">
@@ -1989,7 +1989,7 @@ $result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node name="
 </tableterm></tableentry></vtable>
 
 </chapter>
-<node name="Indices" spaces=" "><nodename>Indices</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Indices" spaces=" "><nodename>Indices</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>Print the index</sectiontitle>
 
 <printindex spaces=" " value="vr" line="vr"></printindex>

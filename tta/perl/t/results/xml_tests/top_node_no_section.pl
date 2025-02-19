@@ -80,7 +80,7 @@ $result_floats{'top_node_no_section'} = {};
 
 
 
-$result_converted{'xml'}->{'top_node_no_section'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'top_node_no_section'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 ';
 
 1;

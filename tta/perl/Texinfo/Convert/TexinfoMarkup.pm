@@ -900,7 +900,7 @@ sub _convert($$;$)
             $nodename = '';
           }
           $result .= $self->txi_markup_open_element('node',
-                          [['name', $nodename], _leading_spaces_arg($element)]);
+                    [['identifier', $nodename], _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
@@ -1176,8 +1176,7 @@ sub _convert($$;$)
         } else {
           $anchor_name = '';
         }
-        # FIXME name is a bad name, should be id, or identifier
-        push @$attribute, ['name', $anchor_name];
+        push @$attribute, ['identifier', $anchor_name];
       }
 
       my $space_after_command_attribute;
@@ -1379,7 +1378,7 @@ sub _convert($$;$)
                            $element->{'extra'}->{'enumerate_specification'}];
       } elsif ($element->{'cmdname'} eq 'float' and $element->{'extra'}) {
         if ($element->{'extra'}->{'is_target'}) {
-          push @$attribute, ['name', $element->{'extra'}->{'normalized'}];
+          push @$attribute, ['identifier', $element->{'extra'}->{'normalized'}];
         }
         push @$attribute, ['type',
                            $element->{'extra'}->{'float_type'}];

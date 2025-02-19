@@ -529,7 +529,7 @@
 <!ELEMENT node (nodename, nodenext?, nodeprev?, nodeup?)>
 <!ATTLIST node
           %spacesattr;
-          name CDATA #IMPLIED>
+          identifier CDATA #IMPLIED>
 
 <!ELEMENT nodename (#PCDATA | %Inline.line;)*>
 <!ATTLIST nodename
@@ -815,7 +815,7 @@
 <!ATTLIST float
           %spacesblockattr;
           number CDATA #IMPLIED
-          name CDATA #IMPLIED
+          identifier CDATA #IMPLIED
           type CDATA #IMPLIED>
 <!ELEMENT floattype (#PCDATA | %Inline.line;)*>
 <!ATTLIST floattype
@@ -1224,7 +1224,7 @@
 <!ELEMENT anchor (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST anchor
           %spacesafterincmdattr;
-          name CDATA #IMPLIED>
+          identifier CDATA #IMPLIED>
 
 <!ELEMENT errormsg (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST errormsg

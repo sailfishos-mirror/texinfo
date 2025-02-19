@@ -387,11 +387,11 @@ $result_converted{'html_text'}->{'test_formatting_customizations'} = '<div class
 ';
 
 
-$result_converted{'xml'}->{'test_formatting_customizations'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapt</nodenext></node>
+$result_converted{'xml'}->{'test_formatting_customizations'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapt</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chapt" spaces=" "><nodename>chapt</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapt" spaces=" "><nodename>chapt</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
 <para>&Aring; &equiv; &arobase; &copyright;

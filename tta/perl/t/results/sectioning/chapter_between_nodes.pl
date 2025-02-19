@@ -669,7 +669,7 @@ Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_
 ';
 
 
-$result_converted{'xml'}->{'chapter_between_nodes'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
+$result_converted{'xml'}->{'chapter_between_nodes'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
 <top spaces=" "><sectiontitle>top section</sectiontitle>
 <para>Top node
 </para>
@@ -682,7 +682,7 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '<node name="Top" spaces="
 
 <para>In chapter
 </para>
-<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
+<node identifier="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 <section spaces=" "><sectiontitle>section</sectiontitle>
 
 <para>section.

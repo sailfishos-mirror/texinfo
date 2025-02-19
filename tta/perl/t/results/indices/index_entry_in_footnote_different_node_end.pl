@@ -720,14 +720,14 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 ';
 
 
-$result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>First</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">First</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">First</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <para>chap node<footnote><para>in footnote
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
@@ -739,7 +739,7 @@ $result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<nod
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">counting entry</indexterm></cindex>
 </footnote>
 </para>
-<node name="First" spaces=" "><nodename>First</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="First" spaces=" "><nodename>First</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 ';

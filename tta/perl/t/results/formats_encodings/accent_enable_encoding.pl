@@ -2327,7 +2327,7 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-le
 ';
 
 
-$result_converted{'xml'}->{'accent_enable_encoding'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'accent_enable_encoding'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: è è

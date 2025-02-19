@@ -733,7 +733,7 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<h1 class="nod
 </p>';
 
 
-$result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode><spacecmd type="spc"/><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -741,11 +741,11 @@ $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spa
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><spacecmd type="spc"/></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 
-<node name="" spaces=" "><nodename></nodename></node>
+<node identifier="" spaces=" "><nodename></nodename></node>
 
 <para><ref label="-"><xrefnodename><spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>

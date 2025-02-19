@@ -296,8 +296,8 @@ $result_converted{'html_text'}->{'empty_added_index_entry'} = '
 
 $result_converted{'xml'}->{'empty_added_index_entry'} = '<defindex spaces=" " value="my" line="my"></defindex>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 ';
 

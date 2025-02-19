@@ -1038,7 +1038,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 ';
 
 
-$result_converted{'xml'}->{'double_part'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node chapter</nodenext></node>
+$result_converted{'xml'}->{'double_part'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1053,7 +1053,7 @@ $result_converted{'xml'}->{'double_part'} = '<node name="Top" spaces=" "><nodena
 <part spaces=" "><sectiontitle>part second</sectiontitle>
 <para>Text part second.
 </para>
-<node name="node-chapter" spaces=" "><nodename>node chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-chapter" spaces=" "><nodename>node chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter after 2 parts</sectiontitle>
 
 </chapter>

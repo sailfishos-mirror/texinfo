@@ -667,15 +667,15 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 ';
 
 
-$result_converted{'xml'}->{'sections_and_printindex'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+$result_converted{'xml'}->{'sections_and_printindex'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
 <top spaces=" "><sectiontitle>for example</sectiontitle>
 
 </top>
-<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry1</indexterm></cindex>
-<node name="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">node</nodeup></node>
+<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">node</nodeup></node>
 <section spaces=" "><sectiontitle>Sec</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">entry2</indexterm></cindex>

@@ -2071,7 +2071,7 @@ Previous: <a href="#a-somewhat-long-node-without-description-nor-following-space
 ';
 
 
-$result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">toto</nodenext></node>
+$result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">toto</nodenext></node>
 <top spaces=" "><sectiontitle>test of nodedescriptionblock used in menu</sectiontitle>
 
 <menu endspaces=" ">
@@ -2084,7 +2084,7 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="T
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="toto" spaces=" "><nodename>toto</nodename><nodenext automatic="on">titi</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="toto" spaces=" "><nodename>toto</nodename><nodenext automatic="on">titi</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Toto</sectiontitle>
 
 <nodedescription spaces=" ">toto is there:: and the <emph>is a description</emph><w>slightly long</w> and <verb delimiter=":">vv somewhat</verb> <accent type="ring" spacesaftercmd=" " bracketed="off">a</accent>nexpected</nodedescription>
@@ -2094,7 +2094,7 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="T
 </para></nodedescriptionblock>
 
 </chapter>
-<node name="titi" spaces=" "><nodename>titi</nodename><nodenext automatic="on">other</nodenext><nodeprev automatic="on">toto</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="titi" spaces=" "><nodename>titi</nodename><nodenext automatic="on">other</nodenext><nodeprev automatic="on">toto</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Titi</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
@@ -2102,7 +2102,7 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="T
 </para></nodedescriptionblock>
 
 </chapter>
-<node name="other" spaces=" "><nodename>other</nodename><nodenext automatic="on">a somewhat long node without description nor following space</nodenext><nodeprev automatic="on">titi</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="other" spaces=" "><nodename>other</nodename><nodenext automatic="on">a somewhat long node without description nor following space</nodenext><nodeprev automatic="on">titi</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Other</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
@@ -2116,7 +2116,7 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="T
 </nodedescriptionblock>
 
 </chapter>
-<node name="a-somewhat-long-node-without-description-nor-following-space" spaces=" "><nodename>a somewhat long node without description nor following space</nodename><nodenext automatic="on">node double nodedescriptionblock</nodenext><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="a-somewhat-long-node-without-description-nor-following-space" spaces=" "><nodename>a somewhat long node without description nor following space</nodename><nodenext automatic="on">node double nodedescriptionblock</nodenext><nodeprev automatic="on">other</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Somewhat long</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
@@ -2126,7 +2126,7 @@ $result_converted{'xml'}->{'nodedescriptionblock_descriptions'} = '<node name="T
 <nodedescription spaces=" ">not as long as the node</nodedescription>
 
 </chapter>
-<node name="node-double-nodedescriptionblock" spaces=" "><nodename>node double nodedescriptionblock</nodename><nodeprev automatic="on">a somewhat long node without description nor following space</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-double-nodedescriptionblock" spaces=" "><nodename>node double nodedescriptionblock</nodename><nodeprev automatic="on">a somewhat long node without description nor following space</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>test double</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">

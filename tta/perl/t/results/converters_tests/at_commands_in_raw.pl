@@ -1541,7 +1541,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 ';
 
 
-$result_converted{'xml'}->{'at_commands_in_raw'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'at_commands_in_raw'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <macro name="othermacro" line=" othermacro{}" endspaces=" ">
@@ -1549,11 +1549,11 @@ Other macro
 </macro>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
 <b>in b<footnote><para>in footnote</para></footnote>.</b>
-<anchor name="anchor-in-html">anchor in html</anchor>
+<anchor identifier="anchor-in-html">anchor in html</anchor>
 <para><kbd>in kbd before tex</kbd><footnote><para>second footnote</para></footnote>.
 </para>
 <tex endspaces=" ">

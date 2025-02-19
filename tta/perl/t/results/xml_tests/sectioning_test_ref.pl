@@ -603,25 +603,25 @@ $result_floats{'sectioning_test_ref'} = {};
 
 
 
-$result_converted{'xml'}->{'sectioning_test_ref'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'sectioning_test_ref'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>In T.
 </para>
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap1</sectiontitle>
 
 <para>In c1.
 </para>
-<node name="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chap</nodeup></node>
+<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chap</nodeup></node>
 <section spaces=" "><sectiontitle>sec1</sectiontitle>
 
 <para>In s1.1.
 </para>
 </section>
 </chapter>
-<node name="chap2" spaces=" "><nodename>chap2</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap2" spaces=" "><nodename>chap2</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap2</sectiontitle>
 
 <para>In c2.

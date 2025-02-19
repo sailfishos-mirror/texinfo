@@ -571,7 +571,7 @@ $result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-id" id=
 ';
 
 
-$result_converted{'xml'}->{'double_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap other node</nodenext></node>
+$result_converted{'xml'}->{'double_index_entry'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap other node</nodenext></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa</indexterm></cindex>
 
@@ -583,7 +583,7 @@ $result_converted{'xml'}->{'double_index_entry'} = '<node name="Top" spaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap other node</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap-other-node" spaces=" "><nodename>chap other node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
+<node identifier="chap-other-node" spaces=" "><nodename>chap other node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="3">aaa</indexterm></cindex>
 

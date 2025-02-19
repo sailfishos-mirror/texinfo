@@ -926,7 +926,7 @@ $result_converted_errors{'html'}->{'sc_in_menu'} = [
 
 
 $result_converted{'xml'}->{'sc_in_menu'} = '
-<node name="first" spaces=" "><nodename>first</nodename></node>
+<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle><sc>value</sc></menutitle><menuseparator>:</menuseparator><menunode><sc>node</sc></menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve"><sc>descrip tion</sc>
@@ -940,7 +940,7 @@ $result_converted{'xml'}->{'sc_in_menu'} = '
 </pre></example>
 </menucomment></menu>
 
-<node name="node" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
+<node identifier="node" spaces=" "><nodename><sc>node</sc></nodename><nodeup automatic="on">first</nodeup></node>
 
 <example endspaces=" ">
 <menu endspaces=" ">

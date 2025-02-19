@@ -172,7 +172,7 @@ $result_converted{'plaintext'}->{'section_on_float_line'} = 't 1
 ';
 
 
-$result_converted{'xml'}->{'section_on_float_line'} = '<float name="l" type="t" number="1" spaces=" "><floattype>t</floattype><floatname spaces=" ">l </floatname>
+$result_converted{'xml'}->{'section_on_float_line'} = '<float identifier="l" type="t" number="1" spaces=" "><floattype>t</floattype><floatname spaces=" ">l </floatname>
 </float>
 <section spaces=" "><sectiontitle>first</sectiontitle>
 </section>

@@ -2371,7 +2371,7 @@ $result_converted{'html_text'}->{'accentenc'} = '
 
 $result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-1" spaces=" ">ISO-8859-1</documentencoding>
 
-<node name="first" spaces=" "><nodename>first</nodename></node>
+<node identifier="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: <accent type="grave">e</accent> <accent type="grave" bracketed="off">e</accent>

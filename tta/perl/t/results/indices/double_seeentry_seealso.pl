@@ -825,11 +825,11 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 ';
 
 
-$result_converted{'xml'}->{'double_seeentry_seealso'} = '<node name="Top" spaces=" "><nodename>top</nodename><nodenext automatic="on">node index</nodenext></node>
+$result_converted{'xml'}->{'double_seeentry_seealso'} = '<node identifier="Top" spaces=" "><nodename>top</nodename><nodenext automatic="on">node index</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="node-index" spaces=" "><nodename>node index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-index" spaces=" "><nodename>node index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter Index</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa <seeentry>bbb</seeentry> <seeentry>ccc</seeentry></indexterm></cindex>

@@ -2282,7 +2282,7 @@ $result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize comman
 <tbody><row><entry command="item"> <para>aaa </para></entry><entry command="tab"> <para>bbb
 </para></entry></row></tbody></multitable>
 
-<float name="g" type="f" number="1" spaces=" " endspaces=" "><floattype>f</floattype><floatname>g </floatname><!-- c comm -->
+<float identifier="g" type="f" number="1" spaces=" " endspaces=" "><floattype>f</floattype><floatname>g </floatname><!-- c comm -->
 <para>In f
 </para></float>
 

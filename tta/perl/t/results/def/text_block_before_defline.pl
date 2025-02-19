@@ -887,11 +887,11 @@ $result_converted{'docbook'}->{'text_block_before_defline'} = '<chapter label="1
 ';
 
 
-$result_converted{'xml'}->{'text_block_before_defline'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapt</nodenext></node>
+$result_converted{'xml'}->{'text_block_before_defline'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapt</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chapt" spaces=" "><nodename>chapt</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapt" spaces=" "><nodename>chapt</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
 <defblock endspaces=" ">

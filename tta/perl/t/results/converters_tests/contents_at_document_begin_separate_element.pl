@@ -597,7 +597,7 @@ $result_converted{'xml'}->{'contents_at_document_begin_separate_element'} = '<pr
 
 </preamblebeforebeginning><contents></contents>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>Contents at beginning</sectiontitle>
 
 <para>Content at the beginning.
@@ -607,7 +607,7 @@ $result_converted{'xml'}->{'contents_at_document_begin_separate_element'} = '<pr
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter 1</sectiontitle>
 
 <para>The chapter

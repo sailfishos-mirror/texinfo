@@ -313,7 +313,7 @@ $result_converted_errors{'html'}->{'detailmenu_unknown_node'} = [
 
 
 
-$result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
 <menu endspaces=" ">
 <detailmenu endspaces=" ">

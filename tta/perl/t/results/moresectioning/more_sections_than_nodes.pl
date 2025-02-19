@@ -1803,7 +1803,7 @@ Previous: <a href="#n-c3" accesskey="p" rel="prev">c3</a>, Up: <a href="#Top" ac
 ';
 
 
-$result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">n c2</nodenext></node>
+$result_converted{'xml'}->{'more_sections_than_nodes'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">n c2</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1816,14 +1816,14 @@ $result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" space
 <chapter spaces=" "><sectiontitle>c1</sectiontitle>
 
 </chapter>
-<node name="n-c2" spaces=" "><nodename>n c2</nodename><nodenext automatic="on">n c3</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="n-c2" spaces=" "><nodename>n c2</nodename><nodenext automatic="on">n c3</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>c2</sectiontitle>
 
 <section spaces=" "><sectiontitle>s1</sectiontitle>
 
 </section>
 </chapter>
-<node name="n-c3" spaces=" "><nodename>n c3</nodename><nodenext spaces=" ">n c3 s1 s2</nodenext><nodeprev spaces=" ">n c2</nodeprev><nodeup spaces=" ">Top</nodeup></node>
+<node identifier="n-c3" spaces=" "><nodename>n c3</nodename><nodenext spaces=" ">n c3 s1 s2</nodenext><nodeprev spaces=" ">n c2</nodeprev><nodeup spaces=" ">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>c3</sectiontitle>
 
 <menu endspaces=" "> 
@@ -1833,7 +1833,7 @@ $result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" space
 <section spaces=" "><sectiontitle>C3 s1</sectiontitle>
 
 </section>
-<node name="n-c3-s-2" spaces=" "><nodename>n c3 s 2</nodename><nodeup automatic="on">n c3</nodeup></node>
+<node identifier="n-c3-s-2" spaces=" "><nodename>n c3 s 2</nodename><nodeup automatic="on">n c3</nodeup></node>
 <section spaces=" "><sectiontitle>c3 s2</sectiontitle>
 
 </section>
@@ -1848,7 +1848,7 @@ $result_converted{'xml'}->{'more_sections_than_nodes'} = '<node name="Top" space
 <subsection spaces=" "><sectiontitle>c3 s1 s1</sectiontitle>
 
 </subsection>
-<node name="n-c3-s1-s2" spaces=" "><nodename>n c3 s1 s2</nodename><nodenext></nodenext><nodeprev>n c3</nodeprev><nodeup>Top</nodeup></node>
+<node identifier="n-c3-s1-s2" spaces=" "><nodename>n c3 s1 s2</nodename><nodenext></nodenext><nodeprev>n c3</nodeprev><nodeup>Top</nodeup></node>
 <subsection spaces=" "><sectiontitle>c3 s1 s2</sectiontitle>
 
 </subsection>

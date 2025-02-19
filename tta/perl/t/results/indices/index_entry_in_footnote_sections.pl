@@ -542,7 +542,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_sections'} = '<div cla
 ';
 
 
-$result_converted{'xml'}->{'index_entry_in_footnote_sections'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Index</nodenext></node>
+$result_converted{'xml'}->{'index_entry_in_footnote_sections'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Index</nodenext></node>
 <top spaces=" "><sectiontitle>index_entry_in_footnote</sectiontitle>
 
 <para>Top node<footnote><para>in footnote
@@ -552,7 +552,7 @@ $result_converted{'xml'}->{'index_entry_in_footnote_sections'} = '<node name="To
 </para></footnote>
 </para>
 </top>
-<node name="Index" spaces=" "><nodename>Index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Index" spaces=" "><nodename>Index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>index</sectiontitle>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>

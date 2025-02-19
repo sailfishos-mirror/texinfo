@@ -266,7 +266,7 @@ $result_converted_errors{'html'}->{'reference_to_external_manual'} = [
 
 
 $result_converted{'xml'}->{'reference_to_external_manual'} = '
-<node name="first" spaces=" "><nodename>first</nodename></node>
+<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(info)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

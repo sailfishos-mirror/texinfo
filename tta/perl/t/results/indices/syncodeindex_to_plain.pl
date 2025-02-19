@@ -550,8 +550,8 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 
 $result_converted{'xml'}->{'syncodeindex_to_plain'} = '<syncodeindex spaces=" " from="ky" to="cp" line="ky cp"></syncodeindex>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <kindex index="ky" spaces=" "><indexterm index="ky" number="1" mergedindex="cp">--k1</indexterm></kindex>
 <vindex index="vr" spaces=" "><indexterm index="vr" number="1">--v</indexterm></vindex>

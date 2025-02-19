@@ -4,11 +4,11 @@
 <filename file="indices_in_begin_tables_lists.xml"></filename>
 <preamblebeforebeginning>\input texinfo.tex
 
-</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+</preamblebeforebeginning><node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">printindex</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">printindex</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap</sectiontitle>
 
 <itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
@@ -153,7 +153,7 @@
 </tableterm></tableentry></table>
 
 </chapter>
-<node name="printindex" spaces=" "><nodename>printindex</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="printindex" spaces=" "><nodename>printindex</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>printindex</sectiontitle>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>

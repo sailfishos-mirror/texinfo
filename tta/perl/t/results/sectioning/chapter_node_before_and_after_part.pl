@@ -630,7 +630,7 @@ $result_converted_errors{'html'}->{'chapter_node_before_and_after_part'} = [
 
 
 $result_converted{'xml'}->{'chapter_node_before_and_after_part'} = '
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">after</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">after</nodenext></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
 <menu endspaces=" ">
@@ -640,7 +640,7 @@ $result_converted{'xml'}->{'chapter_node_before_and_after_part'} = '
 </chapter>
 <part spaces=" "><sectiontitle>part</sectiontitle>
 
-<node name="after" spaces=" "><nodename>after</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="after" spaces=" "><nodename>after</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter 2</sectiontitle>
 
 <contents></contents>

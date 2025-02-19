@@ -1538,7 +1538,7 @@ $result_converted{'html_text'}->{'item_index_transformation'} = '<div class="cha
 ';
 
 
-$result_converted{'xml'}->{'item_index_transformation'} = '<node name="chap" spaces=" "><nodename>chap</nodename></node>
+$result_converted{'xml'}->{'item_index_transformation'} = '<node identifier="chap" spaces=" "><nodename>chap</nodename></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
 <table commandarg="asis" spaces=" " endspaces=" ">

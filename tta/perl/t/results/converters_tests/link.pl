@@ -711,13 +711,13 @@ $result_converted{'html_text'}->{'link'} = '<div class="chapter-level-extent" id
 ';
 
 
-$result_converted{'xml'}->{'link'} = '<node name="One" spaces=" "><nodename>One</nodename></node>
+$result_converted{'xml'}->{'link'} = '<node identifier="One" spaces=" "><nodename>One</nodename></node>
 <chapter spaces=" "><sectiontitle>ONEX</sectiontitle>
 
 <para>target node
 </para>
 </chapter>
-<node name="Two" spaces=" "><nodename>Two</nodename></node>
+<node identifier="Two" spaces=" "><nodename>Two</nodename></node>
 
 <para>xrefautomaticsectiontitle off
 <xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>

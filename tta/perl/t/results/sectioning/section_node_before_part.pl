@@ -294,7 +294,7 @@ $result_converted_errors{'html'}->{'section_node_before_part'} = [
 
 
 $result_converted{'xml'}->{'section_node_before_part'} = '
-<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 <section spaces=" "><sectiontitle>section </sectiontitle>
 
 </section>

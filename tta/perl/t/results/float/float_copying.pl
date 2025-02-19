@@ -1480,13 +1480,13 @@ the author abandon his copyright.
 
 $result_converted{'xml'}->{'float_copying'} = '<copying endspaces=" ">
 
-<float name="public-domain" type="Copyright notice" number="1" spaces=" " endspaces=" "><floattype>Copyright notice</floattype><floatname spaces=" ">public domain</floatname>
+<float identifier="public-domain" type="Copyright notice" number="1" spaces=" " endspaces=" "><floattype>Copyright notice</floattype><floatname spaces=" ">public domain</floatname>
 
 <para>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </para>
 <caption><para>The Public Domain notice<footnote spaces="\\n"><para>The caption copying footnote
-<anchor name="caption-copying-footnote-anchor">caption copying footnote anchor</anchor>
+<anchor identifier="caption-copying-footnote-anchor">caption copying footnote anchor</anchor>
 </para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">indexed caption copying footnote</indexterm></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">public domain function</indexterm></findex>
@@ -1495,14 +1495,14 @@ the author abandon his copyright.
 </para>
 </footnote>
 </para>
-<anchor name="public-domain-anchor">public domain anchor</anchor>
+<anchor identifier="public-domain-anchor">public domain anchor</anchor>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="2">indexed caption</indexterm></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="2">indexed caption function</indexterm></findex>
 </caption>
 </float>
 </copying>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Copying and floats</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Copying and floats</nodenext></node>
 <top spaces=" "><sectiontitle>Top</sectiontitle>
 
 <insertcopying></insertcopying>
@@ -1512,7 +1512,7 @@ the author abandon his copyright.
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="Copying-and-floats" spaces=" "><nodename>Copying and floats</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="Copying-and-floats" spaces=" "><nodename>Copying and floats</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>Copying and floats</sectiontitle>
 
 <insertcopying></insertcopying>

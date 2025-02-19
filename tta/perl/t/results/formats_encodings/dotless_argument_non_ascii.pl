@@ -377,11 +377,11 @@ $result_converted{'html_text'}->{'dotless_argument_non_ascii'} = '<div class="to
 ';
 
 
-$result_converted{'xml'}->{'dotless_argument_non_ascii'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'dotless_argument_non_ascii'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 <para><dotless>ê</dotless>
 <dotless spacesaftercmd=" ">ê</dotless>

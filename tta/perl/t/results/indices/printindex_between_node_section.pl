@@ -843,7 +843,7 @@ $result_converted{'html_text'}->{'printindex_between_node_section'} = '<div clas
 ';
 
 
-$result_converted{'xml'}->{'printindex_between_node_section'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node chap1</nodenext></node>
+$result_converted{'xml'}->{'printindex_between_node_section'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node chap1</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">top1</indexterm></cindex>
@@ -852,13 +852,13 @@ $result_converted{'xml'}->{'printindex_between_node_section'} = '<node name="Top
 <cindex index="cp" spaces=" "><indexterm index="cp" number="4">aop1</indexterm></cindex>
 
 </top>
-<node name="node-chap1" spaces=" "><nodename>node chap1</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node-chap1" spaces=" "><nodename>node chap1</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter 1</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="5">chap1</indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="6">chap1</indexterm></cindex>
 
-<node name="node-sec1" spaces=" "><nodename>node sec1</nodename><nodeup automatic="on">node chap1</nodeup></node>
+<node identifier="node-sec1" spaces=" "><nodename>node sec1</nodename><nodeup automatic="on">node chap1</nodeup></node>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <section spaces=" "><sectiontitle>section1</sectiontitle>
 </section>

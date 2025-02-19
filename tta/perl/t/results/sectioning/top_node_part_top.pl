@@ -375,7 +375,7 @@ span:hover a.copiable-link {visibility: visible}
 ';
 
 
-$result_converted{'xml'}->{'top_node_part_top'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'top_node_part_top'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
 <part spaces=" "><sectiontitle>part</sectiontitle>
 

@@ -1168,7 +1168,7 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a h
 ';
 
 
-$result_converted{'xml'}->{'part_node_chapter_node_appendix'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter node</nodenext></node>
+$result_converted{'xml'}->{'part_node_chapter_node_appendix'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter node</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1179,12 +1179,12 @@ $result_converted{'xml'}->{'part_node_chapter_node_appendix'} = '<node name="Top
 </top>
 <part spaces=" "><sectiontitle>Part 1</sectiontitle>
 
-<node name="chapter-node" spaces=" "><nodename>chapter node</nodename><nodenext automatic="on">appendix node</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter-node" spaces=" "><nodename>chapter node</nodename><nodenext automatic="on">appendix node</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
 </chapter>
 </part>
-<node name="appendix-node" spaces=" "><nodename>appendix node</nodename><nodeprev automatic="on">chapter node</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="appendix-node" spaces=" "><nodename>appendix node</nodename><nodeprev automatic="on">chapter node</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>Appendix</sectiontitle>
 </appendix>
 ';

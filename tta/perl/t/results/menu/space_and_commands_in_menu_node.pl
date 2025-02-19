@@ -1047,7 +1047,7 @@ Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a>, Previous: <a href="#T
 ';
 
 
-$result_converted{'xml'}->{'space_and_commands_in_menu_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap &noeos; b</nodenext></node>
+$result_converted{'xml'}->{'space_and_commands_in_menu_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap &noeos; b</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">
@@ -1063,7 +1063,7 @@ $result_converted{'xml'}->{'space_and_commands_in_menu_node'} = '<node name="Top
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="chap-b" spaces=" "><nodename>chap &noeos; b</nodename><nodenext automatic="on">chap &noeos; b</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap-b" spaces=" "><nodename>chap &noeos; b</nodename><nodenext automatic="on">chap &noeos; b</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 </chapter>
 ';

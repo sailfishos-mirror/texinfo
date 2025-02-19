@@ -506,7 +506,7 @@ $result_converted{'html_text'}->{'index_and_node_same_name'} = '<div class="top-
 ';
 
 
-$result_converted{'xml'}->{'index_and_node_same_name'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">index node</nodenext></node>
+$result_converted{'xml'}->{'index_and_node_same_name'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">index node</nodenext></node>
 <top spaces=" "><sectiontitle>Test index entry with node name clash</sectiontitle>
 
 <para>Text.
@@ -514,7 +514,7 @@ $result_converted{'xml'}->{'index_and_node_same_name'} = '<node name="Top" space
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">node</indexterm></cindex>
 
 </top>
-<node name="index-node" spaces=" "><nodename>index node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="index-node" spaces=" "><nodename>index node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>index node</sectiontitle>
 
 <para>in index node node, with the same name than index entry.

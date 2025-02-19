@@ -502,11 +502,11 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>
 ';
 
 
-$result_converted{'xml'}->{'section_before_top'} = '<node name="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
+$result_converted{'xml'}->{'section_before_top'} = '<node identifier="section-node" spaces=" "><nodename>section node</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 <section spaces=" "><sectiontitle>section </sectiontitle>
 
 </section>
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
 <unnumberedsec originalcommand="top" spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">

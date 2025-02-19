@@ -130,7 +130,7 @@ $result_directions_text{'top_node_and_bye'} = 'output unit: No associated comman
 ';
 
 
-$result_converted{'xml'}->{'top_node_and_bye'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+$result_converted{'xml'}->{'top_node_and_bye'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 
 <bye></bye>
 ';

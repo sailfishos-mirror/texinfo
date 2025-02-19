@@ -2213,11 +2213,11 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 $result_converted{'xml'}->{'frenchspacing_and_code'} = '
 <frenchspacing spaces=" " value="on" line="on"></frenchspacing>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter frenchspacing</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter frenchspacing</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chapter-frenchspacing" spaces=" "><nodename>chapter frenchspacing</nodename><nodenext automatic="on">chap no</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter-frenchspacing" spaces=" "><nodename>chapter frenchspacing</nodename><nodenext automatic="on">chap no</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap frenchspacing</sectiontitle>
 
 <para>In text w: z? n; p. f
@@ -2238,7 +2238,7 @@ $result_converted{'xml'}->{'frenchspacing_and_code'} = '
 
 <frenchspacing spaces=" " value="off" line="off"></frenchspacing>
 </chapter>
-<node name="chap-no" spaces=" "><nodename>chap no</nodename><nodeprev automatic="on">chapter frenchspacing</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap-no" spaces=" "><nodename>chap no</nodename><nodeprev automatic="on">chapter frenchspacing</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap no</sectiontitle>
 
 <para>In text w: z? n; p. fn 

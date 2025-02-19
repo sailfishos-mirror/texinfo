@@ -290,7 +290,7 @@ $result_converted_errors{'html'}->{'empty_menu_description'} = [
 
 
 
-$result_converted{'xml'}->{'empty_menu_description'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'empty_menu_description'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menutitle>a</menutitle><menuseparator>:</menuseparator><menunode>(f)b

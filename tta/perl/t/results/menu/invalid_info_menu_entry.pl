@@ -685,7 +685,7 @@ $result_converted_errors{'html'}->{'invalid_info_menu_entry'} = [
 
 
 
-$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(f)<asis>a:</asis></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">

@@ -652,20 +652,20 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 ';
 
 
-$result_converted{'xml'}->{'index_entry_before_node'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
+$result_converted{'xml'}->{'index_entry_before_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chap first</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>second</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="chap-first" spaces=" "><nodename>chap first</nodename><nodenext>second</nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
+<node identifier="chap-first" spaces=" "><nodename>chap first</nodename><nodenext>second</nodenext><nodeprev></nodeprev><nodeup>Top</nodeup></node>
 
 <para>Para.
 </para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">lone entry</indexterm></cindex>
 
-<node name="second" spaces=" "><nodename>second</nodename><nodenext></nodenext><nodeprev>chap first</nodeprev><nodeup>Top</nodeup></node>
+<node identifier="second" spaces=" "><nodename>second</nodename><nodenext></nodenext><nodeprev>chap first</nodeprev><nodeup>Top</nodeup></node>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 ';

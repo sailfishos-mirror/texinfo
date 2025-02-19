@@ -216,7 +216,7 @@ $result_converted_errors{'html'}->{'no_colon_in_menu'} = [
 
 
 
-$result_converted{'xml'}->{'no_colon_in_menu'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'no_colon_in_menu'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">* a

@@ -1552,7 +1552,7 @@ $result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = [
 
 
 
-$result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node1</nodenext></node>
+$result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node1</nodenext></node>
 <top spaces=" "><sectiontitle>test commands in nodedescriptionblock</sectiontitle>
 
 <menu endspaces=" ">
@@ -1563,17 +1563,17 @@ $result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node name="To
 <para><ref label="in-nodescription"><xrefnodename>in nodescription</xrefnodename></ref>, <ref label="f1"><xrefnodename>f1</xrefnodename></ref>.
 </para>
 </top>
-<node name="node1" spaces=" "><nodename>node1</nodename><nodenext automatic="on">node2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node1" spaces=" "><nodename>node1</nodename><nodenext automatic="on">node2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap1</sectiontitle>
 
 <nodedescriptionblock endspaces=" ">
-<anchor name="in-nodescription">in nodescription</anchor>
+<anchor identifier="in-nodescription">in nodescription</anchor>
 
 <para><ref label="node2"><xrefnodename>node2</xrefnodename></ref>. Footnote<footnote><para>in footnote</para></footnote>. Some text to see
 where the max column could be. <w>in w</w>.
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">in nodedescriptionblock</indexterm></cindex>
 </para>
-<float name="f1" type="tfloat" number="1.1" spaces=" " endspaces=" "><floattype>tfloat</floattype><floatname spaces=" ">f1</floatname>
+<float identifier="f1" type="tfloat" number="1.1" spaces=" " endspaces=" "><floattype>tfloat</floattype><floatname spaces=" ">f1</floatname>
 <image><imagefile>float_image</imagefile></image>
 <caption><para>Cap1</para></caption>
 </float>
@@ -1582,7 +1582,7 @@ where the max column could be. <w>in w</w>.
 </nodedescriptionblock>
 
 </chapter>
-<node name="node2" spaces=" "><nodename>node2</nodename><nodeprev automatic="on">node1</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="node2" spaces=" "><nodename>node2</nodename><nodeprev automatic="on">node1</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap2</sectiontitle>
 
 <para><ref label="in-nodescription"><xrefnodename>in nodescription</xrefnodename></ref>, <ref label="f1"><xrefnodename>f1</xrefnodename></ref>.

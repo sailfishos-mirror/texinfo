@@ -1104,7 +1104,7 @@ $result_converted_errors{'html'}->{'things_before_setfilename_no_element'} = [
 
 $result_converted{'xml'}->{'things_before_setfilename_no_element'} = '<preamblebeforebeginning>\\input texinfo
 
-</preamblebeforebeginning><anchor name="An-anchor">An anchor</anchor>
+</preamblebeforebeginning><anchor identifier="An-anchor">An anchor</anchor>
 
 <para>Ref to the anchor:
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>
@@ -1114,20 +1114,20 @@ $result_converted{'xml'}->{'things_before_setfilename_no_element'} = '<preambleb
 </para>
 <para><footnote><para>In footnote.
 </para>
-<anchor name="Anchor-in-footnote">Anchor in footnote</anchor>
+<anchor identifier="Anchor-in-footnote">Anchor in footnote</anchor>
 
 <para>Ref to main text anchor
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>
 </para></footnote>
 </para>
-<float name="float-anchor" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">float anchor</floatname>
+<float identifier="float-anchor" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">float anchor</floatname>
 <para>In float
 </para></float>
 
 <para>Ref to float
 <ref label="float-anchor"><xrefnodename>float anchor</xrefnodename></ref>.
 </para>
-<float name="ta" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">ta</floatname>
+<float identifier="ta" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">ta</floatname>
 <para>In float
 </para>
 <caption><para>ta caption</para></caption>

@@ -365,7 +365,7 @@ $result_converted_errors{'html'}->{'float_type_with_tieaccent'} = [
 
 
 
-$result_converted{'xml'}->{'float_type_with_tieaccent'} = '<float name="label" type="A 1͡a 第͡H ê͡一 and text" number="1" spaces=" " endspaces=" "><floattype>A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></floattype><floatname spaces=" ">label</floatname>
+$result_converted{'xml'}->{'float_type_with_tieaccent'} = '<float identifier="label" type="A 1͡a 第͡H ê͡一 and text" number="1" spaces=" " endspaces=" "><floattype>A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></floattype><floatname spaces=" ">label</floatname>
 <para>inside
 </para></float>
 

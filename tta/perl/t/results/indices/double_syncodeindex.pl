@@ -506,8 +506,8 @@ $result_converted{'html_text'}->{'double_syncodeindex'} = '
 $result_converted{'xml'}->{'double_syncodeindex'} = '<syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
 <syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1" incode="1" mergedindex="fn">cindex entry</indexterm></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">findex entry</indexterm></findex>

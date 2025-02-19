@@ -6,7 +6,7 @@
 </para><top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 </chapter>
 </texinfo>

@@ -587,11 +587,11 @@ $result_converted_errors{'html'}->{'empty_listoffloats_with_floats'} = [
 
 
 $result_converted{'xml'}->{'empty_listoffloats_with_floats'} = '<preamblebeforebeginning>
-</preamblebeforebeginning><float name="label1" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">label1</floatname>
+</preamblebeforebeginning><float identifier="label1" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">label1</floatname>
 <para>Label no caption.
 </para></float>
 
-<float name="label2" type="" number="2" spaces=" " endspaces=" "><floatname spaces=" ">label2</floatname>
+<float identifier="label2" type="" number="2" spaces=" " endspaces=" "><floatname spaces=" ">label2</floatname>
 <para>Label and caption.
 </para><caption><para>caption with label</para></caption>
 </float>

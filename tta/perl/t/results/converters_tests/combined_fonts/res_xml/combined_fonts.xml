@@ -4,11 +4,11 @@
 <filename file="combined_fonts.xml"></filename>
 <setfilename file="combined_fonts.info" spaces=" ">combined_fonts.info</setfilename>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top section</sectiontitle>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
 <para><code>c--ode</code>, <dfn>d&textndash;fn</dfn>, <var>v&textndash;ar</var>, <strong>s&textndash;trong</strong>, <kbd>k--bd</kbd>, <samp>s--amp</samp>.

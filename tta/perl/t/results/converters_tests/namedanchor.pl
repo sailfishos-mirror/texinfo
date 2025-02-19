@@ -2175,24 +2175,24 @@ See <a class="xref" href="#Not-here_0021">Not here!</a>
 ';
 
 
-$result_converted{'xml'}->{'namedanchor'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+$result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
-<namedanchor><anchoridentifier name="in-Top">in Top</anchoridentifier><anchorname spaces=" "><emph>n in Top</emph></anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="in-Top">in Top</anchoridentifier><anchorname spaces=" "><emph>n in Top</emph></anchorname></namedanchor>
 
 </top>
-<node name="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap1</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter <namedanchor><anchoridentifier name="Not-here_0021">Not here!</anchoridentifier><anchorname spaces=" ">There</anchorname></namedanchor> after</sectiontitle>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap1</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>chapter <namedanchor><anchoridentifier identifier="Not-here_0021">Not here!</anchoridentifier><anchorname spaces=" ">There</anchorname></namedanchor> after</sectiontitle>
 
-<namedanchor><anchoridentifier name="in-chap-no-name">in chap no name</anchoridentifier></namedanchor>
-<namedanchor><anchoridentifier name="in-chap-empty-name">in chap empty name</anchoridentifier><anchorname spaces=" "></anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="in-chap-no-name">in chap no name</anchoridentifier></namedanchor>
+<namedanchor><anchoridentifier identifier="in-chap-empty-name">in chap empty name</anchoridentifier><anchorname spaces=" "></anchorname></namedanchor>
 
 <para>Empty namedanchor
-<namedanchor><anchoridentifier name="" spaces=" "></anchoridentifier></namedanchor>.
+<namedanchor><anchoridentifier identifier="" spaces=" "></anchoridentifier></namedanchor>.
 </para>
-<namedanchor><anchoridentifier name="normal">normal</anchoridentifier><anchorname spaces=" ">here we are</anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="normal">normal</anchoridentifier><anchorname spaces=" ">here we are</anchorname></namedanchor>
 
-<node name="secc1" spaces=" "><nodename>secc1</nodename><nodeup automatic="on">chap</nodeup></node>
+<node identifier="secc1" spaces=" "><nodename>secc1</nodename><nodeup automatic="on">chap</nodeup></node>
 <section spaces=" "><sectiontitle>secc1</sectiontitle>
 
 <xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
@@ -2220,7 +2220,7 @@ $result_converted{'xml'}->{'namedanchor'} = '<node name="Top" spaces=" "><nodena
 </para>
 </section>
 </chapter>
-<node name="chap1" spaces=" "><nodename>chap1</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap1" spaces=" "><nodename>chap1</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chap1</sectiontitle>
 
 <menu endspaces=" ">
@@ -2232,7 +2232,7 @@ $result_converted{'xml'}->{'namedanchor'} = '<node name="Top" spaces=" "><nodena
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>in chap empty name</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="secc2" spaces=" "><nodename>secc2</nodename><nodenext automatic="on">in Top</nodenext><nodeup automatic="on">chap1</nodeup></node>
+<node identifier="secc2" spaces=" "><nodename>secc2</nodename><nodenext automatic="on">in Top</nodenext><nodeup automatic="on">chap1</nodeup></node>
 <section spaces=" "><sectiontitle>Secc2</sectiontitle>
 </section>
 </chapter>

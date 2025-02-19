@@ -6,7 +6,7 @@
 
 </preamblebeforebeginning><documentencoding encoding="ISO-8859-1" spaces=" ">ISO-8859-1</documentencoding>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodenext></node>
 <top spaces=" "><sectiontitle>accented char in latin1 in refs</sectiontitle>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
@@ -20,23 +20,23 @@
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc" spaces=" "><nodename>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodename><nodenext automatic="on">é</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc" spaces=" "><nodename>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodename><nodenext automatic="on">é</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</sectiontitle>
 
 </chapter>
-<node name="_00e9" spaces=" "><nodename>é</nodename><nodenext automatic="on">à è ù</nodenext><nodeprev automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_00e9" spaces=" "><nodename>é</nodename><nodenext automatic="on">à è ù</nodenext><nodeprev automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>é</sectiontitle>
 
 </chapter>
-<node name="_00e0-_00e8-_00f9" spaces=" "><nodename>à è ù</nodename><nodenext automatic="on">â ê î ô û Â Ê Î Ô Û</nodenext><nodeprev automatic="on">é</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_00e0-_00e8-_00f9" spaces=" "><nodename>à è ù</nodename><nodenext automatic="on">â ê î ô û Â Ê Î Ô Û</nodenext><nodeprev automatic="on">é</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>à è ù</sectiontitle>
 
 </chapter>
-<node name="_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db" spaces=" "><nodename>â ê î ô û Â Ê Î Ô Û</nodename><nodenext automatic="on">ç</nodenext><nodeprev automatic="on">à è ù</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db" spaces=" "><nodename>â ê î ô û Â Ê Î Ô Û</nodename><nodenext automatic="on">ç</nodenext><nodeprev automatic="on">à è ù</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>â ê î ô û Â Ê Î Ô Û</sectiontitle>
 
 </chapter>
-<node name="_00e7" spaces=" "><nodename>ç</nodename><nodeprev automatic="on">â ê î ô û Â Ê Î Ô Û</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_00e7" spaces=" "><nodename>ç</nodename><nodeprev automatic="on">â ê î ô û Â Ê Î Ô Û</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>ç</sectiontitle>
 
 <para><ref label="_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc"><xrefnodename>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</xrefnodename></ref>

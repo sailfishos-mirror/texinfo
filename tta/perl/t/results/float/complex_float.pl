@@ -4033,7 +4033,7 @@ A footnote 2.
 ';
 
 
-$result_converted{'xml'}->{'complex_float'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+$result_converted{'xml'}->{'complex_float'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>Test floats</sectiontitle>
 
 <para>A list of floats at the beginning.
@@ -4044,7 +4044,7 @@ $result_converted{'xml'}->{'complex_float'} = '<node name="Top" spaces=" "><node
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>chapter</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<float name="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
+<float identifier="text-with-a-lot-of-features" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">text with a lot of features</floatname>
 <para>An example of float &enddots;
 </para>
 <!-- c makeinfo -docbook segfaults -->
@@ -4077,7 +4077,7 @@ An example.
 <pre xml:space="preserve">example
 </pre></example>
 
-<anchor name="Anchor-in-caption">Anchor in caption</anchor>
+<anchor identifier="Anchor-in-caption">Anchor in caption</anchor>
 
 <para>A table.
 </para><table commandarg="emph" spaces=" " endspaces=" ">
@@ -4112,10 +4112,10 @@ A footnote.
 </float>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>A chapter</sectiontitle>
 
-<float name="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
+<float identifier="float-with-a-lot-of-features-and-no-shortcaption" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">float with a lot of features and no shortcaption</floatname>
 
 <para>Float text of a float with a lot of features.
 </para>
@@ -4145,7 +4145,7 @@ An example 2.
 line
 </para></listitem></itemize>
 
-<anchor name="Anchor-in-caption-2">Anchor in caption 2</anchor>
+<anchor identifier="Anchor-in-caption-2">Anchor in caption 2</anchor>
 
 <para>A ref 2.
 <xref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>xref Text with features caption</xrefinfoname></xref>.

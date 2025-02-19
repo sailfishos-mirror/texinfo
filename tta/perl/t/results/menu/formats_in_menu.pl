@@ -873,7 +873,7 @@ $result_converted_errors{'html'}->{'formats_in_menu'} = [
 
 
 
-$result_converted{'xml'}->{'formats_in_menu'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'formats_in_menu'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(gcc)</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">text

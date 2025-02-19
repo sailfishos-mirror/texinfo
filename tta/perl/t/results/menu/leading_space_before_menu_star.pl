@@ -216,7 +216,7 @@ $result_converted_errors{'html'}->{'leading_space_before_menu_star'} = [
 
 
 
-$result_converted{'xml'}->{'leading_space_before_menu_star'} = '<node name="a-node" spaces=" "><nodename>a node</nodename></node>
+$result_converted{'xml'}->{'leading_space_before_menu_star'} = '<node identifier="a-node" spaces=" "><nodename>a node</nodename></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve"> * a node::

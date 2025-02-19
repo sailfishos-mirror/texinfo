@@ -287,7 +287,7 @@ $result_converted_errors{'html'}->{'empty_leading_menu_comment'} = [
 
 
 
-$result_converted{'xml'}->{'empty_leading_menu_comment'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'empty_leading_menu_comment'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
 <menu endspaces=" ">
 <menucomment><pre xml:space="preserve">

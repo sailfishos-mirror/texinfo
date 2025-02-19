@@ -890,27 +890,27 @@ Previous: <a href="#chap2" accesskey="p" rel="prev">Chap 2</a>, Up: <a href="#To
 ';
 
 
-$result_converted{'xml'}->{'part_appendix_in_generated_menu'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+$result_converted{'xml'}->{'part_appendix_in_generated_menu'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 
-<node name="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chapter</nodeup></node>
+<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chapter</nodeup></node>
 <appendixsec spaces=" "><sectiontitle>Sec</sectiontitle>
 
 </appendixsec>
 </chapter>
 <part spaces=" "><sectiontitle>P1</sectiontitle>
 
-<node name="chap2" spaces=" "><nodename>chap2</nodename><nodenext automatic="on">app</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chap2" spaces=" "><nodename>chap2</nodename><nodenext automatic="on">app</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap 2</sectiontitle>
 
 </chapter>
 </part>
-<node name="app" spaces=" "><nodename>app</nodename><nodeprev automatic="on">chap2</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="app" spaces=" "><nodename>app</nodename><nodeprev automatic="on">chap2</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <appendix spaces=" "><sectiontitle>GGG</sectiontitle>
 </appendix>
 ';

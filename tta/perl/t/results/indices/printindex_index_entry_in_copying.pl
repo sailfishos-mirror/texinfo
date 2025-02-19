@@ -1369,7 +1369,7 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying'} = '<copying ends
 
 </copying>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>Top.
@@ -1380,7 +1380,7 @@ $result_converted{'xml'}->{'printindex_index_entry_in_copying'} = '<copying ends
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
 <insertcopying></insertcopying>

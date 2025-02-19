@@ -3574,7 +3574,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 \DeclareUnicodeCharacter{2265}{$\geq$}
 </latex>
 
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>Top section</sectiontitle>
 
 <menu endspaces=" ">
@@ -3587,7 +3587,7 @@ Menu comment
 
 
 </top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chapter2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chapter2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
 <indent></indent>
@@ -6037,7 +6037,7 @@ Menu comment
 </pre></menucomment></menu>
 </format>
 
-<node name="s_002d_002dect_002cion" spaces=" "><nodename>s--ect&comma;ion</nodename><nodeup automatic="on">chapter</nodeup></node>
+<node identifier="s_002d_002dect_002cion" spaces=" "><nodename>s--ect&comma;ion</nodename><nodeup automatic="on">chapter</nodeup></node>
 <section spaces=" "><sectiontitle>A section</sectiontitle>
 
 <menu endspaces=" ">
@@ -6051,7 +6051,7 @@ Menu comment
 </pre></menudescription></menuentry></detailmenu>
 </menu>
 
-<node name="subsection" spaces=" "><nodename>subsection</nodename><nodeup automatic="on">s--ect&comma;ion</nodeup></node>
+<node identifier="subsection" spaces=" "><nodename>subsection</nodename><nodeup automatic="on">s--ect&comma;ion</nodeup></node>
 <subsection spaces=" "><sectiontitle>subsection</sectiontitle>
 
 <menu endspaces=" ">
@@ -6059,20 +6059,20 @@ Menu comment
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>subsubsection three---four----''</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<anchor name="anchor">anchor</anchor>
+<anchor identifier="anchor">anchor</anchor>
 
-<node name="subsubsection-_0060_0060simple_002ddouble_002d_002d" spaces=" "><nodename>subsubsection ``simple-double--</nodename><nodenext automatic="on">subsubsection three---four----''</nodenext><nodeup automatic="on">subsection</nodeup></node>
+<node identifier="subsubsection-_0060_0060simple_002ddouble_002d_002d" spaces=" "><nodename>subsubsection ``simple-double--</nodename><nodenext automatic="on">subsubsection three---four----''</nodenext><nodeup automatic="on">subsection</nodeup></node>
 <subsubsection spaces=" "><sectiontitle>subsubsection &textldquo;simple-double&textndash;</sectiontitle>
 
 </subsubsection>
-<node name="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" spaces=" "><nodename>subsubsection three---four----''</nodename><nodeprev automatic="on">subsubsection ``simple-double--</nodeprev><nodeup automatic="on">subsection</nodeup></node>
+<node identifier="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" spaces=" "><nodename>subsubsection three---four----''</nodename><nodeprev automatic="on">subsubsection ``simple-double--</nodeprev><nodeup automatic="on">subsection</nodeup></node>
 <subsubsection spaces=" "><sectiontitle>three&textmdash;four&textmdash;-&textrdquo;</sectiontitle>
 
 </subsubsection>
 </subsection>
 </section>
 </chapter>
-<node name="chapter2" spaces=" "><nodename>chapter2</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter2" spaces=" "><nodename>chapter2</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <centerchap spaces=" "><sectiontitle>chapter 2</sectiontitle>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>

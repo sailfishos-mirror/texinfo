@@ -762,7 +762,7 @@ Text.
 ';
 
 
-$result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'block_commands_in_menu_description'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <menu endspaces=" ">

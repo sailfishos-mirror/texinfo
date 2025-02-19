@@ -2327,7 +2327,7 @@ $result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="
 ';
 
 
-$result_converted{'xml'}->{'accent'} = '<node name="first" spaces=" "><nodename>first</nodename></node>
+$result_converted{'xml'}->{'accent'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>should be e&textlsquo;: <accent type="grave">e</accent> <accent type="grave" bracketed="off">e</accent>

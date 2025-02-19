@@ -382,11 +382,11 @@ $result_converted_errors{'html'}->{'ref_to_float'} = [
 
 
 
-$result_converted{'xml'}->{'ref_to_float'} = '<float name="Label1" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Label1</floatname>
+$result_converted{'xml'}->{'ref_to_float'} = '<float identifier="Label1" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Label1</floatname>
 <para>Float
 </para></float>
 
-<float name="Label2" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">Label2</floatname>
+<float identifier="Label2" type="" number="1" spaces=" " endspaces=" "><floatname spaces=" ">Label2</floatname>
 <para>In foat 2.
 </para></float>
 
