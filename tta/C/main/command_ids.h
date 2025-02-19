@@ -286,6 +286,7 @@ CM_menu,
 CM_microtype,
 CM_minus,
 CM_multitable,
+CM_namedanchor,
 CM_need,
 CM_node,
 CM_nodedescription,
@@ -423,6 +424,6 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 389
+#define BUILTIN_CMD_NUMBER 390
 
 #endif

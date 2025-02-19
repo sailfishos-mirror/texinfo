@@ -99,7 +99,7 @@ sub import {
 
 my %ignored_brace_commands;
 foreach my $ignored_brace_command (
-   'anchor', 'sortas', 'seealso', 'seeentry',
+   'anchor', 'namedanchor', 'sortas', 'seealso', 'seeentry',
    'footnote', 'shortcaption', 'caption', 'hyphenation', 'errormsg') {
   $ignored_brace_commands{$ignored_brace_command} = 1;
 }

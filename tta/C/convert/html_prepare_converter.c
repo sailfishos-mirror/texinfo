@@ -110,6 +110,7 @@ const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1] =
 
 static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
   {CM_anchor, {F_AFT_monospacestring}},
+  {CM_namedanchor, {F_AFT_monospacestring, F_AFT_normal}},
   {CM_email, {F_AFT_url | F_AFT_monospacestring, F_AFT_normal}},
   {CM_footnote, {F_AFT_none}}, /* no flag */
   {CM_printindex, {F_AFT_none}}, /* no flag */
@@ -1787,6 +1788,7 @@ static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = 
   {CM_abbr, &html_convert_explained_command},
   {CM_acronym, &html_convert_explained_command},
   {CM_anchor, &html_convert_anchor_command},
+  {CM_namedanchor, &html_convert_anchor_command},
   {CM_footnote, &html_convert_footnote_command},
   {CM_uref, &html_convert_uref_command},
   {CM_url, &html_convert_uref_command},

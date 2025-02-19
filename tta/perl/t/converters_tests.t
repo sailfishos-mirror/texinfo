@@ -1328,6 +1328,64 @@ defop n
 
 @var{'.$string_for_upper_case.'}',
 {'EXPANDED_FORMATS' => ['docbook', 'html', 'xml', 'plaintext']}],
+['namedanchor',
+'@node Top
+@top top
+
+@namedanchor{in Top, @emph{n in Top}}
+
+@node chap
+@chapter chapter @namedanchor{Not here!, There} after
+
+@namedanchor{in chap no name}
+@namedanchor{in chap empty name, }
+
+Empty namedanchor
+@namedanchor{ }.
+
+@namedanchor{normal, here we are}
+
+@node secc1
+@section secc1
+
+@xrefautomaticsectiontitle off
+
+@xref{in chap no name}
+@xref{in chap no name, t}
+@xref{in chap no name, t, o}
+
+@xref{normal}
+@xref{normal, nt}
+@xref{normal, nt, no}
+
+@xrefautomaticsectiontitle on
+
+@xref{in chap empty name}
+@xref{in chap empty name, xat on t}
+@xref{in chap empty name, xat on t, xat on o}
+
+@xref{normal}
+@xref{normal, xat on nt}
+@xref{normal, xat on nt, xat on no}
+
+@xref{in Top}
+@xref{Not here!}
+
+@node chap1
+@chapter chap1
+
+@menu
+* secc2::
+* in Top::
+* Not here!::
+* in chap no name::
+* normal::
+* in chap empty name::
+@end menu
+
+@node secc2
+@section Secc2
+'],
 # reference to be able to compare the customizations effects
 ['reference_for_formatting_customizations',
 undef, {'test_file' => 'formatting_customizations_input.texi'},],

@@ -313,19 +313,22 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       debug ("CLOSING(brace) @%s", command_data(closed_cmd).cmdname);
 
 
-      if (closed_cmd == CM_anchor)
+      if (closed_cmd == CM_anchor || closed_cmd == CM_namedanchor)
         {
+          ELEMENT *anchor_id_element = brace_command->e.c->contents.list[0];
           brace_command->e.c->source_info = current_source_info;
-          if (current->e.c->contents.number == 0)
+          if (anchor_id_element->e.c->contents.number == 0)
             line_error ("empty argument in @%s",
                         command_name(closed_cmd));
           else
             {
-              check_register_target_element_label (current, brace_command);
+              check_register_target_element_label (
+                                        anchor_id_element, brace_command);
               if (nesting_context.regions_stack.top > 0)
                 {
-                  add_extra_string_dup (current, AI_key_element_region,
-                    command_name(top_command (&nesting_context.regions_stack)));
+                  add_extra_string_dup (anchor_id_element,
+                                        AI_key_element_region,
+                   command_name(top_command (&nesting_context.regions_stack)));
                 }
             }
         }
@@ -583,6 +586,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       current = close_brace_command (brace_command, 0, 0, 0);
 
       if (closed_cmd == CM_anchor
+          || closed_cmd == CM_namedanchor
           || closed_cmd == CM_hyphenation
           || closed_cmd == CM_caption
           || closed_cmd == CM_shortcaption

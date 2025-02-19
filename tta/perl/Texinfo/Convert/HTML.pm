@@ -1310,11 +1310,14 @@ sub _internal_command_tree($$$)
                                       $special_unit_variety);
       } elsif ($command->{'cmdname'}
                and ($command->{'cmdname'} eq 'node'
-                    or $command->{'cmdname'} eq 'anchor')) {
+                    or $command->{'cmdname'} eq 'anchor'
+                    or $command->{'cmdname'} eq 'namedanchor')) {
         # to be a target, the node or anchor cannot be empty (nor expand to
         # spaces only), so argument is necessarily set.
         my $label_element;
-        if ($command->{'cmdname'} eq 'anchor') {
+        # FIXME for @namedanchor, $command->{'contents'}->[1] may be better
+        if ($command->{'cmdname'} eq 'anchor'
+            or $command->{'cmdname'} eq 'namedanchor') {
           $label_element = $command->{'contents'}->[0];
         } else {
           # arguments_line type element
@@ -1579,6 +1582,7 @@ sub command_description($$;$)
     if (($command->{'type'}
          and $command->{'type'} eq 'special_unit_element')
         or ($command->{'cmdname'} and ($command->{'cmdname'} eq 'anchor'
+                                       or $command->{'cmdname'} eq 'namedanchor'
                                        or $command->{'cmdname'} eq 'float'))) {
       $target->{$cached_type} = undef;
       return undef;
@@ -2844,6 +2848,7 @@ my %default_code_types = (
 # Also used to be converted automatically to Texinfo code for documentation.
 our %html_default_commands_args = (
   'anchor' => [['monospacestring']],
+  'namedanchor' => [['monospacestring'], ['normal']],
   'email' => [['url', 'monospacestring'], ['normal']],
   'footnote' => [[]],
   'printindex' => [[]],
@@ -3430,13 +3435,14 @@ sub _convert_anchor_command($$$$)
     my $id = $self->command_id($command);
     if (defined($id) and $id ne '') {
       return &{$self->formatting_function('format_separate_anchor')}($self,
-                                                             $id, 'anchor');
+                                                             $id, $cmdname);
     }
   }
   return '';
 }
 
 $default_commands_conversion{'anchor'} = \&_convert_anchor_command;
+$default_commands_conversion{'namedanchor'} = \&_convert_anchor_command;
 
 sub _convert_footnote_command($$$$)
 {
@@ -9575,7 +9581,7 @@ sub _prepare_css($)
 # Get the name of a file containing a label, as well as the identifier within
 # that file to link to that label.  $normalized is the normalized label name
 # and $label_element is the label contents element.  Labels are typically associated
-# to @node, @anchor or @float and to external nodes.
+# to @node, @*anchor or @float and to external nodes.
 sub _normalized_label_id_file($$$)
 {
   my $self = shift;
@@ -9711,7 +9717,7 @@ sub _new_sectioning_command_target($$)
 # This set with two different codes
 #  * the target information, id and normalized filename of 'identifiers_target',
 #    ie everything that may be the target of a ref: @node, @float label,
-#    @anchor.
+#    @anchor, @namedanchor.
 #  * The target information of sectioning elements
 # @node and section commands targets are therefore both set.
 #
@@ -12614,7 +12620,7 @@ sub output_internal_links($)
         }
         push @{$commands_lists{$cmdname}}, $target_element;
       }
-      foreach my $cmdtype ('node', 'anchor', 'float') {
+      foreach my $cmdtype ('node', 'anchor', 'namedanchor', 'float') {
         next unless ($commands_lists{$cmdtype});
         foreach my $target_element (@{$commands_lists{$cmdtype}}) {
           my $label_element

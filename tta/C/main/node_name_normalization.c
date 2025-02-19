@@ -97,6 +97,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                || e->e.c->cmd == CM_shortcaption
                || e->e.c->cmd == CM_caption
                || e->e.c->cmd == CM_hyphenation
+               || e->e.c->cmd == CM_namedanchor
                || e->e.c->cmd == CM_sortas
                || e->e.c->cmd == CM_seealso
                || e->e.c->cmd == CM_seeentry)

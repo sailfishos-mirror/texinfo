@@ -257,6 +257,7 @@ COMMAND builtin_command_data[] = {
 {"microtype", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_specific, 1},
 {"minus", CF_brace, 0, BRACE_noarg, 0},
 {"multitable", CF_block | CF_no_paragraph | CF_close_paragraph | CF_blockitem | CF_contain_basic_inline, 0, BLOCK_multitable, 0},
+{"namedanchor", CF_brace | CF_contain_basic_inline | CF_no_paragraph, CF_non_formatted_brace, BRACE_arguments, 2},
 {"need", CF_line | CF_no_paragraph | CF_close_paragraph | CF_contain_plain_text, CF_formattable_line, LINE_specific, 1},
 {"node", CF_line | CF_no_paragraph | CF_root | CF_contain_basic_inline, CF_formatted_line, LINE_line, 4},
 {"nodedescription", CF_line | CF_no_paragraph | CF_close_paragraph | CF_contain_basic_inline, 0, LINE_line, 1},

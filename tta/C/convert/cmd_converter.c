@@ -262,6 +262,7 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "&oslash;",  /* o */
 0,
 0,

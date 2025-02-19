@@ -344,7 +344,7 @@ sub output($$)
 
     if ($label->{'root'}->{'cmdname'} eq 'node') {
       $prefix = 'Node';
-    } else {
+    } else { # anchor and namedanchor
       $prefix = 'Ref';
     }
     my ($label_text, undef) = $self->node_name($label->{'root'});

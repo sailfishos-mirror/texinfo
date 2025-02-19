@@ -1183,7 +1183,7 @@ sub _convert($$;$)
           $result .= $w_command_mark;
         }
         return $result;
-      } elsif ($cmdname eq 'anchor') {
+      } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         return _output_anchor($element);
       } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
         if ($element->{'contents'}) {

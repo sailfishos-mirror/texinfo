@@ -185,6 +185,7 @@ if (0) {
 our %default_args_code_style = (
   'email' => [1],
   'anchor' => [1],
+  'namedanchor' => [1],
   'uref' => [1],
   'url' => [1],
   'math' => [1],

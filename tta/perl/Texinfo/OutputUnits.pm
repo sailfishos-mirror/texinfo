@@ -291,7 +291,7 @@ sub split_pages($$)
 # to the label.  If the target is an external node, create the output unit here,
 # if it is a node return the output unit that is supposed to be the
 # target for links to the node.  Otherwise there is no such element (yet),
-# for floats and anchor, return undef.
+# for floats and *anchor, return undef.
 sub _label_target_unit_element($)
 {
   my $label = shift;
@@ -303,7 +303,7 @@ sub _label_target_unit_element($)
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
     return $label->{'associated_unit'};
   } else {
-    # case of a @float or an @anchor, no target element defined at this stage
+    # case of a @float or an @*anchor, no target element defined at this stage
     return undef;
   }
 }

@@ -436,6 +436,7 @@ math                    brace,math,contain_basic_inline  BRACE_context
 U                       brace                                      BRACE_arguments     1
 hyphenation             brace,global,preamble,contain_plain_text,no_paragraph,non_formatted_brace   BRACE_arguments     1
 anchor                  brace,contain_basic_inline,no_paragraph,non_formatted_brace                 BRACE_arguments     1
+namedanchor             brace,contain_basic_inline,no_paragraph,non_formatted_brace                 BRACE_arguments     2
 errormsg                brace,preamble,contain_basic_inline,no_paragraph,non_formatted_brace        BRACE_arguments     1
 sortas                  brace,in_index,contain_plain_text,non_formatted_brace          BRACE_arguments     1
 seeentry                brace,in_index,contain_basic_inline        BRACE_arguments     1

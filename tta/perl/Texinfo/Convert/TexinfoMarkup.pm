@@ -173,6 +173,7 @@ my %default_args_code_style
 
 # our because it is used in the xml to texi translator
 our %commands_args_elements = (
+  'namedanchor' => ['anchoridentifier', 'anchorname'],
   'email' => ['emailaddress', 'emailname'],
   'uref' => ['urefurl', 'urefdesc', 'urefreplacement'],
   'url' => ['urefurl', 'urefdesc', 'urefreplacement'],
@@ -1167,13 +1168,15 @@ sub _convert($$;$)
       my $attribute = [];
       if ($element->{'cmdname'} eq 'verb') {
         push @$attribute, ['delimiter', $element->{'info'}->{'delimiter'}];
-      } elsif ($element->{'cmdname'} eq 'anchor') {
+      } elsif ($element->{'cmdname'} eq 'anchor'
+               or $element->{'cmdname'} eq 'namedanchor') {
         my $anchor_name;
         if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
           $anchor_name = $element->{'extra'}->{'normalized'};
         } else {
           $anchor_name = '';
         }
+        # FIXME name is a bad name, should be id, or identifier
         push @$attribute, ['name', $anchor_name];
       }
 

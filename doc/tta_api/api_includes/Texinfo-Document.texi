@@ -21,7 +21,7 @@ Texinfo::Document - Texinfo document tree and information
     = $document->internal_references_information();
 
   # $identifier_target is an hash reference on normalized
-  # node/float/anchor names.
+  # node/float/anchor/namedanchor names.
   my $identifier_target = $document->labels_information();
 
   # A hash reference, keys are @-command names, value is an
@@ -151,10 +151,11 @@ in the document.
 @end table
 
 All the @@-commands that have an associated label (so can be the
-target of cross references) @asis{}-@asis{}-@asis{} @code{@@node}, @code{@@anchor} and @code{@@float} with
-label @asis{}-@asis{}-@asis{} have a normalized name associated, constructed as described in the
-@emph{HTML Xref} node in the Texinfo documentation.  Those normalized labels and
-the association with @@-commands is available through @code{labels_information}:
+target of cross references) @asis{}-@asis{}-@asis{} @code{@@node}, @code{@@anchor}, @code{@@namedanchor}
+and @code{@@float} with label @asis{}-@asis{}-@asis{} have a normalized name associated, constructed as
+described in the @emph{HTML Xref} node in the Texinfo documentation.  Those
+normalized labels and the association with @@-commands is available through
+@code{labels_information}:
 
 @table @asis
 @item $identifier_target = labels_information($document)

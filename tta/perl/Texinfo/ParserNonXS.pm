@@ -395,8 +395,8 @@ foreach my $type ('empty_line', 'ignorable_spaces_after_command',
 }
 
 my %command_ignore_space_after;
-foreach my $command ('anchor', 'hyphenation', 'caption', 'shortcaption',
-                     'sortas', 'seeentry', 'seealso') {
+foreach my $command ('anchor', 'hyphenation', 'caption', 'namedanchor',
+                     'shortcaption', 'sortas', 'seeentry', 'seealso') {
   $command_ignore_space_after{$command} = 1;
 }
 
@@ -530,8 +530,8 @@ foreach my $brace_command (keys (%brace_commands)) {
 
 my %in_basic_inline_commands = %in_full_text_commands;
 foreach my $not_in_basic_inline_commands
-                               ('xref', 'ref', 'pxref', 'inforef',
-                                'titlefont', 'anchor', 'footnote', 'verb') {
+              ('xref', 'ref', 'pxref', 'inforef',
+               'titlefont', 'anchor', 'namedanchor', 'footnote', 'verb') {
   delete $in_basic_inline_commands{$not_in_basic_inline_commands};
 }
 
@@ -6469,21 +6469,22 @@ sub _handle_close_brace($$$)
     print STDERR "CLOSING(brace) \@$closed_cmdname\n"
       if ($self->{'conf'}->{'DEBUG'});
 
-    if ($closed_cmdname eq 'anchor') {
+    if ($closed_cmdname eq 'anchor'
+        or $closed_cmdname eq 'namedanchor') {
       $brace_command->{'source_info'} = {%$source_info};
-      if (! $current->{'contents'}) {
+      my $anchor_id_element = $brace_command->{'contents'}->[0];
+      if (! $anchor_id_element->{'contents'}) {
         $self->_line_error(sprintf(__("empty argument in \@%s"),
                                    $closed_cmdname), $source_info);
       } else {
-        _check_register_target_element_label($self, $current,
-                                             $brace_command,
-                                             $source_info);
+        _check_register_target_element_label($self, $anchor_id_element,
+                                             $brace_command, $source_info);
         # the @anchor element_region information is not used in converters
         if ($self->{'nesting_context'}
             and $self->{'nesting_context'}->{'regions_stack'}
-       and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
-          $current->{'extra'} = {} if (!$current->{'extra'});
-          $current->{'extra'}->{'element_region'}
+            and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
+          $anchor_id_element->{'extra'} = {} if (!$anchor_id_element->{'extra'});
+          $anchor_id_element->{'extra'}->{'element_region'}
             = $self->{'nesting_context'}->{'regions_stack'}->[-1];
         }
       }

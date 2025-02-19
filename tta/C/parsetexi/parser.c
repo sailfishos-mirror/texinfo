@@ -1406,6 +1406,7 @@ check_valid_nesting_context (enum command_id cmd)
           || cmd == CM_shortcaption
           || cmd == CM_titlefont
           || cmd == CM_anchor
+          || cmd == CM_namedanchor
           || cmd == CM_footnote
           || cmd == CM_verb)
         {

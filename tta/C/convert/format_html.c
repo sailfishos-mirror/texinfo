@@ -1420,7 +1420,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
 
           cmd = element_builtin_cmd (command);
 
-          if (cmd == CM_float || cmd == CM_anchor)
+          if (cmd == CM_float || cmd == CM_anchor || cmd == CM_namedanchor)
             return 0;
 
           if (cmd == CM_node)
@@ -1784,11 +1784,13 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               tree->tree = heading_tree;
             }
           else if (command->e.c->cmd == CM_node
-                   || command->e.c->cmd == CM_anchor)
+                   || command->e.c->cmd == CM_anchor
+                   || command->e.c->cmd == CM_namedanchor)
             {
               ELEMENT *root_code = new_element_added (tree, ET__code);
               ELEMENT *label_element;
-              if (command->e.c->cmd == CM_anchor)
+              if (command->e.c->cmd == CM_anchor
+                  || command->e.c->cmd == CM_namedanchor)
                 label_element = command->e.c->contents.list[0];
               else
                 {
@@ -6054,7 +6056,8 @@ html_convert_anchor_command (CONVERTER *self, const enum command_id cmd,
       const char *id = html_command_id (self, element);
       if (id && strlen (id))
         {
-          format_separate_anchor (self, id, "anchor", result);
+          format_separate_anchor (self, id, builtin_command_name (cmd),
+                                  result);
         }
     }
 }
@@ -12818,14 +12821,18 @@ html_default_format_special_body_about (CONVERTER *self,
 
 
 
+/* FIXME remove, use only label_cmd_types_ids */
 enum label_cmd_types {
   label_cmd_type_node,
   label_cmd_type_anchor,
+  label_cmd_type_namedanchor,
   label_cmd_type_float,
 };
 
-static const enum command_id label_cmd_types_ids[label_cmd_type_float+1] = {
-  CM_node, CM_anchor, CM_float
+/* order should be the same as in Texinfo::Convert::HTML output_internal_links
+   list */
+static const enum command_id label_cmd_types_ids[] = {
+  CM_node, CM_anchor, CM_namedanchor, CM_float
 };
 
 /* This is called from the main program on the converter. */

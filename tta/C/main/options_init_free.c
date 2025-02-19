@@ -1812,6 +1812,7 @@ COMMAND_OPTION_DEFAULT command_option_default_table[] = {
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},
+{GOT_NONE, -2, 0},
 {GOT_integer, 0, 0},   /* novalidate (unique_at_command) */
 {GOT_NONE, -2, 0},
 {GOT_char, -2, 0},   /* oddfooting (multiple_at_command) */

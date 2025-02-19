@@ -1589,7 +1589,8 @@ sub get_label_element($)
   if ($current->{'cmdname'} eq 'node') {
     # first content of arguments_line type element
     return $current->{'contents'}->[0]->{'contents'}->[0];
-  } elsif ($current->{'cmdname'} eq 'anchor'
+  } elsif (($current->{'cmdname'} eq 'anchor'
+            or $current->{'cmdname'} eq 'namedanchor')
            and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
     return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'

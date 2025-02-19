@@ -533,7 +533,7 @@ label_target_unit_element (const ELEMENT *label,
   else if (label->e.c->cmd == CM_node)
     return label->e.c->associated_unit;
   else
- /* case of a @float or an @anchor, no target element defined at this stage */
+ /* case of a @float or an @*anchor, no target element defined at this stage */
     return 0;
 }
 

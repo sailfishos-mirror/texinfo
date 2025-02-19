@@ -41,7 +41,7 @@
 
 /* Register a target element associated to a label that may be the target of
    a reference and must be unique in the document.  Corresponds to @node,
-   @anchor, and @float (float label corresponds to the second argument). */
+   @*anchor, and @float (float label corresponds to the second argument). */
 void
 register_label (ELEMENT *target_element, char *normalized)
 {

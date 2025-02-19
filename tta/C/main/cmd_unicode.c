@@ -270,6 +270,7 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"\xcc\xa8", "808", "0328"},  /* ogonek */
 {0, 0, 0},
 {0, 0, 0},
@@ -638,6 +639,7 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {"007B", "{", "\\007B "},   /* lbracechar */
 {"2264", "\xe2\x89\xa4", "\\2264 "},   /* leq */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
@@ -1041,6 +1043,7 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {"2212", "\xe2\x88\x92", "\\2212 "},   /* minus */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},

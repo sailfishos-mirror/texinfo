@@ -77,8 +77,9 @@ $normalize_node_nobrace_symbol_text{'today'} = '';
 my %accent_commands = %Texinfo::Commands::accent_commands;
 
 my %ignored_brace_commands;
-foreach my $ignored_brace_command ('anchor', 'footnote', 'shortcaption',
-       'caption', 'hyphenation', 'sortas', 'seealso', 'seeentry') {
+foreach my $ignored_brace_command ('anchor', 'namedanchor', 'footnote',
+       'shortcaption', 'caption', 'hyphenation', 'sortas',
+        'seealso', 'seeentry') {
   $ignored_brace_commands{$ignored_brace_command} = 1;
 }
 

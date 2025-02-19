@@ -3221,7 +3221,7 @@ sub _convert($$)
             });
         }
         return;
-      } elsif ($cmdname eq 'anchor') {
+      } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         _stream_output($self, add_pending_word($formatter->{'container'}),
                        $formatter->{'container'});
         _anchor($self, $element);

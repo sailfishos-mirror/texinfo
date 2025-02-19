@@ -2885,7 +2885,8 @@ sub _convert($$)
                    and ($informative_commands{$cmdname}
                         or $sectioning_heading_commands{$cmdname}
                         or $cmdname eq 'float'
-                        or $cmdname eq 'anchor'))
+                        or $cmdname eq 'anchor'
+                        or $cmdname eq 'namedanchor'))
                    or ($type and $type eq 'paragraph'))) {
       return '';
     }
@@ -3382,7 +3383,7 @@ sub _convert($$)
       $result .= '}';
       _pop_context($self);
       return $result;
-    } elsif ($cmdname eq 'anchor') {
+    } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
       if ($element->{'contents'}) {
         my $anchor_label
            = _tree_anchor_label($element->{'contents'}->[0]->{'contents'});
@@ -3462,6 +3463,7 @@ sub _convert($$)
               # otherwise it would have been associated in
               # _associate_other_nodes_to_sections.  Nothing to do in that case.
             } else {
+              # FIXME check if something different should be done with namedanchor
               # an anchor.  Find associated section using top level parent
               # @-command.
               my $current = $reference;
@@ -3541,6 +3543,7 @@ sub _convert($$)
           } elsif (defined($args[2])) {
             $name = $args[2];
           } elsif (not defined($float_type)) {
+            # FIXME different for namedanchor?
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
