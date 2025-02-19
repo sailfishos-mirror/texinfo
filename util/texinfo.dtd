@@ -75,7 +75,8 @@
 <!-- Commands that appear everywhere, both with block and in paragraphs -->
 <!-- include is in general absent, since it is replaced, but it is
      present if the file was not found -->
-<!ENTITY % ubiquitous.cmds "sp | anchor | indent | noindent | %raw.cmds;
+<!ENTITY % ubiquitous.cmds "sp | anchor | namedanchor | indent | noindent
+                 | %raw.cmds;
                  | %define.cmds; | %option.cmds; | errormsg | include
                  | %indexentry.cmds; | refill | quote-arg | allow-recursion">
 
@@ -187,7 +188,7 @@
      in the DTD, so we use the contents for all the contexts -->
 <!ENTITY % Inline.indexentryline "%Inline.line; | seealso | seeentry | sortas
                                   | defbracketed">
-<!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor">
+<!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor | namedanchor">
 
 <!ENTITY % Inline.defargline "%Inline.line; | defbracketed">
 
@@ -1225,6 +1226,17 @@
 <!ATTLIST anchor
           %spacesafterincmdattr;
           identifier CDATA #IMPLIED>
+
+<!ELEMENT namedanchor (anchoridentifier, anchorname?)>
+<!ATTLIST namedanchor
+          %spacesaftercmdattr;
+          identifier CDATA #IMPLIED>
+<!ELEMENT anchoridentifier (#PCDATA | %Inline.phrase;)*>
+<!ATTLIST anchoridentifier
+          %spacesattr;>
+<!ELEMENT anchorname (#PCDATA | %Inline.phrase;)*>
+<!ATTLIST anchorname
+          %spacesattr;>
 
 <!ELEMENT errormsg (#PCDATA | %Inline.phrase;)*>
 <!ATTLIST errormsg
