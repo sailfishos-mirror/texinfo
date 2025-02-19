@@ -3993,11 +3993,14 @@ argument still takes precedence):
 @@xrefautomaticsectiontitle on
 @end example
 
+This setting is also used for cross-references to anchors defined with
+@code{@@namedanchor} (@pxref{@code{@@anchor}}).
+
 Typically this line would be given near the beginning of the document
 and used for the whole manual.  But you can turn it off if you want
 (@code{@@xrefautomaticsectiontitle off}), for example, if you're
 including some other sub-document that doesn't have suitable section
-names.  This setting also applies to node headers in HTML, if
+names.  This setting also applies to node headers in HTML: if
 @code{@@xrefautomaticsectiontitle} is on, the sections names are used
 in node headers instead of the node names when possible.  This setting has
 no effect in Info or plain text output.
@@ -4349,10 +4352,11 @@ the word ``see'' should be present.
 @cindex Cross-reference targets, arbitrary
 @cindex Targets for cross-references, arbitrary
 
-An @dfn{anchor} is a position in your document, labelled so that
-cross-references can refer to it, just as they can to nodes.  You
-create an anchor with the @code{@@anchor} command, and give the label
-as a normal brace-delimited argument.  For example:
+You may wish to create cross-references to arbitrary positions
+in a document, not just to the beginning of nodes.  The @code{@@anchor}
+command marks such a position in your document, called an @dfn{anchor}.
+Put an @code{@@anchor} command just before the position you wish to
+refer to.  For example:
 
 @example
 This marks the @@anchor@{x-spot@}spot.
@@ -4360,7 +4364,7 @@ This marks the @@anchor@{x-spot@}spot.
 @@xref@{x-spot,,the spot@}.
 @end example
 
-@noindent produces:
+@noindent This produces:
 
 @example
 This marks the spot.
@@ -4368,34 +4372,66 @@ This marks the spot.
 See [the spot], page 1.
 @end example
 
-As you can see, the @code{@@anchor} command itself produces no output.
-This example defines an anchor `x-spot' just before the word `spot'.
-You can refer to it later with an @code{@@xref} or other cross
-reference command, as shown (@pxref{Cross References}).
+The brace-delimited argument to @code{@@anchor}, here @samp{x-spot},
+is the @dfn{anchor name}, which plays the same role as a node name.
+The anchor name is used to create cross-references to the anchor, as
+with an @code{@@xref} or other cross-reference command, as shown
+(@pxref{Cross References}).  As you can see, the @code{@@anchor} command
+itself produces no output.
 
-It is best to put @code{@@anchor} commands just before the position you
-wish to refer to; that way, the reader's eye is led on to the correct
-text when they jump to the anchor.  You can put the @code{@@anchor}
-command on a line by itself if that helps readability of the source.
-Whitespace (including newlines) is ignored after @code{@@anchor}.
+Anchor names share the same constraints as nodes on the characters
+that can be included (@pxref{Info Node Names Constraints}).
+Anchor names, node names and float labels may not conflict.
 
-Anchor names, node names and float labels may not conflict.  Anchors,
-nodes and float labels are
+You can put the @code{@@anchor} command on a line by itself if that
+helps readability of the source.  Whitespace (including newlines) is
+ignored after @code{@@anchor}.
+
+@ignore
+Anchors, nodes and float labels are
 given similar treatment in some ways; for example, the
 @code{goto-node} command takes either an anchor name or a node name as
 an argument.  (@xref{Go to node,,, info, Info}.).  Anchor names and float
 labels could also appear in menus (@pxref{Menus}) and node direction
 pointers (@pxref{Writing a Node}), although this is not recommended.
-
-Anchor names share the same constraints as nodes on the characters
-that can be included (@pxref{Info Node Names Constraints}).
+@end ignore
 
 @cindex Nodes, deleting or renaming
-Because of this duality, when you delete or rename a node, it is
-usually a good idea to define an @code{@@anchor} with the old name.
-That way, any links to the old node, whether from other Texinfo
-manuals or general web pages, keep working.
+When you delete or rename a node, it is usually a good idea to define an
+@code{@@anchor} with the old name.  That way, any links to the old node,
+whether from other Texinfo manuals or general web pages, keep working.
 
+By default, links to anchors are unaffected by the
+@code{xrefautomaticsectiontitle} setting (see @ref{Three Arguments,,
+@code{xrefautomaticsectiontitle}}).  This means that the anchor name
+will be used as label text in the cross-reference.
+
+@findex namedanchor
+However, you can defined a @dfn{named anchor} using @code{@@namedanchor}.
+The template is:
+
+@example
+@@namedanchor@{@var{anchor-name}, @var{xref-name}@}
+@end example
+
+Use this exactly as you would @code{@@anchor}, except the additional
+@var{xref-name} parameter gives the text to use if
+@code{xrefautomaticsectiontitle} is on.  For example:
+
+@example
+This marks the @@namedanchor@{x-spot, the spot@}spot.
+@dots{}
+@@set xrefautomaticsectiontitle on
+@@xref@{x-spot@}.
+@end example
+
+@noindent This produces:
+
+@example
+This marks the spot.
+@dots{}
+See [the spot], page 1.
+@end example
 
 @node @code{@@link}
 @nodedescription How to make a plain link.
