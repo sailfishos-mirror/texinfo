@@ -12821,19 +12821,14 @@ html_default_format_special_body_about (CONVERTER *self,
 
 
 
-/* FIXME remove, use only label_cmd_types_ids */
-enum label_cmd_types {
-  label_cmd_type_node,
-  label_cmd_type_anchor,
-  label_cmd_type_namedanchor,
-  label_cmd_type_float,
-};
-
 /* order should be the same as in Texinfo::Convert::HTML output_internal_links
    list */
 static const enum command_id label_cmd_types_ids[] = {
   CM_node, CM_anchor, CM_namedanchor, CM_float
 };
+
+#define LABEL_CMD_TYPES_NR  (sizeof (label_cmd_types_ids) \
+                                    / sizeof (label_cmd_types_ids[0]))
 
 /* This is called from the main program on the converter. */
 char *
@@ -12942,8 +12937,8 @@ html_output_internal_links (CONVERTER *self)
           const LABEL_LIST *label_targets = &self->document->labels_list;
           size_t i;
           const ELEMENT *target_element;
-          static CONST_ELEMENT_LIST commands_lists[label_cmd_type_float+1];
-          enum label_cmd_types j;
+          static CONST_ELEMENT_LIST commands_lists[LABEL_CMD_TYPES_NR];
+          size_t j;
 
           for (i = 0; i < label_targets->number; i++)
             {
@@ -12953,7 +12948,7 @@ html_output_internal_links (CONVERTER *self)
                 continue;
 
               target_element = label->element;
-              for (j = 0; j < label_cmd_type_float+1; j++)
+              for (j = 0; j < LABEL_CMD_TYPES_NR; j++)
                 {
                   if (target_element->e.c->cmd == label_cmd_types_ids[j])
                     {
@@ -12964,7 +12959,7 @@ html_output_internal_links (CONVERTER *self)
                 }
             }
 
-          for (j = 0; j < label_cmd_type_float+1; j++)
+          for (j = 0; j < LABEL_CMD_TYPES_NR; j++)
             {
               if (commands_lists[j].number > 0)
                 {
@@ -13007,6 +13002,7 @@ html_output_internal_links (CONVERTER *self)
             }
         }
     }
+#undef LABEL_CMD_TYPES_NR
 
   if (index_entries_by_letter)
     {

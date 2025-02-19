@@ -1,5 +1,11 @@
 2025-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (LABEL_CMD_TYPES_NR)
+	(html_output_internal_links): add LABEL_CMD_TYPES_NR, remove enum
+	label_cmd_types.
+
+2025-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	Initial incomplete implementation of @namedanchor in texi2any
 
 	* tta/C/convert/format_html.c (html_command_description)

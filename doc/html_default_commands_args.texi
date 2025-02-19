@@ -13,6 +13,7 @@
 @item @code{@@item} @tab 
 @item @code{@@itemx} @tab 
 @item @code{@@link} @tab monospace @tab normal @tab filenametext
+@item @code{@@namedanchor} @tab monospacestring @tab normal
 @item @code{@@printindex} @tab 
 @item @code{@@pxref} @tab monospace @tab normal @tab normal @tab filenametext @tab normal
 @item @code{@@ref} @tab monospace @tab normal @tab normal @tab filenametext @tab normal
