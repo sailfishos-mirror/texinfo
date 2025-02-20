@@ -1,5 +1,9 @@
 2025-02-20  Patrice Dumas  <pertusus@free.fr>
 
+	NEWS: add entries for htmlxref.d and empty string for htmlxref URL
+
+2025-02-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (external_node_href),
 	tta/perl/Texinfo/Convert/HTML.pm (_external_node_href): if an htmlxref
 	information is an empty string, meaning that the URL was empty in the

@@ -28,6 +28,10 @@ See the manual for detailed information.
         text or functions references should be used instead
       . change --internal-links file item types names and output more item
         types
+      . read files ending with the .cnf extension in the htmlxref.d directories
+        for HTML cross-references customization
+      . an empty URL in HTML cross-references customization triggers link
+        to local manual
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
 
