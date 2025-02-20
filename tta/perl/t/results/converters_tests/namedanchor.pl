@@ -2318,15 +2318,12 @@ See \\hyperref[anchor:in-chap-empty-name]{[chapter \\label{anchor:Not-here_0021}
 after], page~\\pageref*{anchor:in-chap-empty-name}}
 See \\hyperref[anchor:in-chap-empty-name]{[xat on o], page~\\pageref*{anchor:in-chap-empty-name}}
 
-See \\hyperref[anchor:normal]{[chapter \\label{anchor:Not-here_0021}%
-after], page~\\pageref*{anchor:normal}}
-See \\hyperref[anchor:normal]{[chapter \\label{anchor:Not-here_0021}%
-after], page~\\pageref*{anchor:normal}}
+See \\hyperref[anchor:normal]{[here we are], page~\\pageref*{anchor:normal}}
+See \\hyperref[anchor:normal]{[here we are], page~\\pageref*{anchor:normal}}
 See \\hyperref[anchor:normal]{[xat on no], page~\\pageref*{anchor:normal}}
 
-See \\hyperref[anchor:in-Top]{[top], page~\\pageref*{anchor:in-Top}}
-See \\hyperref[anchor:Not-here_0021]{[chapter \\label{anchor:Not-here_0021}%
-after], page~\\pageref*{anchor:Not-here_0021}}
+See \\hyperref[anchor:in-Top]{[\\emph{n in Top}], page~\\pageref*{anchor:in-Top}}
+See \\hyperref[anchor:Not-here_0021]{[There], page~\\pageref*{anchor:Not-here_0021}}
 
 \\chapter{{chap1}}
 \\label{anchor:chap1}%

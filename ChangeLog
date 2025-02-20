@@ -1,5 +1,13 @@
 2025-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	@namedanchor in LaTeX output
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): if
+	xrefautomaticsectiontitle is on, use th e@namedanchor second argument
+	as name.
+
+2025-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_command_tree)
 	(html_internal_command_text, html_internal_command_name_tree)
 	(html_internal_command_name, html_command_name),

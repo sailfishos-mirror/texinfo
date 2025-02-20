@@ -3463,9 +3463,7 @@ sub _convert($$)
               # otherwise it would have been associated in
               # _associate_other_nodes_to_sections.  Nothing to do in that case.
             } else {
-              # FIXME check if something different should be done with namedanchor
-              # an anchor.  Find associated section using top level parent
-              # @-command.
+              # Find associated section using top level parent @-command.
               my $current = $reference;
               while ($current->{'parent'}) {
                 $current = $current->{'parent'};
@@ -3543,14 +3541,20 @@ sub _convert($$)
           } elsif (defined($args[2])) {
             $name = $args[2];
           } elsif (not defined($float_type)) {
-            # FIXME different for namedanchor?
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
-                and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
-                and $section_command) {
-              # arguments_line type element
-              my $arguments_line = $section_command->{'contents'}->[0];
-              $name = $arguments_line->{'contents'}->[0];
-            } else {
+                and $self->get_conf('xrefautomaticsectiontitle') eq 'on') {
+              if (exists($reference->{'cmdname'})
+                  and $reference->{'cmdname'} eq 'namedanchor'
+                  and scalar(@{$reference->{'contents'}}) > 1
+                  and $reference->{'contents'}->[1]->{'contents'}) {
+                $name = $reference->{'contents'}->[1];
+              } elsif ($section_command) {
+                # arguments_line type element
+                my $arguments_line = $section_command->{'contents'}->[0];
+                $name = $arguments_line->{'contents'}->[0];
+              }
+            }
+            if (!defined($name)) {
               $name = {'contents' => $reference_node_content};
             }
           }
