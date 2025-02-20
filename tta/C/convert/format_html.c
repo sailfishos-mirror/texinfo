@@ -803,65 +803,69 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
           *p = '\0';
         }
 
-      htmlxref_manual = find_htmlxref_manual (&self->htmlxref, manual_base);
+      if (!self->conf->HTMLXREF_MODE.o.string
+          || strcmp (self->conf->HTMLXREF_MODE.o.string, "none"))
+        {
+          htmlxref_manual = find_htmlxref_manual (&self->htmlxref, manual_base);
 
-      if (htmlxref_manual)
-        {
-          const enum htmlxref_split_type *ordered_split_types
-             = htmlxref_entries[self->document_htmlxref_split_type];
-          int i;
-          for (i = 0; i < htmlxref_split_type_chapter +1; i++)
+          if (htmlxref_manual)
             {
-              const enum htmlxref_split_type split_ordered
-                = ordered_split_types[i];
-              if (htmlxref_manual->urlprefix[split_ordered]
-                  && strlen (htmlxref_manual->urlprefix[split_ordered]))
+              const enum htmlxref_split_type *ordered_split_types
+                 = htmlxref_entries[self->document_htmlxref_split_type];
+              int i;
+              for (i = 0; i < htmlxref_split_type_chapter +1; i++)
                 {
-                  split_found = split_ordered;
-                  htmlxref_href = url_protect_url_text (self,
-                                  htmlxref_manual->urlprefix[split_ordered]);
-                  break;
-                }
-            }
-        }
-      if (split_found != htmlxref_split_type_none)
-        {
-          if (split_found == htmlxref_split_type_mono)
-            target_split = 0;
-          else
-            target_split = 1;
-        }
-      else
-        { /* nothing specified for that manual, use default */
-          if (self->conf->CHECK_HTMLXREF.o.integer > 0)
-            {
-              if ((source_command != 0) &&
-                  (source_command->e.c->source_info.line_nr != 0))
-                { /* check if already set and set if not */
-                  if (!html_check_htmlxref_already_warned (self, manual_name,
-                                              &source_command->e.c->source_info))
+                  const enum htmlxref_split_type split_ordered
+                    = ordered_split_types[i];
+                  if (htmlxref_manual->urlprefix[split_ordered]
+                      && strlen (htmlxref_manual->urlprefix[split_ordered]))
                     {
-                      message_list_command_warn (&self->error_messages,
-                                                 self->conf,
-                                                 source_command, 0,
-                             "no HTML cross-references entry found for `%s'",
-                                                 manual_name);
+                      split_found = split_ordered;
+                      htmlxref_href = url_protect_url_text (self,
+                                htmlxref_manual->urlprefix[split_ordered]);
+                      break;
                     }
                 }
+            }
+          if (split_found != htmlxref_split_type_none)
+            {
+              if (split_found == htmlxref_split_type_mono)
+                target_split = 0;
               else
+                target_split = 1;
+            }
+          else
+            { /* nothing specified for that manual, use default */
+              if (self->conf->CHECK_HTMLXREF.o.integer > 0)
                 {
-                  if (!html_check_htmlxref_already_warned (self,
-                                                           manual_name, 0))
+                  if ((source_command != 0) &&
+                      (source_command->e.c->source_info.line_nr != 0))
+                    { /* check if already set and set if not */
+                      if (!html_check_htmlxref_already_warned (self,
+                            manual_name, &source_command->e.c->source_info))
+                        {
+                          message_list_command_warn (&self->error_messages,
+                                                     self->conf,
+                                                     source_command, 0,
+                             "no HTML cross-references entry found for `%s'",
+                                                     manual_name);
+                        }
+                    }
+                  else
                     {
-                      message_list_document_warn (&self->error_messages,
-                                                  self->conf, 0,
+                      if (!html_check_htmlxref_already_warned (self,
+                                                           manual_name, 0))
+                        {
+                          message_list_document_warn (&self->error_messages,
+                                                      self->conf, 0,
                         "no HTML cross-references entry found for `%s'",
-                                                  manual_name);
+                                                      manual_name);
+                        }
                     }
                 }
             }
+          free (manual_name);
         }
-      free (manual_name);
 
       if (target_split)
         {

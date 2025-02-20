@@ -11010,41 +11010,45 @@ sub _external_node_href($$$)
     $manual_base =~ s/^.*\///;
     my $split_found;
     my $htmlxref_href;
-    my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
-    if ($htmlxref_info) {
-      my $document_split = $self->get_conf('SPLIT');
-      $document_split = 'mono' if (!$document_split);
-      foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
-        if (defined($htmlxref_info->{$split_ordered})
-            and $htmlxref_info->{$split_ordered} ne '') {
-          $split_found = $split_ordered;
-          $htmlxref_href
-            = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
-          last;
+    my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
+
+    if (!defined($htmlxref_mode) or $htmlxref_mode ne 'none') {
+      my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
+      if ($htmlxref_info) {
+        my $document_split = $self->get_conf('SPLIT');
+        $document_split = 'mono' if (!$document_split);
+        foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
+          if (defined($htmlxref_info->{$split_ordered})
+              and $htmlxref_info->{$split_ordered} ne '') {
+            $split_found = $split_ordered;
+            $htmlxref_href
+              = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
+            last;
+          }
         }
       }
-    }
-    if (defined($split_found)) {
-      if ($split_found eq 'mono') {
-        $target_split = 0;
-      } else {
-        $target_split = 1;
-      }
-    } else { # nothing specified for that manual, use default
-      if ($self->get_conf('CHECK_HTMLXREF')) {
-        if (defined($source_command) and $source_command->{'source_info'}) {
-          if (!_check_htmlxref_already_warned($self, $manual_name,
-                                         $source_command->{'source_info'})) {
-            $self->converter_line_warn(sprintf(__(
-            "no HTML cross-references entry found for `%s'"), $manual_name),
-                             $source_command->{'source_info'});
-          }
+      if (defined($split_found)) {
+        if ($split_found eq 'mono') {
+          $target_split = 0;
         } else {
-          if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
-            $self->converter_document_warn(sprintf(__(
+          $target_split = 1;
+        }
+      } else { # nothing specified for that manual, use default
+        if ($self->get_conf('CHECK_HTMLXREF')) {
+          if (defined($source_command) and $source_command->{'source_info'}) {
+            if (!_check_htmlxref_already_warned($self, $manual_name,
+                                         $source_command->{'source_info'})) {
+              $self->converter_line_warn(sprintf(__(
               "no HTML cross-references entry found for `%s'"), $manual_name),
-              );
-            cluck;
+                               $source_command->{'source_info'});
+            }
+          } else {
+            if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
+              $self->converter_document_warn(sprintf(__(
+                "no HTML cross-references entry found for `%s'"), $manual_name),
+                );
+              cluck;
+            }
           }
         }
       }
