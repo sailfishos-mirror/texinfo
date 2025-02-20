@@ -817,11 +817,11 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                 {
                   const enum htmlxref_split_type split_ordered
                     = ordered_split_types[i];
-                  if (htmlxref_manual->urlprefix[split_ordered]
-                      && strlen (htmlxref_manual->urlprefix[split_ordered]))
+                  if (htmlxref_manual->urlprefix[split_ordered])
                     {
                       split_found = split_ordered;
-                      htmlxref_href = url_protect_url_text (self,
+                      if (strlen (htmlxref_manual->urlprefix[split_ordered]))
+                        htmlxref_href = url_protect_url_text (self,
                                 htmlxref_manual->urlprefix[split_ordered]);
                       break;
                     }

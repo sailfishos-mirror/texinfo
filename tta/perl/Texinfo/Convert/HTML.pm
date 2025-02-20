@@ -8612,7 +8612,7 @@ sub _parse_htmlxref_files($$)
       my @htmlxref = split /\s+/, $hline;
       my $manual = shift @htmlxref;
       my $split_or_mono = shift @htmlxref;
-      #print STDERR "$split_or_mono $Texi2HTML::Config::htmlxref_entries{$split_or_mono} $line_nr\n";
+      #print STDERR "$fname: $line_nr: $manual $split_or_mono\n";
       if (!defined($split_or_mono)) {
         $self->converter_line_warn(__("missing type"),
                  {'file_name' => $fname, 'line_nr' => $line_nr});
@@ -11018,11 +11018,12 @@ sub _external_node_href($$$)
         my $document_split = $self->get_conf('SPLIT');
         $document_split = 'mono' if (!$document_split);
         foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
-          if (defined($htmlxref_info->{$split_ordered})
-              and $htmlxref_info->{$split_ordered} ne '') {
+          if (defined($htmlxref_info->{$split_ordered})) {
             $split_found = $split_ordered;
-            $htmlxref_href
-              = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
+            if ($htmlxref_info->{$split_ordered} ne '') {
+              $htmlxref_href
+               = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
+            }
             last;
           }
         }
