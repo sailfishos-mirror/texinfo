@@ -1,3 +1,15 @@
+2025-02-21  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (HTML Xref Configuration): document omitting
+	urlprefix in htmlxref files.
+
+	* doc/texinfo.texi (Global Customization Variables):
+	CHECK_MISSING_MENU_ENTRY is on by default.
+
+	* doc/texinfo.texi (Generic Translator @command{texi2any}): comment
+	out too detailed information on C/Perl.  Shorten the remainign of the
+	paragraph.
+
 2025-02-20  Patrice Dumas  <pertusus@free.fr>
 
 	NEWS: add entries for htmlxref.d and empty string for htmlxref URL

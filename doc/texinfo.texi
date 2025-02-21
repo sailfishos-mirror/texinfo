@@ -14652,13 +14652,14 @@ anything which can be specified on the command line can also be
 specified within a initialization file.
 
 Two functionally equivalent implementations of @command{texi2any} can be built
-in GNU Texinfo, one in Perl and another in compiled native code (coded in C).
-The Perl program can use Perl extension modules compiled native code backends,
+in GNU Texinfo, one in Perl and another in compiled native code (in C).
+The Perl program can use Perl extension modules in compiled native code,
 while the native code program embeds a Perl interpreter for the parts that
-require Perl, mainly index sorting, most converter backends and HTML
-customization.  The Perl program, when using native code backends is about as
-fast as the main program in C using Perl when there is no native code
-equivalent.
+require Perl.
+@c , mainly index sorting, most converter backends and HTML
+@c customization.  The Perl program, when using native code backends is about as
+@c fast as the main program in C using Perl when there is no native code
+@c equivalent.
 
 In the default case, the Perl implementation is installed.  You can select
 the C implementation instead at build time by passing
@@ -15692,7 +15693,7 @@ by default.
 Warn if the node pointers (either explicitly or automatically set)
 are not consistent with the order of node menu entries.  This is a more
 thorough structure check than that provided by
-@code{CHECK_MISSING_MENU_ENTRY}.  Off by default.
+@code{CHECK_MISSING_MENU_ENTRY}.  On by default.
 
 @item COLLATION_LANGUAGE
 By default, @command{texi2any} sorts document indices according to the
@@ -18136,6 +18137,13 @@ directory, and file name for @var{manual} as one monolithic file.
 If the keyword is @code{node}, @code{section}, or @code{chapter},
 @var{urlprefix} gives the host and directory for @var{manual} split
 into nodes, sections, or chapters, respectively.
+
+If @var{urlprefix} is omitted, the elements of the cross-references
+correspond to cross-reference links among a collection of manuals located
+side-by-side on a single host (@pxref{HTML Xref Link Basics}).  This
+could be useful if you generate and publish a collection of manuals and
+prefer linking to the generated manuals rather than to the versions found in
+cross-references configurations shipped with Texinfo.
 
 When @command{texi2any} is generating a link to another Texinfo manual,
 it will prefer to use a line for the manual with the same
