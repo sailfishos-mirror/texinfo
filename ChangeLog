@@ -1,5 +1,18 @@
 2025-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Navigation Panel and Navigation Header
+	Formatting), tta/C/convert/call_html_perl_function.c
+	(call_formatting_function_format_navigation_panel),
+	tta/C/convert/format_html.c (html_default_format_navigation_panel)
+	(format_navigation_panel, html_default_format_navigation_header)
+	(html_default_format_element_header)
+	(html_default_format_element_footer), tta/perl/Texinfo/Convert/HTML.pm
+	(_default_format_navigation_panel, _default_format_navigation_header)
+	(_default_format_element_header): add an argument to
+	format_navigation_panel to specify if in header or footer.
+
+2025-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_convert_command_tree)
 	(html_internal_command_text, html_command_text)
 	(html_internal_command_name, from_element_direction),

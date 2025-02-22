@@ -4632,7 +4632,7 @@ void
 html_default_format_navigation_panel (CONVERTER *self,
                          const BUTTON_SPECIFICATION_LIST *buttons,
                          const char *cmdname, const ELEMENT *element,
-                         int vertical, TEXT *result)
+                         int vertical, int in_header, TEXT *result)
 {
   size_t i;
   size_t nr_of_buttons_shown = 0;
@@ -4746,7 +4746,7 @@ void
 format_navigation_panel (CONVERTER *self,
                          BUTTON_SPECIFICATION_LIST *buttons,
                          const char *cmdname, const ELEMENT *element,
-                         int vertical, TEXT *result)
+                         int vertical, int in_header, TEXT *result)
 {
   const FORMATTING_REFERENCE *formatting_reference
    = &self->current_formatting_references[FR_format_navigation_panel];
@@ -4754,14 +4754,14 @@ format_navigation_panel (CONVERTER *self,
       || formatting_reference->status == FRS_status_none)
     {
       html_default_format_navigation_panel (self, buttons, cmdname,
-                                            element, vertical, result);
+                                   element, vertical, in_header, result);
     }
   else
     {
       char *navigation_panel
         = call_formatting_function_format_navigation_panel (self,
-                                                formatting_reference,
-                                 buttons, cmdname, element, vertical);
+                                 formatting_reference, buttons, cmdname,
+                                            element, vertical, in_header);
       text_append (result, navigation_panel);
       free (navigation_panel);
     }
@@ -4795,7 +4795,8 @@ html_default_format_navigation_header (CONVERTER *self,
   /* keep the current index in result to be able to determine if text was
      added by format_navigation_panel */
   result_text_index = result->end;
-  format_navigation_panel (self, buttons, cmdname, element, vertical, result);
+  format_navigation_panel (self, buttons, cmdname, element,
+                           vertical, 1, result);
 
   if (vertical)
     text_append (result, "</td>\n<td>\n");
@@ -4946,7 +4947,7 @@ html_default_format_element_header (CONVERTER *self,
              navigation_header is not called */
                format_navigation_panel (self,
                                      self->conf->SECTION_BUTTONS.o.buttons,
-                                        cmdname, command, 0, result);
+                                        cmdname, command, 0, 1, result);
             }
         }
     }
@@ -5167,7 +5168,7 @@ html_default_format_element_footer (CONVERTER *self,
       if (element)
         cmdname = element_command_name (element);
 
-      format_navigation_panel (self, buttons, cmdname, element, 0, result);
+      format_navigation_panel (self, buttons, cmdname, element, 0, 0, result);
     }
 }
 

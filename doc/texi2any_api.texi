@@ -4916,12 +4916,14 @@ The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant
 The navigation panel display is controlled via @code{format_navigation_panel}:
 
 @deftypefn {Function Reference} @var{$navigation_text} format_navigation_panel @
-  (@var{$converter}, @var{\@@buttons}, @var{$command_name}, @var{\%element}, @var{$vertical})
+  (@var{$converter}, @var{\@@buttons}, @var{$command_name}, @var{\%element}, @var{$vertical}, @var{$in_header})
 @var{\@@buttons} is an array reference holding the specification of the buttons
 for that navigation panel.   @var{\%element} is the element in which the
 navigation header is formatted. @var{$command_name} is the associated command
 (sectioning command or @code{@@node}).  It may be @code{undef} for special
 elements.  @var{$vertical} is true if the navigation panel should be vertical.
+@var{$in_header} is true if the navigation panel is for a header, not
+for a footer.
 
 Returns the formatted navigation panel in @var{$navigation_text}. The buttons
 in the navigation panel can be formatted with a call to

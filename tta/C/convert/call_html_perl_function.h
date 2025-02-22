@@ -82,7 +82,7 @@ char *call_formatting_function_format_navigation_panel (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                                   BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
-                                  int vertical);
+                                  int vertical, int in_header);
 char *call_formatting_function_format_navigation_header (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                                   BUTTON_SPECIFICATION_LIST *buttons,

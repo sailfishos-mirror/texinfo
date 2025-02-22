@@ -1303,7 +1303,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,
                                   BUTTON_SPECIFICATION_LIST *buttons,
                                   const char *cmdname, const ELEMENT *element,
-                                  int vertical)
+                                  int vertical, int in_header)
 {
   int count;
   char *result = 0;
@@ -1336,6 +1336,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
   PUSHs(sv_2mortal (newRV_inc (element->hv)));
   PUSHs(sv_2mortal (newSViv ((IV) vertical)));
+  PUSHs(sv_2mortal (newSViv ((IV) in_header)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,

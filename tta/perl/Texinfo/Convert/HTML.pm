@@ -4372,13 +4372,14 @@ sub _default_format_button($$;$)
 }
 
 # called for special elements and tree units
-sub _default_format_navigation_panel($$$$;$)
+sub _default_format_navigation_panel($$$$;$$)
 {
   my $self = shift;
   my $buttons = shift;
   my $cmdname = shift;
   my $source_command = shift;
   my $vertical = shift;
+  my $in_header = shift;
 
   # a string may be passed, for instance through command line, therefore
   # it is useful to test that $buttons is an array reference to avoid
@@ -4481,7 +4482,7 @@ sub _default_format_navigation_header($$$$)
   }
   $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                                    $buttons, $cmdname, $element,
-                               $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
+                             $self->get_conf('VERTICAL_HEAD_NAVIGATION'), 1);
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '</td>
 <td>
@@ -4570,7 +4571,8 @@ sub _default_format_element_header($$$$)
         # navigation_header is not called
         $result
           .= &{$self->formatting_function('format_navigation_panel')}($self,
-                       $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
+                           $self->get_conf('SECTION_BUTTONS'), $cmdname,
+                                   $command, undef, 1);
       }
     }
   }
