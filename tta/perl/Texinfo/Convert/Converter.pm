@@ -1850,7 +1850,10 @@ our %xml_accent_entities = (
           'H', 'dblac',
          );
 
-# FIXME more in HTML 5.0, see
+# There are more in HTML 5.0, and letters associated to other accent
+# entities.  We stick to HTML 4 entities to keep compatibility as
+# there is no clear gain to have more accent entities, numeric
+# entities used instead work well.
 # https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 # https://html.spec.whatwg.org/multipage/named-characters.html#named-character-references
 our %xml_accent_text_with_entities = (
