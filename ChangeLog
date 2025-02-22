@@ -1,5 +1,25 @@
 2025-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_command_tree)
+	(html_internal_command_text, html_command_text)
+	(html_internal_command_name, from_element_direction),
+	tta/C/main/option_types.h (enum html_text_type), tta/C/main/utils.c
+	(html_button_direction_names), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_command_tree, command_text, %valid_direction_return_type)
+	(from_element_direction), doc/texi2any_api.texi (Target Tree Element
+	Link, Navigation Panel Button Formatting): add section_nonumber in
+	addition to section for the type of link.  Handle better
+	string_nonumber.
+
+	* tta/C/convert/format_html.c
+	(default_panel_button_dynamic_direction_internal),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_default_panel_button_dynamic_direction),
+	tta/perl/t/init/redefined_buttons.pm: use section_nonumber instead of
+	section.
+
+2025-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (get_cmdline_customization_option),
 	tta/C/main/txi_config.c (set_option_value): do not decode input in
 	set_option_value but in get_cmdline_customization_option.

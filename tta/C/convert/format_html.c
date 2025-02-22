@@ -1971,7 +1971,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
     }
   html_new_document_context (self, context_name, explanation, 0);
 
-  if (type == HTT_string)
+  if (type == HTT_string || type == HTT_string_nonumber)
     {
       tree_root = new_element (ET__string);
       add_to_contents_as_array (tree_root, selected_tree);
@@ -2020,7 +2020,8 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
           if (!command_tree->tree)
             return strdup ("");
 
-          if ((type == HTT_text_nonumber || type == HTT_string_nonumber)
+          if ((type == HTT_text_nonumber || type == HTT_string_nonumber
+               || type == HTT_section_nonumber)
               && target_info->tree_nonumber.tree)
             selected_tree = target_info->tree_nonumber.tree;
           else
@@ -2061,7 +2062,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       ELEMENT *tree_root;
       TREE_ADDED_ELEMENTS *command_tree
         = html_external_command_tree (self, command, manual_content);
-      if (type == HTT_string)
+      if (type == HTT_string || type == HTT_string_nonumber)
         {
           tree_root = new_element (ET__string);
           add_to_contents_as_array (tree_root, command_tree->tree);
@@ -2091,7 +2092,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
 
       free (context_str);
 
-      if (type == HTT_string)
+      if (type == HTT_string || type == HTT_string_nonumber)
         {
           remove_tree_to_build (self, tree_root);
           destroy_element (tree_root);
@@ -2159,7 +2160,8 @@ html_internal_command_name (CONVERTER *self, const ELEMENT *command,
           if (!command_name_tree->tree)
             return strdup ("");
 
-          if ((type == HTT_text_nonumber || type == HTT_string_nonumber)
+          if ((type == HTT_text_nonumber || type == HTT_string_nonumber
+               || type == HTT_section_nonumber)
               && target_info->name_tree_nonumber.tree)
             selected_tree = target_info->name_tree_nonumber.tree;
           else
@@ -2275,7 +2277,8 @@ from_element_direction (CONVERTER *self, int direction,
       if (type == HTT_href)
         return strdup (self->conf->TOP_NODE_UP_URL.o.string);
       else if (type == HTT_text || type == HTT_node
-               || type == HTT_string || type == HTT_section)
+               || type == HTT_string || type == HTT_section
+               || type == HTT_section_nonumber || type == HTT_string_nonumber)
         {
           if (self->conf->TOP_NODE_UP.o.string)
             return strdup (self->conf->TOP_NODE_UP.o.string);
@@ -2329,7 +2332,7 @@ from_element_direction (CONVERTER *self, int direction,
             }
           type = HTT_text;
         }
-      else if (type == HTT_section)
+      else if (type == HTT_section || type == HTT_section_nonumber)
         {
           if (target_unit->unit_type == OU_unit && target_unit->uc.unit_command)
             {
@@ -2345,7 +2348,10 @@ from_element_direction (CONVERTER *self, int direction,
                     command = associated_section;
                 }
             }
-          type = HTT_text_nonumber;
+          if (type == HTT_section_nonumber)
+            type = HTT_text_nonumber;
+          else
+            type = HTT_text;
         }
       else
         {
@@ -4327,7 +4333,8 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
 
   if (self->conf->xrefautomaticsectiontitle.o.string
       && !strcmp (self->conf->xrefautomaticsectiontitle.o.string, "on"))
-    node = from_element_direction (self, direction, HTT_section, 0, 0, 0);
+    node = from_element_direction (self, direction,
+                                   HTT_section_nonumber, 0, 0, 0);
 
   if (!node)
     node = from_element_direction (self, direction, HTT_node, 0, 0, 0);

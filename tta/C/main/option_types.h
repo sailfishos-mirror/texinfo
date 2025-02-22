@@ -65,11 +65,12 @@ enum html_text_type {
    HTT_text,
    HTT_text_nonumber,
    HTT_string,
-   HTT_string_nonumber, /* not sure that it is set/used */
+   HTT_string_nonumber,
    /* not only used for element text, also for direction text */
    HTT_href,
    HTT_node,
    HTT_section,
+   HTT_section_nonumber,
 };
 
 enum button_specification_type {

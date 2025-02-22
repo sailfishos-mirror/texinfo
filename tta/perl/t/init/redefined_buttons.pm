@@ -12,7 +12,7 @@ sub _redefined_buttons_button_dynamic_direction($$$)
   my $href = $self->from_element_direction($direction, 'href',
                                            undef, undef, $source_command);
 
-  my $node = $self->from_element_direction($direction, 'section');
+  my $node = $self->from_element_direction($direction, 'section_nonumber');
 
   if (!defined($node)) {
     $node = $self->from_element_direction($direction, 'node');

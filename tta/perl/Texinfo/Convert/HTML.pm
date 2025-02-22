@@ -1461,7 +1461,7 @@ sub _convert_command_tree($$$$$)
   $self->_new_document_context($context_name, $explanation);
 
   my $tree_root;
-  if ($type eq 'string') {
+  if ($type eq 'string' or $type eq 'string_nonumber') {
     $tree_root = {'type' => '_string',
                   'contents' => [$selected_tree]};
   } else {
@@ -1523,6 +1523,7 @@ sub _internal_command_text($$$)
 #  'text' - return text
 #  'text_nonumber' - return text, without the section/chapter number
 #  'string' - return simpler text that can be used in element attributes
+#  'string_nonumber' - same as string, without the section/chapter number
 sub command_text($$;$)
 {
   my $self = shift;
@@ -1539,7 +1540,7 @@ sub command_text($$;$)
 
   if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
     my $tree = _external_command_tree($self, $command);
-    if ($type eq 'string') {
+    if ($type eq 'string' or $type eq 'string_nonumber') {
       $tree = {'type' => '_string',
                'contents' => [$tree]};
     }
@@ -1850,7 +1851,7 @@ my %valid_direction_return_type = (
   'section' => 1
 );
 
-foreach my $no_number_type ('text', 'string') {
+foreach my $no_number_type ('text', 'string', 'section') {
   # without section number
   $valid_direction_return_type{$no_number_type .'_nonumber'} = 1;
 }
@@ -1916,7 +1917,8 @@ sub from_element_direction($$$;$$$)
     if ($type eq 'href') {
       return $self->get_conf('TOP_NODE_UP_URL');
     } elsif ($type eq 'text' or $type eq 'node' or $type eq 'string'
-                                                or $type eq 'section') {
+             or $type eq 'section' or $type eq 'section_nonumber'
+             or $type eq 'string_nonumber') {
       return $self->get_conf('TOP_NODE_UP');
     } else {
       cluck("BUG: type $type not available for TOP_NODE_UP\n");
@@ -1963,7 +1965,7 @@ sub from_element_direction($$$;$$$)
         }
       }
       $type = 'text';
-    } elsif ($type eq 'section') {
+    } elsif ($type eq 'section' or $type eq 'section_nonumber') {
       if ($target_unit->{'unit_command'}) {
         if ($target_unit->{'unit_command'}->{'cmdname'} ne 'node') {
           $command = $target_unit->{'unit_command'};
@@ -1974,7 +1976,11 @@ sub from_element_direction($$$;$$$)
                                         ->{'extra'}->{'associated_section'};
         }
       }
-      $type = 'text_nonumber';
+      if ($type eq 'section_nonumber') {
+        $type = 'text_nonumber';
+      } else {
+        $type = 'text';
+      }
     } else {
       $command = $target_unit->{'unit_command'};
       if ($type eq 'href') {
@@ -4129,7 +4135,7 @@ sub _default_panel_button_dynamic_direction($$;$$$)
   my $xrefautomaticsectiontitle = $self->get_conf('xrefautomaticsectiontitle');
   if (defined($xrefautomaticsectiontitle)
       and $xrefautomaticsectiontitle eq 'on') {
-    $node = $self->from_element_direction($direction, 'section');
+    $node = $self->from_element_direction($direction, 'section_nonumber');
   }
 
   if (!defined($node)) {
@@ -4475,7 +4481,7 @@ sub _default_format_navigation_header($$$$)
   }
   $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                                    $buttons, $cmdname, $element,
-                                   $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
+                               $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '</td>
 <td>
@@ -7227,7 +7233,7 @@ sub _entity_text
   return $text;
 }
 
-sub _convert_text($$$)
+sub _convert_text($$$$)
 {
   my $self = shift;
   my $type = shift;

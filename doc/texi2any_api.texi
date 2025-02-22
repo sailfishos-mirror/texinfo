@@ -3244,6 +3244,13 @@ Return text.
 
 @item string
 Return text in string context.  @xref{Init File Expansion Contexts}.
+
+@item text_nonumber
+Return text without the sectioning command number.
+
+@item string_nonumber
+Return text in string context without the sectioning command number.
+
 @end table
 @end deftypefun
 
@@ -4853,7 +4860,7 @@ associated with the output unit direction in priority.
 
 @end table
 
-@code{text} and @code{string} also have a variant with
+@code{text}, @code{string} and @code{section} also have a variant with
 @samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
 command number in the representation.
 
