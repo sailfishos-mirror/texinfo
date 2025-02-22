@@ -1,5 +1,17 @@
 2025-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (get_cmdline_customization_option),
+	tta/C/main/txi_config.c (set_option_value): do not decode input in
+	set_option_value but in get_cmdline_customization_option.
+
+	* tta/C/main/convert_utils.c (encoded_output_file_name): do not
+	consider DOC_ENCODING_FOR_OUTPUT_FILE_NAME set if undef.
+
+	* tta/C/main/utils.c (encode_with_iconv): distinguish error message
+	from C.
+
+2025-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/rawtext_converter_api.c
 	(initialize_text_options_encoding), tta/perl/Texinfo/Convert/Text.pm
 	(_initialize_text_options_encoding): rename initialize_options_encoding

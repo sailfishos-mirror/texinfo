@@ -560,11 +560,11 @@ encode_with_iconv (iconv_t our_iconv, char *s,
         case EILSEQ:
         default:
           if (source_info)
-            fprintf (stderr, "%s:%d: encoding error at byte 0x%02x\n",
+            fprintf (stderr, "%s:%d: C:encoding error at byte 0x%02x\n",
               source_info->file_name, source_info->line_nr,
                                              *(unsigned char *)inptr);
           else
-            fprintf (stderr, "encoding error at byte 0x%02x\n",
+            fprintf (stderr, "C:encoding error at byte 0x%02x\n",
                     *(unsigned char *)inptr);
           inptr++; bytes_left--;
           break;

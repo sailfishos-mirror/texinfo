@@ -163,6 +163,7 @@ txi_config_document_warn (const char *format, ...)
     }
 }
 
+/* The caller should have already converted a char option string to UTF-8 */
 static void
 set_option_value (OPTIONS_LIST *options_list, size_t number,
                   const char *value)
@@ -189,9 +190,6 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
       char *option_value;
       if (!value)
         option_value = strdup ("");
-      else if (option->type == GOT_char)
-        /* actually const, but constrained by protoypes */
-        option_value = GNUT_decode_input ((char *) value);
       else
         option_value = strdup (value);
       option_set_conf (option, 0, option_value);

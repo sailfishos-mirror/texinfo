@@ -335,8 +335,8 @@ encoded_output_file_name (const OPTIONS *options,
 
   if (options && options->OUTPUT_FILE_NAME_ENCODING.o.string)
     encoding = options->OUTPUT_FILE_NAME_ENCODING.o.string;
-  else if (!options
-           || options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer != 0)
+  else if (options
+           && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer > 0)
     {
       if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;

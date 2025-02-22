@@ -368,7 +368,15 @@ get_cmdline_customization_option (OPTIONS_LIST *options_list,
                 }
               else
                 {
-                  GNUT_set_from_cmdline (options_list, option->number, p);
+                  char *option_value = p;
+                  if (option->type == GOT_char)
+                    option_value = GNUT_decode_input (p);
+
+                  GNUT_set_from_cmdline (options_list, option->number,
+                                         option_value);
+
+                  if (option->type == GOT_char)
+                    free (option_value);
                 }
             }
         }
