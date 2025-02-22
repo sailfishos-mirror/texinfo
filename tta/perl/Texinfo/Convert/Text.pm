@@ -140,7 +140,7 @@ foreach my $type ('ignorable_spaces_after_command',
 my @text_indicator_converter_options
       = ('ASCII_GLYPH', 'NUMBER_SECTIONS', 'TEST');
 
-sub _initialize_options_encoding($$)
+sub _initialize_text_options_encoding($$)
 {
   my $self = shift;
   my $text_options = shift;
@@ -167,7 +167,7 @@ sub copy_options_for_convert_text($;$)
   my $options_in = shift;
   my %options;
 
-  _initialize_options_encoding($self, \%options);
+  _initialize_text_options_encoding($self, \%options);
 
   foreach my $option (@text_indicator_converter_options) {
     my $conf = $self->get_conf($option);
@@ -915,7 +915,7 @@ sub convert($$)
 
   Texinfo::Common::set_output_encoding($self, $document);
   # Cf comment in output() on using $self for options.
-  _initialize_options_encoding($self, $self);
+  _initialize_text_options_encoding($self, $self);
 
   my $root = $document->tree();
 
@@ -953,11 +953,11 @@ sub output($$)
   # However, since the option keys are very similar between the converter
   # and text options and expanded_formats is already set in the converter,
   # we use the converter object as text options and we call
-  # _initialize_options_encoding for the only option that is set up
+  # _initialize_text_options_encoding for the only option that is set up
   # based on other customization options.
   # Also, we need a blessed reference as get_conf can be called on the options,
   # using the converter brings that too.
-  _initialize_options_encoding($self, $self);
+  _initialize_text_options_encoding($self, $self);
 
   my $root = $document->tree();
 

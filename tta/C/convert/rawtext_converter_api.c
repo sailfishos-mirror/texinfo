@@ -51,8 +51,8 @@ rawtext_converter (CONVERTER *converter,
 }
 
 static void
-initialize_options_encoding (const OPTIONS *options,
-                                    TEXT_OPTIONS *text_options)
+initialize_text_options_encoding (const OPTIONS *options,
+                                  TEXT_OPTIONS *text_options)
 {
   if (options->ENABLE_ENCODING.o.integer > 0
       && options->OUTPUT_ENCODING_NAME.o.string)
@@ -83,8 +83,8 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
 
   set_output_encoding (converter->conf, document);
 
-  initialize_options_encoding (converter->conf,   
-                               converter->convert_text_options);
+  initialize_text_options_encoding (converter->conf,
+                                    converter->convert_text_options);
 
   if (document_info && document_info->input_file_name)
     {
@@ -130,7 +130,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
           basename_for_outfile = remove_extension (setfilename);
         }
       else if (strlen (input_basename))
-        basename_for_outfile = strdup (input_basename);  
+        basename_for_outfile = strdup (input_basename);
 
       if (basename_for_outfile)
         {
@@ -285,8 +285,8 @@ rawtext_convert (CONVERTER *converter, DOCUMENT *document)
 
   set_output_encoding (converter->conf, document);
 
-  initialize_options_encoding (converter->conf, 
-                               converter->convert_text_options);
+  initialize_text_options_encoding (converter->conf,
+                                    converter->convert_text_options);
 
   result = convert_to_text (document->tree,
                             converter->convert_text_options);

@@ -1,5 +1,12 @@
 2025-02-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/rawtext_converter_api.c
+	(initialize_text_options_encoding), tta/perl/Texinfo/Convert/Text.pm
+	(_initialize_text_options_encoding): rename initialize_options_encoding
+	as initialize_text_options_encoding.
+
+2025-02-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm: remove a FIXME on new HTML5
 	named accent entities, we won't use them, as decided by Gavin.
 
