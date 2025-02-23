@@ -617,24 +617,20 @@ Brian Fox reimplemented the conversion program in C, now called
 @cindex Dumas, Patrice
 In 2012, the C @command{makeinfo} was itself replaced by a Perl
 implementation generically called @command{texi2any}.  This version
-supports the same level of output customization as
-@command{texi2html}, an independent program originally written by
-Lionel Cons, later with substantial work by many others.  The many
-additional features needed to make @command{texi2html} a replacement
-for @command{makeinfo} were implemented by Patrice Dumas.  The first,
-never-released version of @command{texi2any} was based on the
-@command{texi2html} code.
+was initially based on @command{texi2html}, an independent program originally
+written by Lionel Cons, later with substantial work by many others.
+The features needed to make @command{texi2html} a replacement for
+@command{makeinfo} were implemented by Patrice Dumas.  That program, however,
+was never released.
 
 @cindex Tree representation of documents
 @cindex Syntax tree representation of documents
 @cindex Abstract syntax tree representation of documents
-That implementation, however, was abandoned in favor of the current
-program (also written by Patrice Dumas), which parses the Texinfo
-input into a tree for processing.  It inherited the design of
-customization and other features from @command{texi2html} (for more
-on @command{texi2html} compatibility, @pxref{@command{texi2html}}).
-However, @command{texi2any} is a full reimplementation: it constructs
-a tree-based representation of the input document for all back-ends
+The current implementation (also written by Patrice Dumas) inherited the design
+of customization and other features from @command{texi2html} (for more on
+@command{texi2html} compatibility, @pxref{@command{texi2html}}).  However,
+@command{texi2any} was a full reimplementation: unlike @command{texi2html},  it
+constructs a tree-based representation of the input document for all back-ends
 to work from.
 
 The new Perl program was intended to have the following advantages over
@@ -657,7 +653,7 @@ to rewriting the entire program.
 convoluted to the point where adding a new back-end was quite complex,
 requiring complex interactions with existing back-ends.  In contrast,
 the new implementation provides a clean tree-based representation for
-all back-ends to work from.  People have requested numerous different
+all back-ends to work from.  People had requested numerous different
 back-ends (@LaTeX{}, the latest (X)HTML, @dots{}); this change made them
 much more feasible to implement.
 
@@ -685,14 +681,12 @@ that require Perl.
 @anchor{Reference Implementation}@c
 @command{texi2any} is intended to be a reference implementation
 that defines parts of the language not fully specified by the manual.
-Without such a reference, alternative implementations would be very
-likely to have subtle, or not-so-subtle, differences in behavior,
-and thus Texinfo documents would become dependent on the processor.
-It is also important to have consistent command-line options for
-all processors.  Extensive tests of the language and processor were
-developed at the same time as @command{texi2any}; we encourage anyone
-thinking of writing a program to parse Texinfo input to make use of
-these tests.
+Without reference, Texinfo documents parsing could become dependent
+on the processor.  It is also desirable to have consistent command-line options
+for all processors.  Extensive tests of the language and processor are
+developed with @command{texi2any}; we encourage anyone thinking
+of writing a program to parse Texinfo input to verify the correctness
+of parsing Texinfo code used in these tests.
 
 
 @node Writing a Texinfo File
