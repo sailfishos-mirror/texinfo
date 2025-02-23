@@ -18,6 +18,11 @@
 
 #include "info.h"
 
+#include <unistd.h>
+#if defined (HAVE_SYS_WAIT_H)
+#include <sys/wait.h>
+#endif
+
 /* To find "infokey file", where user defs are kept and read by Info.  */
 #define PACKAGE      "texinfo"
 
@@ -129,3 +134,43 @@ locate_init_file (const char *init_file, const char *dot_init_file)
   return 0;
 }
 
+#define INFO_HOOKS_DIR "info-hooks"
+
+/* Run info hook and return exit status.  Return 127 if not found (same
+   as bash exit status for command not found). */
+int
+run_info_hook (const char *hook, char *const argv[])
+{
+#define exit_notfound 127
+  char *hook_name;
+  char *hook_file;
+
+  hook_name = xmalloc (strlen (INFO_HOOKS_DIR) + strlen ("/")
+                       + strlen (hook) + 1);
+  sprintf (hook_name, "%s/%s", INFO_HOOKS_DIR, hook);
+  hook_file = locate_init_file (hook_name, 0);
+  free (hook_name);
+  if (!hook_file)
+    return exit_notfound;
+
+  pid_t child = fork();
+  if (child == -1)
+    return exit_notfound; /* error forking */
+
+  if (child != 0)
+    {
+      /* In parent process. */
+      int exit_status;
+      free (hook_file);
+      wait (&exit_status);
+      return exit_status;
+    }
+  else
+    {
+      /* In child process.  */
+      execv (hook_file, argv);
+
+      return exit_notfound; /* shouldn't get here */
+    }
+#undef exit_notfound
+}

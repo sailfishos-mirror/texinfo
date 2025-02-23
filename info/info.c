@@ -27,6 +27,7 @@
 #include "getopt.h"
 #include "man.h"
 #include "variables.h"
+#include "configfiles.h"
 
 char *program_name = "info";
 
@@ -290,6 +291,35 @@ get_initial_file (int *argc, char ***argv, char **error)
       else
         xasprintf (error, _("No menu item '%s' in node '%s'"),
             (*argv)[0], "(dir)Top");
+    }
+
+  /* Run "manual not found" hook. */
+    {
+      debug (3, ("running manual-not-found hook"));
+      char *hook_name = "manual-not-found";
+
+      /* Create argument array. */
+      char *hook_args[3];
+
+      hook_args[0] = hook_name;
+      hook_args[1] = (*argv)[0];
+      hook_args[2] = 0;
+      int status = run_info_hook (hook_name, hook_args);
+      if (status == 0)
+        {
+          /* Hook handled manual. */
+          exit (EXIT_FAILURE);
+        }
+      else if (status != 127)
+        {
+          /* Hook ran but did not handle manual.  Keep on going. */
+          ;
+        }
+      else if (status == 127)
+        {
+          /* Hook not found.  Keep on going. */
+          ;
+        }
     }
 
   /* Fall back to loading man page. */

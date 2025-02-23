@@ -1,5 +1,14 @@
 2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Info hooks
+
+	* info/configfiles.c (run_info_hook): New function.  Locate
+	and run hook program by name.
+	* info/info.c (get_initial_file): If couldn't open file, call
+	'run_info_hook' with "manual-not-found" hook.
+
+2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infomap.c, info/configfiles.c (locate_init_file):
 	Move to new file configfiles.c.
 
