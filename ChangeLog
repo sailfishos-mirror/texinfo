@@ -1,5 +1,15 @@
 2025-02-23  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Adding Output Formats): remove useless index
+	entry, add index entries, fix path.
+
+	* doc/texinfo.texi (History): remove old information on makeinfo C
+	implementation and texi2html already implied by the history.
+
+	* doc/texinfo.texi (HTML Customization for Math): add missing to.
+
+2025-02-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
 	(html_converter_get_customization_sv): fix conditional on Perl
 	version by adding to external_references_number only if the version is

@@ -487,7 +487,6 @@ The output formats in the previous sections handle a wide variety of
 usage, but of course there is always room for more.
 
 @cindex Output formats, supporting more
-@cindex SGML-tools output format
 If you are a programmer and would like to contribute to the GNU
 project by implementing additional output formats for Texinfo, that
 would be excellent.  The way to do this that would be most useful is
@@ -495,11 +494,13 @@ to write a new back-end for @command{texi2any}, our reference
 implementation of a Texinfo parser; it creates a tree representation
 of the Texinfo input that you can use for the conversion.  The
 documentation in the source file
-@file{tp/Texinfo/Convert/Converter.pm} is a good place to start if you are
+@file{tta/perl/Texinfo/Convert/Converter.pm} is a good place to start if you are
 willing to develop in Perl
 (@pxref{Texinfo::Convert::Converter,,,texi2any_internals,Texinfo modules
 documentation}).  @xref{Generic Translator @command{texi2any}}.
 
+@cindex Output formats, with Texinfo XML as input
+@cindex Texinfo XML output, as input
 Another viable approach is use the Texinfo XML output from
 @command{texi2any} as your input.  This XML is an essentially complete
 representation of the input, but without the Texinfo syntax and option
@@ -658,10 +659,6 @@ back-ends (@LaTeX{}, the latest (X)HTML, @dots{}); this change made them
 much more feasible to implement.
 
 @end itemize
-
-With the release of @command{texi2any} as the reference implementation in 2012,
-development of both the C implementation of @command{makeinfo} and
-@command{texi2html} halted.
 
 @cindex Future of Texinfo implementations
 At the time,
@@ -18815,7 +18812,7 @@ including when processing @code{@@tex} sections.
 
 Processing with @command{latex2html} should leave files in the
 output directory, with @samp{-l2h} in their name, in particular
-a cache file to avoid redoing translation HTML if already done.
+a cache file to avoid redoing translation to HTML if already done.
 
 @xref{@command{latex2html} Customization Variables}.
 
