@@ -823,6 +823,7 @@ From doc/
 texi2pdf -I ../tta/tests/layout/ ../tta/tests/formatting_valid.texi
 
 To generate valgrind .supp rules: --gen-suppressions=all --log-file=gen_supp_rules.log
+
 mkdir -p val_res
 PERL_DESTRUCT_LEVEL=2
 export PERL_DESTRUCT_LEVEL
@@ -833,28 +834,20 @@ for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --suppre
 for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
 (for file in t/z_misc/*.t ; do bfile=`basename $file .t`; echo z_misc/$bfile; valgrind -q --leak-check=full perl -w $file ; done) > val_res/z_misc.out 2>&1
 
-In some cases, memory that is not released/freed, but that should still be
-accessible at the end of conversion is shown by valgrind as being leaked,
-ie, not accessible, with some missing symbols.  Typically static/global
-variables freed upon reuse, or left unreleased on purpose (parser conf, for
-example).  In that case adding --keep-debuginfo=yes shows the missing
-symbols.  The documentation of valgrind
-  https://valgrind.org/docs/manual/faq.html#faq.unhelpful
-hints that the memory appearing as leaked probably comes from a dlclosed object:
- "if the shared object is unloaded before the program terminates, Valgrind will discard the debug information and the error message will be full of ??? entries. If you use the option --keep-debuginfo=yes, then Valgrind will keep the debug information"
-What could happen in that case is that something
-prevents the memory still accessible from the dlclosed object to be released
-properly, such that all the data that would have been accessible before
-dlcosing becomes inaccessible, while being kept in valgrind output and appear
-as memory leaks.
-Call with --keep-debuginfo=yes:
-for file in t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
-for file in $srcdir/t/*.t ; do bfile=`basename $file .t`; echo $bfile; valgrind --keep-debuginfo=yes -q --leak-check=full perl -w $file > val_res/$bfile.out 2>&1 ; done
-
 For tests in tta/tests, a way to have valgrind call prependend is to add,
 in tta/defs:
 prepended_command='valgrind --leak-check=full -q'
 prepended_command='valgrind --leak-check=full -q --suppressions=../texi2any.supp'
+
+Before the code reorganization and the separation of linked against Gnulib
+and code linked against Perl, in some cases, memory that was not
+released/freed, but that should still be accessible at the end of conversion
+was shown by valgrind as being leaked, typically static/global
+variables freed upon reuse, or left unreleased on purpose (parser conf, for
+example) and some symbols were shown as ???.  It is unclear what the problem
+was, the documentation of valgrind hints that the memory appearing as leaked
+could have come a dlclosed object.  In that case adding --keep-debuginfo=yes
+showed the missing symbols as seen in the valgrind documentation.
 
 rm -rf t/check_debug_differences/
 mkdir t/check_debug_differences/
@@ -889,7 +882,7 @@ ms_print massif/massif_info.out > massif/ms_print_info.out
 With full XS (7.2 64M, with text separate 58.5M, without info_info 56M
               with integer extra keys 54M, with source marks as pointers 52.3M)
 mkdir -p massif
-valgrind --tool=massif --massif-out-file=massif/massif_html.out perl -w texi2any.pl --html ../doc/texinfo.texi
+valgrind --tool=massif --massif-out-file=massif/massif_html.out perl -w texi2any.pl --html ../../doc/texinfo.texi
 ms_print massif/massif_html.out > massif/ms_print_html.out
 useful-heap
 25M = 13.1 + 5.8 + 2.9 + 2.5 + 0.7 Perl
