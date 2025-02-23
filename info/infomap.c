@@ -549,85 +549,72 @@ static int sup_info, sup_ea;
 
 /* To find "infokey file", where user defs are kept and read by Info.  */
 #define PACKAGE      "texinfo"
-#define INFOKEY_FILE "infokey"
 
-/* MS-DOS doesn't allow leading dots in file names.  */
-#ifdef __MSDOS__
-#define DOT_INFOKEY_FILE                "_infokey"
-#else
-#define DOT_INFOKEY_FILE                ".infokey"
-#endif
+/* Locate init file.   Check for DOT_INIT_FILE under home directory, then
+   for INIT_FILE in XDG locations.
 
-
-
-/* Locate init file.  Return value to be freed by caller.
+   Return value to be freed by caller.
 
    See the "XDG Base Directory Specification" at
    https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 */
-char *
-locate_init_file (void)
+static char *
+locate_init_file (const char *init_file, const char *dot_init_file)
 {
   struct stat finfo;
   char *xdg_config_home, *homedir;
   char *filename = 0;
 
-  /* First, check for init file under XDG_CONFIG_HOME. */
+  homedir = getenv ("HOME");
+#ifdef __MINGW32__
+  if (!homedir)
+    homedir = getenv ("USERPROFILE");
+#endif
 
+  /* First, check for init file in home directory. */
+  if (dot_init_file)
+    {
+      if (homedir)
+        {
+          filename = xmalloc (strlen (homedir) + 2 + strlen (dot_init_file));
+          sprintf (filename, "%s/%s", homedir, dot_init_file);
+        }
+#if defined(__MSDOS__) || defined(__MINGW32__)
+      /* Poor baby, she doesn't have a HOME...  */
+      else
+        filename = xstrdup (dot_init_file); /* try current directory */
+#endif
+
+      if (filename)
+        {
+          if (stat (filename, &finfo) == 0)
+            return filename;
+          free (filename);
+        };
+    }
+
+  /* Then, try XDG locations. */
   xdg_config_home = getenv ("XDG_CONFIG_HOME");
   if (xdg_config_home)
     {
       xdg_config_home = strdup (xdg_config_home);
     }
-  else
+  else if (homedir)
     {
-      homedir = getenv ("HOME");
-#ifdef __MINGW32__
-      if (!homedir)
-        homedir = getenv ("USERPROFILE");
-#endif
-      if (homedir)
-        {
-          xdg_config_home = xmalloc (strlen (homedir)
-                                     + strlen ("/.config") + 1);
-          sprintf (xdg_config_home, "%s/%s", homedir, ".config");
-        }
+      xdg_config_home = xmalloc (strlen (homedir)
+                                 + strlen ("/.config") + 1);
+      sprintf (xdg_config_home, "%s/%s", homedir, ".config");
     }
 
   if (xdg_config_home)
     {
       filename = xmalloc (strlen (xdg_config_home) + 1
                           + strlen (PACKAGE) + 1
-                          + strlen (INFOKEY_FILE) + 1);
+                          + strlen (init_file) + 1);
       sprintf (filename, "%s/%s/%s",
-               xdg_config_home, PACKAGE, INFOKEY_FILE);
+               xdg_config_home, PACKAGE, init_file);
       free (xdg_config_home);
 
-      if (stat (filename, &finfo) == 0)
-        return filename;
-      free (filename);
-    }
-
-  /* Otherwise, use .infokey under home directory. */
-    homedir = getenv ("HOME");
-#ifdef __MINGW32__
-    if (!homedir)
-      homedir = getenv ("USERPROFILE");
-#endif
-
-  if (homedir)
-    {
-      filename = xmalloc (strlen (homedir) + 2 + strlen (DOT_INFOKEY_FILE));
-      sprintf (filename, "%s/%s", homedir, DOT_INFOKEY_FILE);
-    }
-#if defined(__MSDOS__) || defined(__MINGW32__)
-  /* Poor baby, she doesn't have a HOME...  */
-  else
-    filename = xstrdup (DOT_INFOKEY_FILE); /* try current directory */
-#endif
-
-  if (filename)
-    {
       if (stat (filename, &finfo) == 0)
         return filename;
       free (filename);
@@ -637,15 +624,14 @@ locate_init_file (void)
 #ifdef SYSCONFDIR
   filename = xmalloc (strlen (SYSCONFDIR) + strlen("/xdg/")
                       + strlen (PACKAGE) + 1
-                      + strlen (INFOKEY_FILE) + 1);
-  sprintf (filename, "%s/xdg/%s/%s", SYSCONFDIR, PACKAGE, INFOKEY_FILE);
+                      + strlen (init_file) + 1);
+  sprintf (filename, "%s/xdg/%s/%s", SYSCONFDIR, PACKAGE, init_file);
   if (stat (filename, &finfo) == 0)
     return filename;
   free (filename);
 #endif
 
   /* Finally, check through XDG_CONFIG_DIRS. */
-
   char *xdg_config_dirs = getenv ("XDG_CONFIG_DIRS");
   if (!xdg_config_dirs)
     return 0;
@@ -657,8 +643,8 @@ locate_init_file (void)
     {
       filename = xmalloc (strlen (dir) + 1
                           + strlen (PACKAGE) + 1
-                          + strlen (INFOKEY_FILE) + 1);
-      sprintf (filename, "%s/%s/%s", dir, PACKAGE, INFOKEY_FILE);
+                          + strlen (init_file) + 1);
+      sprintf (filename, "%s/%s/%s", dir, PACKAGE, init_file);
       if (stat (filename, &finfo) == 0)
         {
           free (xdg_config_dirs_split);
@@ -672,6 +658,21 @@ locate_init_file (void)
   return 0;
 }
 
+#define INFOKEY_FILE "infokey"
+
+/* MS-DOS doesn't allow leading dots in file names.  */
+#ifdef __MSDOS__
+#define DOT_INFOKEY_FILE                "_infokey"
+#else
+#define DOT_INFOKEY_FILE                ".infokey"
+#endif
+
+
+static char *
+locate_infokey_file (void)
+{
+  return locate_init_file (INFOKEY_FILE, DOT_INFOKEY_FILE);
+}
 
 /* Fetch the contents of the init file at INIT_FILE, or the standard
    infokey file "$HOME/.infokey".  Return non-zero if an init file was
@@ -689,7 +690,7 @@ fetch_user_maps (char *init_file)
   if (init_file)
     filename = xstrdup (init_file);
   else
-    filename = locate_init_file ();
+    filename = locate_infokey_file ();
 
   if (filename)
     inf = fopen (filename, "r");
