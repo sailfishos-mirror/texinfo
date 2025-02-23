@@ -1,5 +1,10 @@
 2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (History): trim down, by removing too specific and
+	dated parts.
+
+2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Info hooks
 
 	* info/configfiles.c (run_info_hook): New function.  Locate

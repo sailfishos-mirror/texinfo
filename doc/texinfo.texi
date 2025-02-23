@@ -637,11 +637,8 @@ However, @command{texi2any} is a full reimplementation: it constructs
 a tree-based representation of the input document for all back-ends
 to work from.
 
-The new Perl program was much slower than the old C program.
-So why did we switch?  In short, we intended and hoped that the program would
-be much easier than the previous C implementation of @command{makeinfo} to
-extend to different output styles, back-end output formats, and all other
-customizations.  In more detail:
+The new Perl program was intended to have the following advantages over
+the old C program:
 
 @itemize @bullet
 @item HTML customization.  Many GNU and other free software packages
@@ -654,10 +651,7 @@ enormous effort at that time.
 
 @item Unicode, and multilingual support generally, especially of east
 Asian languages.  At that time, doing it in C would have been tantamount
-to rewriting the entire program.  Since then, multilingual support for C and C
-in @command{texi2any} has progressed importantly.  Perl multilingual support is
-only required for index entries sorting nowadays, to be able to have spaces and
-punctuation marks sort before letters.
+to rewriting the entire program.
 
 @item Additional back-ends.  The @command{makeinfo} code had become
 convoluted to the point where adding a new back-end was quite complex,
@@ -665,22 +659,18 @@ requiring complex interactions with existing back-ends.  In contrast,
 the new implementation provides a clean tree-based representation for
 all back-ends to work from.  People have requested numerous different
 back-ends (@LaTeX{}, the latest (X)HTML, @dots{}); this change made them
-much more feasible to implement.  Which leads to the last item:
-
-@item Making contributions easier.  In general, due to the cleaner
-structure, the separate parser/back-ends implementation
-should be considerably easier than the former C @command{makeinfo}
-implementation for anyone to read and contribute to, with the resulting
-obvious benefits.  After thirteen years, contributed back-ends were yet to
-happen, but it is still believed that this structure could in theory lend
-better to contributions.
+much more feasible to implement.
 
 @end itemize
 
-@cindex Future of Texinfo implementations
 With the release of @command{texi2any} as the reference implementation in 2012,
 development of both the C implementation of @command{makeinfo} and
-@command{texi2html} halted.  Since then, the parser, part of the Info converter
+@command{texi2html} halted.
+
+@cindex Future of Texinfo implementations
+At the time,
+the new Perl program was much slower than the old C program.
+Since then, the parser, part of the Info converter
 and the HTML converter as a whole have been translated to C, leading to
 important gains in speed compared to the pure Perl implementation of
 @command{texi2any}.  The main program has also been translated to C.  The
