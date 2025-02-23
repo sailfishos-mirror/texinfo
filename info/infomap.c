@@ -20,6 +20,7 @@
 #include "info.h"
 #include "doc.h"
 #include "funs.h"
+#include "configfiles.h"
 #include "session.h"
 #include "terminal.h"
 #include "variables.h"
@@ -546,117 +547,6 @@ static int default_vi_like_ea_keys[] =
 /* Whether to suppress the default key bindings. */
 static int sup_info, sup_ea;
 
-
-/* To find "infokey file", where user defs are kept and read by Info.  */
-#define PACKAGE      "texinfo"
-
-/* Locate init file.   Check for DOT_INIT_FILE under home directory, then
-   for INIT_FILE in XDG locations.
-
-   Return value to be freed by caller.
-
-   See the "XDG Base Directory Specification" at
-   https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-*/
-static char *
-locate_init_file (const char *init_file, const char *dot_init_file)
-{
-  struct stat finfo;
-  char *xdg_config_home, *homedir;
-  char *filename = 0;
-
-  homedir = getenv ("HOME");
-#ifdef __MINGW32__
-  if (!homedir)
-    homedir = getenv ("USERPROFILE");
-#endif
-
-  /* First, check for init file in home directory. */
-  if (dot_init_file)
-    {
-      if (homedir)
-        {
-          filename = xmalloc (strlen (homedir) + 2 + strlen (dot_init_file));
-          sprintf (filename, "%s/%s", homedir, dot_init_file);
-        }
-#if defined(__MSDOS__) || defined(__MINGW32__)
-      /* Poor baby, she doesn't have a HOME...  */
-      else
-        filename = xstrdup (dot_init_file); /* try current directory */
-#endif
-
-      if (filename)
-        {
-          if (stat (filename, &finfo) == 0)
-            return filename;
-          free (filename);
-        };
-    }
-
-  /* Then, try XDG locations. */
-  xdg_config_home = getenv ("XDG_CONFIG_HOME");
-  if (xdg_config_home)
-    {
-      xdg_config_home = strdup (xdg_config_home);
-    }
-  else if (homedir)
-    {
-      xdg_config_home = xmalloc (strlen (homedir)
-                                 + strlen ("/.config") + 1);
-      sprintf (xdg_config_home, "%s/%s", homedir, ".config");
-    }
-
-  if (xdg_config_home)
-    {
-      filename = xmalloc (strlen (xdg_config_home) + 1
-                          + strlen (PACKAGE) + 1
-                          + strlen (init_file) + 1);
-      sprintf (filename, "%s/%s/%s",
-               xdg_config_home, PACKAGE, init_file);
-      free (xdg_config_home);
-
-      if (stat (filename, &finfo) == 0)
-        return filename;
-      free (filename);
-    }
-
-  /* Next, check sysconfdir. */
-#ifdef SYSCONFDIR
-  filename = xmalloc (strlen (SYSCONFDIR) + strlen("/xdg/")
-                      + strlen (PACKAGE) + 1
-                      + strlen (init_file) + 1);
-  sprintf (filename, "%s/xdg/%s/%s", SYSCONFDIR, PACKAGE, init_file);
-  if (stat (filename, &finfo) == 0)
-    return filename;
-  free (filename);
-#endif
-
-  /* Finally, check through XDG_CONFIG_DIRS. */
-  char *xdg_config_dirs = getenv ("XDG_CONFIG_DIRS");
-  if (!xdg_config_dirs)
-    return 0;
-
-  char *xdg_config_dirs_split = xstrdup (xdg_config_dirs);
-
-  char *dir = strtok (xdg_config_dirs_split, ":");
-  while (dir)
-    {
-      filename = xmalloc (strlen (dir) + 1
-                          + strlen (PACKAGE) + 1
-                          + strlen (init_file) + 1);
-      sprintf (filename, "%s/%s/%s", dir, PACKAGE, init_file);
-      if (stat (filename, &finfo) == 0)
-        {
-          free (xdg_config_dirs_split);
-          return filename;
-        }
-      free (filename);
-      dir = strtok (NULL, ":");
-    }
-
-  free (xdg_config_dirs_split);
-  return 0;
-}
 
 #define INFOKEY_FILE "infokey"
 

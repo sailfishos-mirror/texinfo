@@ -1,5 +1,10 @@
 2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/infomap.c, info/configfiles.c (locate_init_file):
+	Move to new file configfiles.c.
+
+2025-02-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info init file loading
 
 	* info/infomap.c (locate_init_file): Take arguments instead

@@ -50,8 +50,8 @@ LDADD += $(MBRTOWC_LIB)
 
 EXTRA_DIST = pcterm.c
 
-ginfo_SOURCES = dir.c display.c display.h doc.h dribble.c dribble.h \
-  echo-area.c echo-area.h \
+ginfo_SOURCES = configfiles.c configfiles.h dir.c display.c display.h \
+  doc.h dribble.c dribble.h echo-area.c echo-area.h \
   filesys.c filesys.h footnotes.c footnotes.h indices.c indices.h \
   info.c info.h infodoc.c infokey.c \
   infomap.c infomap.h infopath.c m-x.c man.c man.h nodemenu.c \
