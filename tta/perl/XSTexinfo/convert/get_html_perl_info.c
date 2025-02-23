@@ -298,6 +298,7 @@ html_converter_get_customization_sv (SV *converter_sv,
   converter_hv = (HV *)SvRV (converter_sv);
 
 #if PERL_VERSION > 21 || (PERL_VERSION == 21 && PERL_SUBVERSION > 4)
+#else
       /* see html_get_button_specification_list, in that case the Perl
          function for default buttons is always selected, requiring
          Perl converter state initialization.
