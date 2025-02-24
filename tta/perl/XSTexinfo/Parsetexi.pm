@@ -84,7 +84,8 @@ sub parser (;$)
           parser_conf_set_documentlanguage($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
-        if ($conf->{$key} and $conf->{$key} eq 'menu') {
+        if ($conf->{$key} and ($conf->{$key} eq 'menu'
+                               or $conf->{$key} eq 'menu_no_detailmenu')) {
           parser_conf_set_show_menu(1);
         } else {
           parser_conf_set_show_menu(0);

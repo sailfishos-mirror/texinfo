@@ -2537,7 +2537,8 @@ html_converter_customize (CONVERTER *self)
               = commands_internal_conversion_table[i].command_conversion;
     }
 
-  if (strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
+  if (strcmp (self->conf->FORMAT_MENU.o.string, "menu")
+      && strcmp (self->conf->FORMAT_MENU.o.string, "menu_no_detailmenu"))
     {
       static enum command_id menu_cmd_list[]
        = {CM_menu, CM_detailmenu, 0};

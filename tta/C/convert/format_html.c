@@ -7232,33 +7232,49 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
         {
           mini_toc_internal (self, element, &toc_or_mini_toc_or_auto_menu);
         }
-      else if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
+      else
         {
-          const ELEMENT *node
-            = lookup_extra_element (element, AI_key_associated_node);
-          if (node)
+          int format_menu = 0;
+          if (!strcmp (self->conf->FORMAT_MENU.o.string, "menu"))
+            format_menu = 1;
+          else if (!strcmp (self->conf->FORMAT_MENU.o.string,
+                            "menu_no_detailmenu"))
+            format_menu = 2;
+          if (format_menu)
             {
-              /* arguments_line type element */
-              const ELEMENT *arguments_line = node->e.c->contents.list[0];
-              int automatic_directions
-                = (arguments_line->e.c->contents.number <= 1);
-              const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
-                                                              AI_key_menus);
-              if (!menus && automatic_directions)
+              const ELEMENT *node
+                = lookup_extra_element (element, AI_key_associated_node);
+              if (node)
                 {
-                  ELEMENT *menu_node
-                   = new_complete_menu_master_menu (&self->error_messages,
-                         self->conf, &self->document->identifiers_target, node);
-
-                  if (menu_node)
+                  /* arguments_line type element */
+                  const ELEMENT *arguments_line = node->e.c->contents.list[0];
+                  int automatic_directions
+                    = (arguments_line->e.c->contents.number <= 1);
+                  const CONST_ELEMENT_LIST *menus = lookup_extra_contents (node,
+                                                                  AI_key_menus);
+                  if (!menus && automatic_directions)
                     {
-                      add_tree_to_build (self, menu_node);
-                      html_convert_tree_append (self, menu_node,
+                      ELEMENT *menu_node;
+
+                      if (format_menu == 1)
+                        menu_node
+                       = new_complete_menu_master_menu (&self->error_messages,
+                         self->conf, &self->document->identifiers_target, node);
+                      else
+                         /* menu_no_detailmenu */
+                        menu_node
+                          = new_complete_node_menu (node, self->document,
+                                                    self->conf, 0);
+                      if (menu_node)
+                        {
+                          add_tree_to_build (self, menu_node);
+                          html_convert_tree_append (self, menu_node,
                                                 &toc_or_mini_toc_or_auto_menu,
                                                 "master menu");
-                      remove_tree_to_build (self, menu_node);
+                          remove_tree_to_build (self, menu_node);
                       /* there are only new or copied elements in the menu */
-                      destroy_element_and_children (menu_node);
+                          destroy_element_and_children (menu_node);
+                        }
                     }
                 }
             }

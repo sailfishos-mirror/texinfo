@@ -1,3 +1,20 @@
+2025-02-24  Patrice Dumas  <pertusus@free.fr>
+
+	Add menu_no_detailmenu for FORMAT_MENU without automatic @detailmenu
+
+	* doc/texinfo.texi (Global Customization Variables, HTML Output
+	Structure Customization), tta/C/convert/format_html.c
+	(html_convert_heading_command), tta/C/convert/html_prepare_converter.c
+	(html_converter_customize), tta/C/convert/texinfo.c (txi_parser),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command)
+	(converter_initialize), tta/perl/Texinfo/ParserNonXS.pm
+	(_register_extra_menu_entry_information, _handle_block_command),
+	tta/perl/Texinfo/Structuring.pm (set_menus_node_directions),
+	tta/perl/XSTexinfo/Parsetexi.pm (parser): add the possibility to set
+	FORMAT_MENU to menu_no_detailmenu to use menus for navigation but do
+	not automatically generate a @detailmenu in the Top node master menu
+	for HTML.  Report from Werner Lemberg.
+
 2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Overview): Change reference for texinfo.tex

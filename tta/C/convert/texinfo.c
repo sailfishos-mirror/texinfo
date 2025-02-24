@@ -366,7 +366,9 @@ txi_parser (const char *file_path, const VALUE_LIST *values,
             }
           else if (!strcmp (option->name, "FORMAT_MENU"))
             {
-              if (option->o.string && !strcmp (option->o.string, "menu"))
+              if (option->o.string
+                  && (!strcmp (option->o.string, "menu")
+                      || !strcmp (option->o.string, "menu_no_detailmenu")))
                 parser_conf_set_show_menu (1);
               else
                 parser_conf_set_show_menu (0);

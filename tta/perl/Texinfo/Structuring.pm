@@ -602,9 +602,11 @@ sub set_menus_node_directions($)
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
+  my $format_menu = $customization_information->get_conf('FORMAT_MENU');
+
   my $check_menu_entries = (!$customization_information->get_conf('novalidate')
-      and (!defined($customization_information->get_conf('FORMAT_MENU'))
-           or $customization_information->get_conf('FORMAT_MENU') eq 'menu'));
+      and (!defined($format_menu) or $format_menu eq 'menu'
+           or $format_menu eq 'menu_no_detailmenu'));
 
   # First go through all the menus and set menu up, menu next and menu prev,
   # and warn for unknown nodes.

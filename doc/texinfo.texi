@@ -15766,8 +15766,10 @@ the C @command{texi2any} implementation.
 If set to @samp{menu}, output Texinfo menus.  This is the default for
 Info.  @samp{sectiontoc} is the default setting for HTML, where instead
 of the contents of @code{@@menu} blocks being output, a list of subordinate
-sections is output in each node.  If set to @samp{nomenu}, do not output
-menus.
+sections is output in each node.  Set to @samp{menu_no_detailmenu} instead of
+@samp{menu} in HTML if you want menus but no automatically generated
+@code{@@detailmenu} in Top node master menu.  If set to
+@samp{nomenu}, do not output menus.
 
 This variable is set to @samp{nomenu} when generating DocBook, or when
 @option{--no-headers} is specified.
@@ -18227,9 +18229,11 @@ can override this by setting @code{SHOW_TITLE} to 0.
 @vindex FORMAT_MENU @subentry @r{for HTML}
 In each node, by default a list is output of subordinate sections
 for navigation.  This corresponds to the @code{FORMAT_MENU} variable
-being set to @samp{sectiontoc}.  To use menus instead to navigate in
-the document (as in Info format; @pxref{Menus}), set @code{FORMAT_MENU}
-to @samp{menu}.  If you do not want either menus or subordinate sections
+being set to @samp{sectiontoc}.  To use menus instead to navigate in the
+document (as in Info format; @pxref{Menus}), set @code{FORMAT_MENU} to
+@samp{menu}.  Set @code{FORMAT_MENU} to @samp{menu_no_detailmenu} if you
+want menus but no automatically generated @code{@@detailmenu} for
+the Top master menu.  If you do not want either menus or subordinate sections
 list for navigation to be output, set @code{FORMAT_MENU} to @samp{nomenu}.
 
 @vindex CONTENTS_OUTPUT_LOCATION

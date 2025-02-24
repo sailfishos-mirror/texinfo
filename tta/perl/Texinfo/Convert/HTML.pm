@@ -4713,11 +4713,12 @@ sub _convert_heading_command($$$$$)
     }
   }
 
+  my $format_menu = $self->get_conf('FORMAT_MENU');
   if ($toc_or_mini_toc_or_auto_menu eq ''
       and $sectioning_heading_commands{$cmdname}) {
-    if ($self->get_conf('FORMAT_MENU') eq 'sectiontoc') {
+    if ($format_menu eq 'sectiontoc') {
       $toc_or_mini_toc_or_auto_menu = _mini_toc($self, $element);
-    } elsif ($self->get_conf('FORMAT_MENU') eq 'menu') {
+    } elsif ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
       my $node = $element->{'extra'}->{'associated_node'}
         if ($element->{'extra'} and $element->{'extra'}->{'associated_node'});
 
@@ -4736,9 +4737,15 @@ sub _convert_heading_command($$$$$)
           if ($document) {
             $identifiers_target = $document->labels_information();
           }
-          my $menu_node
-            = Texinfo::Structuring::new_complete_menu_master_menu($self,
+          my $menu_node;
+          if ($format_menu eq 'menu') {
+            $menu_node
+              = Texinfo::Structuring::new_complete_menu_master_menu($self,
                                                  $identifiers_target, $node);
+          } else { # $format_menu eq 'menu_no_detailmenu'
+            $menu_node
+              = Texinfo::Structuring::new_complete_node_menu($node, $self);
+          }
           if ($menu_node) {
             $toc_or_mini_toc_or_auto_menu = $self->convert_tree($menu_node,
                                                          'master menu');
@@ -9080,8 +9087,9 @@ sub converter_initialize($)
       $self->{'commands_conversion'}->{$command}
           = $customized_commands_conversion->{$command};
     } else {
-      if ($self->get_conf('FORMAT_MENU') ne 'menu'
-           and ($command eq 'menu' or $command eq 'detailmenu')) {
+      my $format_menu = $self->get_conf('FORMAT_MENU');
+      if ($format_menu ne 'menu' and $format_menu ne 'menu_no_detailmenu'
+          and ($command eq 'menu' or $command eq 'detailmenu')) {
         $self->{'commands_conversion'}->{$command} = undef;
       } elsif ($format_raw_commands{$command}
                and !$self->{'expanded_formats'}->{$command}) {

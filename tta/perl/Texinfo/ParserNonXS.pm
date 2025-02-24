@@ -4876,7 +4876,8 @@ sub _register_extra_menu_entry_information($$;$)
     } elsif ($arg->{'type'} eq 'menu_entry_node') {
       _isolate_trailing_space($arg, 'space_at_end_menu_node');
       if (! $arg->{'contents'}) {
-        if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
+        my $format_menu = $self->{'conf'}->{'FORMAT_MENU'};
+        if ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
           $self->_line_error(__("empty node name in menu entry"), $source_info);
         }
       } else {
@@ -6117,7 +6118,8 @@ sub _handle_block_command($$$$$)
            $block if ($command eq 'direntry');
       if ($self->{'current_node'}) {
         if ($command eq 'direntry') {
-          if ($self->{'conf'}->{'FORMAT_MENU'} eq 'menu') {
+          my $format_menu = $self->{'conf'}->{'FORMAT_MENU'};
+          if ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
             $self->_line_warn(__("\@direntry after first node"),
                       $source_info);
           }
@@ -8392,8 +8394,9 @@ conditional blocks should be expanded.  Default is empty.
 
 =item FORMAT_MENU
 
-Possible values are C<nomenu>, C<menu> and C<sectiontoc>.  Only report
-menu-related errors for C<menu>.
+Possible values are C<nomenu>, C<menu>, C<menu_no_detailmenu> and
+C<sectiontoc>.  Only report menu-related errors for C<menu> and
+C<menu_no_detailmenu>.
 
 =item INCLUDE_DIRECTORIES
 
