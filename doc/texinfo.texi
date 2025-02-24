@@ -10810,7 +10810,7 @@ flag (@pxref{@code{@@set @@value}}).  For example, this input
 
 @example
 @@set txidefnamenospace
-@@deffn Builtin index (string, substring)
+@@deffn Builtin m4_index (string, substring)
 @@dots@{@}
 @@end deffn
 @end example
@@ -10818,7 +10818,7 @@ flag (@pxref{@code{@@set @@value}}).  For example, this input
 @noindent produces the following:
 
 @set txidefnamenospace
-@deffn Builtin index (string, substring)
+@deffn Builtin m4_index (string, substring)
 @dots{}
 @end deffn
 @clear txidefnamenospace
