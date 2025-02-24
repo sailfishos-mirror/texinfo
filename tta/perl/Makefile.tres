@@ -600,6 +600,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/acronym_in_node_and_section.pl \
   t/results/html_tests/anchor_on_vtable_item.pl \
   t/results/html_tests/automatic_menus.pl \
+  t/results/html_tests/automatic_menus_format_menu_no_detailmenu.pl \
   t/results/html_tests/base_for_css_info_in_init_test.pl \
   t/results/html_tests/base_for_css_info_in_init_test/res_html \
   t/results/html_tests/character_number_leading_toc_stoc.pl \

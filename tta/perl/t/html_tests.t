@@ -753,6 +753,22 @@ in html
 @node sec after
 @section Sec after
 ', {'FORMAT_MENU' => 'menu'}, {'FORMAT_MENU' => 'menu'},],
+['automatic_menus_format_menu_no_detailmenu',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+@nodedescription Here we begin
+
+@node sec
+@section A section
+@nodedescription Here in section
+
+@node sec after
+@section Sec after
+', {'FORMAT_MENU' => 'menu_no_detailmenu'},
+   {'FORMAT_MENU' => 'menu_no_detailmenu'},],
 ['mathjax_with_texinfo',
 $mathjax_with_texinfo,
 {}, {'HTML_MATH' => 'mathjax'}],
