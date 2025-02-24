@@ -147,7 +147,8 @@ sub _convert($$)
                  or ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
                      and (!$element->{'extra'}->{'format'}
                           or !$self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}))
-                 or ($element->{'cmdname'} eq 'menu' and $self->get_conf('FORMAT_MENU') eq 'nomenu')
+                 or ($element->{'cmdname'} eq 'menu'
+                     and $self->get_conf('FORMAT_MENU') eq 'nomenu')
              # here ignore most of the line commands
                  or ($element->{'contents'} and $element->{'contents'}->[0]
                      and $element->{'contents'}->[0]->{'type'}

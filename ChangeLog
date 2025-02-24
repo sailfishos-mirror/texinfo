@@ -1,5 +1,12 @@
 2025-02-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert): set explicit
+	$arguments_line for clearer code.
+
+	* tta/perl/Texinfo/Convert/TextContent.pm (_convert): reindent.
+
+2025-02-24  Patrice Dumas  <pertusus@free.fr>
+
 	Add menu_no_detailmenu for FORMAT_MENU without automatic @detailmenu
 
 	* doc/texinfo.texi (Global Customization Variables, HTML Output

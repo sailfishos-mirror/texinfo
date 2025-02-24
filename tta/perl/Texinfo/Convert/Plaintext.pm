@@ -4414,7 +4414,8 @@ sub _convert($$)
              and $self->{'current_node'}) {
       # add menu if missing
       my $node = $self->{'current_node'};
-      my $automatic_directions = (scalar(@{$node->{'contents'}->[0]->{'contents'}}) <= 1);
+      my $arguments_line = $node->{'contents'}->[0];
+      my $automatic_directions = (scalar(@{$arguments_line->{'contents'}}) <= 1);
       if ($automatic_directions and !$self->{'seenmenus'}->{$node}) {
         my $identifiers_target;
         if ($self->{'document'}) {
