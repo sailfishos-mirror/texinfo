@@ -184,6 +184,13 @@ Texinfo processors what to do.  Texinfo's markup commands are almost
 entirely @dfn{semantic}; that is, they specify the intended meaning
 of text in the document, rather than physical formatting instructions.
 
+Output to most output formats is handled by the @command{texi2any}
+program.  @xref{Generic Translator @command{texi2any}}.
+The exception is when Texinfo code is processed by @TeX{} to DVI or
+PDF (@pxref{Hardcopy with @TeX{}}).
+Emacs also offers commands for converting Texinfo code to Info
+(@pxref{@code{texinfo-format} commands}).
+
 GNU Emacs has a special mode, called Texinfo mode, that provides various
 Texinfo-related features. (@xref{Texinfo Mode}.)
 

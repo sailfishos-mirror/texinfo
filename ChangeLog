@@ -1,3 +1,8 @@
+2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Overview): Mention the main Texinfo processors
+	in this node.  Suggestion from Patrice.
+
 2025-02-23  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Adding Output Formats): remove useless index
