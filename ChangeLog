@@ -1,5 +1,10 @@
 2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Overview): Change reference for texinfo.tex
+	to section in this chapter.
+
+2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (History, Adding Output Formats):
 	Move exhortation to use texi2any test cases to "Adding Output
 	Formats" and merge with existing text.
