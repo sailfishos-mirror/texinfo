@@ -631,12 +631,6 @@ important gains in speed compared to the pure Perl implementation of
 that require Perl.
 
 
-Extensive tests of the language and processor are
-developed with @command{texi2any}; we encourage anyone thinking
-of writing a program to parse Texinfo input to verify the correctness
-of parsing Texinfo code used in these tests.
-
-
 @node Adding Output Formats
 @nodedescription Man pages and implementing new formats.
 @section Adding Output Formats
@@ -670,9 +664,14 @@ If you still cannot resist the temptation of writing a new program
 that reads Texinfo source directly, let us give some more caveats:
 please do not underestimate the amount of work required.  Texinfo is
 by no means a simple language to parse correctly, and remains under
-development, so you would be committing to an ongoing task.  You
-are advised to check that the tests of the language that come with
-@command{texi2any} give correct results with your new program.
+development, so you would be committing to an ongoing task.
+
+@cindex Texinfo language tests
+@cindex Tests, of Texinfo language
+Extensive tests of the language and processor are
+developed with @command{texi2any}; we encourage anyone thinking
+of writing a program to process Texinfo to use these test cases
+and verify that they give correct results with your new program.
 
 @cindex Man page output, not supported
 From time to time, proposals are made to generate traditional Unix man
