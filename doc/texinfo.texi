@@ -607,6 +607,17 @@ all back-ends to work from.  People had requested numerous different
 back-ends (@LaTeX{}, the latest (X)HTML, @dots{}); this change made them
 much more feasible to implement.
 
+@cindex @command{texi2any}, as reference implementation
+@cindex Reference implementation
+@cindex Implementation, @command{texi2any} as reference
+@cindex Texinfo language tests
+@cindex Tests, of Texinfo language
+@anchor{Reference Implementation}@c
+@item @command{texi2any} was intended to be a reference implementation
+that defines parts of the language not fully specified by the manual,
+and to provide a reference for command-line options for any other
+program that might process Texinfo in the future.
+
 @end itemize
 
 @cindex Future of Texinfo implementations
@@ -619,17 +630,8 @@ important gains in speed compared to the pure Perl implementation of
 @command{texi2any} C implementation embeds a Perl interpreter for the parts
 that require Perl.
 
-@cindex @command{texi2any}, as reference implementation
-@cindex Reference implementation
-@cindex Implementation, @command{texi2any} as reference
-@cindex Texinfo language tests
-@cindex Tests, of Texinfo language
-@anchor{Reference Implementation}@c
-@command{texi2any} is intended to be a reference implementation
-that defines parts of the language not fully specified by the manual.
-Without reference, Texinfo documents parsing could become dependent
-on the processor.  It is also desirable to have consistent command-line options
-for all processors.  Extensive tests of the language and processor are
+
+Extensive tests of the language and processor are
 developed with @command{texi2any}; we encourage anyone thinking
 of writing a program to parse Texinfo input to verify the correctness
 of parsing Texinfo code used in these tests.

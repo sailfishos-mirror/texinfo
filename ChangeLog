@@ -1,5 +1,11 @@
 2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (History): Move discussion of "reference
+	implementation" into list of advantages of Perl program, and
+	edit.
+
+2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (No Space After Definition Name):
 	Alter example slightly to avoid creating index entry for 'index',
 	which clashes with actual discussion of Texinfo indexing.
