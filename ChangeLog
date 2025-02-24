@@ -1,5 +1,9 @@
 2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (History, Adding Output Formats): Swap nodes.
+
+2025-02-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Overview): Mention the main Texinfo processors
 	in this node.  Suggestion from Patrice.
 
