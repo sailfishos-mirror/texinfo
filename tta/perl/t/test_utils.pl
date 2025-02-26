@@ -352,6 +352,7 @@ my @node_keys = ('node_directions',
 # in general, the 'parent' keys adds lot of non legible information,
 # however to punctually test for regressions on this information, the
 # best is to add it in tree tests by removing from @avoided_keys_tree.
+# Output units are shown if test_split is set.
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'float_number', 'tree_unit_directions', 'directions',

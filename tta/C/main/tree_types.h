@@ -263,7 +263,7 @@ typedef struct ELEMENT {
     void *hv;
 
     enum element_type type;
-    uint16_t flags; /* 16 flags, could use uint32_t if more are needed */
+    uint16_t flags; /* can hold up to 16 flags, could use uint32_t for more */
     struct ELEMENT *parent;
     /* depends on the element, can be space elements, comments */
     struct ELEMENT **elt_info;
@@ -388,5 +388,8 @@ typedef struct TREE_ADDED_ELEMENTS {
 #define EF_isindex                       0x0400
 /* not in Perl */
 #define EF_def_line                      0x0800
+/* transiently used for numbering of the elements for the representation
+   of the tree */
+#define EF_numbered                      0x1000
 
 #endif

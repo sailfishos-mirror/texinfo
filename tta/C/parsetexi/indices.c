@@ -494,6 +494,8 @@ complete_indices (DOCUMENT *document, int debug_level)
                        */
                       index_entry->type = ET_NONE;
 
+                      /* the order is significant for tree printing.  It should
+                         match the lexicographic order used in Perl */
                       add_extra_element_oot (main_entry_element,
                                              AI_key_def_index_element,
                                              index_entry);

@@ -1,5 +1,37 @@
 2025-02-26  Patrice Dumas  <pertusus@free.fr>
 
+	Add a detailed print of the tree in C
+
+	* tta/C/main/manipulate_tree.c (setup_element_number)
+	(remove_element_number): put a number for elements that are referred
+	to by other elements recursively, at the end of element->elt_info with
+	setup_element_number.  Remove the number with remove_element_number.
+
+	* tta/C/main/manipulate_tree.c (ADDITIONAL_INFO_NAME_VAL)
+	(ADDITIONAL_INFO_NAME_VAL_LIST, add_info_name_value)
+	(compare_name_value, print_info_strings, add_info_name_string_value)
+	(print_element_info, print_element_extra): add
+	ADDITIONAL_INFO_NAME_VAL with a name and value to help with printing
+	additional info and extra of an ellement.  Register with
+	add_info_name_value or add_info_name_string_value, print with
+	print_info_strings, after sorting by name.  Add print_element_info and
+	print_element_extra to register info or extra information and print.
+
+	* tta/C/main/manipulate_tree.c (print_text_element)
+	(print_element, print_element_add_prepend_info)
+	(element_number_or_error, print_element_source_info, print_tree): add
+	print_tree to print tree elements, with a first pass to add numbers,
+	calling setup_element_number, then the recursive printing of the tree
+	elements with print_text_element and print_element.  No source marks
+	for now.
+
+	* tta/data/options_data.txt: add DUMP_STRUCTURE option.
+
+	* tta/C/texi2any.c (main), doc/texinfo.texi (Global Customization
+	Variables): call print_tree if DUMP_TREE or DUMP_STRUCTURE is set.
+
+2025-02-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (element_to_perl_hash): remove
 	redundant setting of is_target.
 

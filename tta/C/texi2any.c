@@ -57,6 +57,8 @@
 #include "errors.h"
 #include "customization_options.h"
 #include "txi_config.h"
+/* print_tree */
+#include "manipulate_tree.h"
 /* set_document_options */
 #include "document.h"
 #include "convert_to_texinfo.h"
@@ -2107,7 +2109,7 @@ main (int argc, char *argv[], char *env[])
 
   debug_option = GNUT_get_conf (program_options.options->DEBUG.number);
   if (debug_option && debug_option->o.integer > 0)
-    debug = 1;
+    debug = debug_option->o.integer;
 
   if (test_mode_set)
     {
@@ -2485,6 +2487,8 @@ main (int argc, char *argv[], char *env[])
       OPTION *dump_texi_option;
       OPTION *converter_include_dirs_option;
       OPTION *converter_texinfo_language_directories_option;
+      OPTION *dump_tree_option;
+      OPTION *dump_structure_option;
       STRING_LIST *cmdline_include_dirs
         = cmdline_options.options->INCLUDE_DIRECTORIES.o.strlist;
       STRING_LIST *parser_include_dirs
@@ -2573,8 +2577,16 @@ main (int argc, char *argv[], char *env[])
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);
 
-      /* In Perl, the tree can be dumped with Data::Dumper here, we do not
-         provide the same in C */
+      dump_tree_option
+        = GNUT_get_conf (program_options.options->DUMP_TREE.number);
+
+      if (!status && ((dump_tree_option && dump_tree_option->o.integer > 0)
+                      || debug >= 10))
+        {
+          char *debug_tree = print_tree (document->tree, test_mode_set);
+          fprintf (stderr, "%s", debug_tree);
+          free (debug_tree);
+        }
 
       if (status)
         {
@@ -2711,6 +2723,17 @@ main (int argc, char *argv[], char *env[])
                                             set_message_encoding);
 
       errors_count = handle_errors (errors_nr, errors_count, &opened_files);
+
+      dump_structure_option
+        = GNUT_get_conf (program_options.options->DUMP_STRUCTURE.number);
+
+      if ((dump_structure_option && dump_structure_option->o.integer > 0)
+          || debug >= 20)
+        {
+          char *debug_tree = print_tree (document->tree, test_mode_set);
+          fprintf (stderr, "%s", debug_tree);
+          free (debug_tree);
+        }
 
       if (!strcmp (output_format, "structure"))
         goto next_input_file;

@@ -9,6 +9,7 @@
 
 char *print_element_debug (const ELEMENT *e, int print_parent);
 char *print_element_debug_details (const ELEMENT *e, int print_parent);
+const char *debug_element_command_name (const ELEMENT *e);
 char *debug_protect_eol (const char *input_string);
 
 #endif

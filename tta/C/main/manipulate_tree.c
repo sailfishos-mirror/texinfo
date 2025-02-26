@@ -20,6 +20,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <inttypes.h>
 #include "unistr.h"
 
 #include "tree_types.h"
@@ -38,6 +39,7 @@
    whitespace_chars */
 #include "utils.h"
 #include "manipulate_tree.h"
+#include "convert_to_texinfo.h"
 #include "unicode.h"
 
 /* To do the copy, we do two pass.  First with copy_tree_internal, the tree is
@@ -816,6 +818,673 @@ parse_node_manual (ELEMENT *node, int modify_node)
     result->node_content = node_content;
 
   return result;
+}
+
+
+
+uintptr_t
+setup_element_number (ELEMENT *element, uintptr_t current_nr)
+{
+  size_t i;
+  int elt_info_nr = type_data[element->type].elt_info_number;
+
+  if (type_data[element->type].flags & TF_text)
+    return current_nr;
+
+  enum command_id data_cmd = element_builtin_data_cmd (element);
+
+  if ((data_cmd == CM_node
+       || data_cmd == CM_nodedescription
+       || (builtin_command_data[data_cmd].flags & CF_brace)
+       || data_cmd == CM_columnfractions
+       || (builtin_command_data[data_cmd].other_flags & CF_in_index)
+       || (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
+       || (builtin_command_data[data_cmd].flags & CF_block)
+       || element->type == ET_index_entry_command
+       || data_cmd == CM_author)
+  /* no reason for this to happen, but if it does, avoid clobbering
+     elt_info_nr + 1 */
+      && !(element->flags & EF_copy || element->flags & EF_numbered))
+    {
+
+      /* put number at the end of elt_info after the regular information */
+      element->elt_info = (ELEMENT **) realloc (element->elt_info,
+                                   sizeof (ELEMENT *) * (elt_info_nr + 1));
+
+      /* set that flag to mark that a number is stored */
+      element->flags |= EF_numbered;
+
+      element->elt_info[elt_info_nr] = (ELEMENT *)current_nr;
+
+      current_nr++;
+    }
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    current_nr
+      = setup_element_number (element->e.c->contents.list[i], current_nr);
+
+  return current_nr;
+}
+
+void
+print_text_element (ELEMENT *element, int level, TEXT *result)
+{
+  const char *type = 0;
+  char *element_text = debug_protect_eol (element->e.text->text);
+
+  if (element->flags & EF_inserted)
+    text_append_n (result, "(i)", 3);
+
+  if (element->type != ET_normal_text && element->type != ET_other_text)
+    type = type_data[element->type].name;
+  if (type)
+    text_printf (result, "{%s:%s}\n", type, element_text);
+  else
+    text_printf (result, "{%s}\n", element_text);
+
+  free (element_text);
+}
+
+typedef struct ADDITIONAL_INFO_NAME_VAL {
+    const char *name;
+    char *value;
+    int need_eol;
+} ADDITIONAL_INFO_NAME_VAL;
+
+typedef struct ADDITIONAL_INFO_NAME_VAL_LIST {
+    size_t number;
+    size_t space;
+    ADDITIONAL_INFO_NAME_VAL *list;
+} ADDITIONAL_INFO_NAME_VAL_LIST;
+
+static void
+add_info_name_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
+                           const char *name, const char *value, int need_eol)
+{
+  ADDITIONAL_INFO_NAME_VAL *name_value;
+  if (info_strings->number + 1 >= info_strings->space)
+    {
+      info_strings->space += 5;
+      info_strings->list = (ADDITIONAL_INFO_NAME_VAL *)
+        realloc (info_strings->list, info_strings->space
+                                     * sizeof (ADDITIONAL_INFO_NAME_VAL));
+      if (!info_strings->list)
+        fatal ("realloc failed");
+    }
+
+  name_value = &info_strings->list[info_strings->number];
+  name_value->name = name;
+  name_value->value = strdup (value);
+  name_value->need_eol = need_eol;
+
+  info_strings->number++;
+}
+
+static int
+compare_name_value (const void *a, const void *b)
+{
+  const ADDITIONAL_INFO_NAME_VAL *anv_a = (const ADDITIONAL_INFO_NAME_VAL *) a;
+  const ADDITIONAL_INFO_NAME_VAL *anv_b = (const ADDITIONAL_INFO_NAME_VAL *) b;
+
+  return strcmp (anv_a->name, anv_b->name);
+}
+
+#define ADDITIONAL_INFO_PREPEND "|"
+
+static void
+print_info_strings (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings, int level,
+                    const char *prepended, TEXT *result, const char *header)
+{
+  size_t i;
+  int j;
+  char *info_prepended;
+
+  if (info_strings->number == 0)
+    return;
+
+  if (prepended)
+    xasprintf (&info_prepended, "%s%s", prepended,
+               ADDITIONAL_INFO_PREPEND);
+  else
+    info_prepended = ADDITIONAL_INFO_PREPEND;
+
+  qsort (info_strings->list, info_strings->number,
+         sizeof (ADDITIONAL_INFO_NAME_VAL), compare_name_value);
+
+  for (j = 0; j < level; j++)
+    text_append_n (result, " ", 1);
+  text_append (result, info_prepended);
+  text_append (result, header);
+  text_append_n (result, "\n", 1);
+
+  for (i = 0; i < info_strings->number; i++)
+    {
+      ADDITIONAL_INFO_NAME_VAL *name_value = &info_strings->list[i];
+
+      for (j = 0; j < level; j++)
+        text_append_n (result, " ", 1);
+      text_append (result, info_prepended);
+      text_append (result, name_value->name);
+      text_append_n (result, ":", 1);
+      if (name_value->need_eol)
+        text_append_n (result, "\n", 1);
+      text_append (result, name_value->value);
+      if (!name_value->need_eol)
+        text_append_n (result, "\n", 1);
+
+      free (name_value->value);
+    }
+
+  free (info_strings->list);
+
+  if (prepended)
+    free (info_prepended);
+}
+
+static void
+add_info_name_string_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
+                            const char *name, const char *value)
+{
+  char *string;
+  xasprintf (&string, "{%s}", value);
+  add_info_name_value (info_strings, name, string, 0);
+  free (string);
+}
+
+static uintptr_t
+print_element (ELEMENT *element, int level, const char *prepended,
+               uintptr_t current_nr, TEXT *result, int use_filename);
+
+static uintptr_t
+print_element_add_prepend_info (ELEMENT *element, int level,
+                                const char *prepended, uintptr_t current_nr,
+                                TEXT *result, int use_filename)
+{
+  char *info_prepended;
+  if (prepended)
+    xasprintf (&info_prepended, "%s%s", prepended,
+               ADDITIONAL_INFO_PREPEND);
+  else
+    info_prepended = ADDITIONAL_INFO_PREPEND;
+
+  current_nr = print_element (element, level, info_prepended,
+                              current_nr, result, use_filename);
+
+  if (prepended)
+    free (info_prepended);
+
+  return current_nr;
+}
+
+
+static uintptr_t
+print_element_info (ELEMENT *element, int level,
+                    const char *prepended, uintptr_t current_nr,
+                    TEXT *result, int use_filename)
+{
+  int i;
+  TEXT info_e_text;
+  ADDITIONAL_INFO_NAME_VAL_LIST info_strings;
+
+  memset (&info_strings, 0, sizeof (ADDITIONAL_INFO_NAME_VAL_LIST));
+
+  if (element->flags & EF_inserted)
+    add_info_name_value (&info_strings, "inserted", "1", 0);
+
+  text_init (&info_e_text);
+
+  for (i = 0; i < type_data[element->type].elt_info_number; i++)
+    {
+      ELEMENT *info_element = element->elt_info[i];
+      if (info_element)
+        {
+          text_append (&info_e_text, "");
+          current_nr = setup_element_number (element, current_nr);
+
+          current_nr = print_element_add_prepend_info (info_element,
+                                      level+1, prepended,
+                                      current_nr, &info_e_text, use_filename);
+
+          add_info_name_value (&info_strings, elt_info_names[i],
+                               info_e_text.text, 1);
+          text_reset (&info_e_text);
+        }
+    }
+  free (info_e_text.text);
+
+  if (element->e.c->cmd)
+    {
+      if (element->e.c->string_info[sit_alias_of])
+        add_info_name_string_value (&info_strings, "alias_of",
+                      element->e.c->string_info[sit_alias_of]);
+      if ((element->type == ET_index_entry_command
+           || element->type == ET_definfoenclose_command)
+          && element->e.c->string_info[sit_command_name])
+        add_info_name_string_value (&info_strings, "command_name",
+                     element->e.c->string_info[sit_command_name]);
+      else if (element->type == ET_lineraw_command
+          && element->e.c->string_info[sit_arg_line])
+        {
+          char *arg_line
+            = debug_protect_eol (element->e.c->string_info[sit_arg_line]);
+          add_info_name_string_value (&info_strings, "arg_line", arg_line);
+          free (arg_line);
+        }
+      else if (element->e.c->cmd == CM_verb
+               && element->e.c->contents.number > 0
+               && element->e.c->string_info[sit_delimiter])
+        add_info_name_string_value (&info_strings, "delimiter",
+                          element->e.c->string_info[sit_delimiter]);
+    }
+  else if (type_data[element->type].flags & TF_macro_call)
+    {
+      if (element->e.c->string_info[sit_alias_of])
+        add_info_name_string_value (&info_strings, "alias_of",
+                         element->e.c->string_info[sit_alias_of]);
+      if (element->e.c->string_info[sit_command_name])
+        add_info_name_string_value (&info_strings, "command_name",
+                     element->e.c->string_info[sit_command_name]);
+    }
+
+  print_info_strings (&info_strings, level, prepended, result, "INFO");
+
+  return current_nr;
+}
+
+static char *
+element_number_or_error (const ELEMENT *element)
+{
+  char *result;
+  if (element->flags & EF_numbered)
+    {
+      int elt_info_nr = type_data[element->type].elt_info_number;
+      xasprintf (&result, "E%" PRIuPTR, element->elt_info[elt_info_nr]);
+    }
+  else
+    {
+      char *element_debug = print_element_debug (element, 0);
+      xasprintf (&result, "MISSING: %s", element_debug);
+      free (element_debug);
+    }
+  return result;
+}
+
+static uintptr_t
+print_element_extra (ELEMENT *element, int level,
+                    const char *prepended, uintptr_t current_nr,
+                    TEXT *result, int use_filename)
+{
+  size_t i;
+
+  TEXT info_e_text;
+  ADDITIONAL_INFO_NAME_VAL_LIST info_strings;
+  ASSOCIATED_INFO *a = &element->e.c->extra_info;
+  STRING_LIST elements_values_list;
+
+  memset (&info_strings, 0, sizeof (ADDITIONAL_INFO_NAME_VAL_LIST));
+  memset (&elements_values_list, 0, sizeof (STRING_LIST));
+
+  text_init (&info_e_text);
+
+  #define store_flag(flag) \
+  if (element->flags & EF_##flag) \
+    add_info_name_value (&info_strings, #flag, "1", 0);
+
+  /* node */
+  store_flag(isindex)
+  /* node, anchor, float */
+  store_flag(is_target)
+  /* def_line for block/line for @def*x */
+  store_flag(omit_def_name_space)
+  /* @def*x */
+  store_flag(not_after_command)
+  /* @*table */
+  store_flag(command_as_argument_kbd_code)
+  store_flag(invalid_syntax)
+  /* kbd */
+  store_flag(code)
+  /* def_line for block/line for @def*x */
+  store_flag(omit_def_name_space)
+  /* ET_paragraph */
+  store_flag(indent)
+  /* ET_paragraph */
+  store_flag(noindent)
+
+  for (i = 0; i < a->info_number; i++)
+    {
+      const KEY_PAIR *k_pair = &a->info[i];
+      int need_eol = 0;
+      int need_free;
+      int is_string = 0;
+      char *value;
+      switch (k_pair->type)
+        {
+        case extra_string:
+          value = k_pair->k.string;
+          is_string = 1;
+          need_free = 0;
+          break;
+        case extra_integer:
+          xasprintf (&value, "%d", k_pair->k.integer);
+          need_free = 1;
+          is_string = 1;
+          break;
+        case extra_element:
+          {
+            const ELEMENT *element = k_pair->k.const_element;
+            char *element_value = element_number_or_error (element);
+            need_free = 1;
+            xasprintf (&value, "[%s]", element_value);
+            free (element_value);
+            break;
+          }
+        case extra_element_oot:
+          {
+            TEXT info_e_text;
+            text_init (&info_e_text);
+            text_append (&info_e_text, "");
+            current_nr = setup_element_number (k_pair->k.element, current_nr);
+            current_nr
+              = print_element_add_prepend_info (k_pair->k.element, level+1,
+                                                prepended,
+                                       current_nr, &info_e_text, use_filename);
+            value = info_e_text.text;
+            need_eol = 1;
+            need_free = 1;
+            break;
+          }
+        case extra_misc_args:
+          char *values_string = join_strings_list (k_pair->k.strings_list);
+          xasprintf (&value, "A{%s}", values_string);
+          free (values_string);
+          need_free = 1;
+          break;
+        case extra_index_entry:
+           {
+             const INDEX_ENTRY_LOCATION *entry_loc = k_pair->k.index_entry;
+             xasprintf (&value, "I{%s,%d}",
+                        entry_loc->index_name, entry_loc->number);
+             need_free = 1;
+             break;
+           }
+        case extra_container:
+          {
+            /* FIXME this solution is not so good, as it uses a converter
+               in tree output, which is not good.  The converter is quite
+               simple and already used in parser, though.
+             */
+            char *container_value = convert_to_texinfo (k_pair->k.element);
+            /* node_content and node_manual can contain end of line if
+               it corresponds to a @ref first argument */
+            value = debug_protect_eol (container_value);
+            free (container_value);
+            is_string = 1;
+            /* this is not good as soon as there is an @-command in the
+               container as it appears twice in the print */
+            /*
+            TEXT info_e_text;
+            text_init (&info_e_text);
+            text_append (&info_e_text, "");
+            current_nr = setup_element_number (k_pair->k.element, current_nr);
+            current_nr
+              = print_element_add_prepend_info (k_pair->k.element, level+1,
+                                                prepended,
+                                     current_nr, &info_e_text, use_filename);
+            value = info_e_text.text;
+            need_eol = 1;
+            */
+            /* it may have been better to list references to the contents
+               but the contents are text element and we do not want to number
+               text elements */
+            /*
+            const ELEMENT *f = k_pair->k.element;
+            size_t j;
+            char *joined_values;
+            for (j = 0; j < f->e.c->contents.number; j++)
+              {
+                const ELEMENT *e = f->e.c->contents.list[j];
+                char *element_value = element_number_or_error (e);
+                add_string (element_value, &elements_values_list);
+              }
+            joined_values = join_strings_list (&elements_values_list);
+            clear_strings_list (&elements_values_list);
+            xasprintf (&value, "Ec[%s]", joined_values);
+            free (joined_values);
+             */
+            need_free = 1;
+            break;
+          }
+        case extra_contents:
+          {
+            size_t j;
+            const CONST_ELEMENT_LIST *l = k_pair->k.const_list;
+            char *joined_values;
+            for (j = 0; j < l->number; j++)
+              {
+                const ELEMENT *e = l->list[j];
+                char *element_value = element_number_or_error (e);
+                add_string (element_value, &elements_values_list);
+              }
+            joined_values = join_strings_list (&elements_values_list);
+            clear_strings_list (&elements_values_list);
+            xasprintf (&value, "EC[%s]", joined_values);
+            free (joined_values);
+            need_free = 1;
+            break;
+          }
+        case extra_directions:
+          {
+            size_t d;
+            const ELEMENT * const *l = k_pair->k.directions;
+            char *joined_values;
+
+            for (d = 0; d < directions_length; d++)
+              {
+                if (l[d])
+                  {
+                    const char *d_key = direction_names[d];
+                    const ELEMENT *e = l[d];
+                    char *element_str = element_number_or_error (e);
+                    char *direction_value;
+                    xasprintf (&direction_value, "%s->%s", d_key, element_str);
+                    free (element_str);
+                    add_string (direction_value, &elements_values_list);
+                    free (direction_value);
+                  }
+              }
+            joined_values = join_strings_list (&elements_values_list);
+            clear_strings_list (&elements_values_list);
+            xasprintf (&value, "D[%s]", joined_values);
+            free (joined_values);
+            need_free = 1;
+            break;
+          }
+        default:
+          need_free = 0;
+          value = "TODO";
+          break;
+        }
+
+      if (!is_string)
+        add_info_name_value (&info_strings, ai_key_names[k_pair->key],
+                             value, need_eol);
+      else
+        add_info_name_string_value (&info_strings, ai_key_names[k_pair->key],
+                                    value);
+
+      if (need_free)
+        free (value);
+    }
+
+  print_info_strings (&info_strings, level, prepended, result, "EXTRA");
+  return current_nr;
+}
+
+#undef ADDITIONAL_INFO_PREPEND
+
+static void
+print_element_source_info (ELEMENT *element, TEXT *result, int use_filename)
+{
+  SOURCE_INFO *source_info = &element->e.c->source_info;
+
+  if (!source_info->file_name && !source_info->line_nr
+      && !source_info->macro)
+    return;
+
+  text_append_n (result, " ", 1);
+
+  if (source_info->file_name)
+    {
+      if (use_filename)
+        {
+          char *file_name_and_directory[2];
+          parse_file_path (source_info->file_name,
+                           file_name_and_directory);
+
+          text_append (result, file_name_and_directory[0]);
+
+          free (file_name_and_directory[0]);
+          free (file_name_and_directory[1]);
+        }
+      else
+        text_append (result, source_info->file_name);
+
+      if (source_info->line_nr || source_info->macro)
+        text_append_n (result, ":", 1);
+    }
+
+  if (source_info->line_nr > 0)
+    {
+      text_printf (result, "l%d", source_info->line_nr);
+      if (source_info->macro)
+        text_append_n (result, ":", 1);
+    }
+
+  if (source_info->macro)
+    text_printf (result, "@%s", source_info->macro);
+}
+
+/* a number is given in argument as out of tree elements may need to be
+   numbered too */
+static uintptr_t
+print_element (ELEMENT *element, int level, const char *prepended,
+               uintptr_t current_nr, TEXT *result, int use_filename)
+{
+  size_t i;
+  int j;
+
+  for (j = 0; j < level; j++)
+    text_append_n (result, " ", 1);
+
+  if (prepended)
+    text_append (result, prepended);
+
+  if (type_data[element->type].flags & TF_text)
+    {
+      print_text_element (element, level, result);
+      return current_nr;
+    }
+
+  text_append_n (result, "+", 1);
+
+  if (element->flags & EF_numbered)
+    {
+      int elt_info_nr = type_data[element->type].elt_info_number;
+      text_printf (result, "%" PRIuPTR " ", element->elt_info[elt_info_nr]);
+    }
+
+  if (element->type
+      && !(type_data[element->type].flags & TF_c_only))
+    text_append (result, type_data[element->type].name);
+
+  if (element->e.c->cmd)
+    text_printf (result, "@%s", debug_element_command_name (element));
+
+  if (element->e.c->contents.number > 0)
+    text_printf (result, " *%zu", element->e.c->contents.number);
+
+  print_element_source_info (element, result, use_filename);
+
+  text_append_n (result, "\n", 1);
+
+  current_nr = print_element_info (element, level, prepended,
+                                   current_nr, result, use_filename);
+
+  current_nr = print_element_extra (element, level, prepended,
+                                    current_nr, result, use_filename);
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    current_nr
+      = print_element (element->e.c->contents.list[i], level +1,
+                       prepended, current_nr, result, use_filename);
+
+  return current_nr;
+}
+
+static void
+remove_element_number (ELEMENT *element)
+{
+  size_t i;
+  ASSOCIATED_INFO *a;
+
+  if (type_data[element->type].flags & TF_text)
+    return;
+
+  a = &element->e.c->extra_info;
+
+  if (element->flags & EF_numbered)
+    {
+      int elt_info_nr = type_data[element->type].elt_info_number;
+
+      if (elt_info_nr > 0)
+        {
+          element->elt_info = (ELEMENT **) realloc (element->elt_info,
+                               sizeof (ELEMENT *) * elt_info_nr);
+          if (!element->elt_info)
+            fatal ("realloc failed");
+        }
+      else
+        {
+          free (element->elt_info);
+          element->elt_info = 0;
+        }
+
+      element->flags &= ~EF_numbered;
+    }
+
+  for (i = 0; i < a->info_number; i++)
+    {
+      const KEY_PAIR *k_pair = &a->info[i];
+      switch (k_pair->type)
+        {
+        case extra_element_oot:
+          remove_element_number (k_pair->k.element);
+          break;
+        default:
+          break;
+        }
+    }
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    remove_element_number (element->e.c->contents.list[i]);
+}
+
+char *
+print_tree (ELEMENT *tree, int use_filename)
+{
+  TEXT result;
+  uintptr_t current_nr;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  current_nr = setup_element_number (tree, 0);
+
+  print_element (tree, 0, 0, current_nr, &result, use_filename);
+
+  remove_element_number (tree);
+
+  return result.text;
 }
 
 

@@ -15759,8 +15759,7 @@ source is also expanded to the corresponding file.  Default false.
 
 @item DUMP_TREE
 For debugging.  If set, the tree constructed upon parsing a Texinfo
-document is output to standard error; default false.  Not available for
-the C @command{texi2any} implementation.
+document is output to standard error; default false.
 
 @item FORMAT_MENU
 If set to @samp{menu}, output Texinfo menus.  This is the default for

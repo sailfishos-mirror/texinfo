@@ -16,7 +16,7 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
-    
+
 #include <stddef.h>
 
 #include "tree_types.h"
@@ -38,6 +38,10 @@ size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e
 
 
 NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
+
+
+
+char *print_tree (ELEMENT *tree, int use_filename);
 
 
 

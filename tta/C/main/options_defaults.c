@@ -554,6 +554,7 @@ set_program_customization_options_defaults (OPTIONS *options)
 {
   option_set_conf (&options->CHECK_NORMAL_MENU_STRUCTURE, 1, 0);
   option_set_conf (&options->CHECK_MISSING_MENU_ENTRY, 1, 0);
+  option_set_conf (&options->DUMP_STRUCTURE, -1, 0);
   option_set_conf (&options->DUMP_TREE, -1, 0);
   option_set_conf (&options->DUMP_TEXI, -1, 0);
   option_set_conf (&options->SHOW_BUILTIN_CSS_RULES, 0, 0);
@@ -568,6 +569,7 @@ add_program_customization_options_defaults (OPTIONS_LIST *options_list)
 {
   add_option_value (options_list, "CHECK_NORMAL_MENU_STRUCTURE", 1, 0);
   add_option_value (options_list, "CHECK_MISSING_MENU_ENTRY", 1, 0);
+  add_option_value (options_list, "DUMP_STRUCTURE", -1, 0);
   add_option_value (options_list, "DUMP_TREE", -1, 0);
   add_option_value (options_list, "DUMP_TEXI", -1, 0);
   add_option_value (options_list, "SHOW_BUILTIN_CSS_RULES", 0, 0);
