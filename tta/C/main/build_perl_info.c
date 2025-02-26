@@ -755,19 +755,15 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
   /* node */
   store_flag(isindex)
-  /* node (anchor, float) */
+  /* node, anchor, float */
   store_flag(is_target)
   /* def_line for block/line for @def*x */
   store_flag(omit_def_name_space)
   /* @def*x */
   store_flag(not_after_command)
-  /* (node, anchor) float */
-  store_flag(is_target)
   /* @*table */
   store_flag(command_as_argument_kbd_code)
   store_flag(invalid_syntax)
-  /* (node,) anchor, (float) */
-  store_flag(is_target)
   /* kbd */
   store_flag(code)
   /* def_line for block/line for @def*x */

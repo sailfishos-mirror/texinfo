@@ -1733,7 +1733,7 @@ while(@input_files) {
   my $tree = $document->tree($XS_structuring);
 
   if (defined($tree)
-      and (defined(get_conf('DUMP_TREE'))
+      and (get_conf('DUMP_TREE')
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     my $tree = $document->tree();
     # this is very wrong, but a way to avoid a spurious warning.

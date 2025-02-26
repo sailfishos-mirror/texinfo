@@ -24,7 +24,7 @@
 #include "element_types.h"
 #include "tree_types.h"
 #include "types_data.h"
-/* debug_element_command_name */
+/* element_command_name */
 #include "builtin_commands.h"
 /* for ai_key_names */
 #include "tree.h"
@@ -51,7 +51,7 @@ debug_protect_eol (const char *input_string)
   if (!input_string)
     return strdup ("[NULL]");
 
-  end_of_line = strchr (input_string, '\n');
+  end_of_line = strpbrk (input_string, "\n\\");
 
   if (end_of_line)
     {
@@ -66,9 +66,12 @@ debug_protect_eol (const char *input_string)
               text_append_n (&text, p, add_len);
               p += add_len;
             }
-          text_append_n (&text, "\\n", 2);
+          if (*end_of_line == '\n')
+            text_append_n (&text, "\\n", 2);
+          else
+            text_append_n (&text, "\\\\", 2);
           p += 1;
-          end_of_line = strchr (p, '\n');
+          end_of_line = strpbrk (p, "\n\\");
         }
       if (*p)
         {

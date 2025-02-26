@@ -1,3 +1,14 @@
+2025-02-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (element_to_perl_hash): remove
+	redundant setting of is_target.
+
+	* tta/C/main/debug.c (debug_protect_eol): protect \ in addition to \n,
+	for clarity of the output and to distinguish end of line from \n.
+
+	* tta/perl/texi2any.pl: check that DUMP_TREE is true in addition to be
+	defined.
+
 2025-02-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
