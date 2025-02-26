@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <inttypes.h>
 
 #include "text.h"
 #include "command_ids.h"
@@ -743,7 +744,7 @@ units_directions (const LABEL_LIST *identifiers_target,
               if (section_output_unit->directions[RUD_type_FastForward])
                 directions[RUD_type_FastForward]
                  = section_output_unit->directions[RUD_type_FastForward];
-              section_level = lookup_extra_integer (section, 
+              section_level = lookup_extra_integer (section,
                                          AI_key_section_level, &status);
               /* status should always be ok */
               if (status >= 0 && section_level <= 1)
@@ -950,4 +951,182 @@ units_file_directions (OUTPUT_UNIT_LIST *output_units)
                   (RUD_type_NodeBack - RUD_type_This +1) * sizeof (OUTPUT_UNIT *));
         }
     }
+}
+
+static char *
+output_unit_name_string (const OUTPUT_UNIT *output_unit)
+{
+  char *output_unit_name;
+  if (output_unit->unit_type == OU_unit)
+    xasprintf (&output_unit_name, "[U%zu]", output_unit->index);
+  if (output_unit->unit_type == OU_external_node_unit)
+    output_unit_name
+     = convert_contents_to_texinfo (output_unit->uc.unit_command);
+  else if (output_unit->unit_type == OU_special_unit)
+    xasprintf (&output_unit_name, "[S:%s]",
+               output_unit->special_unit_variety);
+  return output_unit_name;
+}
+
+static void
+add_ou_direction (STRING_LIST *ou_directions,
+                  const OUTPUT_UNIT *output_unit,
+                  const char *direction_name)
+{
+  if (output_unit)
+    {
+      char *direction_text = output_unit_name_string (output_unit);
+      char *ou_direction_text;
+      xasprintf (&ou_direction_text, "%s->%s",
+                 direction_name, direction_text);
+      free (direction_text);
+      add_string (ou_direction_text, ou_directions);
+      free (ou_direction_text);
+    }
+}
+
+/* the caller should have prepared the Texinfo tree elements for detailed
+   printing, namely by calling functions to number elements.  The argument
+   CURRENT_NR should consistently be the numbering function return value
+ */
+static uintptr_t
+print_output_units_details (OUTPUT_UNIT_LIST *output_units,
+                         uintptr_t current_nr, TEXT *result, int use_filename)
+{
+  TEXT directions_text;
+  /* those not in the directions field */
+  STRING_LIST ou_directions;
+  size_t i;
+
+  text_init (&directions_text);
+
+  memset (&ou_directions, 0, sizeof (STRING_LIST));
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      size_t j;
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+
+      text_printf (result, "U%zu %s", output_unit->index,
+                   output_unit_type_names[output_unit->unit_type]);
+      if (output_unit->special_unit_variety)
+        text_printf (result, "-%s", output_unit->special_unit_variety);
+
+      if (output_unit->unit_type != OU_special_unit
+          && output_unit->uc.unit_command)
+        {
+          char *element_string
+            = element_number_or_error (output_unit->uc.unit_command);
+          text_printf (result, "[%s]", element_string);
+          free (element_string);
+        }
+
+      if (output_unit->unit_filename)
+        {
+          text_append_n (result, " ", 1);
+          if (use_filename)
+            {
+              char *file_name_and_directory[2];
+              parse_file_path (output_unit->unit_filename,
+                               file_name_and_directory);
+
+              text_append (result, file_name_and_directory[0]);
+
+              free (file_name_and_directory[0]);
+              free (file_name_and_directory[1]);
+            }
+          else
+            text_append (result, output_unit->unit_filename);
+        }
+      text_append_n (result, "\n", 1);
+
+      if (output_unit->tree_unit_directions[D_prev]
+          || output_unit->tree_unit_directions[D_next])
+        {
+          size_t directions_nr = sizeof (output_unit->tree_unit_directions)
+                           / sizeof (output_unit->tree_unit_directions[0]);
+          for (j = 0; j < directions_nr; j++)
+            {
+              const OUTPUT_UNIT *direction
+                = output_unit->tree_unit_directions[j];
+              add_ou_direction (&ou_directions, direction,
+                                direction_names[j]);
+            }
+        }
+
+      if (output_unit->first_in_page)
+        {
+          add_ou_direction (&ou_directions, output_unit->first_in_page,
+                            "page");
+        }
+
+      if (output_unit->associated_document_unit)
+        {
+          add_ou_direction (&ou_directions,
+                            output_unit->associated_document_unit, "doc unit");
+        }
+
+      if (ou_directions.number)
+        {
+          char *joined_string = join_strings_list (&ou_directions);
+          text_printf (result, "unit_directions:D[%s]\n",
+                       joined_string);
+          free (joined_string);
+        }
+      clear_strings_list (&ou_directions);
+
+      /* TODO add global directions, included added and special units
+         directions? */
+      for (j = 0; j < RUD_type_FirstInFileNodeBack+1; j++)
+        {
+          const OUTPUT_UNIT *direction = output_unit->directions[j];
+          if (direction)
+            {
+              char *direction_text = output_unit_name_string (direction);
+              text_printf (&directions_text, "%s: %s\n",
+                           relative_unit_direction_name[j],
+                           direction_text);
+              free (direction_text);
+            }
+        }
+      if (directions_text.end > 0)
+        {
+          text_append (result, "UNIT_DIRECTIONS\n");
+          text_append (result, directions_text.text);
+          text_reset (&directions_text);
+        }
+
+      if (output_unit->unit_contents.number)
+        {
+          for (j = 0; j < output_unit->unit_contents.number; j++)
+            {
+              ELEMENT *element = output_unit->unit_contents.list[j];
+              current_nr = print_element_details (element, 1, 0, current_nr,
+                                                  result, use_filename);
+            }
+        }
+    }
+
+  free (directions_text.text);
+
+  return current_nr;
+}
+
+char *
+print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units, ELEMENT *tree,
+                                 int use_filename)
+{
+  uintptr_t current_nr = set_element_tree_numbers (tree, 0);
+
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  current_nr = print_output_units_details (output_units,
+                        current_nr, &result, use_filename);
+
+  remove_element_tree_numbers (tree);
+
+  return result.text;
 }

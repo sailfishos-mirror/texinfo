@@ -1,5 +1,19 @@
 2025-02-26  Patrice Dumas  <pertusus@free.fr>
 
+	Output units detailed print
+
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers)
+	(print_element_details, remove_element_tree_numbers): rename 
+	setup_element_number as set_element_tree_numbers, print_element as
+	print_element_details, remove_element_number as
+	remove_element_tree_numbers.
+
+	* tta/C/main/output_unit.c (output_unit_name_string, add_ou_direction)
+	(print_output_units_details, print_output_units_tree_details): print
+	output units details, including with tree details.
+
+2025-02-26  Patrice Dumas  <pertusus@free.fr>
+
 	Source marks in detailed print of the tree in C
 
 	* tta/C/main/manipulate_tree.c (print_source_marks)

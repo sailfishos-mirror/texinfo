@@ -5931,6 +5931,25 @@ html_prepare_units_directions_files (CONVERTER *self,
 
   units_file_directions (output_units);
 
+  /* FIXME do something like that?  It would make sense to
+     use DUMP_STRUCTURE but it is already done in main program.
+     Need to be added to Perl.
+   */
+  /*
+  if (self->conf->DEBUG.o.integer > 30)
+    {
+      int use_filename = 0;
+      char *output_units_output;
+
+      if (self->conf->TEST.o.integer > 0)
+        use_filename = 1;
+      output_units_output = print_output_units_tree_details (output_units,
+                                      self->document->tree, use_filename);
+      fprintf (stderr, "%s", output_units_output);
+      free (output_units_output);
+    }
+  */
+
   self->document->modified_information |= F_DOCM_output_units;
 
  /* elements_in_file_count is only set in HTML, not in

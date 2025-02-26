@@ -32,4 +32,6 @@ void units_directions (const LABEL_LIST *identifiers_target,
                        int print_debug);
 void units_file_directions (OUTPUT_UNIT_LIST *output_units);
 
+char *print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units,
+                                       ELEMENT *tree, int use_filename);
 #endif

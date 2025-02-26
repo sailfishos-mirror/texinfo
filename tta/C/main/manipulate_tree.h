@@ -18,6 +18,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <stddef.h>
+#include <inttypes.h>
 
 #include "tree_types.h"
 #include "document_types.h"
@@ -42,6 +43,13 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 char *print_tree (ELEMENT *tree, int use_filename);
+char *element_number_or_error (const ELEMENT *element);
+uintptr_t print_element_details (ELEMENT *element, int level,
+                    const char *prepended, uintptr_t current_nr,
+                    TEXT *result, int use_filename);
+
+uintptr_t set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr);
+void remove_element_tree_numbers (ELEMENT *element);
 
 
 

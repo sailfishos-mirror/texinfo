@@ -823,7 +823,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 uintptr_t
-setup_element_number (ELEMENT *element, uintptr_t current_nr)
+set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 {
   size_t i;
   int elt_info_nr = type_data[element->type].elt_info_number;
@@ -861,14 +861,10 @@ setup_element_number (ELEMENT *element, uintptr_t current_nr)
 
   for (i = 0; i < element->e.c->contents.number; i++)
     current_nr
-      = setup_element_number (element->e.c->contents.list[i], current_nr);
+      = set_element_tree_numbers (element->e.c->contents.list[i], current_nr);
 
   return current_nr;
 }
-
-static uintptr_t
-print_element (ELEMENT *element, int level, const char *prepended,
-               uintptr_t current_nr, TEXT *result, int use_filename);
 
 #define SOURCE_MARK_PREPEND ">"
 
@@ -927,7 +923,7 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
 
       if (s_mark->element)
         {
-          current_nr = print_element (s_mark->element, level+1,
+          current_nr = print_element_details (s_mark->element, level+1,
                         s_mark_prepended, current_nr, result, use_filename);
         }
     }
@@ -1082,7 +1078,7 @@ print_element_add_prepend_info (ELEMENT *element, int level,
   else
     info_prepended = ADDITIONAL_INFO_PREPEND;
 
-  current_nr = print_element (element, level, info_prepended,
+  current_nr = print_element_details (element, level, info_prepended,
                               current_nr, result, use_filename);
 
   if (prepended)
@@ -1114,7 +1110,7 @@ print_element_info (ELEMENT *element, int level,
       if (info_element)
         {
           text_append (&info_e_text, "");
-          current_nr = setup_element_number (element, current_nr);
+          current_nr = set_element_tree_numbers (element, current_nr);
 
           current_nr = print_element_add_prepend_info (info_element,
                                       level+1, prepended,
@@ -1166,7 +1162,7 @@ print_element_info (ELEMENT *element, int level,
   return current_nr;
 }
 
-static char *
+char *
 element_number_or_error (const ELEMENT *element)
 {
   char *result;
@@ -1258,7 +1254,8 @@ print_element_extra (ELEMENT *element, int level,
             TEXT info_e_text;
             text_init (&info_e_text);
             text_append (&info_e_text, "");
-            current_nr = setup_element_number (k_pair->k.element, current_nr);
+            current_nr
+              = set_element_tree_numbers (k_pair->k.element, current_nr);
             current_nr
               = print_element_add_prepend_info (k_pair->k.element, level+1,
                                                 prepended,
@@ -1300,7 +1297,7 @@ print_element_extra (ELEMENT *element, int level,
             TEXT info_e_text;
             text_init (&info_e_text);
             text_append (&info_e_text, "");
-            current_nr = setup_element_number (k_pair->k.element, current_nr);
+            current_nr = set_element_tree_numbers (k_pair->k.element, current_nr);
             current_nr
               = print_element_add_prepend_info (k_pair->k.element, level+1,
                                                 prepended,
@@ -1441,8 +1438,8 @@ print_element_source_info (ELEMENT *element, TEXT *result, int use_filename)
 
 /* a number is given in argument as out of tree elements may need to be
    numbered too */
-static uintptr_t
-print_element (ELEMENT *element, int level, const char *prepended,
+uintptr_t
+print_element_details (ELEMENT *element, int level, const char *prepended,
                uintptr_t current_nr, TEXT *result, int use_filename)
 {
   size_t i;
@@ -1494,14 +1491,14 @@ print_element (ELEMENT *element, int level, const char *prepended,
 
   for (i = 0; i < element->e.c->contents.number; i++)
     current_nr
-      = print_element (element->e.c->contents.list[i], level +1,
+      = print_element_details (element->e.c->contents.list[i], level +1,
                        prepended, current_nr, result, use_filename);
 
   return current_nr;
 }
 
-static void
-remove_element_number (ELEMENT *element)
+void
+remove_element_tree_numbers (ELEMENT *element)
 {
   size_t i;
   ASSOCIATED_INFO *a;
@@ -1537,7 +1534,7 @@ remove_element_number (ELEMENT *element)
       switch (k_pair->type)
         {
         case extra_element_oot:
-          remove_element_number (k_pair->k.element);
+          remove_element_tree_numbers (k_pair->k.element);
           break;
         default:
           break;
@@ -1545,7 +1542,7 @@ remove_element_number (ELEMENT *element)
     }
 
   for (i = 0; i < element->e.c->contents.number; i++)
-    remove_element_number (element->e.c->contents.list[i]);
+    remove_element_tree_numbers (element->e.c->contents.list[i]);
 }
 
 char *
@@ -1557,11 +1554,11 @@ print_tree (ELEMENT *tree, int use_filename)
   text_init (&result);
   text_append (&result, "");
 
-  current_nr = setup_element_number (tree, 0);
+  current_nr = set_element_tree_numbers (tree, 0);
 
-  print_element (tree, 0, 0, current_nr, &result, use_filename);
+  print_element_details (tree, 0, 0, current_nr, &result, use_filename);
 
-  remove_element_number (tree);
+  remove_element_tree_numbers (tree);
 
   return result.text;
 }

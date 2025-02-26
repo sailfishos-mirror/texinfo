@@ -275,6 +275,14 @@ typedef struct DOCUMENT {
     INDICES_SORT_STRINGS *indices_sort_strings;
     COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
     COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+    /* Used to hold output unit lists, such that they may be created,
+       retrieved  and freed.  An output units list should only be accessed
+       through the handler returned when created.
+       In general, the lists are created and managed by converters or other
+       codes, not by code related to the Texinfo parsed DOCUMENT, the
+       DOCUMENT is merely used to store them, since it generally
+       outlive converters.
+     */
     OUTPUT_UNIT_LISTS output_units_lists;
 
     /* flags for modified information not already passed to Perl */
