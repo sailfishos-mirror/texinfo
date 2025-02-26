@@ -866,8 +866,83 @@ setup_element_number (ELEMENT *element, uintptr_t current_nr)
   return current_nr;
 }
 
-void
-print_text_element (ELEMENT *element, int level, TEXT *result)
+static uintptr_t
+print_element (ELEMENT *element, int level, const char *prepended,
+               uintptr_t current_nr, TEXT *result, int use_filename);
+
+#define SOURCE_MARK_PREPEND ">"
+
+static uintptr_t
+print_source_marks (ELEMENT *element, int level, const char *prepended,
+                    uintptr_t current_nr, TEXT *result, int use_filename)
+{
+  char *s_mark_prepended;
+  size_t i;
+  int j;
+
+  if (!element->source_mark_list || element->source_mark_list->number == 0)
+    return current_nr;
+
+  if (prepended)
+    xasprintf (&s_mark_prepended, "%s%s", prepended,
+               SOURCE_MARK_PREPEND);
+  else
+    s_mark_prepended = SOURCE_MARK_PREPEND;
+
+  for (j = 0; j < level; j++)
+    text_append_n (result, " ", 1);
+  text_append (result, s_mark_prepended);
+  text_append (result, "SOURCEMARKS\n");
+
+  for (i = 0; i < element->source_mark_list->number; i++)
+    {
+      const SOURCE_MARK *s_mark = element->source_mark_list->list[i];
+
+      for (j = 0; j < level; j++)
+        text_append_n (result, " ", 1);
+      text_append (result, s_mark_prepended);
+      switch (s_mark->type)
+        {
+#define sm_type(X) \
+          case SM_type_ ## X: \
+            text_append (result, #X); \
+          break;
+
+        SM_TYPES_LIST
+#undef sm_type
+
+          /* for SM_type_none */
+          default:
+            break;
+        }
+      if (s_mark->status == SM_status_start)
+        text_printf (result, "<start;%d>", s_mark->counter);
+      else if (s_mark->status == SM_status_end)
+        text_printf (result, "<end;%d>", s_mark->counter);
+      if (s_mark->position)
+        text_printf (result, "<p:%d>", s_mark->position);
+      if (s_mark->line)
+        text_printf (result, "{%s}", s_mark->line);
+      text_append_n (result, "\n", 1);
+
+      if (s_mark->element)
+        {
+          current_nr = print_element (s_mark->element, level+1,
+                        s_mark_prepended, current_nr, result, use_filename);
+        }
+    }
+
+  if (prepended)
+    free (s_mark_prepended);
+
+  return current_nr;
+}
+
+#undef SOURCE_MARK_PREPEND
+
+static uintptr_t
+print_text_element (ELEMENT *element, int level, const char *prepended,
+                    uintptr_t current_nr, TEXT *result, int use_filename)
 {
   const char *type = 0;
   char *element_text = debug_protect_eol (element->e.text->text);
@@ -881,8 +956,12 @@ print_text_element (ELEMENT *element, int level, TEXT *result)
     text_printf (result, "{%s:%s}\n", type, element_text);
   else
     text_printf (result, "{%s}\n", element_text);
-
   free (element_text);
+
+  current_nr = print_source_marks (element, level, prepended,
+                                   current_nr, result, use_filename);
+
+  return current_nr;
 }
 
 typedef struct ADDITIONAL_INFO_NAME_VAL {
@@ -990,10 +1069,6 @@ add_info_name_string_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
   add_info_name_value (info_strings, name, string, 0);
   free (string);
 }
-
-static uintptr_t
-print_element (ELEMENT *element, int level, const char *prepended,
-               uintptr_t current_nr, TEXT *result, int use_filename);
 
 static uintptr_t
 print_element_add_prepend_info (ELEMENT *element, int level,
@@ -1381,7 +1456,8 @@ print_element (ELEMENT *element, int level, const char *prepended,
 
   if (type_data[element->type].flags & TF_text)
     {
-      print_text_element (element, level, result);
+      current_nr = print_text_element (element, level, prepended,
+                                       current_nr, result, use_filename);
       return current_nr;
     }
 
@@ -1412,6 +1488,9 @@ print_element (ELEMENT *element, int level, const char *prepended,
 
   current_nr = print_element_extra (element, level, prepended,
                                     current_nr, result, use_filename);
+
+  current_nr = print_source_marks (element, level, prepended,
+                                   current_nr, result, use_filename);
 
   for (i = 0; i < element->e.c->contents.number; i++)
     current_nr
