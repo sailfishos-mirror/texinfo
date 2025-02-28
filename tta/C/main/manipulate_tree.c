@@ -834,13 +834,13 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
   if ((data_cmd == CM_node
-       || data_cmd == CM_nodedescription
        || (builtin_command_data[data_cmd].flags & CF_brace)
-       || data_cmd == CM_columnfractions
-       || (builtin_command_data[data_cmd].other_flags & CF_in_index)
        || (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
        || (builtin_command_data[data_cmd].flags & CF_block)
+       || data_cmd == CM_nodedescription
        || element->type == ET_index_entry_command
+       || data_cmd == CM_columnfractions
+       || (builtin_command_data[data_cmd].other_flags & CF_in_index)
        || data_cmd == CM_author)
   /* no reason for this to happen, but if it does, avoid clobbering
      elt_info_nr + 1 */
@@ -915,6 +915,8 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
         text_printf (result, "<start;%d>", s_mark->counter);
       else if (s_mark->status == SM_status_end)
         text_printf (result, "<end;%d>", s_mark->counter);
+      else /* none */
+        text_printf (result, "<%d>", s_mark->counter);
       if (s_mark->position)
         text_printf (result, "<p:%d>", s_mark->position);
       if (s_mark->line)
@@ -1100,7 +1102,7 @@ print_element_info (ELEMENT *element, int level,
   memset (&info_strings, 0, sizeof (ADDITIONAL_INFO_NAME_VAL_LIST));
 
   if (element->flags & EF_inserted)
-    add_info_name_value (&info_strings, "inserted", "1", 0);
+    add_info_name_string_value (&info_strings, "inserted", "1");
 
   text_init (&info_e_text);
 
@@ -1199,7 +1201,7 @@ print_element_extra (ELEMENT *element, int level,
 
   #define store_flag(flag) \
   if (element->flags & EF_##flag) \
-    add_info_name_value (&info_strings, #flag, "1", 0);
+    add_info_name_string_value (&info_strings, #flag, "1");
 
   /* node */
   store_flag(isindex)
@@ -1214,8 +1216,6 @@ print_element_extra (ELEMENT *element, int level,
   store_flag(invalid_syntax)
   /* kbd */
   store_flag(code)
-  /* def_line for block/line for @def*x */
-  store_flag(omit_def_name_space)
   /* ET_paragraph */
   store_flag(indent)
   /* ET_paragraph */

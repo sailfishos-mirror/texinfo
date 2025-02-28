@@ -51,7 +51,7 @@ debug_protect_eol (const char *input_string)
   if (!input_string)
     return strdup ("[NULL]");
 
-  end_of_line = strpbrk (input_string, "\n\\");
+  end_of_line = strpbrk (input_string, "\n\t\f");
 
   if (end_of_line)
     {
@@ -68,10 +68,12 @@ debug_protect_eol (const char *input_string)
             }
           if (*end_of_line == '\n')
             text_append_n (&text, "\\n", 2);
-          else
-            text_append_n (&text, "\\\\", 2);
+          else if (*end_of_line == '\t')
+            text_append_n (&text, "\\t", 2);
+          else if (*end_of_line == '\f')
+            text_append_n (&text, "\\f", 2);
           p += 1;
-          end_of_line = strpbrk (p, "\n\\");
+          end_of_line = strpbrk (p, "\n\t\f");
         }
       if (*p)
         {

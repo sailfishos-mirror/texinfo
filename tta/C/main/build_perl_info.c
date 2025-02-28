@@ -766,8 +766,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   store_flag(invalid_syntax)
   /* kbd */
   store_flag(code)
-  /* def_line for block/line for @def*x */
-  store_flag(omit_def_name_space)
   /* ET_paragraph */
   store_flag(indent)
   /* ET_paragraph */
