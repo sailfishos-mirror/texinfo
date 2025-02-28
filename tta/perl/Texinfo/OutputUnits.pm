@@ -35,6 +35,9 @@ use strict;
 
 use Carp qw(cluck confess);
 
+# for fileparse
+use File::Basename;
+
 use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
@@ -655,6 +658,23 @@ sub output_unit_texi($)
                                                           $unit_command);
 }
 
+sub _output_unit_name_string($)
+{
+  my $output_unit = shift;
+  if ($output_unit->{'unit_type'} eq 'unit') {
+    return "[U$output_unit->{'index'}]";
+  } elsif ($output_unit->{'unit_type'} eq 'external_node_unit') {
+    my $output_unit_name
+      = Texinfo::Convert::Texinfo::convert_to_texinfo(
+           {'contents' => $output_unit->{'unit_command'}});
+    return $output_unit_name;
+  } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
+    return "[S:$output_unit->{'special_unit_variety'}]";
+  } else {
+    return "";
+  }
+}
+
 my $direction_orders = Texinfo::HTMLData::get_directions_order();
 # 'global', 'relative', 'file'
 my @relative_directions_order = @{$direction_orders->[1]};
@@ -662,6 +682,117 @@ my @file_directions_order = @{$direction_orders->[2]};
 my @all_directions_order
     = (@relative_directions_order, @file_directions_order,
        map {'FirstInFile'.$_} @relative_directions_order);
+
+sub print_output_units_details($$;$)
+{
+  my $output_units = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+  my $result = '';
+
+  for (my $i = 0; $i < scalar(@$output_units); $i++) {
+    my $output_unit = $output_units->[$i];
+    $output_unit->{'index'} = $i;
+  }
+
+  foreach my $output_unit (@$output_units) {
+    $result .= "U$output_unit->{'index'} $output_unit->{'unit_type'}";
+    if ($output_unit->{'special_unit_variety'}) {
+      $result .= "-$output_unit->{'special_unit_variety'}";
+    }
+
+    if ($output_unit->{'unit_type'} ne 'special_unit'
+        and $output_unit->{'unit_command'}) {
+      my $element_string
+        = Texinfo::ManipulateTree::element_number_or_error(
+                                    $output_unit->{'unit_command'});
+      $result .= "[$element_string]";
+    }
+
+    if (defined($output_unit->{'unit_filename'})) {
+      my $file_name = $output_unit->{'unit_filename'};
+      if ($use_filename) {
+        my ($directories, $suffix);
+         ($file_name, $directories, $suffix) = fileparse($file_name);
+      }
+      $result .= " $file_name";
+    }
+
+    $result .= "\n";
+
+    my @ou_directions_text;
+    if ($output_unit->{'tree_unit_directions'}
+        and ($output_unit->{'tree_unit_directions'}->{'prev'}
+             or $output_unit->{'tree_unit_directions'}->{'next'})) {
+      # order should match @node_directions_names
+      foreach my $d_name ('next', 'prev') {
+        if ($output_unit->{'tree_unit_directions'}->{$d_name}) {
+          my $direction_output_unit
+            = $output_unit->{'tree_unit_directions'}->{$d_name};
+          push @ou_directions_text, "${d_name}->"
+                         . _output_unit_name_string($direction_output_unit);
+        }
+      }
+    }
+
+    if ($output_unit->{'first_in_page'}) {
+      push @ou_directions_text, 'page' . '->'
+         ._output_unit_name_string($output_unit->{'first_in_page'});
+    }
+
+    if ($output_unit->{'associated_document_unit'}) {
+      push @ou_directions_text, 'doc unit' . '->'
+      ._output_unit_name_string($output_unit->{'associated_document_unit'});
+    }
+
+    if (scalar(@ou_directions_text)) {
+      $result .= 'unit_directions:D['.join('|', @ou_directions_text)."]\n";
+    }
+
+    if ($output_unit->{'directions'}) {
+      $result .= "UNIT_DIRECTIONS\n";
+      foreach my $direction (@all_directions_order) {
+        if (defined($output_unit->{'directions'}->{$direction})) {
+          my $direction_output_unit
+            = $output_unit->{'directions'}->{$direction};
+          $result .= "${direction}: "
+            . _output_unit_name_string($direction_output_unit) . "\n";
+        }
+      }
+    }
+
+    if ($output_unit->{'unit_contents'}) {
+      foreach my $element (@{$output_unit->{'unit_contents'}}) {
+        my $element_result;
+        ($current_nr, $element_result)
+          = Texinfo::ManipulateTree::print_element_details($element,
+                 1, undef, $current_nr, $use_filename);
+        $result .= $element_result;
+      }
+    }
+  }
+
+  return ($current_nr, $result);
+}
+
+sub print_output_units_tree_details ($$;$)
+{
+  my $output_units = shift;
+  my $tree = shift;
+  my $use_filename = shift;
+
+  my $current_nr
+    = Texinfo::ManipulateTree::set_element_tree_numbers($tree, 0);
+
+  my $output_unit_result;
+  ($current_nr, $output_unit_result)
+    = print_output_units_details($output_units, $current_nr,
+                                 $use_filename);
+
+  Texinfo::ManipulateTree::remove_element_tree_numbers($tree);
+
+  return $output_unit_result;
+}
 
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in

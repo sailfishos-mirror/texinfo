@@ -42,6 +42,9 @@ use strict;
 # debugging
 use Carp qw(cluck confess);
 
+# for fileparse
+use File::Basename;
+
 use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
@@ -179,7 +182,7 @@ sub _copy_tree($)
       if (ref($value) eq '') {
         $new->{$info_type}->{$key} = $value;
       } elsif (ref($value) eq 'ARRAY') {
-        # authors manual_content menus node_content
+        # authors menus
         if (ref($value->[0]) eq 'HASH') {
           #print STDERR "II ARRAY $key $value\n";
           $new->{$info_type}->{$key} = [];
@@ -334,6 +337,443 @@ sub copy_contentsNonXS($;$)
     $copy->{'type'} = $type;
   }
   return $copy;
+}
+
+
+
+sub set_element_tree_numbers($$)
+{
+  my $element = shift;
+  my $current_nr = shift;
+
+  if (defined($element->{'text'})) {
+    return $current_nr;
+  }
+
+  my $type = $element->{'type'};
+  my $cmdname = $element->{'cmdname'};
+
+  my $builtin_cmdname;
+
+  if ($type and $type eq 'definfoenclose_command') {
+    $builtin_cmdname = 'definfoenclose_command';
+  } elsif (defined($cmdname)) {
+    $builtin_cmdname = $cmdname;
+  }
+
+  if ((($type and $type eq 'index_entry_command')
+       or ($builtin_cmdname
+           and ($builtin_cmdname eq 'node'
+                or $Texinfo::Commands::brace_commands{$builtin_cmdname}
+         or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname}
+                or $Texinfo::Commands::block_commands{$builtin_cmdname}
+                or $builtin_cmdname eq 'nodedescription'
+                or $builtin_cmdname eq 'columnfractions'
+                or $Texinfo::Commands::in_index_commands{$builtin_cmdname}
+                or $builtin_cmdname eq 'author')))
+    # no reason for this to happen, but if it does, avoid clobbering
+      and not exists($element->{'_number'})) {
+    $element->{'_number'} = $current_nr;
+    $current_nr++;
+  }
+
+  if ($element->{'contents'}) {
+    foreach my $content (@{$element->{'contents'}}) {
+      $current_nr = set_element_tree_numbers($content, $current_nr);
+    }
+  }
+  return $current_nr;
+}
+
+my $SOURCE_MARK_PREPEND = '>';
+
+sub print_element_details($$$$;$);
+
+sub _print_source_marks($$$$;$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+
+  return ($current_nr, '') if (!$element->{'source_marks'});
+
+  my $s_mark_prepended;
+  if (defined($prepended)) {
+    $s_mark_prepended = $prepended . $SOURCE_MARK_PREPEND;
+  } else {
+    $s_mark_prepended = $SOURCE_MARK_PREPEND;
+  }
+
+  my $result = (' ' x $level) . $s_mark_prepended . "SOURCEMARKS\n";
+  my @source_marks = @{$element->{'source_marks'}};
+  foreach my $s_mark (@source_marks) {
+    $result .= (' ' x $level) . $s_mark_prepended
+               . $s_mark->{'sourcemark_type'}.'<';
+    if ($s_mark->{'status'}) {
+      $result .= "$s_mark->{'status'};";
+    }
+    $result .= "$s_mark->{'counter'}>";
+    if (defined($s_mark->{'position'})) {
+      $result .= "<p:$s_mark->{'position'}>";
+    }
+    if (defined($s_mark->{'line'})) {
+      $result .= "{$s_mark->{'line'}}";
+    }
+    $result .= "\n";
+
+    if ($s_mark->{'element'}) {
+      my $element_result;
+      ($current_nr, $element_result)
+       = print_element_details($s_mark->{'element'}, $level+1,
+                         $s_mark_prepended, $current_nr, $use_filename);
+      $result .= $element_result;
+    }
+  }
+
+  return ($current_nr, $result);
+}
+
+sub _print_text_element($$$$;$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+
+  my $result = '';
+  if ($element->{'info'} and $element->{'info'}->{'inserted'}) {
+    $result .= '(i)';
+  }
+
+  my $element_text = _debug_protect_eol($element->{'text'});
+
+  if ($element->{'type'}) {
+    $result .= "{$element->{'type'}:${element_text}}";
+  } else {
+    $result .= "{${element_text}}";
+  }
+  $result .= "\n";
+
+  my $source_marks_result;
+  ($current_nr, $source_marks_result)
+    = _print_source_marks($element, $level, $prepended, $current_nr,
+                          $use_filename);
+
+  $result .= $source_marks_result;
+  return ($current_nr, $result);
+}
+
+my $ADDITIONAL_INFO_PREPEND = '|';
+
+sub _print_element_add_prepend_info($$$$;$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+
+  my $info_prepended;
+  if (defined($prepended)) {
+    $info_prepended = $prepended . $ADDITIONAL_INFO_PREPEND;
+  } else {
+    $info_prepended = $ADDITIONAL_INFO_PREPEND;
+  }
+
+  return print_element_details($element, $level, $info_prepended, $current_nr,
+                               $use_filename);
+}
+
+# extra elements out of tree.  Need to look at C add_extra_element_oot
+# to know which one are out of tree.  Use of gdt/copy is good evidence.
+my @extra_out_of_tree = ('def_index_element', 'def_index_ref_element',
+                         'sectioning_root');
+
+# keep in sync with elt_info_names in C/main/tree.c
+my @elt_info_names = ('spaces_before_argument', 'spaces_after_cmd_before_arg',
+                      'spaces_after_argument', 'comment_at_end');
+
+my %out_of_tree_element_name;
+foreach my $name (@extra_out_of_tree, @elt_info_names) {
+  $out_of_tree_element_name{$name} = 1;
+}
+
+# from Texinfo::Structuring
+my @node_directions_names = ('next', 'prev', 'up');
+
+sub element_number_or_error($)
+{
+  my $element = shift;
+
+  if (defined($element->{'_number'})) {
+    return "E$element->{'_number'}";
+  } else {
+    return "MISSING: ".Texinfo::Common::debug_print_element($element);
+  }
+}
+
+sub _debug_protect_eol($)
+{
+  my $line = shift;
+  $line =~ s/\n/\\n/g;
+  $line =~ s/\t/\\t/g;
+  $line =~ s/\f/\\f/g;
+  return $line;
+}
+
+sub _print_element_associated_info($$$$$;$)
+{
+  my $associated_info = shift;
+  my $header = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+
+  my @keys = sort(keys(%$associated_info));
+
+  return ($current_nr, '') if (!scalar(@keys));
+
+  my $info_prepended;
+  if (defined($prepended)) {
+    $info_prepended = $prepended . $ADDITIONAL_INFO_PREPEND;
+  } else {
+    $info_prepended = $ADDITIONAL_INFO_PREPEND;
+  }
+
+  my $result = (' ' x $level) . $info_prepended . "$header\n";
+
+  foreach my $key (@keys) {
+    my $had_eol = 0;
+    my $value = $associated_info->{$key};
+    my $ref = ref($value);
+    $result .= (' ' x $level) . $info_prepended . "$key:";
+    if ($ref eq '') {
+      if ($key eq 'arg_line') {
+        $value = _debug_protect_eol($value);
+      }
+      $result .= "{${value}}";
+    } elsif ($ref eq 'HASH') {
+      if ($extra_directions{$key}) {
+        my @directions_strings;
+        foreach my $d_key (@node_directions_names) {
+          if ($value->{$d_key}) {
+            my $e = $value->{$d_key};
+            my $element_str = element_number_or_error($e);
+            push @directions_strings, "${d_key}->$element_str";
+          }
+        }
+        $result .= 'D['.join('|', @directions_strings).']';
+      } elsif ($key eq 'node_content' or $key eq 'manual_content') {
+        my $container_value
+          = Texinfo::Convert::Texinfo::convert_to_texinfo($value);
+        $container_value = _debug_protect_eol($container_value);
+        $result .= "{$container_value}";
+      } elsif ($out_of_tree_element_name{$key}) {
+        my $info_e_text;
+        ($current_nr, $info_e_text)
+          = _print_element_add_prepend_info($value, $level+1, $prepended,
+                                            $current_nr, $use_filename);
+        $result .= "\n$info_e_text";
+        $had_eol = 1;
+      } else {
+        my $element_value = element_number_or_error($value);
+        $result .= "[$element_value]";
+      }
+    } elsif ($key eq 'misc_args') {
+      $result .= 'A{'.join('|', @{$value}).'}';
+    } elsif ($key eq 'index_entry') {
+      my ($index_name, $number) = @{$value};
+      $result .= "I{${index_name},${number}}";
+    } elsif ($ref eq 'ARRAY') {
+      my @elts_list;
+      foreach my $e (@$value) {
+        push @elts_list, element_number_or_error($e);
+      }
+      $result .= 'EC['.join('|', @elts_list).']';
+    }
+    if (!$had_eol) {
+      $result .= "\n";
+    }
+  }
+
+  #'misc_args' array of strings
+  #'node_content' 'node_manual' special
+  #'index_entry'} = [$index_name, $number]
+  #'authors' 'menus' array of elements
+  return ($current_nr, $result);
+}
+
+sub _print_element_source_info($;$)
+{
+  my $element = shift;
+  my $use_filename = shift;
+
+  my $source_info = $element->{'source_info'};
+
+  return '' if (!defined($source_info));
+
+  my $result = ' ';
+
+  my $line_nr = $source_info->{'line_nr'};
+  my $macro = $source_info->{'macro'};
+  if (defined($source_info->{'file_name'})) {
+    my $file_name = $source_info->{'file_name'};
+    if ($use_filename) {
+      my ($directories, $suffix);
+      ($file_name, $directories, $suffix) = fileparse($file_name);
+    }
+    $result .= $file_name;
+    $result .= ':' if ($line_nr or defined($macro));
+  }
+
+  if ($line_nr) {
+    $result .= "l$line_nr";
+    $result .= ':' if (defined($macro));
+  }
+
+  if (defined($macro)) {
+    $result .= '@'.$macro;
+  }
+
+  return $result;
+}
+
+sub print_element_details($$$$;$)
+{
+  my $element = shift;
+  my $level = shift;
+  my $prepended = shift;
+  my $current_nr = shift;
+  my $use_filename = shift;
+
+  my $result = ' ' x $level;
+
+  if (defined($prepended)) {
+    $result .= $prepended;
+  }
+
+  if (defined($element->{'text'})) {
+    my $text_result;
+    ($current_nr, $text_result)
+      = _print_text_element($element, $level, $prepended, $current_nr,
+                            $use_filename);
+    $result .= $text_result;
+    return ($current_nr, $result);
+  }
+
+  $result .= '+';
+
+  if (defined($element->{'_number'})) {
+    $result .= "$element->{'_number'} ";
+  }
+
+  if (defined($element->{'type'})) {
+    $result .= $element->{'type'};
+  }
+  if (defined($element->{'cmdname'})) {
+    $result .= '@'.Texinfo::Common::debug_command_name($element->{'cmdname'});
+  }
+
+  my $contents_nr = 0;
+  if ($element->{'contents'}) {
+    $contents_nr = scalar(@{$element->{'contents'}});
+  }
+  if ($contents_nr) {
+    $result .= " *$contents_nr";
+  }
+
+  $result .= _print_element_source_info($element, $use_filename);
+
+  $result .= "\n";
+
+  my $info = $element->{'info'};
+  if ($info) {
+    my $result_info;
+    foreach my $info_oot (@elt_info_names) {
+      if ($info->{$info_oot}) {
+        $current_nr = set_element_tree_numbers($info->{$info_oot},
+                                               $current_nr);
+      }
+    }
+    ($current_nr, $result_info)
+      = _print_element_associated_info($info, 'INFO', $level,
+                                       $prepended, $current_nr, $use_filename);
+    $result .= $result_info;
+  }
+
+  my $extra = $element->{'extra'};
+  if ($extra) {
+    my $result_info;
+
+    foreach my $extra_oot (@extra_out_of_tree) {
+      if ($extra->{$extra_oot}) {
+        $current_nr = set_element_tree_numbers($extra->{$extra_oot},
+                                               $current_nr);
+      }
+    }
+
+    ($current_nr, $result_info)
+      = _print_element_associated_info($extra, "EXTRA", $level,
+                                       $prepended, $current_nr, $use_filename);
+    $result .= $result_info;
+  }
+
+  my $source_marks_result;
+  ($current_nr, $source_marks_result)
+    = _print_source_marks($element, $level, $prepended, $current_nr,
+                          $use_filename);
+  $result .= $source_marks_result;
+
+  if ($contents_nr) {
+    foreach my $content (@{$element->{'contents'}}) {
+      my $content_result;
+      ($current_nr, $content_result)
+        = print_element_details($content, $level+1, $prepended,
+                                $current_nr, $use_filename);
+      $result .= $content_result;
+    }
+  }
+  return ($current_nr, $result);
+}
+
+sub remove_element_tree_numbers($)
+{
+  my $element = shift;
+
+  if (defined($element->{'text'})) {
+    return;
+  }
+
+  delete $element->{'_number'};
+
+  if ($element->{'extra'}) {
+    foreach my $extra_oot (@extra_out_of_tree) {
+      if ($element->{'extra'}->{$extra_oot}) {
+        remove_element_tree_numbers($element->{'extra'}->{$extra_oot});
+      }
+    }
+  }
+}
+
+sub print_tree($;$)
+{
+  my $tree = shift;
+  my $use_filename = shift;
+
+  my $result;
+
+  my $current_nr = set_element_tree_numbers($tree, 0);
+
+  ($current_nr, $result) = print_element_details($tree, 0, undef, $current_nr,
+                                                 $use_filename);
+
+  remove_element_tree_numbers($tree);
+
+  return $result;
 }
 
 

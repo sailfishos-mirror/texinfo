@@ -1736,14 +1736,15 @@ while(@input_files) {
       and (get_conf('DUMP_TREE')
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     my $tree = $document->tree();
-    # this is very wrong, but a way to avoid a spurious warning.
-    no warnings 'once';
-    local $Data::Dumper::Purity = 1;
-    no warnings 'once';
-    local $Data::Dumper::Indent = 1;
-    no warnings 'once';
-    local $Data::Dumper::Sortkeys = 1;
-    print STDERR Data::Dumper->Dump([$tree]);
+    print STDERR Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'));
+    ## this is very wrong, but a way to avoid a spurious warning.
+    #no warnings 'once';
+    #local $Data::Dumper::Purity = 1;
+    #no warnings 'once';
+    #local $Data::Dumper::Indent = 1;
+    #no warnings 'once';
+    #local $Data::Dumper::Sortkeys = 1;
+    #print STDERR Data::Dumper->Dump([$tree]);
   }
 
   if (!defined($tree)) {
@@ -1956,6 +1957,12 @@ while(@input_files) {
 
   $error_count = handle_errors($errors, $document_error_count,
                                $error_count, \%opened_files);
+
+  if (get_conf('DUMP_STRUCTURE')
+      or (get_conf('DEBUG') and get_conf('DEBUG') >= 20)) {
+    my $tree = $document->tree();
+    print STDERR Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'));
+  }
 
   if ($output_format eq 'structure') {
     goto NEXT;

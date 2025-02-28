@@ -5936,7 +5936,7 @@ html_prepare_units_directions_files (CONVERTER *self,
      Need to be added to Perl.
    */
   /*
-  if (self->conf->DEBUG.o.integer > 30)
+  if (1 || self->conf->DEBUG.o.integer >= 30)
     {
       int use_filename = 0;
       char *output_units_output;

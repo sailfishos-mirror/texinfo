@@ -10435,6 +10435,19 @@ sub _prepare_units_directions_files($$$$$$$$)
     }
   }
 
+  #if (1 or $self->get_conf('DEBUG') >= 30) {
+  #  if ($self->{'document'}) {
+  #    my $tree = $self->{'document'}->tree();
+  #    my $use_filename = 0;
+  #    if ($self->get_conf('TEST')) {
+  #      $use_filename = 1;
+  #    }
+  #    my $output_units_output
+  #      = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
+  #              $tree, $use_filename);
+  #  }
+  #}
+
   return $files_source_info;
 }
 

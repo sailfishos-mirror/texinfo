@@ -959,12 +959,14 @@ output_unit_name_string (const OUTPUT_UNIT *output_unit)
   char *output_unit_name;
   if (output_unit->unit_type == OU_unit)
     xasprintf (&output_unit_name, "[U%zu]", output_unit->index);
-  if (output_unit->unit_type == OU_external_node_unit)
+  else if (output_unit->unit_type == OU_external_node_unit)
     output_unit_name
      = convert_contents_to_texinfo (output_unit->uc.unit_command);
   else if (output_unit->unit_type == OU_special_unit)
     xasprintf (&output_unit_name, "[S:%s]",
                output_unit->special_unit_variety);
+  else /* should never happen */
+    output_unit_name = strdup ("");
   return output_unit_name;
 }
 

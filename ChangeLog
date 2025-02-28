@@ -1,5 +1,26 @@
 2025-02-28  Patrice Dumas  <pertusus@free.fr>
 
+	Detailed tree and output units printing in Perl
+
+	* tta/C/main/output_unit.c (output_unit_name_string): fix conditions.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers)
+	(_print_source_marks, _print_text_element)
+	(_print_element_add_prepend_info, element_number_or_error)
+	(_debug_protect_eol, _print_element_associated_info)
+	(_print_element_source_info, print_element_details)
+	(remove_element_tree_numbers, print_tree): detailed print of tree in
+	Perl.
+
+	* tta/perl/Texinfo/OutputUnits.pm (_output_unit_name_string)
+	(print_output_units_details, print_output_units_tree_details):
+	detailed print of output units in Perl.
+
+	* tta/perl/texi2any.pl: use print_tree for DUMP_TREE.  Add
+	DUMP_STRUCTURE handling.
+
+2025-02-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/debug.c (debug_protect_eol): do not protect /, but
 	protect TAB and line feed.
 
