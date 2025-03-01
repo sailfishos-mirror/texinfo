@@ -6,6 +6,10 @@
 
 2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: update
+
+2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Adding Output Formats): remove suggestion
 	to use Texinfo XML as an intermediate format.
 

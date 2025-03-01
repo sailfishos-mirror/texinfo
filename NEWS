@@ -11,9 +11,7 @@ See the manual for detailed information.
 
 * Language
   . new command @namedanchor
-* texinfo.tex
-  . '@set xrefautomaticsectiontitle on' does not affect cross-references
-     to anchors, matching the HTML output
+
 * texi2any
   . texi2any program implementation in C embedding Perl.
     Use --enable-c-texi2any to prefer the C implementation
@@ -34,6 +32,18 @@ See the manual for detailed information.
         to local manual
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
+
+* texinfo.tex
+  . add entries in PDF outline for index initials
+  . use Unicode in PDF outline for input documents encoded in UTF-8
+  . '@set xrefautomaticsectiontitle on' does not affect cross-references
+     to anchors, matching the HTML output
+
+* info
+  . list all customizable variables in help buffer
+
+* Distribution
+  . support for DJGPP removed
 
 
 7.2 (23 December 2024)
