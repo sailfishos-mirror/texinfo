@@ -2,6 +2,16 @@
 
 	@*heading for "@xrefautomaticsectiontitle on"
 
+	* doc/texinfo.tex (\setref, \donoderef): take an extra argument
+	instead of referring to \currentsection.
+	(\currentsection): remove use throughout.
+	
+	No functional changes intended.
+
+2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@*heading for "@xrefautomaticsectiontitle on"
+
 	* doc/texinfo.tex (\sectionheading): unconditionally set
 	\currentsection, even for heading commands.
 	

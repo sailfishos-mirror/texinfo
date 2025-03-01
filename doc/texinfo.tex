@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-03-01.19}
+\def\texinfoversion{2025-03-01.21}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -287,7 +287,6 @@
 % Avoid "undefined control sequence" errors.
 \def\currentchapterdefs{}
 \def\currentsectiondefs{}
-\def\currentsection{}
 \def\prevchapterdefs{}
 \def\prevsectiondefs{}
 \def\currentcolordefs{}
@@ -6590,11 +6589,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \chapfonts \rm
     \let\footnote=\errfootnoteheading % give better error message
     %
-    % Have to define \currentsection before calling \donoderef, because the
-    % xref code eventually uses it.  On the other hand, it has to be called
-    % after \pchapsepmacro, or the headline will change too soon.
-    \gdef\currentsection{#1}%
-    %
     % Only insert the separating space if we have a chapter/appendix
     % number, and don't print the unnumbered ``number''.
     \ifx\temptype\Ynothingkeyword
@@ -6621,7 +6615,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % been typeset.  If the destination for the pdf outline is after the
     % text, then jumping from the outline may wind up with the text not
     % being visible, for instance under high magnification.
-    \donoderef{#2}%
+    \donoderef{#2}{#1}%
     %
     % Typeset the actual heading.
     \nobreak % Avoid page breaks at the interline glue.
@@ -6755,8 +6749,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     %
     % Write the node reference (= pdf destination for pdftex).
     % Again, see comments in \chapmacro.
-    \gdef\currentsection{#1}%
-    \donoderef{#3}%
+    \donoderef{#3}{#1}%
     %
     % Interline glue will be inserted when the vbox is completed.
     % That glue will be a valid breakpoint for the page, since it'll be
@@ -8992,11 +8985,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \let\lastnode=\empty
 
 % Write a cross-reference definition for the current node.  #1 is the
-% type (Ynumbered, Yappendix, Ynothing).
+% type (Ynumbered, Yappendix, Ynothing).  #2 is the section title.
 %
-\def\donoderef#1{%
+\def\donoderef#1#2{%
   \ifx\lastnode\empty\else
-    \setref{\lastnode}{#1}%
+    \setref{\lastnode}{#1}{#2}%
     \global\let\lastnode=\empty
     \setnodeseenonce
   \fi
@@ -9018,23 +9011,19 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\savesf{\relax \ifhmode \savesfregister=\spacefactor \fi}
 \def\restoresf{\relax \ifhmode \spacefactor=\savesfregister \fi}
 \def\anchor#1{%
-  \bgroup\def\currentsection{#1}%
-    \savesf \setref{#1}{Yanchor}\restoresf \ignorespaces
-  \egroup
+  \savesf \setref{#1}{Yanchor}{#1}\restoresf \ignorespaces
 }
 
 % @namedanchor{NAME, XREFNAME} -- define xref target at arbitrary point
 % with label text for cross-references to it.
 \def\namedanchor#1{\donamedanchor#1\finish}%
 \def\donamedanchor#1,#2\finish{%
-  \bgroup\def\currentsection{\ignorespaces #2\unskip}%
-    \savesf \setref{#1}{Yanchor}\restoresf \ignorespaces
-  \egroup
+  \savesf \setref{#1}{Yanchor}{\ignorespaces #2\unskip}\restoresf \ignorespaces
 }
 
-% \setref{NAME}{SNT} defines a cross-reference point NAME (a node or an
-% anchor), which consists of three parts:
-% 1) NAME-title - the current sectioning name taken from \currentsection.
+% \setref{NAME}{SNT}{TITLE} defines a cross-reference point NAME (a node
+% or an anchor), which consists of three parts:
+% 1) NAME-title - the current sectioning name
 % 2) NAME-snt   - section number and type, passed as the SNT arg.
 % 3) NAME-pg    - the page number.
 %
@@ -9042,7 +9031,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % floats, there is an additional part, which is not written here:
 % 4) NAME-lof   - the text as it should appear in a @listoffloats.
 %
-\def\setref#1#2{%
+\def\setref#1#2#3{%
   \pdfmkdest{#1}%
   \iflinks
     {%
@@ -9054,7 +9043,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 	\write\auxfile{@xrdef{#1-% #1 of \setref, expanded by the \edef
 	  ##1}{##2}}% these are parameters of \writexrdef
       }%
-      \toks0 = \expandafter{\currentsection}%
+      \toks0 = {#3}%
       \immediate \writexrdef{title}{\the\toks0 }%
       \immediate \writexrdef{snt}{\csname #2\endcsname}% \Ynumbered etc.
       \safewhatsit{\writexrdef{pg}{\folio}}% will be written later, at \shipout
@@ -9841,14 +9830,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \global\advance\floatno by 1
       %
       {%
-        % This magic value for \currentsection is output by \setref as the
-        % XREFLABEL-title value.  \xrefX uses it to distinguish float
+        % This magic value for the third argument of \setref is output as
+        % the XREFLABEL-title value.  \xrefX uses it to distinguish float
         % labels (which have a completely different output format) from
         % node and anchor labels.  And \xrdef uses it to construct the
         % lists of floats.
         %
-        \edef\currentsection{\floatmagic=\safefloattype}%
-        \setref{\floatlabel}{Yfloat}%
+        \edef\tmp{\noexpand\setref{\floatlabel}{Yfloat}%
+                  {\floatmagic=\safefloattype}}%
+        \tmp
       }%
     \fi
     %
@@ -9970,7 +9960,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % #1 is the control sequence we are passed; we expand into a conditional
 % which is true if #1 represents a float ref.  That is, the magic
-% \currentsection value which we \setref above.
+% value which we passed to \setref above.
 %
 \def\iffloat#1{\expandafter\doiffloat#1==\finish}
 %
