@@ -15762,6 +15762,8 @@ For debugging.  If set, the tree constructed upon parsing a Texinfo
 document is output to the file; if set to @samp{-} output to standard error.
 For backward compatibility, for one release, also output to standard error if
 set to @samp{1}.  Default false.
+@c That "one release" will be the major release following 7.2.  Delete
+@c this mention thereafter.  See notes in TODO and README-hacking.
 
 @item FORMAT_MENU
 If set to @samp{menu}, output Texinfo menus.  This is the default for
