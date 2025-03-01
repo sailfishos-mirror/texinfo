@@ -341,6 +341,8 @@ sub copy_contentsNonXS($;$)
 
 
 
+sub set_element_tree_numbers($$);
+
 sub set_element_tree_numbers($$)
 {
   my $element = shift;
@@ -739,6 +741,8 @@ sub print_element_details($$$$;$)
   }
   return ($current_nr, $result);
 }
+
+sub remove_element_tree_numbers($);
 
 sub remove_element_tree_numbers($)
 {

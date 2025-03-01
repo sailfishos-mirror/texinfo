@@ -1,3 +1,9 @@
+2025-03-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers)
+	(remove_element_tree_numbers): add a definition for the recursive
+	functions.  Report from Gavin.
+
 2025-02-28  Patrice Dumas  <pertusus@free.fr>
 
 	Detailed tree and output units printing in Perl
