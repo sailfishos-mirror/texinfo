@@ -118,7 +118,7 @@ NUMBER_SECTIONS           converter_cmdline 1       integer
 NUMBER_FOOTNOTES          converter_cmdline 1       integer
 # only in HTML
 # --transliterate-file-names
-TRANSLITERATE_FILE_NAMES  converter_cmdline 1       integer
+TRANSLITERATE_FILE_NAMES  converter_cmdline 0       integer
 # --split
 SPLIT                     converter_cmdline undef   char
 # --headers.  Used to set diverse

@@ -52,7 +52,7 @@ set_converter_cmdline_options_defaults (OPTIONS *options)
   option_set_conf (&options->FILLCOLUMN, 72, 0);
   option_set_conf (&options->NUMBER_SECTIONS, 1, 0);
   option_set_conf (&options->NUMBER_FOOTNOTES, 1, 0);
-  option_set_conf (&options->TRANSLITERATE_FILE_NAMES, 1, 0);
+  option_set_conf (&options->TRANSLITERATE_FILE_NAMES, 0, 0);
   option_set_conf (&options->SPLIT, -2, 0);
   option_set_conf (&options->HEADERS, 1, 0);
   option_set_conf (&options->NODE_FILES, -1, 0);
@@ -69,7 +69,7 @@ add_converter_cmdline_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "FILLCOLUMN", 72, 0);
   add_option_value (options_list, "NUMBER_SECTIONS", 1, 0);
   add_option_value (options_list, "NUMBER_FOOTNOTES", 1, 0);
-  add_option_value (options_list, "TRANSLITERATE_FILE_NAMES", 1, 0);
+  add_option_value (options_list, "TRANSLITERATE_FILE_NAMES", 0, 0);
   add_option_value (options_list, "SPLIT", -2, 0);
   add_option_value (options_list, "HEADERS", 1, 0);
   add_option_value (options_list, "NODE_FILES", -1, 0);

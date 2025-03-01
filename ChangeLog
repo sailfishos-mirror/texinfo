@@ -1,3 +1,21 @@
+2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	TRANSLITERATE_FILE_NAMES is off by default
+
+	* tta/data/options_data.txt (TRANSLITERATE_FILE_NAMES): Change
+	from 0 to 1.
+
+	* tta/perl/t/test_utils.pl (convert_to_html),
+	* tta/tests/tex_html/list-of-tests,
+	* tta/tests/encoded/list-of-tests: Set TRANSLITERATE_FILE_NAMES to
+	1 in order not to disturb test results.
+
+	* tta/perl/t/converters_tests.t (conversion_with_undef_customization):
+	Comment out setting of TRANSLITERATE_FILE_NAMES to undef as it
+	does not take effect in the tests.
+	
+	* NEWS: update.
+
 2025-03-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers)

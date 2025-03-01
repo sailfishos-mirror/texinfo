@@ -30,6 +30,7 @@ See the manual for detailed information.
         for HTML cross-references customization
       . an empty URL in HTML cross-references customization triggers link
         to local manual
+      . TRANSLITERATE_FILE_NAMES is off by default
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
 

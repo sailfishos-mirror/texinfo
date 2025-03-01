@@ -1589,7 +1589,8 @@ A def.
  'footnotestyle' => undef,
  'xrefautomaticsectiontitle' => undef,
  'deftypefnnewline' => undef,
- 'TRANSLITERATE_FILE_NAMES' => undef,
+# overridden in test_utils.pl
+#'TRANSLITERATE_FILE_NAMES' => undef,
  'HEADERS' => undef,
  'TOP_NODE_UP' => undef, # requires TOP_NODE_UP_URL
  'BIG_RULE' => undef, # not actually interesting as the corresponding code

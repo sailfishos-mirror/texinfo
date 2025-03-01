@@ -564,6 +564,7 @@ sub convert_to_html($$$$$)
   $converter_options->{'SPLIT'} = ''
     if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
+  $converter_options->{'TRANSLITERATE_FILE_NAMES'} = 1;
 
   my $converter = Texinfo::Convert::HTML->converter($converter_options);
 
