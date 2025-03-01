@@ -191,6 +191,7 @@ void destroy_tree_added_elements (CONVERTER *self,
 TREE_ADDED_ELEMENTS *table_item_content_tree (CONVERTER *self,
                                               const ELEMENT *element);
 
+void id_to_filename (CONVERTER *self, char **id_ref);
 TARGET_FILENAME *normalized_sectioning_command_filename (CONVERTER *self,
                                                    const ELEMENT *command);
 

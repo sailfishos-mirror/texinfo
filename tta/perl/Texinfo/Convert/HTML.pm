@@ -13291,6 +13291,14 @@ sub _node_redirections($$$$)
   if ($self->get_conf('NODE_FILES')
       and $labels_list and $output_file ne '') {
 
+    my $added_translit_extension;
+    if ($self->get_conf('ADD_TRANSLITERATED_REDIRECTION_FILES')) {
+      $added_translit_extension = '';
+      $added_translit_extension = '.'.$self->get_conf('EXTENSION')
+                if (defined($self->get_conf('EXTENSION'))
+                    and $self->get_conf('EXTENSION') ne '');
+    }
+
     my %redirection_filenames;
     foreach my $target_element (@$labels_list) {
       next if (not $target_element->{'extra'}
@@ -13299,14 +13307,15 @@ sub _node_redirections($$$$)
       # filename may not be defined in case of an @anchor or similar in
       # @titlepage, and @titlepage is not used.
       my $filename = $self->command_filename($target_element);
+      next if (!defined($filename));
+
       my $node_filename;
+      my $normalized = $target_element->{'extra'}->{'normalized'};
       # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
       # is.  The other manual must use the same convention to get it
       # right.  We do not do 'node_filename' as a redirection file
       # either.
-      if ($target_element->{'extra'}
-          and $target_element->{'extra'}->{'normalized'}
-          and $target_element->{'extra'}->{'normalized'} eq 'Top'
+      if ($normalized eq 'Top'
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
@@ -13314,20 +13323,22 @@ sub _node_redirections($$$$)
         $node_filename = $target->{'node_filename'};
       }
 
-      if (defined($filename) and $node_filename ne $filename) {
-        my $redirection_filename
-          = $self->register_normalize_case_filename($node_filename);
+      my @redirection_files;
+      my $node_redirection_filename
+        = $self->register_normalize_case_filename($node_filename);
+      if ($node_filename ne $filename) {
         # first condition finds conflict with tree elements
-        if ($self->count_elements_in_filename('total', $redirection_filename)
-            or $redirection_filenames{$redirection_filename}) {
+        if ($self->count_elements_in_filename('total',
+                                              $node_redirection_filename)
+            or $redirection_filenames{$node_redirection_filename}) {
           $self->converter_line_warn(
              sprintf(__("\@%s `%s' file %s for redirection exists"),
                $target_element->{'cmdname'},
                Texinfo::Convert::Texinfo::convert_to_texinfo(
                        {'contents' => $label_element->{'contents'}}),
-               $redirection_filename),
+               $node_redirection_filename),
             $target_element->{'source_info'});
-          my $file_source = $files_source_info->{$redirection_filename};
+          my $file_source = $files_source_info->{$node_redirection_filename};
           my $file_info_type = $file_source->{'file_info_type'};
           if ($file_info_type eq 'special_file'
               or $file_info_type eq 'stand_in_file') {
@@ -13345,7 +13356,7 @@ sub _node_redirections($$$$)
             } elsif ($name eq 'user_defined') {
               $self->converter_document_warn(
                             __("conflict with user-defined file"), 1);
-           } elsif ($name eq 'unknown_node') {
+            } elsif ($name eq 'unknown_node') {
               $self->converter_document_warn(
                            __("conflict with unknown node file"), 1);
             } elsif ($name eq 'unknown') {
@@ -13397,18 +13408,52 @@ sub _node_redirections($$$$)
                sprintf(__("conflict with %s special element"),
                        $output_unit_variety), 1);
           }
-          next;
+        } else {
+          push @redirection_files, $node_redirection_filename;
         }
+      }
+
+      if (defined($added_translit_extension) and $normalized ne 'Top') {
+        # based on Texinfo::Convert::Converter node_information_filename
+        my $no_unidecode;
+        $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
+                        and !$self->get_conf('USE_UNIDECODE'));
+
+        my $in_test;
+        $in_test = 1 if ($self->get_conf('TEST'));
+
+        my $translit_filename
+   = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+          {'contents' => $label_element->{'contents'}}, $in_test,
+            $no_unidecode);
+
+        $translit_filename = $self->_id_to_filename($translit_filename);
+        $translit_filename = $translit_filename.$added_translit_extension;
+
+        if ($translit_filename ne $node_redirection_filename
+            and $translit_filename ne $filename) {
+          my $translit_redirection_filename
+            = $self->register_normalize_case_filename($translit_filename);
+
+          if (!$self->count_elements_in_filename('total',
+                                            $translit_redirection_filename)
+             and not $redirection_filenames{$translit_redirection_filename}) {
+            push @redirection_files, $translit_redirection_filename;
+          }
+        }
+      }
+
+      foreach my $redirection_filename (@redirection_files) {
         $redirection_filenames{$redirection_filename} = $target_element;
         $files_source_info->{$redirection_filename}
-          = {'file_info_type' => 'redirection',
-             'file_info_element' => $target_element,
-             'file_info_path' => undef,
-             'file_info_label_element' => $label_element};
+            = {'file_info_type' => 'redirection',
+               'file_info_element' => $target_element,
+               'file_info_path' => undef,
+               'file_info_label_element' => $label_element};
 
         my $redirection_page
           = _prepare_node_redirection_page ($self, $target_element,
-                                           $redirection_filename);
+                                             $redirection_filename);
 
         my $out_filepath;
         if ($destination_directory ne '') {
@@ -13435,13 +13480,13 @@ sub _node_redirections($$$$)
                   $self->output_files_information(), $encoded_out_filepath);
           if (!close ($file_fh)) {
             $self->converter_document_error(sprintf(__(
-                             "error on closing redirection node file %s: %s"),
+                           "error on closing redirection node file %s: %s"),
                                     $out_filepath, $!));
             $self->conversion_finalization();
             return undef;
           }
-          $redirection_files_done++;
         }
+        $redirection_files_done++;
         # NOTE failure to open a file does not stop the processing
       }
     }

@@ -97,6 +97,7 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->TEXTCONTENT_COMMENT, -1, 0);
   option_set_conf (&options->TEXINFO_DTD_VERSION, -2, "7.1");
   option_set_conf (&options->USE_UNICODE_COLLATION, 1, 0);
+  option_set_conf (&options->ADD_TRANSLITERATED_REDIRECTION_FILES, -1, 0);
   option_set_conf (&options->AFTER_BODY_OPEN, -2, 0);
   option_set_conf (&options->AFTER_SHORT_TOC_LINES, -2, 0);
   option_set_conf (&options->AFTER_TOC_LINES, -2, 0);
@@ -243,6 +244,7 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "TEXTCONTENT_COMMENT", -1, 0);
   add_option_value (options_list, "TEXINFO_DTD_VERSION", -2, "7.1");
   add_option_value (options_list, "USE_UNICODE_COLLATION", 1, 0);
+  add_option_value (options_list, "ADD_TRANSLITERATED_REDIRECTION_FILES", -1, 0);
   add_option_value (options_list, "AFTER_BODY_OPEN", -2, 0);
   add_option_value (options_list, "AFTER_SHORT_TOC_LINES", -2, 0);
   add_option_value (options_list, "AFTER_TOC_LINES", -2, 0);

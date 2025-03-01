@@ -1,3 +1,25 @@
+2025-03-01  Patrice Dumas  <pertusus@free.fr>
+
+	Add ADD_TRANSLITERATED_REDIRECTION_FILES
+
+	* tta/C/convert/convert_html.c (html_node_redirections),
+	tta/data/options_data.txt (ADD_TRANSLITERATED_REDIRECTION_FILES),
+	tta/perl/Texinfo/Convert/HTML.pm (_node_redirections): add
+	ADD_TRANSLITERATED_REDIRECTION_FILES customization variable to add
+	redirection files with transliterated file names for backward
+	compatibility with previous default HTML Xrefs.
+	Modify html_node_redirections to have the possibility to do
+	node redirection files based on a list of redirection files.  Add the
+	node redirection file to the list, and also add a transliterated file
+	if ADD_TRANSLITERATED_REDIRECTION_FILES is set, and the file name is
+	different from already set files.
+
+	* tta/perl/t/test_utils.pl (convert_to_html): set
+	TRANSLITERATE_FILE_NAMES only if not already set.
+
+	* tta/perl/t/html_tests.t (set_add_transliterated_redirection_files),
+	tta/perl/Makefile.tres: test ADD_TRANSLITERATED_REDIRECTION_FILES.
+
 2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	@*heading for "@xrefautomaticsectiontitle on"

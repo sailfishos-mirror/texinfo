@@ -51,6 +51,8 @@
 #include "translations.h"
 /* convert_to_text */
 #include "convert_to_text.h"
+/* normalize_transliterate_texinfo_contents */
+#include "node_name_normalization.h"
 /* translated_command_tree encoded_output_file_name output_files_open_out
    output_files_register_closed */
 #include "convert_utils.h"
@@ -2824,6 +2826,17 @@ html_node_redirections (CONVERTER *self,
       const LABEL_LIST *label_targets = &self->document->labels_list;
       size_t i;
       const ENCODING_CONVERSION *conversion = 0;
+      STRING_LIST redirection_files;
+      const char *added_translit_extension = 0;
+
+      memset (&redirection_files, 0, sizeof (STRING_LIST));
+
+      if (self->conf->ADD_TRANSLITERATED_REDIRECTION_FILES.o.integer > 0)
+        {
+          added_translit_extension = "";
+          if (self->conf->EXTENSION.o.string)
+            added_translit_extension = self->conf->EXTENSION.o.string;
+        }
 
       if (self->conf->OUTPUT_ENCODING_NAME.o.string
           && strcmp (self->conf->OUTPUT_ENCODING_NAME.o.string, "utf-8"))
@@ -2842,6 +2855,8 @@ html_node_redirections (CONVERTER *self,
           const char *node_filename;
           LABEL *label = &label_targets->list[i];
           const char *normalized;
+          char *node_redirection_filename = 0;
+          size_t j;
 
           if (!label->identifier || label->reference)
             continue;
@@ -2852,6 +2867,9 @@ html_node_redirections (CONVERTER *self,
           /* filename may not be defined in case of an @anchor or similar in
              @titlepage, and @titlepage is not used. */
           target_filename = html_command_filename (self, target_element);
+          if (!target_filename || !target_filename->filename) {
+            continue;
+          }
 
      /* NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
         is.  The other manual must use the same convention to get it
@@ -2869,20 +2887,20 @@ html_node_redirections (CONVERTER *self,
                 = html_get_target (self, target_element);
               node_filename = node_target->node_filename;
             }
-          if (target_filename && target_filename->filename
-              && strcmp (target_filename->filename, node_filename))
+
+          if (strcmp (target_filename->filename, node_filename))
             {
               size_t file_idx
                 = register_normalize_case_filename (self, node_filename);
               const FILE_NAME_PATH_COUNTER *output_unit_file
                  = &self->output_unit_files.list[file_idx];
-              char *redirection_filename = output_unit_file->filename;
+              node_redirection_filename = output_unit_file->filename;
               int redirection_filename_total_count
                 = output_unit_file->elements_in_file_count;
 
               FILE_SOURCE_INFO *file_source_info
                  = html_find_file_source_info (files_source_info,
-                                               redirection_filename);
+                                               node_redirection_filename);
               if (file_source_info
                /* first condition finds conflict with tree elements */
                   && (redirection_filename_total_count > 0
@@ -2895,7 +2913,7 @@ html_node_redirections (CONVERTER *self,
                                     self->conf, target_element, 0,
                              "@%s `%s' file %s for redirection exists",
                                element_command_name (target_element),
-                               label_texi, redirection_filename);
+                               label_texi, node_redirection_filename);
                   free (label_texi);
 
                   if (!strcmp (file_info_type, "special_file")
@@ -2987,57 +3005,118 @@ html_node_redirections (CONVERTER *self,
                 }
               else
                 {
-                  char *redirection_page;
-                  char *out_filepath;
-                  char *path_encoding;
-                  char *open_error_message;
-                  int overwritten_file;
-                  int status;
-
-                  html_add_to_files_source_info (files_source_info,
-                                 redirection_filename, "redirection", 0,
-                                                       target_element, 0);
-
-                  redirection_page
-                    = html_prepare_node_redirection_page (self, target_element,
-                                                         redirection_filename);
-                  if (destination_directory && strlen (destination_directory))
-                    {
-                      xasprintf (&out_filepath, "%s/%s", destination_directory,
-                                 redirection_filename);
-                    }
-                  else
-                    out_filepath = strdup (redirection_filename);
-
-                  char *encoded_out_filepath
-                     = encoded_output_file_name (self->conf,
-                                   &self->document->global_info, out_filepath,
-                                                           &path_encoding, 0);
-                  /* overwritten_file being set cannot happen */
-                  FILE *file_fh
-                    = output_files_open_out (&self->output_files_information,
-                               encoded_out_filepath, &open_error_message,
-                               &overwritten_file, 0);
-                  free (path_encoding);
-
-                  status
-                    = file_error_or_write_close (self, out_filepath,
-                                         encoded_out_filepath, file_fh,
-                                         conversion, redirection_page,
-                                         open_error_message);
-
-                  free (encoded_out_filepath);
-                  free (out_filepath);
-                  free (redirection_page);
-                  free (open_error_message);
-
-             /* NOTE failure to open a file does not stop the processing */
-                  if (status == -1)
-                    return -1;
-                  else if (status >= 0)
-                    redirection_files_done++;
+                  add_string (node_redirection_filename, &redirection_files);
                 }
             }
+
+          if (added_translit_extension && strcmp (normalized, "Top"))
+            {
+              /* based on converter.c node_information_filename */
+              int in_test = (self->conf->TEST.o.integer > 0);
+              char *translit_filename;
+              char *translit_basename
+               = normalize_transliterate_texinfo_contents (label_element,
+                                                          in_test, in_test,
+                                (self->conf->USE_UNIDECODE.o.integer == 0));
+
+              id_to_filename (self, &translit_basename);
+
+              if (strlen(added_translit_extension))
+                xasprintf (&translit_filename, "%s.%s",
+                           translit_basename, added_translit_extension);
+              else
+                translit_filename = strdup (translit_basename);
+              free (translit_basename);
+
+              if (!node_redirection_filename)
+                {
+                  size_t file_idx
+                   = register_normalize_case_filename (self, node_filename);
+                  const FILE_NAME_PATH_COUNTER *output_unit_file
+                    = &self->output_unit_files.list[file_idx];
+                  node_redirection_filename = output_unit_file->filename;
+                }
+              if (strcmp (translit_filename, node_redirection_filename)
+                  && strcmp (translit_filename, target_filename->filename))
+                {
+                  size_t file_idx
+                   = register_normalize_case_filename (self, translit_filename);
+                  const FILE_NAME_PATH_COUNTER *output_unit_file
+                    = &self->output_unit_files.list[file_idx];
+                  char *translit_redirection_filename
+                    = output_unit_file->filename;
+                  int redirection_filename_total_count
+                    = output_unit_file->elements_in_file_count;
+
+                  FILE_SOURCE_INFO *file_source_info
+                     = html_find_file_source_info (files_source_info,
+                                               translit_redirection_filename);
+                  if (!(file_source_info
+                   /* first condition finds conflict with tree elements */
+                        && (redirection_filename_total_count > 0
+                            || !strcmp (file_source_info->type,
+                                        "redirection"))))
+                    {
+                      add_string (translit_redirection_filename,
+                                  &redirection_files);
+                    }
+                }
+            }
+
+          for (j = 0; j < redirection_files.number; j++)
+            {
+              char *redirection_page;
+              char *out_filepath;
+              char *path_encoding;
+              char *open_error_message;
+              int overwritten_file;
+              int status;
+              char *redirection_filename = redirection_files.list[j];
+
+              html_add_to_files_source_info (files_source_info,
+                             redirection_filename, "redirection", 0,
+                                                   target_element, 0);
+
+              redirection_page
+                = html_prepare_node_redirection_page (self, target_element,
+                                                     redirection_filename);
+              if (destination_directory && strlen (destination_directory))
+                {
+                  xasprintf (&out_filepath, "%s/%s", destination_directory,
+                             redirection_filename);
+                }
+              else
+                out_filepath = strdup (redirection_filename);
+
+              char *encoded_out_filepath
+                 = encoded_output_file_name (self->conf,
+                               &self->document->global_info, out_filepath,
+                                                       &path_encoding, 0);
+              /* overwritten_file being set cannot happen */
+              FILE *file_fh
+                = output_files_open_out (&self->output_files_information,
+                           encoded_out_filepath, &open_error_message,
+                           &overwritten_file, 0);
+              free (path_encoding);
+
+              status
+                = file_error_or_write_close (self, out_filepath,
+                                     encoded_out_filepath, file_fh,
+                                     conversion, redirection_page,
+                                     open_error_message);
+
+              free (encoded_out_filepath);
+              free (out_filepath);
+              free (redirection_page);
+              free (open_error_message);
+
+         /* NOTE failure to open a file does not stop the processing */
+              if (status == -1)
+                return -1;
+              else if (status >= 0)
+                redirection_files_done++;
+            }
+          clear_strings_list (&redirection_files);
         }
     }
 

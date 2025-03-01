@@ -1105,7 +1105,7 @@ set_global_document_commands (CONVERTER *converter,
 
 
 
-static void
+void
 id_to_filename (CONVERTER *self, char **id_ref)
 {
   if (self->conf->BASEFILENAME_LENGTH.o.integer < 0)

@@ -557,6 +557,12 @@ sub convert_to_html($$$$$)
   my $document = shift;
   my $converter_options = shift;
 
+  $converter_options = {} if (!defined($converter_options));
+
+  if (!exists($converter_options->{'TRANSLITERATE_FILE_NAMES'})) {
+    $converter_options->{'TRANSLITERATE_FILE_NAMES'} = 1;
+  }
+
   $converter_options
     = set_converter_option_defaults($converter_options, 'html',
                                     $self->{'DEBUG'});
@@ -564,7 +570,6 @@ sub convert_to_html($$$$$)
   $converter_options->{'SPLIT'} = ''
     if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
-  $converter_options->{'TRANSLITERATE_FILE_NAMES'} = 1;
 
   my $converter = Texinfo::Convert::HTML->converter($converter_options);
 

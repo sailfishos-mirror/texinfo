@@ -38,6 +38,7 @@ our %converter_customization_options = (
   'TEXTCONTENT_COMMENT'              => undef,
   'TEXINFO_DTD_VERSION'              => '7.1',
   'USE_UNICODE_COLLATION'            => 1,
+  'ADD_TRANSLITERATED_REDIRECTION_FILES' => undef,
   'AFTER_BODY_OPEN'                  => undef,
   'AFTER_SHORT_TOC_LINES'            => undef,
   'AFTER_TOC_LINES'                  => undef,

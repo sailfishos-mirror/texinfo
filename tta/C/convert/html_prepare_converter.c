@@ -4251,7 +4251,7 @@ set_special_units_targets_files (CONVERTER *self, const char *document_name)
   const OUTPUT_UNIT_LIST *special_units = retrieve_output_units
     (self->document, self->output_units_descriptors[OUDT_special_units]);
 
-  char *extension = "";
+  const char *extension = "";
   if (self->conf->EXTENSION.o.string)
     extension = self->conf->EXTENSION.o.string;
 
