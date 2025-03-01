@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-02-18.21}
+\def\texinfoversion{2025-03-01.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -6737,21 +6737,17 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \ifx\temptype\Ynothingkeyword
       \setbox0 = \hbox{}%
       \def\toctype{unn}%
-      \gdef\currentsection{#1}%
     \else\ifx\temptype\Yomitfromtockeyword
-      % for @headings -- no section number, don't include in toc,
-      % and don't redefine \currentsection.
+      % for @headings -- no section number, don't include in toc.
       \setbox0 = \hbox{}%
       \def\toctype{omit}%
       \let\sectionlevel=\empty
     \else\ifx\temptype\Yappendixkeyword
       \setbox0 = \hbox{#4\enspace}%
       \def\toctype{app}%
-      \gdef\currentsection{#1}%
     \else
       \setbox0 = \hbox{#4\enspace}%
       \def\toctype{num}%
-      \gdef\currentsection{#1}%
     \fi\fi\fi
     %
     % Write the toc entry (before \donoderef).  See comments in \chapmacro.
@@ -6759,6 +6755,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     %
     % Write the node reference (= pdf destination for pdftex).
     % Again, see comments in \chapmacro.
+    \gdef\currentsection{#1}%
     \donoderef{#3}%
     %
     % Interline glue will be inserted when the vbox is completed.
@@ -9037,10 +9034,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 % \setref{NAME}{SNT} defines a cross-reference point NAME (a node or an
 % anchor), which consists of three parts:
-% 1) NAME-title - the current sectioning name taken from \currentsection,
-%                 or the anchor name.
-% 2) NAME-snt   - section number and type, passed as the SNT arg, or
-%                 empty for anchors.
+% 1) NAME-title - the current sectioning name taken from \currentsection.
+% 2) NAME-snt   - section number and type, passed as the SNT arg.
 % 3) NAME-pg    - the page number.
 %
 % This is called from \donoderef, \anchor, and \dofloat.  In the case of
