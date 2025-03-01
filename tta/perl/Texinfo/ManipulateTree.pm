@@ -389,14 +389,15 @@ sub set_element_tree_numbers($$)
 
 my $SOURCE_MARK_PREPEND = '>';
 
-sub print_element_details($$$$;$);
+sub print_element_details($$$$;$$);
 
-sub _print_source_marks($$$$;$)
+sub _print_source_marks($$$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   return ($current_nr, '') if (!$element->{'source_marks'});
@@ -429,7 +430,8 @@ sub _print_source_marks($$$$;$)
       my $element_result;
       ($current_nr, $element_result)
        = print_element_details($s_mark->{'element'}, $level+1,
-                         $s_mark_prepended, $current_nr, $use_filename);
+                         $s_mark_prepended, $current_nr, $fname_encoding,
+                         $use_filename);
       $result .= $element_result;
     }
   }
@@ -437,12 +439,13 @@ sub _print_source_marks($$$$;$)
   return ($current_nr, $result);
 }
 
-sub _print_text_element($$$$;$)
+sub _print_text_element($$$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $result = '';
@@ -462,7 +465,7 @@ sub _print_text_element($$$$;$)
   my $source_marks_result;
   ($current_nr, $source_marks_result)
     = _print_source_marks($element, $level, $prepended, $current_nr,
-                          $use_filename);
+                          $fname_encoding, $use_filename);
 
   $result .= $source_marks_result;
   return ($current_nr, $result);
@@ -470,12 +473,13 @@ sub _print_text_element($$$$;$)
 
 my $ADDITIONAL_INFO_PREPEND = '|';
 
-sub _print_element_add_prepend_info($$$$;$)
+sub _print_element_add_prepend_info($$$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $info_prepended;
@@ -486,7 +490,7 @@ sub _print_element_add_prepend_info($$$$;$)
   }
 
   return print_element_details($element, $level, $info_prepended, $current_nr,
-                               $use_filename);
+                               $fname_encoding, $use_filename);
 }
 
 # extra elements out of tree.  Need to look at C add_extra_element_oot
@@ -526,13 +530,14 @@ sub _debug_protect_eol($)
   return $line;
 }
 
-sub _print_element_associated_info($$$$$;$)
+sub _print_element_associated_info($$$$$;$$)
 {
   my $associated_info = shift;
   my $header = shift;
   my $level = shift;
   my $prepended = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my @keys = sort(keys(%$associated_info));
@@ -578,7 +583,8 @@ sub _print_element_associated_info($$$$$;$)
         my $info_e_text;
         ($current_nr, $info_e_text)
           = _print_element_add_prepend_info($value, $level+1, $prepended,
-                                            $current_nr, $use_filename);
+                                            $current_nr,
+                                            $fname_encoding, $use_filename);
         $result .= "\n$info_e_text";
         $had_eol = 1;
       } else {
@@ -609,9 +615,10 @@ sub _print_element_associated_info($$$$$;$)
   return ($current_nr, $result);
 }
 
-sub _print_element_source_info($;$)
+sub _print_element_source_info($;$$)
 {
   my $element = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $source_info = $element->{'source_info'};
@@ -627,6 +634,9 @@ sub _print_element_source_info($;$)
     if ($use_filename) {
       my ($directories, $suffix);
       ($file_name, $directories, $suffix) = fileparse($file_name);
+    }
+    if (defined($fname_encoding)) {
+      $file_name = Encode::decode($fname_encoding, $file_name);
     }
     $result .= $file_name;
     $result .= ':' if ($line_nr or defined($macro));
@@ -644,12 +654,13 @@ sub _print_element_source_info($;$)
   return $result;
 }
 
-sub print_element_details($$$$;$)
+sub print_element_details($$$$;$$)
 {
   my $element = shift;
   my $level = shift;
   my $prepended = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $result = ' ' x $level;
@@ -662,7 +673,7 @@ sub print_element_details($$$$;$)
     my $text_result;
     ($current_nr, $text_result)
       = _print_text_element($element, $level, $prepended, $current_nr,
-                            $use_filename);
+                            $fname_encoding, $use_filename);
     $result .= $text_result;
     return ($current_nr, $result);
   }
@@ -688,7 +699,8 @@ sub print_element_details($$$$;$)
     $result .= " *$contents_nr";
   }
 
-  $result .= _print_element_source_info($element, $use_filename);
+  $result .= _print_element_source_info($element, $fname_encoding,
+                                        $use_filename);
 
   $result .= "\n";
 
@@ -703,7 +715,8 @@ sub print_element_details($$$$;$)
     }
     ($current_nr, $result_info)
       = _print_element_associated_info($info, 'INFO', $level,
-                                       $prepended, $current_nr, $use_filename);
+                                       $prepended, $current_nr,
+                                       $fname_encoding, $use_filename);
     $result .= $result_info;
   }
 
@@ -720,14 +733,15 @@ sub print_element_details($$$$;$)
 
     ($current_nr, $result_info)
       = _print_element_associated_info($extra, "EXTRA", $level,
-                                       $prepended, $current_nr, $use_filename);
+                                       $prepended, $current_nr,
+                                       $fname_encoding, $use_filename);
     $result .= $result_info;
   }
 
   my $source_marks_result;
   ($current_nr, $source_marks_result)
     = _print_source_marks($element, $level, $prepended, $current_nr,
-                          $use_filename);
+                          $fname_encoding, $use_filename);
   $result .= $source_marks_result;
 
   if ($contents_nr) {
@@ -735,7 +749,7 @@ sub print_element_details($$$$;$)
       my $content_result;
       ($current_nr, $content_result)
         = print_element_details($content, $level+1, $prepended,
-                                $current_nr, $use_filename);
+                                $current_nr, $fname_encoding, $use_filename);
       $result .= $content_result;
     }
   }
@@ -763,9 +777,10 @@ sub remove_element_tree_numbers($)
   }
 }
 
-sub print_tree($;$)
+sub print_tree($;$$)
 {
   my $tree = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $result;
@@ -773,7 +788,7 @@ sub print_tree($;$)
   my $current_nr = set_element_tree_numbers($tree, 0);
 
   ($current_nr, $result) = print_element_details($tree, 0, undef, $current_nr,
-                                                 $use_filename);
+                                             $fname_encoding, $use_filename);
 
   remove_element_tree_numbers($tree);
 

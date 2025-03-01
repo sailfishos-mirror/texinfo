@@ -1,3 +1,29 @@
+2025-03-01  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, doc/texinfo.texi (Global Customization Variables),
+	tta/C/texi2any.c (main), tta/data/options_data.txt (DUMP_STRUCTURE)
+	(DUMP_TREE), tta/perl/texi2any.pl: consider DUMP_TREE and
+	DUMP_STRUCTURE to be file names instead of flag.  If set to -, print
+	to STDERR. For DUMP_TREE print to STDERR if set to 1, too, temporary
+	for backward compatibility.  Set document options earlier in main
+	programs to have them available for DUMP_TREE.
+
+	* tta/C/main/convert_utils.c (encoded_input_file_name),
+	tta/C/main/utils.c (input_file_name_encoding),
+	tta/perl/Texinfo/Common.pm (input_file_name_encoding),
+	tta/perl/Texinfo/Convert/Utils.pm (encoded_input_file_name): add
+	input_file_name_encoding based on code removed from
+	encoded_input_file_name.
+
+	* tta/C/main/manipulate_tree.c (print_element_source_info, print_tree)
+	(print_*), tta/C/main/output_unit.c (print_output_units_details)
+	(print_output_units_tree_details), tta/C/texi2any.c (main),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_element_source_info)
+	(print_tree, print_*), tta/perl/texi2any.pl: decode source info file
+	names to internal encoding/UTF-8 for print_tree.  Call
+	input_file_name_encoding in main program to determine input files
+	encoding.  Pass input file encoding down to print_element_source_info.
+
 2025-03-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	TRANSLITERATE_FILE_NAMES is off by default

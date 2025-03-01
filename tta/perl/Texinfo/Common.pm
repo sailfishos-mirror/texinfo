@@ -1198,6 +1198,48 @@ sub set_output_perl_encoding($)
   }
 }
 
+# $SELF is the source of configuration variables information.
+# $DOCUMENT is the parsed Texinfo document.  It is optional, but it
+# is recommended to pass it to get the input encoding name.
+# The input file encoding can be given as $INPUT_FILE_ENCODING optional
+# argument, it will be used if DOC_ENCODING_FOR_INPUT_FILE_NAME is
+# undef or set.
+sub input_file_name_encoding($;$$)
+{
+  my $self = shift;
+  my $document = shift;
+  my $input_file_encoding = shift;
+
+  my $encoding;
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+
+    if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+
+  } elsif (!defined($doc_encoding_for_input_file_name)
+           or $doc_encoding_for_input_file_name) {
+    if (defined($input_file_encoding)) {
+      $encoding = $input_file_encoding;
+    } else {
+      my $document_info;
+
+      if ($document) {
+        $document_info = $document->global_information();
+      }
+
+      $encoding = $document_info->{'input_encoding_name'}
+        if ($document_info
+          and defined($document_info->{'input_encoding_name'}));
+    }
+  } else {
+    $encoding = $self->get_conf('LOCALE_ENCODING');
+  }
+
+  return $encoding;
+}
+
 my $min_level = $command_structuring_level{'chapter'};
 my $max_level = $command_structuring_level{'subsubsection'};
 
@@ -2061,6 +2103,19 @@ prefer an untranslated element.  If the element is an index command like
 C<@cindex> or an C<@ftable> C<@item>, the content element is the argument
 of the command.  If the element is a definition line, the index entry
 element is based on the name and class.
+
+=item $encoding = input_file_name_encoding($customization_information, $document, $input_file_encoding)
+X<C<input_file_encoding>>
+
+Returns the encoding assumed for input file names, based on customization
+variables, and possibly on the input file encoding.  The
+I<$customization_information> argument is used to access to customization
+variables.  The I<$document> argument is an optional Texinfo parsed document
+used to get the input document content encoding.  The I<$input_file_encoding>
+argument is optional, it will be used in priority if the the encoding is based
+on the input file encoding.  If I<$input_file_encoding> is not given, it is
+recommended to pass I<$document>, otherwise there is no way to determine the
+input document content encoding.
 
 =item $result = is_content_empty($tree, $do_not_ignore_index_entries)
 X<C<is_content_empty>>

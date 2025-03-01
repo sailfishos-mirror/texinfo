@@ -2577,14 +2577,67 @@ main (int argc, char *argv[], char *env[])
       /* Texinfo document tree parsing */
       document = txi_parse_texi_file (input_file_path, &status);
 
+      set_document_options (document, &program_options, &cmdline_options,
+                            init_files_options);
+
       dump_tree_option
         = GNUT_get_conf (program_options.options->DUMP_TREE.number);
 
-      if (!status && ((dump_tree_option && dump_tree_option->o.integer > 0)
+      if (!status && ((dump_tree_option && dump_tree_option->o.string)
                       || debug >= 10))
         {
-          char *debug_tree = print_tree (document->tree, test_mode_set);
-          fprintf (stderr, "%s", debug_tree);
+          const char *input_file_names_encoding
+            = input_file_name_encoding (document->options,
+                                        &document->global_info, 0);
+          char *debug_tree = print_tree (document->tree,
+                               input_file_names_encoding, test_mode_set);
+          const char *output_encoding = 0;
+          OPTION *out_encoding_option
+            = GNUT_get_conf (
+                  program_options.options->OUTPUT_ENCODING_NAME.number);
+
+          if (out_encoding_option && out_encoding_option->o.string
+              && strcmp (out_encoding_option->o.string, "utf-8"))
+            output_encoding = out_encoding_option->o.string;
+
+          if (dump_tree_option && dump_tree_option->o.string
+              && strcmp (dump_tree_option->o.string, "-")
+              && strcmp (dump_tree_option->o.string, "1"))
+            {
+              const char *dump_tree = dump_tree_option->o.string;
+              char *dump_tree_name
+                = GNUT_decode_input ((char *) dump_tree);
+
+              FILE *file_fh = fopen (dump_tree, "w");
+              if (file_fh)
+                {
+                  if (output_encoding)
+                    {
+                      char *encoding_line;
+                      xasprintf (&encoding_line, "OUTPUT_ENCODING: %s\n",
+                                 output_encoding);
+                      write_to_file (encoding_line, file_fh, dump_tree_name);
+                      free (encoding_line);
+                    }
+                  write_to_file (debug_tree, file_fh, dump_tree_name);
+
+                  if (fclose (file_fh))
+                    {
+                      txi_config_document_warn (
+                               "error on closing tree dump file %s: %s",
+                                 dump_tree_name, strerror (errno));
+                    }
+                }
+              else
+                txi_config_document_warn ("could not open %s for writing: %s",
+                                          dump_tree_name, strerror (errno));
+            }
+          else
+            {
+              if (output_encoding)
+                fprintf (stderr, "OUTPUT_ENCODING: %s\n", output_encoding);
+              fprintf (stderr, "%s", debug_tree);
+            }
           free (debug_tree);
         }
 
@@ -2622,9 +2675,6 @@ main (int argc, char *argv[], char *env[])
             }
           goto next_input_file;
         }
-
-      set_document_options (document, &program_options, &cmdline_options,
-                            init_files_options);
 
       macro_expand_option
         = GNUT_get_conf (program_options.options->MACRO_EXPAND.number);
@@ -2730,8 +2780,58 @@ main (int argc, char *argv[], char *env[])
       if ((dump_structure_option && dump_structure_option->o.integer > 0)
           || debug >= 20)
         {
-          char *debug_tree = print_tree (document->tree, test_mode_set);
-          fprintf (stderr, "%s", debug_tree);
+          const char *input_file_names_encoding
+            = input_file_name_encoding (document->options,
+                                        &document->global_info, 0);
+          char *debug_tree = print_tree (document->tree,
+                               input_file_names_encoding, test_mode_set);
+          const char *output_encoding = 0;
+          OPTION *out_encoding_option
+            = GNUT_get_conf (
+                  program_options.options->OUTPUT_ENCODING_NAME.number);
+
+          if (out_encoding_option && out_encoding_option->o.string
+              && strcmp (out_encoding_option->o.string, "utf-8"))
+            output_encoding = out_encoding_option->o.string;
+
+          if (dump_structure_option && dump_structure_option->o.string
+              && strcmp (dump_structure_option->o.string, "-"))
+            {
+              const char *dump_structure = dump_structure_option->o.string;
+              char *dump_structure_name
+                = GNUT_decode_input ((char *) dump_structure);
+
+              FILE *file_fh = fopen (dump_structure, "w");
+              if (file_fh)
+                {
+                  if (output_encoding)
+                    {
+                      char *encoding_line;
+                      xasprintf (&encoding_line, "OUTPUT_ENCODING: %s\n",
+                                 output_encoding);
+                      write_to_file (encoding_line, file_fh,
+                                     dump_structure_name);
+                      free (encoding_line);
+                    }
+                  write_to_file (debug_tree, file_fh, dump_structure_name);
+
+                  if (fclose (file_fh))
+                    {
+                      txi_config_document_warn (
+                               "error on closing structure dump file %s: %s",
+                                 dump_structure_name, strerror (errno));
+                    }
+                }
+              else
+                txi_config_document_warn ("could not open %s for writing: %s",
+                                      dump_structure_name, strerror (errno));
+            }
+          else
+            {
+              if (output_encoding)
+                fprintf (stderr, "OUTPUT_ENCODING: %s\n", output_encoding);
+              fprintf (stderr, "%s", debug_tree);
+            }
           free (debug_tree);
         }
 

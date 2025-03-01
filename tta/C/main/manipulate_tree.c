@@ -870,7 +870,8 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 
 static uintptr_t
 print_source_marks (ELEMENT *element, int level, const char *prepended,
-                    uintptr_t current_nr, TEXT *result, int use_filename)
+                    uintptr_t current_nr, TEXT *result,
+                    const char *fname_encoding, int use_filename)
 {
   char *s_mark_prepended;
   size_t i;
@@ -926,7 +927,8 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
       if (s_mark->element)
         {
           current_nr = print_element_details (s_mark->element, level+1,
-                        s_mark_prepended, current_nr, result, use_filename);
+                        s_mark_prepended, current_nr, result,
+                        fname_encoding, use_filename);
         }
     }
 
@@ -940,7 +942,8 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
 
 static uintptr_t
 print_text_element (ELEMENT *element, int level, const char *prepended,
-                    uintptr_t current_nr, TEXT *result, int use_filename)
+                    uintptr_t current_nr, TEXT *result,
+                    const char *fname_encoding, int use_filename)
 {
   const char *type = 0;
   char *element_text = debug_protect_eol (element->e.text->text);
@@ -957,7 +960,8 @@ print_text_element (ELEMENT *element, int level, const char *prepended,
   free (element_text);
 
   current_nr = print_source_marks (element, level, prepended,
-                                   current_nr, result, use_filename);
+                                   current_nr, result, fname_encoding,
+                                   use_filename);
 
   return current_nr;
 }
@@ -1071,7 +1075,8 @@ add_info_name_string_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
 static uintptr_t
 print_element_add_prepend_info (ELEMENT *element, int level,
                                 const char *prepended, uintptr_t current_nr,
-                                TEXT *result, int use_filename)
+                                TEXT *result, const char *fname_encoding, 
+                                int use_filename)
 {
   char *info_prepended;
   if (prepended)
@@ -1081,7 +1086,7 @@ print_element_add_prepend_info (ELEMENT *element, int level,
     info_prepended = ADDITIONAL_INFO_PREPEND;
 
   current_nr = print_element_details (element, level, info_prepended,
-                              current_nr, result, use_filename);
+                          current_nr, result, fname_encoding, use_filename);
 
   if (prepended)
     free (info_prepended);
@@ -1093,7 +1098,7 @@ print_element_add_prepend_info (ELEMENT *element, int level,
 static uintptr_t
 print_element_info (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,
-                    TEXT *result, int use_filename)
+                    TEXT *result, const char *fname_encoding, int use_filename)
 {
   int i;
   TEXT info_e_text;
@@ -1115,8 +1120,8 @@ print_element_info (ELEMENT *element, int level,
           current_nr = set_element_tree_numbers (element, current_nr);
 
           current_nr = print_element_add_prepend_info (info_element,
-                                      level+1, prepended,
-                                      current_nr, &info_e_text, use_filename);
+                              level+1, prepended, current_nr, &info_e_text,
+                              fname_encoding, use_filename);
 
           add_info_name_value (&info_strings, elt_info_names[i],
                                info_e_text.text, 1);
@@ -1185,7 +1190,7 @@ element_number_or_error (const ELEMENT *element)
 static uintptr_t
 print_element_extra (ELEMENT *element, int level,
                     const char *prepended, uintptr_t current_nr,
-                    TEXT *result, int use_filename)
+                    TEXT *result, const char *fname_encoding, int use_filename)
 {
   size_t i;
 
@@ -1258,8 +1263,8 @@ print_element_extra (ELEMENT *element, int level,
               = set_element_tree_numbers (k_pair->k.element, current_nr);
             current_nr
               = print_element_add_prepend_info (k_pair->k.element, level+1,
-                                                prepended,
-                                       current_nr, &info_e_text, use_filename);
+                                       prepended, current_nr, &info_e_text,
+                                       fname_encoding, use_filename);
             value = info_e_text.text;
             need_eol = 1;
             need_free = 1;
@@ -1395,7 +1400,8 @@ print_element_extra (ELEMENT *element, int level,
 #undef ADDITIONAL_INFO_PREPEND
 
 static void
-print_element_source_info (ELEMENT *element, TEXT *result, int use_filename)
+print_element_source_info (ELEMENT *element, TEXT *result,
+                           const char *fname_encoding, int use_filename)
 {
   SOURCE_INFO *source_info = &element->e.c->source_info;
 
@@ -1407,19 +1413,37 @@ print_element_source_info (ELEMENT *element, TEXT *result, int use_filename)
 
   if (source_info->file_name)
     {
+      int status;
+      char *decoded_file_name;
       if (use_filename)
         {
           char *file_name_and_directory[2];
           parse_file_path (source_info->file_name,
                            file_name_and_directory);
 
-          text_append (result, file_name_and_directory[0]);
+          if (fname_encoding)
+            decoded_file_name
+              = decode_string (file_name_and_directory[0], fname_encoding,
+                               &status, 0);
+          else
+            decoded_file_name = file_name_and_directory[0];
+
+          text_append (result, decoded_file_name);
 
           free (file_name_and_directory[0]);
           free (file_name_and_directory[1]);
         }
       else
-        text_append (result, source_info->file_name);
+        {
+          if (fname_encoding)
+            decoded_file_name
+              = decode_string (source_info->file_name, fname_encoding,
+                               &status, 0);
+          text_append (result, decoded_file_name);
+        }
+
+      if (fname_encoding)
+        free (decoded_file_name);
 
       if (source_info->line_nr || source_info->macro)
         text_append_n (result, ":", 1);
@@ -1440,7 +1464,8 @@ print_element_source_info (ELEMENT *element, TEXT *result, int use_filename)
    numbered too */
 uintptr_t
 print_element_details (ELEMENT *element, int level, const char *prepended,
-               uintptr_t current_nr, TEXT *result, int use_filename)
+                              uintptr_t current_nr, TEXT *result,
+                              const char *fname_encoding, int use_filename)
 {
   size_t i;
   int j;
@@ -1454,7 +1479,8 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
   if (type_data[element->type].flags & TF_text)
     {
       current_nr = print_text_element (element, level, prepended,
-                                       current_nr, result, use_filename);
+                                       current_nr, result, fname_encoding,
+                                       use_filename);
       return current_nr;
     }
 
@@ -1476,23 +1502,27 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
   if (element->e.c->contents.number > 0)
     text_printf (result, " *%zu", element->e.c->contents.number);
 
-  print_element_source_info (element, result, use_filename);
+  print_element_source_info (element, result, fname_encoding, use_filename);
 
   text_append_n (result, "\n", 1);
 
   current_nr = print_element_info (element, level, prepended,
-                                   current_nr, result, use_filename);
+                                   current_nr, result, fname_encoding,
+                                   use_filename);
 
   current_nr = print_element_extra (element, level, prepended,
-                                    current_nr, result, use_filename);
+                                    current_nr, result, fname_encoding,
+                                    use_filename);
 
   current_nr = print_source_marks (element, level, prepended,
-                                   current_nr, result, use_filename);
+                                   current_nr, result, fname_encoding,
+                                   use_filename);
 
   for (i = 0; i < element->e.c->contents.number; i++)
     current_nr
       = print_element_details (element->e.c->contents.list[i], level +1,
-                       prepended, current_nr, result, use_filename);
+                                prepended, current_nr, result,
+                                fname_encoding, use_filename);
 
   return current_nr;
 }
@@ -1546,7 +1576,7 @@ remove_element_tree_numbers (ELEMENT *element)
 }
 
 char *
-print_tree (ELEMENT *tree, int use_filename)
+print_tree (ELEMENT *tree, const char *fname_encoding, int use_filename)
 {
   TEXT result;
   uintptr_t current_nr;
@@ -1556,7 +1586,8 @@ print_tree (ELEMENT *tree, int use_filename)
 
   current_nr = set_element_tree_numbers (tree, 0);
 
-  print_element_details (tree, 0, 0, current_nr, &result, use_filename);
+  print_element_details (tree, 0, 0, current_nr, &result, fname_encoding,
+                         use_filename);
 
   remove_element_tree_numbers (tree);
 

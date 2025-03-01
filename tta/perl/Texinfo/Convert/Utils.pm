@@ -612,7 +612,8 @@ sub encoded_output_file_name($$)
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
-# this requires a converter argument as customization is read.
+# this requires a converter argument as customization is read
+# and document is found with the converter.
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
 # argument, it will be used if DOC_ENCODING_FOR_INPUT_FILE_NAME is
 # undef or set.
@@ -623,35 +624,9 @@ sub encoded_input_file_name($$;$)
   my $file_name = shift;
   my $input_file_encoding = shift;
 
-  my $encoding;
-  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
-  my $doc_encoding_for_input_file_name
-    = $self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
-
-  if ($input_file_name_encoding) {
-    $encoding = $input_file_name_encoding;
-
-  # not defined DOC_ENCODING_FOR_INPUT_FILE_NAME should not happen for
-  # converters inheriting from Converter, but can happen for the Text
-  # converter.
-  } elsif (!defined($doc_encoding_for_input_file_name)
-           or $doc_encoding_for_input_file_name) {
-    if (defined($input_file_encoding)) {
-      $encoding = $input_file_encoding;
-    } else {
-      my $document_info;
-
-      if ($self->{'document'}) {
-        $document_info = $self->{'document'}->global_information();
-      }
-
-      $encoding = $document_info->{'input_encoding_name'}
-        if ($document_info
-          and defined($document_info->{'input_encoding_name'}));
-    }
-  } else {
-    $encoding = $self->get_conf('LOCALE_ENCODING');
-  }
+  my $encoding
+    = Texinfo::Common::input_file_name_encoding($self, $self->{'document'},
+                                           $input_file_encoding);
 
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
@@ -762,8 +737,8 @@ on the input file encoding.  Return the encoded name and the encoding
 used to encode the name.  The C<encoded_input_file_name> and
 C<encoded_output_file_name> functions use different customization variables to
 determine the encoding.  The I<$converter> argument is not optional
-and is used both to access to customization variables and to access to parser
-information.
+and is used both to access to customization variables and to access to parsed
+document information.
 
 The I<$input_file_encoding> argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information

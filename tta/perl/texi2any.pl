@@ -1727,6 +1727,47 @@ while(@input_files) {
   my $parser = Texinfo::Parser::parser($parser_file_options);
   my $document = $parser->parse_texi_file($input_file_name);
 
+  # setup a configuration Perl object which defines get_conf and set_conf,
+  # use the main program customization information with per-document
+  # customization.  This allows to use functions calling get_conf and
+  # set_conf to manipulate customization information.
+  # After this is done, the customization information should not
+  # change enymore, and it is registered in the document and used by
+  # Structuring/Transformations methods needing access to configuration
+  # information.
+  #
+  # OUTPUT_ENCODING_NAME is set in set_output_encoding and accessed
+  # in set_output_perl_encoding.
+  # OUTPUT_PERL_ENCODING is set in set_output_perl_encoding and
+  # accessed in output_files_open_out for the MACRO_EXPAND file name.
+  # The following variables are used in Structuring/Transformations:
+  # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
+  # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
+  # documentlanguage is used in Structuring/Transformations for
+  # translations.
+  my $main_configuration = Texinfo::MainConfig::new();
+
+  my $document_information = $document->global_information();
+  # encoding is needed for output files
+  # documentlanguage is needed for gdt() in regenerate_master_menu
+  Texinfo::Common::set_output_encoding($main_configuration, $document);
+  Texinfo::Common::set_output_perl_encoding($main_configuration);
+  if (not defined($main_configuration->get_conf('documentlanguage'))
+      and defined ($document_information->{'documentlanguage'})) {
+    $main_configuration->set_conf('documentlanguage',
+                                  $document_information->{'documentlanguage'});
+  }
+  # relevant for many Structuring methods.
+  if ($document_information->{'novalidate'}) {
+    $main_configuration->set_conf('novalidate', 1);
+  }
+
+  # Now that all the configuration has been set, register with the
+  # document
+  my $document_options = $main_configuration->get_customization_options_hash();
+  $document->register_document_options($document_options);
+
+
   # Get the tree object.  Note that if XS structuring in on, the argument
   # prevents the tree being built as a Perl structure at this stage; only
   # a "handle" is returned.
@@ -1736,7 +1777,37 @@ while(@input_files) {
       and (get_conf('DUMP_TREE')
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     my $tree = $document->tree();
-    print STDERR Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'));
+    my $input_file_names_encoding
+      = Texinfo::Common::input_file_name_encoding($document, $document);
+    my $printed_tree
+      = Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'),
+                                            $input_file_names_encoding);
+    my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
+    if (defined($output_encoding)) {
+      $printed_tree = Encode::encode($output_encoding, $printed_tree);
+      if ($output_encoding ne 'utf-8') {
+        $printed_tree = "OUTPUT_ENCODING: $output_encoding\n" .$printed_tree;
+      }
+    }
+    my $dump_tree = get_conf('DUMP_TREE');
+    # TODO the 1 is for backward compatibility when DUMP_TREE was
+    # an integer flag.  Changed in 2025.  No need to keep it forever,
+    # in documentation, it was said to be kept for one release.
+    if (!defined($dump_tree) or $dump_tree eq 1 or $dump_tree eq '-') {
+      print STDERR $printed_tree;
+    } else {
+      my $dump_tree_name = _decode_input($dump_tree);
+      if (!open(FH, '>', $dump_tree)) {
+        document_warn(sprintf(__("could not open %s for writing: %s"),
+                                 $dump_tree_name, $!));
+      } else {
+        print FH $printed_tree;
+        if (!close(FH)) {
+          document_warn(sprintf(__("error on closing tree dump file %s: %s"),
+                                   $dump_tree_name, $!));
+        }
+      }
+    }
     ## this is very wrong, but a way to avoid a spurious warning.
     #no warnings 'once';
     #local $Data::Dumper::Purity = 1;
@@ -1761,7 +1832,6 @@ while(@input_files) {
     goto NEXT;
   }
 
-  my $document_information = $document->global_information();
   if (get_conf('TRACE_INCLUDES')) {
     $error_count
      = handle_errors($document->parser_errors(), $error_count,
@@ -1774,46 +1844,6 @@ while(@input_files) {
     }
     goto NEXT;
   }
-
-  # setup a configuration Perl object which defines get_conf and set_conf,
-  # use the main program customization information with per-document
-  # customization.  This allows to use functions calling get_conf and
-  # set_conf to manipulate customization information.
-  # After this is done, the customization information should not
-  # change enymore, and it is registered in the document and used by
-  # Structuring/Transformations methods needing access to configuration
-  # information.
-  #
-  # OUTPUT_ENCODING_NAME is set in set_output_encoding and accessed
-  # in set_output_perl_encoding.
-  # OUTPUT_PERL_ENCODING is set in set_output_perl_encoding and
-  # accessed in output_files_open_out for the MACRO_EXPAND file name.
-  # The following variables are used in Structuring/Transformations:
-  # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
-  # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
-  # documentlanguage is used in Structuring/Transformations for
-  # translations.
-  my $main_configuration = Texinfo::MainConfig::new();
-
-  # encoding is needed for output files
-  # documentlanguage is needed for gdt() in regenerate_master_menu
-  Texinfo::Common::set_output_encoding($main_configuration, $document);
-  Texinfo::Common::set_output_perl_encoding($main_configuration);
-  if (not defined($main_configuration->get_conf('documentlanguage'))
-      and defined ($document_information->{'documentlanguage'})) {
-    $main_configuration->set_conf('documentlanguage',
-                                  $document_information->{'documentlanguage'});
-  }
-  # relevant for many Structuring methods.
-  if ($document_information->{'novalidate'}) {
-    $main_configuration->set_conf('novalidate', 1);
-  }
-
-  # Now that all the configuration has been set, register with the
-  # document
-  my $document_options = $main_configuration->get_customization_options_hash();
-  $document->register_document_options($document_options);
-
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
@@ -1961,7 +1991,33 @@ while(@input_files) {
   if (get_conf('DUMP_STRUCTURE')
       or (get_conf('DEBUG') and get_conf('DEBUG') >= 20)) {
     my $tree = $document->tree();
-    print STDERR Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'));
+    my $input_file_names_encoding
+      = Texinfo::Common::input_file_name_encoding($document, $document);
+    my $printed_tree
+      = Texinfo::ManipulateTree::print_tree($tree, get_conf('TEST'),
+                                            $input_file_names_encoding);
+    my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
+    if (defined($output_encoding)) {
+      $printed_tree = "OUTPUT_ENCODING: $output_encoding\n"
+                     .Encode::encode($output_encoding, $printed_tree);
+    }
+    my $dump_structure = get_conf('DUMP_STRUCTURE');
+    if (!defined($dump_structure) or $dump_structure eq '-') {
+      print STDERR $printed_tree;
+    } else {
+      my $dump_structure_name = _decode_input($dump_structure);
+      if (!open(FH, '>', $dump_structure)) {
+        document_warn(sprintf(__("could not open %s for writing: %s"),
+                                 $dump_structure_name, $!));
+      } else {
+        print FH $printed_tree;
+        if (!close(FH)) {
+          document_warn(
+           sprintf(__("error on closing structure dump file %s: %s"),
+                                   $dump_structure_name, $!));
+        }
+      }
+    }
   }
 
   if ($output_format eq 'structure') {

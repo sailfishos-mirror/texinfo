@@ -98,8 +98,8 @@ on the input file encoding.  Return the encoded name and the encoding
 used to encode the name.  The @code{encoded_input_file_name} and
 @code{encoded_output_file_name} functions use different customization variables to
 determine the encoding.  The @emph{$converter} argument is not optional
-and is used both to access to customization variables and to access to parser
-information.
+and is used both to access to customization variables and to access to parsed
+document information.
 
 The @emph{$input_file_encoding} argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information

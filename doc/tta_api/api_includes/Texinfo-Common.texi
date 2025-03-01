@@ -268,6 +268,20 @@ prefer an untranslated element.  If the element is an index command like
 of the command.  If the element is a definition line, the index entry
 element is based on the name and class.
 
+@item $encoding = input_file_name_encoding($customization_information, $document, $input_file_encoding)
+@anchor{Texinfo@asis{::}Common $encoding = input_file_name_encoding($customization_information@comma{} $document@comma{} $input_file_encoding)}
+@cindex @code{input_file_encoding}
+
+Returns the encoding assumed for input file names, based on customization
+variables, and possibly on the input file encoding.  The
+@emph{$customization_information} argument is used to access to customization
+variables.  The @emph{$document} argument is an optional Texinfo parsed document
+used to get the input document content encoding.  The @emph{$input_file_encoding}
+argument is optional, it will be used in priority if the the encoding is based
+on the input file encoding.  If @emph{$input_file_encoding} is not given, it is
+recommended to pass @emph{$document}, otherwise there is no way to determine the
+input document content encoding.
+
 @item $result = is_content_empty($tree, $do_not_ignore_index_entries)
 @anchor{Texinfo@asis{::}Common $result = is_content_empty($tree@comma{} $do_not_ignore_index_entries)}
 @cindex @code{is_content_empty}

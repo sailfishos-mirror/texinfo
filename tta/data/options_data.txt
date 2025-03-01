@@ -168,8 +168,8 @@ FORMAT_MENU     program_cmdline menu   char
 # with menu directions.
 CHECK_NORMAL_MENU_STRUCTURE  program_customization 1         integer
 CHECK_MISSING_MENU_ENTRY     program_customization 1         integer
-DUMP_STRUCTURE               program_customization undef     integer
-DUMP_TREE                    program_customization undef     integer
+DUMP_STRUCTURE               program_customization undef     bytes
+DUMP_TREE                    program_customization undef     bytes
 DUMP_TEXI                    program_customization undef     integer
 SHOW_BUILTIN_CSS_RULES       program_customization 0         integer
 SORT_ELEMENT_COUNT           program_customization undef     char

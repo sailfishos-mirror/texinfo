@@ -33,5 +33,6 @@ void units_directions (const LABEL_LIST *identifiers_target,
 void units_file_directions (OUTPUT_UNIT_LIST *output_units);
 
 char *print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units,
-                                       ELEMENT *tree, int use_filename);
+                                 ELEMENT *tree,
+                                 const char *fname_encoding, int use_filename);
 #endif

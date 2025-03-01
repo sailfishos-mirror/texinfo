@@ -1994,6 +1994,31 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
 }
 
 
+
+const char *
+input_file_name_encoding (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
+                          const char *input_file_encoding)
+{
+  const char *encoding = 0;
+
+  if (options && options->INPUT_FILE_NAME_ENCODING.o.string)
+    encoding = options->INPUT_FILE_NAME_ENCODING.o.string;
+  else if (!options
+           || options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0)
+    {
+      if (input_file_encoding)
+        encoding = input_file_encoding;
+      else if (global_information && global_information->input_encoding_name)
+        encoding = global_information->input_encoding_name;
+    }
+  else if (options)
+    encoding = options->LOCALE_ENCODING.o.string;
+
+  return encoding;
+}
+
+
 /* misc functions used in general in structuring and in conversion */
 
 /* corresponding perl function in Common.pm */

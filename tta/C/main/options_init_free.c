@@ -247,8 +247,8 @@ initialize_options (OPTIONS *options)
 
   initialize_option (&options->CHECK_NORMAL_MENU_STRUCTURE, GOT_integer, "CHECK_NORMAL_MENU_STRUCTURE", 0);
   initialize_option (&options->CHECK_MISSING_MENU_ENTRY, GOT_integer, "CHECK_MISSING_MENU_ENTRY", 0);
-  initialize_option (&options->DUMP_STRUCTURE, GOT_integer, "DUMP_STRUCTURE", 0);
-  initialize_option (&options->DUMP_TREE, GOT_integer, "DUMP_TREE", 0);
+  initialize_option (&options->DUMP_STRUCTURE, GOT_bytes, "DUMP_STRUCTURE", 0);
+  initialize_option (&options->DUMP_TREE, GOT_bytes, "DUMP_TREE", 0);
   initialize_option (&options->DUMP_TEXI, GOT_integer, "DUMP_TEXI", 0);
   initialize_option (&options->SHOW_BUILTIN_CSS_RULES, GOT_integer, "SHOW_BUILTIN_CSS_RULES", 0);
   initialize_option (&options->SORT_ELEMENT_COUNT, GOT_char, "SORT_ELEMENT_COUNT", 0);

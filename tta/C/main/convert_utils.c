@@ -296,21 +296,9 @@ encoded_input_file_name (const OPTIONS *options,
                          const SOURCE_INFO *source_info)
 {
   char *result;
-  const char *encoding = 0;
+  const char *encoding = input_file_name_encoding (options,
+                              global_information, input_file_encoding);
   int status;
-
-  if (options && options->INPUT_FILE_NAME_ENCODING.o.string)
-    encoding = options->INPUT_FILE_NAME_ENCODING.o.string;
-  else if (!options
-           || options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0)
-    {
-      if (input_file_encoding)
-        encoding = input_file_encoding;
-      else if (global_information && global_information->input_encoding_name)
-        encoding = global_information->input_encoding_name;
-    }
-  else if (options)
-    encoding = options->LOCALE_ENCODING.o.string;
 
   result = encode_string (file_name, encoding, &status, source_info);
 

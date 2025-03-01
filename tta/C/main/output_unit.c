@@ -993,7 +993,8 @@ add_ou_direction (STRING_LIST *ou_directions,
  */
 static uintptr_t
 print_output_units_details (OUTPUT_UNIT_LIST *output_units,
-                         uintptr_t current_nr, TEXT *result, int use_filename)
+                         uintptr_t current_nr, TEXT *result,
+                         const char *fname_encoding, int use_filename)
 {
   TEXT directions_text;
   /* those not in the directions field */
@@ -1104,7 +1105,8 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
             {
               ELEMENT *element = output_unit->unit_contents.list[j];
               current_nr = print_element_details (element, 1, 0, current_nr,
-                                                  result, use_filename);
+                                                  result, fname_encoding,
+                                                  use_filename);
             }
         }
     }
@@ -1116,7 +1118,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
 
 char *
 print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units, ELEMENT *tree,
-                                 int use_filename)
+                                 const char *fname_encoding, int use_filename)
 {
   uintptr_t current_nr = set_element_tree_numbers (tree, 0);
 
@@ -1126,7 +1128,7 @@ print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units, ELEMENT *tree,
   text_append (&result, "");
 
   current_nr = print_output_units_details (output_units,
-                        current_nr, &result, use_filename);
+                        current_nr, &result, fname_encoding, use_filename);
 
   remove_element_tree_numbers (tree);
 

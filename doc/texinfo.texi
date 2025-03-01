@@ -15752,7 +15752,9 @@ source is also expanded to the corresponding file.  Default false.
 
 @item DUMP_TREE
 For debugging.  If set, the tree constructed upon parsing a Texinfo
-document is output to standard error; default false.
+document is output to the file; if set to @samp{-} output to standard error.
+For backward compatibility, for one release, also output to standard error if
+set to @samp{1}.  Default false.
 
 @item FORMAT_MENU
 If set to @samp{menu}, output Texinfo menus.  This is the default for
