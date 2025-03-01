@@ -1,5 +1,11 @@
 2025-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/converters_tests.t (conversion_with_undef_customization):
+	restore setting of TRANSLITERATE_FILE_NAMES to undef now that now that
+	it takes effect in the tests again.
+
+2025-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	Add ADD_TRANSLITERATED_REDIRECTION_FILES
 
 	* tta/C/convert/convert_html.c (html_node_redirections),
