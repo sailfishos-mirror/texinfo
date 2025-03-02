@@ -1,3 +1,30 @@
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/html_tests.t
+	(simple_only_special_spaces_node_no_translit_files),
+	tta/perl/Makefile.tres, tta/perl/t/formats_encodings.t
+	(char_us_ascii_latin1_in_refs_no_translit_files): add tests explicitly
+	without transliteration of file names.
+
+	* tta/perl/t/formats_encodings.t: remove useless spaces.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
+	Set explicitly TRANSLITERATE_FILE_NAMES for tests needing it
+
+	* tta/perl/t/30sectioning.t (transliterated_split_equivalent_nodes),
+	tta/perl/t/formats_encodings.t (char_utf8_latin1_in_refs)
+	(char_latin1_latin1_in_refs, char_us_ascii_latin1_in_refs)
+	(char_latin2_latin2_in_refs, sample_utf8, at_commands_in_refs_utf8)
+	(at_commands_in_refs_latin1), tta/perl/t/html_tests.t
+	(redirection_same_labels, transliterated_names_conflicts)
+	(node_footnote_use_node, node_footnote_use_node_separate)
+	(simple_only_special_spaces_node): set explicitly
+	TRANSLITERATE_FILE_NAMES when it is important for the test.
+
+	* tta/perl/t/test_utils.pl (convert_to_html): do not set
+	TRANSLITERATE_FILE_NAMES.
+
 2025-03-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/converters_tests.t (conversion_with_undef_customization):
@@ -4605,7 +4632,7 @@
 	txi_converter_format_defaults and call
 	call_converter_converter_defaults if set.
 
-	* tp/Texinfo/XS/main/utils.c (main): do not exist explicitely,
+	* tp/Texinfo/XS/main/utils.c (main): do not exist explicitly,
 	handle_errors should exit if there are errors, otherwise there should
 	be a normal exit.
 

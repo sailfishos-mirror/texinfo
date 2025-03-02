@@ -356,7 +356,7 @@ $accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 "],
 # numerous LaTeX formatting errors
 ['at_commands_in_refs',
-$at_commands_in_refs_text, 
+$at_commands_in_refs_text,
  {},
  {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 );
@@ -378,11 +378,15 @@ undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
-# FIXME add a test without transliteration
 ['char_us_ascii_latin1_in_refs',
 undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
+],
+['char_us_ascii_latin1_in_refs_no_translit_files',
+undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
+# to test without transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 0},
 ],
 ['char_latin2_latin2_in_refs',
 undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
@@ -418,7 +422,7 @@ undef, {'test_file' => 'multiple_include_encodings.texi',
 @documentencoding utf-8
 
 '.
-$at_commands_in_refs_text, 
+$at_commands_in_refs_text,
 {'full_document' => 1},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
@@ -429,7 +433,7 @@ $at_commands_in_refs_text,
 @documentencoding ISO-8859-15
 
 '.
-$at_commands_in_refs_text, 
+$at_commands_in_refs_text,
 {'full_document' => 1},
  # TEST => 1 triggers @today constant expansion for diffs
 {'TEST' => 1,
@@ -484,8 +488,8 @@ foreach my $test (@test_full_doc) {
 
 foreach my $test (@html_text_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-} 
-  
+}
+
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'file_info';
@@ -494,5 +498,5 @@ foreach my $test (@file_tests) {
   }
 }
 
-run_all('formats_encodings', [@test_cases, @test_full_doc, 
+run_all('formats_encodings', [@test_cases, @test_full_doc,
                               @file_tests, @html_text_cases]);

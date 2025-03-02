@@ -1598,7 +1598,6 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 # the objective is not to test the init file, the init files allows
 # to remove navigation in output files to have simpler output easier to
 # interpret.  This was set for a bug with div closed in the wrong file.
-# TODO add the same test without TRANSLITERATE_FILE_NAMES set
 ['simple_only_special_spaces_node',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
@@ -1608,6 +1607,15 @@ undef, {'test_file' => 'simple_only_special_spaces_node.texi',
        # TRANSLITERATE_FILE_NAMES, but it is interesting anyway to have
        # it with special spaces.
        {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 1}],
+# the objective is not to test the init file, the init files allows
+# to remove navigation in output files to have simpler output easier to
+# interpret.
+['simple_only_special_spaces_node_no_translit_files',
+undef, {'test_file' => 'simple_only_special_spaces_node.texi',
+        'init_files' => ['no_navigation.pm'],
+        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
+       },
+       {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 0}],
 # also in *sectioning.t.  Here we are interested both by the infinite
 # recursion and by the title strings to verify that they do not end up
 # with attributes

@@ -569,6 +569,9 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/formats_encodings/char_us_ascii_latin1_in_refs.pl \
   t/results/formats_encodings/char_us_ascii_latin1_in_refs/res_html \
   t/results/formats_encodings/char_us_ascii_latin1_in_refs/res_info \
+  t/results/formats_encodings/char_us_ascii_latin1_in_refs_no_translit_files.pl \
+  t/results/formats_encodings/char_us_ascii_latin1_in_refs_no_translit_files/res_html \
+  t/results/formats_encodings/char_us_ascii_latin1_in_refs_no_translit_files/res_info \
   t/results/formats_encodings/char_utf8_latin1_in_refs.pl \
   t/results/formats_encodings/char_utf8_latin1_in_refs/res_html \
   t/results/formats_encodings/char_utf8_latin1_in_refs/res_info \
@@ -783,6 +786,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/shorttitlepage.pl \
   t/results/html_tests/simple_only_special_spaces_node.pl \
   t/results/html_tests/simple_only_special_spaces_node/res_html \
+  t/results/html_tests/simple_only_special_spaces_node_no_translit_files.pl \
+  t/results/html_tests/simple_only_special_spaces_node_no_translit_files/res_html \
   t/results/html_tests/simplest_test_date_in_header.pl \
   t/results/html_tests/simplest_test_date_in_header/res_html \
   t/results/html_tests/spaces_in_line_break_in_verb_w.pl \
