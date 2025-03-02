@@ -85,49 +85,6 @@ in r in code
 in a new heading
 ';
 
-$result_sectioning{'text_css_info_in_init'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'text_css_info_in_init'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'text_css_info_in_init'};
-
-$result_nodes{'text_css_info_in_init'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'text_css_info_in_init'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'text_css_info_in_init'} = [];
 
 

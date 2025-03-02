@@ -97,42 +97,6 @@ $result_texts{'format_in_titlepage_titlepage'} = '
 
 ';
 
-$result_nodes{'format_in_titlepage_titlepage'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'format_in_titlepage_titlepage'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'format_in_titlepage_titlepage'}[0];
-$result_nodes{'format_in_titlepage_titlepage'}[1] = $result_nodes{'format_in_titlepage_titlepage'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'format_in_titlepage_titlepage'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'format_in_titlepage_titlepage'} = [
   {
     'error_line' => 'warning: node `chap\' not in menu

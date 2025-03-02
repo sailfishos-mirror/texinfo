@@ -55,23 +55,6 @@ $result_texts{'anchor_zero'} = '
 0.
 ';
 
-$result_nodes{'anchor_zero'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'anchor_zero'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'anchor_zero'} = [];
 
 

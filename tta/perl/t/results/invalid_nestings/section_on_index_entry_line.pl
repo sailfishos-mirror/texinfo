@@ -55,23 +55,6 @@ $result_texts{'section_on_index_entry_line'} = '1 b
 Somethin
 ';
 
-$result_sectioning{'section_on_index_entry_line'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_on_index_entry_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_on_index_entry_line'};
-
 $result_errors{'section_on_index_entry_line'} = [
   {
     'error_line' => 'warning: @section should only appear at the beginning of a line

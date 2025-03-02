@@ -29,23 +29,6 @@ $result_texis{'top_node_no_section'} = '@node Top
 
 $result_texts{'top_node_no_section'} = '';
 
-$result_nodes{'top_node_no_section'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'top_node_no_section'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'top_node_no_section'} = [];
 
 

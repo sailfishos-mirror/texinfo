@@ -111,49 +111,6 @@ $result_texts{'equivalent_nodes'} = '
 node.
 ';
 
-$result_nodes{'equivalent_nodes'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'node'
-          }
-        }
-      },
-      'normalized' => 'first'
-    }
-  },
-  {}
-];
-$result_nodes{'equivalent_nodes'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes'}[0];
-$result_nodes{'equivalent_nodes'}[1] = $result_nodes{'equivalent_nodes'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'equivalent_nodes'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'node'
-    }
-  }
-];
-$result_menus{'equivalent_nodes'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes'}[0];
-
 $result_errors{'equivalent_nodes'} = [
   {
     'error_line' => 'warning: @xref to `node\', different from node name `@samp{node}\'

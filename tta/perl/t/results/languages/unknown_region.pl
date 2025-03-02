@@ -132,42 +132,6 @@ $result_texts{'unknown_region'} = '
 Variable d\'instance de AAA: BBB CCC
 ';
 
-$result_nodes{'unknown_region'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'unknown_region'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'unknown_region'}[0];
-$result_nodes{'unknown_region'}[1] = $result_nodes{'unknown_region'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'unknown_region'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'unknown_region'} = [
   {
     'error_line' => 'warning: NOWHERE is not a valid region code

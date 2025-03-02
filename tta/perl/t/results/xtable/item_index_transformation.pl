@@ -508,52 +508,6 @@ sixx
 HHHHHH
 ';
 
-$result_sectioning{'item_index_transformation'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'chap'
-            }
-          },
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'item_index_transformation'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'item_index_transformation'};
-
-$result_nodes{'item_index_transformation'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '1'
-        }
-      },
-      'normalized' => 'chap'
-    }
-  }
-];
-
-$result_menus{'item_index_transformation'} = [
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'item_index_transformation'} = [];
 
 

@@ -178,23 +178,6 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node. 
 ';
 
-$result_nodes{'menu_in_example'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'menu_in_example'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'menu_in_example'} = [
   {
     'error_line' => 'warning: @menu in invalid context

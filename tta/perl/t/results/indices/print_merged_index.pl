@@ -67,43 +67,6 @@ $result_texis{'print_merged_index'} = '@syncodeindex fn cp
 
 $result_texts{'print_merged_index'} = '';
 
-$result_nodes{'print_merged_index'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'print_merged_index'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'print_merged_index'}[0];
-$result_nodes{'print_merged_index'}[1] = $result_nodes{'print_merged_index'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'print_merged_index'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'print_merged_index'} = [
   {
     'error_line' => 'warning: printing an index `fn\' merged in another one, `cp\'

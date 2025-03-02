@@ -87,34 +87,6 @@ TOP. tOP.
 * tOP::
 ';
 
-$result_nodes{'top_node_normalization'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-$result_nodes{'top_node_normalization'}[0]{'extra'}{'node_directions'}{'next'} = $result_nodes{'top_node_normalization'}[0];
-
-$result_menus{'top_node_normalization'} = [
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  }
-];
-$result_menus{'top_node_normalization'}[0]{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_normalization'}[0];
-
 $result_errors{'top_node_normalization'} = [
   {
     'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'

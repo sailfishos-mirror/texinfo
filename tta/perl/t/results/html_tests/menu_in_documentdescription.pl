@@ -108,49 +108,6 @@ $result_texts{'menu_in_documentdescription'} = 'top
 
 ';
 
-$result_sectioning{'menu_in_documentdescription'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'menu_in_documentdescription'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'menu_in_documentdescription'};
-
-$result_nodes{'menu_in_documentdescription'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'menu_in_documentdescription'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'menu_in_documentdescription'} = [
   {
     'error_line' => 'warning: @menu in invalid context

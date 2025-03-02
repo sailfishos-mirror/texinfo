@@ -261,7 +261,12 @@ my $arg_generate;
 my $arg_debug;
 my $arg_complete;
 my $arg_output;
-my $nr_comparisons = 10;
+my $nr_comparisons;
+if ($do_perl_tree) {
+  $nr_comparisons = 10;
+} else {
+  $nr_comparisons = 7;
+}
 
 Getopt::Long::Configure("gnu_getopt");
 # complete: output a complete texinfo file based on the test.  Does not
@@ -1587,25 +1592,27 @@ sub test($$)
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
           .protect_perl_string($converted_text)."';\n\n";
 
-    my $sections_list = $document->sections_list();
-    if ($sections_list and scalar(@$sections_list)) {
-      local $Data::Dumper::Sortkeys = \&filter_sectioning_keys;
-      my $sectioning_root
-           = $sections_list->[0]->{'extra'}->{'sectioning_root'};
-      $out_result .=  Data::Dumper->Dump([$sectioning_root],
+    if ($do_perl_tree) {
+      my $sections_list = $document->sections_list();
+      if ($sections_list and scalar(@$sections_list)) {
+        local $Data::Dumper::Sortkeys = \&filter_sectioning_keys;
+        my $sectioning_root
+             = $sections_list->[0]->{'extra'}->{'sectioning_root'};
+        $out_result .=  Data::Dumper->Dump([$sectioning_root],
                            ['$result_sectioning{\''.$test_name.'\'}'])."\n"
-    }
-    my $nodes_list = $document->nodes_list();
-    if ($nodes_list and scalar(@$nodes_list)) {
-      {
-        local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
-        $out_result .= Data::Dumper->Dump([$nodes_list],
-                               ['$result_nodes{\''.$test_name.'\'}'])."\n";
       }
-      {
-        local $Data::Dumper::Sortkeys = \&filter_menus_keys;
-        $out_result .= Data::Dumper->Dump([$nodes_list],
+      my $nodes_list = $document->nodes_list();
+      if ($nodes_list and scalar(@$nodes_list)) {
+        {
+          local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
+          $out_result .= Data::Dumper->Dump([$nodes_list],
+                               ['$result_nodes{\''.$test_name.'\'}'])."\n";
+        }
+        {
+          local $Data::Dumper::Sortkeys = \&filter_menus_keys;
+          $out_result .= Data::Dumper->Dump([$nodes_list],
                              ['$result_menus{\''.$test_name.'\'}'])."\n";
+        }
       }
     }
     {
@@ -1636,7 +1643,7 @@ sub test($$)
                       ['$result_indices_sort_strings{\''.$test_name.'\'}'])
                      ."\n\n";
     }
-    if ($output_units) {
+    if ($do_perl_tree and $output_units) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
       $out_result .= Data::Dumper->Dump([$output_units],
                        ['$result_elements{\''.$test_name.'\'}'])
@@ -1680,30 +1687,30 @@ sub test($$)
     if ($do_perl_tree) {
       cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
                   $test_name.' tree');
-    }
 
-    my $sections_list;
-    if ($document) {
-      $sections_list = $document->sections_list();
-    }
-    my $sectioning_root
-        = $sections_list->[0]->{'extra'}->{'sectioning_root'}
-      if ($sections_list and scalar(@$sections_list));
-    cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
-                 \@avoided_keys_sectioning, $test_name.' sectioning' );
+      my $sections_list;
+      if ($document) {
+        $sections_list = $document->sections_list();
+      }
+      my $sectioning_root
+          = $sections_list->[0]->{'extra'}->{'sectioning_root'}
+        if ($sections_list and scalar(@$sections_list));
+      cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
+                   \@avoided_keys_sectioning, $test_name.' sectioning' );
 
-    my $nodes_list;
-    if ($document) {
-      $nodes_list = $document->nodes_list();
+      my $nodes_list;
+      if ($document) {
+        $nodes_list = $document->nodes_list();
+      }
+      my $nodes_result;
+      $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
+      cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
+                  $test_name.' nodes');
+      my $menus_result;
+      $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
+      cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
+                  $test_name.' menus');
     }
-    my $nodes_result;
-    $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
-    cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
-                $test_name.' nodes');
-    my $menus_result;
-    $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
-    cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
-                $test_name.' menus');
 
     my $floats;
     if ($document) {
@@ -1742,7 +1749,7 @@ sub test($$)
       is($converted_text, $result_texts{$test_name}, $test_name.' text');
     }
     $tests_count = $nr_comparisons;
-    if (defined($result_directions_text{$test_name})) {
+    if ($do_perl_tree and defined($result_directions_text{$test_name})) {
       cmp_trimmed($output_units, $result_elements{$test_name},
                   \@avoided_keys_elements, $test_name.' elements');
       $tests_count++;

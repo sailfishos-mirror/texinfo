@@ -80,50 +80,6 @@ Part 2
 ******
 ';
 
-$result_sectioning{'part_section_part'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'part',
-        'extra' => {
-          'part_associated_section' => {
-            'cmdname' => 'section',
-            'extra' => {
-              'associated_part' => {},
-              'section_directions' => {
-                'up' => {}
-              },
-              'section_level' => 1,
-              'section_number' => '1'
-            }
-          },
-          'section_childs' => [
-            {}
-          ],
-          'section_directions' => {},
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      },
-      {
-        'cmdname' => 'part',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 0
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'part_section_part'};
-$result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_section_part'}{'extra'}{'section_childs'}[0];
-
 $result_errors{'part_section_part'} = [
   {
     'error_line' => 'raising the section level of @section which is too low

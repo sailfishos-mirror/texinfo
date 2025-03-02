@@ -117,49 +117,6 @@ $result_texts{'equivalent_nodes_novalidate'} = '
 node.
 ';
 
-$result_nodes{'equivalent_nodes_novalidate'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'node'
-          }
-        }
-      },
-      'normalized' => 'first'
-    }
-  },
-  {}
-];
-$result_nodes{'equivalent_nodes_novalidate'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes_novalidate'}[0];
-$result_nodes{'equivalent_nodes_novalidate'}[1] = $result_nodes{'equivalent_nodes_novalidate'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'equivalent_nodes_novalidate'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'node'
-    }
-  }
-];
-$result_menus{'equivalent_nodes_novalidate'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_novalidate'}[0];
-
 $result_errors{'equivalent_nodes_novalidate'} = [
   {
     'error_line' => 'warning: node `first\' not in menu

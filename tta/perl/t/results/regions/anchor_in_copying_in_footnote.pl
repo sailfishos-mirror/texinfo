@@ -132,42 +132,6 @@ Copying footnote.
 
 ';
 
-$result_nodes{'anchor_in_copying_in_footnote'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'anchor_in_copying_in_footnote'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'anchor_in_copying_in_footnote'}[0];
-$result_nodes{'anchor_in_copying_in_footnote'}[1] = $result_nodes{'anchor_in_copying_in_footnote'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'anchor_in_copying_in_footnote'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'anchor_in_copying_in_footnote'} = [
   {
     'error_line' => 'warning: node `chap\' not in menu

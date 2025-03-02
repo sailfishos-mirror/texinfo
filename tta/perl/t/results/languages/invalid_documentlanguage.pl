@@ -361,49 +361,6 @@ Instance Variable of Which: Language Selected?
 
 ';
 
-$result_sectioning{'invalid_documentlanguage'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'invalid_documentlanguage'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'invalid_documentlanguage'};
-
-$result_nodes{'invalid_documentlanguage'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'invalid_documentlanguage'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'invalid_documentlanguage'} = [
   {
     'error_line' => 'warning: %bm_AA is not a valid language code

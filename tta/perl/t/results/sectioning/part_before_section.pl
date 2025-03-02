@@ -61,50 +61,6 @@ $result_texts{'part_before_section'} = 'part
 *********
 ';
 
-$result_sectioning{'part_before_section'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'associated_unit' => {
-          'directions' => {
-            'This' => {}
-          },
-          'unit_command' => {
-            'associated_unit' => {},
-            'cmdname' => 'section',
-            'extra' => {
-              'associated_part' => {},
-              'section_directions' => {
-                'up' => {}
-              },
-              'section_level' => 1,
-              'section_number' => '1'
-            }
-          },
-          'unit_type' => 'unit'
-        },
-        'cmdname' => 'part',
-        'extra' => {
-          'part_associated_section' => {},
-          'section_childs' => [
-            {}
-          ],
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'} = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-$result_sectioning{'part_before_section'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'part_before_section'};
-
 $result_errors{'part_before_section'} = [
   {
     'error_line' => 'raising the section level of @section which is too low
@@ -118,36 +74,6 @@ $result_errors{'part_before_section'} = [
 
 $result_floats{'part_before_section'} = {};
 
-
-$result_elements{'part_before_section'} = [
-  {
-    'directions' => {
-      'This' => {}
-    },
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'section',
-      'extra' => {
-        'associated_part' => {
-          'associated_unit' => {},
-          'cmdname' => 'part',
-          'extra' => {}
-        },
-        'section_number' => '1'
-      }
-    },
-    'unit_type' => 'unit'
-  }
-];
-$result_elements{'part_before_section'}[0]{'directions'}{'This'} = $result_elements{'part_before_section'}[0];
-$result_elements{'part_before_section'}[0]{'unit_command'}{'associated_unit'} = $result_elements{'part_before_section'}[0];
-$result_elements{'part_before_section'}[0]{'unit_command'}{'extra'}{'associated_part'}{'associated_unit'} = $result_elements{'part_before_section'}[0];
-
-
-
-$result_directions_text{'part_before_section'} = 'output unit: @section section
-  This: @section section
-';
 
 
 $result_converted{'html_text'}->{'part_before_section'} = '<div class="part-level-extent" id="part">

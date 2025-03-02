@@ -102,51 +102,6 @@ $result_texts{'empty_menu_entry_name'} = '
 
 ';
 
-$result_nodes{'empty_menu_entry_name'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'aaa'
-    }
-  }
-];
-$result_nodes{'empty_menu_entry_name'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'empty_menu_entry_name'}[0];
-
-$result_menus{'empty_menu_entry_name'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'prev' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'menu_entry_node'
-        },
-        'up' => {}
-      },
-      'normalized' => 'aaa'
-    }
-  }
-];
-$result_menus{'empty_menu_entry_name'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'empty_menu_entry_name'}[0];
-
 $result_errors{'empty_menu_entry_name'} = [
   {
     'error_line' => 'warning: empty menu entry name in `* : (vvv). \'

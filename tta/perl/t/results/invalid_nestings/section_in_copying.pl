@@ -50,23 +50,6 @@ $result_texts{'section_in_copying'} = '1 section
 =========
 ';
 
-$result_sectioning{'section_in_copying'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_in_copying'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_copying'};
-
 $result_errors{'section_in_copying'} = [
   {
     'error_line' => '@section seen before @end copying

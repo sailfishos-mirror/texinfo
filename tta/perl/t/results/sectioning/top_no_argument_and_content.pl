@@ -37,22 +37,6 @@ $result_texts{'top_no_argument_and_content'} = '
 A.
 ';
 
-$result_sectioning{'top_no_argument_and_content'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'top_no_argument_and_content'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'top_no_argument_and_content'};
-
 $result_errors{'top_no_argument_and_content'} = [];
 
 

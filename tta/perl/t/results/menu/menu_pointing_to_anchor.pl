@@ -107,60 +107,6 @@ Text
 * An anchor::                menu entry pointing to the anchor.
 ';
 
-$result_sectioning{'menu_pointing_to_anchor'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'menu_pointing_to_anchor'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'menu_pointing_to_anchor'};
-
-$result_nodes{'menu_pointing_to_anchor'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'anchor',
-          'extra' => {
-            'normalized' => 'An-anchor'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'menu_pointing_to_anchor'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'menu_pointing_to_anchor'} = [];
 
 

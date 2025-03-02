@@ -94,26 +94,6 @@ $result_texts{'novalidate'} = '
 unknown ref.
 ';
 
-$result_nodes{'novalidate'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'novalidate'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'novalidate'} = [];
 
 

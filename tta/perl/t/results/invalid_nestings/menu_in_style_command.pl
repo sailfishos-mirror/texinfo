@@ -72,26 +72,6 @@ $result_texts{'menu_in_style_command'} = '
 * (truc)::
 ';
 
-$result_nodes{'menu_in_style_command'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'menu_in_style_command'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'menu_in_style_command'} = [
   {
     'error_line' => '@code missing closing brace

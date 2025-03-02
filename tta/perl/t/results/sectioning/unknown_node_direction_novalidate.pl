@@ -42,23 +42,6 @@ $result_texis{'unknown_node_direction_novalidate'} = '@novalidate
 $result_texts{'unknown_node_direction_novalidate'} = '
 ';
 
-$result_nodes{'unknown_node_direction_novalidate'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'one-arg2'
-    }
-  }
-];
-
-$result_menus{'unknown_node_direction_novalidate'} = [
-  {
-    'extra' => {
-      'normalized' => 'one-arg2'
-    }
-  }
-];
-
 $result_errors{'unknown_node_direction_novalidate'} = [];
 
 

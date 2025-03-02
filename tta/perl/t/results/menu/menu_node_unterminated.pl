@@ -65,26 +65,6 @@ $result_texts{'menu_node_unterminated'} = '
 * Example: Examples of Login Verification Functions
 ';
 
-$result_nodes{'menu_node_unterminated'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'menu_node_unterminated'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'menu_node_unterminated'} = [
   {
     'error_line' => '@menu reference to nonexistent node `Examples of Login Verification Functions

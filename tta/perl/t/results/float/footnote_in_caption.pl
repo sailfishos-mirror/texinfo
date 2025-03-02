@@ -118,42 +118,6 @@ fl, label
 In float.
 ';
 
-$result_nodes{'footnote_in_caption'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'footnote_in_caption'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'footnote_in_caption'}[0];
-$result_nodes{'footnote_in_caption'}[1] = $result_nodes{'footnote_in_caption'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'footnote_in_caption'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'footnote_in_caption'} = [
   {
     'error_line' => 'warning: node `chap\' not in menu

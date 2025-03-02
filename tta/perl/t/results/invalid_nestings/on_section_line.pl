@@ -64,23 +64,6 @@ $result_texts{'on_section_line'} = '1 Text in titlefont  exdent
 ===========================
 ';
 
-$result_sectioning{'on_section_line'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'on_section_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'on_section_line'};
-
 $result_errors{'on_section_line'} = [
   {
     'error_line' => 'warning: @noindent should not appear on @section line

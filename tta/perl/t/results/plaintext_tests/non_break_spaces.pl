@@ -57,23 +57,6 @@ NO-BREAK SPACE: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbb
 NARROW NO-BREAK SPACE: ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc dddddddddddddddddddd
 ';
 
-$result_nodes{'non_break_spaces'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'non_break_spaces'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'non_break_spaces'} = [];
 
 

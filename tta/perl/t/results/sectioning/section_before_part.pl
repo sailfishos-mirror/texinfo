@@ -64,29 +64,6 @@ part
 
 ';
 
-$result_sectioning{'section_before_part'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      },
-      {
-        'cmdname' => 'part',
-        'extra' => {
-          'section_level' => 0
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'section_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_before_part'};
-
 $result_errors{'section_before_part'} = [
   {
     'error_line' => 'warning: no chapter-level command before @part

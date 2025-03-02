@@ -648,43 +648,6 @@ T
 
 ';
 
-$result_nodes{'commands_and_spaces'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'line_arg'
-        },
-        'prev' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'line_arg'
-        },
-        'up' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'line_arg'
-        }
-      },
-      'normalized' => 'a'
-    }
-  }
-];
-
-$result_menus{'commands_and_spaces'} = [
-  {
-    'extra' => {
-      'normalized' => 'a'
-    }
-  }
-];
-
 $result_errors{'commands_and_spaces'} = [
   {
     'error_line' => 'warning: unexpected argument on @multitable line: @var{cmd}

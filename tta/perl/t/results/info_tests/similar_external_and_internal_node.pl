@@ -96,32 +96,6 @@ aa.
 aa.
 ';
 
-$result_nodes{'similar_external_and_internal_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'manual_content' => {},
-            'normalized' => 'bb'
-          },
-          'type' => 'line_arg'
-        }
-      },
-      'normalized' => 'aa'
-    }
-  }
-];
-
-$result_menus{'similar_external_and_internal_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'aa'
-    }
-  }
-];
-
 $result_errors{'similar_external_and_internal_node'} = [
   {
     'error_line' => 'warning: @xref to `@emph{aa}\', different from node name `aa\'

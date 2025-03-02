@@ -255,23 +255,6 @@ Ref to footnote anchor
 Anchor in footnote
 ';
 
-$result_sectioning{'placed_things_before_element_no_use_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'placed_things_before_element_no_use_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'placed_things_before_element_no_use_node'};
-
 $result_errors{'placed_things_before_element_no_use_node'} = [
   {
     'error_line' => 'warning: entry for index `cp\' outside of any node

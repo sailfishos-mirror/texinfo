@@ -117,23 +117,6 @@ first
 first
 ';
 
-$result_nodes{'empty_ref_arg'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'empty_ref_arg'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'empty_ref_arg'} = [
   {
     'error_line' => 'warning: in @ref empty cross reference name after expansion `@ \'

@@ -42,23 +42,6 @@ $result_texts{'style_not_closed_before_first_node'} = 'in code
 In node
 ';
 
-$result_nodes{'style_not_closed_before_first_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'style_not_closed_before_first_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'style_not_closed_before_first_node'} = [
   {
     'error_line' => '@code missing closing brace

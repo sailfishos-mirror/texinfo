@@ -57,26 +57,6 @@ $result_texts{'leading_space_before_menu_star'} = '
  * a node::
 ';
 
-$result_nodes{'leading_space_before_menu_star'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'a-node'
-    }
-  }
-];
-
-$result_menus{'leading_space_before_menu_star'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'a-node'
-    }
-  }
-];
-
 $result_errors{'leading_space_before_menu_star'} = [];
 
 

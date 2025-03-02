@@ -29,23 +29,6 @@ $result_texis{'no_top_node'} = '@node node Top not Top node
 
 $result_texts{'no_top_node'} = '';
 
-$result_nodes{'no_top_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node-Top-not-Top-node'
-    }
-  }
-];
-
-$result_menus{'no_top_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'node-Top-not-Top-node'
-    }
-  }
-];
-
 $result_errors{'no_top_node'} = [];
 
 

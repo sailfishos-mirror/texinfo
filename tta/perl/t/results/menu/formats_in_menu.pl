@@ -251,26 +251,6 @@ Menu comment
 
 ';
 
-$result_nodes{'formats_in_menu'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'formats_in_menu'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'formats_in_menu'} = [];
 
 

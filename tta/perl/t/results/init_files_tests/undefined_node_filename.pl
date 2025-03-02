@@ -49,42 +49,6 @@ $result_texis{'undefined_node_filename'} = '@node Top
 $result_texts{'undefined_node_filename'} = '
 ';
 
-$result_nodes{'undefined_node_filename'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap-Other'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'undefined_node_filename'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'undefined_node_filename'}[0];
-$result_nodes{'undefined_node_filename'}[1] = $result_nodes{'undefined_node_filename'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'undefined_node_filename'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap-Other'
-    }
-  }
-];
-
 $result_errors{'undefined_node_filename'} = [
   {
     'error_line' => 'warning: node `chap Other\' not in menu

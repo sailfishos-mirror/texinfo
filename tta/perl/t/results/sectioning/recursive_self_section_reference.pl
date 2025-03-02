@@ -59,52 +59,6 @@ $result_texts{'recursive_self_section_reference'} = '1 sharp tuple
 *************
 ';
 
-$result_sectioning{'recursive_self_section_reference'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'sharp'
-            }
-          },
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'recursive_self_section_reference'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'recursive_self_section_reference'};
-
-$result_nodes{'recursive_self_section_reference'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '1'
-        }
-      },
-      'normalized' => 'sharp'
-    }
-  }
-];
-
-$result_menus{'recursive_self_section_reference'} = [
-  {
-    'extra' => {
-      'normalized' => 'sharp'
-    }
-  }
-];
-
 $result_errors{'recursive_self_section_reference'} = [];
 
 

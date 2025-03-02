@@ -75,49 +75,6 @@ $result_texts{'node_in_copying_not_closed'} = 'Top section
 
 ';
 
-$result_sectioning{'node_in_copying_not_closed'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'node_in_copying_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'node_in_copying_not_closed'};
-
-$result_nodes{'node_in_copying_not_closed'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'node_in_copying_not_closed'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'node_in_copying_not_closed'} = [
   {
     'error_line' => '@node seen before @end copying

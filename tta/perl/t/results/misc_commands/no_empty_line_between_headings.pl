@@ -87,55 +87,6 @@ Subheading
 ===========
 ';
 
-$result_sectioning{'no_empty_line_between_headings'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_childs' => [
-            {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_childs' => [
-                  {
-                    'cmdname' => 'section',
-                    'extra' => {
-                      'section_directions' => {
-                        'up' => {}
-                      },
-                      'section_level' => 2,
-                      'section_number' => '1.1'
-                    }
-                  }
-                ],
-                'section_directions' => {
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => '1',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
-            }
-          ],
-          'section_level' => 0,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0];
-$result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'no_empty_line_between_headings'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'no_empty_line_between_headings'};
-
 $result_errors{'no_empty_line_between_headings'} = [];
 
 

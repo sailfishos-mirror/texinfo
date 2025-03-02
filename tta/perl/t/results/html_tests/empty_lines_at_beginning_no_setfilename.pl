@@ -71,49 +71,6 @@ top
 
 ';
 
-$result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
-
-$result_nodes{'empty_lines_at_beginning_no_setfilename'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'empty_lines_at_beginning_no_setfilename'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'empty_lines_at_beginning_no_setfilename'} = [];
 
 

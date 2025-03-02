@@ -59,23 +59,6 @@ $result_texis{'email_in_node'} = '@node @email{ a } @email{c , d} @email{ , e}
 
 $result_texts{'email_in_node'} = '';
 
-$result_nodes{'email_in_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'a-c-'
-    }
-  }
-];
-
-$result_menus{'email_in_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'a-c-'
-    }
-  }
-];
-
 $result_errors{'email_in_node'} = [];
 
 

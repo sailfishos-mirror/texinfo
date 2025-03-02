@@ -351,43 +351,6 @@ Even more
 
 ';
 
-$result_nodes{'in_table'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'in_table'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'in_table'}[0];
-$result_nodes{'in_table'}[1] = $result_nodes{'in_table'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'in_table'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'in_table'} = [
   {
     'error_line' => 'warning: @xref should not appear on @table line

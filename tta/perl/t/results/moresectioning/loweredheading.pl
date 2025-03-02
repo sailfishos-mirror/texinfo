@@ -58,24 +58,6 @@ Bar
 ---
 ';
 
-$result_sectioning{'loweredheading'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'level_modifier' => -1,
-          'section_level' => 3,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 2
-  }
-};
-$result_sectioning{'loweredheading'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'loweredheading'};
-
 $result_errors{'loweredheading'} = [];
 
 

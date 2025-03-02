@@ -51,23 +51,6 @@ $result_texts{'unknown_encoding'} = '
 
 ';
 
-$result_nodes{'unknown_encoding'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'unknown_encoding'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'unknown_encoding'} = [
   {
     'error_line' => 'warning: encoding `ggg\' is not a canonical texinfo encoding

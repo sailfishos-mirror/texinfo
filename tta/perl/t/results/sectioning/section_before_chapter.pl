@@ -59,40 +59,6 @@ $result_texts{'section_before_chapter'} = '1 section
 =========
 ';
 
-$result_sectioning{'section_before_chapter'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_directions' => {},
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      },
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 2,
-          'section_number' => '2',
-          'toplevel_directions' => {
-            'prev' => {}
-          }
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_before_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_before_chapter'};
-$result_sectioning{'section_before_chapter'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_chapter'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_before_chapter'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_chapter'}{'extra'}{'section_childs'}[0];
-
 $result_errors{'section_before_chapter'} = [
   {
     'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element

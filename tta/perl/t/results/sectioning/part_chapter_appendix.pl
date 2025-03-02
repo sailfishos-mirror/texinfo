@@ -85,56 +85,6 @@ Appendix A Appendix
 *******************
 ';
 
-$result_sectioning{'part_chapter_appendix'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'part',
-        'extra' => {
-          'part_associated_section' => {
-            'cmdname' => 'chapter',
-            'extra' => {
-              'associated_part' => {},
-              'section_directions' => {
-                'up' => {}
-              },
-              'section_level' => 1,
-              'section_number' => '1',
-              'toplevel_directions' => {}
-            }
-          },
-          'section_childs' => [
-            {}
-          ],
-          'section_directions' => {},
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      },
-      {
-        'cmdname' => 'appendix',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 1,
-          'section_number' => 'A',
-          'toplevel_directions' => {
-            'prev' => {}
-          }
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'section_directions'}{'up'} = $result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0] = $result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'part_chapter_appendix'};
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'part_chapter_appendix'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
-
 $result_errors{'part_chapter_appendix'} = [];
 
 

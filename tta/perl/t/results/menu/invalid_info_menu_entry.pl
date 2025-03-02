@@ -159,26 +159,6 @@ $result_texts{'invalid_info_menu_entry'} = '
 * name: (f)node	n. d3
 ';
 
-$result_nodes{'invalid_info_menu_entry'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'invalid_info_menu_entry'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'invalid_info_menu_entry'} = [];
 
 

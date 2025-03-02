@@ -342,51 +342,6 @@ center! After punc
 
 ';
 
-$result_sectioning{'punctuation_in_line_commands'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'isindex' => 1,
-              'normalized' => 'node_0021-After-punc'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'punctuation_in_line_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'punctuation_in_line_commands'};
-
-$result_nodes{'punctuation_in_line_commands'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'isindex' => 1,
-      'normalized' => 'node_0021-After-punc'
-    }
-  }
-];
-
-$result_menus{'punctuation_in_line_commands'} = [
-  {
-    'extra' => {
-      'normalized' => 'node_0021-After-punc'
-    }
-  }
-];
-
 $result_errors{'punctuation_in_line_commands'} = [];
 
 

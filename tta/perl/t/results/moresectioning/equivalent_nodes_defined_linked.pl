@@ -190,49 +190,6 @@ Ref to node chap.
 Ref to @samp{chap} chap.
 ';
 
-$result_nodes{'equivalent_nodes_defined_linked'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'up' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'equivalent_nodes_defined_linked'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'equivalent_nodes_defined_linked'}[0];
-$result_nodes{'equivalent_nodes_defined_linked'}[1] = $result_nodes{'equivalent_nodes_defined_linked'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'equivalent_nodes_defined_linked'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'chap'
-    }
-  }
-];
-$result_menus{'equivalent_nodes_defined_linked'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'equivalent_nodes_defined_linked'}[0];
-
 $result_errors{'equivalent_nodes_defined_linked'} = [
   {
     'error_line' => '@float `@samp{chap}\' previously defined

@@ -216,63 +216,6 @@ Introduction
 Introduction
 ';
 
-$result_sectioning{'link'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'One'
-            }
-          },
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'link'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'link'};
-
-$result_nodes{'link'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '1'
-        }
-      },
-      'normalized' => 'One'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Two'
-    }
-  }
-];
-
-$result_menus{'link'} = [
-  {
-    'extra' => {
-      'normalized' => 'One'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'Two'
-    }
-  }
-];
-
 $result_errors{'link'} = [
   {
     'error_line' => 'warning: node `Two\' unreferenced

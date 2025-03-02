@@ -71,69 +71,6 @@ $result_texts{'empty_chapter_in_html_title_no_node_no_use_nodes'} = 'top
 **
 ';
 
-$result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_childs' => [
-            {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_directions' => {
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => '1',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
-            }
-          ],
-          'section_level' => 0,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_chapter_in_html_title_no_node_no_use_nodes'};
-
-$result_nodes{'empty_chapter_in_html_title_no_node_no_use_nodes'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'empty_chapter_in_html_title_no_node_no_use_nodes'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'empty_chapter_in_html_title_no_node_no_use_nodes'} = [
   {
     'error_line' => 'warning: @chapter missing argument

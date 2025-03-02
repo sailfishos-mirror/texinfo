@@ -610,49 +610,6 @@ should be dotless j^: j^
 should be dotless j": j"
 ';
 
-$result_sectioning{'accent_enable_encoding'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'first'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'accent_enable_encoding'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'accent_enable_encoding'};
-
-$result_nodes{'accent_enable_encoding'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'accent_enable_encoding'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'accent_enable_encoding'} = [];
 
 

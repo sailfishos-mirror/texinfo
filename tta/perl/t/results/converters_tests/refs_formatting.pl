@@ -829,52 +829,6 @@ $result_texts{'refs_formatting'} = '1 chapter
 @inforef{chapter,,file name} chapter
 ';
 
-$result_sectioning{'refs_formatting'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'chapter'
-            }
-          },
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'refs_formatting'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'refs_formatting'};
-
-$result_nodes{'refs_formatting'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '1'
-        }
-      },
-      'normalized' => 'chapter'
-    }
-  }
-];
-
-$result_menus{'refs_formatting'} = [
-  {
-    'extra' => {
-      'normalized' => 'chapter'
-    }
-  }
-];
-
 $result_errors{'refs_formatting'} = [
   {
     'error_line' => 'warning: @inforef is obsolete

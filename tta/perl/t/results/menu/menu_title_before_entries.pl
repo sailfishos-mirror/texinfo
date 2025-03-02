@@ -90,51 +90,6 @@ Horizontal space
 
 ';
 
-$result_nodes{'menu_title_before_entries'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {},
-              'up' => {}
-            },
-            'normalized' => 'chap-subnode'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'menu_title_before_entries'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'menu_title_before_entries'}[0];
-$result_nodes{'menu_title_before_entries'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'menu_title_before_entries'}[0];
-$result_nodes{'menu_title_before_entries'}[1] = $result_nodes{'menu_title_before_entries'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'menu_title_before_entries'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'chap-subnode'
-    }
-  }
-];
-$result_menus{'menu_title_before_entries'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'menu_title_before_entries'}[0];
-
 $result_errors{'menu_title_before_entries'} = [];
 
 

@@ -153,49 +153,6 @@ Third para after second paragraphindent.
 
 ';
 
-$result_sectioning{'paragraphindent_in_preamble_and_in_document'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'paragraphindent_in_preamble_and_in_document'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'paragraphindent_in_preamble_and_in_document'};
-
-$result_nodes{'paragraphindent_in_preamble_and_in_document'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'paragraphindent_in_preamble_and_in_document'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'paragraphindent_in_preamble_and_in_document'} = [];
 
 

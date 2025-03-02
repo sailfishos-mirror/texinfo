@@ -101,23 +101,6 @@ $result_texts{'note_in_strong'} = '
 15 note-bbb.
 ';
 
-$result_nodes{'note_in_strong'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'note_in_strong'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'note_in_strong'} = [];
 
 

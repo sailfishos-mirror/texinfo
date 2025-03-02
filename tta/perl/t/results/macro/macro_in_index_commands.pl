@@ -478,43 +478,6 @@ macro cp
 
 ';
 
-$result_nodes{'macro_in_index_commands'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'macro_in_index_commands'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'macro_in_index_commands'}[0];
-$result_nodes{'macro_in_index_commands'}[1] = $result_nodes{'macro_in_index_commands'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'macro_in_index_commands'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'macro_in_index_commands'} = [
   {
     'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'

@@ -72,42 +72,6 @@ $result_texts{'empty_added_index_entry'} = '
 
 ';
 
-$result_nodes{'empty_added_index_entry'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'empty_added_index_entry'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'empty_added_index_entry'}[0];
-$result_nodes{'empty_added_index_entry'}[1] = $result_nodes{'empty_added_index_entry'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'empty_added_index_entry'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'empty_added_index_entry'} = [
   {
     'error_line' => 'warning: @myindex missing argument

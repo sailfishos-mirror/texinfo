@@ -154,23 +154,6 @@ $result_texts{'ref_tests'} = '
 
 ';
 
-$result_nodes{'ref_tests'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'ref_tests'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'ref_tests'} = [];
 
 

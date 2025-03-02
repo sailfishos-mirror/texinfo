@@ -54,36 +54,6 @@ $result_texts{'empty_section_in_chapter'} = '1 chap
 ====
 ';
 
-$result_sectioning{'empty_section_in_chapter'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_childs' => [
-            {
-              'cmdname' => 'section',
-              'extra' => {
-                'section_directions' => {
-                  'up' => {}
-                },
-                'section_level' => 2,
-                'section_number' => '1.1'
-              }
-            }
-          ],
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'empty_section_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'empty_section_in_chapter'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'empty_section_in_chapter'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'empty_section_in_chapter'};
-
 $result_errors{'empty_section_in_chapter'} = [
   {
     'error_line' => 'warning: @section missing argument

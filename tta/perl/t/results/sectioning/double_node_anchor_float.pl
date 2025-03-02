@@ -207,56 +207,6 @@ Text, float1
 
 ';
 
-$result_nodes{'double_node_anchor_float'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node1'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node1'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'anchor1'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'float1'
-    }
-  }
-];
-
-$result_menus{'double_node_anchor_float'} = [
-  {
-    'extra' => {
-      'normalized' => 'node1'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'node1'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'anchor1'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'float1'
-    }
-  }
-];
-
 $result_errors{'double_node_anchor_float'} = [
   {
     'error_line' => '@node `anchor1\' previously defined

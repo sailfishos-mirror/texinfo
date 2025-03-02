@@ -87,23 +87,6 @@ in quotation
 ===========
 ';
 
-$result_sectioning{'section_in_nested_block_commands'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_in_nested_block_commands'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_nested_block_commands'};
-
 $result_errors{'section_in_nested_block_commands'} = [
   {
     'error_line' => '@section seen before @end quotation

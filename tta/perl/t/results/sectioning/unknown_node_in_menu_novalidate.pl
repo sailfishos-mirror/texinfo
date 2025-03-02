@@ -71,26 +71,6 @@ $result_texts{'unknown_node_in_menu_novalidate'} = '
 * unknown::
 ';
 
-$result_nodes{'unknown_node_in_menu_novalidate'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'unknown_node_in_menu_novalidate'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'unknown_node_in_menu_novalidate'} = [];
 
 

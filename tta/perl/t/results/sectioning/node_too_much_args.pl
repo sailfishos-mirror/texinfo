@@ -43,31 +43,6 @@ $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 
 $result_texts{'node_too_much_args'} = '';
 
-$result_nodes{'node_too_much_args'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'up' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'line_arg'
-        }
-      },
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'node_too_much_args'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'node_too_much_args'} = [
   {
     'error_line' => 'warning: superfluous arguments for node

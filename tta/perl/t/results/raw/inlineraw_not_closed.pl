@@ -50,23 +50,6 @@ $result_texts{'inlineraw_not_closed'} = 'aa
 =====
 ';
 
-$result_sectioning{'inlineraw_not_closed'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'inlineraw_not_closed'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'inlineraw_not_closed'};
-
 $result_errors{'inlineraw_not_closed'} = [
   {
     'error_line' => '@section seen before @inlineraw closing brace

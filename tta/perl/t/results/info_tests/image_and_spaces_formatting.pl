@@ -222,23 +222,6 @@ Text. words       words.
 
 ';
 
-$result_nodes{'image_and_spaces_formatting'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'image_and_spaces_formatting'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'image_and_spaces_formatting'} = [];
 
 

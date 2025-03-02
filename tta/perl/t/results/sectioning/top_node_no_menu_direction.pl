@@ -110,59 +110,6 @@ $result_texts{'top_node_no_menu_direction'} = '
 
 ';
 
-$result_nodes{'top_node_no_menu_direction'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {},
-              'up' => {}
-            },
-            'normalized' => 'chap-node'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'top_node_no_menu_direction'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'top_node_no_menu_direction'}[0];
-$result_nodes{'top_node_no_menu_direction'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'top_node_no_menu_direction'}[0];
-$result_nodes{'top_node_no_menu_direction'}[1] = $result_nodes{'top_node_no_menu_direction'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'top_node_no_menu_direction'} = [
-  {
-    'extra' => {
-      'menu_directions' => {
-        'prev' => {
-          'extra' => {
-            'menu_directions' => {
-              'next' => {},
-              'up' => {}
-            },
-            'normalized' => 'chap-node'
-          }
-        },
-        'up' => {}
-      },
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'next'} = $result_menus{'top_node_no_menu_direction'}[0];
-$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'}{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'}[0];
-$result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'up'} = $result_menus{'top_node_no_menu_direction'}[0];
-$result_menus{'top_node_no_menu_direction'}[1] = $result_menus{'top_node_no_menu_direction'}[0]{'extra'}{'menu_directions'}{'prev'};
-
 $result_errors{'top_node_no_menu_direction'} = [
   {
     'error_line' => 'warning: Prev pointer `top\' (for node `chap node\') different from node name `Top\'

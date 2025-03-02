@@ -83,40 +83,6 @@ $result_texts{'index_and_node_same_name'} = 'top
 
 ';
 
-$result_sectioning{'index_and_node_same_name'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'index_and_node_same_name'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'index_and_node_same_name'};
-
-$result_nodes{'index_and_node_same_name'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'isindex' => 1,
-      'normalized' => 'index-node'
-    }
-  }
-];
-
-$result_menus{'index_and_node_same_name'} = [
-  {
-    'extra' => {
-      'normalized' => 'index-node'
-    }
-  }
-];
-
 $result_errors{'index_and_node_same_name'} = [];
 
 

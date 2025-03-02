@@ -79,34 +79,6 @@ $result_texts{'space_at_menu_end'} = '
 A para.
 ';
 
-$result_nodes{'space_at_menu_end'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'menu_entry_node'
-        }
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'space_at_menu_end'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'space_at_menu_end'} = [];
 
 

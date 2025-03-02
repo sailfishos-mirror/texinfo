@@ -50,23 +50,6 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_nodes{'simplest_test_date_in_header'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'simplest_test_date_in_header'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'simplest_test_date_in_header'} = [];
 
 

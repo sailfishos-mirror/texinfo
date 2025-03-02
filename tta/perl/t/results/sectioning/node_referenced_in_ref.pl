@@ -115,62 +115,6 @@ second level node.
 
 ';
 
-$result_nodes{'node_referenced_in_ref'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {},
-              'up' => {}
-            },
-            'normalized' => 'chap-first-level-node'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {},
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'second-level-node'
-    }
-  }
-];
-$result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'node_referenced_in_ref'}[0];
-$result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'up'} = $result_nodes{'node_referenced_in_ref'}[0];
-$result_nodes{'node_referenced_in_ref'}[1] = $result_nodes{'node_referenced_in_ref'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'node_referenced_in_ref'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'chap-first-level-node'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'second-level-node'
-    }
-  }
-];
-$result_menus{'node_referenced_in_ref'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'node_referenced_in_ref'}[0];
-
 $result_errors{'node_referenced_in_ref'} = [
   {
     'error_line' => 'warning: node `second level node\' not in menu

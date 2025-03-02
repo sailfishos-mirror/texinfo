@@ -83,69 +83,6 @@ $result_texts{'file_name_conflict_with_section'} = 'top
 ******
 ';
 
-$result_sectioning{'file_name_conflict_with_section'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_childs' => [
-            {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'section_directions' => {
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => '1',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
-            }
-          ],
-          'section_level' => 0,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'file_name_conflict_with_section'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'file_name_conflict_with_section'};
-
-$result_nodes{'file_name_conflict_with_section'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'file_name_conflict_with_section'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'file_name_conflict_with_section'} = [];
 
 

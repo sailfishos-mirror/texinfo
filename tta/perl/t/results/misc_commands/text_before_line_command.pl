@@ -125,52 +125,6 @@ aaa quotation author
 quotation
 ';
 
-$result_sectioning{'text_before_line_command'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'LD-Version-Scripts'
-            }
-          },
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'text_before_line_command'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'text_before_line_command'};
-
-$result_nodes{'text_before_line_command'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_number' => '1'
-        }
-      },
-      'normalized' => 'LD-Version-Scripts'
-    }
-  }
-];
-
-$result_menus{'text_before_line_command'} = [
-  {
-    'extra' => {
-      'normalized' => 'LD-Version-Scripts'
-    }
-  }
-];
-
 $result_errors{'text_before_line_command'} = [
   {
     'error_line' => 'warning: @title should only appear at the beginning of a line

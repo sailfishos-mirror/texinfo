@@ -68,23 +68,6 @@ $result_texts{'ignore_in_xref'} = '
 first.
 ';
 
-$result_nodes{'ignore_in_xref'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'ignore_in_xref'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'ignore_in_xref'} = [
   {
     'error_line' => 'warning: @ignore should not appear anywhere inside @xref

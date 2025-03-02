@@ -74,26 +74,6 @@ $result_texts{'empty_leading_menu_comment'} = '
 * (f)b:: desc
 ';
 
-$result_nodes{'empty_leading_menu_comment'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'empty_leading_menu_comment'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'empty_leading_menu_comment'} = [];
 
 

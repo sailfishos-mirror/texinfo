@@ -68,23 +68,6 @@ firstquotation in ref
 .
 ';
 
-$result_nodes{'quotation_in_ref'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'quotation_in_ref'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'quotation_in_ref'} = [
   {
     'error_line' => '@xref missing closing brace

@@ -298,68 +298,6 @@ This is ifnottex text.
 
 ';
 
-$result_sectioning{'cond_ifhtml_ifinfo'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'cond_ifhtml_ifinfo'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'cond_ifhtml_ifinfo'};
-
-$result_nodes{'cond_ifhtml_ifinfo'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'cond_ifhtml_ifinfo'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cond_ifhtml_ifinfo'}[0];
-$result_nodes{'cond_ifhtml_ifinfo'}[1] = $result_nodes{'cond_ifhtml_ifinfo'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'cond_ifhtml_ifinfo'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'cond_ifhtml_ifinfo'} = [
   {
     'error_line' => 'warning: node `chap\' not in menu

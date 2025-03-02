@@ -69,100 +69,11 @@ Top node
 Title titlefont
 ';
 
-$result_sectioning{'unnumbered_before_top_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'associated_unit' => {
-          'directions' => {
-            'This' => {}
-          },
-          'unit_command' => {},
-          'unit_type' => 'unit'
-        },
-        'cmdname' => 'unnumbered',
-        'extra' => {
-          'section_level' => 1,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_top_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_before_top_node'};
-
-$result_nodes{'unnumbered_before_top_node'} = [
-  {
-    'associated_unit' => {
-      'directions' => {
-        'This' => {}
-      },
-      'unit_command' => {
-        'associated_unit' => {},
-        'cmdname' => 'unnumbered',
-        'extra' => {}
-      },
-      'unit_type' => 'unit'
-    },
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-$result_nodes{'unnumbered_before_top_node'}[0]{'associated_unit'}{'directions'}{'This'} = $result_nodes{'unnumbered_before_top_node'}[0]{'associated_unit'};
-$result_nodes{'unnumbered_before_top_node'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_nodes{'unnumbered_before_top_node'}[0]{'associated_unit'};
-
-$result_menus{'unnumbered_before_top_node'} = [
-  {
-    'associated_unit' => {
-      'directions' => {
-        'This' => {}
-      },
-      'unit_command' => {
-        'associated_unit' => {},
-        'extra' => {}
-      },
-      'unit_type' => 'unit'
-    },
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-$result_menus{'unnumbered_before_top_node'}[0]{'associated_unit'}{'directions'}{'This'} = $result_menus{'unnumbered_before_top_node'}[0]{'associated_unit'};
-$result_menus{'unnumbered_before_top_node'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_menus{'unnumbered_before_top_node'}[0]{'associated_unit'};
-
 $result_errors{'unnumbered_before_top_node'} = [];
 
 
 $result_floats{'unnumbered_before_top_node'} = {};
 
-
-$result_elements{'unnumbered_before_top_node'} = [
-  {
-    'directions' => {
-      'This' => {}
-    },
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'unnumbered',
-      'extra' => {}
-    },
-    'unit_type' => 'unit'
-  }
-];
-$result_elements{'unnumbered_before_top_node'}[0]{'directions'}{'This'} = $result_elements{'unnumbered_before_top_node'}[0];
-$result_elements{'unnumbered_before_top_node'}[0]{'unit_command'}{'associated_unit'} = $result_elements{'unnumbered_before_top_node'}[0];
-
-
-
-$result_directions_text{'unnumbered_before_top_node'} = 'output unit: @unnumbered before nodes
-  This: @unnumbered before nodes
-';
 
 
 $result_converted{'info'}->{'unnumbered_before_top_node'} = 'This is , produced from .

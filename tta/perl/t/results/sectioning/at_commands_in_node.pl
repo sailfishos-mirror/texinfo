@@ -56,23 +56,6 @@ $result_texis{'at_commands_in_node'} = '@node A @sc{sc} node @"i @"{@dotless{i}}
 
 $result_texts{'at_commands_in_node'} = '';
 
-$result_nodes{'at_commands_in_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'A-sc-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-    }
-  }
-];
-
-$result_menus{'at_commands_in_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'A-sc-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-    }
-  }
-];
-
 $result_errors{'at_commands_in_node'} = [];
 
 

@@ -68,23 +68,6 @@ $result_texts{'nested_footnotes_separate'} = '
 F
 ';
 
-$result_nodes{'nested_footnotes_separate'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'nested_footnotes_separate'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'nested_footnotes_separate'} = [
   {
     'error_line' => 'warning: @footnote should not appear anywhere inside @footnote

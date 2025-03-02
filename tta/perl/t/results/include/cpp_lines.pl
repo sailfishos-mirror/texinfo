@@ -477,42 +477,6 @@ etext4
 
 ';
 
-$result_nodes{'cpp_lines'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'cpp_lines'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'cpp_lines'}[0];
-$result_nodes{'cpp_lines'}[1] = $result_nodes{'cpp_lines'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'cpp_lines'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'cpp_lines'} = [
   {
     'error_line' => '@email missing closing brace

@@ -120,26 +120,6 @@ $result_texts{'node_nested_parentheses'} = '
 * ())) error::
 ';
 
-$result_nodes{'node_nested_parentheses'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'node_nested_parentheses'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'node_nested_parentheses'} = [
   {
     'error_line' => '@menu reference to nonexistent node `(@code{)))} error\'

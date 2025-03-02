@@ -71,40 +71,6 @@ Second top
 Second top.
 ';
 
-$result_sectioning{'double_top_section'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_directions' => {},
-          'section_level' => 0,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      },
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 0,
-          'toplevel_directions' => {
-            'prev' => {},
-            'up' => {}
-          }
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'double_top_section'};
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'double_top_section'}{'extra'}{'section_childs'}[0];
-
 $result_errors{'double_top_section'} = [
   {
     'error_line' => 'warning: multiple @top

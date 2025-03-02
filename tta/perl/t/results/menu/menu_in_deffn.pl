@@ -109,23 +109,6 @@ a: b c
 * (mynode)::
 ';
 
-$result_nodes{'menu_in_deffn'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'menu_in_deffn'} = [
-  {
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'menu_in_deffn'} = [
   {
     'error_line' => 'warning: @menu in invalid context

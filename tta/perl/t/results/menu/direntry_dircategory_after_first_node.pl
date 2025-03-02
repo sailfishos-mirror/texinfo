@@ -100,49 +100,6 @@ $result_texts{'direntry_dircategory_after_first_node'} = 'direntry direcategory 
 * in text: (in_text). in text
 ';
 
-$result_sectioning{'direntry_dircategory_after_first_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'direntry_dircategory_after_first_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'direntry_dircategory_after_first_node'};
-
-$result_nodes{'direntry_dircategory_after_first_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'direntry_dircategory_after_first_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'direntry_dircategory_after_first_node'} = [
   {
     'error_line' => 'warning: @dircategory after first node

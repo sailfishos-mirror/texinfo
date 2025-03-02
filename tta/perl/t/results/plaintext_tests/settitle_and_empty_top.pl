@@ -45,22 +45,6 @@ $result_texts{'settitle_and_empty_top'} = '
 
 ';
 
-$result_sectioning{'settitle_and_empty_top'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'settitle_and_empty_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'settitle_and_empty_top'};
-
 $result_errors{'settitle_and_empty_top'} = [];
 
 

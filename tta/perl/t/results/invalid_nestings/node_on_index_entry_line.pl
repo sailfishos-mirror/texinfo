@@ -87,46 +87,6 @@ $result_texts{'node_on_index_entry_line'} = '
 Content
 ';
 
-$result_nodes{'node_on_index_entry_line'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'manual_content' => {},
-            'normalized' => 'b'
-          },
-          'type' => 'line_arg'
-        },
-        'prev' => {
-          'extra' => {
-            'manual_content' => {},
-            'normalized' => 'c'
-          },
-          'type' => 'line_arg'
-        },
-        'up' => {
-          'extra' => {
-            'manual_content' => {},
-            'normalized' => 'd'
-          },
-          'type' => 'line_arg'
-        }
-      },
-      'normalized' => 'a'
-    }
-  }
-];
-
-$result_menus{'node_on_index_entry_line'} = [
-  {
-    'extra' => {
-      'normalized' => 'a'
-    }
-  }
-];
-
 $result_errors{'node_on_index_entry_line'} = [
   {
     'error_line' => 'warning: @node should only appear at the beginning of a line

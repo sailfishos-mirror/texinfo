@@ -77,23 +77,6 @@ After
 
 ';
 
-$result_sectioning{'section_in_table'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_in_table'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_in_table'};
-
 $result_errors{'section_in_table'} = [
   {
     'error_line' => '@section seen before @end table

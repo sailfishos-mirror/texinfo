@@ -61,48 +61,6 @@ top
 ***
 ';
 
-$result_sectioning{'part_before_top'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'associated_unit' => {
-          'directions' => {
-            'This' => {}
-          },
-          'unit_command' => {
-            'associated_unit' => {},
-            'cmdname' => 'top',
-            'extra' => {
-              'associated_part' => {},
-              'section_directions' => {
-                'prev' => {}
-              },
-              'section_level' => 0
-            }
-          },
-          'unit_type' => 'unit'
-        },
-        'cmdname' => 'part',
-        'extra' => {
-          'part_associated_section' => {},
-          'section_directions' => {},
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      },
-      {}
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'associated_unit'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'}{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'part_associated_section'} = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'part_before_top'};
-$result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[1] = $result_sectioning{'part_before_top'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'};
-
 $result_errors{'part_before_top'} = [
   {
     'error_line' => 'warning: @part should not be associated with @top
@@ -116,35 +74,6 @@ $result_errors{'part_before_top'} = [
 
 $result_floats{'part_before_top'} = {};
 
-
-$result_elements{'part_before_top'} = [
-  {
-    'directions' => {
-      'This' => {}
-    },
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_part' => {
-          'associated_unit' => {},
-          'cmdname' => 'part',
-          'extra' => {}
-        }
-      }
-    },
-    'unit_type' => 'unit'
-  }
-];
-$result_elements{'part_before_top'}[0]{'directions'}{'This'} = $result_elements{'part_before_top'}[0];
-$result_elements{'part_before_top'}[0]{'unit_command'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
-$result_elements{'part_before_top'}[0]{'unit_command'}{'extra'}{'associated_part'}{'associated_unit'} = $result_elements{'part_before_top'}[0];
-
-
-
-$result_directions_text{'part_before_top'} = 'output unit: @top top
-  This: @top top
-';
 
 
 $result_converted{'plaintext'}->{'part_before_top'} = 'top

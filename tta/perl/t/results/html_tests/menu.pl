@@ -583,60 +583,6 @@ in detaildescription
 
 ';
 
-$result_sectioning{'menu'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'menu'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'menu'};
-
-$result_nodes{'menu'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'node_directions' => {
-        'next' => {
-          'extra' => {
-            'manual_content' => {}
-          },
-          'type' => 'menu_entry_node'
-        }
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'menu'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'menu'} = [];
 
 

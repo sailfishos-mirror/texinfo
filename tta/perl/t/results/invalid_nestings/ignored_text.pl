@@ -40,23 +40,6 @@ $result_texis{'ignored_text'} = '@node before ignore in ifinfo
 $result_texts{'ignored_text'} = 'in ifinfo
 ';
 
-$result_nodes{'ignored_text'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'before-ignore'
-    }
-  }
-];
-
-$result_menus{'ignored_text'} = [
-  {
-    'extra' => {
-      'normalized' => 'before-ignore'
-    }
-  }
-];
-
 $result_errors{'ignored_text'} = [
   {
     'error_line' => 'warning: @ifinfo should only appear at the beginning of a line

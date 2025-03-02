@@ -99,69 +99,6 @@ Appendix A dernier
 
 ';
 
-$result_sectioning{'appendix_translated'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_childs' => [
-            {
-              'cmdname' => 'appendix',
-              'extra' => {
-                'section_directions' => {
-                  'up' => {}
-                },
-                'section_level' => 1,
-                'section_number' => 'A',
-                'toplevel_directions' => {
-                  'prev' => {},
-                  'up' => {}
-                }
-              }
-            }
-          ],
-          'section_level' => 0,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'section_directions'}{'up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'section_childs'}[0]{'extra'}{'toplevel_directions'}{'up'} = $result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'appendix_translated'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'appendix_translated'};
-
-$result_nodes{'appendix_translated'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'appendix_translated'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'appendix_translated'} = [];
 
 

@@ -47,23 +47,6 @@ Now text.
 =========================
 ';
 
-$result_sectioning{'unclosed_verb_on_section_line'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'unclosed_verb_on_section_line'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unclosed_verb_on_section_line'};
-
 $result_errors{'unclosed_verb_on_section_line'} = [
   {
     'error_line' => 'warning: @verb should not appear on @section line

@@ -49,22 +49,6 @@ $result_texts{'footnote_no_node'} = 'top
 F.
 ';
 
-$result_sectioning{'footnote_no_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'footnote_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'footnote_no_node'};
-
 $result_errors{'footnote_no_node'} = [];
 
 

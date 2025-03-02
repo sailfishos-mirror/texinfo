@@ -57,38 +57,6 @@ top
 ***
 ';
 
-$result_sectioning{'unnumbered_before_top'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'unnumbered',
-        'extra' => {
-          'section_directions' => {},
-          'section_level' => 1,
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      },
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 1,
-          'toplevel_directions' => {
-            'prev' => {}
-          }
-        }
-      }
-    ],
-    'section_level' => 0
-  }
-};
-$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'unnumbered_before_top'};
-$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'unnumbered_before_top'}{'extra'}{'section_childs'}[0];
-
 $result_errors{'unnumbered_before_top'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element

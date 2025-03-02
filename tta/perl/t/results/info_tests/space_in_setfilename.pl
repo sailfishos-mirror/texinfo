@@ -48,23 +48,6 @@ $result_texis{'space_in_setfilename'} = '@setfilename @ @verb{: name :}@
 $result_texts{'space_in_setfilename'} = '
 ';
 
-$result_nodes{'space_in_setfilename'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'space_in_setfilename'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'space_in_setfilename'} = [
   {
     'error_line' => 'warning: @verb should not appear in @setfilename

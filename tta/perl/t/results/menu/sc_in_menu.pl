@@ -239,45 +239,6 @@ EXAMPLE COMMENT
 
 ';
 
-$result_nodes{'sc_in_menu'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  },
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'node'
-    }
-  }
-];
-$result_nodes{'sc_in_menu'}[1]{'extra'}{'node_directions'}{'up'} = $result_nodes{'sc_in_menu'}[0];
-
-$result_menus{'sc_in_menu'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  },
-  {
-    'extra' => {
-      'menu_directions' => {
-        'up' => {}
-      },
-      'normalized' => 'node'
-    }
-  }
-];
-$result_menus{'sc_in_menu'}[1]{'extra'}{'menu_directions'}{'up'} = $result_menus{'sc_in_menu'}[0];
-
 $result_errors{'sc_in_menu'} = [
   {
     'error_line' => 'warning: @menu in invalid context

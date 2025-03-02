@@ -58,39 +58,6 @@ top
 ===
 ';
 
-$result_sectioning{'section_before_top_no_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'section',
-        'extra' => {
-          'section_directions' => {},
-          'section_level' => 2,
-          'section_number' => '1',
-          'sectioning_root' => {},
-          'toplevel_directions' => {}
-        }
-      },
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'section_directions' => {
-            'prev' => {}
-          },
-          'section_level' => 2,
-          'toplevel_directions' => {
-            'prev' => {}
-          }
-        }
-      }
-    ],
-    'section_level' => 1
-  }
-};
-$result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'section_before_top_no_node'};
-$result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'section_directions'}{'prev'} = $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[1]{'extra'}{'toplevel_directions'}{'prev'} = $result_sectioning{'section_before_top_no_node'}{'extra'}{'section_childs'}[0];
-
 $result_errors{'section_before_top_no_node'} = [
   {
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element

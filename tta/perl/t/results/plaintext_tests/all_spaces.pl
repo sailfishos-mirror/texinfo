@@ -254,42 +254,6 @@ IDEOGRAPHIC SPACE: |　|
 
 ';
 
-$result_nodes{'all_spaces'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'node_directions' => {
-        'next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'node_directions' => {
-              'prev' => {}
-            },
-            'normalized' => 'chap'
-          }
-        }
-      },
-      'normalized' => 'Top'
-    }
-  },
-  {}
-];
-$result_nodes{'all_spaces'}[0]{'extra'}{'node_directions'}{'next'}{'extra'}{'node_directions'}{'prev'} = $result_nodes{'all_spaces'}[0];
-$result_nodes{'all_spaces'}[1] = $result_nodes{'all_spaces'}[0]{'extra'}{'node_directions'}{'next'};
-
-$result_menus{'all_spaces'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  },
-  {
-    'extra' => {
-      'normalized' => 'chap'
-    }
-  }
-];
-
 $result_errors{'all_spaces'} = [
   {
     'error_line' => 'warning: node `chap\' not in menu

@@ -65,56 +65,6 @@ part
 ****
 ';
 
-$result_sectioning{'chapter_before_part'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'associated_unit' => {
-          'directions' => {
-            'Forward' => {
-              'directions' => {
-                'Back' => {},
-                'This' => {}
-              },
-              'tree_unit_directions' => {
-                'prev' => {}
-              },
-              'unit_command' => {
-                'associated_unit' => {},
-                'cmdname' => 'part',
-                'extra' => {
-                  'section_level' => 0
-                }
-              },
-              'unit_type' => 'unit'
-            },
-            'This' => {}
-          },
-          'tree_unit_directions' => {},
-          'unit_command' => {},
-          'unit_type' => 'unit'
-        },
-        'cmdname' => 'chapter',
-        'extra' => {
-          'section_level' => 1,
-          'section_number' => '1',
-          'sectioning_root' => {}
-        }
-      },
-      {}
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'Back'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'directions'}{'This'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'tree_unit_directions'}{'prev'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'This'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'unit_command'} = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0];
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'chapter_before_part'};
-$result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[1] = $result_sectioning{'chapter_before_part'}{'extra'}{'section_childs'}[0]{'associated_unit'}{'directions'}{'Forward'}{'unit_command'};
-
 $result_errors{'chapter_before_part'} = [
   {
     'error_line' => 'warning: no sectioning command associated with @part
@@ -128,51 +78,6 @@ $result_errors{'chapter_before_part'} = [
 
 $result_floats{'chapter_before_part'} = {};
 
-
-$result_elements{'chapter_before_part'} = [
-  {
-    'directions' => {
-      'Forward' => {
-        'directions' => {
-          'Back' => {},
-          'This' => {}
-        },
-        'unit_command' => {
-          'associated_unit' => {},
-          'cmdname' => 'part',
-          'extra' => {}
-        },
-        'unit_type' => 'unit'
-      },
-      'This' => {}
-    },
-    'unit_command' => {
-      'associated_unit' => {},
-      'cmdname' => 'chapter',
-      'extra' => {
-        'section_number' => '1'
-      }
-    },
-    'unit_type' => 'unit'
-  },
-  {}
-];
-$result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'}{'directions'}{'Back'} = $result_elements{'chapter_before_part'}[0];
-$result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'}{'directions'}{'This'} = $result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'};
-$result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'}{'unit_command'}{'associated_unit'} = $result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'};
-$result_elements{'chapter_before_part'}[0]{'directions'}{'This'} = $result_elements{'chapter_before_part'}[0];
-$result_elements{'chapter_before_part'}[0]{'unit_command'}{'associated_unit'} = $result_elements{'chapter_before_part'}[0];
-$result_elements{'chapter_before_part'}[1] = $result_elements{'chapter_before_part'}[0]{'directions'}{'Forward'};
-
-
-
-$result_directions_text{'chapter_before_part'} = 'output unit: @chapter chapter
-  This: @chapter chapter
-  Forward: @part part
-output unit: @part part
-  This: @part part
-  Back: @chapter chapter
-';
 
 
 $result_converted{'plaintext'}->{'chapter_before_part'} = '1 chapter

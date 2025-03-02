@@ -138,26 +138,6 @@ In float
 * floa::
 ';
 
-$result_nodes{'equivalent_labels'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first'
-    }
-  }
-];
-
-$result_menus{'equivalent_labels'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'first'
-    }
-  }
-];
-
 $result_errors{'equivalent_labels'} = [
   {
     'error_line' => 'warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'

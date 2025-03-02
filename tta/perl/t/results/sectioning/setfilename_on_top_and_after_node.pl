@@ -76,49 +76,6 @@ $result_texts{'setfilename_on_top_and_after_node'} = 'In top
 
 ';
 
-$result_sectioning{'setfilename_on_top_and_after_node'} = {
-  'extra' => {
-    'section_childs' => [
-      {
-        'cmdname' => 'top',
-        'extra' => {
-          'associated_node' => {
-            'cmdname' => 'node',
-            'extra' => {
-              'normalized' => 'Top'
-            }
-          },
-          'section_level' => 0,
-          'sectioning_root' => {}
-        }
-      }
-    ],
-    'section_level' => -1
-  }
-};
-$result_sectioning{'setfilename_on_top_and_after_node'}{'extra'}{'section_childs'}[0]{'extra'}{'sectioning_root'} = $result_sectioning{'setfilename_on_top_and_after_node'};
-
-$result_nodes{'setfilename_on_top_and_after_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {}
-      },
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'setfilename_on_top_and_after_node'} = [
-  {
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'setfilename_on_top_and_after_node'} = [
   {
     'error_line' => 'warning: @setfilename should only appear at the beginning of a line

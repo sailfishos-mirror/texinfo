@@ -86,26 +86,6 @@ $result_texts{'detailmenu_unknown_node'} = '
 * unknown::
 ';
 
-$result_nodes{'detailmenu_unknown_node'} = [
-  {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Top'
-    }
-  }
-];
-
-$result_menus{'detailmenu_unknown_node'} = [
-  {
-    'extra' => {
-      'menus' => [
-        {}
-      ],
-      'normalized' => 'Top'
-    }
-  }
-];
-
 $result_errors{'detailmenu_unknown_node'} = [
   {
     'error_line' => '@detailmenu reference to nonexistent node `unknown\'
