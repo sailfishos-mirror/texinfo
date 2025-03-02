@@ -1,88 +1,29 @@
-use vars qw(%result_texis %result_texts %result_trees %result_errors 
+use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_errors
    %result_indices %result_sectioning %result_nodes %result_menus
-   %result_floats %result_converted %result_converted_errors 
+   %result_floats %result_converted %result_converted_errors
    %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
-$result_trees{'spaces_in_line_break_in_verb_w'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa  bb
-'
-                    },
-                    {
-                      'text' => 'ccc'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa  bb
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'ccc',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '|'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'spaces_in_line_break_in_verb_w'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C2
+   *0 @w C1 l1
+    *brace_container C2
+     {aaa  bb\\n}
+     {ccc}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @verb C1 l4
+   |INFO
+   |delimiter:{|}
+    *brace_container C2
+     {raw:aaa  bb\\n}
+     {raw:ccc}
+   {\\n}
+';
+
 
 $result_texis{'spaces_in_line_break_in_verb_w'} = '@w{aaa  bb
 ccc}
