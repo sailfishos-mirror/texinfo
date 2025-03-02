@@ -44,6 +44,10 @@ installed with perl, the packages corresponding to the other modules
 are named:
   libdata-compare-perl libtest-deep-perl
 
+For tests in perl/t/, if the Text::Diff module is installed, the difference
+between reference and obtained test results are shown as a diff, which should
+be more readable.
+
 The tests in tests/ test the command itself.
 
 

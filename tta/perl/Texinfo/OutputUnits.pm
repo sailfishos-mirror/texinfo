@@ -666,7 +666,7 @@ sub _output_unit_name_string($)
   } elsif ($output_unit->{'unit_type'} eq 'external_node_unit') {
     my $output_unit_name
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => $output_unit->{'unit_command'}});
+           {'contents' => [$output_unit->{'unit_command'}]});
     return $output_unit_name;
   } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
     return "[S:$output_unit->{'special_unit_variety'}]";

@@ -11,6 +11,23 @@
 
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl ($do_perl_tree, test): prepare a new
+	representation of test results for the tree using a textual
+	representation.  Code is changed in the commit, but only the header is
+	changed in output, to add the new tree variable.
+
+	* tta/perl/t/test_utils.pl (is_with_diff), tta/README: detect if the
+	Text::Diff module can be loaded at run time.  If so, the difference
+	between reference and obtained textual test results can be shown as a
+	diff, which should be more readable.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/OutputUnits.pm (_output_unit_name_string): fix
+	external_node_unit unit type unit_command conversion.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (_print_element_associated_info):
 	handle associated_index_entry as index entries.
 

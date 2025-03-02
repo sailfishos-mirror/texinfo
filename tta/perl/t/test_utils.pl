@@ -60,6 +60,18 @@ use Storable qw(dclone); # standard in 5.007003
 #use Struct::Compare;
 use Getopt::Long qw(GetOptions);
 use Locale::Messages ();
+#use Test::Differences;
+#unified_diff;
+
+#eval {
+# require Test::Differences; Test::Differences->import(('eq_or_diff_text', 'unified_diff')); unified_diff();
+#};
+
+#my $test_differences_loading_error = $@;
+
+eval { require Text::Diff; Text::Diff->import('diff'); };
+
+my $text_diff_loading_error = $@;
 
 use Texinfo::Tests qw(compare_dirs_files unlink_dir_files);
 
@@ -88,7 +100,7 @@ use Texinfo::Convert::DocBook;
 
 # the tests reference perl results file is loaded through a require
 # of a file containing code setting those variables.
-use vars qw(%result_texis %result_texts %result_trees %result_errors
+use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_errors
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors
    %result_elements %result_directions_text %result_indices_sort_strings);
@@ -161,8 +173,31 @@ if (defined($locale_encoding)) {
   binmode $builder->todo_output,    ":encoding($locale_encoding)";
 }
 
+sub is_with_diff($$$)
+{
+  my $result = shift;
+  my $reference = shift;
+  my $test_name = shift;
+
+  #if (!$test_differences_loading_error) {
+  #  eq_or_diff_text($result, $reference, $test_name);
+  #} elsif ($text_diff_loading_error) {
+  if ($text_diff_loading_error or !defined($reference)) {
+    is($result, $reference, $test_name);
+  } else {
+    ok($result eq $reference, $test_name)
+       or note((diff(\$result, \$reference)));
+    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
+  }
+}
+
 # used to check that there are no file overwritten with -o
 my %output_files;
+
+# two possibilities, use comparison of Perl structures (old way)
+# or compare textual representations (the new way).
+my $do_perl_tree = 1;
+#$do_perl_tree = 0;
 
 ok(1);
 
@@ -1461,11 +1496,24 @@ sub test($$)
   my $file = "t/results/$self->{'name'}/$test_name.pl";
   my $new_file = $file.'.new';
 
+  my $input_file_names_encoding
+      = Texinfo::Common::input_file_name_encoding($document, $document);
+
   my $split_result;
+  my $tree_text;
   if ($output_units) {
     $split_result = $output_units;
+    if (!$do_perl_tree) {
+      $tree_text
+     = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
+                                     $tree, $input_file_names_encoding, 1);
+    }
   } else {
     $split_result = $tree;
+    if (!$do_perl_tree) {
+      $tree_text = Texinfo::ManipulateTree::print_tree($tree,
+                                         $input_file_names_encoding, 1);
+    }
   }
 
   if ($symbols_before_init_file) {
@@ -1489,9 +1537,9 @@ sub test($$)
     open(OUT, ">$out_file") or die "Open $out_file: $!\n";
     binmode (OUT, ":encoding(utf8)");
     print OUT
-     'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
+     'use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_errors'."\n".
      '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
-     '   %result_floats %result_converted %result_converted_errors '."\n".
+     '   %result_floats %result_converted %result_converted_errors'."\n".
      '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
@@ -1505,15 +1553,23 @@ sub test($$)
     my $out_result;
     {
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
-      $out_result = Data::Dumper->Dump([$split_result],
-                                       ['$result_trees{\''.$test_name.'\'}']);
-      if ($out_result =~ /\r/) {
-        # \r can be mangled upon reading if at end of line, with Useqq it is
-        # protected
-        local $Data::Dumper::Useqq = 1;
+      if ($do_perl_tree) {
         $out_result = Data::Dumper->Dump([$split_result],
+                                       ['$result_trees{\''.$test_name.'\'}']);
+        if ($out_result =~ /\r/) {
+          # \r can be mangled upon reading if at end of line, with Useqq it is
+          # protected
+          local $Data::Dumper::Useqq = 1;
+          $out_result = Data::Dumper->Dump([$split_result],
                                          ['$result_trees{\''.$test_name.'\'}']);
+        }
       }
+    }
+
+    if (defined($tree_text)) {
+      $out_result .= "\n" if ($do_perl_tree);
+      $out_result .= '$result_tree_text{\''.$test_name.'\'} = \''
+          . protect_perl_string($tree_text)."';\n\n";
     }
 
     if (!defined($tree)) {
@@ -1616,8 +1672,15 @@ sub test($$)
     %result_converted = ();
     require "$srcdir/$file";
 
-    cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
-                $test_name.' tree');
+    if (defined($tree_text)) {
+      is_with_diff($tree_text, $result_tree_text{$test_name},
+                   $test_name.' tree');
+    }
+
+    if ($do_perl_tree) {
+      cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
+                  $test_name.' tree');
+    }
 
     my $sections_list;
     if ($document) {
