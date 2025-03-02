@@ -10,7 +10,7 @@ $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
   *paragraph C4
    *0 @inlinefmt C2 l1
    |EXTRA
-   |format:{}
+   |format: UNDEF
     *brace_arg
     |INFO
     |spaces_before_argument:
@@ -20,7 +20,7 @@ $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
    {. }
    *1 @inlineraw C2 l1
    |EXTRA
-   |format:{}
+   |format: UNDEF
     *brace_arg
     *elided_brace_command_arg C1
      {raw: bbb}

@@ -566,7 +566,11 @@ sub _print_element_associated_info($$$$$;$$)
       if ($key eq 'arg_line') {
         $value = _debug_protect_eol($value);
       }
-      $result .= "{${value}}";
+      if (!defined(${value})) {
+        $result .= ' UNDEF';
+      } else {
+        $result .= "{${value}}";
+      }
     } elsif ($ref eq 'HASH') {
       if ($extra_directions{$key}) {
         my @directions_strings;

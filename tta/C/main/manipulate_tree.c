@@ -1071,7 +1071,10 @@ add_info_name_string_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
                             const char *name, const char *value)
 {
   char *string;
-  xasprintf (&string, "{%s}", value);
+  if (!value)
+    xasprintf (&string, "%s", " UNDEF");
+  else
+    xasprintf (&string, "{%s}", value);
   add_info_name_value (info_strings, name, string, 0);
   free (string);
 }
