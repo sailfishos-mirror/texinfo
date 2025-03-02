@@ -5,241 +5,76 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_index_before_defline'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'defblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' a comment
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'entry'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'index_entry' => [
-                      'cp',
-                      1
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'cmdname' => 'comment',
-                  'contents' => [
-                    {
-                      'text' => ' another
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'before_defline'
-            },
-            {
-              'cmdname' => 'defline',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defline',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'original_def_cmdname' => 'defline'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_index_before_defline'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_content
+  *0 @defblock C4 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *before_defline C4
+    *@c C1
+     {rawline_arg: a comment\\n}
+    *1 index_entry_command@cindex C1 l3
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |index_entry:I{cp,1}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {entry}
+    *@comment C1
+     {rawline_arg: another\\n}
+    {empty_line:\\n}
+   *@defline C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{defline}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{b}
+   |original_def_cmdname:{defline}
+    *line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {a}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {c}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {d}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defblock}
+';
+
 
 $result_texis{'comment_index_before_defline'} = '@defblock
 @c a comment

@@ -5,217 +5,106 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'index_below'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'sec'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entry'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1.1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'index_below'}[0]{'unit_contents'}[1] = $result_trees{'index_below'}[0]{'unit_command'};
-$result_trees{'index_below'}[1]{'unit_contents'}[0] = $result_trees{'index_below'}[1]{'unit_command'};
-$result_trees{'index_below'}[2]{'unit_contents'}[0] = $result_trees{'index_below'}[2]{'unit_command'};
+$result_tree_text{'index_below'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U1]
+ *before_node_section
+ *0 @top C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_childs:EC[E1]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+U1 unit[E1]
+unit_directions:D[next->[U2]|prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Forward: [U2]
+Back: [U0]
+FastBack: [U0]
+Up: [U0]
+ *1 @chapter C2 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_childs:EC[E2]
+ |section_directions:D[up->E0]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E0|up->E0]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+U2 unit[E2]
+unit_directions:D[prev->[U1]]
+UNIT_DIRECTIONS
+This: [U2]
+Back: [U1]
+FastBack: [U1]
+Up: [U1]
+ *2 @section C4 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[up->E1]
+ |section_level:{2}
+ |section_number:{1.1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {sec}
+  {empty_line:\\n}
+  *3 index_entry_command@cindex C1 l7
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {entry}
+  *@printindex C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+';
+
 
 $result_texis{'index_below'} = '@top top
 

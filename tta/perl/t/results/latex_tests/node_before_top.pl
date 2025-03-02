@@ -5,244 +5,101 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'node_before_top'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'before Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'before-Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'before Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'before-Top'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 7
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'node_before_top'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_before_top'}{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'node_before_top'} = '*document_root C6
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{before-Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {before Top}
+  {empty_line:\\n}
+ *1 @node C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E2]
+ |is_target:{1}
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *2 @top C2 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E1]
+ |section_childs:EC[E4]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E2]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *3 @node C1 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |node_directions:D[prev->E1|up->E1]
+ |normalized:{Chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+ *4 @chapter C3 l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[up->E2]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E2|up->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chap}
+  {empty_line:\\n}
+  *paragraph C2
+   *5 @pxref C1 l9
+    *brace_arg C1
+    |EXTRA
+    |node_content:{before Top}
+    |normalized:{before-Top}
+     {before Top}
+   {\\n}
+';
+
 
 $result_texis{'node_before_top'} = '@node before Top
 

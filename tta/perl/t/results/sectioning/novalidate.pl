@@ -5,238 +5,73 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'novalidate'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'novalidate',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'unknown node'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'unknown-node'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'not a node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'not-a-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'unknown ref'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'unknown-ref'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'novalidate'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'novalidate'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'novalidate'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'novalidate'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'novalidate'} = '*document_root C2
+ *before_node_section C3
+  {empty_line:\\n}
+  *@novalidate C1 l2
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+ *0 @node C5 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menus:EC[E1]
+ |normalized:{first}
+  *arguments_line C2
+   *line_arg C1
+    {first}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{unknown node}
+   |normalized:{unknown-node}
+    {unknown node}
+  {empty_line:\\n}
+  *1 @menu C3 l6
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l7
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{not a node}
+    |normalized:{not-a-node}
+     {not a node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @xref C1 l10
+    *brace_arg C1
+    |EXTRA
+    |node_content:{unknown ref}
+    |normalized:{unknown-ref}
+     {unknown ref}
+   {.\\n}
+';
+
 
 $result_texis{'novalidate'} = '
 @novalidate

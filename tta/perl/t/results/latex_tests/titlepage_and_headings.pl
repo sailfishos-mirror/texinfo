@@ -5,87 +5,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'titlepage_and_headings'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'titlepage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in titlepage
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'titlepage'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'titlepage'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'titlepage_and_headings'} = '*document_root C1
+ *before_node_section C1
+  *preamble_before_content C2
+   *0 @titlepage C3 l1
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C1
+     {in titlepage\\n}
+    *@end C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{titlepage}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {titlepage}
+   {empty_line:\\n}
+';
+
 
 $result_texis{'titlepage_and_headings'} = '@titlepage
 in titlepage

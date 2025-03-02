@@ -5,504 +5,147 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'two_macros_on_a_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mymacro
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in mymacro
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mymacro',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mymacrowithargs{arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in with args
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'now the arg \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'after
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mymacrowithargs',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro'
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro'
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 11,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 21,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'in mymacro in mymacro
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro'
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 3,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 11,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 4,
-                  'position' => 21,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'in mymacro in mymacro
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro'
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'mymacro
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 5,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 11,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 6,
-                  'position' => 21,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'in mymacro in mymacro
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'with args
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'an
-arg
+$result_tree_text{'two_macros_on_a_line'} = '*document_root C1
+ *before_node_section C14
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{mymacro}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: mymacro\\n}
+   {raw:in mymacro\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C5 l5
+  |EXTRA
+  |macro_name:{mymacrowithargs}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: mymacrowithargs{arg}\\n}
+   {raw:in with args\\n}
+   {raw:now the arg \\arg\\\\n}
+   {raw:after\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C11
+   *@@
+   {mymacro}
+   *@{
+   *@}
+   { }
+   *@@
+   {mymacro}
+   *@{
+   *@}
+   {\\n}
+   {in mymacro in mymacro\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+     >*brace_arg
+   >macro_expansion<end;1><p:10>
+   >macro_expansion<start;2><p:11>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+     >*brace_arg
+   >macro_expansion<end;2><p:21>
+  {empty_line:\\n}
+  *paragraph C8
+   *@@
+   {mymacro }
+   *@@
+   {mymacro}
+   *@{
+   *@}
+   {\\n}
+   {in mymacro in mymacro\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call
+    >|INFO
+    >|command_name:{mymacro}
+   >macro_expansion<end;3><p:10>
+   >macro_expansion<start;4><p:11>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+     >*brace_arg
+   >macro_expansion<end;4><p:21>
+  {empty_line:\\n}
+  *paragraph C8
+   *@@
+   {mymacro}
+   *@{
+   *@}
+   { }
+   *@@
+   {mymacro\\n}
+   {in mymacro in mymacro\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;5>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+     >*brace_arg
+   >macro_expansion<end;5><p:10>
+   >macro_expansion<start;6><p:11>
+    >*macro_call
+    >|INFO
+    >|command_name:{mymacro}
+   >macro_expansion<end;6><p:21>
+  {empty_line:\\n}
+  *paragraph C4
+   {with args\\n}
+   {in with args\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;7>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacrowithargs}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+      >{an\\narg\\n\\nin macro}
+   {now the arg an\\n}
+   {arg\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {in macro\\n}
+   {after in mymacro\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;7><p:5>
+   >macro_expansion<start;8><p:6>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+     >*brace_arg
+   >macro_expansion<end;8><p:16>
+';
 
-in macro'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacrowithargs',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'in with args
-'
-            },
-            {
-              'text' => 'now the arg an
-'
-            },
-            {
-              'text' => 'arg
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in macro
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 8,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 8,
-                  'position' => 16,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'after in mymacro
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
 
 $result_texis{'two_macros_on_a_line'} = '@macro mymacro
 in mymacro

@@ -5,53 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'space_in_anchor'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'anchor  name'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '   '
-                },
-                'spaces_before_argument' => {
-                  'text' => '   '
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'is_target' => 1,
-            'normalized' => 'anchor-name'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'space_in_anchor'} = '*document_root C1
+ *before_node_section C2
+  *0 @anchor C1 l1
+  |EXTRA
+  |is_target:{1}
+  |normalized:{anchor-name}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{   }
+   |spaces_before_argument:
+    |{   }
+    {anchor  name}
+  *paragraph C1
+   {.\\n}
+';
+
 
 $result_texis{'space_in_anchor'} = '@anchor{   anchor  name   }.
 ';

@@ -5,151 +5,51 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'complete_macro_for_end'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' theend
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@end cartouche
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'theend',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'theend'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 9,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'cartouche'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'theend'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'complete_macro_for_end'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{theend}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: theend\\n}
+   {raw:@end cartouche\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @cartouche C2 l5
+   *arguments_line C1
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{theend}
+     >*brace_arg
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@end C1 l6:@theend
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{cartouche}
+    *line_arg C1
+     {cartouche}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:9>
+';
+
 
 $result_texis{'complete_macro_for_end'} = '@macro theend
 @end cartouche

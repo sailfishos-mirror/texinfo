@@ -5,221 +5,70 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ifset_in_macro_set'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' note {arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@ifset notes 
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '\\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'note',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'arg
-'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'note'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'notes'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => ' 
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 9,
-                  'macro' => 'note'
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'arg
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'source_marks' => [
-                          {
-                            'counter' => 1,
-                            'position' => 5,
-                            'sourcemark_type' => 'macro_expansion',
-                            'status' => 'end'
-                          }
-                        ],
-                        'text' => 'ifset'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'ifset'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 9,
-                  'macro' => 'note'
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ifset_in_macro_set'} = '*document_root C1
+ *before_node_section C4
+  *0 @macro C5 l1
+  |EXTRA
+  |macro_name:{note}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: note {arg}\\n}
+   {raw:@ifset notes \\n}
+   {raw:\\arg\\\\n}
+   {raw:@end ifset\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{note}
+    >*brace_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{\\n}
+     >{arg\\n}
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l9:@note
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{ \\n}
+      >{notes}
+  *paragraph C1
+   {arg\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<end;1><p:1>
+   >*@end C1 l9:@note
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{ifset}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{\\n}
+     >{ifset}
+     >>SOURCEMARKS
+     >>macro_expansion<end;1><p:5>
+';
+
 
 $result_texis{'ifset_in_macro_set'} = '@macro note {arg}
 @ifset notes 

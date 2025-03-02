@@ -5,30 +5,13 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '#
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_commands'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *paragraph C1
+   {#\\n}
+';
+
 
 $result_texis{'unknown_commands'} = '
 #

@@ -196,8 +196,8 @@ my %output_files;
 
 # two possibilities, use comparison of Perl structures (old way)
 # or compare textual representations (the new way).
-my $do_perl_tree = 1;
-#$do_perl_tree = 0;
+my $do_perl_tree = 0;
+#$do_perl_tree = 1;
 
 ok(1);
 

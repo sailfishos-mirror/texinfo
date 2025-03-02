@@ -5,5148 +5,1507 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'all_commands_printindex'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defvr',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efvr_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defvr',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efvr_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  1
-                ],
-                'original_def_cmdname' => 'defvr'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efvr
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defvr'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defvr'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'n--ame'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'n--ame'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 8
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--effn
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'n--ame'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'n--ame'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  2
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 12
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--effn no arg
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypefn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypefn_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftypefn_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  3
-                ],
-                'original_def_cmdname' => 'deftypefn'
-              },
-              'source_info' => {
-                'line_nr' => 16
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypefn
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypefn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypefn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 18
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 16
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypefn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypefn_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftypefn_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  4
-                ],
-                'original_def_cmdname' => 'deftypefn'
-              },
-              'source_info' => {
-                'line_nr' => 20
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypefn no arg
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypefn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypefn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 22
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 20
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypeop',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypeop',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  5
-                ],
-                'original_def_cmdname' => 'deftypeop'
-              },
-              'source_info' => {
-                'line_nr' => 24
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypeop
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypeop'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypeop'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 26
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 24
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypeop',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypeop',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  6
-                ],
-                'original_def_cmdname' => 'deftypeop'
-              },
-              'source_info' => {
-                'line_nr' => 28
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypeop no arg
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypeop'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypeop'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 30
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 28
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypevr',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypevr_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypevr',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftypevr_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  2
-                ],
-                'original_def_cmdname' => 'deftypevr'
-              },
-              'source_info' => {
-                'line_nr' => 32
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypevr
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypevr'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypevr'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 32
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defcv',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efcv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defcv',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efcv_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  3
-                ],
-                'original_def_cmdname' => 'defcv'
-              },
-              'source_info' => {
-                'line_nr' => 36
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efcv
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defcv'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defcv'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 36
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defcv',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efcv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defcv',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efcv_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  4
-                ],
-                'original_def_cmdname' => 'defcv'
-              },
-              'source_info' => {
-                'line_nr' => 40
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efcv with arguments
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defcv'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defcv'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 42
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 40
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypecv',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypecv',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  5
-                ],
-                'original_def_cmdname' => 'deftypecv'
-              },
-              'source_info' => {
-                'line_nr' => 44
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypecv
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypecv'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypecv'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 46
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 44
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypecv',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypecv',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypecv_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  6
-                ],
-                'original_def_cmdname' => 'deftypecv'
-              },
-              'source_info' => {
-                'line_nr' => 48
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypecv with arguments
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypecv'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypecv'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 50
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 48
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defop',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defop',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  7
-                ],
-                'original_def_cmdname' => 'defop'
-              },
-              'source_info' => {
-                'line_nr' => 52
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efop
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defop'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defop'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 54
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 52
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defop',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defop',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efop_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  8
-                ],
-                'original_def_cmdname' => 'defop'
-              },
-              'source_info' => {
-                'line_nr' => 56
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efop no arg
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defop'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defop'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 58
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 56
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ategory'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftp_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--ttributes...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftp',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftp_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'tp',
-                  1
-                ],
-                'original_def_cmdname' => 'deftp'
-              },
-              'source_info' => {
-                'line_nr' => 60
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftp
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftp'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftp'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 62
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 60
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defun',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efun_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defun',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efun_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  9
-                ],
-                'original_def_cmdname' => 'defun'
-              },
-              'source_info' => {
-                'line_nr' => 64
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efun
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defun'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defun'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 66
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 64
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defmac',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Macro'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efmac_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defmac',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efmac_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  10
-                ],
-                'original_def_cmdname' => 'defmac'
-              },
-              'source_info' => {
-                'line_nr' => 68
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efmac
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defmac'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defmac'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 70
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 68
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defspec',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Special Form'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efspec_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defspec',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efspec_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  11
-                ],
-                'original_def_cmdname' => 'defspec'
-              },
-              'source_info' => {
-                'line_nr' => 72
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efspec
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defspec'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defspec'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 74
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 72
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defvar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Variable'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efvar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defvar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efvar_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  7
-                ],
-                'original_def_cmdname' => 'defvar'
-              },
-              'source_info' => {
-                'line_nr' => 76
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efvar
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defvar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defvar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 78
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 76
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defvar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Variable'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efvar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'arg--var'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'arg--var1'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defvar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efvar_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  8
-                ],
-                'original_def_cmdname' => 'defvar'
-              },
-              'source_info' => {
-                'line_nr' => 80
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efvar with args
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defvar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defvar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 82
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 80
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defopt',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'User Option'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efopt_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defopt',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--efopt_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  9
-                ],
-                'original_def_cmdname' => 'defopt'
-              },
-              'source_info' => {
-                'line_nr' => 84
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efopt
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defopt'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defopt'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 86
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 84
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypefun',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypefun_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypefun',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftypefun_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  12
-                ],
-                'original_def_cmdname' => 'deftypefun'
-              },
-              'source_info' => {
-                'line_nr' => 88
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypefun
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypefun'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypefun'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 90
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 88
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypevar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Variable'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypevar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypevar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'd--eftypevar_name'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  10
-                ],
-                'original_def_cmdname' => 'deftypevar'
-              },
-              'source_info' => {
-                'line_nr' => 92
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypevar
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypevar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypevar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 94
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 92
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  11
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 96
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efivar
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 98
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 96
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypeivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypeivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypeivar_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  12
-                ],
-                'original_def_cmdname' => 'deftypeivar'
-              },
-              'source_info' => {
-                'line_nr' => 100
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypeivar
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypeivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypeivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 102
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 100
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defmethod',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Method'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efmethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defmethod',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efmethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--efmethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  13
-                ],
-                'original_def_cmdname' => 'defmethod'
-              },
-              'source_info' => {
-                'line_nr' => 104
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--efmethod
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defmethod'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defmethod'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 106
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 104
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deftypemethod',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Method'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't--ype'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypemethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a--rguments...'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypemethod',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypemethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--eftypemethod_name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' on '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--lass'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  14
-                ],
-                'original_def_cmdname' => 'deftypemethod'
-              },
-              'source_info' => {
-                'line_nr' => 108
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--eftypemethod
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypemethod'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypemethod'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 110
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 108
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'heading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Functions'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 112
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 113
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'heading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Types'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 115
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'tp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'tp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 116
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'heading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Variables'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 118
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'vr'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'vr'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 119
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[10]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[12]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[14]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[16]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[18]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[24]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[26]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[28]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[30]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[32]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[34]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[36]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[38]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[40]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[42]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[44]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[46]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[48]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[50]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[52]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
-$result_trees{'all_commands_printindex'}{'contents'}[2]{'contents'}[54]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'all_commands_printindex'}{'contents'}[2];
+$result_tree_text{'all_commands_printindex'} = '*document_root C3
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @node C64 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *2 @defvr C3 l4
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l4
+   |EXTRA
+   |def_command:{defvr}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efvr_name}
+   |element_node:[E1]
+   |index_entry:I{vr,1}
+   |original_def_cmdname:{defvr}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efvr_name}
+   *def_item C1
+    *paragraph C1
+     {d--efvr\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defvr}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defvr}
+  {empty_line:\\n}
+  *3 @deffn C3 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l8
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{n--ame}
+   |element_node:[E1]
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {n--ame}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--effn\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *4 @deffn C3 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l12
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{n--ame}
+   |element_node:[E1]
+   |index_entry:I{fn,2}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {n--ame}
+   *def_item C1
+    *paragraph C1
+     {d--effn no arg\\n}
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *5 @deftypefn C3 l16
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l16
+   |EXTRA
+   |def_command:{deftypefn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftypefn_name}
+   |element_node:[E1]
+   |index_entry:I{fn,3}
+   |original_def_cmdname:{deftypefn}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypefn_name}
+     {spaces: }
+     *def_typearg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--eftypefn\\n}
+   *@end C1 l18
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypefn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypefn}
+  {empty_line:\\n}
+  *6 @deftypefn C3 l20
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l20
+   |EXTRA
+   |def_command:{deftypefn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftypefn_name}
+   |element_node:[E1]
+   |index_entry:I{fn,4}
+   |original_def_cmdname:{deftypefn}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypefn_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypefn no arg\\n}
+   *@end C1 l22
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypefn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypefn}
+  {empty_line:\\n}
+  *7 @deftypeop C3 l24
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l24
+   |EXTRA
+   |def_command:{deftypeop}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,5}
+   |original_def_cmdname:{deftypeop}
+    *block_line_arg C9
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypeop_name}
+     {spaces: }
+     *def_typearg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--eftypeop\\n}
+   *@end C1 l26
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypeop}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypeop}
+  {empty_line:\\n}
+  *8 @deftypeop C3 l28
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l28
+   |EXTRA
+   |def_command:{deftypeop}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,6}
+   |original_def_cmdname:{deftypeop}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypeop_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypeop no arg\\n}
+   *@end C1 l30
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypeop}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypeop}
+  {empty_line:\\n}
+  *9 @deftypevr C3 l32
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l32
+   |EXTRA
+   |def_command:{deftypevr}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftypevr_name}
+   |element_node:[E1]
+   |index_entry:I{vr,2}
+   |original_def_cmdname:{deftypevr}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypevr_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypevr\\n}
+   *@end C1 l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypevr}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypevr}
+  {empty_line:\\n}
+  *10 @defcv C3 l36
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l36
+   |EXTRA
+   |def_command:{defcv}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efcv_name}
+   |element_node:[E1]
+   |index_entry:I{vr,3}
+   |original_def_cmdname:{defcv}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efcv_name}
+   *def_item C1
+    *paragraph C1
+     {d--efcv\\n}
+   *@end C1 l38
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defcv}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defcv}
+  {empty_line:\\n}
+  *11 @defcv C3 l40
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l40
+   |EXTRA
+   |def_command:{defcv}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efcv_name}
+   |element_node:[E1]
+   |index_entry:I{vr,4}
+   |original_def_cmdname:{defcv}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efcv_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efcv with arguments\\n}
+   *@end C1 l42
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defcv}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defcv}
+  {empty_line:\\n}
+  *12 @deftypecv C3 l44
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l44
+   |EXTRA
+   |def_command:{deftypecv}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypecv_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypecv_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{vr,5}
+   |original_def_cmdname:{deftypecv}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypecv_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypecv\\n}
+   *@end C1 l46
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypecv}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypecv}
+  {empty_line:\\n}
+  *13 @deftypecv C3 l48
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l48
+   |EXTRA
+   |def_command:{deftypecv}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypecv_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypecv_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{vr,6}
+   |original_def_cmdname:{deftypecv}
+    *block_line_arg C9
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypecv_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--eftypecv with arguments\\n}
+   *@end C1 l50
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypecv}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypecv}
+  {empty_line:\\n}
+  *14 @defop C3 l52
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l52
+   |EXTRA
+   |def_command:{defop}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,7}
+   |original_def_cmdname:{defop}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efop_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efop\\n}
+   *@end C1 l54
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defop}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defop}
+  {empty_line:\\n}
+  *15 @defop C3 l56
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l56
+   |EXTRA
+   |def_command:{defop}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efop_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,8}
+   |original_def_cmdname:{defop}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efop_name}
+   *def_item C1
+    *paragraph C1
+     {d--efop no arg\\n}
+   *@end C1 l58
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defop}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defop}
+  {empty_line:\\n}
+  *16 @deftp C3 l60
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l60
+   |EXTRA
+   |def_command:{deftp}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftp_name}
+   |element_node:[E1]
+   |index_entry:I{tp,1}
+   |original_def_cmdname:{deftp}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {c--ategory}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftp_name}
+     {spaces: }
+     *def_typearg C1
+      *def_line_arg C1
+       {a--ttributes...}
+   *def_item C1
+    *paragraph C1
+     {d--eftp\\n}
+   *@end C1 l62
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftp}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftp}
+  {empty_line:\\n}
+  *17 @defun C3 l64
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l64
+   |EXTRA
+   |def_command:{defun}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efun_name}
+   |element_node:[E1]
+   |index_entry:I{fn,9}
+   |original_def_cmdname:{defun}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Function}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efun_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efun\\n}
+   *@end C1 l66
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defun}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defun}
+  {empty_line:\\n}
+  *18 @defmac C3 l68
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l68
+   |EXTRA
+   |def_command:{defmac}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efmac_name}
+   |element_node:[E1]
+   |index_entry:I{fn,10}
+   |original_def_cmdname:{defmac}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Macro}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efmac_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efmac\\n}
+   *@end C1 l70
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defmac}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defmac}
+  {empty_line:\\n}
+  *19 @defspec C3 l72
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l72
+   |EXTRA
+   |def_command:{defspec}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efspec_name}
+   |element_node:[E1]
+   |index_entry:I{fn,11}
+   |original_def_cmdname:{defspec}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Special Form}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efspec_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efspec\\n}
+   *@end C1 l74
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defspec}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defspec}
+  {empty_line:\\n}
+  *20 @defvar C3 l76
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l76
+   |EXTRA
+   |def_command:{defvar}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efvar_name}
+   |element_node:[E1]
+   |index_entry:I{vr,7}
+   |original_def_cmdname:{defvar}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Variable}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efvar_name}
+   *def_item C1
+    *paragraph C1
+     {d--efvar\\n}
+   *@end C1 l78
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defvar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defvar}
+  {empty_line:\\n}
+  *21 @defvar C3 l80
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l80
+   |EXTRA
+   |def_command:{defvar}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efvar_name}
+   |element_node:[E1]
+   |index_entry:I{vr,8}
+   |original_def_cmdname:{defvar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Variable}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efvar_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {arg--var}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {arg--var1}
+   *def_item C1
+    *paragraph C1
+     {d--efvar with args\\n}
+   *@end C1 l82
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defvar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defvar}
+  {empty_line:\\n}
+  *22 @defopt C3 l84
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l84
+   |EXTRA
+   |def_command:{defopt}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--efopt_name}
+   |element_node:[E1]
+   |index_entry:I{vr,9}
+   |original_def_cmdname:{defopt}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {User Option}
+     (i){spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efopt_name}
+   *def_item C1
+    *paragraph C1
+     {d--efopt\\n}
+   *@end C1 l86
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defopt}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defopt}
+  {empty_line:\\n}
+  *23 @deftypefun C3 l88
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l88
+   |EXTRA
+   |def_command:{deftypefun}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftypefun_name}
+   |element_node:[E1]
+   |index_entry:I{fn,12}
+   |original_def_cmdname:{deftypefun}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Function}
+     (i){spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypefun_name}
+     {spaces: }
+     *def_typearg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--eftypefun\\n}
+   *@end C1 l90
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypefun}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypefun}
+  {empty_line:\\n}
+  *24 @deftypevar C3 l92
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l92
+   |EXTRA
+   |def_command:{deftypevar}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{d--eftypevar_name}
+   |element_node:[E1]
+   |index_entry:I{vr,10}
+   |original_def_cmdname:{deftypevar}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Variable}
+     (i){spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypevar_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypevar\\n}
+   *@end C1 l94
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypevar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypevar}
+  {empty_line:\\n}
+  *25 @defivar C3 l96
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l96
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efivar_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efivar_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{vr,11}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efivar_name}
+   *def_item C1
+    *paragraph C1
+     {d--efivar\\n}
+   *@end C1 l98
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+  {empty_line:\\n}
+  *26 @deftypeivar C3 l100
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l100
+   |EXTRA
+   |def_command:{deftypeivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeivar_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypeivar_name}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{vr,12}
+   |original_def_cmdname:{deftypeivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypeivar_name}
+   *def_item C1
+    *paragraph C1
+     {d--eftypeivar\\n}
+   *@end C1 l102
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypeivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypeivar}
+  {empty_line:\\n}
+  *27 @defmethod C3 l104
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l104
+   |EXTRA
+   |def_command:{defmethod}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efmethod_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--efmethod_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,13}
+   |original_def_cmdname:{defmethod}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Method}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--efmethod_name}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--efmethod\\n}
+   *@end C1 l106
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defmethod}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defmethod}
+  {empty_line:\\n}
+  *28 @deftypemethod C3 l108
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l108
+   |EXTRA
+   |def_command:{deftypemethod}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypemethod_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{d--eftypemethod_name}
+     |{ on }
+     |*def_class C1
+      |*def_line_arg C1
+       |{c--lass}
+   |element_node:[E1]
+   |index_entry:I{fn,14}
+   |original_def_cmdname:{deftypemethod}
+    *block_line_arg C9
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *def_line_arg C1
+       {Method}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {c--lass}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {t--ype}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {d--eftypemethod_name}
+     {spaces: }
+     *def_typearg C1
+      *def_line_arg C1
+       {a--rguments...}
+   *def_item C1
+    *paragraph C1
+     {d--eftypemethod\\n}
+   *@end C1 l110
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypemethod}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypemethod}
+  {empty_line:\\n}
+  *29 @heading C1 l112
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Functions}
+  *@printindex C1 l113
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+  {empty_line:\\n}
+  *30 @heading C1 l115
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Types}
+  *@printindex C1 l116
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{tp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {tp}
+  {empty_line:\\n}
+  *31 @heading C1 l118
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Variables}
+  *@printindex C1 l119
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{vr}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {vr}
+';
+
 
 $result_texis{'all_commands_printindex'} = '@node Top
 @node chap

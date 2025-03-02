@@ -5,156 +5,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'titlefont',
-          'contents' => [
-            {
-              'type' => 'brace_container'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ';'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_commands'} = '*document_root C1
+ *before_node_section C4
+  *0 @titlefont C1 l1
+  |EXTRA
+  |global_command_number:{1}
+   *brace_container
+  {\\n}
+  {empty_line:\\n}
+  *paragraph C15
+   *1 @uref C1 l3
+    *brace_arg
+   { }
+   *2 @abbr C1 l3
+    *brace_arg
+   { }
+   *3 @email C1 l3
+    *brace_arg
+   { }
+   *4 @code C1 l3
+    *brace_container
+   *5 @footnote C1 l3
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context
+   { }
+   *6 @~ C1 l3
+    *brace_container
+   { }
+   *7 @dotless C1 l3
+    *brace_container
+   { }
+   *8 @verb C1 l3
+   |INFO
+   |delimiter:{;}
+    *brace_container
+   {\\n}
+';
+
 
 $result_texis{'empty_commands'} = '@titlefont{}
 

@@ -5,63 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'alias_non_existing_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'myalias = userdefined'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'myalias',
-              'userdefined'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'hh.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'alias_non_existing_command'} = '*document_root C1
+ *before_node_section C3
+  *@alias C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{myalias|userdefined}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {myalias = userdefined}
+  {empty_line:\\n}
+  *paragraph C1
+   {hh.\\n}
+';
+
 
 $result_texis{'alias_non_existing_command'} = '@alias myalias = userdefined
 

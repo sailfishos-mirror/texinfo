@@ -5,155 +5,48 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\, \\b\\ \\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@verb{: in verb
+$result_tree_text{'verb_not_closed'} = '*document_root C1
+ *before_node_section C3
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c}\\n}
+   {raw:\\a\\, \\b\\ \\c\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >linemacro_expansion<start;1><p:1>
+   >*linemacro_call C1
+   >|INFO
+   >|command_name:{mycommand}
+   >|spaces_before_argument:
+    >|{ }
+    >*line_arg C1
+     >{@verb{: in verb\\n\\n}
+  *paragraph C1
+   *1 @verb C1 l6:@mycommand
+   |INFO
+   |delimiter:{:}
+    *brace_container C3
+     {raw: in verb\\n}
+     {raw:\\n}
+     {raw:,  }
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:3>
+';
 
-'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'mycommand',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' in verb
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 3,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ',  ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ':'
-              },
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'mycommand'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
 
 $result_texis{'verb_not_closed'} = '@linemacro mycommand {a, b, c}
 \\a\\, \\b\\ \\c\\

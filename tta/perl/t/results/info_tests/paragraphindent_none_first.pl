@@ -5,107 +5,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraphindent_none_first'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '      ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '      ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'second
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'paragraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'none'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'none'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '      ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'after none
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraphindent_none_first'} = '*document_root C1
+ *before_node_section C11
+  {empty_line:\\n}
+  {spaces_before_paragraph:      }
+  *paragraph C1
+   {first\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph:      }
+  *paragraph C1
+   {second\\n}
+  {empty_line:\\n}
+  *@paragraphindent C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{none}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {none}
+  {empty_line:\\n}
+  {spaces_before_paragraph:      }
+  *paragraph C1
+   {after none\\n}
+';
+
 
 $result_texis{'paragraphindent_none_first'} = '
       first

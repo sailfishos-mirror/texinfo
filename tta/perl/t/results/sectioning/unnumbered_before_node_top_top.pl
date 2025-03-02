@@ -5,155 +5,77 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unnumbered_before_node_top_top'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'unnumbered',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'before nodes'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in unnumbered
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top node
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 6
-      }
-    },
-    'unit_contents' => [
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 5
-        }
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'unit_contents'}[1] = $result_trees{'unnumbered_before_node_top_top'}[0]{'unit_command'};
-$result_trees{'unnumbered_before_node_top_top'}[1]{'unit_contents'}[1] = $result_trees{'unnumbered_before_node_top_top'}[1]{'unit_command'};
+$result_tree_text{'unnumbered_before_node_top_top'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U1]
+Next: [U1]
+ *before_node_section
+ *0 @unnumbered C4 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E2]
+ |section_level:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0|E2]
+  ||section_level:{0}
+ |toplevel_directions:D[next->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {before nodes}
+  {empty_line:\\n}
+  *paragraph C1
+   {in unnumbered\\n}
+  {empty_line:\\n}
+U1 unit[E2]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+FastBack: [U0]
+Prev: [U0]
+ *1 @node C1 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E2]
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *2 @top C2 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E1]
+ |section_directions:D[prev->E0]
+ |section_level:{1}
+ |toplevel_directions:D[prev->E0]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top section}
+  *paragraph C1
+   {Top node\\n}
+';
+
 
 $result_texis{'unnumbered_before_node_top_top'} = '@unnumbered before nodes
 

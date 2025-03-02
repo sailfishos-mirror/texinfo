@@ -5,67 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'commands_in_email'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'endots '
-                    },
-                    {
-                      'cmdname' => 'enddots',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'commands_in_email'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @email C1 l1
+    *brace_arg C4
+     {endots }
+     *1 @enddots C1 l1
+      *brace_container
+     { }
+     *2 @code C1 l1
+      *brace_container C1
+       {in code}
+';
+
 
 $result_texis{'commands_in_email'} = '@email{endots @enddots{} @code{in code}}';
 

@@ -5,42 +5,17 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'displaymath_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in displaymath
-'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'displaymath_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *0 @displaymath C2 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {in displaymath\\n}
+';
+
 
 $result_texis{'displaymath_not_closed'} = '@displaymath
 in displaymath

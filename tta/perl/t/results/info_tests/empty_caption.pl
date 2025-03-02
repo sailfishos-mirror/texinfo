@@ -5,203 +5,75 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_caption'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'aa
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'caption',
-              'contents' => [
-                {
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_type' => 'a',
-            'is_target' => 1,
-            'normalized' => 'b'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => 'a'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'empty_caption'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[2];
-$result_trees{'empty_caption'}{'contents'}[1]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[1]{'contents'}[2]{'contents'}[2];
+$result_tree_text{'empty_caption'} = '*document_root C2
+ *before_node_section C1
+  {empty_line:\\n}
+ *0 @node C5 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *1 @float C5 l4
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E2]
+  |float_number:{1}
+  |float_type:{a}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{b}
+   *arguments_line C2
+    *block_line_arg C1
+     {a}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {b}
+   *paragraph C1
+    {aa\\n}
+   *2 @caption C1 l6
+   |EXTRA
+   |float:[E1]
+    *brace_command_context
+   {spaces_after_close_brace:\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *@listoffloats C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{a}
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a}
+';
+
 
 $result_texis{'empty_caption'} = '
 @node Top

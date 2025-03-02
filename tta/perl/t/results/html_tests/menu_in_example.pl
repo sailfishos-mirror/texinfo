@@ -5,500 +5,148 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'menu_in_example'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'menu',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        },
-                        {
-                          'text' => 'entry'
-                        },
-                        {
-                          'text' => ')'
-                        }
-                      ],
-                      'extra' => {
-                        'manual_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '::',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'cartouche',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in cartouche in description in menu in example
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            },
-                            {
-                              'cmdname' => 'end',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'cartouche'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'text_arg' => 'cartouche'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 8
-                              }
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 6
-                          }
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'after_menu_description_line'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'cartouche',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in cartouche in menu comment in menu in example
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'cartouche'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'cartouche'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 12
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_comment'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        },
-                        {
-                          'text' => 'node'
-                        },
-                        {
-                          'text' => ')'
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'text' => 'menu'
-                        }
-                      ],
-                      'extra' => {
-                        'manual_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'menu'
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '::      ',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a node in menu
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 14
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a menu name'
-                        }
-                      ],
-                      'type' => 'menu_entry_name'
-                    },
-                    {
-                      'text' => ':',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        },
-                        {
-                          'text' => 'other'
-                        },
-                        {
-                          'text' => ')'
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'manual_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '.',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 15
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'menu'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'menu'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[1];
-$result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'menu_in_example'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'contents'}[4];
+$result_tree_text{'menu_in_example'} = '*document_root C2
+ *before_node_section
+ *0 @node C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *1 @example C3 l3
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *2 @menu C6 l4
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *menu_entry C4 l5
+     {menu_entry_leading_text:* }
+     *menu_entry_node C3
+     |EXTRA
+     |manual_content:{entry}
+      {(}
+      {entry}
+      {)}
+     {menu_entry_separator:::}
+     *menu_entry_description C2
+      *preformatted C1
+       {\\n}
+      *3 @cartouche C3 l6
+       *arguments_line C1
+        *block_line_arg
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+       *preformatted C1
+        {in cartouche in description in menu in example\\n}
+       *@end C1 l8
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |text_arg:{cartouche}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {cartouche}
+    *menu_comment C3
+     *preformatted C1
+      {after_menu_description_line:\\n}
+     *4 @cartouche C3 l10
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      *preformatted C1
+       {in cartouche in menu comment in menu in example\\n}
+      *@end C1 l12
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{cartouche}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {cartouche}
+     *preformatted C1
+      {empty_line:\\n}
+    *menu_entry C4 l14
+     {menu_entry_leading_text:* }
+     *menu_entry_node C5
+     |EXTRA
+     |manual_content:{node}
+     |node_content:{menu}
+     |normalized:{menu}
+      {(}
+      {node}
+      {)}
+      { }
+      {menu}
+     {menu_entry_separator:::      }
+     *menu_entry_description C1
+      *preformatted C1
+       {a node in menu\\n}
+    *menu_entry C6 l15
+     {menu_entry_leading_text:* }
+     *menu_entry_name C1
+      {a menu name}
+     {menu_entry_separator::}
+     *menu_entry_node C5
+     |EXTRA
+     |manual_content:{other}
+     |node_content:{node}
+     |normalized:{node}
+      {(}
+      {other}
+      {)}
+      { }
+      {node}
+     {menu_entry_separator:.}
+     *menu_entry_description C1
+      *preformatted C1
+       {\\n}
+    *@end C1 l16
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{menu}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {menu}
+   *@end C1 l17
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'menu_in_example'} = '@node Top
 

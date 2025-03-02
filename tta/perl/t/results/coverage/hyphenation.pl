@@ -5,53 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'hyphenation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'hyphenation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'some-where'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'spaces_after_close_brace'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'hyphenation'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *0 @hyphenation C1 l2
+  |EXTRA
+  |global_command_number:{1}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {some-where}
+  {spaces_after_close_brace:\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'hyphenation'} = '
 @hyphenation{some-where }

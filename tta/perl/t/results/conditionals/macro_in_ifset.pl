@@ -5,210 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_ifset'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' truc {}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'truc
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'truc',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => '@unmacro truc
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@macro truc{}
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => 'in ifset
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@end macro
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 11
-                    }
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 6
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'truc'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 4,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'truc
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_in_ifset'} = '*document_root C1
+ *before_node_section C5
+  {empty_line:\\n}
+  *0 @macro C3 l2
+  |EXTRA
+  |macro_name:{truc}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: truc {}\\n}
+   {raw:truc\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<1><p:1>
+   >*@ifset C6 l6
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{a}
+    >{raw:@unmacro truc\\n}
+    >{raw:@macro truc{}\\n}
+    >{raw:in ifset\\n}
+    >{raw:@end macro\\n}
+    >*@end C1 l11
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifset}
+  {empty_line:\\n}
+  *paragraph C1
+   {truc\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{truc}
+     >*brace_arg
+   >macro_expansion<end;1><p:4>
+';
+
 
 $result_texis{'macro_in_ifset'} = '
 @macro truc {}

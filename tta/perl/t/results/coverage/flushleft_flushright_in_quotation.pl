@@ -5,208 +5,69 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'flushleft_flushright_in_quotation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'flushleft',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '   ',
-                  'type' => 'spaces_before_paragraph'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f l
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'flushleft'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'flushleft'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'flushright',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '  ',
-                  'type' => 'spaces_before_paragraph'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f r
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'flushright'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'flushright'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'flushleft_flushright_in_quotation'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *0 @quotation C5 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *1 @flushleft C4 l3
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    {spaces_before_paragraph:   }
+    *paragraph C1
+     {f l\\n}
+    *@end C1 l5
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{flushleft}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {flushleft}
+   {empty_line:\\n}
+   *2 @flushright C4 l7
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    {spaces_before_paragraph:  }
+    *paragraph C1
+     {f r\\n}
+    *@end C1 l9
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{flushright}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {flushright}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+';
+
 
 $result_texis{'flushleft_flushright_in_quotation'} = '
 @quotation

@@ -5,533 +5,208 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'two_nodes_at_the_end'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter 1'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-1'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node after chapter 1'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node-after-chapter-1'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'last node in chapter 1'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'last-node-in-chapter-1'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    'unit_contents' => [
-      {
-        'contents' => [
-          {
-            'type' => 'preamble_before_content'
-          }
-        ],
-        'type' => 'before_node_section'
-      },
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 1
-        }
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter c1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 11
-      }
-    },
-    'unit_contents' => [
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'chapter 1'
-                  }
-                ],
-                'type' => 'line_arg'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => 'node after chapter 1'
-                  }
-                ],
-                'extra' => {
-                  'node_content' => {
-                    'contents' => [
-                      {}
-                    ]
-                  },
-                  'normalized' => 'node-after-chapter-1'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'line_arg'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'extra' => {
-                  'node_content' => {
-                    'contents' => [
-                      {}
-                    ]
-                  },
-                  'normalized' => 'Top'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'line_arg'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'extra' => {
-                  'node_content' => {
-                    'contents' => [
-                      {}
-                    ]
-                  },
-                  'normalized' => 'Top'
-                },
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  },
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'chapter-1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 10
-        }
-      },
-      {},
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'node after chapter 1'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'in node after chapter 1
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'node-after-chapter-1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 13
-        }
-      },
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'last node in chapter 1'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'last-node-in-chapter-1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 17
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[0]{'unit_contents'}[2] = $result_trees{'two_nodes_at_the_end'}[0]{'unit_command'};
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_contents'}[1] = $result_trees{'two_nodes_at_the_end'}[1]{'unit_command'};
+$result_tree_text{'two_nodes_at_the_end'} = 'U0 unit[E1]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U1]
+NodeNext: [U1]
+NodeForward: [U1]
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *2 @menu C5 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter 1}
+    |normalized:{chapter-1}
+     {chapter 1}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l6
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node after chapter 1}
+    |normalized:{node-after-chapter-1}
+     {node after chapter 1}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l7
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{last node in chapter 1}
+    |normalized:{last-node-in-chapter-1}
+     {last node in chapter 1}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E4]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+FastBack: [U0]
+Up: [U0]
+NodeNext: [U1]
+NodePrev: [U0]
+NodeUp: [U0]
+NodeForward: [U1]
+NodeBack: [U0]
+ *3 @node C1 l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menu_directions:D[next->E5|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
+ |normalized:{chapter-1}
+  *arguments_line C4
+   *line_arg C1
+    {chapter 1}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{node after chapter 1}
+   |normalized:{node-after-chapter-1}
+    {node after chapter 1}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+ *4 @chapter C2 l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter c1}
+  {empty_line:\\n}
+ *5 @node C4 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E6|prev->E3|up->E0]
+ |node_directions:D[next->E6|prev->E3|up->E0]
+ |normalized:{node-after-chapter-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node after chapter 1}
+  {empty_line:\\n}
+  *paragraph C1
+   {in node after chapter 1\\n}
+  {empty_line:\\n}
+ *6 @node C1 l17
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[prev->E5|up->E0]
+ |node_directions:D[prev->E5|up->E0]
+ |normalized:{last-node-in-chapter-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {last node in chapter 1}
+';
+
 
 $result_texis{'two_nodes_at_the_end'} = '@node Top
 @top top

@@ -5,1984 +5,653 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nodes_before_top_split_chapter_no_nodes'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' test nodes before Top node
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first before top'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first before top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 7
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 8
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in first node
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node in menu before top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node-in-menu-before-top'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 11
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'first-before-top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node in menu before top'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'first before top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'first-before-top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node in menu before top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 16
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 17
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'node in menu before top text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'printindex node in menu before top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 20
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'node-in-menu-before-top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'first before top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'first-before-top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entry a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 24
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 26
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 28
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'And one one more index
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 32
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chap first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chap-first'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 35
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 36
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 34
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 23
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap first'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text and then index entries
-'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '! entry in node'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => [
-                  'cp',
-                  5
-                ]
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 40
-              },
-              'type' => 'index_entry_command'
-            },
-            {
-              'cmdname' => 'findex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'fun in node'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  1
-                ]
-              },
-              'info' => {
-                'command_name' => 'findex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 41
-              },
-              'type' => 'index_entry_command'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'entry in node'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => [
-                  'cp',
-                  6
-                ]
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 42
-              },
-              'type' => 'index_entry_command'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 44
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'second'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'second'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 47
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 48
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 46
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap-first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 38
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'second'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'chap first'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'chap-first'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'a-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 52
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'another'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'another'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 53
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodes_before_top.texi',
-                'line_nr' => 54
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 51
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 56
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'second'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 50
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'another'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'a node'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'a-node'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'second'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'second'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'something'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              7
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 60
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'somewhere'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              2
-            ]
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 61
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'another'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              8
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 62
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'another'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 58
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'another'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'another'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'second'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'second'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'entry after printindex'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              9
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 65
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 67
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a function'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              3
-            ]
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 69
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a concept a node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              10
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 70
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'nodes_before_top.texi',
-            'line_nr' => 72
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'a-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodes_before_top.texi',
-        'line_nr' => 64
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[2];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[5]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[6];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7];
-$result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'nodes_before_top_split_chapter_no_nodes'}{'contents'}[7];
+$result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C9
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C3
+   *@c C1
+    {rawline_arg: test nodes before Top node\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+ *0 @node C6 nodes_before_top.texi:l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E6|up->MISSING: (line_arg)[C3]]
+ |normalized:{first-before-top}
+  *arguments_line C4
+   *line_arg C1
+    {first before top}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+  *1 index_entry_command@cindex C1 nodes_before_top.texi:l7
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E0]
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first before top}
+  *@printindex C1 nodes_before_top.texi:l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  *paragraph C1
+   {in first node\\n}
+  *2 @menu C3 nodes_before_top.texi:l10
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 nodes_before_top.texi:l11
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node in menu before top}
+    |normalized:{node-in-menu-before-top}
+     {node in menu before top}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 nodes_before_top.texi:l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *3 @node C9 nodes_before_top.texi:l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[up->E0]
+ |normalized:{node-in-menu-before-top}
+  *arguments_line C4
+   *line_arg C1
+    {node in menu before top}
+   *line_arg
+   *line_arg
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{first before top}
+   |normalized:{first-before-top}
+    {first before top}
+  {empty_line:\\n}
+  *4 index_entry_command@cindex C1 nodes_before_top.texi:l16
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E3]
+  |index_entry:I{cp,2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node in menu before top}
+  *@printindex C1 nodes_before_top.texi:l17
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  *paragraph C1
+   {node in menu before top text\\n}
+  {empty_line:\\n}
+  *5 index_entry_command@cindex C1 nodes_before_top.texi:l20
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E3]
+  |index_entry:I{cp,3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {printindex node in menu before top}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *6 @node C13 nodes_before_top.texi:l23
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menus:EC[E8]
+ |node_directions:D[prev->E0]
+ |normalized:{Top}
+  *arguments_line C3
+   *line_arg C1
+    {Top}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{first before top}
+   |normalized:{first-before-top}
+    {first before top}
+  *7 index_entry_command@cindex C1 nodes_before_top.texi:l24
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E6]
+  |index_entry:I{cp,4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {entry a}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l26
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l28
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{4}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+  {empty_line:\\n}
+  *paragraph C1
+   {And one one more index\\n}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l32
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{5}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+  *8 @menu C3 nodes_before_top.texi:l34
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 nodes_before_top.texi:l35
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chap first}
+    |normalized:{chap-first}
+     {chap first}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 nodes_before_top.texi:l36
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *9 @node C7 nodes_before_top.texi:l38
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E6]
+ |menus:EC[E13]
+ |node_directions:D[prev->E6|up->E6]
+ |normalized:{chap-first}
+  *arguments_line C4
+   *line_arg C1
+    {chap first}
+   *line_arg
+   *line_arg C1
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+  *paragraph C4
+   {Text and then index entries\\n}
+   *10 index_entry_command@cindex C1 nodes_before_top.texi:l40
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |element_node:[E9]
+   |index_entry:I{cp,5}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {! entry in node}
+   *11 index_entry_command@findex C1 nodes_before_top.texi:l41
+   |INFO
+   |command_name:{findex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |element_node:[E9]
+   |index_entry:I{fn,1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {fun in node}
+   *12 index_entry_command@cindex C1 nodes_before_top.texi:l42
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |element_node:[E9]
+   |index_entry:I{cp,6}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {entry in node}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l44
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{6}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+  *13 @menu C3 nodes_before_top.texi:l46
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 nodes_before_top.texi:l47
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{second}
+    |normalized:{second}
+     {second}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 nodes_before_top.texi:l48
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *14 @node C5 nodes_before_top.texi:l50
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E9]
+ |menus:EC[E15]
+ |node_directions:D[up->E9]
+ |normalized:{second}
+  *arguments_line C4
+   *line_arg C1
+    {second}
+   *line_arg
+   *line_arg
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{chap first}
+   |normalized:{chap-first}
+    {chap first}
+  *15 @menu C4 nodes_before_top.texi:l51
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 nodes_before_top.texi:l52
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{a node}
+    |normalized:{a-node}
+     {a node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 nodes_before_top.texi:l53
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{another}
+    |normalized:{another}
+     {another}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 nodes_before_top.texi:l54
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l56
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{7}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+  {empty_line:\\n}
+ *16 @node C6 nodes_before_top.texi:l58
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[prev->E20|up->E14]
+ |node_directions:D[prev->E20|up->E14]
+ |normalized:{another}
+  *arguments_line C4
+   *line_arg C1
+    {another}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{a node}
+   |normalized:{a-node}
+    {a node}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{second}
+   |normalized:{second}
+    {second}
+  {empty_line:\\n}
+  *17 index_entry_command@cindex C1 nodes_before_top.texi:l60
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E16]
+  |index_entry:I{cp,7}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {something}
+  *18 index_entry_command@findex C1 nodes_before_top.texi:l61
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E16]
+  |index_entry:I{fn,2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {somewhere}
+  *19 index_entry_command@cindex C1 nodes_before_top.texi:l62
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E16]
+  |index_entry:I{cp,8}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {another}
+  {empty_line:\\n}
+ *20 @node C10 nodes_before_top.texi:l64
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[next->E16|up->E14]
+ |node_directions:D[next->E16|up->E14]
+ |normalized:{a-node}
+  *arguments_line C4
+   *line_arg C1
+    {a node}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{another}
+   |normalized:{another}
+    {another}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{second}
+   |normalized:{second}
+    {second}
+  *21 index_entry_command@cindex C1 nodes_before_top.texi:l65
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E20]
+  |index_entry:I{cp,9}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {entry after printindex}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l67
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{8}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+  *22 index_entry_command@findex C1 nodes_before_top.texi:l69
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E20]
+  |index_entry:I{fn,3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a function}
+  *23 index_entry_command@cindex C1 nodes_before_top.texi:l70
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E20]
+  |index_entry:I{cp,10}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a concept a node}
+  {empty_line:\\n}
+  *@printindex C1 nodes_before_top.texi:l72
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{9}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'nodes_before_top_split_chapter_no_nodes'} = '\\input texinfo @c -*-texinfo-*-
 

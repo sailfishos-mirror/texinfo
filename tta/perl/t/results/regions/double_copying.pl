@@ -5,148 +5,50 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'double_copying'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'copying',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'This is a copyright notice
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'And a second one (?)
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'copying'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'copying'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'double_copying'} = '*document_root C1
+ *before_node_section C1
+  *0 @copying C6 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {empty_line:\\n}
+   *paragraph C1
+    {This is a copyright notice\\n}
+   {empty_line:\\n}
+   *1 @copying C3 l5
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C1
+     {And a second one (?)\\n}
+    *@end C1 l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{copying}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {copying}
+';
+
 
 $result_texis{'double_copying'} = '@copying
 

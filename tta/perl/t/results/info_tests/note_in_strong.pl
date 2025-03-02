@@ -5,258 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'note_in_strong'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '3 One '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Note'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '5 '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Note a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '9 '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'note'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '11 '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'note b'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '13 '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' note'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '15 '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'note-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'note_in_strong'} = '*document_root C2
+ *before_node_section
+ *0 @node C15 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *paragraph C3
+   {3 One }
+   *1 @strong C1 l3
+    *brace_container C1
+     {Note}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {5 }
+   *2 @strong C1 l5
+    *brace_container C1
+     {Note a}
+   {.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {9 }
+   *3 @strong C1 l9
+    *brace_container C1
+     {note}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {11 }
+   *4 @strong C1 l11
+    *brace_container C1
+     {note b}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {13 }
+   *5 @strong C1 l13
+    *brace_container C1
+     { note}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {15 }
+   *6 @strong C1 l15
+    *brace_container C1
+     {note-bbb}
+   {.\\n}
+';
+
 
 $result_texis{'note_in_strong'} = '@node Top
 

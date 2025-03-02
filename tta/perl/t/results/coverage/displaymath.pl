@@ -5,478 +5,133 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'displaymath'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Simple
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '--'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{x^i}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => '\\over'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\tan y}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Math with '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '-command
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'math code'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' a < b \\sum'
-            },
-            {
-              'cmdname' => 'sub',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' q'
-            },
-            {
-              'cmdname' => 'sup',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '2'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Complex
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => ' \\underline'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'math \\hbox'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '{ code }'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 13
-                          },
-                          'type' => 'balanced_braces'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
-                },
-                {
-                  'text' => '}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\\'
-            },
-            {
-              'text' => 'i \\sum_'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{i}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\underline'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '{f}'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 13
-                  },
-                  'type' => 'balanced_braces'
-                },
-                {
-                  'text' => '}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'With a comment
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment in displaymath
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'a/2
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 17
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'displaymath'} = '*document_root C1
+ *before_node_section C11
+  *paragraph C1
+   {Simple\\n}
+  *0 @displaymath C7 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {--}
+   *balanced_braces C1 l3
+    {{x^i}}
+   {\\over}
+   *balanced_braces C1 l3
+    {{\\tan y}}
+   {\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *paragraph C3
+   {Math with }
+   *@@
+   {-command\\n}
+  *1 @displaymath C8 l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *2 @code C1 l8
+    *brace_container C1
+     {math code}
+   { a < b \\sum}
+   *3 @sub C1 l8
+    *brace_container C1
+     {i}
+   { q}
+   *4 @sup C1 l8
+    *brace_container C1
+     {2}
+   {\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *paragraph C1
+   {Complex\\n}
+  *5 @displaymath C10 l12
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   { \\underline}
+   *balanced_braces C3 l13
+    {{}
+    *6 @code C1 l13
+     *brace_container C2
+      {math \\hbox}
+      *balanced_braces C1 l13
+       {{ code }}
+    {}}
+   { }
+   *@\\
+   {i \\sum_}
+   *balanced_braces C1 l13
+    {{i}}
+   *balanced_braces C3 l13
+    {{\\underline}
+    *balanced_braces C1 l13
+     {{f}}
+    {}}
+   {\\n}
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *paragraph C1
+   {With a comment\\n}
+  *7 @displaymath C4 l17
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@c C1
+    {rawline_arg: comment in displaymath\\n}
+   {a/2\\n}
+   *@end C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+';
+
 
 $result_texis{'displaymath'} = 'Simple
 @displaymath

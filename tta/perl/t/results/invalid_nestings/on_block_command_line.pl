@@ -5,335 +5,107 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'on_block_command_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'anchor',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in anchor'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'is_target' => 1,
-                            'normalized' => 'in-anchor'
-                          },
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'titlefont',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in titlefont'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {},
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'cmdname' => 'titlefont',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in titlefont'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
-                        },
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'indent',
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'ignorable_spaces_after_command'
-                    },
-                    {
-                      'cmdname' => 'titlefont',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in titlefont'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {},
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in quotation anchor'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'in-quotation-anchor'
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'cmdname' => 'footnote',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'footnote'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'extra' => {},
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'exdent',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'exdent'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'on_block_command_line'} = '*document_root C1
+ *before_node_section C3
+  *0 @multitable C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{1}
+   *arguments_line C1
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l1
+      *1 @anchor C1 l1
+      |EXTRA
+      |is_target:{1}
+      |normalized:{in-anchor}
+       *brace_arg C1
+        {in anchor}
+     { }
+     *2 @titlefont C1 l1
+     |EXTRA
+     |global_command_number:{1}
+      *brace_container C1
+       {in titlefont}
+   *multitable_body C1
+    *row C1
+    |EXTRA
+    |row_number:{1}
+     *@item C3 l2
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *3 @titlefont C1 l2
+      |EXTRA
+      |global_command_number:{2}
+       *brace_container C1
+        {in titlefont}
+      {\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+  {empty_line:\\n}
+  *4 @quotation C2 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C8
+     *@indent l5
+     {ignorable_spaces_after_command: }
+     *5 @titlefont C1 l5
+     |EXTRA
+     |global_command_number:{3}
+      *brace_container C1
+       {in titlefont}
+     { }
+     *6 @anchor C1 l5
+     |EXTRA
+     |is_target:{1}
+     |normalized:{in-quotation-anchor}
+      *brace_arg C1
+       {in quotation anchor}
+     *7 @footnote C1 l5
+     |EXTRA
+     |global_command_number:{1}
+      *brace_command_context C1
+       *paragraph C1
+        {footnote}
+     { }
+     *@exdent C1 l5
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {exdent}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+';
+
 
 $result_texis{'on_block_command_line'} = '@multitable {@anchor{in anchor}} @titlefont{in titlefont}
 @item @titlefont{in titlefont}

@@ -5,176 +5,57 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'insertcopying'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'copying',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'License.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'quotation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' 
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'You are not allowed.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'quotation'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'quotation'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'copying'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'copying'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'License:
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 11
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'insertcopying'} = '*document_root C1
+ *before_node_section C5
+  *0 @copying C5 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {License.\\n}
+   {empty_line:\\n}
+   *1 @quotation C3 l4
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{ \\n}
+    *paragraph C1
+     {You are not allowed.\\n}
+    *@end C1 l6
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{quotation}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {quotation}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{copying}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {copying}
+  {empty_line:\\n}
+  *paragraph C1
+   {License:\\n}
+  {empty_line:\\n}
+  *@insertcopying C1 l11
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+';
+
 
 $result_texis{'insertcopying'} = '@copying
 License.

@@ -5,47 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_line_in_anchor'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'an
-'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'anchor
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_line_in_anchor'} = '*document_root C1
+ *before_node_section C2
+  *0 @anchor C1 l1
+   *brace_arg C2
+    {an\\n}
+    {empty_line:\\n}
+  *paragraph C1
+   {anchor\\n}
+';
+
 
 $result_texis{'empty_line_in_anchor'} = '@anchor{an
 

@@ -5,230 +5,55 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_at_end_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text. Email '
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' dmn '
-            },
-            {
-              'cmdname' => 'dmn',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' and text. indicateurl '
-            },
-            {
-              'cmdname' => 'indicateurl',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' and 
-'
-            },
-            {
-              'text' => 'then kbd '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' and math '
-            },
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' and cite '
-            },
-            {
-              'cmdname' => 'cite',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' and emph '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' text. 
-'
-            },
-            {
-              'text' => 'asis in code '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '.'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' text. a dot before a emph open .'
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' and in emph.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_at_end_command'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *paragraph C21
+   {Text. Email }
+   *0 @email C2 l2
+    *brace_arg C1
+     {.}
+    *brace_arg C1
+     {.}
+   { dmn }
+   *1 @dmn C1 l2
+    *brace_container C1
+     {1.}
+   { and text. indicateurl }
+   *2 @indicateurl C1 l2
+    *brace_container C1
+     {.}
+   { and \\n}
+   {then kbd }
+   *3 @kbd C1 l3
+    *brace_container C1
+     {.}
+   { and math }
+   *4 @math C1 l3
+    *brace_command_context C1
+     {.}
+   { and cite }
+   *5 @cite C1 l3
+    *brace_container C1
+     {.}
+   { and emph }
+   *6 @emph C1 l3
+    *brace_container C1
+     {.}
+   { text. \\n}
+   {asis in code }
+   *7 @code C1 l4
+    *brace_container C1
+     *8 @asis C1 l4
+      *brace_container C1
+       {.}
+   { text. a dot before a emph open .}
+   *9 @emph C1 l4
+    *brace_container C1
+     { and in emph.}
+   {\\n}
+';
+
 
 $result_texis{'punctuation_at_end_command'} = '
 Text. Email @email{.,.} dmn @dmn{1.} and text. indicateurl @indicateurl{.} and 

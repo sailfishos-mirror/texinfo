@@ -5,2195 +5,633 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'recursive_call_in_rmacro'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'rmacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' rec
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@rec{}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'rmacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'rmacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'rec',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 3,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 4,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 5,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 6,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 7,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 8,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 9,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 10,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 11,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 12,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 13,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 14,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 15,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 16,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 17,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 18,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 19,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 20,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 21,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 22,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 23,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 24,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 25,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 26,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 27,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 28,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 29,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 30,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 31,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 32,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 33,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 34,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 35,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 36,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 37,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 38,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 39,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 40,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 41,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 42,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 43,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 44,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 45,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 46,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 47,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 48,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 49,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 50,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 51,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 52,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 53,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 54,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 55,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 56,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 57,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 58,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 59,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 60,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 61,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 62,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 63,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 64,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 65,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 66,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 67,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 68,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 69,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 70,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 71,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 72,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 73,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 74,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 75,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 76,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 77,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 78,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 79,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 80,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 81,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 82,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 83,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 84,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 85,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 86,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 87,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 88,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 89,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 90,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 91,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 92,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 93,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 94,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 95,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 96,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 97,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 98,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 99,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 100,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'rec'
-                },
-                'type' => 'rmacro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 100,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 99,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 98,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 97,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 96,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 95,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 94,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 93,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 92,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 91,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 90,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 89,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 88,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 87,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 86,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 85,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 84,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 83,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 82,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 81,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 80,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 79,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 78,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 77,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 76,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 75,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 74,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 73,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 72,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 71,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 70,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 69,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 68,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 67,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 66,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 65,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 64,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 63,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 62,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 61,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 60,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 59,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 58,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 57,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 56,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 55,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 54,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 53,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 52,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 51,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 50,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 49,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 48,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 47,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 46,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 45,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 44,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 43,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 42,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 41,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 40,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 39,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 38,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 37,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 36,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 35,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 34,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 33,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 32,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 31,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 30,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 29,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 28,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 27,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 26,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 25,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 24,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 23,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 22,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 21,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 20,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 19,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 18,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 17,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 16,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 15,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 14,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 13,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 12,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 11,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 10,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 9,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 8,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 7,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 6,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 5,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 4,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 3,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 2,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            },
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'recursive_call_in_rmacro'} = '*document_root C1
+ *before_node_section C5
+  {empty_line:\\n}
+  *0 @rmacro C3 l2
+  |EXTRA
+  |macro_name:{rec}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: rec\\n}
+   {raw:@rec{}\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{rmacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {rmacro}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;2>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;3>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;4>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;5>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;6>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;7>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;8>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;9>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;10>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;11>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;12>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;13>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;14>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;15>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;16>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;17>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;18>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;19>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;20>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;21>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;22>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;23>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;24>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;25>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;26>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;27>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;28>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;29>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;30>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;31>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;32>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;33>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;34>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;35>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;36>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;37>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;38>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;39>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;40>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;41>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;42>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;43>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;44>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;45>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;46>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;47>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;48>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;49>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;50>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;51>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;52>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;53>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;54>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;55>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;56>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;57>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;58>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;59>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;60>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;61>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;62>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;63>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;64>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;65>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;66>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;67>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;68>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;69>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;70>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;71>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;72>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;73>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;74>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;75>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;76>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;77>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;78>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;79>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;80>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;81>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;82>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;83>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;84>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;85>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;86>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;87>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;88>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;89>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;90>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;91>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;92>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;93>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;94>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;95>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;96>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;97>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;98>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;99>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<start;100>
+   >*rmacro_call C1
+   >|INFO
+   >|command_name:{rec}
+    >*brace_arg
+  >macro_expansion<end;100>
+  >macro_expansion<end;99>
+  >macro_expansion<end;98>
+  >macro_expansion<end;97>
+  >macro_expansion<end;96>
+  >macro_expansion<end;95>
+  >macro_expansion<end;94>
+  >macro_expansion<end;93>
+  >macro_expansion<end;92>
+  >macro_expansion<end;91>
+  >macro_expansion<end;90>
+  >macro_expansion<end;89>
+  >macro_expansion<end;88>
+  >macro_expansion<end;87>
+  >macro_expansion<end;86>
+  >macro_expansion<end;85>
+  >macro_expansion<end;84>
+  >macro_expansion<end;83>
+  >macro_expansion<end;82>
+  >macro_expansion<end;81>
+  >macro_expansion<end;80>
+  >macro_expansion<end;79>
+  >macro_expansion<end;78>
+  >macro_expansion<end;77>
+  >macro_expansion<end;76>
+  >macro_expansion<end;75>
+  >macro_expansion<end;74>
+  >macro_expansion<end;73>
+  >macro_expansion<end;72>
+  >macro_expansion<end;71>
+  >macro_expansion<end;70>
+  >macro_expansion<end;69>
+  >macro_expansion<end;68>
+  >macro_expansion<end;67>
+  >macro_expansion<end;66>
+  >macro_expansion<end;65>
+  >macro_expansion<end;64>
+  >macro_expansion<end;63>
+  >macro_expansion<end;62>
+  >macro_expansion<end;61>
+  >macro_expansion<end;60>
+  >macro_expansion<end;59>
+  >macro_expansion<end;58>
+  >macro_expansion<end;57>
+  >macro_expansion<end;56>
+  >macro_expansion<end;55>
+  >macro_expansion<end;54>
+  >macro_expansion<end;53>
+  >macro_expansion<end;52>
+  >macro_expansion<end;51>
+  >macro_expansion<end;50>
+  >macro_expansion<end;49>
+  >macro_expansion<end;48>
+  >macro_expansion<end;47>
+  >macro_expansion<end;46>
+  >macro_expansion<end;45>
+  >macro_expansion<end;44>
+  >macro_expansion<end;43>
+  >macro_expansion<end;42>
+  >macro_expansion<end;41>
+  >macro_expansion<end;40>
+  >macro_expansion<end;39>
+  >macro_expansion<end;38>
+  >macro_expansion<end;37>
+  >macro_expansion<end;36>
+  >macro_expansion<end;35>
+  >macro_expansion<end;34>
+  >macro_expansion<end;33>
+  >macro_expansion<end;32>
+  >macro_expansion<end;31>
+  >macro_expansion<end;30>
+  >macro_expansion<end;29>
+  >macro_expansion<end;28>
+  >macro_expansion<end;27>
+  >macro_expansion<end;26>
+  >macro_expansion<end;25>
+  >macro_expansion<end;24>
+  >macro_expansion<end;23>
+  >macro_expansion<end;22>
+  >macro_expansion<end;21>
+  >macro_expansion<end;20>
+  >macro_expansion<end;19>
+  >macro_expansion<end;18>
+  >macro_expansion<end;17>
+  >macro_expansion<end;16>
+  >macro_expansion<end;15>
+  >macro_expansion<end;14>
+  >macro_expansion<end;13>
+  >macro_expansion<end;12>
+  >macro_expansion<end;11>
+  >macro_expansion<end;10>
+  >macro_expansion<end;9>
+  >macro_expansion<end;8>
+  >macro_expansion<end;7>
+  >macro_expansion<end;6>
+  >macro_expansion<end;5>
+  >macro_expansion<end;4>
+  >macro_expansion<end;3>
+  >macro_expansion<end;2>
+  >macro_expansion<end;1>
+  {empty_line:\\n}
+';
+
 
 $result_texis{'recursive_call_in_rmacro'} = '
 @rmacro rec

@@ -5,302 +5,82 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'lettered_accent_and_spaces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '    '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
- '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a
-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'lettered_accent_and_spaces'} = '*document_root C1
+ *before_node_section C16
+  *paragraph C2
+   *0 @ringaccent C1 l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{    }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @ringaccent C1 l3
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *brace_container C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @ringaccent C1 l6
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @ringaccent C1 l9
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n  }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *4 @^ C1 l12
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *5 @^ C1 l14
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *6 @^ C1 l17
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *7 @^ C1 l20
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *brace_container C1
+     {a\\n}
+   {\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'lettered_accent_and_spaces'} = '@ringaccent    a
 

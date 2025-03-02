@@ -5,471 +5,164 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_monolithic'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'no_monolithic.texi',
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Not monolithic'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Not monolitic manual'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'my footnote'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'file_name' => 'no_monolithic.texi',
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 8
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'no_monolithic.texi',
-                'line_nr' => 11
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'no_monolithic.texi',
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'no_monolithic.texi',
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'no_monolithic.texi',
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Chapter.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 19
-          }
-        },
-        {
-          'cmdname' => 'shortcontents',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 20
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 22
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'no_monolithic.texi',
-        'line_nr' => 15
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'no_monolithic'}{'contents'}[1];
-$result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'no_monolithic'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_tree_text{'no_monolithic'} = '*document_root C6
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
+ *0 @node C1 no_monolithic.texi:l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E4]
+ |node_directions:D[next->E5]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C8 no_monolithic.texi:l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E6]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E6]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Not monolithic}
+  {empty_line:\\n}
+  *paragraph C3
+   {Not monolitic manual}
+   *2 @footnote C1 no_monolithic.texi:l6
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C1
+      {my footnote}
+   {.\\n}
+  {empty_line:\\n}
+  *3 index_entry_command@cindex C1 no_monolithic.texi:l8
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E0]
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *4 @menu C3 no_monolithic.texi:l10
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 no_monolithic.texi:l11
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 no_monolithic.texi:l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *5 @node C1 no_monolithic.texi:l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E6]
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *6 @chapter C8 no_monolithic.texi:l15
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E5]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *paragraph C1
+   {Chapter.\\n}
+  {empty_line:\\n}
+  *@contents C1 no_monolithic.texi:l19
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+  *@shortcontents C1 no_monolithic.texi:l20
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *@printindex C1 no_monolithic.texi:l22
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'no_monolithic'} = '\\input texinfo @c -*-texinfo-*-
 

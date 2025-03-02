@@ -5,76 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bad_macro_name_with_underscore'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' the_macro {arg1, arg2}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'In macro
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'the_macro',
-            'misc_args' => [
-              'arg1',
-              'arg2'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bad_macro_name_with_underscore'} = '*document_root C1
+ *before_node_section C1
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{the_macro}
+  |misc_args:A{arg1|arg2}
+   *arguments_line C1
+    {macro_line: the_macro {arg1, arg2}\\n}
+   {raw:In macro\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+';
+
 
 $result_texis{'bad_macro_name_with_underscore'} = '@macro the_macro {arg1, arg2}
 In macro

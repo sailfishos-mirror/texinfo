@@ -5,149 +5,37 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accent_with_text'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'u',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--b'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--'
-                    },
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--'
-                    },
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accent_with_text'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C10
+   *0 @u C1 l1
+    *brace_container C1
+     {--a}
+   { }
+   *1 @dotless C1 l1
+    *brace_container C1
+     {--b}
+   { }
+   *2 @^ C1 l1
+    *brace_container C2
+     {--}
+     *3 @dotless C1 l1
+      *brace_container C1
+       {i}
+   { }
+   *4 @^ C1 l1
+    *brace_container C2
+     {--}
+     *5 @dotless C1 l1
+      *brace_container C1
+       {j}
+   { }
+   *6 @^ C1 l1
+    *brace_container C1
+     {--a}
+   {\\n}
+';
+
 
 $result_texis{'accent_with_text'} = '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{--@dotless{j}} @^{--a}
 ';

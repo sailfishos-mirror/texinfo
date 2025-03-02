@@ -5,553 +5,161 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inter_item_commands_in_def'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fset'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'var',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'i'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'g'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ]
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' comment before first deffnx
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'inter_def_item'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Command'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'log trap1'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 4
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_info' => {
-                            'line_nr' => 4
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '  
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'log trap1'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  2
-                ],
-                'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'between deffnx'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'index_entry' => [
-                      'cp',
-                      1
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  },
-                  'type' => 'index_entry_command'
-                }
-              ],
-              'type' => 'inter_def_item'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cmde2'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'b',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'id '
-                                    },
-                                    {
-                                      'cmdname' => 'samp',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'i'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 6
-                                      }
-                                    },
-                                    {
-                                      'text' => ' ule'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'b',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'id '
-                                },
-                                {
-                                  'cmdname' => 'samp',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'i'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                },
-                                {
-                                  'text' => ' ule'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ]
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  3
-                ],
-                'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cindex in deff item'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'index_entry' => [
-                      'cp',
-                      2
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'In deff item.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
+ *before_node_section C1
+  *0 @deffn C7 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l1
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |*6 @var C1
+       |*brace_container C1
+        |{i}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {fset}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       *1 @var C1 l1
+        *brace_container C1
+         {i}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {g}
+   *inter_def_item C2
+    *@c C1
+     {rawline_arg: comment before first deffnx\\n}
+    {empty_line:\\n}
+   *@deffnx C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*bracketed_arg C1
+     ||INFO
+     ||spaces_before_argument:
+      ||{ }
+      |{log trap1}
+   |index_entry:I{fn,2}
+   |original_def_cmdname:{deffnx}
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{  \\n}
+     *def_category C1
+      *def_line_arg C1
+       {Command}
+     {spaces: }
+     *def_name C1
+      *bracketed_arg C1 l4
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       {log trap1}
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg l4
+   *inter_def_item C1
+    *2 index_entry_command@cindex C1 l5
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |index_entry:I{cp,1}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {between deffnx}
+   *@deffnx C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |*7 @b C1
+       |*brace_container C3
+        |{id }
+        |*8 @samp C1
+         |*brace_container C1
+          |{i}
+        |{ ule}
+   |index_entry:I{fn,3}
+   |original_def_cmdname:{deffnx}
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {cmde2}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       *3 @b C1 l6
+        *brace_container C3
+         {id }
+         *4 @samp C1 l6
+          *brace_container C1
+           {i}
+         { ule}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {truc}
+   *def_item C3
+    *5 index_entry_command@cindex C1 l7
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |index_entry:I{cp,2}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {cindex in deff item}
+    {empty_line:\\n}
+    *paragraph C1
+     {In deff item.\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+';
+
 
 $result_texis{'inter_item_commands_in_def'} = '@deffn fset @var{i} a g
 @c comment before first deffnx

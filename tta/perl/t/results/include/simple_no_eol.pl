@@ -5,67 +5,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple_no_eol'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'include',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'inc_file.texi'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'inc_file.texi'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'include',
-              'status' => 'start'
-            }
-          ],
-          'text' => ''
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'In included file.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simple_no_eol'} = '*document_root C1
+ *before_node_section C2
+  {}
+  >SOURCEMARKS
+  >include<start;1>
+   >*@include C1 l1
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{inc_file.texi}
+    >*line_arg C1
+     >{inc_file.texi}
+  *paragraph C1
+   {In included file.\\n}
+   >SOURCEMARKS
+   >include<end;1><p:18>
+';
+
 
 $result_texis{'simple_no_eol'} = 'In included file.
 ';

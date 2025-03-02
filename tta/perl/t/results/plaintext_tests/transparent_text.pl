@@ -5,69 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'transparent_text'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'AA'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in footnote'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '). B ('
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'C'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '). D.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'transparent_text'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C5
+   {AA}
+   *0 @footnote C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C1
+      {in footnote}
+   {). B (}
+   *1 @emph C1 l1
+    *brace_container C1
+     {C}
+   {). D.\\n}
+';
+
 
 $result_texis{'transparent_text'} = 'AA@footnote{in footnote}). B (@emph{C}). D.
 ';

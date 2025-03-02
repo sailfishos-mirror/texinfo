@@ -5,122 +5,40 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'clickstyle'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@result',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @result
-'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A '
-            },
-            {
-              'cmdname' => 'click',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'clickstyle' => 'result'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' (result).
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@equiv',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => '@equiv
-'
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A '
-            },
-            {
-              'cmdname' => 'click',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'clickstyle' => 'equiv'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => ' (equiv no space)
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'clickstyle'} = '*document_root C1
+ *before_node_section C8
+  *@clickstyle C1 l1
+  |INFO
+  |arg_line:{ @result\\n}
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:@result}
+  {empty_line:\\n}
+  *paragraph C3
+   {A }
+   *0 @click C1 l3
+   |EXTRA
+   |clickstyle:{result}
+    *brace_container
+   { (result).\\n}
+  {empty_line:\\n}
+  *@clickstyle C1 l5
+  |INFO
+  |arg_line:{@equiv\\n}
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg:@equiv}
+  {empty_line:\\n}
+  *paragraph C3
+   {A }
+   *1 @click C1 l7
+   |EXTRA
+   |clickstyle:{equiv}
+    *brace_container
+   { (equiv no space)\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'clickstyle'} = '@clickstyle @result
 

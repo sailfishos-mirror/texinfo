@@ -5,112 +5,46 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_cindex_entry'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'command_name' => 'cindex'
-          },
-          'source_info' => {
-            'line_nr' => 3
-          },
-          'type' => 'index_entry_command'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_cindex_entry'} = '*document_root C3
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @node C2 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  *2 index_entry_command@cindex C1 l3
+  |INFO
+  |command_name:{cindex}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+';
+
 
 $result_texis{'empty_cindex_entry'} = '@node Top
 @node chap

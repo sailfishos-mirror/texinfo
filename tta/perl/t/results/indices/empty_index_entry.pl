@@ -5,236 +5,86 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_index_entry'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_info' => {
-                            'line_nr' => 5
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 5
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_index_entry'} = '*document_root C3
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+ *1 @node C5 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *2 @deffn C2 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l5
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg l5
+     {spaces: }
+     *def_name C1
+      *bracketed_arg l5
+      |INFO
+      |spaces_before_argument:
+       |{ }
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *@printindex C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+';
+
 
 $result_texis{'empty_index_entry'} = '@node Top
 

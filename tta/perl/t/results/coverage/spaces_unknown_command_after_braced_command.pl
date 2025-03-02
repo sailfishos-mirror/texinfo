@@ -5,65 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'spaces_unknown_command_after_braced_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '~',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => ' e
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'spaces_unknown_command_after_braced_command'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C2
+   *0 @code l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   { \\n}
+  {empty_line:\\n}
+  *paragraph C3
+   *1 @~ l3
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   {\\n}
+   { e\\n}
+';
+
 
 $result_texis{'spaces_unknown_command_after_braced_command'} = '@code  
 

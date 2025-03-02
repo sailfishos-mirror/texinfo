@@ -5,450 +5,140 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'direntry_dircategory_and_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'dircategory',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '``category---'
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'th  ere'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => '?\'\''
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'direntry',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'foo'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'foo'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.   ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``hello---'
-                        },
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'there'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        },
-                        {
-                          'text' => '?\'\'
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'direntry'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'direntry'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'dircategory',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cat2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'cmdname' => 'direntry',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'space_at_end_menu_node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'aaa'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::               ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aaaa
-'
-                        },
-                        {
-                          'text' => '                   bbbbb
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    },
-                    {
-                      'text' => 'menutitle
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'direntry'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'direntry'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 15
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Test dircategory and direntry'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 16
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'direntry_dircategory_and_commands'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
+ *before_node_section C7
+  *@dircategory C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {``category---}
+    *0 @var C1 l1
+     *brace_container C1
+      {th  ere}
+    {?\'\'}
+  *1 @direntry C3 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C6 l3
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {foo}
+    {menu_entry_separator:: }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{foo}
+     {(}
+     {foo}
+     {)}
+    {menu_entry_separator:.   }
+    *menu_entry_description C1
+     *preformatted C3
+      {``hello---}
+      *2 @var C1 l3
+       *brace_container C1
+        {there}
+      {?\'\'\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{direntry}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {direntry}
+  {empty_line:\\n}
+  *@dircategory C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cat2}
+  *3 @direntry C4 l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l8
+    {menu_entry_leading_text:* }
+    *menu_entry_node C2
+    |EXTRA
+    |node_content:{aaa }
+    |normalized:{aaa}
+     {aaa}
+     {space_at_end_menu_node: }
+    {menu_entry_separator:::               }
+    *menu_entry_description C1
+     *preformatted C2
+      {aaaa\\n}
+      {                   bbbbb\\n}
+   *menu_comment C1
+    *preformatted C2
+     {after_menu_description_line:\\n}
+     {menutitle\\n}
+   *@end C1 l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{direntry}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {direntry}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *4 @node C1 l15
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E5]
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *5 @top C3 l16
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E4]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E5]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Test dircategory and direntry}
+  {empty_line:\\n}
+  *paragraph C1
+   {Text\\n}
+';
+
 
 $result_texis{'direntry_dircategory_and_commands'} = '@dircategory ``category---@var{th  ere}?\'\'
 @direntry

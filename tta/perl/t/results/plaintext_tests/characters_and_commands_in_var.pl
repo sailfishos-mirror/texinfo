@@ -5,309 +5,73 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'characters_and_commands_in_var'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'dlksfjf ) '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '(fdfdsfsd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'sqdq,qdsdsq'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'somethingf  '
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' ]
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => 'vvar'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AA'
-                    },
-                    {
-                      'cmdname' => ',',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'u',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'aa',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'AAA'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'jdhfmqsdf
-'
-                        },
-                        {
-                          'text' => 'dsf
-'
-                        },
-                        {
-                          'text' => 'ds '
-                        },
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'rrrr , azeeaz'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
-                        },
-                        {
-                          'text' => '
-'
-                        },
-                        {
-                          'text' => 'end footnote'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'characters_and_commands_in_var'} = '*document_root C1
+ *before_node_section C7
+  *paragraph C8
+   *0 @var C1 l1
+    *brace_container C1
+     {aaa}
+   {. }
+   *1 @var C1 l1
+    *brace_container C1
+     {dlksfjf ) }
+   {. }
+   *2 @var C1 l1
+    *brace_container C1
+     {(fdfdsfsd}
+   {. }
+   *3 @var C1 l1
+    *brace_container C1
+     {sqdq,qdsdsq}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *4 @var C1 l3
+    *brace_container C3
+     {somethingf  }
+     *@c C1
+      {rawline_arg: ]\\n}
+     {vvar}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *5 @var C1 l6
+    *brace_container C8
+     {AA}
+     *6 @, C1 l6
+      *following_arg C1
+       {c}
+     { }
+     *7 @u C1 l6
+      *brace_container C1
+       {r}
+     { }
+     *8 @` C1 l6
+      *following_arg C1
+       {e}
+     { }
+     *9 @aa C1 l6
+      *brace_container
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {AAA}
+   *10 @footnote C1 l8
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C6
+      {jdhfmqsdf\\n}
+      {dsf\\n}
+      {ds }
+      *11 @var C1 l10
+       *brace_container C1
+        {rrrr , azeeaz}
+      {\\n}
+      {end footnote}
+   {\\n}
+';
+
 
 $result_texis{'characters_and_commands_in_var'} = '@var{aaa}. @var{dlksfjf ) }. @var{(fdfdsfsd}. @var{sqdq,qdsdsq}.
 

@@ -1,13 +1,9 @@
-2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.tex (@xrefname): Add command.
+	Switch tta/perl/t/*.t tests tree results to a textual representation
 
-2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/texinfo.texi (HTML Output Structure Customization)
-	<ADD_TRANSLITERATED_REDIRECTION_FILES>: Do not say that node
-	name transliteration must be turned off for this option to do
-	anything.  Report from Patrice.
+	* tta/perl/t/test_utils.pl ($do_perl_tree): set to a textual
+	representation.
 
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
@@ -52,6 +48,17 @@
 
 	* tta/perl/Texinfo/ManipulateTree.pm (remove_element_tree_numbers):
 	recurse in the tree.
+
+2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (@xrefname): Add command.
+
+2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	<ADD_TRANSLITERATED_REDIRECTION_FILES>: Do not say that node
+	name transliteration must be turned off for this option to do
+	anything.  Report from Patrice.
 
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 

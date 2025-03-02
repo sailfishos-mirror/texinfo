@@ -5,110 +5,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multitable_not_closed_item'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'r'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 't'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'rt 
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            }
-          ],
-          'extra' => {
-            'max_columns' => 2
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'multitable_not_closed_item'} = '*document_root C1
+ *before_node_section C1
+  *0 @multitable C2 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{2}
+   *arguments_line C1
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l1
+      {r}
+     { }
+     *bracketed_arg C1 l1
+      {t}
+   *multitable_body C1
+    *row C1
+    |EXTRA
+    |row_number:{1}
+     *@item C2 l2
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {rt \\n}
+';
+
 
 $result_texis{'multitable_not_closed_item'} = '@multitable {r} {t}
 @item rt 

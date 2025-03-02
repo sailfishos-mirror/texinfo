@@ -5,99 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'section_on_index_entry_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          },
-          'type' => 'index_entry_command'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'b'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Somethin
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'section_on_index_entry_line'} = '*document_root C2
+ *before_node_section C1
+  *0 index_entry_command@cindex C1 l1
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {a}
+ *1 @section C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_level:{2}
+ |section_number:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {b}
+  {empty_line:\\n}
+  *paragraph C1
+   {Somethin\\n}
+';
+
 
 $result_texis{'section_on_index_entry_line'} = '@cindex a @section b
 

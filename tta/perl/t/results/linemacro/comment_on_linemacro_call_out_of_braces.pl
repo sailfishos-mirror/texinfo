@@ -5,325 +5,98 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_on_linemacro_call_out_of_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first |\\a\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second |\\b\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'third |\\c\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'something protected',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first |something protected|
-'
-            },
-            {
-              'text' => 'second ||
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 8,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third ||'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment {in braces}
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm'
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ||
-'
-            },
-            {
-              'text' => 'second ||
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 8,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third ||'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment early n l m
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'aaa
-  ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'rest'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first |aaa
-'
-            },
-            {
-              'text' => '  |
-'
-            },
-            {
-              'text' => 'second |rest|
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'position' => 8,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third ||'
-            },
-            {
-              'cmdname' => 'comment',
-              'contents' => [
-                {
-                  'text' => ' on second {line comment}
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C1
+ *before_node_section C7
+  *0 @linemacro C5 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: lm {a, b, c}\\n}
+   {raw:first |\\a\\|\\n}
+   {raw:second |\\b\\|\\n}
+   {raw:third |\\c\\|\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *paragraph C4
+   {first |something protected|\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call C2
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:something protected}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{}
+   {second ||\\n}
+   {third ||}
+   >SOURCEMARKS
+   >linemacro_expansion<end;1><p:8>
+   *@c C1
+    {rawline_arg: comment {in braces}\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {first ||\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;2>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+     >*line_arg C1
+      >{}
+   {second ||\\n}
+   {third ||}
+   >SOURCEMARKS
+   >linemacro_expansion<end;2><p:8>
+   *@c C1
+    {rawline_arg: comment early n l m\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {first |aaa\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;3>
+    >*linemacro_call C3
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:aaa\\n  }
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{rest}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{}
+   {  |\\n}
+   {second |rest|\\n}
+   {third ||}
+   >SOURCEMARKS
+   >linemacro_expansion<end;3><p:8>
+   *@comment C1
+    {rawline_arg: on second {line comment}\\n}
+';
+
 
 $result_texis{'comment_on_linemacro_call_out_of_braces'} = '@linemacro lm {a, b, c}
 first |\\a\\|

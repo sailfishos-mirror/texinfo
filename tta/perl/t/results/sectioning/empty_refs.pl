@@ -5,91 +5,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_refs'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ':'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' '
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => '-'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'empty_refs'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C4
+   *0 @xref C1 l1
+    *brace_arg C1
+    |EXTRA
+    |node_content:{@:}
+     *@:
+   {.\\n}
+   *1 @xref C1 l2
+    *brace_arg C1
+    |EXTRA
+    |node_content:{@asis{ }}
+    |normalized:{-}
+     *2 @asis C1 l2
+      *brace_container C1
+       { }
+   {.\\n}
+';
+
 
 $result_texis{'empty_refs'} = '@xref{@:}.
 @xref{@asis{ }}.

@@ -5,37 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'defindex_too_much_args'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chose    machin'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'defindex_too_much_args'} = '*document_root C1
+ *before_node_section C1
+  *@defindex C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+    {chose    machin}
+';
+
 
 $result_texis{'defindex_too_much_args'} = '@defindex chose    machin';
 

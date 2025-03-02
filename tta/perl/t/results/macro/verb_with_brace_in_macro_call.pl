@@ -5,171 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_with_brace_in_macro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\|\\b\\|\\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@verb{: in }'
-                      }
-                    ],
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'verb :'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'mycommand',
-                  'spaces_after_cmd_before_arg' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 13,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ' in }|verb :|',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => ', other, last}
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ':'
-              },
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'mycommand'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verb_with_brace_in_macro_call'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *0 @macro C3 l2
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c}\\n}
+   {raw:\\a\\|\\b\\|\\c\\\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C2
+   >|INFO
+   >|command_name:{mycommand}
+   >|spaces_after_cmd_before_arg:
+    >|{ }
+    >*brace_arg C1
+     >{@verb{: in }}
+    >*brace_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >{verb :}
+  *paragraph C1
+   *1 @verb C1 l6:@mycommand
+   |INFO
+   |delimiter:{:}
+    *brace_container C3
+     {raw: in }|verb :|}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:13>
+     {raw:, other, last}\\n}
+     {raw:\\n}
+';
+
 
 $result_texis{'verb_with_brace_in_macro_call'} = '
 @macro mycommand {a, b, c}

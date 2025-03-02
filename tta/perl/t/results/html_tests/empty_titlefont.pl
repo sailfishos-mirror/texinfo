@@ -5,37 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_titlefont'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'titlefont',
-          'contents' => [
-            {
-              'type' => 'brace_container'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_titlefont'} = '*document_root C1
+ *before_node_section C3
+  {empty_line:\\n}
+  *0 @titlefont C1 l2
+  |EXTRA
+  |global_command_number:{1}
+   *brace_container
+  {\\n}
+';
+
 
 $result_texis{'empty_titlefont'} = '
 @titlefont{}

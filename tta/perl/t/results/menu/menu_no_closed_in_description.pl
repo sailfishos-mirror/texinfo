@@ -5,89 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'menu_no_closed_in_description'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'manual_in_menu'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'desc'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'menu_entry'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_no_closed_in_description'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'menu_no_closed_in_description'} = '*document_root C1
+ *before_node_section C1
+  *0 @menu C2 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l2
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{manual_in_menu}
+     {(}
+     {manual_in_menu}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C1
+     *preformatted C1
+      {desc}
+';
+
 
 $result_texis{'menu_no_closed_in_description'} = '@menu
 * (manual_in_menu):: desc';

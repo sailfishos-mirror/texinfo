@@ -5,239 +5,74 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_for_dot_in_menu_not_separator'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrodot
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '.
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrodot',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ref'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'macrodot'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 1,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'macrodot'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 10,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'name.after'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'name_002eafter'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '. ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'desc
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_for_dot_in_menu_not_separator'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_tree_text{'macro_for_dot_in_menu_not_separator'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{macrodot}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: macrodot\\n}
+   {raw:.\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @menu C3 l5
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C6 l6
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {ref}
+    {menu_entry_separator:: }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{name.after}
+    |normalized:{name_002eafter}
+     {name.after}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:4>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{macrodot}
+       >*brace_arg
+     >macro_expansion<end;1><p:5>
+     >macro_expansion<start;2><p:10>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{macrodot}
+       >*brace_arg
+    {menu_entry_separator:. }
+    >SOURCEMARKS
+    >macro_expansion<end;2><p:1>
+    *menu_entry_description C1
+     *preformatted C1
+      {desc\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'macro_for_dot_in_menu_not_separator'} = '@macro macrodot
 .

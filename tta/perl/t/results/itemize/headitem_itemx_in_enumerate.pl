@@ -5,135 +5,47 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'headitem_itemx_in_enumerate'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'item enumerate
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'itemx',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'itemx enumerate'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'headitem enumerate
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => '1'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'headitem_itemx_in_enumerate'} = '*document_root C1
+ *before_node_section C1
+  *0 @enumerate C3 l1
+  |EXTRA
+  |enumerate_specification:{1}
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@item C5 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {item enumerate\\n}
+    *@itemx C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {itemx enumerate}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {headitem enumerate\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+';
+
 
 $result_texis{'headitem_itemx_in_enumerate'} = '@enumerate
 @item item enumerate

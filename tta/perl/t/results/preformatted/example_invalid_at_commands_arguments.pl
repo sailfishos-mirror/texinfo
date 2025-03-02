@@ -5,194 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'example_invalid_at_commands_arguments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' fa'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'an anchor'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'an-anchor'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces_after_close_brace'
-                    },
-                    {
-                      'text' => 'on example line'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'center',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in center'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
+ *before_node_section C1
+  *0 @example C2 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C3
+    *block_line_arg C2
+     *1 @ref C4 l1
+      *brace_arg C1
+      |EXTRA
+      |node_content:{a}
+       {a}
+      *brace_arg C1
+       {b}
+      *brace_arg C1
+       {c}
+      *brace_arg C1
+       {d}
+     { fa}
+    *block_line_arg C3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *2 @anchor C1 l1
+     |EXTRA
+     |is_target:{1}
+     |normalized:{an-anchor}
+      *brace_arg C1
+       {an anchor}
+     {spaces_after_close_brace: }
+     {on example line}
+    *block_line_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@center C1 l1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {in center}
+   *@end C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'example_invalid_at_commands_arguments'} = '@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
 @end example

@@ -5,85 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'indent_in_command_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'In para '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'indent',
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.  '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in double command'
-                            },
-                            {
-                              'cmdname' => 'noindent',
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'indent_in_command_in_paragraph'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C5
+   {In para }
+   *0 @code C1 l1
+    *brace_container C1
+     *@indent l1
+   {.  }
+   *1 @asis C1 l1
+    *brace_container C1
+     *2 @b C1 l1
+      *brace_container C2
+       {in double command}
+       *@noindent l1
+   {.\\n}
+';
+
 
 $result_texis{'indent_in_command_in_paragraph'} = 'In para @code{@indent}.  @asis{@b{in double command@noindent}}.
 ';

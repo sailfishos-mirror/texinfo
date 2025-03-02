@@ -5,67 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_line_in_braces_in_math_at_begin_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{b
-'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'text' => ' c
-'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_line_in_braces_in_math_at_begin_line'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @math C1 l1
+    *brace_command_context C4
+     {a\\n}
+     {empty_line:\\n}
+     *balanced_braces C3 l3
+      {{b\\n}
+      {empty_line:\\n}
+      {}}
+     { c\\n}
+';
+
 
 $result_texis{'empty_line_in_braces_in_math_at_begin_line'} = '@math{a
 

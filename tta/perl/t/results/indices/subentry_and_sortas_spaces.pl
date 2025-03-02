@@ -5,592 +5,223 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'subentry_and_sortas_spaces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter index'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chapter-index'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Index'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
-                },
-                {
-                  'cmdname' => 'sortas',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A---S'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ],
-            'sortas' => 'A---S',
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'sortas',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'C---S1'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    },
-                    {
-                      'text' => 'bbb sort as c'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'sortas' => 'C---S1',
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'sortas',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'B---S1'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'sortas' => 'B---S1',
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bbb'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ccc'
-                        },
-                        {
-                          'cmdname' => 'sortas',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'D'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'sortas' => 'D',
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bbb'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ccc'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 10
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[2]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[2];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[3] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[2]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[4];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[5] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[4]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[7] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[8] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[6]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[3];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9];
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[10] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'};
-$result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[11] = $result_trees{'subentry_and_sortas_spaces'}{'contents'}[4]{'contents'}[9]{'extra'}{'subentry'}{'extra'}{'subentry'};
+$result_tree_text{'subentry_and_sortas_spaces'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l2
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chapter-index}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter index}
+ *3 @chapter C14 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Index}
+  {empty_line:\\n}
+  *4 index_entry_command@cindex C1 l7
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,1}
+  |sortas:{A---S}
+  |subentry:[E6]
+   *line_arg C3
+    {aaa}
+    {spaces_at_end: }
+    *5 @sortas C1 l7
+     *brace_arg C1
+      {A---S}
+  *6 @subentry C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |sortas:{C---S1}
+  |subentry_level:{1}
+  |subentry_parent:[E4]
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *7 @sortas C1 l7
+     *brace_arg C1
+      {C---S1}
+    {bbb sort as c}
+  *8 index_entry_command@cindex C1 l8
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,2}
+  |subentry:[E9]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {aaa}
+  *9 @subentry C1 l8
+  |EXTRA
+  |sortas:{B---S1}
+  |subentry_level:{1}
+  |subentry_parent:[E8]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    *10 @sortas C1 l8
+     *brace_arg C1
+      {B---S1}
+  *11 index_entry_command@cindex C1 l9
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,3}
+  |subentry:[E12]
+   *line_arg C1
+    {aaa}
+  *12 @subentry C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E13]
+  |subentry_level:{1}
+  |subentry_parent:[E11]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {bbb}
+  *13 @subentry C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |sortas:{D}
+  |subentry_level:{2}
+  |subentry_parent:[E12]
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ccc}
+    *14 @sortas C1 l9
+     *brace_arg C1
+      {D}
+  *15 index_entry_command@cindex C1 l10
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,4}
+  |subentry:[E16]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {aaa}
+  *16 @subentry C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E17]
+  |subentry_level:{1}
+  |subentry_parent:[E15]
+   *line_arg C1
+    {bbb}
+  *17 @subentry C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{2}
+  |subentry_parent:[E16]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ccc}
+  {empty_line:\\n}
+  *@printindex C1 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+';
+
 
 $result_texis{'subentry_and_sortas_spaces'} = '@node Top
 @top

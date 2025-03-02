@@ -5,224 +5,71 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_expansion_end_in_conditional_end'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' beginendcond
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@ifset flag
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Defined
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end if
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'beginendcond',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'flag',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '1',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' flag 1
-'
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'beginendcond'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'flag'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 9,
-                  'macro' => 'beginendcond'
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 1,
-                                'position' => 2,
-                                'sourcemark_type' => 'macro_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 9,
-                      'macro' => 'beginendcond'
-                    }
-                  },
-                  'position' => 8,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'Defined
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_expansion_end_in_conditional_end'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C5 l1
+  |EXTRA
+  |macro_name:{beginendcond}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: beginendcond\\n}
+   {raw:@ifset flag\\n}
+   {raw:Defined\\n}
+   {raw:@end if\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ flag 1\\n}
+   {rawline_arg:flag}
+   {rawline_arg:1}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{beginendcond}
+    >*brace_arg
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l9:@beginendcond
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{flag}
+  *paragraph C1
+   {Defined\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:8>
+    >*@end C1 l9:@beginendcond
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifset}
+      >>SOURCEMARKS
+      >>macro_expansion<end;1><p:2>
+';
+
 
 $result_texis{'macro_expansion_end_in_conditional_end'} = '@macro beginendcond
 @ifset flag

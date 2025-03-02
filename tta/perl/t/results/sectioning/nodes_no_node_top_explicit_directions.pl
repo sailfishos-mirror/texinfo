@@ -5,289 +5,108 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nodes_no_node_top_explicit_directions'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first node
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'second node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'second-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'second node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'first'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'first'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'second node
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'second-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 8
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_contents'}[1] = $result_trees{'nodes_no_node_top_explicit_directions'}[0]{'unit_command'};
-$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_contents'}[0] = $result_trees{'nodes_no_node_top_explicit_directions'}[1]{'unit_command'};
+$result_tree_text{'nodes_no_node_top_explicit_directions'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+NodeUp: (dir)
+
+NodeForward: [U1]
+ *before_node_section
+ *0 @node C5 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menus:EC[E1]
+ |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |normalized:{first}
+  *arguments_line C4
+   *line_arg C1
+    {first}
+   *line_arg
+   *line_arg
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+  *paragraph C1
+   {first node\\n}
+  {empty_line:\\n}
+  *1 @menu C3 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{second node}
+    |normalized:{second-node}
+     {second node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E2]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+NodePrev: [U0]
+NodeUp: [U0]
+NodeBack: [U0]
+ *2 @node C2 l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{second-node}
+  *arguments_line C4
+   *line_arg C1
+    {second node}
+   *line_arg
+   *line_arg C1
+   |EXTRA
+   |node_content:{first}
+   |normalized:{first}
+    {first}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{first}
+   |normalized:{first}
+    {first}
+  *paragraph C1
+   {second node\\n}
+';
+
 
 $result_texis{'nodes_no_node_top_explicit_directions'} = '@node first,,,(dir)
 first node

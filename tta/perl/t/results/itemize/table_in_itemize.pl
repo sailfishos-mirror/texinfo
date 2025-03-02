@@ -5,342 +5,103 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'table_in_itemize'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'bullet',
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'item one
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'cmdname' => 'table',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'asis',
-                              'source_info' => {
-                                'line_nr' => 4
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'table one'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 5
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'aaaaa
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'New para.
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'table two'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 9
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Five
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'New para.
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'table'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'table'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 13
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'command_as_argument' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'item three
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 3
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'itemize'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'itemize'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'table_in_itemize'} = '*document_root C1
+ *before_node_section C1
+  *0 @itemize C5 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @bullet l1
+   *@item C2 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {item one\\n}
+   *@item C2 l3
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command:\\n}
+    *2 @table C4 l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |command_as_argument:[E3]
+     *arguments_line C1
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *3 @asis l4
+     *table_entry C2
+      *table_term C1
+       *@item C1 l5
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {table one}
+      *table_definition C3
+       *paragraph C1
+        {aaaaa\\n}
+       {empty_line:\\n}
+       *paragraph C1
+        {New para.\\n}
+     *table_entry C2
+      *table_term C1
+       *@item C1 l9
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {table two}
+      *table_definition C3
+       *paragraph C1
+        {Five\\n}
+       {empty_line:\\n}
+       *paragraph C1
+        {New para.\\n}
+     *@end C1 l13
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{table}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {table}
+   *@item C2 l14
+   |EXTRA
+   |item_number:{3}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {item three\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{itemize}
+    *line_arg C1
+     {itemize}
+';
+
 
 $result_texis{'table_in_itemize'} = '@itemize @bullet
 @item item one

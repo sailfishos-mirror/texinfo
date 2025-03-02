@@ -5,62 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'titlefont_in_center'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'titlefont',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A manual'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'titlefont_in_center'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *@center C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *0 @titlefont C1 l2
+    |EXTRA
+    |global_command_number:{1}
+     *brace_container C1
+      {A manual}
+';
+
 
 $result_texis{'titlefont_in_center'} = '
 @center @titlefont{A manual}

@@ -5,127 +5,61 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'section_chapter_before_top'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'section_chapter_before_top'} = '*document_root C4
+ *before_node_section
+ *0 @section C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E1]
+ |section_level:{2}
+ |section_number:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0|E1|E2]
+  ||section_level:{1}
+ |toplevel_directions:D[next->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    {section}
+  {empty_line:\\n}
+ *1 @chapter C2 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E2|prev->E0]
+ |section_level:{2}
+ |section_number:{2}
+ |toplevel_directions:D[next->E2|prev->E0]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+ *2 @top C1 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[prev->E1]
+ |section_level:{2}
+ |toplevel_directions:D[prev->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+';
+
 
 $result_texis{'section_chapter_before_top'} = '@section section 
 

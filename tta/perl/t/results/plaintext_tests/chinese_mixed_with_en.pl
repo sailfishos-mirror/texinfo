@@ -5,427 +5,143 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'chinese_mixed_with_en'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'utf-8'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'utf-8'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'settitle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chinese mixed with english'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'chinese_mixed_with_en.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Mixed chinese and english'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Example of english and chinese, chinese aligned or not.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Mixed english and chinese'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Mixed-english-and-chinese'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 10
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Mixed english and chinese'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '1. english only
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'The Emacs mode for programming in Ada 95 with GNAT helps the user
-'
-            },
-            {
-              'text' => 'in
-'
-            },
-            {
-              'text' => 'understanding existing code and facilitates writing new code.  It
-'
-            },
-            {
-              'text' => 'furthermore provides some utility functions for easier integration of
-'
-            },
-            {
-              'text' => 'standard Emacs features when programming in Ada.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '2. chinese already aligned in source(this result)
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "\x{8fd9}\x{5e38}\x{7528}\x{4e8e}\x{4fee}\x{9970}\x{591a}\x{4e2a}\x{7ebf}\x{7a0b}\x{4f1a}\x{8bbf}\x{95ee}\x{6216}\x{4fee}\x{6539}\x{7684}\x{5168}\x{5c40}\x{53d8}\x{91cf}\x{ff0c}\x{8ba9}\x{7f16}\x{8bd1}\x{5668}\x{4fdd}\x{8bc1}\x{6bcf}\x{6b21}\x{90fd}\x{4ece}\x{5185}\x{5b58}\x{8bfb}\x{53d6}
-"
-            },
-            {
-              'text' => "\x{53d8}\x{91cf}\x{7684}\x{503c}\x{ff0c}\x{800c}\x{4e0d}\x{662f}\x{4f5c}\x{67d0}\x{4e9b}\x{4f18}\x{5316}\x{3002}\x{ff08}\x{8fd9}\x{4e9b}\x{4f18}\x{5316}\x{6709}\x{53ef}\x{80fd}\x{5bfc}\x{81f4}\x{7a0b}\x{5e8f}\x{4e0d}\x{80fd}\x{83b7}\x{5f97}\x{6b63}\x{786e}\x{7684}\x{503c}\x{ff09}
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '3. chinese not aligned in source
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "\x{8fd9}\x{5e38}\x{7528}\x{4e8e}\x{4fee}\x{9970}\x{591a}\x{4e2a}\x{7ebf}\x{7a0b}\x{4f1a}\x{8bbf}\x{95ee}\x{6216}\x{4fee}\x{6539}\x{7684}\x{5168}\x{5c40}\x{53d8}\x{91cf}\x{ff0c}\x{8ba9}\x{7f16}\x{8bd1}\x{5668}\x{4fdd}\x{8bc1}\x{6bcf}\x{6b21}\x{90fd}\x{4ece}\x{5185}\x{5b58}
-"
-            },
-            {
-              'text' => "\x{8bfb}\x{53d6}
-"
-            },
-            {
-              'text' => "\x{53d8}\x{91cf}\x{7684}\x{503c}\x{ff0c}\x{800c}\x{4e0d}\x{662f}\x{4f5c}\x{67d0}\x{4e9b}\x{4f18}\x{5316}\x{3002}
-"
-            },
-            {
-              'text' => "\x{ff08}\x{8fd9}\x{4e9b}\x{4f18}\x{5316}\x{6709}\x{53ef}\x{80fd}\x{5bfc}\x{81f4}\x{7a0b}\x{5e8f}\x{4e0d}\x{80fd}\x{83b7}\x{5f97}\x{6b63}\x{786e}\x{7684}\x{503c}\x{ff09}
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '4. a mix of chinese and english
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "restrict \x{8868}\x{793a}\x{5728}\x{5f53}\x{524d} scope \x{5185}\x{4e0d}\x{5141}\x{8bb8}\x{5176}\x{5b83}\x{53d8}\x{91cf}\x{6307}\x{5411}\x{5b83}\x{3002}\x{7528}\x{5904}\x{ff0c}\x{6bd4}\x{5982}\x{9632}\x{6b62} memory
-"
-            },
-            {
-              'text' => "overlap\x{3002}
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'chinese_mixed_with_en.texi',
-        'line_nr' => 11
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'chinese_mixed_with_en'} = '*document_root C6
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\input texinfo\\n}
+  *preamble_before_content C3
+   *@documentencoding C1 chinese_mixed_with_en.texi:l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {utf-8}
+   *@settitle C1 chinese_mixed_with_en.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {chinese mixed with english}
+   {empty_line:\\n}
+ *0 @node C1 chinese_mixed_with_en.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 chinese_mixed_with_en.texi:l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Mixed chinese and english}
+  {empty_line:\\n}
+  *paragraph C1
+   {Example of english and chinese, chinese aligned or not.\\n}
+  {empty_line:\\n}
+ *2 @node C1 chinese_mixed_with_en.texi:l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{Mixed-english-and-chinese}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Mixed english and chinese}
+ *3 @chapter C19 chinese_mixed_with_en.texi:l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Mixed english and chinese}
+  {empty_line:\\n}
+  *paragraph C1
+   {1. english only\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {The Emacs mode for programming in Ada 95 with GNAT helps the user\\n}
+   {in\\n}
+   {understanding existing code and facilitates writing new code.  It\\n}
+   {furthermore provides some utility functions for easier integration of\\n}
+   {standard Emacs features when programming in Ada.\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {2. chinese already aligned in source(this result)\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {这常用于修饰多个线程会访问或修改的全局变量，让编译器保证每次都从内存读取\\n}
+   {变量的值，而不是作某些优化。（这些优化有可能导致程序不能获得正确的值）\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {3. chinese not aligned in source\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {这常用于修饰多个线程会访问或修改的全局变量，让编译器保证每次都从内存\\n}
+   {读取\\n}
+   {变量的值，而不是作某些优化。\\n}
+   {（这些优化有可能导致程序不能获得正确的值）\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {4. a mix of chinese and english\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {restrict 表示在当前 scope 内不允许其它变量指向它。用处，比如防止 memory\\n}
+   {overlap。\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'chinese_mixed_with_en'} = '\\input texinfo
 @documentencoding utf-8

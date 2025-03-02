@@ -5,260 +5,84 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_sp'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Para
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '1'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'other para
-'
-            },
-            {
-              'text' => 'Now lone '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'sp:
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '1'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '2'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Para after sp
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '2'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'B
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'sp after para
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '1'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 16
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_sp'} = '*document_root C1
+ *before_node_section C15
+  *paragraph C1
+   {Para\\n}
+  *@sp C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {1}
+  *paragraph C4
+   {other para\\n}
+   {Now lone }
+   *@@
+   {sp:\\n}
+  {empty_line:\\n}
+  *@sp C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {1}
+  {empty_line:\\n}
+  *@sp C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {2}
+  *paragraph C1
+   {Para after sp\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {A\\n}
+  *@sp C1 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {2}
+  *paragraph C1
+   {B\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {sp after para\\n}
+  *@sp C1 l16
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {1}
+';
+
 
 $result_texis{'test_sp'} = 'Para
 @sp 1

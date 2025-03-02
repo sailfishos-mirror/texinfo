@@ -5,200 +5,68 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'space_at_commands_end_quotation_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => ' at the end of line '
-                    },
-                    {
-                      'cmdname' => '
-'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => ' at the end of the '
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'quotation line.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => ' '
-                    },
-                    {
-                      'text' => ' at the end of line '
-                    },
-                    {
-                      'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'cmdname' => ' '
-                },
-                {
-                  'text' => ' at the end of the '
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'quotation line.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'space_at_commands_end_quotation_line'} = '*document_root C1
+ *before_node_section C3
+  *0 @quotation C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C3
+     *@@
+     { at the end of line }
+     *@\\n
+   *paragraph C5
+    {A }
+    *@@
+    { at the end of the }
+    *@@
+    {quotation line.\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *1 @quotation C3 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C4
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *@@
+     *@ 
+     { at the end of line }
+     *@ 
+   *paragraph C6
+    {A }
+    *@@
+    *@ 
+    { at the end of the }
+    *@@
+    {quotation line.\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+';
+
 
 $result_texis{'space_at_commands_end_quotation_line'} = '@quotation @@ at the end of line @
 A @@ at the end of the @@quotation line.

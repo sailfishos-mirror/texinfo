@@ -5,1006 +5,279 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'node_footnote_end'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' test footnotes with nodes only
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'node_footnote.texi',
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => '_00e1'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 8
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '^',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'node_footnote.texi',
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => '_00e2'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 9
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 10
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'node_footnote.texi',
-                        'line_nr' => 11
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => '_00e0'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 11
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'node_footnote.texi',
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '\'',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'node_footnote.texi',
-                    'line_nr' => 14
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'node '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => ',
-'
-            },
-            {
-              'text' => 'Footnote 1'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'foot 1 '
-                        },
-                        {
-                          'cmdname' => '\'',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'a'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'node_footnote.texi',
-                            'line_nr' => 17
-                          }
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => '_00e1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'node_footnote.texi',
-                    'line_nr' => 19
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'node '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ',
-'
-            },
-            {
-              'text' => 'Footnote 2'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'foot 2 '
-                        },
-                        {
-                          'cmdname' => '^',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'a'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'node_footnote.texi',
-                            'line_nr' => 22
-                          }
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => '_00e2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 19
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 24
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'node_footnote.texi',
-                        'line_nr' => 28
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => '_00e0'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 28
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 29
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'node_footnote.texi',
-            'line_nr' => 27
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 25
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'node_footnote.texi',
-                    'line_nr' => 31
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'node '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => ',
-'
-            },
-            {
-              'text' => 'Footnote 3'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'foot 3 '
-                        },
-                        {
-                          'cmdname' => '`',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'a'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'node_footnote.texi',
-                            'line_nr' => 34
-                          }
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'file_name' => 'node_footnote.texi',
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => '_00e0'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'node_footnote.texi',
-        'line_nr' => 31
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_footnote_end'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'node_footnote_end'}{'contents'}[5]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'node_footnote_end'}{'contents'}[5]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_tree_text{'node_footnote_end'} = '*document_root C8
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@c C1
+    {rawline_arg: test footnotes with nodes only\\n}
+   {empty_line:\\n}
+ *0 @node C4 node_footnote.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menus:EC[E1]
+ |node_directions:D[next->E5]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *1 @menu C6 node_footnote.texi:l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 node_footnote.texi:l8
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{@\'a}
+    |normalized:{_00e1}
+     *2 @\' C1 node_footnote.texi:l8
+      *following_arg C1
+       {a}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 node_footnote.texi:l9
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{@^a}
+    |normalized:{_00e2}
+     *3 @^ C1 node_footnote.texi:l9
+      *following_arg C1
+       {a}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 node_footnote.texi:l10
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 node_footnote.texi:l11
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{@`a}
+    |normalized:{_00e0}
+     *4 @` C1 node_footnote.texi:l11
+      *following_arg C1
+       {a}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 node_footnote.texi:l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *5 @node C4 node_footnote.texi:l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E10|up->E0]
+ |node_directions:D[next->E10|prev->E0|up->E0]
+ |normalized:{_00e1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *6 @\' C1 node_footnote.texi:l14
+     *following_arg C1
+      {a}
+  {empty_line:\\n}
+  *paragraph C6
+   {node }
+   *7 @\' C1 node_footnote.texi:l16
+    *following_arg C1
+     {a}
+   {,\\n}
+   {Footnote 1}
+   *8 @footnote C1 node_footnote.texi:l17
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C2
+      {foot 1 }
+      *9 @\' C1 node_footnote.texi:l17
+       *following_arg C1
+        {a}
+   {.\\n}
+  {empty_line:\\n}
+ *10 @node C4 node_footnote.texi:l19
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E15|prev->E5|up->E0]
+ |node_directions:D[next->E15|prev->E5|up->E0]
+ |normalized:{_00e2}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *11 @^ C1 node_footnote.texi:l19
+     *following_arg C1
+      {a}
+  {empty_line:\\n}
+  *paragraph C6
+   {node }
+   *12 @^ C1 node_footnote.texi:l21
+    *following_arg C1
+     {a}
+   {,\\n}
+   {Footnote 2}
+   *13 @footnote C1 node_footnote.texi:l22
+   |EXTRA
+   |global_command_number:{2}
+    *brace_command_context C1
+     *paragraph C2
+      {foot 2 }
+      *14 @^ C1 node_footnote.texi:l22
+       *following_arg C1
+        {a}
+   {.\\n}
+  {empty_line:\\n}
+ *15 @node C1 node_footnote.texi:l24
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E16]
+ |is_target:{1}
+ |menu_directions:D[next->E19|prev->E10|up->E0]
+ |menus:EC[E17]
+ |node_directions:D[next->E19|prev->E10|up->E0]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *16 @chapter C4 node_footnote.texi:l25
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E15]
+ |section_level:{1}
+ |section_number:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E16]
+  ||section_level:{0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  *17 @menu C3 node_footnote.texi:l27
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 node_footnote.texi:l28
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{@`a}
+    |normalized:{_00e0}
+     *18 @` C1 node_footnote.texi:l28
+      *following_arg C1
+       {a}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 node_footnote.texi:l29
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *19 @node C4 node_footnote.texi:l31
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[prev->E15|up->E15]
+ |node_directions:D[prev->E15|up->E15]
+ |normalized:{_00e0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *20 @` C1 node_footnote.texi:l31
+     *following_arg C1
+      {a}
+  {empty_line:\\n}
+  *paragraph C6
+   {node }
+   *21 @` C1 node_footnote.texi:l33
+    *following_arg C1
+     {a}
+   {,\\n}
+   {Footnote 3}
+   *22 @footnote C1 node_footnote.texi:l34
+   |EXTRA
+   |global_command_number:{3}
+    *brace_command_context C1
+     *paragraph C2
+      {foot 3 }
+      *23 @` C1 node_footnote.texi:l34
+       *following_arg C1
+        {a}
+   {.\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'node_footnote_end'} = '\\input texinfo @c -*-texinfo-*-
 

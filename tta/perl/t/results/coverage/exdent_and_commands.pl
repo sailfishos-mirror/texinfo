@@ -5,307 +5,97 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'exdent_and_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'quotation1
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'exdent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in exdented protected eol '
-                    },
-                    {
-                      'cmdname' => '
-'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'following
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'exdent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in exdented a '
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '* '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => ' and following'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'after exdented
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'example
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'exdent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in exdented protected eol '
-                    },
-                    {
-                      'cmdname' => '
-'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'following
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'exdent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in exdented a '
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '* '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => ' and following'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'after exdented
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'exdent_and_commands'} = '*document_root C1
+ *before_node_section C3
+  *0 @quotation C7 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {quotation1\\n}
+   *@exdent C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C2
+     {in exdented protected eol }
+     *@\\n
+   *paragraph C1
+    {following\\n}
+   *@exdent C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {in exdented a }
+     *@@
+     {* }
+     *@*
+     { and following}
+   *paragraph C1
+    {after exdented\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *1 @example C7 l9
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C1
+    {example\\n}
+   *@exdent C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C2
+     {in exdented protected eol }
+     *@\\n
+   *preformatted C1
+    {following\\n}
+   *@exdent C1 l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {in exdented a }
+     *@@
+     {* }
+     *@*
+     { and following}
+   *preformatted C1
+    {after exdented\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'exdent_and_commands'} = '@quotation
 quotation1

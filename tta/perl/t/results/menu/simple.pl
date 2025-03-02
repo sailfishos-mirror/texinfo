@@ -5,407 +5,105 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Before menu.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'comment
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu entry name '
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.    ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node name'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node-name'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::                ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description new
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'other entry'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ',    ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'last'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'last'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        },
-                        {
-                          'text' => '                 description next line
-'
-                        },
-                        {
-                          'text' => '                 still description
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    },
-                    {
-                      'text' => 'new comment
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'last node entry'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'space_at_end_menu_node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'last-node-entry'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After menu.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'contents'}[1]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'simple'} = '*document_root C1
+ *before_node_section C6
+  {empty_line:\\n}
+  *paragraph C1
+   {Before menu.\\n}
+  {empty_line:\\n}
+  *0 @menu C9 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_comment C1
+    *preformatted C1
+     {comment\\n}
+   *menu_entry C6 l6
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {menu entry name }
+    {menu_entry_separator:: }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node}
+    |normalized:{node}
+     {node}
+    {menu_entry_separator:.    }
+    *menu_entry_description C1
+     *preformatted C1
+      {description\\n}
+   *menu_entry C4 l7
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node name}
+    |normalized:{node-name}
+     {node name}
+    {menu_entry_separator:::                }
+    *menu_entry_description C1
+     *preformatted C1
+      {description new\\n}
+   *menu_entry C6 l8
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {other entry}
+    {menu_entry_separator:: }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node}
+    |normalized:{node}
+     {node}
+    {menu_entry_separator:,    }
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l9
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{last}
+    |normalized:{last}
+     {last}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C3
+      {\\n}
+      {                 description next line\\n}
+      {                 still description\\n}
+   *menu_comment C1
+    *preformatted C2
+     {after_menu_description_line:\\n}
+     {new comment\\n}
+   *menu_entry C4 l14
+    {menu_entry_leading_text:* }
+    *menu_entry_node C2
+    |EXTRA
+    |node_content:{last node entry }
+    |normalized:{last-node-entry}
+     {last node entry}
+     {space_at_end_menu_node: }
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *paragraph C1
+   {After menu.\\n}
+';
+
 
 $result_texis{'simple'} = '
 Before menu.

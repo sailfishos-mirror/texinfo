@@ -5,1364 +5,312 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'some_at_commands_in_ref_nodes'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A '
-                    },
-                    {
-                      'cmdname' => 'sc',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'sc '
-                            },
-                            {
-                              'cmdname' => '~',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'n'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'aa',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'TeX',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' node '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'dotless',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'i'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '=',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'E'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'l',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => ',',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '\'',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'C'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 6
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'exclamdown',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'sc '
-                        },
-                        {
-                          'cmdname' => '~',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'n'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'aa',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'TeX',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' node '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '=',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'E'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'l',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => ',',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '\'',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'C'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'exclamdown',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 9
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'sc'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' node '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '=',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'E'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'l',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => ',',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '\'',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'C'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'exclamdown',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'see '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'strong'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => ' ref with '
-                    },
-                    {
-                      'cmdname' => 'sc',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'sc'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => ' a i trema '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => ' a dotless i trema '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'dotless',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'i'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 12
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '=',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'E'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 12
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => ' and exclamdown '
-                    },
-                    {
-                      'cmdname' => 'exclamdown',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A '
-                    },
-                    {
-                      'cmdname' => 'sc',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'sc '
-                            },
-                            {
-                              'cmdname' => '~',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'n'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'aa',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'TeX',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' node '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'dotless',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'i'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '=',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'E'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'l',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => ',',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '\'',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'C'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'exclamdown',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => '  '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 10
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[2];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[3] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[3];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[4] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[4];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[5] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[5];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[6] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[6];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[7] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[7];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[8] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[8];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[9] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[9];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[10] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[10];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[11] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[11];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[12] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[12];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[13] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[13];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[2];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[3] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[4] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[4];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[5] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[5];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[6] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[6];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[7] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[7];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[8] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[8];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[9] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[9];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[10] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[10];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[11] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[11];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[12] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[12];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[13] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[13];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[3] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[4] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[5] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[6] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[7] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[7];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[8] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[8];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[9] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[9];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[10] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[10];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[11] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[11];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[12] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[12];
-$result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[13] = $result_trees{'some_at_commands_in_ref_nodes'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[13];
+$result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
+ *before_node_section C1
+  {empty_line:\\n}
+ *0 @node C1 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E16]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E30]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E30]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *2 @menu C3 l5
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l6
+    {menu_entry_leading_text:* }
+    *menu_entry_node C14
+    |EXTRA
+    |node_content:{A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
+    |normalized:{A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
+     {A }
+     *3 @sc C1 l6
+      *brace_container C6
+       {sc }
+       *4 @~ C1 l6
+        *following_arg C1
+         {n}
+       { }
+       *5 @aa C1 l6
+        *brace_container
+       { }
+       *6 @TeX C1 l6
+        *brace_container
+     { node }
+     *7 @" C1 l6
+      *following_arg C1
+       {i}
+     { }
+     *8 @" C1 l6
+      *brace_container C1
+       *9 @dotless C1 l6
+        *brace_container C1
+         {i}
+     { }
+     *10 @` C1 l6
+      *brace_container C1
+       *11 @= C1 l6
+        *following_arg C1
+         {E}
+     { }
+     *12 @l C1 l6
+      *brace_container
+     { }
+     *13 @, C1 l6
+      *brace_container C1
+       *14 @\' C1 l6
+        *following_arg C1
+         {C}
+     { }
+     *15 @exclamdown C1 l6
+      *brace_container
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *16 @node C1 l9
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E30]
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
+  *arguments_line C1
+   *line_arg C14
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A }
+    *17 @sc C1 l9
+     *brace_container C6
+      {sc }
+      *18 @~ C1 l9
+       *following_arg C1
+        {n}
+      { }
+      *19 @aa C1 l9
+       *brace_container
+      { }
+      *20 @TeX C1 l9
+       *brace_container
+    { node }
+    *21 @" C1 l9
+     *following_arg C1
+      {i}
+    { }
+    *22 @" C1 l9
+     *brace_container C1
+      *23 @dotless C1 l9
+       *brace_container C1
+        {i}
+    { }
+    *24 @` C1 l9
+     *brace_container C1
+      *25 @= C1 l9
+       *following_arg C1
+        {E}
+    { }
+    *26 @l C1 l9
+     *brace_container
+    { }
+    *27 @, C1 l9
+     *brace_container C1
+      *28 @\' C1 l9
+       *following_arg C1
+        {C}
+    { }
+    *29 @exclamdown C1 l9
+     *brace_container
+ *30 @chapter C5 l10
+ |INFO
+ |spaces_before_argument:
+  |{  }
+ |EXTRA
+ |associated_node:[E16]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C14
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A }
+    *31 @sc C1 l10
+     *brace_container C1
+      {sc}
+    { node }
+    *32 @" C1 l10
+     *following_arg C1
+      {i}
+    { }
+    *33 @" C1 l10
+     *brace_container C1
+      *34 @dotless C1 l10
+       *brace_container C1
+        {i}
+    { }
+    *35 @` C1 l10
+     *brace_container C1
+      *36 @= C1 l10
+       *following_arg C1
+        {E}
+    { }
+    *37 @l C1 l10
+     *brace_container
+    { }
+    *38 @, C1 l10
+     *brace_container C1
+      *39 @\' C1 l10
+       *following_arg C1
+        {C}
+    { }
+    *40 @exclamdown C1 l10
+     *brace_container
+  {empty_line:\\n}
+  *paragraph C3
+   {see }
+   *41 @ref C4 l12
+    *brace_arg C14
+    |EXTRA
+    |node_content:{a @strong{strong} ref with @sc{sc}@comma{} a i trema @"i@comma{} a dotless i trema @"{@dotless{i}} @`{@=E} and exclamdown @exclamdown{}}
+     {a }
+     *42 @strong C1 l12
+      *brace_container C1
+       {strong}
+     { ref with }
+     *43 @sc C1 l12
+      *brace_container C1
+       {sc}
+     *44 @comma C1 l12
+      *brace_container
+     { a i trema }
+     *45 @" C1 l12
+      *following_arg C1
+       {i}
+     *46 @comma C1 l12
+      *brace_container
+     { a dotless i trema }
+     *47 @" C1 l12
+      *brace_container C1
+       *48 @dotless C1 l12
+        *brace_container C1
+         {i}
+     { }
+     *49 @` C1 l12
+      *brace_container C1
+       *50 @= C1 l12
+        *following_arg C1
+         {E}
+     { and exclamdown }
+     *51 @exclamdown C1 l12
+      *brace_container
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *52 @xref C1 l14
+    *brace_arg C14
+    |EXTRA
+    |node_content:{A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
+    |normalized:{A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
+     {A }
+     *53 @sc C1 l14
+      *brace_container C6
+       {sc }
+       *54 @~ C1 l14
+        *following_arg C1
+         {n}
+       { }
+       *55 @aa C1 l14
+        *brace_container
+       { }
+       *56 @TeX C1 l14
+        *brace_container
+     { node }
+     *57 @" C1 l14
+      *following_arg C1
+       {i}
+     { }
+     *58 @" C1 l14
+      *brace_container C1
+       *59 @dotless C1 l14
+        *brace_container C1
+         {i}
+     { }
+     *60 @` C1 l14
+      *brace_container C1
+       *61 @= C1 l14
+        *following_arg C1
+         {E}
+     { }
+     *62 @l C1 l14
+      *brace_container
+     { }
+     *63 @, C1 l14
+      *brace_container C1
+       *64 @\' C1 l14
+        *following_arg C1
+         {C}
+     { }
+     *65 @exclamdown C1 l14
+      *brace_container
+   {.\\n}
+';
+
 
 $result_texis{'some_at_commands_in_ref_nodes'} = '
 @node Top

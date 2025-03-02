@@ -5,271 +5,95 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ref_to_float'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Label1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Float
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'float_type' => 'Text',
-            'is_target' => 1,
-            'normalized' => 'Label1'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Label2'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'In foat 2.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'float_type' => '',
-            'is_target' => 1,
-            'normalized' => 'Label2'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Label1'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Label1'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Label2'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Label2'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'ref_to_float'} = '*document_root C1
+ *before_node_section C8
+  *preamble_before_content
+  *0 @float C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_number:{1}
+  |float_type:{Text}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{Label1}
+   *arguments_line C2
+    *block_line_arg C1
+     {Text}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {Label1}
+   *paragraph C1
+    {Float\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *1 @float C3 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_number:{1}
+  |float_type:{}
+  |global_command_number:{2}
+  |is_target:{1}
+  |normalized:{Label2}
+   *arguments_line C2
+    *block_line_arg
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {Label2}
+   *paragraph C1
+    {In foat 2.\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @ref C1 l9
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Label1}
+    |normalized:{Label1}
+     {Label1}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @ref C1 l11
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Label2}
+    |normalized:{Label2}
+     {Label2}
+   {\\n}
+';
+
 
 $result_texis{'ref_to_float'} = '@float Text, Label1
 Float

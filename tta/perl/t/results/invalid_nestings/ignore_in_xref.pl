@@ -5,157 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ignore_in_xref'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'first'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ignore',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'text' => 'ignore me
-',
-                          'type' => 'raw'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'ignore'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'ignore'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 6
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'ignore_in_xref'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ignore_in_xref'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'ignore_in_xref'} = '*document_root C2
+ *before_node_section
+ *0 @node C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{first}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @xref C2 l3
+    *brace_arg C1
+    |EXTRA
+    |node_content:{first}
+    |normalized:{first}
+     {first}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{\\n}
+     *2 @ignore C3 l4
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      {raw:ignore me\\n}
+      *@end C1 l6
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{ignore}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {ignore}
+   {.\\n}
+';
+
 
 $result_texis{'ignore_in_xref'} = '@node first
 

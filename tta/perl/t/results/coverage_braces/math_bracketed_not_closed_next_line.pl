@@ -5,57 +5,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'math_bracketed_not_closed_next_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{
-'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'math_bracketed_not_closed_next_line'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @math C1 l1
+    *brace_command_context C2
+     {aa }
+     *balanced_braces C3 l1
+      {{\\n}
+      {empty_line:\\n}
+      {}}
+';
+
 
 $result_texis{'math_bracketed_not_closed_next_line'} = '@math{aa {
 

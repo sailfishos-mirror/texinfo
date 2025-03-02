@@ -5,418 +5,132 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_category_or_no_name'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'no category no name
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'only category'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 5
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'no name
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'deffnx_category'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'with deffnx missing category or name
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_category_or_no_name'} = '*document_root C1
+ *before_node_section C5
+  *0 @deffn C3 l1
+   *def_line C1 l1
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffn}
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *def_item C1
+    *paragraph C1
+     {no category no name\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *1 @deffn C3 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l5
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg C1 l5
+       {only category}
+   *def_item C1
+    *paragraph C1
+     {no name\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *2 @deffn C5 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l9
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{b}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     *def_category C1
+      *def_line_arg C1
+       {a}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {c}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {d}
+   *@deffnx C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {deffnx_category}
+   *@deffnx C1 l11
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+    *line_arg
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+   *def_item C1
+    *paragraph C1
+     {with deffnx missing category or name\\n}
+   *@end C1 l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+';
+
 
 $result_texis{'no_category_or_no_name'} = '@deffn
 no category no name

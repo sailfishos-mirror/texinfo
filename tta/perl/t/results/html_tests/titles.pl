@@ -5,229 +5,76 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'titles'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'settitle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'title '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'test'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top of '
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'title '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'test'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Second paragraph.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'titles'} = '*document_root C3
+ *before_node_section C3
+  {empty_line:\\n}
+  *@settitle C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C5
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *@@
+    {title }
+    *0 @sc C1 l2
+     *brace_container C1
+      {html}
+    { }
+    *1 @code C1 l2
+     *brace_container C1
+      {test}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *3 @top C5 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E3]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C6
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top of }
+    *@@
+    {title }
+    *4 @sc C1 l5
+     *brace_container C1
+      {html}
+    { }
+    *5 @code C1 l5
+     *brace_container C1
+      {test}
+  {empty_line:\\n}
+  *paragraph C1
+   {Top.\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {Second paragraph.\\n}
+';
+
 
 $result_texis{'titles'} = '
 @settitle @@title @sc{html} @code{test}

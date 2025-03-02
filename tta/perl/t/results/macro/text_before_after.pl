@@ -5,81 +5,30 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'text_before_after'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'before '
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' mymacro
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => 'in macro
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro after'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro after'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'mymacro',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'text_before_after'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {before }
+   *0 @macro C3 l1
+   |EXTRA
+   |macro_name:{mymacro}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: mymacro\\n}
+    {raw:in macro\\n}
+    *@end C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro after}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro after}
+';
+
 
 $result_texis{'text_before_after'} = 'before @macro mymacro
 in macro

@@ -5,239 +5,104 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'top_node_up_url'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {},
-      {
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'internal top node up'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'menu',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'type' => 'arguments_line'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'chap'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'chap'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 5
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'menu'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'menu'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 6
-                }
-              }
-            ],
-            'source_info' => {
-              'line_nr' => 4
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 2
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 8
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'top_node_up_url'}[0]{'unit_contents'}[1] = $result_trees{'top_node_up_url'}[0]{'unit_command'};
-$result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'top_node_up_url'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'top_node_up_url'}[1]{'unit_contents'}[0] = $result_trees{'top_node_up_url'}[1]{'unit_command'};
+$result_tree_text{'top_node_up_url'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+NodeNext: [U1]
+NodeForward: [U1]
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {internal top node up}
+  {empty_line:\\n}
+  *2 @menu C3 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chap}
+    |normalized:{chap}
+     {chap}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E3]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+FastBack: [U0]
+NodePrev: [U0]
+NodeUp: [U0]
+NodeBack: [U0]
+ *3 @node C1 l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+';
+
 
 $result_texis{'top_node_up_url'} = '@node Top
 @top internal top node up

@@ -5,1156 +5,273 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_accents_sc_enable_encoding_usascii'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'US-ASCII'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'us-ascii',
-                'text_arg' => 'US-ASCII'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'node-chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 8
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '``in double q\'\'. `in simple q\'.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ', --- '
-            },
-            {
-              'cmdname' => 'dfn',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'def'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' -- '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in samp'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' a'
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'comma',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'exclamdown',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'dots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'geq',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'l',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'copyright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'error',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'quotedblleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => ' in quotes '
-            },
-            {
-              'cmdname' => 'quotedblright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'expansion',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'minus',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'registeredsymbol',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'u',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'aa',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'E'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'udotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'r'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'v',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '=',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ',',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '~',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'n'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 22
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 22
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'equiv',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'aa',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '^',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => " \x{e9} "
-                    },
-                    {
-                      'cmdname' => '^',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'dotless',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'i'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'udotaccent',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'v',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '\'',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'r'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '=',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => ',',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => '~',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'n'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                        'line_nr' => 24
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                                'line_nr' => 24
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                        'line_nr' => 24
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'punctuation_small_case_accents_us_ascii.texi',
-        'line_nr' => 9
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_accents_sc_enable_encoding_usascii'} = '*document_root C5
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@documentencoding C1 punctuation_small_case_accents_us_ascii.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{us-ascii}
+   |text_arg:{US-ASCII}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {US-ASCII}
+   {empty_line:\\n}
+ *0 @node C1 punctuation_small_case_accents_us_ascii.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+ *1 @top C2 punctuation_small_case_accents_us_ascii.texi:l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top section}
+  {empty_line:\\n}
+ *2 @node C1 punctuation_small_case_accents_us_ascii.texi:l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{node-chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node chap}
+ *3 @chapter C11 punctuation_small_case_accents_us_ascii.texi:l9
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  *paragraph C1
+   {``in double q\'\'. `in simple q\'.\\n}
+  {empty_line:\\n}
+  *paragraph C16
+   *4 @\' C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *following_arg C1
+     {e}
+   {, --- }
+   *5 @dfn C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container C1
+     {def}
+   { -- }
+   *6 @code C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container C1
+     {in code}
+   {. }
+   *7 @samp C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container C1
+     {in samp}
+   { a}
+   *8 @\' C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container C1
+     {e}
+   {. }
+   *9 @comma C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container
+   { }
+   *10 @exclamdown C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container
+   {. }
+   *11 @dots C1 punctuation_small_case_accents_us_ascii.texi:l13
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C26
+   *12 @geq C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   { }
+   *13 @enddots C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   { }
+   *14 @AA C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   { }
+   *15 @\' C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *following_arg C1
+     {e}
+   { }
+   *16 @dotaccent C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container C1
+     {A}
+   { }
+   *17 @l C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   {. }
+   *18 @copyright C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   {. }
+   *19 @error C1 punctuation_small_case_accents_us_ascii.texi:l15
+    *brace_container
+   {.\\n}
+   *20 @quotedblleft C1 punctuation_small_case_accents_us_ascii.texi:l16
+    *brace_container
+   { in quotes }
+   *21 @quotedblright C1 punctuation_small_case_accents_us_ascii.texi:l16
+    *brace_container
+   {. }
+   *22 @expansion C1 punctuation_small_case_accents_us_ascii.texi:l16
+    *brace_container
+   {\\n}
+   *23 @minus C1 punctuation_small_case_accents_us_ascii.texi:l17
+    *brace_container
+   { }
+   *24 @registeredsymbol C1 punctuation_small_case_accents_us_ascii.texi:l17
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C26
+   *25 @u C1 punctuation_small_case_accents_us_ascii.texi:l20
+    *brace_container C1
+     {--a}
+   {\\n}
+   *26 @^ C1 punctuation_small_case_accents_us_ascii.texi:l21
+    *brace_container C1
+     {--a}
+   {\\n}
+   *27 @aa C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container
+   { }
+   *28 @AA C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container
+   { }
+   *29 @^ C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *following_arg C1
+     {e}
+   { }
+   *30 @^ C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *following_arg C1
+     {E}
+   { }
+   *31 @~ C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container C1
+     *32 @dotless C1 punctuation_small_case_accents_us_ascii.texi:l22
+      *brace_container C1
+       {i}
+   { }
+   *33 @dotless C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container C1
+     {i}
+   { }
+   *34 @udotaccent C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container C1
+     {r}
+   { }
+   *35 @v C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container C1
+     *36 @\' C1 punctuation_small_case_accents_us_ascii.texi:l22
+      *brace_container C1
+       {r}
+   { }
+   *37 @= C1 punctuation_small_case_accents_us_ascii.texi:l22
+    *brace_container C1
+     *38 @, C1 punctuation_small_case_accents_us_ascii.texi:l22
+      *brace_container C1
+       *39 @~ C1 punctuation_small_case_accents_us_ascii.texi:l22
+        *brace_container C1
+         {n}
+   {.\\n}
+   *40 @equiv C1 punctuation_small_case_accents_us_ascii.texi:l23
+    *brace_container
+   {\\n}
+   *41 @sc C1 punctuation_small_case_accents_us_ascii.texi:l24
+    *brace_container C17
+     *42 @aa C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container
+     { }
+     *43 @AA C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container
+     { }
+     *44 @^ C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *following_arg C1
+       {e}
+     { é }
+     *45 @^ C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *following_arg C1
+       {E}
+     { }
+     *46 @~ C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container C1
+       *47 @dotless C1 punctuation_small_case_accents_us_ascii.texi:l24
+        *brace_container C1
+         {i}
+     { }
+     *48 @dotless C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container C1
+       {i}
+     { }
+     *49 @udotaccent C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container C1
+       {r}
+     { }
+     *50 @v C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container C1
+       *51 @\' C1 punctuation_small_case_accents_us_ascii.texi:l24
+        *brace_container C1
+         {r}
+     { }
+     *52 @= C1 punctuation_small_case_accents_us_ascii.texi:l24
+      *brace_container C1
+       *53 @, C1 punctuation_small_case_accents_us_ascii.texi:l24
+        *brace_container C1
+         *54 @~ C1 punctuation_small_case_accents_us_ascii.texi:l24
+          *brace_container C1
+           {n}
+   {.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'test_accents_sc_enable_encoding_usascii'} = '\\input texinfo
 

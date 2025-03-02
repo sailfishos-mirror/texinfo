@@ -5,127 +5,45 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'alias_of_definfoenclose_before_definfoenclose'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'new = phoo'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'new',
-              'phoo'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'phoo,;,:'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'phoo',
-              ';',
-              ':'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'phoo',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'begin' => ';',
-                'end' => ':'
-              },
-              'info' => {
-                'alias_of' => 'new',
-                'command_name' => 'phoo'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'definfoenclose_command'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'alias_of_definfoenclose_before_definfoenclose'} = '*document_root C1
+ *before_node_section C5
+  *@alias C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{new|phoo}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {new = phoo}
+  {empty_line:\\n}
+  *@definfoenclose C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{phoo|;|:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {phoo,;,:}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 definfoenclose_command@phoo C1 l5
+   |INFO
+   |alias_of:{new}
+   |command_name:{phoo}
+   |EXTRA
+   |begin:{;}
+   |end:{:}
+    *brace_container C1
+     {aa}
+   {\\n}
+';
+
 
 $result_texis{'alias_of_definfoenclose_before_definfoenclose'} = '@alias new = phoo
 

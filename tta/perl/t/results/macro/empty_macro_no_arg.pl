@@ -5,129 +5,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_macro_no_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' foo
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'foo',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'info' => {
-                  'command_name' => 'foo'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'foo'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 2,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_macro_no_arg'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C2 l1
+  |EXTRA
+  |macro_name:{foo}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: foo\\n}
+   *@end C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1>
+   >*macro_call
+   >|INFO
+   >|command_name:{foo}
+  >macro_expansion<end;1>
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;2>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{foo}
+    >*brace_arg
+  >macro_expansion<end;2>
+';
+
 
 $result_texis{'empty_macro_no_arg'} = '@macro foo
 @end macro

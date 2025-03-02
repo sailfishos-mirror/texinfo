@@ -5,525 +5,146 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'block_not_matching'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'A quotation
-'
-                }
-              ],
-              'type' => 'paragraph'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Function Reference'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 5
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'print_navigation'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '$filehandle'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'print_navigation'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'item'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'line
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'emph',
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'ref'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 14
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'group',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in group
-'
-                }
-              ],
-              'type' => 'paragraph'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 21
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'group',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in group 2
-'
-                }
-              ],
-              'type' => 'paragraph'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 25
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'cartouche
-'
-                }
-              ],
-              'type' => 'paragraph'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 29
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'carouche
-'
-                }
-              ],
-              'type' => 'paragraph'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 33
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'block_not_matching'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'block_not_matching'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'block_not_matching'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'block_not_matching'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'block_not_matching'} = '*document_root C1
+ *before_node_section C15
+  *0 @quotation C2 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {A quotation\\n}
+  {empty_line:\\n}
+  *1 @deffn C2 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l5
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{print_navigation}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg C1 l5
+       {Function Reference}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {print_navigation}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {$filehandle}
+   *def_item C1
+    *paragraph C1
+     {Text\\n}
+  {empty_line:\\n}
+  *2 @table C2 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E3]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *3 @asis l9
+   *table_entry C2
+    *table_term C1
+     *@item C1 l10
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {item}
+    *table_definition C1
+     *paragraph C1
+      {line\\n}
+  {empty_line:\\n}
+  *4 @table C2 l14
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E5]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *5 @emph l14
+   *table_entry C2
+    *table_term C1
+     *@item C1 l15
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {ref}
+    *table_definition C1
+     *6 @example C2 l16
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      *preformatted C1
+       {example\\n}
+  {empty_line:\\n}
+  *7 @group C2 l21
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {in group\\n}
+  {empty_line:\\n}
+  *8 @group C2 l25
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {in group 2\\n}
+  {empty_line:\\n}
+  *9 @cartouche C2 l29
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {cartouche\\n}
+  {empty_line:\\n}
+  *10 @cartouche C2 l33
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {carouche\\n}
+';
+
 
 $result_texis{'block_not_matching'} = '@quotation
 A quotation

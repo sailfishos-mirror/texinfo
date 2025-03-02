@@ -5,72 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_zero'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'zero',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '0',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' zero 0
-'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Value
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'zero'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => '0',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '0'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_zero'} = '*document_root C1
+ *before_node_section C2
+  *@set C2
+  |INFO
+  |arg_line:{ zero 0\\n}
+   {rawline_arg:zero}
+   {rawline_arg:0}
+  *paragraph C2
+   {Value\\n}
+   {0}
+   >SOURCEMARKS
+   >value_expansion<start;1>{0}
+    >*@value C1
+     >*brace_container C1
+      >{zero}
+   >value_expansion<end;1><p:1>
+';
+
 
 $result_texis{'value_zero'} = '@set zero 0
 Value

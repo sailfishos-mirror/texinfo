@@ -5,229 +5,69 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'table_not_closed_in_menu_comment'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'manual'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'desc
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'table',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'asis',
-                              'source_info' => {
-                                'line_nr' => 4
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'item'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 5
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'comment
-'
-                                },
-                                {
-                                  'text' => '* (manual2)::
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    }
-                  ],
-                  'extra' => {
-                    'command_as_argument' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_not_closed_in_menu_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'table_not_closed_in_menu_comment'} = '*document_root C1
+ *before_node_section C1
+  *0 @menu C4 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l2
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{manual}
+     {(}
+     {manual}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C1
+     *preformatted C1
+      {desc\\n}
+   *menu_comment C2
+    *preformatted C1
+     {after_menu_description_line:\\n}
+    *1 @table C2 l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |command_as_argument:[E2]
+     *arguments_line C1
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *2 @asis l4
+     *table_entry C2
+      *table_term C1
+       *@item C1 l5
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {item}
+      *table_definition C1
+       *preformatted C2
+        {comment\\n}
+        {* (manual2)::\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'table_not_closed_in_menu_comment'} = '@menu
 * (manual):: desc

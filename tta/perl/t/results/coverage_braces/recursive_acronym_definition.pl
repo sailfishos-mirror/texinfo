@@ -5,112 +5,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'recursive_acronym_definition'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'GNU'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'acronym',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'GNU'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'acronym',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'GNU'
-                                    }
-                                  ],
-                                  'type' => 'brace_arg'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'is something'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => '\'s Not Unix'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => '\'s Not Unix'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'recursive_acronym_definition'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @acronym C2 l1
+    *brace_arg C1
+     {GNU}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *1 @acronym C2 l1
+      *brace_arg C1
+       {GNU}
+      *brace_arg C2
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *2 @acronym C2 l1
+        *brace_arg C1
+         {GNU}
+        *brace_arg C1
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         {is something}
+       {\'s Not Unix}
+     {\'s Not Unix}
+   {\\n}
+';
+
 
 $result_texis{'recursive_acronym_definition'} = '@acronym{GNU, @acronym{GNU, @acronym{GNU, is something}\'s Not Unix}\'s Not Unix}
 ';

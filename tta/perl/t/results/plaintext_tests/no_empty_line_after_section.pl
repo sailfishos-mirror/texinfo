@@ -5,301 +5,109 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_empty_line_after_section'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Other text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' comment
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Para
-'
-            },
-            {
-              'cmdname' => 'comment',
-              'contents' => [
-                {
-                  'text' => ' c
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'sec'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'url'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' A.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '3'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '3'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 13
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1.1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 10
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'after sp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 15
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Para indented.
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1.2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 14
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_empty_line_after_section'} = '*document_root C5
+ *before_node_section C1
+  *paragraph C1
+   {Text\\n}
+ *0 @top C3 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_childs:EC[E1]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  *paragraph C1
+   {Other text\\n}
+  {empty_line:\\n}
+ *1 @chapter C4 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_childs:EC[E2|E4]
+ |section_directions:D[up->E0]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E0|up->E0]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  *@c C1
+   {rawline_arg: comment\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {Para\\n}
+   *@comment C1
+    {rawline_arg: c\\n}
+ *2 @section C4 l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E4|up->E1]
+ |section_level:{2}
+ |section_number:{1.1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {sec}
+  *paragraph C2
+   *3 @uref C1 l11
+    *brace_arg C1
+     {url}
+   { A.\\n}
+  {empty_line:\\n}
+  *@sp C1 l13
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {3}
+ *4 @section C5 l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[prev->E2|up->E1]
+ |section_level:{2}
+ |section_number:{1.2}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {after sp}
+  *@indent l15
+  {ignorable_spaces_after_command:\\n}
+  *paragraph C1
+  |EXTRA
+  |indent:{1}
+   {Para indented.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'no_empty_line_after_section'} = 'Text
 @top top

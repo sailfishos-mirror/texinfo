@@ -5,177 +5,60 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_ifset_in_ifset_set'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'notset',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' notset
-'
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'notset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 4
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'verbatim',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'verbatim'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'verbatim'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'ifset'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'ifset'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 8
-                }
-              },
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'end'
-            }
-          ]
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_ifset_in_ifset_set'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ notset\\n}
+   {rawline_arg:notset}
+   {rawline_arg:}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l4
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{notset}
+  *0 @verbatim C3 l5
+  >SOURCEMARKS
+  >expanded_conditional_command<end;1>
+   >*@end C1 l8
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{ifset}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{\\n}
+     >{ifset}
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {raw:@ifset\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{verbatim}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {verbatim}
+';
+
 
 $result_texis{'empty_ifset_in_ifset_set'} = '
 @set notset

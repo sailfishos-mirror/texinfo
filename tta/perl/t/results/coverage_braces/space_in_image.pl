@@ -5,128 +5,50 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'space_in_image'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'bb'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'cc'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'dd'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '.e'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'space_in_image'} = '*document_root C1
+ *before_node_section C2
+  *0 @image C5 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+   |spaces_before_argument:
+    |{ }
+    {a}
+   *brace_arg C1
+    {bb}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    {cc}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {dd}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {.e}
+  *paragraph C3
+   {. }
+   *1 @image C1 l1
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {f}
+   {.}
+';
+
 
 $result_texis{'space_in_image'} = '@image{ a ,bb, cc,dd ,.e }. @image{ f }.';
 

@@ -5,64 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'raw_block_on_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'tex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          },
-          'type' => 'index_entry_command'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'raw_block_on_line'} = '*document_root C1
+ *before_node_section C1
+  *0 index_entry_command@cindex C1 l1
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{cp,1}
+   *line_arg C1
+    *1 @tex C1 l1
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+';
+
 
 $result_texis{'raw_block_on_line'} = '@cindex @tex
 ';

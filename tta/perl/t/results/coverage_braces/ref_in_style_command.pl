@@ -5,76 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ref_in_style_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '('
-                            },
-                            {
-                              'text' => 'manula'
-                            },
-                            {
-                              'text' => ')'
-                            },
-                            {
-                              'text' => 'other node'
-                            }
-                          ],
-                          'extra' => {
-                            'manual_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'ref_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'ref_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'ref_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_tree_text{'ref_in_style_command'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @samp C1 l1
+    *brace_container C1
+     *1 @ref C1 l1
+      *brace_arg C4
+      |EXTRA
+      |manual_content:{manula}
+      |node_content:{other node}
+       {(}
+       {manula}
+       {)}
+       {other node}
+   {.}
+';
+
 
 $result_texis{'ref_in_style_command'} = '@samp{@ref{(manula)other node}}.';
 

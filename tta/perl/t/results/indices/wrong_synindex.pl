@@ -5,69 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'wrong_synindex'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'aaa'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'synindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa aaa'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'wrong_synindex'} = '*document_root C1
+ *before_node_section C2
+  *@defindex C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{aaa}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {aaa}
+  *@synindex C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+    {aaa aaa}
+';
+
 
 $result_texis{'wrong_synindex'} = '@defindex aaa
 @synindex aaa aaa';

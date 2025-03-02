@@ -5,167 +5,58 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_multitable_in_itemize'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a--n itemize line'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in macro
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'multitable',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'multitable'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'multitable'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'max_columns' => 0
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'itemize'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'itemize'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_multitable_in_itemize'} = '*document_root C1
+ *before_node_section C1
+  *0 @itemize C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {a--n itemize line}
+   *@item C5 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {in macro\\n}
+    {empty_line:\\n}
+    *1 @multitable C2 l4
+    |EXTRA
+    |max_columns:{0}
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *@end C1 l5
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{multitable}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {multitable}
+    {empty_line:\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{itemize}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {itemize}
+';
+
 
 $result_texis{'empty_multitable_in_itemize'} = '@itemize a--n itemize line
 @item in macro

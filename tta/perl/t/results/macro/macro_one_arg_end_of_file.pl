@@ -5,112 +5,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_one_arg_end_of_file'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' onearg{arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'Arg \\arg\\.
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'onearg',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'onearg'
-                    },
-                    'type' => 'macro_call_line'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'Arg .'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_one_arg_end_of_file'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{onearg}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: onearg{arg}\\n}
+   {raw:Arg \\arg\\.\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C1
+   {Arg .}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call_line C1
+    >|INFO
+    >|command_name:{onearg}
+     >*line_arg
+   >macro_expansion<end;1><p:5>
+';
+
 
 $result_texis{'macro_one_arg_end_of_file'} = '@macro onearg{arg}
 Arg \\arg\\.

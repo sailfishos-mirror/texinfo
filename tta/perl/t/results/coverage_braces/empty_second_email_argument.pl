@@ -5,56 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_second_email_argument'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'b.c'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_second_email_argument'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @email C2 l1
+    *brace_arg C3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {a}
+     *@@
+     {b.c}
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+';
+
 
 $result_texis{'empty_second_email_argument'} = '@email{ a@@b.c, }';
 

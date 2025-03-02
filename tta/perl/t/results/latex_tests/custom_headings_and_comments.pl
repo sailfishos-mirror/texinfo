@@ -5,462 +5,171 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'custom_headings_and_comments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'evenheading',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'thispage'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thissectionname'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '|'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thissectionnum'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thissection'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '|'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thischaptername'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thischapternum'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '  
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'evenfooting',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'thischapter'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thistitle'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '|'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'thisfile'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '|'
-                    },
-                    {
-                      'text' => '   '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'thischaptername'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    'spaces_after_argument' => {
-                      'text' => '  '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '   '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top sectionning'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 7
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ch--ap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'page',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'after ch--ap first page
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'page',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'after ch--ap second page
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 8
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'sec1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1.1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 18
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap 2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 20
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'custom_headings_and_comments'} = '*document_root C7
+ *before_node_section C1
+  *preamble_before_content C3
+   *@evenheading C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C15
+    |INFO
+    |spaces_after_argument:
+     |{  \\n}
+     *@thispage
+     { }
+     *@thissectionname
+     { }
+     *@|
+     { }
+     *@thissectionnum
+     { }
+     *@thissection
+     { }
+     *@|
+     { }
+     *@thischaptername
+     { }
+     *@thischapternum
+   *@evenfooting C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{   }
+    *line_arg C11
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+    |spaces_after_argument:
+     |{  }
+     *@thischapter
+     { }
+     *@thistitle
+     { }
+     *@|
+     { }
+     *@thisfile
+     { }
+     *@|
+     {   }
+     *0 @code C1 l2
+      *brace_container C1
+       *@thischaptername
+   {empty_line:\\n}
+ *1 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E2]
+ |is_target:{1}
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *2 @top C2 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E1]
+ |section_childs:EC[E4|E6]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E2]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top sectionning}
+  {empty_line:\\n}
+ *3 @node C1 l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |node_directions:D[prev->E1|up->E1]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *4 @chapter C10 l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_childs:EC[E5]
+ |section_directions:D[next->E6|up->E2]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E6|prev->E2|up->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ch--ap}
+  {empty_line:\\n}
+  *@page C1
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {after ch--ap first page\\n}
+  {empty_line:\\n}
+  *@page C1
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {after ch--ap second page\\n}
+  {empty_line:\\n}
+ *5 @section C2 l18
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[up->E4]
+ |section_level:{2}
+ |section_number:{1.1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {sec1}
+  {empty_line:\\n}
+ *6 @chapter C2 l20
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[prev->E4|up->E2]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[prev->E4|up->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap 2}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'custom_headings_and_comments'} = '@evenheading @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum  
 @evenfooting   @thischapter @thistitle @| @thisfile @|   @code{@thischaptername}  @c comment

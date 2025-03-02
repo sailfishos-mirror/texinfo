@@ -5,65 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'footnote_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'AAA'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in footnote
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Second paragraph.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'footnote_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {AAA}
+   *0 @footnote C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *brace_command_context C3
+     *paragraph C1
+      {in footnote\\n}
+     {empty_line:\\n}
+     *paragraph C1
+      {Second paragraph.\\n}
+';
+
 
 $result_texis{'footnote_not_closed'} = 'AAA@footnote{ in footnote
 

@@ -5,37 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accent_and_dash'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a--'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accent_and_dash'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @^ C1 l1
+    *brace_container C1
+     {a--}
+';
+
 
 $result_texis{'accent_and_dash'} = '@^{a--}';
 

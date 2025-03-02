@@ -5,201 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'caption_in_example'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'example',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in example 
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'caption',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'caption'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {
-                    'float' => {}
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'text' => '',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'text' => 'After caption
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'example'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'example'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_type' => 'float'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'extra'}{'float'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_tree_text{'caption_in_example'} = '*document_root C1
+ *before_node_section C1
+  *0 @float C4 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E2]
+  |float_type:{float}
+  |global_command_number:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+   {empty_line:\\n}
+   *1 @example C6 l3
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *preformatted C2
+     {in example \\n}
+     {empty_line:\\n}
+    *2 @caption C1 l6
+    |EXTRA
+    |float:[E0]
+     *brace_command_context C1
+      *paragraph C1
+       {caption}
+    {spaces_after_close_brace:}
+    *preformatted C3
+     {\\n}
+     {empty_line:\\n}
+     {After caption\\n}
+    *@end C1 l9
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{example}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {example}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+';
+
 
 $result_texis{'caption_in_example'} = '@float float
 

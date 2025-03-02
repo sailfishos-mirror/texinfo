@@ -5,208 +5,70 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'index_command_before_end_table'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in item'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'cmdname' => 'itemx',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in itemx'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aaaaa
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'cmdname' => 'vindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'var'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'index_entry' => [
-                          'vr',
-                          1
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'vindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7
-                      },
-                      'type' => 'index_entry_command'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'index_command_before_end_table'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'index_command_before_end_table'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *0 @table C3 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @code l2
+   *table_entry C2
+    *table_term C2
+     *@item C1 l3
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {in item}
+     *@itemx C1 l4
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {in itemx}
+    *table_definition C3
+     *paragraph C1
+      {aaaaa\\n}
+     {empty_line:\\n}
+     *2 index_entry_command@vindex C1 l7
+     |INFO
+     |command_name:{vindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |index_entry:I{vr,1}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {var}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+';
+
 
 $result_texis{'index_command_before_end_table'} = '
 @table @code

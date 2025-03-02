@@ -5,50 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'not_closed_itemize'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'bullet',
-                      'info' => {
-                        'inserted' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'not_closed_itemize'} = '*document_root C1
+ *before_node_section C1
+  *0 @itemize C1 l1
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @bullet
+     |INFO
+     |inserted:{1}
+';
+
 
 $result_texis{'not_closed_itemize'} = '@itemize
 ';

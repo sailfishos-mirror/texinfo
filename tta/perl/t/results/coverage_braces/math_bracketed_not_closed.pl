@@ -5,62 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'math_bracketed_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{x^i}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'text' => '\\over'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{\\tan '
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'math_bracketed_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @math C1 l1
+    *brace_command_context C3
+     *balanced_braces C1 l1
+      {{x^i}}
+     {\\over}
+     *balanced_braces C2 l1
+      {{\\tan }
+      {}}
+';
+
 
 $result_texis{'math_bracketed_not_closed'} = '@math{{x^i}\\over{\\tan }}';
 

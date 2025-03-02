@@ -5,205 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'tab_in_index'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'one nonlettered character'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'normal text'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'one nonlettered character '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'aaa
-'
-                            },
-                            {
-                              'cmdname' => 'vindex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in index entry '
-                                    },
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'text' => 'in tab'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'vr',
-                                  1
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'vindex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 3
-                              },
-                              'type' => 'index_entry_command'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 2
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'tab_in_index'} = '*document_root C1
+ *before_node_section C1
+  *0 @multitable C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{2}
+   *arguments_line C1
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l1
+      {one nonlettered character}
+     { }
+     *bracketed_arg C1 l1
+      {normal text}
+   *multitable_body C1
+    *row C2
+    |EXTRA
+    |row_number:{1}
+     *@item C2 l2
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {one nonlettered character }
+     *@tab C2 l2
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {aaa\\n}
+       *1 index_entry_command@vindex C1 l3
+       |INFO
+       |command_name:{vindex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{vr,1}
+        *line_arg C3
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {in index entry }
+         {ignorable_spaces_after_command: }
+         {in tab}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+';
+
 
 $result_texis{'tab_in_index'} = '@multitable {one nonlettered character} {normal text}
 @item one nonlettered character @tab aaa

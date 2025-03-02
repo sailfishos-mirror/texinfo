@@ -5,160 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'second_level_lone_braces_in_html_not_expanded'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{a@code{{
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '}}
-',
-                  'type' => 'raw'
-                }
-              ],
-              'type' => 'elided_rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'html'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{b@code{
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '{c d}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '}
-',
-                  'type' => 'raw'
-                }
-              ],
-              'type' => 'elided_rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'html'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 6
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'second_level_lone_braces_in_html_not_expanded'} = '*document_root C1
+ *before_node_section C3
+  *0 @html C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *elided_rawpreformatted C2
+    {raw:{a@code{{\\n}
+    {raw:}}\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{html}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {html}
+  {empty_line:\\n}
+  *1 @html C3 l6
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *elided_rawpreformatted C3
+    {raw:{b@code{\\n}
+    {raw:{c d}\\n}
+    {raw:}\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{html}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {html}
+';
+
 
 $result_texis{'second_level_lone_braces_in_html_not_expanded'} = '@html
 {a@code{{

@@ -5,37 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'text_space_comment'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'text  '
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' space comment',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'text_space_comment'} = '*document_root C1
+ *before_node_section C2
+  {spaces_before_paragraph: }
+  *paragraph C2
+   {text  }
+   *@c C1
+    {rawline_arg: space comment}
+';
+
 
 $result_texis{'text_space_comment'} = ' text  @c space comment';
 

@@ -5,144 +5,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines Dot.
-'
-            },
-            {
-              'text' => 'Exclam!
-'
-            },
-            {
-              'text' => 'Question?
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines and spaces
-'
-            },
-            {
-              'text' => 'Dot.
-'
-            },
-            {
-              'text' => 'Exclam!
-'
-            },
-            {
-              'text' => 'Question?
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'With paren.) paren.)  Symb.)"\'] Symb.)"\']  End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines paren.)
-'
-            },
-            {
-              'text' => 'Symb.)"\']
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines and spaces paren.)
-'
-            },
-            {
-              'text' => 'Symb.)"\']
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation'} = '*document_root C1
+ *before_node_section C12
+  {empty_line:\\n}
+  *paragraph C1
+   {Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {End of lines Dot.\\n}
+   {Exclam!\\n}
+   {Question?\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {End of lines and spaces\\n}
+   {Dot.\\n}
+   {Exclam!\\n}
+   {Question?\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {With paren.) paren.)  Symb.)"\'] Symb.)"\']  End.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {End of lines paren.)\\n}
+   {Symb.)"\']\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {End of lines and spaces paren.)\\n}
+   {Symb.)"\']\\n}
+   {End.\\n}
+';
+
 
 $result_texis{'punctuation'} = '
 Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.

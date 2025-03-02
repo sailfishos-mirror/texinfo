@@ -5,250 +5,82 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'footnote_in_center'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Centered text with a footnote'
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'This footnote
-'
-                            },
-                            {
-                              'text' => 'shows an important feature of the centered text.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'cmdname' => 'example',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'cmdname' => 'table',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'asis',
-                                          'source_info' => {
-                                            'line_nr' => 5
-                                          }
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'block_line_arg'
-                                    }
-                                  ],
-                                  'type' => 'arguments_line'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'item',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'item'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'spaces_after_argument' => {
-                                                  'text' => '
-'
-                                                }
-                                              },
-                                              'type' => 'line_arg'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_before_argument' => {
-                                              'text' => ' '
-                                            }
-                                          },
-                                          'source_info' => {
-                                            'line_nr' => 6
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'table_term'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'line
-'
-                                            }
-                                          ],
-                                          'type' => 'preformatted'
-                                        }
-                                      ],
-                                      'type' => 'table_definition'
-                                    }
-                                  ],
-                                  'type' => 'table_entry'
-                                },
-                                {
-                                  'cmdname' => 'end',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'table'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => ' 
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'text_arg' => 'table'
-                                  },
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 8
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'command_as_argument' => {}
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 5
-                              }
-                            },
-                            {
-                              'cmdname' => 'end',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'example'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'text_arg' => 'example'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 9
-                              }
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' and text after the footnote.'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'footnote_in_center'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'footnote_in_center'} = '*document_root C1
+ *before_node_section C1
+  *@center C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Centered text with a footnote}
+    *0 @footnote C1 l1
+    |EXTRA
+    |global_command_number:{1}
+     *brace_command_context C3
+      *paragraph C2
+       {This footnote\\n}
+       {shows an important feature of the centered text.\\n}
+      {empty_line:\\n}
+      *1 @example C3 l4
+       *arguments_line C1
+        *block_line_arg
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+       *2 @table C3 l5
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |command_as_argument:[E3]
+        *arguments_line C1
+         *block_line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{\\n}
+          *3 @asis l5
+        *table_entry C2
+         *table_term C1
+          *@item C1 l6
+          |INFO
+          |spaces_before_argument:
+           |{ }
+           *line_arg C1
+           |INFO
+           |spaces_after_argument:
+            |{\\n}
+            {item}
+         *table_definition C1
+          *preformatted C1
+           {line\\n}
+        *@end C1 l8
+        |INFO
+        |spaces_before_argument:
+         |{ }
+        |EXTRA
+        |text_arg:{table}
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{ \\n}
+          {table}
+       *@end C1 l9
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |text_arg:{example}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {example}
+    { and text after the footnote.}
+';
+
 
 $result_texis{'footnote_in_center'} = '@center Centered text with a footnote@footnote{This footnote
 shows an important feature of the centered text.

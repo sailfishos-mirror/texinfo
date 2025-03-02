@@ -5,180 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'double_top'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ToP'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'ToP'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'TOP'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'normalized' => 'Top'
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'double_top'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'double_top'}{'contents'}[2]{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_tree_text{'double_top'} = '*document_root C3
+ *before_node_section
+ *0 @node C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E0]
+ |normalized:{Top}
+  *arguments_line C2
+   *line_arg C1
+    {ToP}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{top}
+   |normalized:{Top}
+    {top}
+  {empty_line:\\n}
+ *1 @node C4 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{Top}
+  *arguments_line C4
+   *line_arg C1
+    {top}
+   *line_arg
+   *line_arg C1
+   |EXTRA
+   |node_content:{ToP}
+   |normalized:{Top}
+    {ToP}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+  {empty_line:\\n}
+  *2 @anchor C1 l5
+  |EXTRA
+  |normalized:{Top}
+   *brace_arg C1
+    {TOP}
+  *paragraph C1
+   {.\\n}
+';
+
 
 $result_texis{'double_top'} = '@node ToP, top
 

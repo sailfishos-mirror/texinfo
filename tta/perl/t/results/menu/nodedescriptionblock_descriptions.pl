@@ -5,1461 +5,500 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nodedescriptionblock_descriptions'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'test of nodedescriptionblock used in menu'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'toto'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'toto'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'titi'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'titi'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::  ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'desc of titi
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'name of other'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'other'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'other'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a somewhat long node without description nor following space'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node double nodedescriptionblock'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node-double-nodedescriptionblock'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'toto'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'node_description' => {
-          'cmdname' => 'nodedescription',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'toto is there:: and the '
-                },
-                {
-                  'cmdname' => 'emph',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'is a description'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'cmdname' => 'w',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'slightly long'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'text' => ' and '
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'vv somewhat',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => ':'
-                  },
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'ringaccent',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_cmd_before_arg' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'text' => 'nexpected'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 16
-          }
-        },
-        'node_long_description' => {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Block along line node description for toto
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 18
-          }
-        },
-        'normalized' => 'toto'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 13
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Toto'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'titi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'node_description' => {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'description of titi in block
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 27
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 25
-          }
-        },
-        'node_long_description' => {},
-        'normalized' => 'titi'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 22
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Titi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 23
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'other'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'node_description' => {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Long description of other
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Para2
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'quotation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a quotation in description
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'quotation'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'quotation'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 39
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 37
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 40
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 32
-          }
-        },
-        'node_long_description' => {},
-        'normalized' => 'other'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 29
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Other'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '3'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 30
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a somewhat long node without description nor following space'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'node_description' => {
-          'cmdname' => 'nodedescription',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'not as long as the node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 49
-          }
-        },
-        'node_long_description' => {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Block description before, not as long as the node
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 47
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 45
-          }
-        },
-        'normalized' => 'a-somewhat-long-node-without-description-nor-following-space'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 42
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Somewhat long'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '4'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 43
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node double nodedescriptionblock'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'node_description' => {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'block desc 1
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 56
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 54
-          }
-        },
-        'node_long_description' => {},
-        'normalized' => 'node-double-nodedescriptionblock'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 51
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'test double'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'nodedescriptionblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'block desc 2
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'nodedescriptionblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'nodedescriptionblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 60
-              }
-            }
-          ],
-          'extra' => {
-            'element_node' => {}
-          },
-          'source_info' => {
-            'line_nr' => 58
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '5'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 52
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[3]{'contents'}[0];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3]{'extra'}{'node_long_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[4]{'contents'}[2] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[4]{'contents'}[4] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[3]{'extra'}{'node_long_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[5]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[5];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[5]{'extra'}{'node_long_description'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[5]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[6]{'contents'}[2] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[5]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[7]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[7];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[7]{'extra'}{'node_long_description'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[7]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[8]{'contents'}[2] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[7]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9]{'extra'}{'node_long_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[10]{'contents'}[2] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9]{'extra'}{'node_long_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[10]{'contents'}[4] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[9]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11]{'extra'}{'node_description'}{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11];
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11]{'extra'}{'node_long_description'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[12]{'contents'}[2] = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11]{'extra'}{'node_description'};
-$result_trees{'nodedescriptionblock_descriptions'}{'contents'}[12]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'nodedescriptionblock_descriptions'}{'contents'}[11];
+$result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4|E12|E15|E19|E23]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {test of nodedescriptionblock used in menu}
+  {empty_line:\\n}
+  *2 @menu C8 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{toto}
+    |normalized:{toto}
+     {toto}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l6
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{titi}
+    |normalized:{titi}
+     {titi}
+    {menu_entry_separator:::  }
+    *menu_entry_description C1
+     *preformatted C1
+      {desc of titi\\n}
+   *menu_entry C6 l7
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {name of other}
+    {menu_entry_separator:: }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{other}
+    |normalized:{other}
+     {other}
+    {menu_entry_separator:.}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_comment C1
+    *preformatted C1
+     {after_menu_description_line:\\n}
+   *menu_entry C4 l9
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{a somewhat long node without description nor following space}
+    |normalized:{a-somewhat-long-node-without-description-nor-following-space}
+     {a somewhat long node without description nor following space}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l10
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node double nodedescriptionblock}
+    |normalized:{node-double-nodedescriptionblock}
+     {node double nodedescriptionblock}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *3 @node C1 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menu_directions:D[next->E11|up->E0]
+ |node_description:[E5]
+ |node_directions:D[next->E11|prev->E0|up->E0]
+ |node_long_description:[E10]
+ |normalized:{toto}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {toto}
+ *4 @chapter C6 l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[next->E12|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E12|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Toto}
+  {empty_line:\\n}
+  *5 @nodedescription C1 l16
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E3]
+   *line_arg C8
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {toto is there:: and the }
+    *6 @emph C1 l16
+     *brace_container C1
+      {is a description}
+    *7 @w C1 l16
+     *brace_container C1
+      {slightly long}
+    { and }
+    *8 @verb C1 l16
+    |INFO
+    |delimiter:{:}
+     *brace_container C1
+      {raw:vv somewhat}
+    { }
+    *9 @ringaccent C1 l16
+    |INFO
+    |spaces_after_cmd_before_arg:
+     |{ }
+     *following_arg C1
+      {a}
+    {nexpected}
+  {empty_line:\\n}
+  *10 @nodedescriptionblock C3 l18
+  |EXTRA
+  |element_node:[E3]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {Block along line node description for toto\\n}
+   *@end C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+ *11 @node C1 l22
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E12]
+ |is_target:{1}
+ |menu_directions:D[next->E14|prev->E3|up->E0]
+ |node_description:[E13]
+ |node_directions:D[next->E14|prev->E3|up->E0]
+ |node_long_description:[E13]
+ |normalized:{titi}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {titi}
+ *12 @chapter C4 l23
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E11]
+ |section_directions:D[next->E15|prev->E4|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[next->E15|prev->E4|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Titi}
+  {empty_line:\\n}
+  *13 @nodedescriptionblock C3 l25
+  |EXTRA
+  |element_node:[E11]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {description of titi in block\\n}
+   *@end C1 l27
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+ *14 @node C1 l29
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E15]
+ |is_target:{1}
+ |menu_directions:D[next->E18|prev->E11|up->E0]
+ |node_description:[E16]
+ |node_directions:D[next->E18|prev->E11|up->E0]
+ |node_long_description:[E16]
+ |normalized:{other}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {other}
+ *15 @chapter C4 l30
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E14]
+ |section_directions:D[next->E19|prev->E12|up->E1]
+ |section_level:{1}
+ |section_number:{3}
+ |toplevel_directions:D[next->E19|prev->E12|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Other}
+  {empty_line:\\n}
+  *16 @nodedescriptionblock C7 l32
+  |EXTRA
+  |element_node:[E14]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {Long description of other\\n}
+   {empty_line:\\n}
+   *paragraph C1
+    {Para2\\n}
+   {empty_line:\\n}
+   *17 @quotation C3 l37
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C1
+     {a quotation in description\\n}
+    *@end C1 l39
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{quotation}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {quotation}
+   *@end C1 l40
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+ *18 @node C1 l42
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E19]
+ |is_target:{1}
+ |menu_directions:D[next->E22|prev->E14|up->E0]
+ |node_description:[E21]
+ |node_directions:D[next->E22|prev->E14|up->E0]
+ |node_long_description:[E20]
+ |normalized:{a-somewhat-long-node-without-description-nor-following-space}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a somewhat long node without description nor following space}
+ *19 @chapter C6 l43
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E18]
+ |section_directions:D[next->E23|prev->E15|up->E1]
+ |section_level:{1}
+ |section_number:{4}
+ |toplevel_directions:D[next->E23|prev->E15|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Somewhat long}
+  {empty_line:\\n}
+  *20 @nodedescriptionblock C3 l45
+  |EXTRA
+  |element_node:[E18]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {Block description before, not as long as the node\\n}
+   *@end C1 l47
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+  *21 @nodedescription C1 l49
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E18]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {not as long as the node}
+  {empty_line:\\n}
+ *22 @node C1 l51
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E23]
+ |is_target:{1}
+ |menu_directions:D[prev->E18|up->E0]
+ |node_description:[E24]
+ |node_directions:D[prev->E18|up->E0]
+ |node_long_description:[E24]
+ |normalized:{node-double-nodedescriptionblock}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node double nodedescriptionblock}
+ *23 @chapter C6 l52
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E22]
+ |section_directions:D[prev->E19|up->E1]
+ |section_level:{1}
+ |section_number:{5}
+ |toplevel_directions:D[prev->E19|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {test double}
+  {empty_line:\\n}
+  *24 @nodedescriptionblock C3 l54
+  |EXTRA
+  |element_node:[E22]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {block desc 1\\n}
+   *@end C1 l56
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+  *25 @nodedescriptionblock C3 l58
+  |EXTRA
+  |element_node:[E22]
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C1
+    {block desc 2\\n}
+   *@end C1 l60
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{nodedescriptionblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {nodedescriptionblock}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'nodedescriptionblock_descriptions'} = '@node Top
 @top test of nodedescriptionblock used in menu

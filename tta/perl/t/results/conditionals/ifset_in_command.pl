@@ -5,201 +5,65 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ifset_in_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'file',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'ifset',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'x'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
-                                      }
-                                    },
-                                    'type' => 'block_line_arg'
-                                  }
-                                ],
-                                'type' => 'arguments_line'
-                              },
-                              {
-                                'text' => 'xset
-',
-                                'type' => 'raw'
-                              },
-                              {
-                                'cmdname' => 'end',
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'ifset'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
-                                      }
-                                    },
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'extra' => {
-                                  'text_arg' => 'ifset'
-                                },
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'source_info' => {
-                                  'line_nr' => 5
-                                }
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'source_info' => {
-                              'line_nr' => 3
-                            }
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'ignored_conditional_block'
-                        },
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'ifclear',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'x'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_after_argument' => {
-                                        'text' => '
-'
-                                      }
-                                    },
-                                    'type' => 'block_line_arg'
-                                  }
-                                ],
-                                'type' => 'arguments_line'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'source_info' => {
-                              'line_nr' => 6
-                            }
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'expanded_conditional_command',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '
-'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'end',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'ifclear'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'extra' => {
-                              'text_arg' => 'ifclear'
-                            },
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'source_info' => {
-                              'line_nr' => 8
-                            }
-                          },
-                          'position' => 7,
-                          'sourcemark_type' => 'expanded_conditional_command',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'xclear
-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ifset_in_command'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @file C1 l2
+    *brace_container C2
+     {\\n}
+     >SOURCEMARKS
+     >ignored_conditional_block<1><p:1>
+      >*@ifset C3 l3
+      >|INFO
+      >|spaces_before_argument:
+       >|{ }
+       >*arguments_line C1
+        >*block_line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{\\n}
+         >{x}
+       >{raw:xset\\n}
+       >*@end C1 l5
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+       >|EXTRA
+       >|text_arg:{ifset}
+        >*line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{\\n}
+         >{ifset}
+     >expanded_conditional_command<start;1><p:1>
+      >*@ifclear C1 l6
+      >|INFO
+      >|spaces_before_argument:
+       >|{ }
+       >*arguments_line C1
+        >*block_line_arg C1
+        >|INFO
+        >|spaces_after_argument:
+         >|{\\n}
+         >{x}
+     {xclear\\n}
+     >SOURCEMARKS
+     >expanded_conditional_command<end;1><p:7>
+      >*@end C1 l8
+      >|INFO
+      >|spaces_before_argument:
+       >|{ }
+      >|EXTRA
+      >|text_arg:{ifclear}
+       >*line_arg C1
+       >|INFO
+       >|spaces_after_argument:
+        >|{\\n}
+        >{ifclear}
+   {\\n}
+';
+
 
 $result_texis{'ifset_in_command'} = '
 @file{

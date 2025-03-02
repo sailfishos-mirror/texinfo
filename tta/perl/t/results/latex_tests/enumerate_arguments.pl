@@ -5,727 +5,227 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'enumerate_arguments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => 'a'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => 'A'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => 'c'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'C'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => 'C'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 16
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => '1'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 21
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '3'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'value
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 29
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => '3'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 26
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'enumerate_arguments'} = '*document_root C1
+ *before_node_section C13
+  *preamble_before_content
+  *0 @enumerate C4 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{a}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {a}
+   *@item C2 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l3
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+  *1 @enumerate C4 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{A}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {A}
+   *@item C2 l7
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l8
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+  *2 @enumerate C4 l11
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{c}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {c}
+   *@item C2 l12
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l13
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+  *3 @enumerate C4 l16
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{C}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {C}
+   *@item C2 l17
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l18
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+  *4 @enumerate C4 l21
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {1}
+   *@item C2 l22
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l23
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+  *5 @enumerate C4 l26
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |enumerate_specification:{3}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {3}
+   *@item C2 l27
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@item C2 l28
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {value\\n}
+   *@end C1 l29
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'enumerate_arguments'} = '@enumerate a
 @item value

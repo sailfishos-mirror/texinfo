@@ -5,1870 +5,626 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multiple_lang_chapters_texi2html'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'utf-8'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'utf-8'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' @node Top is ignored in TeX and LaTeX, so switch here
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'iftex',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => '@documentlanguage ja
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'iftex'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'iftex'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 7
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'line_nr' => 5
-                    }
-                  },
-                  'sourcemark_type' => 'ignored_conditional_block'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'iflatex',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => '@documentlanguage ja
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'iflatex'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'iflatex'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 10
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'line_nr' => 8
-                    }
-                  },
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 12
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Multi language file'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter ja'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-ja'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter en'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-en'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter fr_FR'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-fr_005fFR'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter de'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-de'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter pt_BR'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-pt_005fBR'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 21
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 15
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ja'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'ja'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 23
-          }
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 13
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter ja'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter-ja'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 24
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'ja'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In japanese. '
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter ja'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-ja'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'ja',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'type' => 'untranslated_def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'CCC'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'documentlanguage' => 'ja',
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  1
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 28
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 29
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 28
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'en'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'en'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 31
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 25
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter en'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter-en'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 32
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'en'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In english. '
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter ja'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-ja'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 35
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'en',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'type' => 'untranslated_def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'CCC'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'documentlanguage' => 'en',
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  2
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 36
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 36
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fr_FR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'fr_FR'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 39
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 33
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter fr_FR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter-fr_005fFR'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 40
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fr_FR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'fr_FR',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'type' => 'untranslated_def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'CCC'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' de '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'documentlanguage' => 'fr_FR',
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  3
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 43
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 44
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 43
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'de'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'de'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 46
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '3'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 41
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter de'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter-de'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 47
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'de'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'pt_BR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'pt_BR'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 50
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '4'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 48
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter pt_BR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter-pt_005fBR'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 51
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'pt_bR'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In brazilian. '
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter ja'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-ja'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 54
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '5'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 52
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[2]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[4]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[3];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[6]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[6]{'contents'}[3]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[5];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[8]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[7];
-$result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[12]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'multiple_lang_chapters_texi2html'}{'contents'}[12]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'multiple_lang_chapters_texi2html'} = '*document_root C13
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@documentencoding C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {utf-8}
+   {empty_line:\\n}
+   *@c C1
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@iftex C3 l5
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:@documentlanguage ja\\n}
+     >*@end C1 l7
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{iftex}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{iftex}
+   >ignored_conditional_block<2>
+    >*@iflatex C3 l8
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:@documentlanguage ja\\n}
+     >*@end C1 l10
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{iflatex}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{iflatex}
+    {rawline_arg: @node Top is ignored in TeX and LaTeX, so switch here\\n}
+   {empty_line:\\n}
+ *0 @node C1 l12
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C5 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4|E8|E12|E15|E17]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Multi language file}
+  {empty_line:\\n}
+  *2 @menu C7 l15
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l16
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter ja}
+    |normalized:{chapter-ja}
+     {chapter ja}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l17
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter en}
+    |normalized:{chapter-en}
+     {chapter en}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l18
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter fr_FR}
+    |normalized:{chapter-fr_005fFR}
+     {chapter fr_FR}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l19
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter de}
+    |normalized:{chapter-de}
+     {chapter de}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l20
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter pt_BR}
+    |normalized:{chapter-pt_005fBR}
+     {chapter pt_BR}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l21
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *@documentlanguage C1 l23
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |text_arg:{ja}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ja}
+ *3 @node C1 l24
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menu_directions:D[next->E7|up->E0]
+ |node_directions:D[next->E7|prev->E0|up->E0]
+ |normalized:{chapter-ja}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter ja}
+ *4 @chapter C6 l25
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[next->E8|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E8|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ja}
+  {empty_line:\\n}
+  *paragraph C3
+   {In japanese. }
+   *5 @xref C1 l27
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter ja}
+    |normalized:{chapter-ja}
+     {chapter ja}
+   {.\\n}
+  *6 @defivar C2 l28
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l28
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |documentlanguage:{ja}
+   |element_node:[E3]
+   |index_entry:I{vr,1}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{ja}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {AAA}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {BBB}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {CCC}
+   *@end C1 l29
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+  {empty_line:\\n}
+  *@documentlanguage C1 l31
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |text_arg:{en}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {en}
+ *7 @node C1 l32
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E8]
+ |is_target:{1}
+ |menu_directions:D[next->E11|prev->E3|up->E0]
+ |node_directions:D[next->E11|prev->E3|up->E0]
+ |normalized:{chapter-en}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter en}
+ *8 @chapter C6 l33
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E7]
+ |section_directions:D[next->E12|prev->E4|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[next->E12|prev->E4|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {en}
+  {empty_line:\\n}
+  *paragraph C3
+   {In english. }
+   *9 @xref C1 l35
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter ja}
+    |normalized:{chapter-ja}
+     {chapter ja}
+   {.\\n}
+  *10 @defivar C2 l36
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l36
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |documentlanguage:{en}
+   |element_node:[E7]
+   |index_entry:I{vr,2}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{en}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {AAA}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {BBB}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {CCC}
+   *@end C1 l37
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+  {empty_line:\\n}
+  *@documentlanguage C1 l39
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |text_arg:{fr_FR}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fr_FR}
+ *11 @node C1 l40
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E12]
+ |is_target:{1}
+ |menu_directions:D[next->E14|prev->E7|up->E0]
+ |node_directions:D[next->E14|prev->E7|up->E0]
+ |normalized:{chapter-fr_005fFR}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter fr_FR}
+ *12 @chapter C5 l41
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E11]
+ |section_directions:D[next->E15|prev->E8|up->E1]
+ |section_level:{1}
+ |section_number:{3}
+ |toplevel_directions:D[next->E15|prev->E8|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fr_FR}
+  {empty_line:\\n}
+  *13 @defivar C2 l43
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l43
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ de }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{AAA}
+   |documentlanguage:{fr_FR}
+   |element_node:[E11]
+   |index_entry:I{vr,3}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{fr_FR}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {AAA}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {BBB}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {CCC}
+   *@end C1 l44
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+  {empty_line:\\n}
+  *@documentlanguage C1 l46
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{4}
+  |text_arg:{de}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {de}
+ *14 @node C1 l47
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E15]
+ |is_target:{1}
+ |menu_directions:D[next->E16|prev->E11|up->E0]
+ |node_directions:D[next->E16|prev->E11|up->E0]
+ |normalized:{chapter-de}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter de}
+ *15 @chapter C3 l48
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E14]
+ |section_directions:D[next->E17|prev->E12|up->E1]
+ |section_level:{1}
+ |section_number:{4}
+ |toplevel_directions:D[next->E17|prev->E12|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {de}
+  {empty_line:\\n}
+  *@documentlanguage C1 l50
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{5}
+  |text_arg:{pt_BR}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {pt_BR}
+ *16 @node C1 l51
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E17]
+ |is_target:{1}
+ |menu_directions:D[prev->E14|up->E0]
+ |node_directions:D[prev->E14|up->E0]
+ |normalized:{chapter-pt_005fBR}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter pt_BR}
+ *17 @chapter C3 l52
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E16]
+ |section_directions:D[prev->E15|up->E1]
+ |section_level:{1}
+ |section_number:{5}
+ |toplevel_directions:D[prev->E15|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {pt_bR}
+  {empty_line:\\n}
+  *paragraph C3
+   {In brazilian. }
+   *18 @xref C1 l54
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter ja}
+    |normalized:{chapter-ja}
+     {chapter ja}
+   {.\\n}
+';
+
 
 $result_texis{'multiple_lang_chapters_texi2html'} = '
 @documentencoding utf-8

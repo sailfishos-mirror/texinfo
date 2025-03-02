@@ -5,367 +5,86 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'math'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Simple math
-'
-            },
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{x^i}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'text' => '\\over'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{\\tan y}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Math with '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '-command
-'
-            },
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'math code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' a < b \\sum'
-                    },
-                    {
-                      'cmdname' => 'sub',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' q'
-                    },
-                    {
-                      'cmdname' => 'sup',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '2'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Complex
-'
-            },
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '\\underline'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{'
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'math \\hbox'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '{ code }'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 8
-                                  },
-                                  'type' => 'balanced_braces'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '\\'
-                    },
-                    {
-                      'text' => 'i \\sum_'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{i}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{\\underline'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '{f}'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 8
-                          },
-                          'type' => 'balanced_braces'
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '\\ outside of math
-'
-            },
-            {
-              'cmdname' => '\\'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'The 3'
-            },
-            {
-              'cmdname' => 'sup',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'rd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => 'is the I'
-            },
-            {
-              'cmdname' => 'sub',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'r'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'math'} = '*document_root C1
+ *before_node_section C10
+  *paragraph C3
+   {Simple math\\n}
+   *0 @math C1 l2
+    *brace_command_context C4
+     {--}
+     *balanced_braces C1 l2
+      {{x^i}}
+     {\\over}
+     *balanced_braces C1 l2
+      {{\\tan y}}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {Math with }
+   *@@
+   {-command\\n}
+   *1 @math C1 l5
+    *brace_command_context C5
+     *2 @code C1 l5
+      *brace_container C1
+       {math code}
+     { a < b \\sum}
+     *3 @sub C1 l5
+      *brace_container C1
+       {i}
+     { q}
+     *4 @sup C1 l5
+      *brace_container C1
+       {2}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Complex\\n}
+   *5 @math C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *brace_command_context C7
+     {\\underline}
+     *balanced_braces C3 l8
+      {{}
+      *6 @code C1 l8
+       *brace_container C2
+        {math \\hbox}
+        *balanced_braces C1 l8
+         {{ code }}
+      {}}
+     { }
+     *@\\
+     {i \\sum_}
+     *balanced_braces C1 l8
+      {{i}}
+     *balanced_braces C3 l8
+      {{\\underline}
+      *balanced_braces C1 l8
+       {{f}}
+      {}}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *@@
+   {\\ outside of math\\n}
+   *@\\
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {The 3}
+   *7 @sup C1 l13
+    *brace_container C1
+     {rd}
+   {is the I}
+   *8 @sub C1 l13
+    *brace_container C1
+     {r}
+   {.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'math'} = 'Simple math
 @math{--{x^i}\\over{\\tan y}}

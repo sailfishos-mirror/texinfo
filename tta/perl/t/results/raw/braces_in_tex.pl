@@ -5,247 +5,78 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'braces_in_tex'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'tex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '$$ 
-'
-                },
-                {
-                  'text' => '\\chi^2 = \\sum_{i=1}^N
-'
-                },
-                {
-                  'text' => '\\left(y_i - (a + b x_i)
-'
-                },
-                {
-                  'text' => '\\over \\sigma_i\\right)^2 
-'
-                },
-                {
-                  'text' => '$$
-'
-                }
-              ],
-              'type' => 'rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'tex'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'tex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '$$ 
-'
-                        },
-                        {
-                          'text' => '\\chi^2 = \\sum_{i=1}^N
-'
-                        },
-                        {
-                          'text' => '\\left(y_i - (a + b x_i)
-'
-                        },
-                        {
-                          'text' => '\\over \\sigma_i\\right)^2 
-'
-                        },
-                        {
-                          'text' => '$$
-'
-                        }
-                      ],
-                      'type' => 'rawpreformatted'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'tex'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'tex'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 18
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 12
-                  }
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'braces_in_tex'} = '*document_root C1
+ *before_node_section C6
+  {empty_line:\\n}
+  *0 @tex C3 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *rawpreformatted C5
+    {$$ \\n}
+    {\\chi^2 = \\sum_{i=1}^N\\n}
+    {\\left(y_i - (a + b x_i)\\n}
+    {\\over \\sigma_i\\right)^2 \\n}
+    {$$\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{tex}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {tex}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *1 @example C3 l11
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C1
+    *2 @tex C3 l12
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *rawpreformatted C5
+      {$$ \\n}
+      {\\chi^2 = \\sum_{i=1}^N\\n}
+      {\\left(y_i - (a + b x_i)\\n}
+      {\\over \\sigma_i\\right)^2 \\n}
+      {$$\\n}
+     *@end C1 l18
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{tex}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {tex}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'braces_in_tex'} = '
 @tex

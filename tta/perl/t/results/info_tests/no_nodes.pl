@@ -5,24 +5,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_nodes'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Text.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_nodes'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   {Text.}
+';
+
 
 $result_texis{'no_nodes'} = 'Text.';
 

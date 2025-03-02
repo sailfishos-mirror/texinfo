@@ -5,25 +5,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'lone_end_table'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Text.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'lone_end_table'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   {Text.\\n}
+';
+
 
 $result_texis{'lone_end_table'} = 'Text.
 ';

@@ -5,56 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'raw_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'text' => 'This is some html
-'
-                },
-                {
-                  'text' => '<address> my address </address>
-'
-                }
-              ],
-              'type' => 'rawpreformatted'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'raw_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *0 @html C2 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *rawpreformatted C3
+    {empty_line:\\n}
+    {This is some html\\n}
+    {<address> my address </address>\\n}
+';
+
 
 $result_texis{'raw_not_closed'} = '@html
 

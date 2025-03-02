@@ -5,123 +5,40 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'thischapter_in_footnote_in_evenfooting'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'evenfooting',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aa '
-                },
-                {
-                  'cmdname' => 'strong',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'GG'
-                        },
-                        {
-                          'cmdname' => 'footnote',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'bb '
-                                    },
-                                    {
-                                      'cmdname' => 'thischapter'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'brace_command_context'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '|'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cc '
-                            },
-                            {
-                              'cmdname' => 'thissection'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'thischapter_in_footnote_in_evenfooting'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *@evenfooting C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C6
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {aa }
+    *0 @strong C1 l2
+     *brace_container C2
+      {GG}
+      *1 @footnote C1 l2
+      |EXTRA
+      |global_command_number:{1}
+       *brace_command_context C1
+        *paragraph C2
+         {bb }
+         *@thischapter
+    { }
+    *@|
+    { }
+    *2 @footnote C1 l2
+    |EXTRA
+    |global_command_number:{2}
+     *brace_command_context C1
+      *paragraph C2
+       {cc }
+       *@thissection
+';
+
 
 $result_texis{'thischapter_in_footnote_in_evenfooting'} = '
 @evenfooting aa @strong{GG@footnote{bb @thischapter}} @| @footnote{cc @thissection}

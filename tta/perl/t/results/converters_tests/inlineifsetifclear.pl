@@ -5,211 +5,63 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inlineifsetifclear'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineifclear',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'iclear first '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'aaa'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineifset',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' ifset first ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'aaa'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'aaa',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' aaa
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineifclear',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' ifclear second ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'aaa'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineifset',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ifset second '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'aaa'
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inlineifsetifclear'} = '*document_root C1
+ *before_node_section C9
+  *paragraph C2
+   *0 @inlineifclear C2 l1
+   |EXTRA
+   |expand_index:{1}
+   |format:{aaa}
+    *brace_arg C1
+     {aaa}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {iclear first }
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @inlineifset C2 l3
+   |EXTRA
+   |format:{aaa}
+    *brace_arg C1
+     {aaa}
+    *elided_brace_command_arg C1
+     {raw: ifset first }
+   {.\\n}
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ aaa\\n}
+   {rawline_arg:aaa}
+   {rawline_arg:}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @inlineifclear C2 l7
+   |EXTRA
+   |format:{aaa}
+    *brace_arg C1
+     {aaa}
+    *elided_brace_command_arg C1
+     {raw: ifclear second }
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @inlineifset C2 l9
+   |EXTRA
+   |expand_index:{1}
+   |format:{aaa}
+    *brace_arg C1
+     {aaa}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {ifset second }
+   {.\\n}
+';
+
 
 $result_texis{'inlineifsetifclear'} = '@inlineifclear{aaa, iclear first }.
 

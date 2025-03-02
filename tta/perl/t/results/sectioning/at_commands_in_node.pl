@@ -5,203 +5,51 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'at_commands_in_node'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'sc'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' node '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '=',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'E'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'l',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => ',',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '\'',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'C'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'exclamdown',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'A-sc-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'at_commands_in_node'} = '*document_root C2
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{A-sc-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
+  *arguments_line C1
+   *line_arg C14
+    {A }
+    *1 @sc C1 l1
+     *brace_container C1
+      {sc}
+    { node }
+    *2 @" C1 l1
+     *following_arg C1
+      {i}
+    { }
+    *3 @" C1 l1
+     *brace_container C1
+      *4 @dotless C1 l1
+       *brace_container C1
+        {i}
+    { }
+    *5 @` C1 l1
+     *brace_container C1
+      *6 @= C1 l1
+       *following_arg C1
+        {E}
+    { }
+    *7 @l C1 l1
+     *brace_container
+    { }
+    *8 @, C1 l1
+     *brace_container C1
+      *9 @\' C1 l1
+       *following_arg C1
+        {C}
+    { }
+    *10 @exclamdown C1 l1
+     *brace_container
+';
+
 
 $result_texis{'at_commands_in_node'} = '@node A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}';
 

@@ -5,120 +5,41 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'line_after_recursive_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mac
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'ggg
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@mac xxx
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'fff
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mac',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'info' => {
-                      'command_name' => 'mac'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'ggg
-'
-            },
-            {
-              'text' => ' xxx
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'fff'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'line_after_recursive_call'} = '*document_root C1
+ *before_node_section C2
+  *0 @macro C5 l1
+  |EXTRA
+  |macro_name:{mac}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: mac\\n}
+   {raw:ggg\\n}
+   {raw:@mac xxx\\n}
+   {raw:fff\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *paragraph C3
+   {ggg\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call
+    >|INFO
+    >|command_name:{mac}
+   { xxx\\n}
+   {fff}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:3>
+';
+
 
 $result_texis{'line_after_recursive_call'} = '@macro mac
 ggg

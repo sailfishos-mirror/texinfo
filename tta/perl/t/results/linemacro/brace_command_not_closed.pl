@@ -5,155 +5,47 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'brace_command_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\, \\b\\ \\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@code{in code
+$result_tree_text{'brace_command_not_closed'} = '*document_root C1
+ *before_node_section C4
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c}\\n}
+   {raw:\\a\\, \\b\\ \\c\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >linemacro_expansion<start;1><p:1>
+   >*linemacro_call C1
+   >|INFO
+   >|command_name:{mycommand}
+   >|spaces_before_argument:
+    >|{ }
+    >*line_arg C1
+     >{@code{in code\\n\\n}
+  *paragraph C1
+   *1 @code C1 l6:@mycommand
+    *brace_container C2
+     {in code\\n}
+     {empty_line:\\n}
+  *paragraph C1
+   {,  }
+   >SOURCEMARKS
+   >linemacro_expansion<end;1><p:3>
+';
 
-'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'mycommand',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'mycommand'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 3,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ',  '
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
 
 $result_texis{'brace_command_not_closed'} = '@linemacro mycommand {a, b, c}
 \\a\\, \\b\\ \\c\\

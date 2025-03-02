@@ -5,137 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'redefine_texinfo_macro'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' code{arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@emph{\\arg\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'code',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'code'
-                      }
-                    ],
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'code'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'code'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5,
-                'macro' => 'code'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{code}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: code{arg}\\n}
+   {raw:@emph{\\arg\\}\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{code}
+    >*brace_arg C1
+     >{code}
+  *paragraph C2
+   *1 @emph C1 l5:@code
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *brace_container C1
+     {code}
+   {\\n}
+';
+
 
 $result_texis{'redefine_texinfo_macro'} = '@macro code{arg}
 @emph{\\arg\\}

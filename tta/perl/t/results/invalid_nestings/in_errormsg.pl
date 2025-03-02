@@ -5,248 +5,76 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'in_errormsg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in ref'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'is_target' => 1,
-            'normalized' => 'in-ref'
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'spaces_after_close_brace'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text. '
-            },
-            {
-              'cmdname' => 'errormsg',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in anchor'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'in-anchor'
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces_after_close_brace'
-                    },
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in ref'
-                            }
-                          ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'in-ref'
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'errormsg',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'item'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'in_errormsg'} = '*document_root C1
+ *before_node_section C7
+  {empty_line:\\n}
+  *0 @anchor C1 l2
+  |EXTRA
+  |is_target:{1}
+  |normalized:{in-ref}
+   *brace_arg C1
+    {in ref}
+  {spaces_after_close_brace:\\n}
+  *paragraph C3
+   {Text. }
+   *1 @errormsg C1 l3
+    *brace_arg C3
+     *2 @anchor C1 l3
+     |EXTRA
+     |is_target:{1}
+     |normalized:{in-anchor}
+      *brace_arg C1
+       {in anchor}
+     {spaces_after_close_brace: }
+     *3 @ref C1 l3
+      *brace_arg C1
+      |EXTRA
+      |node_content:{in ref}
+      |normalized:{in-ref}
+       {in ref}
+   {\\n}
+  {empty_line:\\n}
+  *4 @errormsg C1 l5
+   *brace_arg
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+  *5 @table C3 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E6]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *6 @asis l6
+   *table_entry C1
+    *table_term C1
+     *@item C1 l7
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {item}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+';
+
 
 $result_texis{'in_errormsg'} = '
 @anchor{in ref}

@@ -5,145 +5,49 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraph_indent_asis'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'paragraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'asis'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'asis'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '  ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'para
-'
-            },
-            {
-              'text' => '  fff
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '  ',
-              'type' => 'spaces_before_paragraph'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in quotation
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraph_indent_asis'} = '*document_root C1
+ *before_node_section C7
+  *@paragraphindent C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{asis}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {asis}
+  {empty_line:\\n}
+  {spaces_before_paragraph:  }
+  *paragraph C2
+   {para\\n}
+   {  fff\\n}
+  {empty_line:\\n}
+  *0 @quotation C4 l6
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {spaces_before_paragraph:  }
+   *paragraph C1
+    {in quotation\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'paragraph_indent_asis'} = '@paragraphindent asis
 

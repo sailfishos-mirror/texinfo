@@ -5,624 +5,215 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'index_entries_relate_to_item_transformation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'cindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'A'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => [
-                          'cp',
-                          1
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'cindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 11
-                      },
-                      'type' => 'index_entry_command'
-                    },
-                    {
-                      'cmdname' => 'cindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'B'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => [
-                          'cp',
-                          2
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'cindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 12
-                      },
-                      'type' => 'index_entry_command'
-                    },
-                    {
-                      'cmdname' => 'cindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'C'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => [
-                          'cp',
-                          3
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'cindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 13
-                      },
-                      'type' => 'index_entry_command'
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'A'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'associated_index_entry' => [
-                          'cp',
-                          1
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'cmdname' => 'itemx',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'B'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 15
-                      }
-                    },
-                    {
-                      'cmdname' => 'itemx',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'C'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'body
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'D'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_entries_relate_to_item.texi',
-                        'line_nr' => 20
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'body2
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_entries_relate_to_item.texi',
-                'line_nr' => 24
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_entries_relate_to_item.texi',
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_entries_relate_to_item.texi',
-            'line_nr' => 26
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_entries_relate_to_item.texi',
-        'line_nr' => 7
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[3];
-$result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'index_entries_relate_to_item_transformation'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'index_entries_relate_to_item_transformation'} = '*document_root C6
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
+ *0 @node C1 index_entries_relate_to_item.texi:l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 index_entries_relate_to_item.texi:l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 index_entries_relate_to_item.texi:l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *3 @chapter C6 index_entries_relate_to_item.texi:l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *4 @table C5 index_entries_relate_to_item.texi:l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E5]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *5 @code index_entries_relate_to_item.texi:l9
+   *before_item C1
+    {empty_line:\\n}
+   *table_entry C2
+    *table_term C6
+     *6 index_entry_command@cindex C1 index_entries_relate_to_item.texi:l11
+     |INFO
+     |command_name:{cindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |element_node:[E2]
+     |index_entry:I{cp,1}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {A}
+     *7 index_entry_command@cindex C1 index_entries_relate_to_item.texi:l12
+     |INFO
+     |command_name:{cindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |element_node:[E2]
+     |index_entry:I{cp,2}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {B}
+     *8 index_entry_command@cindex C1 index_entries_relate_to_item.texi:l13
+     |INFO
+     |command_name:{cindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |element_node:[E2]
+     |index_entry:I{cp,3}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {C}
+     *@item C1 index_entries_relate_to_item.texi:l14
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |associated_index_entry:I{cp,1}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {A}
+     *@itemx C1 index_entries_relate_to_item.texi:l15
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {B}
+     *@itemx C1 index_entries_relate_to_item.texi:l16
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {C}
+    *table_definition C3
+     {empty_line:\\n}
+     *paragraph C1
+      {body\\n}
+     {empty_line:\\n}
+   *table_entry C2
+    *table_term C1
+     *@item C1 index_entries_relate_to_item.texi:l20
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {D}
+    *table_definition C3
+     {empty_line:\\n}
+     *paragraph C1
+      {body2\\n}
+     {empty_line:\\n}
+   *@end C1 index_entries_relate_to_item.texi:l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *@printindex C1 index_entries_relate_to_item.texi:l26
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'index_entries_relate_to_item_transformation'} = '\\input texinfo @c -*-texinfo-*-
 

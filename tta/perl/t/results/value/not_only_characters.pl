@@ -5,75 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'not_only_characters'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => '-e_\'::;',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'hh',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' -e_\'::; hh
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '-e_\'::;'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'hh',
-                  'position' => 4,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 6,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'Say hh.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'not_only_characters'} = '*document_root C1
+ *before_node_section C3
+  *@set C2
+  |INFO
+  |arg_line:{ -e_\'::; hh\\n}
+   {rawline_arg:-e_\'::;}
+   {rawline_arg:hh}
+  {empty_line:\\n}
+  *paragraph C1
+   {Say hh.\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1><p:4>{hh}
+    >*@value C1
+     >*brace_container C1
+      >{-e_\'::;}
+   >value_expansion<end;1><p:6>
+';
+
 
 $result_texis{'not_only_characters'} = '@set -e_\'::; hh
 

@@ -5,354 +5,94 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'kbd'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'kbd: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in kbd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'kbd in code: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in first '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in nested kbd'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'kbd in kbd: '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in top kbd '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in nested kbd'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'kbd in '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'example:
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in example
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in example in kbd'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'kbd in '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'format:
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'format',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in format
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in format in kbd'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 18
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'format'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'format'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 16
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'kbd'} = '*document_root C1
+ *before_node_section C13
+  *paragraph C3
+   {kbd: }
+   *0 @code C1 l1
+    *brace_container C1
+     {in kbd}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {kbd in code: }
+   *1 @code C1 l3
+    *brace_container C2
+     {in first }
+     *2 @kbd C1 l3
+      *brace_container C1
+       {in nested kbd}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {kbd in kbd: }
+   *3 @kbd C1 l5
+    *brace_container C2
+     {in top kbd }
+     *4 @kbd C1 l5
+      *brace_container C1
+       {in nested kbd}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {kbd in }
+   *@@
+   {example:\\n}
+  {empty_line:\\n}
+  *5 @example C3 l9
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+   *preformatted C3
+    {in example\\n}
+    *6 @code C1 l11
+     *brace_container C1
+      {in example in kbd}
+    {.\\n}
+   *@end C1 l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *paragraph C3
+   {kbd in }
+   *@@
+   {format:\\n}
+  {empty_line:\\n}
+  *7 @format C3 l16
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+   *preformatted C3
+    {in format\\n}
+    *8 @code C1 l18
+     *brace_container C1
+      {in format in kbd}
+    {.\\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{format}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {format}
+';
+
 
 $result_texis{'kbd'} = 'kbd: @code{in kbd}.
 

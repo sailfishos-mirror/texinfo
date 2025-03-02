@@ -5,133 +5,46 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_and_args'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' good { aaa, 2b-bb}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'good',
-            'misc_args' => [
-              'aaa',
-              '2b-bb'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'invalid_syntax' => 1,
-            'macro_name' => 'bad',
-            'misc_args' => [
-              'ggg"@@^_ ff',
-              'nnn_b',
-              'ccc v'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_and_args'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C2 l1
+  |EXTRA
+  |macro_name:{good}
+  |misc_args:A{aaa|2b-bb}
+   *arguments_line C1
+    {macro_line: good { aaa, 2b-bb}\\n}
+   *@end C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C2 l4
+  |EXTRA
+  |invalid_syntax:{1}
+  |macro_name:{bad}
+  |misc_args:A{ggg"@@^_ ff|nnn_b|ccc v}
+   *arguments_line C1
+    {macro_line: bad { ggg"@@^_ ff, nnn_b, ccc v}\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+';
+
 
 $result_texis{'macro_and_args'} = '@macro good { aaa, 2b-bb}
 @end macro

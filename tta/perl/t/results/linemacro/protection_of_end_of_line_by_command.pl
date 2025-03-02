@@ -5,129 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'protection_of_end_of_line_by_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {one}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\one\\bullet{}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'one'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@
-'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'lm',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 6,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'bullet
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'protection_of_end_of_line_by_command'} = '*document_root C1
+ *before_node_section C3
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{one}
+   *arguments_line C1
+    {macro_line: lm {one}\\n}
+   {raw:\\one\\bullet{}\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >linemacro_expansion<start;1><p:1>
+   >*linemacro_call C1
+   >|INFO
+   >|command_name:{lm}
+   >|spaces_before_argument:
+    >|{ }
+    >*line_arg C1
+     >{@\\n}
+  *paragraph C2
+   *@\\n
+   {bullet\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<end;1><p:6>
+';
+
 
 $result_texis{'protection_of_end_of_line_by_command'} = '@linemacro lm {one}
 \\one\\bullet{}

@@ -5,1193 +5,403 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'many_lines'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'pagesizes '
-            },
-            {
-              'cmdname' => 'pagesizes',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '200mm,150mm following '
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'pagesizes arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'afourpaper '
-            },
-            {
-              'cmdname' => 'afourpaper',
-              'contents' => [
-                {
-                  'text' => ' on line following afourpaper
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => 'smallbook '
-            },
-            {
-              'cmdname' => 'smallbook',
-              'contents' => [
-                {
-                  'text' => ' on line following smallbook
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => 'headings '
-            },
-            {
-              'cmdname' => 'headings',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following headings'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => 'oddfooting '
-            },
-            {
-              'cmdname' => 'oddfooting',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following oddfooting'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => 'everyheading '
-            },
-            {
-              'cmdname' => 'everyheading',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following everyheading'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => 'everyfooting '
-            },
-            {
-              'cmdname' => 'everyfooting',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following everyfooting'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => 'evenheading '
-            },
-            {
-              'cmdname' => 'evenheading',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following evenheading'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => 'evenfooting '
-            },
-            {
-              'cmdname' => 'evenfooting',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following evenfooting'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => 'oddheading '
-            },
-            {
-              'cmdname' => 'oddheading',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => 'need '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'need',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '0.1 on line following'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'need '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'need',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '0.1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '0.1'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'setchapternewpage '
-            },
-            {
-              'cmdname' => 'setchapternewpage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on line following setchapternewpage'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => 'raisesections '
-            },
-            {
-              'cmdname' => 'raisesections',
-              'contents' => [
-                {
-                  'text' => ' on line following raisesections
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'lowersections '
-            },
-            {
-              'cmdname' => 'lowersections',
-              'contents' => [
-                {
-                  'text' => ' on line following lowersections
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'kbdinputstyle code '
-            },
-            {
-              'cmdname' => 'kbdinputstyle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'code something'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => 'afourpaper '
-            },
-            {
-              'cmdname' => 'afourpaper',
-              'contents' => [
-                {
-                  'text' => ' on line following afourpaper
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => 'afourlatex '
-            },
-            {
-              'cmdname' => 'afourlatex',
-              'contents' => [
-                {
-                  'text' => ' on line following afourlatex
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => 'afourwide '
-            },
-            {
-              'cmdname' => 'afourwide',
-              'contents' => [
-                {
-                  'text' => ' on line following afourwide
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => 'paragraphindent asis '
-            },
-            {
-              'cmdname' => 'paragraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'asis'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'asis'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => 'paragraphindent 0 '
-            },
-            {
-              'cmdname' => 'paragraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '0'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  '0'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => 'paragraphindent none '
-            },
-            {
-              'cmdname' => 'paragraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'none'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'none'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => 'paragraphindent 4 '
-            },
-            {
-              'cmdname' => 'paragraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '4'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  '4'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => 'firstparagraphindent insert '
-            },
-            {
-              'cmdname' => 'firstparagraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'insert'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'insert'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => 'firstparagraphindent 3 '
-            },
-            {
-              'cmdname' => 'firstparagraphindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '3'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => 'exampleindent 6 '
-            },
-            {
-              'cmdname' => 'exampleindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '6 on line following exampleindent'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => 'exampleindent 6 '
-            },
-            {
-              'cmdname' => 'exampleindent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '6'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  '6'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => 'footnotestyle '
-            },
-            {
-              'cmdname' => 'footnotestyle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'end'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'end'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => 'footnotestyle '
-            },
-            {
-              'cmdname' => 'footnotestyle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'separate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'separate'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => 'documentencoding '
-            },
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'US-ascii encoding name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'US-ascii encoding name'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ISO-8859-1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'iso-8859-1',
-                'text_arg' => 'ISO-8859-1'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => 'frenchspacing '
-            },
-            {
-              'cmdname' => 'frenchspacing',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'on'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => 'frenchspacing '
-            },
-            {
-              'cmdname' => 'frenchspacing',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'off'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'off'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => 'fonttextsize '
-            },
-            {
-              'cmdname' => 'fonttextsize',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '10'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  '10'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => 'everyheadingmarks '
-            },
-            {
-              'cmdname' => 'everyheadingmarks',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bottom on line following everyheadingmarks'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 35
-              }
-            },
-            {
-              'cmdname' => 'allowcodebreaks',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'false'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'false'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 36
-              }
-            },
-            {
-              'cmdname' => 'allowcodebreaks',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'true'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'true'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text line followed by finalout on the same line and another below '
-            },
-            {
-              'cmdname' => 'finalout',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'finalout',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'Text line after the finalout followed by a fianlout '
-            },
-            {
-              'cmdname' => 'finalout',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'Text line after the text line followed by the finalout.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Test text after finalout
-'
-            },
-            {
-              'cmdname' => 'finalout',
-              'contents' => [
-                {
-                  'text' => ' a word after finalout
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'Line after finalout
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'many_lines'} = '*document_root C1
+ *before_node_section C9
+  *paragraph C21
+   {pagesizes }
+   *@pagesizes C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {200mm,150mm following }
+     *@@
+     {pagesizes arg}
+   {afourpaper }
+   *@afourpaper C1 l2
+    {rawline_arg: on line following afourpaper\\n}
+   {smallbook }
+   *@smallbook C1 l3
+    {rawline_arg: on line following smallbook\\n}
+   {headings }
+   *@headings C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following headings}
+   {oddfooting }
+   *@oddfooting C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following oddfooting}
+   {everyheading }
+   *@everyheading C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following everyheading}
+   {everyfooting }
+   *@everyfooting C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following everyfooting}
+   {evenheading }
+   *@evenheading C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following evenheading}
+   {evenfooting }
+   *@evenfooting C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following evenfooting}
+   {oddheading }
+   *@oddheading C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following}
+   {need }
+  *@need C1 l11
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {0.1 on line following}
+  *paragraph C1
+   {need }
+  *@need C1 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{0.1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {0.1}
+  *paragraph C47
+   {setchapternewpage }
+   *@setchapternewpage C1 l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on line following setchapternewpage}
+   {raisesections }
+   *@raisesections C1
+    {rawline_arg: on line following raisesections\\n}
+   {lowersections }
+   *@lowersections C1
+    {rawline_arg: on line following lowersections\\n}
+   {kbdinputstyle code }
+   *@kbdinputstyle C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {code something}
+   {afourpaper }
+   *@afourpaper C1 l17
+    {rawline_arg: on line following afourpaper\\n}
+   {afourlatex }
+   *@afourlatex C1 l18
+    {rawline_arg: on line following afourlatex\\n}
+   {afourwide }
+   *@afourwide C1 l19
+    {rawline_arg: on line following afourwide\\n}
+   {paragraphindent asis }
+   *@paragraphindent C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{asis}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {asis}
+   {paragraphindent 0 }
+   *@paragraphindent C1 l21
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |misc_args:A{0}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {0}
+   {paragraphindent none }
+   *@paragraphindent C1 l22
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{3}
+   |misc_args:A{none}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {none}
+   {paragraphindent 4 }
+   *@paragraphindent C1 l23
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{4}
+   |misc_args:A{4}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {4}
+   {firstparagraphindent insert }
+   *@firstparagraphindent C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{insert}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {insert}
+   {firstparagraphindent 3 }
+   *@firstparagraphindent C1 l25
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {3}
+   {exampleindent 6 }
+   *@exampleindent C1 l26
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {6 on line following exampleindent}
+   {exampleindent 6 }
+   *@exampleindent C1 l27
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |misc_args:A{6}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {6}
+   {footnotestyle }
+   *@footnotestyle C1 l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |misc_args:A{end}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {end}
+   {footnotestyle }
+   *@footnotestyle C1 l29
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |misc_args:A{separate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {separate}
+   {documentencoding }
+   *@documentencoding C1 l30
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{US-ascii encoding name}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {US-ascii encoding name}
+   *@documentencoding C1 l31
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |input_encoding_name:{iso-8859-1}
+   |text_arg:{ISO-8859-1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ISO-8859-1}
+   {frenchspacing }
+   *@frenchspacing C1 l32
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{on}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on}
+   {frenchspacing }
+   *@frenchspacing C1 l33
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |misc_args:A{off}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {off}
+   {fonttextsize }
+   *@fonttextsize C1 l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |misc_args:A{10}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {10}
+   {everyheadingmarks }
+   *@everyheadingmarks C1 l35
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {bottom on line following everyheadingmarks}
+   *@allowcodebreaks C1 l36
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{false}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {false}
+   *@allowcodebreaks C1 l37
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |misc_args:A{true}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {true}
+  {empty_line:\\n}
+  *paragraph C6
+   {Text line followed by finalout on the same line and another below }
+   *@finalout C1
+    {rawline_arg:\\n}
+   *@finalout C1
+    {rawline_arg:\\n}
+   {Text line after the finalout followed by a fianlout }
+   *@finalout C1
+    {rawline_arg:\\n}
+   {Text line after the text line followed by the finalout.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Test text after finalout\\n}
+   *@finalout C1
+    {rawline_arg: a word after finalout\\n}
+   {Line after finalout\\n}
+';
+
 
 $result_texis{'many_lines'} = 'pagesizes @pagesizes 200mm,150mm following @@pagesizes arg
 afourpaper @afourpaper on line following afourpaper

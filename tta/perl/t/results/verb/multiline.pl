@@ -5,55 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multiline'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'qdsqsddqsdsq
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '@'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'after verb.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'multiline'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @verb C1 l1
+   |INFO
+   |delimiter:{@}
+    *brace_container C3
+     {raw:\\n}
+     {raw:qdsqsddqsdsq\\n}
+     {raw:\\n}
+   {after verb.}
+';
+
 
 $result_texis{'multiline'} = '@verb{@
 qdsqsddqsdsq

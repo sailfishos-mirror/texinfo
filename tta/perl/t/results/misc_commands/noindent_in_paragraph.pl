@@ -5,69 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'noindent_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Begin para
-'
-            },
-            {
-              'cmdname' => 'noindent',
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'ignorable_spaces_after_command'
-            },
-            {
-              'text' => 'after noindent.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Begin para2
-'
-            },
-            {
-              'cmdname' => 'noindent',
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'ignorable_spaces_after_command'
-            },
-            {
-              'text' => 'after noindent2.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'noindent_in_paragraph'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C4
+   {Begin para\\n}
+   *@noindent l2
+   {ignorable_spaces_after_command:\\n}
+   {after noindent.\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {Begin para2\\n}
+   *@noindent l6
+   {ignorable_spaces_after_command:\\n}
+   {after noindent2.\\n}
+';
+
 
 $result_texis{'noindent_in_paragraph'} = 'Begin para
 @noindent

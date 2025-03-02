@@ -5,204 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_on_set_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'x',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' x@c
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'y',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' y @c
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'z',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'g',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' z g@c
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 't',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'a vv',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' t a vv @comment@ggg
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'x'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => '',
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'y'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => '',
-                  'position' => 5,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 5,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'z'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'g',
-                  'position' => 9,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 3,
-                  'position' => 10,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 't'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'a vv',
-                  'position' => 14,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 4,
-                  'position' => 18,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '!!, !!, !g!, !a vv!
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_on_set_line'} = '*document_root C1
+ *before_node_section C6
+  *@set C2
+  |INFO
+  |arg_line:{ x@c\\n}
+   {rawline_arg:x}
+   {rawline_arg:}
+  *@set C2
+  |INFO
+  |arg_line:{ y @c\\n}
+   {rawline_arg:y}
+   {rawline_arg:}
+  *@set C2
+  |INFO
+  |arg_line:{ z g@c\\n}
+   {rawline_arg:z}
+   {rawline_arg:g}
+  *@set C2
+  |INFO
+  |arg_line:{ t a vv @comment@ggg\\n}
+   {rawline_arg:t}
+   {rawline_arg:a vv}
+  {empty_line:\\n}
+  *paragraph C1
+   {!!, !!, !g!, !a vv!\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1><p:1>{}
+    >*@value C1
+     >*brace_container C1
+      >{x}
+   >value_expansion<end;1><p:1>
+   >value_expansion<start;2><p:5>{}
+    >*@value C1
+     >*brace_container C1
+      >{y}
+   >value_expansion<end;2><p:5>
+   >value_expansion<start;3><p:9>{g}
+    >*@value C1
+     >*brace_container C1
+      >{z}
+   >value_expansion<end;3><p:10>
+   >value_expansion<start;4><p:14>{a vv}
+    >*@value C1
+     >*brace_container C1
+      >{t}
+   >value_expansion<end;4><p:18>
+';
+
 
 $result_texis{'comment_on_set_line'} = '@set x@c
 @set y @c

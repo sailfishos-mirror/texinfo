@@ -5,296 +5,94 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'menu_in_deffn'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'element_node' => {},
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'menu',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '* ',
-                          'type' => 'menu_entry_leading_text'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '('
-                            },
-                            {
-                              'text' => 'mynode'
-                            },
-                            {
-                              'text' => ')'
-                            }
-                          ],
-                          'extra' => {
-                            'manual_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            }
-                          },
-                          'type' => 'menu_entry_node'
-                        },
-                        {
-                          'text' => '::',
-                          'type' => 'menu_entry_separator'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'menu_entry_description'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      },
-                      'type' => 'menu_entry'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'menu'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'menu'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'menu_in_deffn'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'menu_in_deffn'}{'contents'}[1];
-$result_trees{'menu_in_deffn'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'menu_in_deffn'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'menu_in_deffn'} = '*document_root C2
+ *before_node_section
+ *0 @node C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{first}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first}
+  {empty_line:\\n}
+  *1 @deffn C3 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l3
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{b}
+   |element_node:[E0]
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     *def_category C1
+      *def_line_arg C1
+       {a}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {c}
+   *def_item C1
+    *2 @menu C3 l4
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *menu_entry C4 l5
+      {menu_entry_leading_text:* }
+      *menu_entry_node C3
+      |EXTRA
+      |manual_content:{mynode}
+       {(}
+       {mynode}
+       {)}
+      {menu_entry_separator:::}
+      *menu_entry_description C1
+       *preformatted C1
+        {\\n}
+     *@end C1 l6
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{menu}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {menu}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+';
+
 
 $result_texis{'menu_in_deffn'} = '@node first
 

@@ -5,60 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'code_commands_and_punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AA'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. After.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'code_commands_and_punctuation'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C4
+   *0 @code C1 l1
+    *brace_container C1
+     {AA}
+   {. }
+   *1 @samp C1 l1
+    *brace_container C1
+     {aa}
+   {. After.\\n}
+';
+
 
 $result_texis{'code_commands_and_punctuation'} = '@code{AA}. @samp{aa}. After.
 ';

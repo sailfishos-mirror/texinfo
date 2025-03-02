@@ -5,129 +5,47 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'heading_in_footnote'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'T'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'AAA
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'heading',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'H1'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {},
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'cmdname' => 'cindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'ind e'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'index_entry' => [
-                          'cp',
-                          1
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'cindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'index_entry_command'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'BBB
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'heading_in_footnote'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {T}
+   *0 @footnote C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C4
+     *paragraph C1
+      {AAA\\n}
+     *1 @heading C1 l3
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |global_command_number:{1}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {H1}
+     *2 index_entry_command@cindex C1 l4
+     |INFO
+     |command_name:{cindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |index_entry:I{cp,1}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {ind e}
+     *paragraph C1
+      {BBB\\n}
+   {\\n}
+';
+
 
 $result_texis{'heading_in_footnote'} = 'T@footnote{
 AAA

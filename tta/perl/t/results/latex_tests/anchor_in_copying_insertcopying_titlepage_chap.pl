@@ -5,468 +5,164 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Cop. '
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a in copying'
-                            }
-                          ],
-                          'extra' => {
-                            'element_region' => 'copying'
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'a-in-copying'
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'text' => '. Ying.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'titlepage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'title',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'page',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'insertcopying',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'titlepage'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'titlepage'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 12
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 13
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 15
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a in copying'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'a-in-copying'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 20
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'pxref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a in copying'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'a-in-copying'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 16
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'anchor_in_copying_insertcopying_titlepage_chap'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'anchor_in_copying_insertcopying_titlepage_chap'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C4
+   *0 @copying C3 l1
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C3
+     {Cop. }
+     *1 @anchor C1 l2
+     |EXTRA
+     |is_target:{1}
+     |normalized:{a-in-copying}
+      *brace_arg C1
+      |EXTRA
+      |element_region:{copying}
+       {a in copying}
+     {. Ying.\\n}
+    *@end C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   {empty_line:\\n}
+   *2 @titlepage C6 l5
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *@title C1 l6
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Manual}
+    {empty_line:\\n}
+    *@page C1
+     {rawline_arg:\\n}
+    *@insertcopying C1 l9
+    |EXTRA
+    |global_command_number:{1}
+     {rawline_arg:\\n}
+    *@end C1 l10
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{titlepage}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {titlepage}
+   {empty_line:\\n}
+ *3 @node C1 l12
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |node_directions:D[next->E5]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *4 @top C2 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_childs:EC[E6]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E4]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E6]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *5 @node C1 l15
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E6]
+ |is_target:{1}
+ |node_directions:D[prev->E3|up->E3]
+ |normalized:{Chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+ *6 @chapter C7 l16
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E5]
+ |section_directions:D[up->E4]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E4|up->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chap}
+  {empty_line:\\n}
+  *paragraph C2
+   *7 @pxref C1 l18
+    *brace_arg C1
+    |EXTRA
+    |node_content:{a in copying}
+    |normalized:{a-in-copying}
+     {a in copying}
+   {\\n}
+  {empty_line:\\n}
+  *@insertcopying C1 l20
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *8 @pxref C1 l22
+    *brace_arg C1
+    |EXTRA
+    |node_content:{a in copying}
+    |normalized:{a-in-copying}
+     {a in copying}
+   {\\n}
+';
+
 
 $result_texis{'anchor_in_copying_insertcopying_titlepage_chap'} = '@copying
 Cop. @anchor{a in copying}. Ying.

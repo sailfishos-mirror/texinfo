@@ -5,237 +5,69 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'code_in_def'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'deftypefn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'int'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_type'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'foo'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'code',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'const std::vector<int>'
-                                    },
-                                    {
-                                      'cmdname' => '&'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_typearg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'bar'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'foo'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deftypefn'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Documentation of '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'foo'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'text' => '.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deftypefn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deftypefn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'code_in_def'} = '*document_root C1
+ *before_node_section C1
+  *0 @deftypefn C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l1
+   |EXTRA
+   |def_command:{deftypefn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{foo}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deftypefn}
+    *block_line_arg C11
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {Function}
+     {spaces: }
+     *def_type C1
+      *def_line_arg C1
+       {int}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {foo}
+     {spaces: }
+     {delimiter:(}
+     *def_typearg C1
+      *def_line_arg C1
+       *1 @code C1 l1
+        *brace_container C2
+         {const std::vector<int>}
+         *@&
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {bar}
+     {delimiter:)}
+   *def_item C1
+    *paragraph C3
+     {Documentation of }
+     *2 @code C1 l2
+      *brace_container C1
+       {foo}
+     {.\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deftypefn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deftypefn}
+';
+
 
 $result_texis{'code_in_def'} = '@deftypefn Function int foo (@code{const std::vector<int>@&} bar)
 Documentation of @code{foo}.

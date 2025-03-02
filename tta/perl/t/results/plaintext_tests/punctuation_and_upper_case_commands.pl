@@ -5,522 +5,108 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_and_upper_case_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'aa',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AAA'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double AAA'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '.  '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double '
-                    },
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double '
-                    },
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '.  End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'aa',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AAA'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double AAA'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '.  '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double '
-                    },
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'double '
-                    },
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '.  End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_and_upper_case_commands'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *paragraph C18
+   *0 @var C1 l2
+    *brace_container C1
+     {aaa}
+   {. }
+   *1 @var C1 l2
+    *brace_container C1
+     *2 @~ C1 l2
+      *following_arg C1
+       {e}
+   {. }
+   *3 @var C1 l2
+    *brace_container C1
+     *4 @aa C1 l2
+      *brace_container
+   {.\\n}
+   *5 @var C1 l3
+    *brace_container C1
+     {AAA}
+   {. }
+   *6 @var C1 l3
+    *brace_container C1
+     *7 @~ C1 l3
+      *following_arg C1
+       {E}
+   {. }
+   *8 @var C1 l3
+    *brace_container C1
+     *9 @AA C1 l3
+      *brace_container
+   {.\\n}
+   *10 @var C1 l4
+    *brace_container C1
+     {double AAA}
+   {.  }
+   *11 @var C1 l4
+    *brace_container C2
+     {double }
+     *12 @~ C1 l4
+      *following_arg C1
+       {E}
+   {. }
+   *13 @var C1 l4
+    *brace_container C2
+     {double }
+     *14 @AA C1 l4
+      *brace_container
+   {.  End.\\n}
+  {empty_line:\\n}
+  *paragraph C18
+   *15 @sc C1 l6
+    *brace_container C1
+     {aaa}
+   {. }
+   *16 @sc C1 l6
+    *brace_container C1
+     *17 @~ C1 l6
+      *following_arg C1
+       {e}
+   {. }
+   *18 @sc C1 l6
+    *brace_container C1
+     *19 @aa C1 l6
+      *brace_container
+   {.\\n}
+   *20 @sc C1 l7
+    *brace_container C1
+     {AAA}
+   {. }
+   *21 @sc C1 l7
+    *brace_container C1
+     *22 @~ C1 l7
+      *following_arg C1
+       {E}
+   {. }
+   *23 @sc C1 l7
+    *brace_container C1
+     *24 @AA C1 l7
+      *brace_container
+   {.\\n}
+   *25 @sc C1 l8
+    *brace_container C1
+     {double AAA}
+   {.  }
+   *26 @sc C1 l8
+    *brace_container C2
+     {double }
+     *27 @~ C1 l8
+      *following_arg C1
+       {E}
+   {. }
+   *28 @sc C1 l8
+    *brace_container C2
+     {double }
+     *29 @AA C1 l8
+      *brace_container
+   {.  End.\\n}
+';
+
 
 $result_texis{'punctuation_and_upper_case_commands'} = '
 @var{aaa}. @var{@~e}. @var{@aa{}}.

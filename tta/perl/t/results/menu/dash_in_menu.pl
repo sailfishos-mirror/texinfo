@@ -5,166 +5,50 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'dash_in_menu'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'entry---in'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'manual'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'n---ode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'n_002d_002d_002dode'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.         ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description --- in.
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    },
-                    {
-                      'text' => 'comment --- in.
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'dash_in_menu'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[3]{'contents'}[3];
+$result_tree_text{'dash_in_menu'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *0 @menu C4 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C6 l3
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {entry---in}
+    {menu_entry_separator:: }
+    *menu_entry_node C4
+    |EXTRA
+    |manual_content:{manual}
+    |node_content:{n---ode}
+    |normalized:{n_002d_002d_002dode}
+     {(}
+     {manual}
+     {)}
+     {n---ode}
+    {menu_entry_separator:.         }
+    *menu_entry_description C1
+     *preformatted C1
+      {description --- in.\\n}
+   *menu_comment C1
+    *preformatted C2
+     {after_menu_description_line:\\n}
+     {comment --- in.\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'dash_in_menu'} = '
 @menu

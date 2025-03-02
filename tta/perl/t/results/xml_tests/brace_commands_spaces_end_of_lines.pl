@@ -5,247 +5,77 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'brace_commands_spaces_end_of_lines'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'b'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'b'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => ' b'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 13
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => ' b'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 16
-          }
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
+ *before_node_section C17
+  *0 @image C1 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+    {a}
+  {\\n}
+  {empty_line:\\n}
+  *1 @image C1 l4
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ \\n}
+    {a}
+  {\\n}
+  {empty_line:\\n}
+  *2 @image C2 l7
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {a}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+    {b}
+  {\\n}
+  {empty_line:\\n}
+  *3 @image C2 l10
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {a}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ \\n}
+    {b}
+  {\\n}
+  {empty_line:\\n}
+  *4 @image C2 l13
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {a}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+    { b}
+  {\\n}
+  {empty_line:\\n}
+  *5 @image C2 l16
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {a}
+   *brace_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ \\n}
+    { b}
+  {\\n}
+';
+
 
 $result_texis{'brace_commands_spaces_end_of_lines'} = '@image{
 a}

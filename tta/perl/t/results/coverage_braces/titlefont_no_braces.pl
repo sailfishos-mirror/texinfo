@@ -5,22 +5,11 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'titlefont_no_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'titlefont',
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'titlefont_no_braces'} = '*document_root C1
+ *before_node_section C1
+  *0 @titlefont l1
+';
+
 
 $result_texis{'titlefont_no_braces'} = '@titlefont';
 

@@ -5,82 +5,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ifnotinfo_exception'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifnotinfo',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => 'in ifnotinfo
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifnotinfo'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifnotinfo'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 3
-                    }
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => ''
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ifnotinfo_exception'} = '*document_root C1
+ *before_node_section C1
+  {}
+  >SOURCEMARKS
+  >ignored_conditional_block<1>
+   >*@ifnotinfo C3 l1
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+    >{raw:in ifnotinfo\\n}
+    >*@end C1 l3
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifnotinfo}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifnotinfo}
+';
+
 
 $result_texis{'ifnotinfo_exception'} = '';
 

@@ -5,750 +5,226 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inter_item_commands_in_multitable'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'truc'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' comment before first item
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'cmdname' => 'cindex',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'index entry between empty lines'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'cp',
-                              1
-                            ]
-                          },
-                          'info' => {
-                            'command_name' => 'cindex',
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 6
-                          },
-                          'type' => 'index_entry_command'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'trouc
-'
-                            },
-                            {
-                              'cmdname' => 'c',
-                              'contents' => [
-                                {
-                                  'text' => ' last comment
-',
-                                  'type' => 'rawline_arg'
-                                }
-                              ]
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 2
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'columnfractions',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '0.6 0.4'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'misc_args' => [
-                          '0.6',
-                          '0.4'
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'headitem',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'mu--ltitable headitem '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 13
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'another tab
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 13
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_head'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'mu--ltitable item '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'multitable tab
-'
-                            },
-                            {
-                              'cmdname' => 'c',
-                              'contents' => [
-                                {
-                                  'text' => ' comment in multitable
-',
-                                  'type' => 'rawline_arg'
-                                }
-                              ]
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 2
-                  },
-                  'type' => 'row'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'mu--ltitable item 2 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'multitable tab 2
-'
-                            },
-                            {
-                              'cmdname' => 'cindex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'index entry within multitable'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'cp',
-                                  2
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'cindex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 17
-                              },
-                              'type' => 'index_entry_command'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 3
-                  },
-                  'type' => 'row'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'lone mu--ltitable item
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 18
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 4
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'extra' => {
-            'columnfractions' => {},
-            'max_columns' => 2
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'thing'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 21
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Title
-'
-                    },
-                    {
-                      'cmdname' => 'cindex',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cindex'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'index_entry' => [
-                          'cp',
-                          3
-                        ]
-                      },
-                      'info' => {
-                        'command_name' => 'cindex',
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 23
-                      },
-                      'type' => 'index_entry_command'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'thing
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 24
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 21
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'inter_item_commands_in_multitable'}{'contents'}[0]{'contents'}[2]{'extra'}{'columnfractions'} = $result_trees{'inter_item_commands_in_multitable'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
+ *before_node_section C6
+  *0 @multitable C4 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l1
+      {truc}
+   *before_item C2
+    *@c C1
+     {rawline_arg: comment before first item\\n}
+    {empty_line:\\n}
+   *multitable_body C2
+    *row C1
+    |EXTRA
+    |row_number:{1}
+     *@item C5 l4
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {truc\\n}
+      {empty_line:\\n}
+      *1 index_entry_command@cindex C1 l6
+      |INFO
+      |command_name:{cindex}
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{cp,1}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {index entry between empty lines}
+      {empty_line:\\n}
+    *row C1
+    |EXTRA
+    |row_number:{2}
+     *@item C2 l8
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {trouc\\n}
+       *@c C1
+        {rawline_arg: last comment\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+  {empty_line:\\n}
+  *2 @multitable C4 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |columnfractions:[E3]
+  |max_columns:{2}
+   *arguments_line C1
+    *block_line_arg C1
+     *3 @columnfractions C1 l12
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |misc_args:A{0.6|0.4}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {0.6 0.4}
+   *multitable_head C1
+    *row C2
+    |EXTRA
+    |row_number:{1}
+     *@headitem C2 l13
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {mu--ltitable headitem }
+     *@tab C2 l13
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {another tab\\n}
+   *multitable_body C3
+    *row C2
+    |EXTRA
+    |row_number:{2}
+     *@item C2 l14
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {mu--ltitable item }
+     *@tab C2 l14
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {multitable tab\\n}
+       *@c C1
+        {rawline_arg: comment in multitable\\n}
+    *row C2
+    |EXTRA
+    |row_number:{3}
+     *@item C2 l16
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {mu--ltitable item 2 }
+     *@tab C2 l16
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {multitable tab 2\\n}
+       *4 index_entry_command@cindex C1 l17
+       |INFO
+       |command_name:{cindex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{cp,2}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {index entry within multitable}
+    *row C1
+    |EXTRA
+    |row_number:{4}
+     *@item C2 l18
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {lone mu--ltitable item\\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+  {empty_line:\\n}
+  *5 @multitable C4 l21
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l21
+      {thing}
+   *before_item C1
+    *paragraph C2
+     {Title\\n}
+     *6 index_entry_command@cindex C1 l23
+     |INFO
+     |command_name:{cindex}
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |index_entry:I{cp,3}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {cindex}
+   *multitable_body C1
+    *row C1
+    |EXTRA
+    |row_number:{1}
+     *@item C2 l24
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {thing\\n}
+   *@end C1 l25
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'inter_item_commands_in_multitable'} = '@multitable {truc}
 @c comment before first item

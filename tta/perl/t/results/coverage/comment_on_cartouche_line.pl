@@ -5,186 +5,62 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_on_cartouche_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in cartouche.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cartouche'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'emph',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Title of box'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Out of main text
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cartouche'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_on_cartouche_line'} = '*document_root C1
+ *before_node_section C3
+  *0 @cartouche C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+   *paragraph C1
+    {in cartouche.\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{cartouche}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cartouche}
+  {empty_line:\\n}
+  *1 @cartouche C3 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+    |spaces_after_argument:
+     |{ }
+     *2 @emph C1 l5
+      *brace_container C1
+       {Title of box}
+   *paragraph C1
+    {Out of main text\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{cartouche}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cartouche}
+';
+
 
 $result_texis{'comment_on_cartouche_line'} = '@cartouche @c comment
 in cartouche.

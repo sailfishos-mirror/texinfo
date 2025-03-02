@@ -5,107 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simplest_no_node_section'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
-',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'simplest_no_node_section.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'simplest_no_node_section.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'simplest_no_node_section.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This is a very simple texi manual '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'text' => ' <>.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simplest_no_node_section'} = '*document_root C2
+ *before_node_section C4
+  *preamble_before_setfilename C1
+   *preamble_before_beginning C2
+    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+    {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@setfilename C1 simplest_no_node_section.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{simplest_no_node_section.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {simplest_no_node_section.info}
+   {empty_line:\\n}
+  *paragraph C3
+   {This is a very simple texi manual }
+   *@ 
+   { <>.\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'simplest_no_node_section'} = '\\input texinfo @c -*-texinfo-*-
 

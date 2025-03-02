@@ -5,412 +5,130 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'commands_in_settitle_with_title'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'settitle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'sc '
-                        },
-                        {
-                          'cmdname' => '~',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'n'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'aa',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'TeX',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' node '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '`',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '=',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'E'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'l',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => ',',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '\'',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'C'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'exclamdown',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Document.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 7
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
+ *before_node_section C2
+  *@settitle C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C13
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *0 @sc C1 l1
+     *brace_container C6
+      {sc }
+      *1 @~ C1 l1
+       *following_arg C1
+        {n}
+      { }
+      *2 @aa C1 l1
+       *brace_container
+      { }
+      *3 @TeX C1 l1
+       *brace_container
+    { node }
+    *4 @" C1 l1
+     *following_arg C1
+      {i}
+    { }
+    *5 @" C1 l1
+     *brace_container C1
+      *6 @dotless C1 l1
+       *brace_container C1
+        {i}
+    { }
+    *7 @` C1 l1
+     *brace_container C1
+      *8 @= C1 l1
+       *following_arg C1
+        {E}
+    { }
+    *9 @l C1 l1
+     *brace_container
+    { }
+    *10 @, C1 l1
+     *brace_container C1
+      *11 @\' C1 l1
+       *following_arg C1
+        {C}
+    { }
+    *12 @exclamdown C1 l1
+     *brace_container
+  {empty_line:\\n}
+ *13 @node C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E14]
+ |is_target:{1}
+ |node_directions:D[next->E15]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *14 @top C2 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E13]
+ |section_childs:EC[E16]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E14]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E16]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *15 @node C1 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E16]
+ |is_target:{1}
+ |node_directions:D[prev->E13|up->E13]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *16 @chapter C4 l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E15]
+ |section_directions:D[up->E14]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E14|up->E14]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chap}
+  {empty_line:\\n}
+  *paragraph C1
+   {Document.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'commands_in_settitle_with_title'} = '@settitle @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 

@@ -5,2680 +5,790 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_image'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' files-char
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'files-char',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'copying',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'files-char'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 17,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => 'Text in copying.
-'
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '.ext'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 9,
-                    'macro' => 'files-char'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'In text '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1in'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1cm'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt '
-                        },
-                        {
-                          'cmdname' => 'b',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => '^',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'dotless',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'i'
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 9,
-                                            'macro' => 'files-char'
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 9,
-                                    'macro' => 'files-char'
-                                  }
-                                },
-                                {
-                                  'text' => '--le'
-                                },
-                                {
-                                  'cmdname' => '/'
-                                },
-                                {
-                                  'text' => '.'
-                                },
-                                {
-                                  'cmdname' => '.'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '  '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '.ext'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 9,
-                    'macro' => 'files-char'
-                  }
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'copying'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'copying'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 12
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'files-char'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'i--le'
-                },
-                {
-                  'cmdname' => '/'
-                },
-                {
-                  'text' => '.'
-                },
-                {
-                  'cmdname' => '.'
-                },
-                {
-                  'text' => '  a'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => '<"%'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '  < & @ % " ',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => ':'
-                  },
-                  'source_info' => {
-                    'line_nr' => 15,
-                    'macro' => 'files-char'
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '.ext'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'i--le'
-                },
-                {
-                  'cmdname' => '/'
-                },
-                {
-                  'text' => '.'
-                },
-                {
-                  'cmdname' => '.'
-                },
-                {
-                  'text' => '  a'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => '<"%'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '  < & @ % " ',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => ':'
-                  },
-                  'source_info' => {
-                    'line_nr' => 15,
-                    'macro' => 'files-char'
-                  }
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 15,
-            'macro' => 'files-char'
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In text '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'i--le'
-                    },
-                    {
-                      'cmdname' => '/'
-                    },
-                    {
-                      'text' => '.'
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => '  a'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '<"%'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '  < & @ % " ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 15,
-                        'macro' => 'files-char'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '1in'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '1cm'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'alt '
-                    },
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '^',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'dotless',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'i'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 15,
-                                        'macro' => 'files-char'
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 15,
-                                'macro' => 'files-char'
-                              }
-                            },
-                            {
-                              'text' => '--le'
-                            },
-                            {
-                              'cmdname' => '/'
-                            },
-                            {
-                              'text' => '.'
-                            },
-                            {
-                              'cmdname' => '.'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15,
-                        'macro' => 'files-char'
-                      }
-                    },
-                    {
-                      'text' => '  a'
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '<"%'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '  < & @ % " ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 15,
-                        'macro' => 'files-char'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '  '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '.ext'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'i--le'
-                    },
-                    {
-                      'cmdname' => '/'
-                    },
-                    {
-                      'text' => '.'
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => '  a'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '<"%'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '  < & @ % " ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 15,
-                        'macro' => 'files-char'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 15,
-                'macro' => 'files-char'
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Insertcopying
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 18
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 3,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'files-char'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '.ext'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 21,
-                    'macro' => 'files-char'
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'text' => 'In text '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1in'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1cm'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt '
-                        },
-                        {
-                          'cmdname' => 'b',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => '^',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'dotless',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'i'
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 21,
-                                            'macro' => 'files-char'
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 21,
-                                    'macro' => 'files-char'
-                                  }
-                                },
-                                {
-                                  'text' => '--le'
-                                },
-                                {
-                                  'cmdname' => '/'
-                                },
-                                {
-                                  'text' => '.'
-                                },
-                                {
-                                  'cmdname' => '.'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '  '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '.ext'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 21,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 21,
-                    'macro' => 'files-char'
-                  }
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 3,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 22
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 20
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Image'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Image with commands'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'files-char'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'i--le'
-                    },
-                    {
-                      'cmdname' => '/'
-                    },
-                    {
-                      'text' => '.'
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => '  a'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '<"%'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '  < & @ % " ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'files-char'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '.ext'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'i--le'
-                    },
-                    {
-                      'cmdname' => '/'
-                    },
-                    {
-                      'text' => '.'
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => '  a'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '<"%'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '  < & @ % " ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'files-char'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'files-char'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'In text '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1in'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1cm'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt '
-                        },
-                        {
-                          'cmdname' => 'b',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => '^',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'dotless',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'i'
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 25,
-                                            'macro' => 'files-char'
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 25,
-                                    'macro' => 'files-char'
-                                  }
-                                },
-                                {
-                                  'text' => '--le'
-                                },
-                                {
-                                  'cmdname' => '/'
-                                },
-                                {
-                                  'text' => '.'
-                                },
-                                {
-                                  'cmdname' => '.'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'files-char'
-                          }
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '  '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '.ext'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'i--le'
-                        },
-                        {
-                          'cmdname' => '/'
-                        },
-                        {
-                          'text' => '.'
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => '  a'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '<"%'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '  < & @ % " ',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => ':'
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'files-char'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 25,
-                    'macro' => 'files-char'
-                  }
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'caption',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'files-char'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => ''
-                    },
-                    {
-                      'cmdname' => 'image',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'f'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'text' => 'i--le'
-                            },
-                            {
-                              'cmdname' => '/'
-                            },
-                            {
-                              'text' => '.'
-                            },
-                            {
-                              'cmdname' => '.'
-                            },
-                            {
-                              'text' => '  a'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'text' => '<"%'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'cmdname' => 'verb',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '  < & @ % " ',
-                                      'type' => 'raw'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'info' => {
-                                'delimiter' => ':'
-                              },
-                              'source_info' => {
-                                'line_nr' => 27,
-                                'macro' => 'files-char'
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '.ext'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'text' => 'i--le'
-                            },
-                            {
-                              'cmdname' => '/'
-                            },
-                            {
-                              'text' => '.'
-                            },
-                            {
-                              'cmdname' => '.'
-                            },
-                            {
-                              'text' => '  a'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'text' => '<"%'
-                            },
-                            {
-                              'cmdname' => '@'
-                            },
-                            {
-                              'cmdname' => 'verb',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '  < & @ % " ',
-                                      'type' => 'raw'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'info' => {
-                                'delimiter' => ':'
-                              },
-                              'source_info' => {
-                                'line_nr' => 27,
-                                'macro' => 'files-char'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'input_encoding_name' => 'utf-8'
-                      },
-                      'source_info' => {
-                        'line_nr' => 27,
-                        'macro' => 'files-char'
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'In text '
-                        },
-                        {
-                          'cmdname' => 'image',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'f'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'text' => 'i--le'
-                                },
-                                {
-                                  'cmdname' => '/'
-                                },
-                                {
-                                  'text' => '.'
-                                },
-                                {
-                                  'cmdname' => '.'
-                                },
-                                {
-                                  'text' => '  a'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'text' => '<"%'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'cmdname' => 'verb',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '  < & @ % " ',
-                                          'type' => 'raw'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'delimiter' => ':'
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 27,
-                                    'macro' => 'files-char'
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '1in'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '1cm'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'alt '
-                                },
-                                {
-                                  'cmdname' => 'b',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => '^',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'cmdname' => 'dotless',
-                                                  'contents' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'i'
-                                                        }
-                                                      ],
-                                                      'type' => 'brace_container'
-                                                    }
-                                                  ],
-                                                  'source_info' => {
-                                                    'line_nr' => 27,
-                                                    'macro' => 'files-char'
-                                                  }
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 27,
-                                            'macro' => 'files-char'
-                                          }
-                                        },
-                                        {
-                                          'text' => '--le'
-                                        },
-                                        {
-                                          'cmdname' => '/'
-                                        },
-                                        {
-                                          'text' => '.'
-                                        },
-                                        {
-                                          'cmdname' => '.'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 27,
-                                    'macro' => 'files-char'
-                                  }
-                                },
-                                {
-                                  'text' => '  a'
-                                },
-                                {
-                                  'cmdname' => '*'
-                                },
-                                {
-                                  'text' => '<"%'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'cmdname' => 'verb',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '  < & @ % " ',
-                                          'type' => 'raw'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'delimiter' => ':'
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 27,
-                                    'macro' => 'files-char'
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '  '
-                                },
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '.ext'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'text' => 'i--le'
-                                },
-                                {
-                                  'cmdname' => '/'
-                                },
-                                {
-                                  'text' => '.'
-                                },
-                                {
-                                  'cmdname' => '.'
-                                },
-                                {
-                                  'text' => '  a'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'text' => '<"%'
-                                },
-                                {
-                                  'cmdname' => '@'
-                                },
-                                {
-                                  'cmdname' => 'verb',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '  < & @ % " ',
-                                          'type' => 'raw'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'delimiter' => ':'
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 27,
-                                    'macro' => 'files-char'
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'input_encoding_name' => 'utf-8'
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'files-char'
-                          }
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 5,
-                              'position' => 1,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => '.'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_type' => 'Image',
-            'is_target' => 1,
-            'normalized' => 'Image-with-commands'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 24
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Image'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => 'Image'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 30
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 13
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'contents'}[6]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[12];
-$result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[2]{'contents'}[12]{'contents'}[6];
+$result_tree_text{'test_image'} = '*document_root C3
+ *before_node_section C4
+  *0 @macro C5 l1
+  |EXTRA
+  |macro_name:{files-char}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: files-char\\n}
+   {raw:@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}\\n}
+   {raw:\\n}
+   {raw:In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @copying C5 l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C3
+    {Text in copying.\\n}
+    >SOURCEMARKS
+    >macro_expansion<start;1><p:17>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{files-char}
+      >*brace_arg
+    *2 @image C5 l9:@files-char
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C11
+     |INFO
+     |spaces_after_argument:
+      |{ }
+      {f}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *3 @verb C1 l9:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C11
+      {.ext}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *4 @verb C1 l9:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+    {\\n}
+   {empty_line:\\n}
+   *paragraph C3
+    {In text }
+    *5 @image C5 l9:@files-char
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C11
+     |INFO
+     |spaces_after_argument:
+      |{ }
+      {f}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *6 @verb C1 l9:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C1
+      {1in}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {1cm}
+     *brace_arg C7
+     |INFO
+     |spaces_after_argument:
+      |{  }
+     |spaces_before_argument:
+      |{ }
+      {alt }
+      *7 @b C1 l9:@files-char
+       *brace_container C5
+        *8 @^ C1 l9:@files-char
+         *brace_container C1
+          *9 @dotless C1 l9:@files-char
+           *brace_container C1
+            {i}
+        {--le}
+        *@/
+        {.}
+        *@.
+      {  a}
+      *@*
+      {<"%}
+      *@@
+      *10 @verb C1 l9:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C11
+      {.ext}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *11 @verb C1 l9:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+    {.\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;1><p:1>
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{copying}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {copying}
+  {empty_line:\\n}
+ *12 @node C1 l12
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E13]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *13 @node C16 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E12]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;2><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{files-char}
+    >*brace_arg
+  *14 @image C5 l15:@files-char
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C11
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f}
+    *@@
+    {i--le}
+    *@/
+    {.}
+    *@.
+    {  a}
+    *@@
+    {<"%}
+    *@@
+    *15 @verb C1 l15:@files-char
+    |INFO
+    |delimiter:{:}
+     *brace_container C1
+      {raw:  < & @ % " }
+   *brace_arg
+   *brace_arg
+   *brace_arg
+   *brace_arg C11
+    {.ext}
+    *@@
+    {i--le}
+    *@/
+    {.}
+    *@.
+    {  a}
+    *@@
+    {<"%}
+    *@@
+    *16 @verb C1 l15:@files-char
+    |INFO
+    |delimiter:{:}
+     *brace_container C1
+      {raw:  < & @ % " }
+  {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {In text }
+   *17 @image C5 l15:@files-char
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C11
+    |INFO
+    |spaces_after_argument:
+     |{ }
+     {f}
+     *@@
+     {i--le}
+     *@/
+     {.}
+     *@.
+     {  a}
+     *@@
+     {<"%}
+     *@@
+     *18 @verb C1 l15:@files-char
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:  < & @ % " }
+    *brace_arg C1
+     {1in}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {1cm}
+    *brace_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{  }
+    |spaces_before_argument:
+     |{ }
+     {alt }
+     *19 @b C1 l15:@files-char
+      *brace_container C5
+       *20 @^ C1 l15:@files-char
+        *brace_container C1
+         *21 @dotless C1 l15:@files-char
+          *brace_container C1
+           {i}
+       {--le}
+       *@/
+       {.}
+       *@.
+     {  a}
+     *@*
+     {<"%}
+     *@@
+     *22 @verb C1 l15:@files-char
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:  < & @ % " }
+    *brace_arg C11
+     {.ext}
+     *@@
+     {i--le}
+     *@/
+     {.}
+     *@.
+     {  a}
+     *@@
+     {<"%}
+     *@@
+     *23 @verb C1 l15:@files-char
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:  < & @ % " }
+   {.\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;2><p:1>
+  {empty_line:\\n}
+  *paragraph C1
+   {Insertcopying\\n}
+  *@insertcopying C1 l18
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *24 @example C3 l20
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C7
+    {}
+    >SOURCEMARKS
+    >macro_expansion<start;3>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{files-char}
+      >*brace_arg
+    *25 @image C5 l21:@files-char
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C11
+     |INFO
+     |spaces_after_argument:
+      |{ }
+      {f}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *26 @verb C1 l21:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C11
+      {.ext}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *27 @verb C1 l21:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+    {\\n}
+    {empty_line:\\n}
+    {In text }
+    *28 @image C5 l21:@files-char
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C11
+     |INFO
+     |spaces_after_argument:
+      |{ }
+      {f}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *29 @verb C1 l21:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C1
+      {1in}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {1cm}
+     *brace_arg C7
+     |INFO
+     |spaces_after_argument:
+      |{  }
+     |spaces_before_argument:
+      |{ }
+      {alt }
+      *30 @b C1 l21:@files-char
+       *brace_container C5
+        *31 @^ C1 l21:@files-char
+         *brace_container C1
+          *32 @dotless C1 l21:@files-char
+           *brace_container C1
+            {i}
+        {--le}
+        *@/
+        {.}
+        *@.
+      {  a}
+      *@*
+      {<"%}
+      *@@
+      *33 @verb C1 l21:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C11
+      {.ext}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *34 @verb C1 l21:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+    {.\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;3><p:1>
+   *@end C1 l22
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *35 @float C9 l24
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E46]
+  |float_number:{1}
+  |float_type:{Image}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{Image-with-commands}
+   *arguments_line C2
+   >SOURCEMARKS
+   >macro_expansion<start;4>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{files-char}
+     >*brace_arg
+    *block_line_arg C1
+     {Image}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {Image with commands}
+   *36 @image C5 l25:@files-char
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C11
+    |INFO
+    |spaces_after_argument:
+     |{ }
+     {f}
+     *@@
+     {i--le}
+     *@/
+     {.}
+     *@.
+     {  a}
+     *@@
+     {<"%}
+     *@@
+     *37 @verb C1 l25:@files-char
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:  < & @ % " }
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg C11
+     {.ext}
+     *@@
+     {i--le}
+     *@/
+     {.}
+     *@.
+     {  a}
+     *@@
+     {<"%}
+     *@@
+     *38 @verb C1 l25:@files-char
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw:  < & @ % " }
+   {\\n}
+   {empty_line:\\n}
+   *paragraph C3
+    {In text }
+    *39 @image C5 l25:@files-char
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C11
+     |INFO
+     |spaces_after_argument:
+      |{ }
+      {f}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *40 @verb C1 l25:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C1
+      {1in}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {1cm}
+     *brace_arg C7
+     |INFO
+     |spaces_after_argument:
+      |{  }
+     |spaces_before_argument:
+      |{ }
+      {alt }
+      *41 @b C1 l25:@files-char
+       *brace_container C5
+        *42 @^ C1 l25:@files-char
+         *brace_container C1
+          *43 @dotless C1 l25:@files-char
+           *brace_container C1
+            {i}
+        {--le}
+        *@/
+        {.}
+        *@.
+      {  a}
+      *@*
+      {<"%}
+      *@@
+      *44 @verb C1 l25:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+     *brace_arg C11
+      {.ext}
+      *@@
+      {i--le}
+      *@/
+      {.}
+      *@.
+      {  a}
+      *@@
+      {<"%}
+      *@@
+      *45 @verb C1 l25:@files-char
+      |INFO
+      |delimiter:{:}
+       *brace_container C1
+        {raw:  < & @ % " }
+    {.\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;4><p:1>
+   {empty_line:\\n}
+   *46 @caption C1 l27
+   |EXTRA
+   |float:[E35]
+    *brace_command_context C5
+     {}
+     >SOURCEMARKS
+     >macro_expansion<start;5>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{files-char}
+       >*brace_arg
+     *47 @image C5 l27:@files-char
+     |EXTRA
+     |input_encoding_name:{utf-8}
+      *brace_arg C11
+      |INFO
+      |spaces_after_argument:
+       |{ }
+       {f}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *48 @verb C1 l27:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+      *brace_arg
+      *brace_arg
+      *brace_arg
+      *brace_arg C11
+       {.ext}
+       *@@
+       {i--le}
+       *@/
+       {.}
+       *@.
+       {  a}
+       *@@
+       {<"%}
+       *@@
+       *49 @verb C1 l27:@files-char
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:  < & @ % " }
+     {\\n}
+     {empty_line:\\n}
+     *paragraph C3
+      {In text }
+      *50 @image C5 l27:@files-char
+      |EXTRA
+      |input_encoding_name:{utf-8}
+       *brace_arg C11
+       |INFO
+       |spaces_after_argument:
+        |{ }
+        {f}
+        *@@
+        {i--le}
+        *@/
+        {.}
+        *@.
+        {  a}
+        *@@
+        {<"%}
+        *@@
+        *51 @verb C1 l27:@files-char
+        |INFO
+        |delimiter:{:}
+         *brace_container C1
+          {raw:  < & @ % " }
+       *brace_arg C1
+        {1in}
+       *brace_arg C1
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        {1cm}
+       *brace_arg C7
+       |INFO
+       |spaces_after_argument:
+        |{  }
+       |spaces_before_argument:
+        |{ }
+        {alt }
+        *52 @b C1 l27:@files-char
+         *brace_container C5
+          *53 @^ C1 l27:@files-char
+           *brace_container C1
+            *54 @dotless C1 l27:@files-char
+             *brace_container C1
+              {i}
+          {--le}
+          *@/
+          {.}
+          *@.
+        {  a}
+        *@*
+        {<"%}
+        *@@
+        *55 @verb C1 l27:@files-char
+        |INFO
+        |delimiter:{:}
+         *brace_container C1
+          {raw:  < & @ % " }
+       *brace_arg C11
+        {.ext}
+        *@@
+        {i--le}
+        *@/
+        {.}
+        *@.
+        {  a}
+        *@@
+        {<"%}
+        *@@
+        *56 @verb C1 l27:@files-char
+        |INFO
+        |delimiter:{:}
+         *brace_container C1
+          {raw:  < & @ % " }
+      {.}
+      >SOURCEMARKS
+      >macro_expansion<end;5><p:1>
+   {spaces_after_close_brace:\\n}
+   *@end C1 l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *@listoffloats C1 l30
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{Image}
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Image}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'test_image'} = '@macro files-char
 @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}

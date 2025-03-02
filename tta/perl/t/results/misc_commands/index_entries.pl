@@ -5,128 +5,47 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'index_entries'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cindex entry'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'truc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'truc'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'trucindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'index truc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'truc',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'trucindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          },
-          'type' => 'index_entry_command'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'index_entries'} = '*document_root C1
+ *before_node_section C5
+  *0 index_entry_command@cindex C1 l1
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cindex entry}
+  {empty_line:\\n}
+  *@defindex C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{truc}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {truc}
+  {empty_line:\\n}
+  *1 index_entry_command@trucindex C1 l5
+  |INFO
+  |command_name:{trucindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{truc,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {index truc}
+';
+
 
 $result_texis{'index_entries'} = '@cindex cindex entry
 

@@ -5,96 +5,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_label_with_space_comment'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Type'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            }
-          ],
-          'extra' => {
-            'float_type' => 'Type'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_label_with_space_comment'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_content
+  *0 @float C2 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{Type}
+  |global_command_number:{1}
+   *arguments_line C2
+    *block_line_arg C1
+     {Type}
+    *block_line_arg
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+    |spaces_before_argument:
+     |{ }
+   *@end C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+';
+
 
 $result_texis{'empty_label_with_space_comment'} = '@float Type, @c comment
 @end float

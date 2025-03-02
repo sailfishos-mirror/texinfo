@@ -5,354 +5,100 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_after_brace_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'bracedletter',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '{a}',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' bracedletter {a}
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'unknowncmd',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '@unknown',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' unknowncmd @unknown
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'bracedletter'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '{a}',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'unknowncmd'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '@unknown',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 3,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'bracedletter'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '{a}',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '^',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'unknowncmd'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '@unknown',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'bracedletter'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '{a}',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              },
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'unknowncmd'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => '@unknown',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_after_brace_command'} = '*document_root C1
+ *before_node_section C4
+  *@set C2
+  |INFO
+  |arg_line:{ bracedletter {a}\\n}
+   {rawline_arg:bracedletter}
+   {rawline_arg:{a}}
+  *@set C2
+  |INFO
+  |arg_line:{ unknowncmd @unknown\\n}
+   {rawline_arg:unknowncmd}
+   {rawline_arg:@unknown}
+  {empty_line:\\n}
+  *paragraph C12
+   *0 @ringaccent C1 l4
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;1><p:1>{{a}}
+     |>*@value C1
+      |>*brace_container C1
+       |>{bracedletter}
+   >SOURCEMARKS
+   >value_expansion<end;1>
+    *brace_container C1
+     {a}
+   {\\n}
+   *1 @ringaccent l5
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;2><p:1>{@unknown}
+     |>*@value C1
+      |>*brace_container C1
+       |>{unknowncmd}
+   >SOURCEMARKS
+   >value_expansion<end;2>
+   {\\n}
+   *2 @^ C1 l6
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;3><p:1>{{a}}
+     |>*@value C1
+      |>*brace_container C1
+       |>{bracedletter}
+   >SOURCEMARKS
+   >value_expansion<end;3>
+    *brace_container C1
+     {a}
+   {\\n}
+   *3 @^ l7
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;4><p:1>{@unknown}
+     |>*@value C1
+      |>*brace_container C1
+       |>{unknowncmd}
+   >SOURCEMARKS
+   >value_expansion<end;4>
+   {\\n}
+   *4 @code C1 l8
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;5><p:1>{{a}}
+     |>*@value C1
+      |>*brace_container C1
+       |>{bracedletter}
+   >SOURCEMARKS
+   >value_expansion<end;5>
+    *brace_container C1
+     {a}
+   {\\n}
+   *5 @code l9
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;6><p:1>{@unknown}
+     |>*@value C1
+      |>*brace_container C1
+       |>{unknowncmd}
+   >SOURCEMARKS
+   >value_expansion<end;6>
+   {\\n}
+';
+
 
 $result_texis{'value_after_brace_command'} = '@set bracedletter {a}
 @set unknowncmd @unknown

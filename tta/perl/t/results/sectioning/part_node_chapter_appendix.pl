@@ -5,361 +5,170 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'part_node_chapter_appendix'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 1
-        }
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'associated_part' => {
-          'cmdname' => 'part',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Part 1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 11
-      }
-    },
-    'unit_contents' => [
-      {},
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'chapter node'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'chapter-node'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 10
-        }
-      },
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'appendix',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Appendix'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => 'A'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 13
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'part_node_chapter_appendix'}[0]{'unit_command'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'part_node_chapter_appendix'}[0]{'unit_contents'}[2] = $result_trees{'part_node_chapter_appendix'}[0]{'unit_command'};
-$result_trees{'part_node_chapter_appendix'}[1]{'unit_contents'}[0] = $result_trees{'part_node_chapter_appendix'}[1]{'unit_command'}{'extra'}{'associated_part'};
-$result_trees{'part_node_chapter_appendix'}[1]{'unit_contents'}[2] = $result_trees{'part_node_chapter_appendix'}[1]{'unit_command'};
-$result_trees{'part_node_chapter_appendix'}[2]{'unit_contents'}[0] = $result_trees{'part_node_chapter_appendix'}[2]{'unit_command'};
+$result_tree_text{'part_node_chapter_appendix'} = 'U0 unit[E1]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U1]
+Next: [U1]
+NodeNext: [U1]
+NodeForward: [U1]
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E4]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_directions:D[next->E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1|E3|E6]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E5]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *2 @menu C3 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter node}
+    |normalized:{chapter-node}
+     {chapter node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E5]
+unit_directions:D[next->[U2]|prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Forward: [U2]
+Back: [U0]
+FastForward: [U2]
+FastBack: [U0]
+NodePrev: [U0]
+NodeUp: [U0]
+NodeBack: [U0]
+ *3 @part C2 l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |global_command_number:{1}
+ |part_associated_section:[E5]
+ |part_following_node:[E4]
+ |section_childs:EC[E5]
+ |section_directions:D[next->E6|prev->E1]
+ |section_level:{0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Part 1}
+  {empty_line:\\n}
+ *4 @node C1 l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E5]
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |node_preceding_part:[E3]
+ |normalized:{chapter-node}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter node}
+ *5 @chapter C2 l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E4]
+ |associated_part:[E3]
+ |section_directions:D[up->E3]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+U2 unit[E6]
+unit_directions:D[prev->[U1]]
+UNIT_DIRECTIONS
+This: [U2]
+Back: [U1]
+FastBack: [U1]
+Prev: [U1]
+ *6 @appendix C1 l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[prev->E3]
+ |section_level:{1}
+ |section_number:{A}
+ |toplevel_directions:D[prev->E5|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Appendix}
+';
+
 
 $result_texis{'part_node_chapter_appendix'} = '@node Top
 @top top

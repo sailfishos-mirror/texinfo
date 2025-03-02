@@ -5,69 +5,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'incorrect_allowcodebreaks_argument'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'allowcodebreaks',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'incorrect_allowcodebreaks_argument'} = '*document_root C1
+ *before_node_section C2
+  *@allowcodebreaks C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {_arg}
+  *paragraph C2
+   *0 @code C1 l2
+    *brace_container C1
+     {b a}
+   {\\n}
+';
+
 
 $result_texis{'incorrect_allowcodebreaks_argument'} = '@allowcodebreaks _arg
 @code{b a}

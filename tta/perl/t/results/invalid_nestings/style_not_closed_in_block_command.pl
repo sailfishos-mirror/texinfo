@@ -5,93 +5,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'style_not_closed_in_block_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'cartouche '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code 
-'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cartouche'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'style_not_closed_in_block_command'} = '*document_root C1
+ *before_node_section C1
+  *0 @cartouche C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C2
+    {cartouche }
+    *1 @code C1 l2
+     *brace_container C1
+      {in code \\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{cartouche}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cartouche}
+';
+
 
 $result_texis{'style_not_closed_in_block_command'} = '@cartouche
 cartouche @code{in code 

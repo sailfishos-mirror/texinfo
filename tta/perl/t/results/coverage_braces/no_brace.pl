@@ -5,63 +5,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_brace'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'TeX',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'and '
-            },
-            {
-              'cmdname' => 'code',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'code and '
-            },
-            {
-              'cmdname' => 'footnote',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'footnote '
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_brace'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C6
+   *0 @TeX l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   {and }
+   *1 @code l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   {code and }
+   *2 @footnote l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   {footnote }
+';
+
 
 $result_texis{'no_brace'} = '@TeX and @code code and @footnote footnote ';
 

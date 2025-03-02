@@ -5,159 +5,53 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_call_in_inlinefmtifelse_format'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' inlinefirstarg
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'ex, before, after
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'inlinefirstarg',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Toto '
-            },
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'inlinefirstarg'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' before',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'after'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' done.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{inlinefirstarg}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: inlinefirstarg\\n}
+   {raw:ex, before, after\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C3
+   {Toto }
+   *1 @inlinefmtifelse C3 l5
+   |EXTRA
+   |expand_index:{2}
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:1>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{inlinefirstarg}
+       >*brace_arg
+    *elided_brace_command_arg C1
+     {raw: before}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {after}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:5>
+   { done.\\n}
+';
+
 
 $result_texis{'macro_call_in_inlinefmtifelse_format'} = '@macro inlinefirstarg
 ex, before, after

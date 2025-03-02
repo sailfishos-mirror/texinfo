@@ -5,746 +5,217 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_expansion_in_include'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'testvar',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'incl-incl.txi',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' testvar incl-incl.txi
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' test - in the variable name, and concatenation of text after.
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'test-var',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'incl-incl.tx',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' test-var incl-incl.tx
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' test - in the variable name, and concatenation of text before and after.
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'test_var',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'ncl-incl.tx',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' test_var ncl-incl.tx
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 10
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'include',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 1,
-                                'position' => 13,
-                                'sourcemark_type' => 'value_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'incl-incl.txi'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'incl-incl.txi'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'source_marks' => [
-                          {
-                            'counter' => 1,
-                            'element' => {
-                              'cmdname' => 'value',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'testvar'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ]
-                            },
-                            'line' => 'incl-incl.txi',
-                            'position' => 1,
-                            'sourcemark_type' => 'value_expansion',
-                            'status' => 'start'
-                          }
-                        ],
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 13
-                    }
-                  },
-                  'position' => 17,
-                  'sourcemark_type' => 'include',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'testvar include: '
-            },
-            {
-              'text' => 'This is the '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'included'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'incl-incl.txi',
-                'line_nr' => 1
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 36,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' file (include-value2.txi) <> ---. 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'testvar verbatiminclude: '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'verbatiminclude',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'position' => 13,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'incl-incl.txi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'incl-incl.txi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'testvar'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'incl-incl.txi',
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 15
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'include',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 3,
-                                'position' => 12,
-                                'sourcemark_type' => 'value_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'incl-incl.txi'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'incl-incl.txi'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'source_marks' => [
-                          {
-                            'counter' => 3,
-                            'element' => {
-                              'cmdname' => 'value',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'test-var'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ]
-                            },
-                            'line' => 'incl-incl.tx',
-                            'position' => 1,
-                            'sourcemark_type' => 'value_expansion',
-                            'status' => 'start'
-                          }
-                        ],
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 18
-                    }
-                  },
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'test-var include: '
-            },
-            {
-              'text' => 'This is the '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'included'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'incl-incl.txi',
-                'line_nr' => 1
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 36,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' file (include-value2.txi) <> ---. 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'test-var verbatiminclude: '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'verbatiminclude',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'position' => 12,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'incl-incl.txi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'incl-incl.txi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'test-var'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'incl-incl.tx',
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 20
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'cmdname' => 'include',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 5,
-                                'element' => {
-                                  'cmdname' => 'value',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'test_var'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                },
-                                'line' => 'ncl-incl.tx',
-                                'position' => 1,
-                                'sourcemark_type' => 'value_expansion',
-                                'status' => 'start'
-                              },
-                              {
-                                'counter' => 5,
-                                'position' => 12,
-                                'sourcemark_type' => 'value_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'incl-incl.txi'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'incl-incl.txi'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 23
-                    }
-                  },
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'test_var include: '
-            },
-            {
-              'text' => 'This is the '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'included'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'incl-incl.txi',
-                'line_nr' => 1
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'position' => 36,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' file (include-value2.txi) <> ---. 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'test_var verbatiminclude: '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'verbatiminclude',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'test_var'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => 'ncl-incl.tx',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 6,
-                      'position' => 12,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'incl-incl.txi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'incl-incl.txi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 25
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 11
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_expansion_in_include'} = '*document_root C3
+ *before_node_section C9
+  *@set C2
+  |INFO
+  |arg_line:{ testvar incl-incl.txi\\n}
+   {rawline_arg:testvar}
+   {rawline_arg:incl-incl.txi}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: test - in the variable name, and concatenation of text after.\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ test-var incl-incl.tx\\n}
+   {rawline_arg:test-var}
+   {rawline_arg:incl-incl.tx}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: test - in the variable name, and concatenation of text before and after.\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ test_var ncl-incl.tx\\n}
+   {rawline_arg:test_var}
+   {rawline_arg:ncl-incl.tx}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *0 @node C1 l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @node C18 l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *paragraph C4
+   {testvar include: }
+   >SOURCEMARKS
+   >include<start;1><p:17>
+    >*@include C1 l13
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >|>SOURCEMARKS
+     >|>value_expansion<start;1><p:1>{incl-incl.txi}
+      >|>*@value C1
+       >|>*brace_container C1
+        >|>{testvar}
+    >|EXTRA
+    >|text_arg:{incl-incl.txi}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{incl-incl.txi}
+      >>SOURCEMARKS
+      >>value_expansion<end;1><p:13>
+   {This is the }
+   *2 @emph C1 incl-incl.txi:l1
+    *brace_container C1
+     {included}
+   { file (include-value2.txi) <> ---. \\n}
+   >SOURCEMARKS
+   >include<end;1><p:36>
+  {empty_line:\\n}
+  *paragraph C1
+   {testvar verbatiminclude: }
+  *@verbatiminclude C1 l15
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>value_expansion<start;2><p:1>{incl-incl.txi}
+    |>*@value C1
+     |>*brace_container C1
+      |>{testvar}
+  |EXTRA
+  |input_encoding_name:{utf-8}
+  |text_arg:{incl-incl.txi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {incl-incl.txi}
+    >SOURCEMARKS
+    >value_expansion<end;2><p:13>
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {test-var include: }
+   >SOURCEMARKS
+   >include<start;2><p:18>
+    >*@include C1 l18
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >|>SOURCEMARKS
+     >|>value_expansion<start;3><p:1>{incl-incl.tx}
+      >|>*@value C1
+       >|>*brace_container C1
+        >|>{test-var}
+    >|EXTRA
+    >|text_arg:{incl-incl.txi}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{incl-incl.txi}
+      >>SOURCEMARKS
+      >>value_expansion<end;3><p:12>
+   {This is the }
+   *3 @emph C1 incl-incl.txi:l1
+    *brace_container C1
+     {included}
+   { file (include-value2.txi) <> ---. \\n}
+   >SOURCEMARKS
+   >include<end;2><p:36>
+  {empty_line:\\n}
+  *paragraph C1
+   {test-var verbatiminclude: }
+  *@verbatiminclude C1 l20
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>value_expansion<start;4><p:1>{incl-incl.tx}
+    |>*@value C1
+     |>*brace_container C1
+      |>{test-var}
+  |EXTRA
+  |input_encoding_name:{utf-8}
+  |text_arg:{incl-incl.txi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {incl-incl.txi}
+    >SOURCEMARKS
+    >value_expansion<end;4><p:12>
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {test_var include: }
+   >SOURCEMARKS
+   >include<start;3><p:18>
+    >*@include C1 l23
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{incl-incl.txi}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{incl-incl.txi}
+      >>SOURCEMARKS
+      >>value_expansion<start;5><p:1>{ncl-incl.tx}
+       >>*@value C1
+        >>*brace_container C1
+         >>{test_var}
+      >>value_expansion<end;5><p:12>
+   {This is the }
+   *4 @emph C1 incl-incl.txi:l1
+    *brace_container C1
+     {included}
+   { file (include-value2.txi) <> ---. \\n}
+   >SOURCEMARKS
+   >include<end;3><p:36>
+  {empty_line:\\n}
+  *paragraph C1
+   {test_var verbatiminclude: }
+  *@verbatiminclude C1 l25
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |input_encoding_name:{utf-8}
+  |text_arg:{incl-incl.txi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {incl-incl.txi}
+    >SOURCEMARKS
+    >value_expansion<start;6><p:1>{ncl-incl.tx}
+     >*@value C1
+      >*brace_container C1
+       >{test_var}
+    >value_expansion<end;6><p:12>
+';
+
 
 $result_texis{'value_expansion_in_include'} = '@set testvar incl-incl.txi
 

@@ -5,208 +5,55 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_ignore_with_comments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'ignore',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'No space no comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore  
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Spaces no comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore@c no space comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore @c
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Comment no argument
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore  @c space comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Space Comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore something @comment comment after text
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Text comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore some @code{variable} @comment comment after command
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Command comment
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ignore'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'ignore'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 30
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_ignore_with_comments'} = '*document_root C1
+ *before_node_section C1
+  *0 @ignore C30 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {raw:@ignore\\n}
+   {raw:No space no comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore  \\n}
+   {raw:Spaces no comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore@c no space comment\\n}
+   {raw:Comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore @c\\n}
+   {raw:Comment no argument\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore  @c space comment\\n}
+   {raw:Space Comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore something @comment comment after text\\n}
+   {raw:Text comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore some @code{variable} @comment comment after command\\n}
+   {raw:Command comment\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   *@end C1 l30
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{ignore}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ignore}
+';
+
 
 $result_texis{'nested_ignore_with_comments'} = '@ignore
 @ignore

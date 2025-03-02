@@ -5,306 +5,96 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_ref_arg'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'first'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'first'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'first'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ':'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'first'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'first'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' aaa
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => ' '
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' ggg
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' fff
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'empty_ref_arg'}{'contents'}[1]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'empty_ref_arg'} = '*document_root C2
+ *before_node_section
+ *0 @node C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{first}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first}
+  {empty_line:\\n}
+  *paragraph C8
+   *1 @ref C2 l3
+    *brace_arg C1
+    |EXTRA
+    |node_content:{first}
+    |normalized:{first}
+     {first}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@ 
+   {\\n}
+   *2 @ref C3 l4
+    *brace_arg C1
+    |EXTRA
+    |node_content:{first}
+    |normalized:{first}
+     {first}
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@ 
+   {\\n}
+   *3 @ref C3 l5
+    *brace_arg C1
+    |EXTRA
+    |node_content:{first}
+    |normalized:{first}
+     {first}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@ 
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@:
+   {\\n}
+   *4 @ref C3 l6
+    *brace_arg C1
+    |EXTRA
+    |node_content:{first}
+    |normalized:{first}
+     {first}
+    *brace_arg C5
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@c C1
+      {rawline_arg: aaa\\n}
+     { }
+     *@ 
+     {\\n}
+     *@c C1
+      {rawline_arg: ggg\\n}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *@c C1
+      {rawline_arg: fff\\n}
+     *@c C1
+      {rawline_arg:\\n}
+   {\\n}
+';
+
 
 $result_texis{'empty_ref_arg'} = '@node first
 

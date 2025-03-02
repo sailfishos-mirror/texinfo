@@ -5,55 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'setfilename_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Some text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'setfilename',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'setfilename_in_paragraph.info'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'setfilename_in_paragraph.info'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'setfilename_in_paragraph'} = '*document_root C1
+ *before_node_section C2
+  *paragraph C1
+   {Some text\\n}
+  *@setfilename C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{setfilename_in_paragraph.info}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {setfilename_in_paragraph.info}
+';
+
 
 $result_texis{'setfilename_in_paragraph'} = 'Some text
 @setfilename setfilename_in_paragraph.info

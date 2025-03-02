@@ -5,677 +5,207 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_call_empty_two_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' twoa {aa, bb}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first \\aa\\,
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second \\bb\\,
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'twoa',
-            'misc_args' => [
-              'aa',
-              'bb'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'g'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first g,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'h'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first h,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'i'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second i,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 9,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'j'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 9,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second j,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 10,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'k'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 10,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second k,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 11,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'l'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'twoa'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 11,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second l,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
+ *before_node_section C24
+  *0 @macro C4 l1
+  |EXTRA
+  |macro_name:{twoa}
+  |misc_args:A{aa|bb}
+   *arguments_line C1
+    {macro_line: twoa {aa, bb}\\n}
+   {raw:first \\aa\\,\\n}
+   {raw:second \\bb\\,\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;2><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;3><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;4>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >*brace_arg
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;4><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;5>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;5><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first g,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;6>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg C1
+      >{g}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;6><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first h,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;7>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg C1
+      >{h}
+     >*brace_arg
+   {second ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;7><p:8>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;8>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{i}
+   {second i,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;8><p:9>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;9>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{j}
+   {second j,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;9><p:9>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;10>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >*brace_arg C1
+      >{k}
+   {second k,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;10><p:9>
+  {empty_line:\\n}
+  *paragraph C2
+   {first ,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;11>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{twoa}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >*brace_arg C1
+      >{l}
+   {second l,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;11><p:9>
+  {empty_line:\\n}
+';
+
 
 $result_texis{'macro_call_empty_two_arg'} = '@macro twoa {aa, bb}
 first \\aa\\,

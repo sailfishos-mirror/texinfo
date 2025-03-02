@@ -5,56 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'top_no_argument_and_content'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'top_no_argument_and_content'} = '*document_root C2
+ *before_node_section C1
+  *preamble_before_content
+ *0 @top C3 l1
+ |EXTRA
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {A.\\n}
+';
+
 
 $result_texis{'top_no_argument_and_content'} = '@top
 

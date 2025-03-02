@@ -5,57 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'include_at_end_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'include',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'inc_file.texi'
-                },
-                {
-                  'cmdname' => '
-'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'inc_file.texi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'include_at_end_line'} = '*document_root C1
+ *before_node_section C3
+  *@include C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{inc_file.texi}
+   *line_arg C2
+    {inc_file.texi}
+    *@\\n
+  {empty_line:\\n}
+  *paragraph C1
+   {After.}
+';
+
 
 $result_texis{'include_at_end_line'} = '@include inc_file.texi@
 

@@ -5,33 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'text_comment'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'text'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'text_comment'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {text}
+   *@c C1
+    {rawline_arg: comment}
+';
+
 
 $result_texis{'text_comment'} = 'text@c comment';
 

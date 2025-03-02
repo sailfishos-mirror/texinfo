@@ -5,774 +5,255 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'japanese_utf8'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            },
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'UTF-8'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'UTF-8'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 2
-              }
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'japanese_utf8.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'japanese_utf8.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'settitle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'GNU LilyPond -- Manuel d\'initiation japanese'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'documentlanguage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ja'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'ja'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 8
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => "GNU LilyPond --- \x{5b66}\x{7fd2}\x{30de}\x{30cb}\x{30e5}\x{30a2}\x{30eb}"
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'copying',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Copyright '
-                },
-                {
-                  'cmdname' => 'copyright',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 12
-                  }
-                },
-                {
-                  'text' => " 1999--2008 \x{8457}\x{4f5c}\x{8005}\x{4e00}\x{540c}
-"
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'emph',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'The translation of the following copyright notice is provided
-'
-                        },
-                        {
-                          'text' => 'for courtesy to non-English speakers, but only the notice in English
-'
-                        },
-                        {
-                          'text' => 'legally counts.'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 14
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'emph',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => "\x{4ee5}\x{4e0b}\x{306f}\x{82f1}\x{8a9e}\x{3092}\x{8a71}\x{3055}\x{306a}\x{3044}\x{4eba}\x{3005}\x{306e}\x{305f}\x{3081}\x{306e}\x{8457}\x{4f5c}\x{6a29}\x{306b}\x{3064}\x{3044}\x{3066}\x{306e}\x{6ce8}\x{610f}\x{66f8}\x{304d}\x{3067}\x{3059}\x{3002}\x{3057}\x{304b}\x{3057}\x{306a}\x{304c}\x{3089}\x{3001}
-"
-                        },
-                        {
-                          'text' => "\x{82f1}\x{8a9e}\x{3067}\x{66f8}\x{304b}\x{308c}\x{305f}\x{6ce8}\x{610f}\x{66f8}\x{304d}\x{3060}\x{3051}\x{304c}\x{6cd5}\x{7684}\x{306b}\x{6709}\x{52b9}\x{3067}\x{3059}\x{3002}"
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'japanese_utf8.texi',
-                    'line_nr' => 18
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'copying'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'copying'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 20
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 11
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "\x{3053}\x{308c}\x{306f} GNU LilyPond \x{30d0}\x{30fc}\x{30b8}\x{30e7}\x{30f3} 
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Preface'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Preface'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 26
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Introduction'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Introduction'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::                   ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => "LilyPond \x{3068}\x{306f}\x{4f55}\x{306a}\x{306e}\x{304b}\x{3001}\x{306a}\x{305c} LilyPond \x{3092}\x{4f7f}\x{3046}\x{306e}\x{304b}\x{3001}\x{3069}\x{3046}\x{3084}\x{3063}\x{3066} LilyPond \x{3092}\x{4f7f}\x{3046}\x{306e}\x{304b}
-"
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 27
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'japanese_utf8.texi',
-                'line_nr' => 28
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 25
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 9
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Preface'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Preface'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 30
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Preface'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "\x{305d}\x{308c}\x{306f} 1995 \x{5e74}\x{306e}\x{3042}\x{308b}\x{65e5}\x{306e} EJE (Eindhoven Youth Orchestra) \x{306e}\x{30ea}\x{30cf}\x{30fc}\x{30b5}\x{30eb}\x{4e2d}\x{306e}\x{3067}\x{304d}\x{3054}\x{3068}\x{3067}\x{3057}\x{305f} \x{2212} \x{3042}\x{308b}\x{5909}\x{308f}\x{308a}\x{8005}\x{306e}\x{30d0}\x{30a4}\x{30aa}\x{30ea}\x{30f3}\x{594f}\x{8005}\x{3067}\x{3042}\x{308b}\x{30b8}\x{30e3}\x{30f3}\x{306f}\x{540c}\x{3058}\x{304f}\x{5909}\x{308f}\x{308a}\x{8005}\x{306e}\x{30d5}\x{30ec}\x{30f3}\x{30c1}\x{30db}\x{30eb}\x{30f3}\x{594f}\x{8005}\x{306e}\x{30cf}\x{30f3}-\x{30a6}\x{30a7}\x{30f3}\x{306b}\x{5f7c}\x{304c}\x{304b}\x{304b}\x{308f}\x{3063}\x{3066}\x{3044}\x{308b}\x{65b0}\x{3057}\x{3044}\x{5927}\x{304d}\x{306a}\x{30d7}\x{30ed}\x{30b8}\x{30a7}\x{30af}\x{30c8}\x{306e}\x{3053}\x{3068}\x{3092}\x{8a71}\x{3057}\x{307e}\x{3057}\x{305f}\x{3002}\x{305d}\x{308c}\x{306f}\x{97f3}\x{697d}\x{3092}\x{51fa}\x{7248}\x{3059}\x{308b}\x{305f}\x{3081}\x{306e}\x{81ea}\x{52d5}\x{5316}\x{3055}\x{308c}\x{305f}\x{30b7}\x{30b9}\x{30c6}\x{30e0}\x{3067}\x{3059} (\x{6b63}\x{78ba}\x{306b}\x{306f}\x{3001}\x{305d}\x{308c}\x{306f} MPP \x{2212} MusiXTeX \x{306e}\x{30d7}\x{30ea}\x{30d7}\x{30ed}\x{30bb}\x{30c3}\x{30b5}\x{3067}\x{3059})\x{3002}\x{305d}\x{308c}\x{3092}\x{805e}\x{3044}\x{3066}\x{30cf}\x{30f3}-\x{30a6}\x{30a7}\x{30f3}\x{306f}\x{3059}\x{3050}\x{306b}\x{697d}\x{8b5c}\x{304b}\x{3089}\x{3044}\x{304f}\x{3064}\x{304b}\x{306e}\x{90e8}\x{5206}\x{3092}\x{30d7}\x{30ea}\x{30f3}\x{30c8}\x{30a2}\x{30a6}\x{30c8}\x{3057}\x{305f}\x{3044}\x{3068}\x{601d}\x{3044}\x{3001}\x{5f7c}\x{306f}\x{305d}\x{306e}\x{305f}\x{3081}\x{306e}\x{30bd}\x{30d5}\x{30c8}\x{30a6}\x{30a7}\x{30a2}\x{3092}\x{63a2}\x{3057}\x{59cb}\x{3081}\x{3001}\x{3059}\x{3050}\x{306b}\x{305d}\x{306e}\x{865c}\x{306b}\x{306a}\x{3063}\x{3066}\x{3057}\x{307e}\x{3044}\x{307e}\x{3057}\x{305f}\x{3002}\x{305d}\x{308c}\x{304c} MPP \x{306e}\x{7d42}\x{308f}\x{308a}\x{3092}\x{6c7a}\x{5b9a}\x{4ed8}\x{3051}\x{307e}\x{3057}\x{305f}\x{3002}\x{591a}\x{304f}\x{306e}\x{54f2}\x{5b66}\x{7684}\x{8003}\x{5bdf}\x{3092}\x{542b}\x{307f}\x{767d}\x{71b1}\x{3057}\x{305f} email \x{306e}\x{4ea4}\x{63db}\x{306e}\x{5f8c}\x{3001}\x{30cf}\x{30f3}-\x{30a6}\x{30a7}\x{30f3}\x{306f} 1996 \x{5e74}\x{306b} LilyPond \x{306e}\x{88fd}\x{4f5c}\x{3092}\x{958b}\x{59cb}\x{3057}\x{307e}\x{3057}\x{305f}\x{3002}\x{3053}\x{306e}\x{6642}\x{3001}\x{30b8}\x{30e3}\x{30f3}\x{306f}\x{30cf}\x{30f3}-\x{30a6}\x{30a7}\x{30f3}\x{306e}\x{65b0}\x{3057}\x{3044}\x{30d7}\x{30ed}\x{30b8}\x{30a7}\x{30af}\x{30c8}\x{306b}\x{5f15}\x{304d}\x{305a}\x{308a}\x{8fbc}\x{307e}\x{308c}\x{307e}\x{3057}\x{305f}\x{3002}
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 31
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Introduction'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Introduction'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 36
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Introduction'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => "\x{3053}\x{306e}\x{7ae0}\x{3067}\x{306f}\x{8aad}\x{8005}\x{306b} LilyPond \x{3068}\x{3053}\x{306e}\x{30c9}\x{30ad}\x{30e5}\x{30e1}\x{30f3}\x{30c8}\x{306b}\x{3064}\x{3044}\x{3066}\x{306e}\x{7d39}\x{4ecb}\x{3092}\x{884c}\x{3044}\x{307e}\x{3059}\x{3002}
-"
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'japanese_utf8.texi',
-        'line_nr' => 37
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'japanese_utf8'}{'contents'}[2]{'contents'}[7]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_tree_text{'japanese_utf8'} = '*document_root C8
+ *before_node_section C2
+  *preamble_before_setfilename C2
+   *preamble_before_beginning C1
+    {text_before_beginning:\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-\\n}
+   *@documentencoding C1 japanese_utf8.texi:l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{UTF-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {UTF-8}
+  *preamble_before_content C5
+   *@setfilename C1 japanese_utf8.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{japanese_utf8.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {japanese_utf8.info}
+   *@settitle C1 japanese_utf8.texi:l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {GNU LilyPond -- Manuel d\'initiation japanese}
+   {empty_line:\\n}
+   *@documentlanguage C1 japanese_utf8.texi:l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{ja}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ja}
+   {empty_line:\\n}
+ *0 @node C1 japanese_utf8.texi:l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E6]
+ |node_directions:D[next->E7]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C9 japanese_utf8.texi:l9
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E8|E10]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E8]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {GNU LilyPond --- 学習マニュアル}
+  {empty_line:\\n}
+  *2 @copying C7 japanese_utf8.texi:l11
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C3
+    {Copyright }
+    *3 @copyright C1 japanese_utf8.texi:l12
+     *brace_container
+    { 1999--2008 著作者一同\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    *4 @emph C1 japanese_utf8.texi:l14
+     *brace_container C3
+      {The translation of the following copyright notice is provided\\n}
+      {for courtesy to non-English speakers, but only the notice in English\\n}
+      {legally counts.}
+    {\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    *5 @emph C1 japanese_utf8.texi:l18
+     *brace_container C2
+      {以下は英語を話さない人々のための著作権についての注意書きです。しかしながら、\\n}
+      {英語で書かれた注意書きだけが法的に有効です。}
+    {\\n}
+   *@end C1 japanese_utf8.texi:l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{copying}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {copying}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {これは GNU LilyPond バージョン \\n}
+  {empty_line:\\n}
+  *6 @menu C4 japanese_utf8.texi:l25
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 japanese_utf8.texi:l26
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{Preface}
+    |normalized:{Preface}
+     {Preface}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 japanese_utf8.texi:l27
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{Introduction}
+    |normalized:{Introduction}
+     {Introduction}
+    {menu_entry_separator:::                   }
+    *menu_entry_description C1
+     *preformatted C1
+      {LilyPond とは何なのか、なぜ LilyPond を使うのか、どうやって LilyPond を使うのか\\n}
+   *@end C1 japanese_utf8.texi:l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *7 @node C1 japanese_utf8.texi:l30
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E8]
+ |is_target:{1}
+ |menu_directions:D[next->E9|up->E0]
+ |node_directions:D[next->E9|prev->E0|up->E0]
+ |normalized:{Preface}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Preface}
+ *8 @chapter C5 japanese_utf8.texi:l31
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E7]
+ |section_directions:D[next->E10|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E10|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Preface}
+  {empty_line:\\n}
+  *paragraph C1
+   {それは 1995 年のある日の EJE (Eindhoven Youth Orchestra) のリハーサル中のできごとでした − ある変わり者のバイオリン奏者であるジャンは同じく変わり者のフレンチホルン奏者のハン-ウェンに彼がかかわっている新しい大きなプロジェクトのことを話しました。それは音楽を出版するための自動化されたシステムです (正確には、それは MPP − MusiXTeX のプリプロセッサです)。それを聞いてハン-ウェンはすぐに楽譜からいくつかの部分をプリントアウトしたいと思い、彼はそのためのソフトウェアを探し始め、すぐにその虜になってしまいました。それが MPP の終わりを決定付けました。多くの哲学的考察を含み白熱した email の交換の後、ハン-ウェンは 1996 年に LilyPond の製作を開始しました。この時、ジャンはハン-ウェンの新しいプロジェクトに引きずり込まれました。\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *9 @node C1 japanese_utf8.texi:l36
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E10]
+ |is_target:{1}
+ |menu_directions:D[prev->E7|up->E0]
+ |node_directions:D[prev->E7|up->E0]
+ |normalized:{Introduction}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Introduction}
+ *10 @chapter C4 japanese_utf8.texi:l37
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E9]
+ |section_directions:D[prev->E8|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[prev->E8|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Introduction}
+  {empty_line:\\n}
+  *paragraph C1
+   {この章では読者に LilyPond とこのドキュメントについての紹介を行います。\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'japanese_utf8'} = '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 @documentencoding UTF-8

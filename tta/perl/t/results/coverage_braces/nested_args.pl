@@ -5,159 +5,45 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_args'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in samp'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'descr '
-                    },
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in b'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'S'
-                    },
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => 'ction'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'cite',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'manual'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'nested_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_tree_text{'nested_args'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @xref C4 l1
+    *brace_arg C3
+    |EXTRA
+    |node_content:{@@ @samp{in samp}}
+     *@@
+     { }
+     *1 @samp C1 l1
+      *brace_container C1
+       {in samp}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {descr }
+     *2 @b C1 l1
+      *brace_container C1
+       {in b}
+    *brace_arg C3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {S}
+     *3 @~ C1 l1
+      *brace_container C1
+       {e}
+     {ction}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ \\n}
+     *4 @cite C1 l2
+      *brace_container C1
+       {manual}
+   {.}
+';
+
 
 $result_texis{'nested_args'} = '@xref{@@ @samp{in samp}, descr @b{in b}, S@~{e}ction, 
 @cite{manual}}.';

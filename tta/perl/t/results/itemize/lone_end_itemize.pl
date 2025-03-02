@@ -5,14 +5,10 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'lone_end_itemize'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'lone_end_itemize'} = '*document_root C1
+ *before_node_section
+';
+
 
 $result_texis{'lone_end_itemize'} = '';
 

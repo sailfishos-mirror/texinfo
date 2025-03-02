@@ -5,190 +5,56 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'protect_spaces_on_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Before samp. '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. after samp, w '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in   w. after dot'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '  afterw
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'exdent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'before samp. '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => '. after samp, w '
-                    },
-                    {
-                      'cmdname' => 'w',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in   w. after dot'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => '  afterw'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 4
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'protect_spaces_on_line'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *paragraph C5
+   {Before samp. }
+   *0 @samp C1 l2
+    *brace_container C1
+     {a}
+   {. after samp, w }
+   *1 @w C1 l2
+    *brace_container C1
+     {in   w. after dot}
+   {  afterw\\n}
+  {empty_line:\\n}
+  *2 @quotation C3 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@exdent C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {before samp. }
+     *3 @samp C1 l5
+      *brace_container C1
+       {a}
+     {. after samp, w }
+     *4 @w C1 l5
+      *brace_container C1
+       {in   w. after dot}
+     {  afterw}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+';
+
 
 $result_texis{'protect_spaces_on_line'} = '
 Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw

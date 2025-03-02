@@ -5,597 +5,183 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple_nested_linemacro_calls'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' inside {a, b, rest}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'inside {\\a\\ operator \\b\\} \\rest\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'inside',
-            'misc_args' => [
-              'a',
-              'b',
-              'rest'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' outside {one, two, three}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@defline \\one\\ {\\two\\} \\three\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@cindex \\two\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'outside',
-            'misc_args' => [
-              'one',
-              'two',
-              'three'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'type',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a function',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@inside {X} {Y} ( remaining, type typed )'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'outside',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'defline',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'type'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a function'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 13,
-                            'macro' => 'outside'
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'X',
-                                    'type' => 'bracketed_linemacro_arg'
-                                  }
-                                ],
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'Y',
-                                    'type' => 'bracketed_linemacro_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => '( remaining, type typed )'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'inside',
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'linemacro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'inside'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'X operator Y'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 13,
-                            'macro' => 'inside'
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'remaining'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'type'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'typed'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defline',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a function'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'original_def_cmdname' => 'defline'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13,
-                'macro' => 'outside'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'position' => 10,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'a function'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      1
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 13,
-                    'macro' => 'outside'
-                  },
-                  'type' => 'index_entry_command'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 12
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'simple_nested_linemacro_calls'}{'contents'}[1]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'simple_nested_linemacro_calls'}{'contents'}[1];
+$result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
+ *before_node_section
+ *0 @node C7 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *1 @linemacro C3 l3
+  |EXTRA
+  |macro_name:{inside}
+  |misc_args:A{a|b|rest}
+   *arguments_line C1
+    {macro_line: inside {a, b, rest}\\n}
+   {raw:inside {\\a\\ operator \\b\\} \\rest\\\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *2 @linemacro C4 l7
+  |EXTRA
+  |macro_name:{outside}
+  |misc_args:A{one|two|three}
+   *arguments_line C1
+    {macro_line: outside {one, two, three}\\n}
+   {raw:@defline \\one\\ {\\two\\} \\three\\\\n}
+   {raw:@cindex \\two\\\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *3 @defblock C4 l12
+   *arguments_line C1
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call C3
+    >|INFO
+    >|command_name:{outside}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:type}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{bracketed_linemacro_arg:a function}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{@inside {X} {Y} ( remaining, type typed )}
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@defline C1 l13:@outside
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{defline}
+   |def_index_element:
+    |*def_name C1
+     |*bracketed_arg C1
+      |{a function}
+   |original_def_cmdname:{defline}
+    *line_arg C18
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {type}
+     {spaces: }
+     *def_name C1
+      *bracketed_arg C1 l13:@outside
+       {a function}
+     {spaces: }
+     >SOURCEMARKS
+     >linemacro_expansion<start;2><p:1>
+      >*linemacro_call C3
+      >|INFO
+      >|command_name:{inside}
+      >|spaces_before_argument:
+       >|{ }
+       >*line_arg C1
+        >{bracketed_linemacro_arg:X}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{bracketed_linemacro_arg:Y}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{( remaining, type typed )}
+     *def_arg C1
+      *def_line_arg C1
+       {inside}
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg C1 l13:@inside
+       {X operator Y}
+     {spaces: }
+     {delimiter:(}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {remaining}
+     {delimiter:,}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {type}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {typed}
+     {spaces: }
+     {delimiter:)}
+     >SOURCEMARKS
+     >linemacro_expansion<end;2><p:1>
+   *def_item C1
+    *4 index_entry_command@cindex C1 l13:@outside
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |element_node:[E0]
+    |index_entry:I{cp,1}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {a function}
+      >SOURCEMARKS
+      >linemacro_expansion<end;1><p:10>
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defblock}
+';
+
 
 $result_texis{'simple_nested_linemacro_calls'} = '@node Top
 

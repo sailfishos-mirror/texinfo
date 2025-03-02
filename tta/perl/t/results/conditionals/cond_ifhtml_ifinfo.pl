@@ -5,791 +5,245 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'cond_ifhtml_ifinfo'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' test conditions
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'html',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'This is html text.
-'
-                    }
-                  ],
-                  'type' => 'rawpreformatted'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'html'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'cond.texi',
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'cond.texi',
-                'line_nr' => 5
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifhtml',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      }
-                    ],
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 9
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifhtml'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifhtml'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 11
-                    }
-                  },
-                  'position' => 21,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'This is ifhtml text.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifnothtml',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => 'This is ifnothtml text.
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifnothtml'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifnothtml'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 15
-                    }
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'cond.texi',
-                  'line_nr' => 13
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'cond.texi',
-        'line_nr' => 17
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'conditionals'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'cond.texi',
-        'line_nr' => 18
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'cmdname' => 'ifinfo',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'cond.texi',
-                  'line_nr' => 23
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifinfo'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifinfo'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 25
-                    }
-                  },
-                  'position' => 21,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'This is ifinfo text.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'cmdname' => 'ifnotinfo',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => 'This is ifnotinfo text.
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifnotinfo'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifnotinfo'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 29
-                    }
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'cond.texi',
-                  'line_nr' => 27
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'tex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'This is tex text.
-',
-                  'type' => 'raw'
-                }
-              ],
-              'type' => 'elided_rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'tex'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'cond.texi',
-                'line_nr' => 34
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'cond.texi',
-            'line_nr' => 32
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'cmdname' => 'iftex',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => 'This is iftex text.
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'iftex'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'iftex'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 38
-                    }
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'cond.texi',
-                  'line_nr' => 36
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'cmdname' => 'ifnottex',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'cond.texi',
-                  'line_nr' => 40
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifnottex'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifnottex'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'cond.texi',
-                      'line_nr' => 42
-                    }
-                  },
-                  'position' => 23,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'This is ifnottex text.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'cond.texi',
-        'line_nr' => 20
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'cond_ifhtml_ifinfo'} = '*document_root C5
+ *before_node_section C5
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@c C1
+    {rawline_arg: test conditions\\n}
+   {empty_line:\\n}
+   *0 @html C3 cond.texi:l5
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *rawpreformatted C1
+     {This is html text.\\n}
+    *@end C1 cond.texi:l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{html}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {html}
+   {empty_line:\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<start;1><p:1>
+    >*@ifhtml C1 cond.texi:l9
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+  *paragraph C1
+   {This is ifhtml text.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:21>
+    >*@end C1 cond.texi:l11
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifhtml}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifhtml}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<1><p:1>
+   >*@ifnothtml C3 cond.texi:l13
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+    >{raw:This is ifnothtml text.\\n}
+    >*@end C1 cond.texi:l15
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifnothtml}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifnothtml}
+  {empty_line:\\n}
+ *1 @node C1 cond.texi:l17
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E2]
+ |is_target:{1}
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *2 @top C2 cond.texi:l18
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E1]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E2]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {conditionals}
+  {empty_line:\\n}
+ *3 @node C12 cond.texi:l20
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E1]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;2><p:1>
+   >*@ifinfo C1 cond.texi:l23
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+  *paragraph C1
+   {This is ifinfo text.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;2><p:21>
+    >*@end C1 cond.texi:l25
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifinfo}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifinfo}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<2><p:1>
+   >*@ifnotinfo C3 cond.texi:l27
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+    >{raw:This is ifnotinfo text.\\n}
+    >*@end C1 cond.texi:l29
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifnotinfo}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifnotinfo}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *4 @tex C3 cond.texi:l32
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *elided_rawpreformatted C1
+    {raw:This is tex text.\\n}
+   *@end C1 cond.texi:l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{tex}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {tex}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<3><p:1>
+   >*@iftex C3 cond.texi:l36
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+    >{raw:This is iftex text.\\n}
+    >*@end C1 cond.texi:l38
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{iftex}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{iftex}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;3><p:1>
+   >*@ifnottex C1 cond.texi:l40
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+  *paragraph C1
+   {This is ifnottex text.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;3><p:23>
+    >*@end C1 cond.texi:l42
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifnottex}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifnottex}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'cond_ifhtml_ifinfo'} = '\\input texinfo
 

@@ -5,266 +5,79 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'documentdescription'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentdescription',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'documentdescri---ption'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' --- '
-                },
-                {
-                  'cmdname' => 'bullet',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'enddots',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '"verb',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => ':'
-                  },
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'aa',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'email',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'some'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
-                        },
-                        {
-                          'text' => 'body'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'documentdescription'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'documentdescription'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'documentdescription'} = '*document_root C2
+ *before_node_section C2
+  *0 @documentdescription C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C15
+    {in }
+    *1 @code C1 l2
+     *brace_container C1
+      {documentdescri---ption}
+    { --- }
+    *2 @bullet C1 l2
+     *brace_container
+    { }
+    *3 @enddots C1 l2
+     *brace_container
+    { }
+    *4 @verb C1 l2
+    |INFO
+    |delimiter:{:}
+     *brace_container C1
+      {raw:"verb}
+    { }
+    *5 @aa C1 l2
+     *brace_container
+    { }
+    *6 @^ C1 l2
+     *brace_container C1
+      *7 @dotless C1 l2
+       *brace_container C1
+        {i}
+    { }
+    *8 @email C1 l2
+     *brace_arg C2
+      *9 @code C1 l2
+       *brace_container C1
+        {some}
+      {body}
+    {\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{documentdescription}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {documentdescription}
+  {empty_line:\\n}
+ *10 @top C1 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E10]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+';
+
 
 $result_texis{'documentdescription'} = '@documentdescription
 in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @^{@dotless{i}} @email{@code{some}body}

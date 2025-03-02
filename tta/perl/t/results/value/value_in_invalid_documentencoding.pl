@@ -5,93 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_in_invalid_documentencoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'badvalue',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'bad',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' badvalue bad
-'
-          }
-        },
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 3,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'bad'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'bad'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'badvalue'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'bad',
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_in_invalid_documentencoding'} = '*document_root C1
+ *before_node_section C2
+  *@set C2
+  |INFO
+  |arg_line:{ badvalue bad\\n}
+   {rawline_arg:badvalue}
+   {rawline_arg:bad}
+  *@documentencoding C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>value_expansion<start;1><p:1>{bad}
+    |>*@value C1
+     |>*brace_container C1
+      |>{badvalue}
+  |EXTRA
+  |global_command_number:{1}
+  |text_arg:{bad}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {bad}
+    >SOURCEMARKS
+    >value_expansion<end;1><p:3>
+';
+
 
 $result_texis{'value_in_invalid_documentencoding'} = '@set badvalue bad
 @documentencoding bad

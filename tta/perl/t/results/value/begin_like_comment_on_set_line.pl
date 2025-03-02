@@ -5,98 +5,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'begin_like_comment_on_set_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' x@come with me
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'y',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'some thing @commentary is it',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' y some thing @commentary is it
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '!'
-            },
-            {
-              'cmdname' => 'value',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'x'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ]
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'y'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'some thing @commentary is it',
-                  'position' => 3,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 20,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '! !some thing  is it!
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'begin_like_comment_on_set_line'} = '*document_root C1
+ *before_node_section C4
+  *@set
+  |INFO
+  |arg_line:{ x@come with me\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ y some thing @commentary is it\\n}
+   {rawline_arg:y}
+   {rawline_arg:some thing @commentary is it}
+  {empty_line:\\n}
+  *paragraph C3
+   {!}
+   *0 @value C1
+    *brace_container C1
+     {x}
+   {! !some thing  is it!\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1><p:3>{some thing @commentary is it}
+    >*@value C1
+     >*brace_container C1
+      >{y}
+   >value_expansion<end;1><p:20>
+';
+
 
 $result_texis{'begin_like_comment_on_set_line'} = '@set x@come with me
 @set y some thing @commentary is it

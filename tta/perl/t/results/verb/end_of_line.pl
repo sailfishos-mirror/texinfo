@@ -5,62 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'end_of_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'verb at end of line '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '@{ in verb at end of line @c comment
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'and now end',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ''
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'after end.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'end_of_line'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {verb at end of line }
+   *0 @verb C1 l1
+   |INFO
+   |delimiter:{}
+    *brace_container C4
+     {raw:\\n}
+     {raw:\\n}
+     {raw:@{ in verb at end of line @c comment\\n}
+     {raw:and now end}
+   {after end.}
+';
+
 
 $result_texis{'end_of_line'} = 'verb at end of line @verb{
 

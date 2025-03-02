@@ -5,294 +5,70 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'abbr_acronym'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'an accronym'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'an accronym '
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'enddots',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => '--a. '
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => 'A.'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => 'tude--'
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Autonome'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => '--a. '
-                    },
-                    {
-                      'cmdname' => 'comma',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => 'A.'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'abbr_acronym'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C6
+   *0 @acronym C2 l1
+    *brace_arg C1
+     {--a}
+    *brace_arg C1
+     {an accronym}
+   {\\n}
+   *1 @acronym C1 l2
+    *brace_arg C1
+     {--a}
+   {\\n}
+   *2 @acronym C2 l3
+    *brace_arg C1
+     {--a}
+    *brace_arg C4
+     {an accronym }
+     *3 @comma C1 l3
+      *brace_container
+     { }
+     *4 @enddots C1 l3
+      *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *5 @abbr C2 l5
+    *brace_arg C4
+     *6 @\' C1 l5
+      *following_arg C1
+       {E}
+     {--a. }
+     *7 @comma C1 l5
+      *brace_container
+     {A.}
+    *brace_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     *8 @\' C1 l5
+      *following_arg C1
+       {E}
+     {tude--}
+     *9 @comma C1 l5
+      *brace_container
+     { }
+     *10 @b C1 l5
+      *brace_container C1
+       {Autonome}
+   {\\n}
+   *11 @abbr C1 l6
+    *brace_arg C4
+     *12 @\' C1 l6
+      *following_arg C1
+       {E}
+     {--a. }
+     *13 @comma C1 l6
+      *brace_container
+     {A.}
+   {\\n}
+';
+
 
 $result_texis{'abbr_acronym'} = '@acronym{--a,an accronym}
 @acronym{--a}

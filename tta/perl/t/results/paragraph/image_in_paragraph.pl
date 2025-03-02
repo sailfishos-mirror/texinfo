@@ -5,79 +5,26 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'image_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Para. '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bb'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cc'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'dd'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '.ee'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. After image.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'image_in_paragraph'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {Para. }
+   *0 @image C5 l1
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {aa}
+    *brace_arg C1
+     {bb}
+    *brace_arg C1
+     {cc}
+    *brace_arg C1
+     {dd}
+    *brace_arg C1
+     {.ee}
+   {. After image.\\n}
+';
+
 
 $result_texis{'image_in_paragraph'} = 'Para. @image{aa,bb,cc,dd,.ee}. After image.
 ';

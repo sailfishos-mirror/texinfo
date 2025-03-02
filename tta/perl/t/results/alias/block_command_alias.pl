@@ -5,118 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'block_command_alias'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'lang=lisp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'lang',
-              'lisp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'lisp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in lang
-'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'lang'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'lang'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                }
-              ],
-              'type' => 'preformatted'
-            }
-          ],
-          'info' => {
-            'alias_of' => 'lang'
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'block_command_alias'} = '*document_root C1
+ *before_node_section C3
+  *@alias C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{lang|lisp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {lang=lisp}
+  {empty_line:\\n}
+  *0 @lisp C2 l3
+  |INFO
+  |alias_of:{lang}
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C2
+    {in lang\\n}
+    *@end C1 l5
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{lang}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {lang}
+';
+
 
 $result_texis{'block_command_alias'} = '@alias lang=lisp
 

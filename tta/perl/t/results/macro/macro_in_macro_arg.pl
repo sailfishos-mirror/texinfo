@@ -5,312 +5,95 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_macro_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macroone
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'a, @macrotwo
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macroone',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrotwo{arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'hello \\arg\\ after arg
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrotwo',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrothree{text, arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\text\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '&&&& \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrothree',
-            'misc_args' => [
-              'text',
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@macroone{}text for macro2'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrothree'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macroone'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 2,
-                                'sourcemark_type' => 'macro_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'text for macro2'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrotwo'
-                    },
-                    'type' => 'macro_call_line'
-                  },
-                  'position' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 3,
-                  'position' => 34,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'a, hello text for macro2 after arg
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '&&&& 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_in_macro_arg'} = '*document_root C1
+ *before_node_section C8
+  {empty_line:\\n}
+  *0 @macro C3 l2
+  |EXTRA
+  |macro_name:{macroone}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: macroone\\n}
+   {raw:a, @macrotwo\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l6
+  |EXTRA
+  |macro_name:{macrotwo}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: macrotwo{arg}\\n}
+   {raw:hello \\arg\\ after arg\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @macro C4 l10
+  |EXTRA
+  |macro_name:{macrothree}
+  |misc_args:A{text|arg}
+   *arguments_line C1
+    {macro_line: macrothree{text, arg}\\n}
+   {raw:\\text\\\\n}
+   {raw:&&&& \\arg\\\\n}
+   *@end C1 l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   {a, hello text for macro2 after arg\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macrothree}
+     >*brace_arg C1
+      >{@macroone{}text for macro2}
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macroone}
+     >*brace_arg
+   >macro_expansion<start;3><p:3>
+    >*macro_call_line C1
+    >|INFO
+    >|command_name:{macrotwo}
+     >*line_arg C1
+      >{text for macro2}
+      >>SOURCEMARKS
+      >>macro_expansion<end;2>
+   >macro_expansion<end;3><p:34>
+   {&&&& \\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:5>
+';
+
 
 $result_texis{'macro_in_macro_arg'} = '
 @macro macroone

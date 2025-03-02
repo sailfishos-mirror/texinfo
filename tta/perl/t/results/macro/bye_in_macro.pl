@@ -5,162 +5,49 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bye_in_macro'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' byeinmacro
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'Text
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@bye
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'after bye
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'byeinmacro',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'info' => {
-                      'command_name' => 'byeinmacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    },
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'position' => 9,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => 'after bye',
-          'type' => 'text_after_end'
-        },
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        },
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        },
-        {
-          'text' => 'After end
-',
-          'type' => 'text_after_end'
-        }
-      ],
-      'type' => 'postamble_after_end'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bye_in_macro'} = '*document_root C3
+ *before_node_section C3
+  *0 @macro C6 l1
+  |EXTRA
+  |macro_name:{byeinmacro}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: byeinmacro\\n}
+   {raw:Text\\n}
+   {raw:@bye\\n}
+   {raw:\\n}
+   {raw:after bye\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C1
+   {Text\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call
+    >|INFO
+    >|command_name:{byeinmacro}
+ *@bye C1
+  {rawline_arg:\\n}
+ *postamble_after_end C5
+  {text_after_end:\\n}
+  {text_after_end:after bye}
+  >SOURCEMARKS
+  >macro_expansion<end;1><p:9>
+  {text_after_end:\\n}
+  {text_after_end:\\n}
+  {text_after_end:After end\\n}
+';
+
 
 $result_texis{'bye_in_macro'} = '@macro byeinmacro
 Text

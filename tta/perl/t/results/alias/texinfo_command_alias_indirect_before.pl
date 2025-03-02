@@ -5,184 +5,60 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'texinfo_command_alias_indirect_before'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mystrong {arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '!!\\arg\\!!
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mystrong',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'new = strong'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'new',
-              'strong'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'strong = mystrong'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'strong',
-              'mystrong'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'alias_of' => 'new'
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'texinfo_command_alias_indirect_before'} = '*document_root C1
+ *before_node_section C7
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{mystrong}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: mystrong {arg}\\n}
+   {raw:!!\\arg\\!!\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@alias C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{new|strong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {new = strong}
+  {empty_line:\\n}
+  *@alias C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{strong|mystrong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {strong = mystrong}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @strong C1 l9
+   |INFO
+   |alias_of:{new}
+    *brace_container C1
+     {aa}
+   {\\n}
+';
+
 
 $result_texis{'texinfo_command_alias_indirect_before'} = '@macro mystrong {arg}
 !!\\arg\\!!

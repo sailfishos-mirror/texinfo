@@ -5,166 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'one_node_explicit_directions_anchor_no_use_node'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'one node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Top node
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'anchor ref '
-            },
-            {
-              'cmdname' => 'anchor',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ref'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'is_target' => 1,
-                'normalized' => 'ref'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'ref to ref '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ref'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'ref'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'one-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'one_node_explicit_directions_anchor_no_use_node'}{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*document_root C2
+ *before_node_section
+ *0 @node C6 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |normalized:{one-node}
+  *arguments_line C4
+   *line_arg C1
+    {one node}
+   *line_arg
+   *line_arg
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+  *paragraph C1
+   {Top node\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {anchor ref }
+   *1 @anchor C1 l4
+   |EXTRA
+   |is_target:{1}
+   |normalized:{ref}
+    *brace_arg C1
+     {ref}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {ref to ref }
+   *2 @ref C1 l6
+    *brace_arg C1
+    |EXTRA
+    |node_content:{ref}
+    |normalized:{ref}
+     {ref}
+   {.\\n}
+';
+
 
 $result_texis{'one_node_explicit_directions_anchor_no_use_node'} = '@node one node,,,(dir)
 Top node

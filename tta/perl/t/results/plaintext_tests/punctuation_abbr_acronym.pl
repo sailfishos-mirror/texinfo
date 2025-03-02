@@ -5,228 +5,63 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_abbr_acronym'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AAA'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'BBB'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bbb'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. Next.
-'
-            },
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AAA'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'expL'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'BBB'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'explA'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'abbr',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'expl'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. 
-'
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'bbb'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'expla'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '. Last.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C16
+   *0 @abbr C1 l1
+    *brace_arg C1
+     {AAA}
+   {. }
+   *1 @acronym C1 l1
+    *brace_arg C1
+     {BBB}
+   {. }
+   *2 @abbr C1 l1
+    *brace_arg C1
+     {aaa}
+   {. }
+   *3 @acronym C1 l1
+    *brace_arg C1
+     {bbb}
+   {. Next.\\n}
+   *4 @abbr C2 l2
+    *brace_arg C1
+     {AAA}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {expL}
+   {. }
+   *5 @acronym C2 l2
+    *brace_arg C1
+     {BBB}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {explA}
+   {. }
+   *6 @abbr C2 l2
+    *brace_arg C1
+     {aaa}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {expl}
+   {. \\n}
+   *7 @acronym C2 l3
+    *brace_arg C1
+     {bbb}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {expla}
+   {. Last.\\n}
+';
+
 
 $result_texis{'punctuation_abbr_acronym'} = '@abbr{AAA}. @acronym{BBB}. @abbr{aaa}. @acronym{bbb}. Next.
 @abbr{AAA, expL}. @acronym{BBB, explA}. @abbr{aaa, expl}. 

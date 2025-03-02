@@ -5,528 +5,184 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'float_in_block_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'float',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Text'
-                        }
-                      ],
-                      'type' => 'block_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in example'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'caption',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'float in example'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {
-                    'float' => {}
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                },
-                {
-                  'text' => '',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'float'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'caption' => {},
-                'float_type' => 'Text',
-                'is_target' => 1,
-                'normalized' => 'in-example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'float',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Text'
-                        }
-                      ],
-                      'type' => 'block_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in quotation'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'caption',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'float in quotation'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {
-                    'float' => {}
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'float'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                }
-              ],
-              'extra' => {
-                'caption' => {},
-                'float_type' => 'Text',
-                'is_target' => 1,
-                'normalized' => 'in-quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cartouche',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'float',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Text'
-                        }
-                      ],
-                      'type' => 'block_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in cartouche'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'caption',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'float in cartouche'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {
-                    'float' => {}
-                  },
-                  'source_info' => {
-                    'line_nr' => 15
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'float'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                }
-              ],
-              'extra' => {
-                'caption' => {},
-                'float_type' => 'Text',
-                'is_target' => 1,
-                'normalized' => 'in-cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cartouche'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'cartouche'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 13
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_in_block_commands'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'float_in_block_commands'} = '*document_root C1
+ *before_node_section C7
+  *preamble_before_content
+  *0 @example C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *1 @float C5 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |caption:[E2]
+   |float_number:{1}
+   |float_type:{Text}
+   |global_command_number:{1}
+   |is_target:{1}
+   |normalized:{in-example}
+    *arguments_line C2
+     *block_line_arg C1
+      {Text}
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+     |spaces_before_argument:
+      |{ }
+      {in example}
+    *2 @caption C1 l3
+    |EXTRA
+    |float:[E1]
+     *brace_command_context C1
+      *paragraph C1
+       {float in example}
+    {spaces_after_close_brace:}
+    *preformatted C1
+     {\\n}
+    *@end C1 l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{float}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *3 @quotation C3 l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *4 @float C4 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |caption:[E5]
+   |float_number:{2}
+   |float_type:{Text}
+   |global_command_number:{2}
+   |is_target:{1}
+   |normalized:{in-quotation}
+    *arguments_line C2
+     *block_line_arg C1
+      {Text}
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+     |spaces_before_argument:
+      |{ }
+      {in quotation}
+    *5 @caption C1 l9
+    |EXTRA
+    |float:[E4]
+     *brace_command_context C1
+      *paragraph C1
+       {float in quotation}
+    {spaces_after_close_brace:\\n}
+    *@end C1 l10
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{float}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *6 @cartouche C3 l13
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *7 @float C4 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |caption:[E8]
+   |float_number:{3}
+   |float_type:{Text}
+   |global_command_number:{3}
+   |is_target:{1}
+   |normalized:{in-cartouche}
+    *arguments_line C2
+     *block_line_arg C1
+      {Text}
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+     |spaces_before_argument:
+      |{ }
+      {in cartouche}
+    *8 @caption C1 l15
+    |EXTRA
+    |float:[E7]
+     *brace_command_context C1
+      *paragraph C1
+       {float in cartouche}
+    {spaces_after_close_brace:\\n}
+    *@end C1 l16
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{float}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float}
+   *@end C1 l17
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{cartouche}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cartouche}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'float_in_block_commands'} = '@example
 @float Text, in example

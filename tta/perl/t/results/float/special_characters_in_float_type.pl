@@ -5,413 +5,154 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'special_characters_in_float_type'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A < " `` ` \' \' \\aaa '
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => ' --- '
-                    },
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in var'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'L < " `` ` \' \' \\aaa '
-                    },
-                    {
-                      'cmdname' => '.'
-                    },
-                    {
-                      'text' => ' --- '
-                    },
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in var'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'F
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'caption',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float A < " `` ` \' \' \\aaa '
-                        },
-                        {
-                          'cmdname' => '.'
-                        },
-                        {
-                          'text' => ' --- '
-                        },
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in var'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_section' => {},
-            'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
-            'is_target' => 1,
-            'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A < " `` ` \' \' \\aaa '
-                },
-                {
-                  'cmdname' => '.'
-                },
-                {
-                  'text' => ' --- '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in var'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 12
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => 'A < " `` ` \' \' \\aaa . --- in var'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'contents'}[2]{'extra'}{'float'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2];
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'contents'}[2];
-$result_trees{'special_characters_in_float_type'}{'contents'}[4]{'contents'}[2]{'extra'}{'float_section'} = $result_trees{'special_characters_in_float_type'}{'contents'}[4];
+$result_tree_text{'special_characters_in_float_type'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *3 @chapter C5 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *4 @float C5 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E7]
+  |float_number:{1.1}
+  |float_section:[E3]
+  |float_type:{A < " `` ` \' \' \\aaa . --- in var}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}
+   *arguments_line C2
+    *block_line_arg C4
+     {A < " `` ` \' \' \\aaa }
+     *@.
+     { --- }
+     *5 @var C1 l7
+      *brace_container C1
+       {in var}
+    *block_line_arg C4
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {L < " `` ` \' \' \\aaa }
+     *@.
+     { --- }
+     *6 @var C1 l7
+      *brace_container C1
+       {in var}
+   *paragraph C1
+    {F\\n}
+   *7 @caption C1 l9
+   |EXTRA
+   |float:[E4]
+    *brace_command_context C1
+     *paragraph C4
+      {float A < " `` ` \' \' \\aaa }
+      *@.
+      { --- }
+      *8 @var C1 l9
+       *brace_container C1
+        {in var}
+   {spaces_after_close_brace:\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *@listoffloats C1 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{A < " `` ` \' \' \\aaa . --- in var}
+  |global_command_number:{1}
+   *line_arg C4
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A < " `` ` \' \' \\aaa }
+    *@.
+    { --- }
+    *9 @var C1 l12
+     *brace_container C1
+      {in var}
+';
+
 
 $result_texis{'special_characters_in_float_type'} = '@node Top
 @top top

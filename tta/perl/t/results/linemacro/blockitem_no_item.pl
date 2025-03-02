@@ -5,229 +5,77 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'blockitem_no_item'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\, \\b\\ \\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'bullet',
-                      'info' => {
-                        'inserted' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AA
-'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'd'
-                                  }
-                                ],
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'e'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'f @
-@end itemize'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'mycommand',
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'linemacro_call'
-                          },
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'd, e f '
-                    },
-                    {
-                      'cmdname' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 7,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'itemize'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'itemize'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8,
-                'macro' => 'mycommand'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'blockitem_no_item'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'blockitem_no_item'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'blockitem_no_item'} = '*document_root C1
+ *before_node_section C3
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c}\\n}
+   {raw:\\a\\, \\b\\ \\c\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *1 @itemize C3 l5
+  |EXTRA
+  |command_as_argument:[E2]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *2 @bullet
+     |INFO
+     |inserted:{1}
+   *before_item C1
+    *paragraph C3
+     {AA\\n}
+     {d, e f }
+     >SOURCEMARKS
+     >linemacro_expansion<start;1>
+      >*linemacro_call C3
+      >|INFO
+      >|command_name:{mycommand}
+      >|spaces_before_argument:
+       >|{ }
+       >*line_arg C1
+        >{d}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{e}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{f @\\n@end itemize}
+     *@\\n
+   *@end C1 l8:@mycommand
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{itemize}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {itemize}
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:7>
+';
+
 
 $result_texis{'blockitem_no_item'} = '@linemacro mycommand {a, b, c}
 \\a\\, \\b\\ \\c\\

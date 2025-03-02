@@ -5,207 +5,63 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'displaymath'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\int_D ('
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\nabla\\cdot}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => ' F)dV=\\int_'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\partial D}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => ' F\\cdot ndS
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'before
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\int_D ('
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\nabla\\cdot}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => ' F)dV=\\int_'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '{\\partial D}'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'balanced_braces'
-            },
-            {
-              'text' => ' F\\cdot ndS
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'after
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'displaymath'} = '*document_root C1
+ *before_node_section C5
+  *0 @displaymath C7 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {\\int_D (}
+   *balanced_braces C1 l2
+    {{\\nabla\\cdot}}
+   { F)dV=\\int_}
+   *balanced_braces C1 l2
+    {{\\partial D}}
+   { F\\cdot ndS\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *paragraph C1
+   {before\\n}
+  *1 @displaymath C7 l6
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {\\int_D (}
+   *balanced_braces C1 l7
+    {{\\nabla\\cdot}}
+   { F)dV=\\int_}
+   *balanced_braces C1 l7
+    {{\\partial D}}
+   { F\\cdot ndS\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  *paragraph C1
+   {after\\n}
+';
+
 
 $result_texis{'displaymath'} = '@displaymath
 \\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS

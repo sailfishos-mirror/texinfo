@@ -5,208 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraphindent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'First
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '           ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaa b default
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'paragraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'asis'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'asis'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '           ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaa b asis
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'paragraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '0'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '0'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '           ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaa b 0
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'paragraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '7'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '7'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 13
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '           ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaa b 7
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraphindent'} = '*document_root C1
+ *before_node_section C19
+  *paragraph C1
+   {First\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph:           }
+  *paragraph C1
+   {aaa b default\\n}
+  {empty_line:\\n}
+  *@paragraphindent C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{asis}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {asis}
+  {empty_line:\\n}
+  {spaces_before_paragraph:           }
+  *paragraph C1
+   {aaa b asis\\n}
+  {empty_line:\\n}
+  *@paragraphindent C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{0}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {0}
+  {empty_line:\\n}
+  {spaces_before_paragraph:           }
+  *paragraph C1
+   {aaa b 0\\n}
+  {empty_line:\\n}
+  *@paragraphindent C1 l13
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{7}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {7}
+  {empty_line:\\n}
+  {spaces_before_paragraph:           }
+  *paragraph C1
+   {aaa b 7\\n}
+';
+
 
 $result_texis{'paragraphindent'} = 'First
 

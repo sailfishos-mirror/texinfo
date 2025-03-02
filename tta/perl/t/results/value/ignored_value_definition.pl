@@ -5,118 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ignored_value_definition'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'aa',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'outside',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' aa outside
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-@set aa in inlinefmt tex
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'aa'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'outside',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 7,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'outside.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ignored_value_definition'} = '*document_root C1
+ *before_node_section C5
+  *@set C2
+  |INFO
+  |arg_line:{ aa outside\\n}
+   {rawline_arg:aa}
+   {rawline_arg:outside}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @inlinefmt C2 l3
+   |EXTRA
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw:\\n@set aa in inlinefmt tex\\n}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {outside.\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1>{outside}
+    >*@value C1
+     >*brace_container C1
+      >{aa}
+   >value_expansion<end;1><p:7>
+';
+
 
 $result_texis{'ignored_value_definition'} = '@set aa outside
 

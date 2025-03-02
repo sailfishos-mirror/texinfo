@@ -5,29 +5,13 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'two_lines'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'text l 1
-'
-            },
-            {
-              'text' => 'text l 2
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'two_lines'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {text l 1\\n}
+   {text l 2\\n}
+';
+
 
 $result_texis{'two_lines'} = 'text l 1
 text l 2

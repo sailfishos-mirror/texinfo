@@ -5,1644 +5,491 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'glossary'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo.tex
-',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'glossary'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'glossary'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' glossarytext
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@table @asis
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'glossarytext',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' glossary
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end table
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 13
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'glossary',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' gentry {id, name, text}
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@ifhtml
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@ref{\\id\\,\\name\\}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end ifhtml
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@ifnothtml
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '\\name\\ (@pxref{\\id\\})
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end ifnothtml
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@unmacro expandglossary
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@macro expandglossary{glossary}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@unmacro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@macro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '\\\\glossary\\\\
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@item \\name\\ @anchor{\\id\\}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '\\text\\
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end macro
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end macro
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@expandglossary {@glossarytext{}}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 33
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'gentry',
-                'misc_args' => [
-                  'id',
-                  'name',
-                  'text'
-                ]
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'glossary.texi',
-        'line_nr' => 35
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'glossary'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'glossary'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 39
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 40
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'glossary.texi',
-            'line_nr' => 38
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'id1'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'name1'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'text1, arg1 '
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'gentry'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 4,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifhtml',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      }
-                    ],
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 42,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 4,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'The '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'id1'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'id1'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'name1'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 42,
-                'macro' => 'gentry'
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifhtml'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifhtml'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 42,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifnothtml',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'name1 (@pxref{id1})
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifnothtml'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifnothtml'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'file_name' => 'glossary.texi',
-                          'line_nr' => 42,
-                          'macro' => 'gentry'
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 42,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'unmacro',
-              'contents' => [
-                {
-                  'text' => 'expandglossary',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' expandglossary
-'
-              }
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' expandglossary{glossary}
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@unmacro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@macro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '\\glossary\\
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@item name1 @anchor{id1}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'text1, arg1 
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end macro
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 42,
-                    'macro' => 'gentry'
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'expandglossary',
-                'misc_args' => [
-                  'glossary'
-                ]
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 42,
-                'macro' => 'gentry'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@glossarytext{}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'expandglossary',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'unmacro',
-              'contents' => [
-                {
-                  'text' => 'glossarytext',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' glossarytext
-'
-              }
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' glossarytext
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@glossarytext{}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@item name1 @anchor{id1}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'text1, arg1 
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 2,
-                              'position' => 5,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 42,
-                    'macro' => 'expandglossary'
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'glossarytext',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 42,
-                'macro' => 'expandglossary'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'id2'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'name2'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'text2'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'gentry'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 29,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'ifhtml',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      }
-                    ],
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 43,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 29,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' is used in many cases while
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'id2'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'id2'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'name2'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 43,
-                'macro' => 'gentry'
-              }
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifhtml'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifhtml'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 43,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'ifnothtml',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'name2 (@pxref{id2})
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifnothtml'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifnothtml'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'file_name' => 'glossary.texi',
-                          'line_nr' => 43,
-                          'macro' => 'gentry'
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'file_name' => 'glossary.texi',
-                      'line_nr' => 43,
-                      'macro' => 'gentry'
-                    }
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'unmacro',
-              'contents' => [
-                {
-                  'text' => 'expandglossary',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' expandglossary
-'
-              }
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' expandglossary{glossary}
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@unmacro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@macro glossarytext
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '\\glossary\\
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@item name2 @anchor{id2}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'text2
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end macro
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 43,
-                    'macro' => 'gentry'
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'expandglossary',
-                'misc_args' => [
-                  'glossary'
-                ]
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 43,
-                'macro' => 'gentry'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@glossarytext{}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'expandglossary',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'unmacro',
-              'contents' => [
-                {
-                  'text' => 'glossarytext',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' glossarytext
-'
-              }
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' glossarytext
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@glossarytext{}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@item name2 @anchor{id2}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'text2
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 4,
-                              'position' => 5,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 43,
-                    'macro' => 'expandglossary'
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'glossarytext',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 43,
-                'macro' => 'expandglossary'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => ' is quite specific
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'glossary.texi',
-        'line_nr' => 36
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'glossary'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'glossary'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'glossary.texi',
-        'line_nr' => 45
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'glossary'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 5,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'glossary'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 6,
-              'element' => {
-                'info' => {
-                  'command_name' => 'glossarytext'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => ' ',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'name2 '
-            },
-            {
-              'cmdname' => 'anchor',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'id2'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'is_target' => 1,
-                'normalized' => 'id2'
-              },
-              'source_info' => {
-                'file_name' => 'glossary.texi',
-                'line_nr' => 47,
-                'macro' => 'glossarytext'
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'text2
-'
-            }
-          ],
-          'source_marks' => [
-            {
-              'counter' => 5,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'glossary.texi',
-        'line_nr' => 46
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'glossary'}{'contents'}[2]{'contents'}[4]{'contents'}[8]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'glossary'}{'contents'}[2]{'contents'}[4]{'contents'}[8]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'glossary'} = '*document_root C5
+ *before_node_section C2
+  *preamble_before_setfilename C1
+   *preamble_before_beginning C2
+    {text_before_beginning:\\input texinfo.tex\\n}
+    {text_before_beginning:\\n}
+  *preamble_before_content C8
+   *@setfilename C1 glossary.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{glossary}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {glossary}
+   {empty_line:\\n}
+   *0 @macro C3 glossary.texi:l5
+   |EXTRA
+   |macro_name:{glossarytext}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: glossarytext\\n}
+    {raw:@table @asis\\n}
+    *@end C1 glossary.texi:l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   *1 @macro C5 glossary.texi:l9
+   |EXTRA
+   |macro_name:{glossary}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: glossary\\n}
+    {raw:@glossarytext\\n}
+    {raw:@end table\\n}
+    {raw:\\n}
+    *@end C1 glossary.texi:l13
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   *2 @macro C19 glossary.texi:l15
+   |EXTRA
+   |macro_name:{gentry}
+   |misc_args:A{id|name|text}
+    *arguments_line C1
+     {macro_line: gentry {id, name, text}\\n}
+    {raw:@ifhtml\\n}
+    {raw:@ref{\\id\\,\\name\\}\\n}
+    {raw:@end ifhtml\\n}
+    {raw:@ifnothtml\\n}
+    {raw:\\name\\ (@pxref{\\id\\})\\n}
+    {raw:@end ifnothtml\\n}
+    {raw:@unmacro expandglossary\\n}
+    {raw:@macro expandglossary{glossary}\\n}
+    {raw:@unmacro glossarytext\\n}
+    {raw:@macro glossarytext\\n}
+    {raw:\\\\glossary\\\\\\n}
+    {raw:@item \\name\\ @anchor{\\id\\}\\n}
+    {raw:\\text\\\\n}
+    {raw:@end macro\\n}
+    {raw:@end macro\\n}
+    {raw:@expandglossary {@glossarytext{}}\\n}
+    {raw:\\n}
+    *@end C1 glossary.texi:l33
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+ *3 @node C1 glossary.texi:l35
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menus:EC[E5]
+ |node_directions:D[next->E12]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *4 @top C6 glossary.texi:l36
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_childs:EC[E13]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E4]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E13]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *5 @menu C3 glossary.texi:l38
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+   *menu_entry C4 glossary.texi:l39
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{glossary}
+    |normalized:{glossary}
+     {glossary}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 glossary.texi:l40
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *paragraph C15
+   {The }
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:4>
+    >*macro_call C3
+    >|INFO
+    >|command_name:{gentry}
+     >*brace_arg C1
+      >{id1}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{name1}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{text1, arg1 }
+   >expanded_conditional_command<start;1><p:4>
+    >*@ifhtml C1 glossary.texi:l42:@gentry
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+   *6 @ref C2 glossary.texi:l42:@gentry
+    *brace_arg C1
+    |EXTRA
+    |node_content:{id1}
+    |normalized:{id1}
+     {id1}
+    *brace_arg C1
+     {name1}
+   {\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:1>
+    >*@end C1 glossary.texi:l42:@gentry
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifhtml}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifhtml}
+   >ignored_conditional_block<1><p:1>
+    >*@ifnothtml C3 glossary.texi:l42:@gentry
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:name1 (@pxref{id1})\\n}
+     >*@end C1 glossary.texi:l42:@gentry
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifnothtml}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifnothtml}
+   *@unmacro C1
+   |INFO
+   |arg_line:{ expandglossary\\n}
+    {rawline_arg:expandglossary}
+   *7 @macro C8 glossary.texi:l42:@gentry
+   |EXTRA
+   |macro_name:{expandglossary}
+   |misc_args:A{glossary}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{expandglossary}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+      >{@glossarytext{}}
+    *arguments_line C1
+     {macro_line: expandglossary{glossary}\\n}
+    {raw:@unmacro glossarytext\\n}
+    {raw:@macro glossarytext\\n}
+    {raw:\\glossary\\\\n}
+    {raw:@item name1 @anchor{id1}\\n}
+    {raw:text1, arg1 \\n}
+    {raw:@end macro\\n}
+    *@end C1 glossary.texi:l42:@gentry
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   *@unmacro C1
+   |INFO
+   |arg_line:{ glossarytext\\n}
+    {rawline_arg:glossarytext}
+   *8 @macro C5 glossary.texi:l42:@expandglossary
+   |EXTRA
+   |macro_name:{glossarytext}
+   |misc_args:A{}
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *arguments_line C1
+     {macro_line: glossarytext\\n}
+    {raw:@glossarytext{}\\n}
+    {raw:@item name1 @anchor{id1}\\n}
+    {raw:text1, arg1 \\n}
+    *@end C1 glossary.texi:l42:@expandglossary
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+      >SOURCEMARKS
+      >macro_expansion<end;2><p:5>
+   { is used in many cases while\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3><p:29>
+    >*macro_call C3
+    >|INFO
+    >|command_name:{gentry}
+     >*brace_arg C1
+      >{id2}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{name2}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{text2}
+   >expanded_conditional_command<start;2><p:29>
+    >*@ifhtml C1 glossary.texi:l43:@gentry
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+   *9 @ref C2 glossary.texi:l43:@gentry
+    *brace_arg C1
+    |EXTRA
+    |node_content:{id2}
+    |normalized:{id2}
+     {id2}
+    *brace_arg C1
+     {name2}
+   {\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;2><p:1>
+    >*@end C1 glossary.texi:l43:@gentry
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifhtml}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifhtml}
+   >ignored_conditional_block<2><p:1>
+    >*@ifnothtml C3 glossary.texi:l43:@gentry
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:name2 (@pxref{id2})\\n}
+     >*@end C1 glossary.texi:l43:@gentry
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifnothtml}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifnothtml}
+   *@unmacro C1
+   |INFO
+   |arg_line:{ expandglossary\\n}
+    {rawline_arg:expandglossary}
+   *10 @macro C8 glossary.texi:l43:@gentry
+   |EXTRA
+   |macro_name:{expandglossary}
+   |misc_args:A{glossary}
+   >SOURCEMARKS
+   >macro_expansion<start;4>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{expandglossary}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+      >{@glossarytext{}}
+    *arguments_line C1
+     {macro_line: expandglossary{glossary}\\n}
+    {raw:@unmacro glossarytext\\n}
+    {raw:@macro glossarytext\\n}
+    {raw:\\glossary\\\\n}
+    {raw:@item name2 @anchor{id2}\\n}
+    {raw:text2\\n}
+    {raw:@end macro\\n}
+    *@end C1 glossary.texi:l43:@gentry
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   *@unmacro C1
+   |INFO
+   |arg_line:{ glossarytext\\n}
+    {rawline_arg:glossarytext}
+   *11 @macro C5 glossary.texi:l43:@expandglossary
+   |EXTRA
+   |macro_name:{glossarytext}
+   |misc_args:A{}
+   >SOURCEMARKS
+   >macro_expansion<end;3>
+    *arguments_line C1
+     {macro_line: glossarytext\\n}
+    {raw:@glossarytext{}\\n}
+    {raw:@item name2 @anchor{id2}\\n}
+    {raw:text2\\n}
+    *@end C1 glossary.texi:l43:@expandglossary
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+      >SOURCEMARKS
+      >macro_expansion<end;4><p:5>
+   { is quite specific\\n}
+  {empty_line:\\n}
+ *12 @node C1 glossary.texi:l45
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E13]
+ |is_target:{1}
+ |menu_directions:D[up->E3]
+ |node_directions:D[prev->E3|up->E3]
+ |normalized:{glossary}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {glossary}
+ *13 @chapter C6 glossary.texi:l46
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E12]
+ |section_directions:D[up->E4]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E4|up->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {glossary}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;5>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{glossary}
+    >*brace_arg
+  >macro_expansion<start;6>
+   >*macro_call
+   >|INFO
+   >|command_name:{glossarytext}
+  {ignorable_spaces_after_command: }
+  *paragraph C4
+  >SOURCEMARKS
+  >macro_expansion<end;5>
+   {name2 }
+   *14 @anchor C1 glossary.texi:l47:@glossarytext
+   |EXTRA
+   |is_target:{1}
+   |normalized:{id2}
+    *brace_arg C1
+     {id2}
+   {spaces_after_close_brace:\\n}
+   {text2\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;6><p:5>
+  {empty_line:\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'glossary'} = '\\input texinfo.tex
 

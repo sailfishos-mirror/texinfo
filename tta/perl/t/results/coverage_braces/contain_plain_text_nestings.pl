@@ -5,689 +5,219 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'contain_plain_text_nestings'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'code in w'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'hyphenation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'code in hyphenation'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'key',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'code in key'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ii'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces_at_end'
-                    },
-                    {
-                      'cmdname' => 'sortas',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'code',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'code in sortas'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 10
-                              }
-                            },
-                            {
-                              'text' => ' text'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => [
-                  'cp',
-                  1
-                ],
-                'sortas' => ' text'
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              },
-              'type' => 'index_entry_command'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' no warning for @ref in @w
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Top'
-                            }
-                          ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'Top'
-                          },
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cross in w'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 13
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'hyphenation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Top'
-                            }
-                          ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'Top'
-                          },
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cross in hyphenation'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'key',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'ref',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Top'
-                            }
-                          ],
-                          'extra' => {
-                            'node_content' => {
-                              'contents' => [
-                                {}
-                              ]
-                            },
-                            'normalized' => 'Top'
-                          },
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cross in key'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    },
-                    {
-                      'text' => ' text'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ii'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces_at_end'
-                    },
-                    {
-                      'cmdname' => 'sortas',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'ref',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Top'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'node_content' => {
-                                      'contents' => [
-                                        {}
-                                      ]
-                                    },
-                                    'normalized' => 'Top'
-                                  },
-                                  'type' => 'brace_arg'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'cross in sortas'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 16
-                              }
-                            },
-                            {
-                              'text' => ' text'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'element_node' => {},
-                'index_entry' => [
-                  'cp',
-                  2
-                ],
-                'sortas' => ' text'
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              },
-              'type' => 'index_entry_command'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 18
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contain_plain_text_nestings'}{'contents'}[4]{'contents'}[5]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'contain_plain_text_nestings'}{'contents'}[3];
+$result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *3 @chapter C8 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chap}
+  {empty_line:\\n}
+  *paragraph C8
+   {Text }
+   *4 @w C1 l7
+    *brace_container C2
+     *5 @code C1 l7
+      *brace_container C1
+       {code in w}
+     { text}
+   {.\\n}
+   *6 @hyphenation C1 l8
+   |EXTRA
+   |global_command_number:{1}
+    *brace_arg C2
+     *7 @code C1 l8
+      *brace_container C1
+       {code in hyphenation}
+     { text}
+   {spaces_after_close_brace:\\n}
+   *8 @key C1 l9
+    *brace_container C2
+     *9 @code C1 l9
+      *brace_container C1
+       {code in key}
+     { text}
+   {\\n}
+   *10 index_entry_command@cindex C1 l10
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |element_node:[E2]
+   |index_entry:I{cp,1}
+   |sortas:{ text}
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ii}
+     {spaces_at_end: }
+     *11 @sortas C1 l10
+      *brace_arg C2
+       *12 @code C1 l10
+        *brace_container C1
+         {code in sortas}
+       { text}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: no warning for @ref in @w\\n}
+  *paragraph C8
+   {Text }
+   *13 @w C1 l13
+    *brace_container C2
+     *14 @ref C2 l13
+      *brace_arg C1
+      |EXTRA
+      |node_content:{Top}
+      |normalized:{Top}
+       {Top}
+      *brace_arg C1
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       {cross in w}
+     { text}
+   {.\\n}
+   *15 @hyphenation C1 l14
+   |EXTRA
+   |global_command_number:{2}
+    *brace_arg C2
+     *16 @ref C2 l14
+      *brace_arg C1
+      |EXTRA
+      |node_content:{Top}
+      |normalized:{Top}
+       {Top}
+      *brace_arg C1
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       {cross in hyphenation}
+     { text}
+   {spaces_after_close_brace:\\n}
+   *17 @key C1 l15
+    *brace_container C2
+     *18 @ref C2 l15
+      *brace_arg C1
+      |EXTRA
+      |node_content:{Top}
+      |normalized:{Top}
+       {Top}
+      *brace_arg C1
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       {cross in key}
+     { text}
+   {\\n}
+   *19 index_entry_command@cindex C1 l16
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |element_node:[E2]
+   |index_entry:I{cp,2}
+   |sortas:{ text}
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ii}
+     {spaces_at_end: }
+     *20 @sortas C1 l16
+      *brace_arg C2
+       *21 @ref C2 l16
+        *brace_arg C1
+        |EXTRA
+        |node_content:{Top}
+        |normalized:{Top}
+         {Top}
+        *brace_arg C1
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         {cross in sortas}
+       { text}
+  {empty_line:\\n}
+  *@printindex C1 l18
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+';
+
 
 $result_texis{'contain_plain_text_nestings'} = '@node Top
 @top top

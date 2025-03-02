@@ -5,50 +5,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inlineifset_false_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineifset',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' bbb
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'aaa'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inlineifset_false_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @inlineifset C2 l1
+   |EXTRA
+   |format:{aaa}
+    *brace_arg C1
+     {aaa}
+    *elided_brace_command_arg C1
+     {raw: bbb\\n}
+';
+
 
 $result_texis{'inlineifset_false_not_closed'} = '@inlineifset{aaa, bbb
 }';

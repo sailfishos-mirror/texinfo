@@ -5,131 +5,40 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accents_in_var_enable_encoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'utf-8'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'utf-8'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'AA'
-                    },
-                    {
-                      'cmdname' => ',',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'u',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '`',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accents_in_var_enable_encoding'} = '*document_root C1
+ *before_node_section C3
+  *@documentencoding C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |input_encoding_name:{utf-8}
+  |text_arg:{utf-8}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {utf-8}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @var C1 l3
+    *brace_container C6
+     {AA}
+     *1 @, C1 l3
+      *following_arg C1
+       {c}
+     { }
+     *2 @u C1 l3
+      *brace_container C1
+       {r}
+     { }
+     *3 @` C1 l3
+      *following_arg C1
+       {e}
+   {.\\n}
+';
+
 
 $result_texis{'accents_in_var_enable_encoding'} = '@documentencoding utf-8
 

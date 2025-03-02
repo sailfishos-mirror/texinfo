@@ -5,423 +5,128 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_accent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' aletter
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'a
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'aletter',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' aspace
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '  
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'aspace',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aletter'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aletter'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 3,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aletter'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'aletter'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 4,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aspace'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 5,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aletter'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              },
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_in_accent'} = '*document_root C1
+ *before_node_section C7
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{aletter}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: aletter\\n}
+   {raw:a\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l5
+  |EXTRA
+  |macro_name:{aspace}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: aspace\\n}
+   {raw:  \\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C8
+   *2 @ringaccent C1 l9
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>macro_expansion<start;1><p:1>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{aletter}
+      |>*brace_arg
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *following_arg C1
+     {a}
+   {.\\n}
+   *3 @ringaccent C1 l10
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{}
+    |>SOURCEMARKS
+    |>macro_expansion<start;2>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{aletter}
+      |>*brace_arg
+   >SOURCEMARKS
+   >macro_expansion<end;2>
+    *following_arg C1
+     {a}
+   {.\\n}
+   *4 @~ C1 l11
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{}
+    |>SOURCEMARKS
+    |>macro_expansion<start;3>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{aletter}
+      |>*brace_arg
+   >SOURCEMARKS
+   >macro_expansion<end;3>
+    *following_arg C1
+     {a}
+   {.\\n}
+   *5 @~ C1 l12
+    *brace_container C1
+     {a}
+     >SOURCEMARKS
+     >macro_expansion<start;4>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{aletter}
+       >*brace_arg
+     >macro_expansion<end;4><p:1>
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *6 @ringaccent C1 l14
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{  }
+    |>SOURCEMARKS
+    |>macro_expansion<start;5>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{aspace}
+      |>*brace_arg
+    |>macro_expansion<end;5><p:2>
+    |>macro_expansion<start;6><p:2>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{aletter}
+      |>*brace_arg
+   >SOURCEMARKS
+   >macro_expansion<end;6>
+    *following_arg C1
+     {a}
+   {.\\n}
+';
+
 
 $result_texis{'macro_in_accent'} = '@macro aletter
 a

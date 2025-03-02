@@ -5,145 +5,45 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_set_in_ifset'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'a',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' a
-'
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 3
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => '',
-                  'position' => 13,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 13,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 5
-                    }
-                  },
-                  'position' => 16,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'a is set to:||.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_set_in_ifset'} = '*document_root C1
+ *before_node_section C3
+  *@set C2
+  |INFO
+  |arg_line:{ a\\n}
+   {rawline_arg:a}
+   {rawline_arg:}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l3
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{a}
+  *paragraph C1
+   {a is set to:||.\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1><p:13>{}
+    >*@value C1
+     >*brace_container C1
+      >{a}
+   >value_expansion<end;1><p:13>
+   >expanded_conditional_command<end;1><p:16>
+    >*@end C1 l5
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+      >{ifset}
+';
+
 
 $result_texis{'empty_set_in_ifset'} = '@set a
 

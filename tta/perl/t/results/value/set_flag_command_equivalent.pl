@@ -5,125 +5,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'set_flag_command_equivalent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'codequoteundirected',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'on'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'on'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'txicodequoteundirected'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => '',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'codequoteundirected',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'off'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'off'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
+ *before_node_section C5
+  *@codequoteundirected C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{on}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {on}
+  {empty_line:\\n}
+  *paragraph C1
+   {.\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1>{}
+    >*@value C1
+     >*brace_container C1
+      >{txicodequoteundirected}
+   >value_expansion<end;1>
+  {empty_line:\\n}
+  *@codequoteundirected C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{off}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {off}
+';
+
 
 $result_texis{'set_flag_command_equivalent'} = '@codequoteundirected on
 

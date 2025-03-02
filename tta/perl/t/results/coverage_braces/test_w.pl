@@ -5,558 +5,124 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_w'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .
-'
-                    },
-                    {
-                      'text' => 'ccc dddd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'a a a a a a a a a a a a a a a a a a a a a a a a a a a a  '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' a rr   
-'
-                    },
-                    {
-                      'text' => '  ggg.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'AA'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => 'bbb.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'FF'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => 'nnn.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '  f  f'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => 'ggg.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa2'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '  f  f '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => 'ggg2.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa3 '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '  f  f '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => 'ggg3.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa4 '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '  f  f '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => ' ggg4.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa5 '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => ' ggg5.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa6 '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => 'ggg6.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aa6'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' ggg6.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaf '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => ' bbb.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'begin and end quotations: '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 't',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '`'
-                            },
-                            {
-                              'cmdname' => 'w',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 34
-                              }
-                            },
-                            {
-                              'text' => '`'
-                            },
-                            {
-                              'cmdname' => 'dots',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 34
-                              }
-                            },
-                            {
-                              'text' => '\''
-                            },
-                            {
-                              'cmdname' => 'w',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 34
-                              }
-                            },
-                            {
-                              'text' => '\''
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 34
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => '.  This
-'
-            },
-            {
-              'text' => 'convention should be followed in Texinfo files.  TeX converts
-'
-            },
-            {
-              'text' => 'two single quotes to left- and right-hand doubled.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_w'} = '*document_root C1
+ *before_node_section C32
+  *paragraph C2
+   *0 @w C1 l1
+    *brace_container C2
+     {aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .\\n}
+     {ccc dddd}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {a a a a a a a a a a a a a a a a a a a a a a a a a a a a  }
+   *1 @w C1 l4
+    *brace_container C1
+     {b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
+   {\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @w C1 l7
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @w C1 l9
+    *brace_container C2
+     { a rr   \\n}
+     {  ggg.}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {AA}
+   *4 @w C1 l12
+    *brace_container
+   {bbb.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {FF}
+   *5 @w C1 l14
+    *brace_container C1
+     {d}
+   {nnn.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa}
+   *6 @w C1 l16
+    *brace_container C1
+     {  f  f}
+   {ggg.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa2}
+   *7 @w C1 l18
+    *brace_container C1
+     {  f  f }
+   {ggg2.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa3 }
+   *8 @w C1 l21
+    *brace_container C1
+     {  f  f }
+   {ggg3.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa4 }
+   *9 @w C1 l24
+    *brace_container C1
+     {  f  f }
+   { ggg4.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa5 }
+   *10 @w C1 l26
+    *brace_container
+   { ggg5.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa6 }
+   *11 @w C1 l28
+    *brace_container
+   {ggg6.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aa6}
+   *12 @w C1 l30
+    *brace_container
+   { ggg6.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {aaf }
+   *13 @w C1 l32
+    *brace_container C1
+     { }
+   { bbb.\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {begin and end quotations: }
+   *14 @w C1 l34
+    *brace_container C1
+     *15 @t C1 l34
+      *brace_container C7
+       {`}
+       *16 @w C1 l34
+        *brace_container
+       {`}
+       *17 @dots C1 l34
+        *brace_container
+       {\'}
+       *18 @w C1 l34
+        *brace_container
+       {\'}
+   {.  This\\n}
+   {convention should be followed in Texinfo files.  TeX converts\\n}
+   {two single quotes to left- and right-hand doubled.\\n}
+';
+
 
 $result_texis{'test_w'} = '@w{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .
 ccc dddd}.

@@ -5,1788 +5,506 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'image_formatting'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,l--i'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'l--i'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,,l--e'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'l--e'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,,,alt'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'alt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,,,,e-d-xt'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e--xt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,aze,az,alt,e--xt'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aze'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'az'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'alt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e--xt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile,aze,az,alt,'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aze'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'az'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'alt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f-ile,aze,,a--lt'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f-ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aze'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a--lt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'image'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'file'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'f--ile'
-                    },
-                    {
-                      'cmdname' => '}'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => '.,aze,az,alt,'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'file'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'file ext'
-                    },
-                    {
-                      'cmdname' => '}'
-                    },
-                    {
-                      'text' => ' e--xt'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'file',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'f--ile'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'cmdname' => '.'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aze'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'az'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'alt'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'file',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'file ext'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    },
-                    {
-                      'text' => ' e--xt'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'image'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'image'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 19
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 19
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile,l--i'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 20
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'l--i'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 20
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile,,l--e'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 21
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'l--e'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 21
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile,,,alt'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 22
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 22
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile,,,,e-d-xt'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 23
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e--xt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 23
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile,aze,az,alt,e--xt'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 24
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f--ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aze'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'az'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e--xt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 24
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f-ile,aze,,a--lt'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f-ile'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aze'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a--lt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'image'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'file'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'f--ile'
-                        },
-                        {
-                          'cmdname' => '}'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => '.,aze,az,alt,'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'file'
-                        },
-                        {
-                          'cmdname' => '{'
-                        },
-                        {
-                          'text' => 'file ext'
-                        },
-                        {
-                          'cmdname' => '}'
-                        },
-                        {
-                          'text' => ' e--xt'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'file',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'f--ile'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26
-                          }
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'cmdname' => '.'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aze'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'az'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'alt'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'file',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'file ext'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26
-                          }
-                        },
-                        {
-                          'text' => ' e--xt'
-                        },
-                        {
-                          'cmdname' => '}'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 26
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'image'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 27
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'image'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 27
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 18
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f--ile'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'a very long alt argument that could span more than one line who knows'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 30
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in para
-'
-            },
-            {
-              'cmdname' => 'image',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f--ile'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a very long alt argument that could span more than one line who knows'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8'
-              },
-              'source_info' => {
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'image_formatting'} = '*document_root C5
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *3 @chapter C10 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *paragraph C40
+   *4 @code C1 l7
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile}
+     *@}
+   { }
+   *5 @image C1 l7
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+   {\\n}
+   *6 @code C1 l8
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile,l--i}
+     *@}
+   { }
+   *7 @image C2 l8
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg C1
+     {l--i}
+   {\\n}
+   *8 @code C1 l9
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile,,l--e}
+     *@}
+   { }
+   *9 @image C3 l9
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg
+    *brace_arg C1
+     {l--e}
+   {\\n}
+   *10 @code C1 l10
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile,,,alt}
+     *@}
+   { }
+   *11 @image C4 l10
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {alt}
+   {\\n}
+   *12 @code C1 l11
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile,,,,e-d-xt}
+     *@}
+   { }
+   *13 @image C5 l11
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {e--xt}
+   {\\n}
+   *14 @code C1 l12
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f--ile,aze,az,alt,e--xt}
+     *@}
+   { }
+   *15 @image C5 l12
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg C1
+     {aze}
+    *brace_arg C1
+     {az}
+    *brace_arg C1
+     {alt}
+    *brace_arg C1
+     {e--xt}
+   {\\n}
+   *16 @code C1 l13
+    *brace_container C4
+     *@@
+     {image}
+     *@{
+     {f--ile,aze,az,alt,}
+   { }
+   *17 @image C5 l13
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg C1
+     {aze}
+    *brace_arg C1
+     {az}
+    *brace_arg C1
+     {alt}
+    *brace_arg
+   {\\n}
+   *18 @code C1 l14
+    *brace_container C5
+     *@@
+     {image}
+     *@{
+     {f-ile,aze,,a--lt}
+     *@}
+   { }
+   *19 @image C4 l14
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f-ile}
+    *brace_arg C1
+     {aze}
+    *brace_arg
+    *brace_arg C1
+     {a--lt}
+   {\\n}
+   *20 @code C1 l15
+    *brace_container C20
+     *@@
+     {image}
+     *@{
+     *@@
+     {file}
+     *@{
+     {f--ile}
+     *@}
+     *@@
+     *@@
+     *@@
+     {.,aze,az,alt,}
+     *@@
+     {file}
+     *@{
+     {file ext}
+     *@}
+     { e--xt}
+     *@@
+     *@}
+   { }
+   *21 @image C5 l15
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C3
+     *22 @file C1 l15
+      *brace_container C1
+       {f--ile}
+     *@@
+     *@.
+    *brace_arg C1
+     {aze}
+    *brace_arg C1
+     {az}
+    *brace_arg C1
+     {alt}
+    *brace_arg C3
+     *23 @file C1 l15
+      *brace_container C1
+       {file ext}
+     { e--xt}
+     *@}
+   {\\n}
+   *24 @image C1 l16
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {image}
+   { }
+   *25 @image C1 l16
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {image}
+   {\\n}
+  {empty_line:\\n}
+  *26 @example C3 l18
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C36
+    *27 @code C1 l19
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile}
+      *@}
+    { }
+    *28 @image C1 l19
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+    {\\n}
+    *29 @code C1 l20
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile,l--i}
+      *@}
+    { }
+    *30 @image C2 l20
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg C1
+      {l--i}
+    {\\n}
+    *31 @code C1 l21
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile,,l--e}
+      *@}
+    { }
+    *32 @image C3 l21
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg
+     *brace_arg C1
+      {l--e}
+    {\\n}
+    *33 @code C1 l22
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile,,,alt}
+      *@}
+    { }
+    *34 @image C4 l22
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+      {alt}
+    {\\n}
+    *35 @code C1 l23
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile,,,,e-d-xt}
+      *@}
+    { }
+    *36 @image C5 l23
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+      {e--xt}
+    {\\n}
+    *37 @code C1 l24
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f--ile,aze,az,alt,e--xt}
+      *@}
+    { }
+    *38 @image C5 l24
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f--ile}
+     *brace_arg C1
+      {aze}
+     *brace_arg C1
+      {az}
+     *brace_arg C1
+      {alt}
+     *brace_arg C1
+      {e--xt}
+    {\\n}
+    *39 @code C1 l25
+     *brace_container C5
+      *@@
+      {image}
+      *@{
+      {f-ile,aze,,a--lt}
+      *@}
+    { }
+    *40 @image C4 l25
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {f-ile}
+     *brace_arg C1
+      {aze}
+     *brace_arg
+     *brace_arg C1
+      {a--lt}
+    {\\n}
+    *41 @code C1 l26
+     *brace_container C20
+      *@@
+      {image}
+      *@{
+      *@@
+      {file}
+      *@{
+      {f--ile}
+      *@}
+      *@@
+      *@@
+      *@@
+      {.,aze,az,alt,}
+      *@@
+      {file}
+      *@{
+      {file ext}
+      *@}
+      { e--xt}
+      *@@
+      *@}
+    { }
+    *42 @image C5 l26
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C3
+      *43 @file C1 l26
+       *brace_container C1
+        {f--ile}
+      *@@
+      *@.
+     *brace_arg C1
+      {aze}
+     *brace_arg C1
+      {az}
+     *brace_arg C1
+      {alt}
+     *brace_arg C3
+      *44 @file C1 l26
+       *brace_container C1
+        {file ext}
+      { e--xt}
+      *@}
+    {\\n}
+    *45 @image C1 l27
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {image}
+    { }
+    *46 @image C1 l27
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {image}
+    {\\n}
+   *@end C1 l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *47 @image C4 l30
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {f--ile}
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    {a very long alt argument that could span more than one line who knows}
+  {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {in para\\n}
+   *48 @image C4 l33
+   |EXTRA
+   |input_encoding_name:{utf-8}
+    *brace_arg C1
+     {f--ile}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {a very long alt argument that could span more than one line who knows}
+   {.\\n}
+';
+
 
 $result_texis{'image_formatting'} = '@node Top
 @top top

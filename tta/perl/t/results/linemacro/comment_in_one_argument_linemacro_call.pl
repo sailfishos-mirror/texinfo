@@ -5,167 +5,51 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_in_one_argument_linemacro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {a}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'c \\a\\ d
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'a'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@code{something @comment in} out'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'c '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 10,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'something '
-                    },
-                    {
-                      'cmdname' => 'comment',
-                      'contents' => [
-                        {
-                          'text' => ' in} out d
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5,
-                'macro' => 'lm'
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'next
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_in_one_argument_linemacro_call'} = '*document_root C1
+ *before_node_section C5
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{a}
+   *arguments_line C1
+    {macro_line: lm {a}\\n}
+   {raw:c \\a\\ d\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *paragraph C3
+   {c }
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{@code{something @comment in} out}
+   *1 @code C1 l5:@lm
+    *brace_container C2
+     {something }
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:10>
+     *@comment C1
+      {rawline_arg: in} out d\\n}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {next\\n}
+';
+
 
 $result_texis{'comment_in_one_argument_linemacro_call'} = '@linemacro lm {a}
 c \\a\\ d

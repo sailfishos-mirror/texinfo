@@ -5,374 +5,108 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'center_flush'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'centered'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'flushleft',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'left and
-'
-                },
-                {
-                  'text' => 'left2
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'left3.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'left Last
-'
-                },
-                {
-                  'text' => '  with space.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Now anchor
-'
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'anchor in flushleft'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'anchor-in-flushleft'
-                  },
-                  'source_info' => {
-                    'line_nr' => 14
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'text' => 'after anchor
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'flushleft'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'flushleft'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'flushright',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'right and
-'
-                },
-                {
-                  'text' => 'right2
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Right3
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Right last
-'
-                },
-                {
-                  'text' => '  with space.     
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Now anchor
-'
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'anchor in flushright'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'anchor-in-flushright'
-                  },
-                  'source_info' => {
-                    'line_nr' => 29
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'text' => 'after anchor
-'
-                },
-                {
-                  'text' => 'Second anchor in text '
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'second anchor in flushright'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'second-anchor-in-flushright'
-                  },
-                  'source_info' => {
-                    'line_nr' => 31
-                  }
-                },
-                {
-                  'text' => ' ',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'text' => 'after anchor.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'flushright'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'flushright'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 32
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 18
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'center_flush'} = '*document_root C1
+ *before_node_section C5
+  *@center C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {centered}
+  {empty_line:\\n}
+  *0 @flushleft C10 l3
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C2
+    {left and\\n}
+    {left2\\n}
+   {empty_line:\\n}
+   *paragraph C1
+    {left3.\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    {left Last\\n}
+    {  with space.\\n}
+   {empty_line:\\n}
+   *paragraph C4
+    {Now anchor\\n}
+    *1 @anchor C1 l14
+    |EXTRA
+    |is_target:{1}
+    |normalized:{anchor-in-flushleft}
+     *brace_arg C1
+      {anchor in flushleft}
+    {spaces_after_close_brace:\\n}
+    {after anchor\\n}
+   *@end C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{flushleft}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {flushleft}
+  {empty_line:\\n}
+  *2 @flushright C10 l18
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C2
+    {right and\\n}
+    {right2\\n}
+   {empty_line:\\n}
+   *paragraph C1
+    {Right3\\n}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    {Right last\\n}
+    {  with space.     \\n}
+   {empty_line:\\n}
+   *paragraph C8
+    {Now anchor\\n}
+    *3 @anchor C1 l29
+    |EXTRA
+    |is_target:{1}
+    |normalized:{anchor-in-flushright}
+     *brace_arg C1
+      {anchor in flushright}
+    {spaces_after_close_brace:\\n}
+    {after anchor\\n}
+    {Second anchor in text }
+    *4 @anchor C1 l31
+    |EXTRA
+    |is_target:{1}
+    |normalized:{second-anchor-in-flushright}
+     *brace_arg C1
+      {second anchor in flushright}
+    {spaces_after_close_brace: }
+    {after anchor.\\n}
+   *@end C1 l32
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{flushright}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {flushright}
+';
+
 
 $result_texis{'center_flush'} = '@center centered
 

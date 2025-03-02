@@ -5,51 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'at_after_accent_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => '^',
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'at_after_accent_command'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C6
+   *0 @ringaccent l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   *@@
+   {. }
+   *1 @^ l1
+   *@@
+   {.\\n}
+';
+
 
 $result_texis{'at_after_accent_command'} = '@ringaccent @@. @^@@.
 ';

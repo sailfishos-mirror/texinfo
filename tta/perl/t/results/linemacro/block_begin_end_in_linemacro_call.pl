@@ -5,1005 +5,295 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'block_begin_end_in_linemacro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {a}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'b \\a\\ a
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'a'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-@quotation aa
-in quotation
-',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'b 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in quotation
-'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 2,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => ' a
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8,
-            'macro' => 'lm'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'hh'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => '
-@end quotation
+$result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
+ *before_node_section C19
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{a}
+   *arguments_line C1
+    {macro_line: lm {a}\\n}
+   {raw:b \\a\\ a\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *paragraph C1
+   {b \\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:\\n@quotation aa\\nin quotation\\n}
+  *1 @quotation C3 l8:@lm
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {aa}
+   *paragraph C2
+    {in quotation\\n}
+    { a\\n}
+    >SOURCEMARKS
+    >linemacro_expansion<end;1><p:2>
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *2 @quotation C3 l11
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {hh}
+   *paragraph C1
+    {b \\n}
+    >SOURCEMARKS
+    >linemacro_expansion<start;2>
+     >*linemacro_call C1
+     >|INFO
+     >|command_name:{lm}
+     >|spaces_before_argument:
+      >|{ }
+      >*line_arg C1
+       >{bracketed_linemacro_arg:\\n@end quotation\\n\\n}
+   *@end C1 l15:@lm
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  {spaces_before_paragraph: }
+  *paragraph C1
+   {a\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<end;2><p:1>
+  {empty_line:\\n}
+  *paragraph C1
+   {b \\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;3>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:\\n@quotation}
+  *3 @quotation C5 l18:@lm
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {a}
+     >SOURCEMARKS
+     >linemacro_expansion<end;3><p:1>
+   *paragraph C1
+    {in quotation\\n}
+   {empty_line:\\n}
+   *paragraph C1
+    {aa.\\n}
+   *@end C1 l22
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *paragraph C2
+   {b \\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;4>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:\\n@ignore\\nignored }
+   *4 @ignore C5 l26:@lm
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    {raw:ignored  a}
+    >SOURCEMARKS
+    >linemacro_expansion<end;4><p:10>
+    {raw:\\n}
+    {raw:still ignored\\n}
+    *@end C1 l28
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{ignore}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {ignore}
+  {empty_line:\\n}
+  *paragraph C2
+   {b \\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;5>
+    >*linemacro_call C1
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:\\n@macro mymac {e, f}\\nargs \\e\\|\\f\\|\\n@defline @lm {\\e\\} {\\f\\}\\n}
+   *5 @macro C6 l34:@lm
+   |EXTRA
+   |macro_name:{mymac}
+   |misc_args:A{e|f}
+    *arguments_line C1
+     {macro_line: mymac {e, f}\\n}
+    {raw:args \\e\\|\\f\\|\\n}
+    {raw:@defline @lm {\\e\\} {\\f\\}\\n}
+    {raw: a}
+    >SOURCEMARKS
+    >linemacro_expansion<end;5><p:2>
+    {raw:\\n}
+    *@end C1 l35
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+  {empty_line:\\n}
+  *6 @defblock C5 l37
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *before_defline C1
+    *paragraph C1
+     {args arg1|arg2|\\n}
+     >SOURCEMARKS
+     >macro_expansion<start;1>
+      >*macro_call C2
+      >|INFO
+      >|command_name:{mymac}
+       >*brace_arg C1
+        >{arg1}
+       >*brace_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{arg2}
+   *@defline C1 l38:@mymac
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    |>SOURCEMARKS
+    |>linemacro_expansion<start;6><p:1>
+     |>*linemacro_call C1
+     |>|INFO
+     |>|command_name:{lm}
+     |>|spaces_before_argument:
+      |>|{ }
+      |>*line_arg C1
+       |>{{arg1} {arg2}}
+   |EXTRA
+   |def_command:{defline}
+   |def_index_element:
+    |*def_name C1
+     |*bracketed_arg C1
+      |{arg1}
+   |original_def_cmdname:{defline}
+    *line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_name C1
+      *bracketed_arg C1 l38:@lm
+       {arg1}
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg C1 l38:@lm
+       {arg2}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a}
+       >SOURCEMARKS
+       >linemacro_expansion<end;6><p:1>
+   *def_item C2
+    {spaces_before_paragraph: }
+    *paragraph C1
+     {a\\n}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:1>
+   *@end C1 l39
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defblock}
+  {empty_line:\\n}
+';
 
-',
-                                'type' => 'bracketed_linemacro_arg'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'lm',
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'linemacro_call'
-                      },
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => 'b 
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15,
-                'macro' => 'lm'
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'a
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-@quotation',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'b 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 1,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'a'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in quotation
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'aa.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 22
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 18,
-            'macro' => 'lm'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-@ignore
-ignored ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'b 
-'
-            },
-            {
-              'cmdname' => 'ignore',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'position' => 10,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'ignored  a',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'still ignored
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ignore'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'ignore'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 28
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'lm'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-@macro mymac {e, f}
-args \\e\\|\\f\\|
-@defline @lm {\\e\\} {\\f\\}
-',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'b 
-'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' mymac {e, f}
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => 'args \\e\\|\\f\\|
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@defline @lm {\\e\\} {\\f\\}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'position' => 2,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => ' a',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 35
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'mymac',
-                'misc_args' => [
-                  'e',
-                  'f'
-                ]
-              },
-              'source_info' => {
-                'line_nr' => 34,
-                'macro' => 'lm'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'arg1'
-                                  }
-                                ],
-                                'type' => 'brace_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'arg2'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'mymac'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'args arg1|arg2|
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'before_defline'
-            },
-            {
-              'cmdname' => 'defline',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'arg1'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 38,
-                            'macro' => 'lm'
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'arg2'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 38,
-                            'macro' => 'lm'
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 6,
-                                  'position' => 1,
-                                  'sourcemark_type' => 'linemacro_expansion',
-                                  'status' => 'end'
-                                }
-                              ],
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defline',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'arg1'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'original_def_cmdname' => 'defline'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => '{arg1} {arg2}'
-                              }
-                            ],
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'lm',
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'linemacro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'linemacro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'mymac'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'spaces_before_paragraph'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'a
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 39
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 37
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
 
 $result_texis{'block_begin_end_in_linemacro_call'} = '@linemacro lm {a}
 b \\a\\ a

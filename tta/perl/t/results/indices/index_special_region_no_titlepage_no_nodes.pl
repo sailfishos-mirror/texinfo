@@ -5,1713 +5,532 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'index_special_region_no_titlepage_no_nodes'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo @c -*-texinfo-*-
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' 
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Copying this document'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'element_region' => 'copying',
-                    'index_entry' => [
-                      'cp',
-                      1
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 5
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Copying information'
-                        }
-                      ],
-                      'extra' => {
-                        'element_region' => 'copying'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'Copying-information'
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'This is a test manual, trivially and explicitly in the public
-'
-                    },
-                    {
-                      'text' => 'domain'
-                    },
-                    {
-                      'cmdname' => 'footnote',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'anchor',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Public domain reference'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'element_region' => 'copying'
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'is_target' => 1,
-                                'normalized' => 'Public-domain-reference'
-                              },
-                              'source_info' => {
-                                'file_name' => 'index_special_region.texi',
-                                'line_nr' => 9
-                              }
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces_after_close_brace'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'The public
-'
-                                },
-                                {
-                                  'text' => 'domain is something you should allready know
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'cmdname' => 'cindex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Public domain'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'element_region' => 'copying',
-                                'index_entry' => [
-                                  'cp',
-                                  2
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'cindex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => 'index_special_region.texi',
-                                'line_nr' => 12
-                              },
-                              'type' => 'index_entry_command'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'extra' => {},
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 9
-                      }
-                    },
-                    {
-                      'text' => '.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'printindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cp'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'misc_args' => [
-                      'cp'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 15
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 17
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'titlepage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Titlepage index'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'element_region' => 'titlepage',
-                    'index_entry' => [
-                      'cp',
-                      3
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 21
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Titlepage anchor'
-                        }
-                      ],
-                      'extra' => {
-                        'element_region' => 'titlepage'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'Titlepage-anchor'
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 22
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'This is the titlepage'
-                    },
-                    {
-                      'cmdname' => 'footnote',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'anchor',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Titlepage footnote anchor'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'element_region' => 'titlepage'
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'is_target' => 1,
-                                'normalized' => 'Titlepage-footnote-anchor'
-                              },
-                              'source_info' => {
-                                'file_name' => 'index_special_region.texi',
-                                'line_nr' => 24
-                              }
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'spaces_after_close_brace'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'This is a fine document.
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'cmdname' => 'cindex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Titlepage footnote'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'element_region' => 'titlepage',
-                                'index_entry' => [
-                                  'cp',
-                                  4
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'cindex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => 'index_special_region.texi',
-                                'line_nr' => 27
-                              },
-                              'type' => 'index_entry_command'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'extra' => {},
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 24
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'insertcopying',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 30
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'titlepage'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'titlepage'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'index_special_region.texi',
-                    'line_nr' => 31
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_special_region.texi',
-        'line_nr' => 33
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_special_region.texi',
-        'line_nr' => 34
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' note this chapter is not associated to a node
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => '  '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 37
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This test demonstrates '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'anchor and indices in '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'copying
-'
-            },
-            {
-              'text' => 'and titlepage, and various wrong index entries.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'findex entry'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 42
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'command_name' => 'cindex'
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 44
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'index_special_region.texi',
-                            'line_nr' => 45
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'file_name' => 'index_special_region.texi',
-                            'line_nr' => 45
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 45
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'index_special_region.texi',
-                            'line_nr' => 46
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 46
-              }
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_info' => {
-                            'file_name' => 'index_special_region.texi',
-                            'line_nr' => 47
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_info' => {
-                            'file_name' => 'index_special_region.texi',
-                            'line_nr' => 47
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 47
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 48
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 45
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'ftable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'info' => {
-                        'inserted' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 51
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fun'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'element_node' => {},
-                        'index_entry' => [
-                          'fn',
-                          2
-                        ]
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'index_special_region.texi',
-                        'line_nr' => 52
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ftable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'ftable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 53
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 50
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Copying and indices'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Copying-and-indices'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 56
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 57
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 55
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_special_region.texi',
-        'line_nr' => 35
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copying and indices'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'Copying-and-indices'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_special_region.texi',
-        'line_nr' => 59
-      }
-    },
-    {
-      'cmdname' => 'appendix',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copying and indices'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In the appendix, we print the indices and references.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'another fun'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              3
-            ]
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 64
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copying appendix'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              5
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 66
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Copying information'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Copying-information'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 68
-              }
-            },
-            {
-              'text' => ' for the copying information.
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Public domain reference'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Public-domain-reference'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 69
-              }
-            },
-            {
-              'text' => ' for reference on the licence.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Titlepage anchor'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Titlepage-anchor'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 71
-              }
-            },
-            {
-              'text' => ' for the titlepage.
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Titlepage footnote anchor'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Titlepage-footnote-anchor'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'index_special_region.texi',
-                'line_nr' => 72
-              }
-            },
-            {
-              'text' => ' for reference on the titlepage.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 74
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 76
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 77
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'index_special_region.texi',
-            'line_nr' => 79
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => 'A'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'index_special_region.texi',
-        'line_nr' => 60
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[1];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[11]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[1];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[4];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[4];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[10]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'index_special_region_no_titlepage_no_nodes'}{'contents'}[5]{'contents'}[10]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_root C7
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *0 @copying C11 index_special_region.texi:l3
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{ \\n}
+    {empty_line:\\n}
+    *1 index_entry_command@cindex C1 index_special_region.texi:l5
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |element_region:{copying}
+    |index_entry:I{cp,1}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Copying this document}
+    *2 @anchor C1 index_special_region.texi:l6
+    |EXTRA
+    |is_target:{1}
+    |normalized:{Copying-information}
+     *brace_arg C1
+     |EXTRA
+     |element_region:{copying}
+      {Copying information}
+    {spaces_after_close_brace:\\n}
+    {empty_line:\\n}
+    *paragraph C4
+     {This is a test manual, trivially and explicitly in the public\\n}
+     {domain}
+     *3 @footnote C1 index_special_region.texi:l9
+     |EXTRA
+     |global_command_number:{1}
+      *brace_command_context C5
+       *4 @anchor C1 index_special_region.texi:l9
+       |EXTRA
+       |is_target:{1}
+       |normalized:{Public-domain-reference}
+        *brace_arg C1
+        |EXTRA
+        |element_region:{copying}
+         {Public domain reference}
+       {spaces_after_close_brace: }
+       *paragraph C2
+        {The public\\n}
+        {domain is something you should allready know\\n}
+       {empty_line:\\n}
+       *5 index_entry_command@cindex C1 index_special_region.texi:l12
+       |INFO
+       |command_name:{cindex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |element_region:{copying}
+       |index_entry:I{cp,2}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {Public domain}
+     {.\\n}
+    {empty_line:\\n}
+    *@printindex C1 index_special_region.texi:l15
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{1}
+    |misc_args:A{cp}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {cp}
+    {empty_line:\\n}
+    *@end C1 index_special_region.texi:l17
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   {empty_line:\\n}
+   *6 @titlepage C10 index_special_region.texi:l19
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    {empty_line:\\n}
+    *7 index_entry_command@cindex C1 index_special_region.texi:l21
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |element_region:{titlepage}
+    |index_entry:I{cp,3}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Titlepage index}
+    *8 @anchor C1 index_special_region.texi:l22
+    |EXTRA
+    |is_target:{1}
+    |normalized:{Titlepage-anchor}
+     *brace_arg C1
+     |EXTRA
+     |element_region:{titlepage}
+      {Titlepage anchor}
+    {spaces_after_close_brace:\\n}
+    {empty_line:\\n}
+    *paragraph C3
+     {This is the titlepage}
+     *9 @footnote C1 index_special_region.texi:l24
+     |EXTRA
+     |global_command_number:{2}
+      *brace_command_context C5
+       *10 @anchor C1 index_special_region.texi:l24
+       |EXTRA
+       |is_target:{1}
+       |normalized:{Titlepage-footnote-anchor}
+        *brace_arg C1
+        |EXTRA
+        |element_region:{titlepage}
+         {Titlepage footnote anchor}
+       {spaces_after_close_brace:\\n}
+       *paragraph C1
+        {This is a fine document.\\n}
+       {empty_line:\\n}
+       *11 index_entry_command@cindex C1 index_special_region.texi:l27
+       |INFO
+       |command_name:{cindex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |element_region:{titlepage}
+       |index_entry:I{cp,4}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {Titlepage footnote}
+     {\\n}
+    {empty_line:\\n}
+    *@insertcopying C1 index_special_region.texi:l30
+    |EXTRA
+    |global_command_number:{1}
+     {rawline_arg:\\n}
+    *@end C1 index_special_region.texi:l31
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{titlepage}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {titlepage}
+   {empty_line:\\n}
+ *12 @node C1 index_special_region.texi:l33
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E13]
+ |is_target:{1}
+ |menus:EC[E20]
+ |node_directions:D[next->E21]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *13 @top C1 index_special_region.texi:l34
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E12]
+ |section_childs:EC[E14|E22]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E13]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E14]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *14 @chapter C15 index_special_region.texi:l35
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E22|up->E13]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E22|prev->E13|up->E13]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: note this chapter is not associated to a node\\n}
+   |spaces_after_argument:
+    |{  }
+    {Chapter}
+  {empty_line:\\n}
+  *@insertcopying C1 index_special_region.texi:l37
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *paragraph C6
+   {This test demonstrates }
+   *@@
+   {anchor and indices in }
+   *@@
+   {copying\\n}
+   {and titlepage, and various wrong index entries.\\n}
+  {empty_line:\\n}
+  *15 index_entry_command@findex C1 index_special_region.texi:l42
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E12]
+  |index_entry:I{fn,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {findex entry}
+  {empty_line:\\n}
+  *16 index_entry_command@cindex C1 index_special_region.texi:l44
+  |INFO
+  |command_name:{cindex}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  *17 @deffn C4 index_special_region.texi:l45
+   *def_line C1 index_special_region.texi:l45
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg C1 index_special_region.texi:l45
+       {truc}
+     {spaces: }
+     *def_name C1
+      *bracketed_arg index_special_region.texi:l45
+      |INFO
+      |spaces_before_argument:
+       |{ }
+   *@deffnx C1 index_special_region.texi:l46
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg C1 index_special_region.texi:l46
+       {truc}
+   *@deffnx C1 index_special_region.texi:l47
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *bracketed_arg index_special_region.texi:l47
+     {spaces: }
+     *def_name C1
+      *bracketed_arg index_special_region.texi:l47
+   *@end C1 index_special_region.texi:l48
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+  *18 @ftable C4 index_special_region.texi:l50
+  |EXTRA
+  |command_as_argument:[E19]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *19 @asis
+     |INFO
+     |inserted:{1}
+   *table_entry C1
+    *table_term C1
+     *@item C1 index_special_region.texi:l51
+      *line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+   *table_entry C1
+    *table_term C1
+     *@item C1 index_special_region.texi:l52
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |element_node:[E12]
+     |index_entry:I{fn,2}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {fun}
+   *@end C1 index_special_region.texi:l53
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{ftable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ftable}
+  {empty_line:\\n}
+  *20 @menu C3 index_special_region.texi:l55
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 index_special_region.texi:l56
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{Copying and indices}
+    |normalized:{Copying-and-indices}
+     {Copying and indices}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 index_special_region.texi:l57
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *21 @node C1 index_special_region.texi:l59
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E22]
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E12]
+ |node_directions:D[prev->E12|up->E12]
+ |normalized:{Copying-and-indices}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copying and indices}
+ *22 @appendix C18 index_special_region.texi:l60
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E21]
+ |section_directions:D[prev->E14|up->E13]
+ |section_level:{1}
+ |section_number:{A}
+ |toplevel_directions:D[prev->E14|up->E13]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copying and indices}
+  {empty_line:\\n}
+  *paragraph C1
+   {In the appendix, we print the indices and references.\\n}
+  {empty_line:\\n}
+  *23 index_entry_command@findex C1 index_special_region.texi:l64
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E21]
+  |index_entry:I{fn,3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {another fun}
+  {empty_line:\\n}
+  *24 index_entry_command@cindex C1 index_special_region.texi:l66
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E21]
+  |index_entry:I{cp,5}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copying appendix}
+  {empty_line:\\n}
+  *paragraph C4
+   *25 @ref C1 index_special_region.texi:l68
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Copying information}
+    |normalized:{Copying-information}
+     {Copying information}
+   { for the copying information.\\n}
+   *26 @ref C1 index_special_region.texi:l69
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Public domain reference}
+    |normalized:{Public-domain-reference}
+     {Public domain reference}
+   { for reference on the licence.\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *27 @ref C1 index_special_region.texi:l71
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Titlepage anchor}
+    |normalized:{Titlepage-anchor}
+     {Titlepage anchor}
+   { for the titlepage.\\n}
+   *28 @ref C1 index_special_region.texi:l72
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Titlepage footnote anchor}
+    |normalized:{Titlepage-footnote-anchor}
+     {Titlepage footnote anchor}
+   { for reference on the titlepage.\\n}
+  {empty_line:\\n}
+  *@insertcopying C1 index_special_region.texi:l74
+  |EXTRA
+  |global_command_number:{3}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *@printindex C1 index_special_region.texi:l76
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  *@printindex C1 index_special_region.texi:l77
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+  {empty_line:\\n}
+  *@contents C1 index_special_region.texi:l79
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'index_special_region_no_titlepage_no_nodes'} = '\\input texinfo @c -*-texinfo-*-
 

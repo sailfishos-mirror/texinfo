@@ -5,85 +5,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'space_command_in_image'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f--ile'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => ' '
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => ' '
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f--ile'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => ':'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'space_command_in_image'} = '*document_root C1
+ *before_node_section C3
+  *0 @image C4 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {f--ile}
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    *@ 
+  { }
+  *1 @image C4 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {f--ile}
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    *@:
+';
+
 
 $result_texis{'space_command_in_image'} = '@image{f--ile,,,@ } @image{f--ile,,,@:}';
 

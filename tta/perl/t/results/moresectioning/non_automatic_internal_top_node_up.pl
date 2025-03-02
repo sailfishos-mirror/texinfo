@@ -5,494 +5,178 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'non_automatic_internal_top_node_up'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'chap'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'acronym',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'GNU'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'acronym',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'GNU'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        },
-                        {
-                          'text' => '\'s Not Unix'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' manuals'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {},
-                    {}
-                  ]
-                },
-                'normalized' => 'GNU-manuals'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'acronym',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'GNU'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'acronym',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'GNU'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        },
-                        {
-                          'text' => '\'s Not Unix'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' manuals'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {},
-                    {}
-                  ]
-                },
-                'normalized' => 'GNU-manuals'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {},
-      {
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'internal top node up'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'menu',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'type' => 'arguments_line'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'chap'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'chap'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 5
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'menu'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'menu'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 6
-                }
-              }
-            ],
-            'source_info' => {
-              'line_nr' => 4
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 2
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'acronym',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'GNU'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'acronym',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'GNU'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        },
-                        {
-                          'text' => '\'s Not Unix'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 8
-                  }
-                },
-                {
-                  'text' => ' manuals'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {},
-                    {}
-                  ]
-                },
-                'normalized' => 'GNU-manuals'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 8
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_contents'}[1] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_command'};
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_contents'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_command'};
+$result_tree_text{'non_automatic_internal_top_node_up'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+NodeNext: [U1]
+NodeForward: [U1]
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E5]
+ |is_target:{1}
+ |menus:EC[E6]
+ |node_directions:D[next->E7]
+ |normalized:{Top}
+  *arguments_line C4
+   *line_arg C1
+    {Top}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{chap}
+   |normalized:{chap}
+    {chap}
+   *line_arg C2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
+   |normalized:{GNU-manuals}
+    *1 @acronym C2 l1
+     *brace_arg C1
+      {GNU}
+     *brace_arg C2
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *2 @acronym C1 l1
+       *brace_arg C1
+        {GNU}
+      {\'s Not Unix}
+    { manuals}
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
+   |normalized:{GNU-manuals}
+    *3 @acronym C2 l1
+     *brace_arg C1
+      {GNU}
+     *brace_arg C2
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *4 @acronym C1 l1
+       *brace_arg C1
+        {GNU}
+      {\'s Not Unix}
+    { manuals}
+ *5 @top C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E5]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {internal top node up}
+  {empty_line:\\n}
+  *6 @menu C3 l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chap}
+    |normalized:{chap}
+     {chap}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E7]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+FastBack: [U0]
+NodePrev: [U0]
+NodeBack: [U0]
+ *7 @node C1 l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C4
+   *line_arg C1
+    {chap}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals}
+   |normalized:{GNU-manuals}
+    *8 @acronym C2 l8
+     *brace_arg C1
+      {GNU}
+     *brace_arg C2
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *9 @acronym C1 l8
+       *brace_arg C1
+        {GNU}
+      {\'s Not Unix}
+    { manuals}
+';
+
 
 $result_texis{'non_automatic_internal_top_node_up'} = '@node Top, chap, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 @top internal top node up

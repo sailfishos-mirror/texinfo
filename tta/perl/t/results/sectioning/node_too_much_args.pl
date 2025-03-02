@@ -5,87 +5,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'node_too_much_args'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'node_too_much_args'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'node_too_much_args'}{'contents'}[1]{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_tree_text{'node_too_much_args'} = '*document_root C2
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |normalized:{first}
+  *arguments_line C4
+   *line_arg C1
+    {first}
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *line_arg C3
+   |INFO
+   |spaces_before_argument:
+    |{  }
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+';
+
 
 $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 

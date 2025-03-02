@@ -5,303 +5,89 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inline_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '<sc>xml inlineraw</sc>'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' <code>html</code>',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'env',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'inlinefmt'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    },
-                    {
-                      'text' => ', xml'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' @env{inlinefmt}, html',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'inlinefmtifelse'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' else xml',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' html @var{inlinefmtifelse}',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'else html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inline_commands'} = '*document_root C1
+ *before_node_section C5
+  *paragraph C4
+   *0 @inlineraw C2 l1
+   |EXTRA
+   |expand_index:{1}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {<sc>xml inlineraw</sc>}
+   {\\n}
+   *1 @inlineraw C2 l2
+   |EXTRA
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *elided_brace_command_arg C1
+     {raw: <code>html</code>}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *2 @inlinefmt C2 l4
+   |EXTRA
+   |expand_index:{1}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *3 @env C1 l4
+      *brace_container C1
+       {inlinefmt}
+     {, xml}
+   {\\n}
+   *4 @inlinefmt C2 l5
+   |EXTRA
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *elided_brace_command_arg C1
+     {raw: @env{inlinefmt}, html}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *5 @inlinefmtifelse C3 l7
+   |EXTRA
+   |expand_index:{1}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {xml }
+     *6 @code C1 l7
+      *brace_container C1
+       {inlinefmtifelse}
+    *elided_brace_command_arg C1
+     {raw: else xml}
+   {\\n}
+   *7 @inlinefmtifelse C3 l8
+   |EXTRA
+   |expand_index:{2}
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *elided_brace_command_arg C1
+     {raw: html @var{inlinefmtifelse}}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {else html}
+   {\\n}
+';
+
 
 $result_texis{'inline_commands'} = '@inlineraw{xml, <sc>xml inlineraw</sc>}
 @inlineraw{html, <code>html</code>}

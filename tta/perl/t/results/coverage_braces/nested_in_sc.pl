@@ -5,206 +5,53 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_in_sc'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'sc',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'aaa '
-                            },
-                            {
-                              'cmdname' => '~',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'n'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'aa',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'TeX',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => '~',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'aa',
-                                      'contents' => [
-                                        {
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 1
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ' '
-                            },
-                            {
-                              'cmdname' => 'footnote',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'In footnote'
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'type' => 'brace_command_context'
-                                }
-                              ],
-                              'extra' => {},
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ', '
-                            },
-                            {
-                              'cmdname' => 'abbr',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'ABr'
-                                    }
-                                  ],
-                                  'type' => 'brace_arg'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'expl'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => ', 
-'
-                            },
-                            {
-                              'cmdname' => 'verb',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in verb',
-                                      'type' => 'raw'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'info' => {
-                                'delimiter' => ':'
-                              },
-                              'source_info' => {
-                                'line_nr' => 2
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_in_sc'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @sc C1 l1
+    *brace_container C1
+     *1 @sc C1 l1
+      *brace_container C14
+       {aaa }
+       *2 @~ C1 l1
+        *following_arg C1
+         {n}
+       { }
+       *3 @aa C1 l1
+        *brace_container
+       { }
+       *4 @TeX C1 l1
+        *brace_container
+       { }
+       *5 @~ C1 l1
+        *brace_container C1
+         *6 @aa C1 l1
+          *brace_container
+       { }
+       *7 @footnote C1 l1
+       |EXTRA
+       |global_command_number:{1}
+        *brace_command_context C1
+         *paragraph C1
+          {In footnote}
+       {, }
+       *8 @abbr C2 l1
+        *brace_arg C1
+         {ABr}
+        *brace_arg C1
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         {expl}
+       {, \\n}
+       *9 @verb C1 l2
+       |INFO
+       |delimiter:{:}
+        *brace_container C1
+         {raw:in verb}
+   {\\n}
+';
+
 
 $result_texis{'nested_in_sc'} = '@sc{@sc{aaa @~n @aa{} @TeX{} @~{@aa{}} @footnote{In footnote}, @abbr{ABr, expl}, 
 @verb{:in verb:}}}

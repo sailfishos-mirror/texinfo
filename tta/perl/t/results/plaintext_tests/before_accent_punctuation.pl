@@ -5,40 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'before_accent_punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'a. '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'before_accent_punctuation'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {a. }
+   *0 @^ C1 l1
+    *following_arg C1
+     {a}
+';
+
 
 $result_texis{'before_accent_punctuation'} = 'a. @^a';
 

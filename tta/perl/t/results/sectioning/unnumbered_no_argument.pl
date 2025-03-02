@@ -5,37 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unnumbered_no_argument'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'unnumbered',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unnumbered_no_argument'} = '*document_root C2
+ *before_node_section
+ *0 @unnumbered C1 l1
+ |EXTRA
+ |section_level:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{0}
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+';
+
 
 $result_texis{'unnumbered_no_argument'} = '@unnumbered
 ';

@@ -5,60 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in b '
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' in verb { } ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => '/'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' in b end'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @b C1 l1
+    *brace_container C3
+     {in b }
+     *1 @verb C1 l1
+     |INFO
+     |delimiter:{/}
+      *brace_container C1
+       {raw: in verb { } }
+     { in b end}
+';
+
 
 $result_texis{'nested'} = '@b{in b @verb{/ in verb { } /} in b end}';
 

@@ -5,34 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'minimal_empty_empty'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'minimal_empty_empty'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
+';
+
 
 $result_texis{'minimal_empty_empty'} = '
 

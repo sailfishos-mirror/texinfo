@@ -5,1343 +5,431 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'float_copying'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
-',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float_copying.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float_copying.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' 
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'float',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Copyright notice'
-                            }
-                          ],
-                          'type' => 'block_line_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'public domain'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            },
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Public domain is not really a licence, as it means than 
-'
-                        },
-                        {
-                          'text' => 'the author abandon his copyright.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'cmdname' => 'caption',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'The Public Domain notice'
-                                },
-                                {
-                                  'cmdname' => 'footnote',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'The caption copying footnote
-'
-                                            },
-                                            {
-                                              'cmdname' => 'anchor',
-                                              'contents' => [
-                                                {
-                                                  'contents' => [
-                                                    {
-                                                      'text' => 'caption copying footnote anchor'
-                                                    }
-                                                  ],
-                                                  'extra' => {
-                                                    'element_region' => 'copying'
-                                                  },
-                                                  'type' => 'brace_arg'
-                                                }
-                                              ],
-                                              'extra' => {
-                                                'is_target' => 1,
-                                                'normalized' => 'caption-copying-footnote-anchor'
-                                              },
-                                              'source_info' => {
-                                                'file_name' => 'float_copying.texi',
-                                                'line_nr' => 14
-                                              }
-                                            },
-                                            {
-                                              'text' => '
-',
-                                              'type' => 'spaces_after_close_brace'
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        },
-                                        {
-                                          'text' => '
-',
-                                          'type' => 'empty_line'
-                                        },
-                                        {
-                                          'cmdname' => 'cindex',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'indexed caption copying footnote'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'spaces_after_argument' => {
-                                                  'text' => '
-'
-                                                }
-                                              },
-                                              'type' => 'line_arg'
-                                            }
-                                          ],
-                                          'extra' => {
-                                            'element_region' => 'copying',
-                                            'index_entry' => [
-                                              'cp',
-                                              1
-                                            ]
-                                          },
-                                          'info' => {
-                                            'command_name' => 'cindex',
-                                            'spaces_before_argument' => {
-                                              'text' => ' '
-                                            }
-                                          },
-                                          'source_info' => {
-                                            'file_name' => 'float_copying.texi',
-                                            'line_nr' => 16
-                                          },
-                                          'type' => 'index_entry_command'
-                                        },
-                                        {
-                                          'cmdname' => 'findex',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'public domain function'
-                                                }
-                                              ],
-                                              'info' => {
-                                                'spaces_after_argument' => {
-                                                  'text' => '
-'
-                                                }
-                                              },
-                                              'type' => 'line_arg'
-                                            }
-                                          ],
-                                          'extra' => {
-                                            'element_region' => 'copying',
-                                            'index_entry' => [
-                                              'fn',
-                                              1
-                                            ]
-                                          },
-                                          'info' => {
-                                            'command_name' => 'findex',
-                                            'spaces_before_argument' => {
-                                              'text' => ' '
-                                            }
-                                          },
-                                          'source_info' => {
-                                            'file_name' => 'float_copying.texi',
-                                            'line_nr' => 17
-                                          },
-                                          'type' => 'index_entry_command'
-                                        },
-                                        {
-                                          'text' => '
-',
-                                          'type' => 'empty_line'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'see '
-                                            },
-                                            {
-                                              'cmdname' => 'ref',
-                                              'contents' => [
-                                                {
-                                                  'contents' => [
-                                                    {
-                                                      'text' => 'Copying and floats'
-                                                    }
-                                                  ],
-                                                  'extra' => {
-                                                    'node_content' => {
-                                                      'contents' => [
-                                                        {}
-                                                      ]
-                                                    },
-                                                    'normalized' => 'Copying-and-floats'
-                                                  },
-                                                  'type' => 'brace_arg'
-                                                }
-                                              ],
-                                              'source_info' => {
-                                                'file_name' => 'float_copying.texi',
-                                                'line_nr' => 19
-                                              }
-                                            },
-                                            {
-                                              'text' => '.
-'
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        },
-                                        {
-                                          'text' => '
-',
-                                          'type' => 'empty_line'
-                                        }
-                                      ],
-                                      'type' => 'brace_command_context'
-                                    }
-                                  ],
-                                  'extra' => {},
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'file_name' => 'float_copying.texi',
-                                    'line_nr' => 12
-                                  }
-                                },
-                                {
-                                  'text' => '
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'cmdname' => 'anchor',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'public domain anchor'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'element_region' => 'copying'
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'is_target' => 1,
-                                'normalized' => 'public-domain-anchor'
-                              },
-                              'source_info' => {
-                                'file_name' => 'float_copying.texi',
-                                'line_nr' => 23
-                              }
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'spaces_after_close_brace'
-                            },
-                            {
-                              'cmdname' => 'cindex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'indexed caption'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'element_region' => 'copying',
-                                'index_entry' => [
-                                  'cp',
-                                  2
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'cindex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => 'float_copying.texi',
-                                'line_nr' => 24
-                              },
-                              'type' => 'index_entry_command'
-                            },
-                            {
-                              'cmdname' => 'findex',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'indexed caption function'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'element_region' => 'copying',
-                                'index_entry' => [
-                                  'fn',
-                                  2
-                                ]
-                              },
-                              'info' => {
-                                'command_name' => 'findex',
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'file_name' => 'float_copying.texi',
-                                'line_nr' => 25
-                              },
-                              'type' => 'index_entry_command'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'extra' => {
-                        'float' => {}
-                      },
-                      'source_info' => {
-                        'file_name' => 'float_copying.texi',
-                        'line_nr' => 12
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'spaces_after_close_brace'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'float'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'float'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'file_name' => 'float_copying.texi',
-                        'line_nr' => 27
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'caption' => {},
-                    'float_type' => 'Copyright notice',
-                    'is_target' => 1,
-                    'normalized' => 'public-domain'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'float_copying.texi',
-                    'line_nr' => 7
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'float_copying.texi',
-                    'line_nr' => 28
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'float_copying.texi',
-        'line_nr' => 30
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 33
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'See the caption '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'public domain anchor'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'public-domain-anchor'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 35
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'See the float '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'public domain'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'public-domain'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 37
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 39
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Copying and floats'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Copying-and-floats'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 42
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 43
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 41
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'float_copying.texi',
-        'line_nr' => 31
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copying and floats'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'Copying-and-floats'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'float_copying.texi',
-        'line_nr' => 45
-      }
-    },
-    {
-      'cmdname' => 'appendix',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copying and floats'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In the appendix, we print the references and the copying once more
-'
-            },
-            {
-              'text' => 'and the list of coyright notices (listoffloats).
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'See the caption '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'public domain anchor'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'public-domain-anchor'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 51
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'See the float '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'public domain'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'public-domain'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'float_copying.texi',
-                'line_nr' => 53
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'listofloats'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 55
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 57
-          }
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 58
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'subheading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'listoffloats'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 60
-          }
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Copyright notice'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => 'Copyright notice'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 61
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'subheading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'printindex'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 63
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 64
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'float_copying.texi',
-            'line_nr' => 65
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => 'A'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'float_copying.texi',
-        'line_nr' => 46
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[4]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'float_copying'}{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[10]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[10]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'float_copying'}{'contents'}[3];
+$result_tree_text{'float_copying'} = '*document_root C6
+ *before_node_section C2
+  *preamble_before_setfilename C1
+   *preamble_before_beginning C2
+    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+    {text_before_beginning:\\n}
+  *preamble_before_content C4
+   *@setfilename C1 float_copying.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float_copying.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float_copying.info}
+   {empty_line:\\n}
+   *0 @copying C4 float_copying.texi:l5
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{ \\n}
+    {empty_line:\\n}
+    *1 @float C7 float_copying.texi:l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |caption:[E2]
+    |float_number:{1}
+    |float_type:{Copyright notice}
+    |global_command_number:{1}
+    |is_target:{1}
+    |normalized:{public-domain}
+     *arguments_line C2
+      *block_line_arg C1
+       {Copyright notice}
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+      |spaces_before_argument:
+       |{ }
+       {public domain}
+     {empty_line:\\n}
+     *paragraph C2
+      {Public domain is not really a licence, as it means than \\n}
+      {the author abandon his copyright.\\n}
+     {empty_line:\\n}
+     *2 @caption C1 float_copying.texi:l12
+     |EXTRA
+     |float:[E1]
+      *brace_command_context C6
+       *paragraph C3
+        {The Public Domain notice}
+        *3 @footnote C1 float_copying.texi:l12
+        |INFO
+        |spaces_before_argument:
+         |{\\n}
+        |EXTRA
+        |global_command_number:{1}
+         *brace_command_context C7
+          *paragraph C3
+           {The caption copying footnote\\n}
+           *4 @anchor C1 float_copying.texi:l14
+           |EXTRA
+           |is_target:{1}
+           |normalized:{caption-copying-footnote-anchor}
+            *brace_arg C1
+            |EXTRA
+            |element_region:{copying}
+             {caption copying footnote anchor}
+           {spaces_after_close_brace:\\n}
+          {empty_line:\\n}
+          *5 index_entry_command@cindex C1 float_copying.texi:l16
+          |INFO
+          |command_name:{cindex}
+          |spaces_before_argument:
+           |{ }
+          |EXTRA
+          |element_region:{copying}
+          |index_entry:I{cp,1}
+           *line_arg C1
+           |INFO
+           |spaces_after_argument:
+            |{\\n}
+            {indexed caption copying footnote}
+          *6 index_entry_command@findex C1 float_copying.texi:l17
+          |INFO
+          |command_name:{findex}
+          |spaces_before_argument:
+           |{ }
+          |EXTRA
+          |element_region:{copying}
+          |index_entry:I{fn,1}
+           *line_arg C1
+           |INFO
+           |spaces_after_argument:
+            |{\\n}
+            {public domain function}
+          {empty_line:\\n}
+          *paragraph C3
+           {see }
+           *7 @ref C1 float_copying.texi:l19
+            *brace_arg C1
+            |EXTRA
+            |node_content:{Copying and floats}
+            |normalized:{Copying-and-floats}
+             {Copying and floats}
+           {.\\n}
+          {empty_line:\\n}
+        {\\n}
+       {empty_line:\\n}
+       *8 @anchor C1 float_copying.texi:l23
+       |EXTRA
+       |is_target:{1}
+       |normalized:{public-domain-anchor}
+        *brace_arg C1
+        |EXTRA
+        |element_region:{copying}
+         {public domain anchor}
+       {spaces_after_close_brace:\\n}
+       *9 index_entry_command@cindex C1 float_copying.texi:l24
+       |INFO
+       |command_name:{cindex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |element_region:{copying}
+       |index_entry:I{cp,2}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {indexed caption}
+       *10 index_entry_command@findex C1 float_copying.texi:l25
+       |INFO
+       |command_name:{findex}
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |element_region:{copying}
+       |index_entry:I{fn,2}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {indexed caption function}
+     {spaces_after_close_brace:\\n}
+     *@end C1 float_copying.texi:l27
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{float}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {float}
+    *@end C1 float_copying.texi:l28
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   {empty_line:\\n}
+ *11 @node C1 float_copying.texi:l30
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E12]
+ |is_target:{1}
+ |menus:EC[E16]
+ |node_directions:D[next->E17]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *12 @top C12 float_copying.texi:l31
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E11]
+ |section_childs:EC[E18]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E12]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E18]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *13 index_entry_command@cindex C1 float_copying.texi:l33
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E11]
+  |index_entry:I{cp,3}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *paragraph C3
+   {See the caption }
+   *14 @ref C1 float_copying.texi:l35
+    *brace_arg C1
+    |EXTRA
+    |node_content:{public domain anchor}
+    |normalized:{public-domain-anchor}
+     {public domain anchor}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {See the float }
+   *15 @ref C1 float_copying.texi:l37
+    *brace_arg C1
+    |EXTRA
+    |node_content:{public domain}
+    |normalized:{public-domain}
+     {public domain}
+   {.\\n}
+  {empty_line:\\n}
+  *@insertcopying C1 float_copying.texi:l39
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *16 @menu C3 float_copying.texi:l41
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 float_copying.texi:l42
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{Copying and floats}
+    |normalized:{Copying-and-floats}
+     {Copying and floats}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 float_copying.texi:l43
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *17 @node C1 float_copying.texi:l45
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E18]
+ |is_target:{1}
+ |isindex:{1}
+ |menu_directions:D[up->E11]
+ |node_directions:D[prev->E11|up->E11]
+ |normalized:{Copying-and-floats}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copying and floats}
+ *18 @appendix C20 float_copying.texi:l46
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E17]
+ |section_directions:D[up->E12]
+ |section_level:{1}
+ |section_number:{A}
+ |toplevel_directions:D[prev->E12|up->E12]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copying and floats}
+  {empty_line:\\n}
+  *paragraph C2
+   {In the appendix, we print the references and the copying once more\\n}
+   {and the list of coyright notices (listoffloats).\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {See the caption }
+   *19 @ref C1 float_copying.texi:l51
+    *brace_arg C1
+    |EXTRA
+    |node_content:{public domain anchor}
+    |normalized:{public-domain-anchor}
+     {public domain anchor}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {See the float }
+   *20 @ref C1 float_copying.texi:l53
+    *brace_arg C1
+    |EXTRA
+    |node_content:{public domain}
+    |normalized:{public-domain}
+     {public domain}
+   {.\\n}
+  {empty_line:\\n}
+  *21 index_entry_command@cindex C1 float_copying.texi:l55
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E17]
+  |index_entry:I{cp,4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {listofloats}
+  {empty_line:\\n}
+  *@insertcopying C1 float_copying.texi:l57
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg:\\n}
+  *@insertcopying C1 float_copying.texi:l58
+  |EXTRA
+  |global_command_number:{3}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+  *22 @subheading C1 float_copying.texi:l60
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {listoffloats}
+  *@listoffloats C1 float_copying.texi:l61
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{Copyright notice}
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Copyright notice}
+  {empty_line:\\n}
+  *23 @subheading C1 float_copying.texi:l63
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {printindex}
+  *@printindex C1 float_copying.texi:l64
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  *@printindex C1 float_copying.texi:l65
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'float_copying'} = '\\input texinfo @c -*-texinfo-*-
 

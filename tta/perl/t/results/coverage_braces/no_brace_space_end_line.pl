@@ -5,87 +5,30 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_brace_space_end_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'TeX',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => 'text
-'
-            },
-            {
-              'cmdname' => 'code',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => 'Arg.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_brace_space_end_line'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C2
+   *0 @code C1 l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *brace_container C1
+     {c}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *1 @TeX l3
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+   {text\\n}
+   *2 @code l5
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+   {Arg.}
+';
+
 
 $result_texis{'no_brace_space_end_line'} = '@code {c}.
 

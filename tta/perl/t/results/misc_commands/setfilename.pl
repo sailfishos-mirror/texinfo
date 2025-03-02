@@ -5,181 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'setfilename'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file_comment'
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'file_comment'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file_and_spaces'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '   
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'file_and_spaces'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file_space_comment'
-                    }
-                  ],
-                  'info' => {
-                    'comment_at_end' => {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'file_space_comment'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => ' '
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' name ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    },
-                    {
-                      'cmdname' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'setfilename'} = '*document_root C1
+ *before_node_section C1
+  *preamble_before_content C5
+   *@setfilename C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{file_comment}
+    *line_arg C1
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+     {file_comment}
+   *@setfilename C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{file_and_spaces}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{   \\n}
+     {file_and_spaces}
+   *@setfilename C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{file_space_comment}
+    *line_arg C1
+    |INFO
+    |comment_at_end:
+     |*@c C1
+      |{rawline_arg: comment\\n}
+    |spaces_after_argument:
+     |{ }
+     {file_space_comment}
+   *@setfilename C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *@ 
+     *0 @verb C1 l4
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw: name }
+     *@ 
+   {empty_line:\\n}
+';
+
 
 $result_texis{'setfilename'} = '@setfilename file_comment@c comment
 @setfilename file_and_spaces   

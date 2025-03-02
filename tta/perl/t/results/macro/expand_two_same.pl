@@ -5,251 +5,76 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'expand_two_same'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrotwo { arg }
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'With a doubles arg \\arg\\ and re \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrotwo',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Call macro2
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a simple @code{
-arg}
-'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrotwo',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'With a doubles arg a simple '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'arg'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8,
-                'macro' => 'macrotwo'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => ' and re a simple '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'arg'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8,
-                'macro' => 'macrotwo'
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Call macro2 with 2 args
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'arg with comma , here '
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrotwo',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 72,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'With a doubles arg arg with comma , here  and re arg with comma , here 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'expand_two_same'} = '*document_root C1
+ *before_node_section C6
+  *0 @macro C4 l1
+  |EXTRA
+  |macro_name:{macrotwo}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: macrotwo { arg }\\n}
+   {raw:With a doubles arg \\arg\\ and re \\arg\\\\n}
+   {raw:\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *paragraph C7
+   {Call macro2\\n}
+   {With a doubles arg a simple }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macrotwo}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{a simple @code{\\narg}\\n}
+   *1 @code C1 l8:@macrotwo
+    *brace_container C2
+     {\\n}
+     {arg}
+   {\\n}
+   { and re a simple }
+   *2 @code C1 l8:@macrotwo
+    *brace_container C2
+     {\\n}
+     {arg}
+   {\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<end;1><p:1>
+  {empty_line:\\n}
+  *paragraph C2
+   {Call macro2 with 2 args\\n}
+   {With a doubles arg arg with comma , here  and re arg with comma , here \\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macrotwo}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{arg with comma , here }
+   >macro_expansion<end;2><p:72>
+  {empty_line:\\n}
+';
+
 
 $result_texis{'expand_two_same'} = '@macro macrotwo { arg }
 With a doubles arg \\arg\\ and re \\arg\\

@@ -5,1572 +5,436 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'api_doc_with_linemacro'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' param {param, type}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@defline Parameter @var{\\param\\} @code{ : \\type\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'param',
-            'misc_args' => [
-              'param',
-              'type'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' returns {param, type}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@defline {Return Value} @var{\\param\\} @code{ : \\type\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'returns',
-            'misc_args' => [
-              'param',
-              'type'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' raises {exception}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@defline {Exception} \\exception\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'raises',
-            'misc_args' => [
-              'exception'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'txidefnamenospace',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' txidefnamenospace
-'
-          }
-        },
-        {
-          'cmdname' => 'clear',
-          'contents' => [
-            {
-              'text' => 'txicodevaristt',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' txicodevaristt
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'defline',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Function'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fft.fft'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'n='
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'code',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'None'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 15
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'axis='
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'code',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '-1'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 15
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'norm='
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'code',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'None'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 15
-                              }
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defline',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'fft.fft'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'omit_def_name_space' => 1,
-                'original_def_cmdname' => 'defline'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Compute the one-dimensional discrete Fourier Transform.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'defblock',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'a'
-                                  }
-                                ],
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'array_like'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'param',
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'linemacro_call'
-                          },
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'cmdname' => 'defline',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Parameter'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_category'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'var',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'a'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 19,
-                                        'macro' => 'param'
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'code',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ' : array_like'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 19,
-                                        'macro' => 'param'
-                                      },
-                                      'source_marks' => [
-                                        {
-                                          'counter' => 1,
-                                          'sourcemark_type' => 'linemacro_expansion',
-                                          'status' => 'end'
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defline',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'var',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'a'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'omit_def_name_space' => 1,
-                        'original_def_cmdname' => 'defline'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 19,
-                        'macro' => 'param'
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Input array, can be complex.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 2,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'n'
-                                      }
-                                    ],
-                                    'type' => 'line_arg'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'int, optional'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    },
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'param',
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'linemacro_call'
-                              },
-                              'position' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'defline',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Parameter'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_category'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'var',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'n'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 22,
-                                        'macro' => 'param'
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'code',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ' : int, optional'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 22,
-                                        'macro' => 'param'
-                                      },
-                                      'source_marks' => [
-                                        {
-                                          'counter' => 2,
-                                          'sourcemark_type' => 'linemacro_expansion',
-                                          'status' => 'end'
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defline',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'var',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'n'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'omit_def_name_space' => 1,
-                        'original_def_cmdname' => 'defline'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 22,
-                        'macro' => 'param'
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Length of the transformed axis of the output.
-'
-                            },
-                            {
-                              'text' => 'If '
-                            },
-                            {
-                              'cmdname' => 'var',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'n'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 24
-                              }
-                            },
-                            {
-                              'text' => ' is smaller than the length of the input, the input is cropped.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 3,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'axis'
-                                      }
-                                    ],
-                                    'type' => 'line_arg'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'int, optional'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    },
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'param',
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'linemacro_call'
-                              },
-                              'position' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'defline',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Parameter'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_category'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'var',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'axis'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 26,
-                                        'macro' => 'param'
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'code',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ' : int, optional'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 26,
-                                        'macro' => 'param'
-                                      },
-                                      'source_marks' => [
-                                        {
-                                          'counter' => 3,
-                                          'sourcemark_type' => 'linemacro_expansion',
-                                          'status' => 'end'
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defline',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'var',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'axis'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'omit_def_name_space' => 1,
-                        'original_def_cmdname' => 'defline'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'param'
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Axis over which to compute the FFT.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 4,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'out'
-                                      }
-                                    ],
-                                    'type' => 'line_arg'
-                                  },
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'complex ndarray'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'spaces_before_argument' => {
-                                        'text' => ' '
-                                      }
-                                    },
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'returns',
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'linemacro_call'
-                              },
-                              'position' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'defline',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Return Value'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 29,
-                                    'macro' => 'returns'
-                                  },
-                                  'type' => 'bracketed_arg'
-                                }
-                              ],
-                              'type' => 'def_category'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'var',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'out'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 29,
-                                        'macro' => 'returns'
-                                      }
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'code',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => ' : complex ndarray'
-                                            }
-                                          ],
-                                          'type' => 'brace_container'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 29,
-                                        'macro' => 'returns'
-                                      },
-                                      'source_marks' => [
-                                        {
-                                          'counter' => 4,
-                                          'sourcemark_type' => 'linemacro_expansion',
-                                          'status' => 'end'
-                                        }
-                                      ]
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defline',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'var',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'out'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ]
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'omit_def_name_space' => 1,
-                        'original_def_cmdname' => 'defline'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 29,
-                        'macro' => 'returns'
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'The truncated or zero-padded input.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 5,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'IndexError'
-                                      }
-                                    ],
-                                    'type' => 'line_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'raises',
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'linemacro_call'
-                              },
-                              'position' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'defline',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Exception'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 32,
-                                    'macro' => 'raises'
-                                  },
-                                  'type' => 'bracketed_arg'
-                                }
-                              ],
-                              'type' => 'def_category'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'source_marks' => [
-                                        {
-                                          'counter' => 5,
-                                          'position' => 10,
-                                          'sourcemark_type' => 'linemacro_expansion',
-                                          'status' => 'end'
-                                        }
-                                      ],
-                                      'text' => 'IndexError'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defline',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'IndexError'
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'omit_def_name_space' => 1,
-                        'original_def_cmdname' => 'defline'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 32,
-                        'macro' => 'raises'
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'If '
-                            },
-                            {
-                              'cmdname' => 'var',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'axis'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 33
-                              }
-                            },
-                            {
-                              'text' => ' is not a valid axis of '
-                            },
-                            {
-                              'cmdname' => 'var',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 33
-                              }
-                            },
-                            {
-                              'text' => '.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'defblock'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'defblock'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 35
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 18
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 14
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
+ *before_node_section C8
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{param}
+  |misc_args:A{param|type}
+   *arguments_line C1
+    {macro_line: param {param, type}\\n}
+   {raw:@defline Parameter @var{\\param\\} @code{ : \\type\\}\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  *1 @linemacro C3 l4
+  |EXTRA
+  |macro_name:{returns}
+  |misc_args:A{param|type}
+   *arguments_line C1
+    {macro_line: returns {param, type}\\n}
+   {raw:@defline {Return Value} @var{\\param\\} @code{ : \\type\\}\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  *2 @linemacro C3 l7
+  |EXTRA
+  |macro_name:{raises}
+  |misc_args:A{exception}
+   *arguments_line C1
+    {macro_line: raises {exception}\\n}
+   {raw:@defline {Exception} \\exception\\\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ txidefnamenospace\\n}
+   {rawline_arg:txidefnamenospace}
+   {rawline_arg:}
+  *@clear C1
+  |INFO
+  |arg_line:{ txicodevaristt\\n}
+   {rawline_arg:txicodevaristt}
+  {empty_line:\\n}
+  *3 @defblock C4 l14
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *@defline C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{defline}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{fft.fft}
+   |omit_def_name_space:{1}
+   |original_def_cmdname:{defline}
+    *line_arg C19
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {Function}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {fft.fft}
+     {spaces: }
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {a}
+     {delimiter:,}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {n=}
+     *def_arg C1
+      *def_line_arg C1
+       *4 @code C1 l15
+        *brace_container C1
+         {None}
+     {delimiter:,}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {axis=}
+     *def_arg C1
+      *def_line_arg C1
+       *5 @code C1 l15
+        *brace_container C1
+         {-1}
+     {delimiter:,}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {norm=}
+     *def_arg C1
+      *def_line_arg C1
+       *6 @code C1 l15
+        *brace_container C1
+         {None}
+     {delimiter:)}
+   *def_item C4
+    *paragraph C1
+     {Compute the one-dimensional discrete Fourier Transform.\\n}
+    {empty_line:\\n}
+    *7 @defblock C12 l18
+     *arguments_line C1
+     >SOURCEMARKS
+     >linemacro_expansion<start;1>
+      >*linemacro_call C2
+      >|INFO
+      >|command_name:{param}
+      >|spaces_before_argument:
+       >|{ }
+       >*line_arg C1
+        >{a}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{array_like}
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *@defline C1 l19:@param
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |def_command:{defline}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |*19 @var C1
+         |*brace_container C1
+          |{a}
+     |omit_def_name_space:{1}
+     |original_def_cmdname:{defline}
+      *line_arg C5
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+        *def_line_arg C1
+         {Parameter}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         *8 @var C1 l19:@param
+          *brace_container C1
+           {a}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         *9 @code C1 l19:@param
+         >SOURCEMARKS
+         >linemacro_expansion<end;1>
+          *brace_container C1
+           { : array_like}
+     *def_item C2
+      *paragraph C1
+       {Input array, can be complex.\\n}
+      {empty_line:\\n}
+      >SOURCEMARKS
+      >linemacro_expansion<start;2><p:1>
+       >*linemacro_call C2
+       >|INFO
+       >|command_name:{param}
+       >|spaces_before_argument:
+        >|{ }
+        >*line_arg C1
+         >{n}
+        >*line_arg C1
+        >|INFO
+        >|spaces_before_argument:
+         >|{ }
+         >{int, optional}
+     *@defline C1 l22:@param
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |def_command:{defline}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |*20 @var C1
+         |*brace_container C1
+          |{n}
+     |omit_def_name_space:{1}
+     |original_def_cmdname:{defline}
+      *line_arg C5
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+        *def_line_arg C1
+         {Parameter}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         *10 @var C1 l22:@param
+          *brace_container C1
+           {n}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         *11 @code C1 l22:@param
+         >SOURCEMARKS
+         >linemacro_expansion<end;2>
+          *brace_container C1
+           { : int, optional}
+     *def_item C2
+      *paragraph C4
+       {Length of the transformed axis of the output.\\n}
+       {If }
+       *12 @var C1 l24
+        *brace_container C1
+         {n}
+       { is smaller than the length of the input, the input is cropped.\\n}
+      {empty_line:\\n}
+      >SOURCEMARKS
+      >linemacro_expansion<start;3><p:1>
+       >*linemacro_call C2
+       >|INFO
+       >|command_name:{param}
+       >|spaces_before_argument:
+        >|{ }
+        >*line_arg C1
+         >{axis}
+        >*line_arg C1
+        >|INFO
+        >|spaces_before_argument:
+         >|{ }
+         >{int, optional}
+     *@defline C1 l26:@param
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |def_command:{defline}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |*21 @var C1
+         |*brace_container C1
+          |{axis}
+     |omit_def_name_space:{1}
+     |original_def_cmdname:{defline}
+      *line_arg C5
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+        *def_line_arg C1
+         {Parameter}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         *13 @var C1 l26:@param
+          *brace_container C1
+           {axis}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         *14 @code C1 l26:@param
+         >SOURCEMARKS
+         >linemacro_expansion<end;3>
+          *brace_container C1
+           { : int, optional}
+     *def_item C2
+      *paragraph C1
+       {Axis over which to compute the FFT.\\n}
+      {empty_line:\\n}
+      >SOURCEMARKS
+      >linemacro_expansion<start;4><p:1>
+       >*linemacro_call C2
+       >|INFO
+       >|command_name:{returns}
+       >|spaces_before_argument:
+        >|{ }
+        >*line_arg C1
+         >{out}
+        >*line_arg C1
+        >|INFO
+        >|spaces_before_argument:
+         >|{ }
+         >{complex ndarray}
+     *@defline C1 l29:@returns
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |def_command:{defline}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |*22 @var C1
+         |*brace_container C1
+          |{out}
+     |omit_def_name_space:{1}
+     |original_def_cmdname:{defline}
+      *line_arg C5
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+        *bracketed_arg C1 l29:@returns
+         {Return Value}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         *15 @var C1 l29:@returns
+          *brace_container C1
+           {out}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         *16 @code C1 l29:@returns
+         >SOURCEMARKS
+         >linemacro_expansion<end;4>
+          *brace_container C1
+           { : complex ndarray}
+     *def_item C2
+      *paragraph C1
+       {The truncated or zero-padded input.\\n}
+      {empty_line:\\n}
+      >SOURCEMARKS
+      >linemacro_expansion<start;5><p:1>
+       >*linemacro_call C1
+       >|INFO
+       >|command_name:{raises}
+       >|spaces_before_argument:
+        >|{ }
+        >*line_arg C1
+         >{IndexError}
+     *@defline C1 l32:@raises
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |def_command:{defline}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |{IndexError}
+     |omit_def_name_space:{1}
+     |original_def_cmdname:{defline}
+      *line_arg C3
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+        *bracketed_arg C1 l32:@raises
+         {Exception}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         {IndexError}
+         >SOURCEMARKS
+         >linemacro_expansion<end;5><p:10>
+     *def_item C2
+      *paragraph C5
+       {If }
+       *17 @var C1 l33
+        *brace_container C1
+         {axis}
+       { is not a valid axis of }
+       *18 @var C1 l33
+        *brace_container C1
+         {a}
+       {.\\n}
+      {empty_line:\\n}
+     *@end C1 l35
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{defblock}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {defblock}
+    {empty_line:\\n}
+   *@end C1 l37
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defblock}
+';
+
 
 $result_texis{'api_doc_with_linemacro'} = '@linemacro param {param, type}
 @defline Parameter @var{\\param\\} @code{ : \\type\\}

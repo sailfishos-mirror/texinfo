@@ -5,62 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_in_sc'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'one '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'two.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' three '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'FOUR.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' five'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_in_sc'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C5
+   {one }
+   *0 @sc C1 l1
+    *brace_container C1
+     {two.}
+   { three }
+   *1 @sc C1 l1
+    *brace_container C1
+     {FOUR.}
+   { five}
+';
+
 
 $result_texis{'punctuation_in_sc'} = 'one @sc{two.} three @sc{FOUR.} five';
 

@@ -5,104 +5,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comments_in_text'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' lone comment
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text line followed by a comment on the same line and another below '
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'Text line after the comment followed by a comment '
-            },
-            {
-              'cmdname' => 'comment',
-              'contents' => [
-                {
-                  'text' => ' c
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => 'Text line after the text line followed by the comment.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Comment at the end of the line '
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comments_in_text'} = '*document_root C1
+ *before_node_section C6
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: lone comment\\n}
+  {empty_line:\\n}
+  *paragraph C6
+   {Text line followed by a comment on the same line and another below }
+   *@c C1
+    {rawline_arg: comment\\n}
+   *@c C1
+    {rawline_arg: comment\\n}
+   {Text line after the comment followed by a comment }
+   *@comment C1
+    {rawline_arg: c\\n}
+   {Text line after the text line followed by the comment.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {Comment at the end of the line }
+   *@c C1
+    {rawline_arg: comment\\n}
+';
+
 
 $result_texis{'comments_in_text'} = '
 @c lone comment

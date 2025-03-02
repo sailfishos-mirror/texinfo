@@ -5,69 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'center'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in center '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => '  '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'center'} = '*document_root C1
+ *before_node_section C3
+  {empty_line:\\n}
+  *@center C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{  }
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {in center }
+    *0 @code C1 l2
+     *brace_container C1
+      {in code}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'center'} = '
 @center  in center @code{in code}

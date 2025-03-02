@@ -5,904 +5,261 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'things_before_setfilename_no_element'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo
-',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            },
-            {
-              'cmdname' => 'anchor',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'An anchor'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'is_target' => 1,
-                'normalized' => 'An-anchor'
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Ref to the anchor:
-'
-                },
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An anchor'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'An-anchor'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Ref to the anchor in footnote:
-'
-                },
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Anchor in footnote'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'Anchor-in-footnote'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'In footnote.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'cmdname' => 'anchor',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Anchor in footnote'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'is_target' => 1,
-                            'normalized' => 'Anchor-in-footnote'
-                          },
-                          'source_info' => {
-                            'file_name' => 'things_before_setfilename_no_element.texi',
-                            'line_nr' => 13
-                          }
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'spaces_after_close_brace'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Ref to main text anchor
-'
-                            },
-                            {
-                              'cmdname' => 'ref',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'An anchor'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'node_content' => {
-                                      'contents' => [
-                                        {}
-                                      ]
-                                    },
-                                    'normalized' => 'An-anchor'
-                                  },
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'things_before_setfilename_no_element.texi',
-                                'line_nr' => 16
-                              }
-                            },
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'float',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'type' => 'block_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float anchor'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'In float
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'float'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 21
-                  }
-                }
-              ],
-              'extra' => {
-                'float_type' => '',
-                'is_target' => 1,
-                'normalized' => 'float-anchor'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Ref to float
-'
-                },
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float anchor'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'float-anchor'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 24
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'float',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Text'
-                        }
-                      ],
-                      'type' => 'block_line_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ta'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'In float
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'caption',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'ta caption'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {
-                    'float' => {}
-                  },
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 29
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'spaces_after_close_brace'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'float'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 30
-                  }
-                }
-              ],
-              'extra' => {
-                'caption' => {},
-                'float_type' => 'Text',
-                'is_target' => 1,
-                'normalized' => 'ta'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'contents',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'menu',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An anchor'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'An-anchor'
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '::                ',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'menu entry pointing to the anchor.
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 35
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'menu'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'menu'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'things_before_setfilename_no_element.texi',
-                    'line_nr' => 36
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'index entry'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'index_entry' => [
-                  'cp',
-                  1
-                ]
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 38
-              },
-              'type' => 'index_entry_command'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'printindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cp'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'cp'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 40
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'listoffloats',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'float_type' => 'Text'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 42
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'things_before_setfilename_no_element.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'things_before_setfilename_no_element.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 44
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Ref to anchor
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'An anchor'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'An-anchor'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 47
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Ref to footnote anchor
-'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Anchor in footnote'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Anchor-in-footnote'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'things_before_setfilename_no_element.texi',
-                'line_nr' => 50
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[3]{'extra'}{'float'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[3];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
+ *before_node_section C6
+  *preamble_before_setfilename C26
+   *preamble_before_beginning C2
+    {text_before_beginning:\\input texinfo\\n}
+    {text_before_beginning:\\n}
+   *0 @anchor C1 things_before_setfilename_no_element.texi:l3
+   |EXTRA
+   |is_target:{1}
+   |normalized:{An-anchor}
+    *brace_arg C1
+     {An anchor}
+   {spaces_after_close_brace:\\n}
+   {empty_line:\\n}
+   *paragraph C3
+    {Ref to the anchor:\\n}
+    *1 @ref C1 things_before_setfilename_no_element.texi:l6
+     *brace_arg C1
+     |EXTRA
+     |node_content:{An anchor}
+     |normalized:{An-anchor}
+      {An anchor}
+    {\\n}
+   {empty_line:\\n}
+   *paragraph C3
+    {Ref to the anchor in footnote:\\n}
+    *2 @ref C1 things_before_setfilename_no_element.texi:l9
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Anchor in footnote}
+     |normalized:{Anchor-in-footnote}
+      {Anchor in footnote}
+    {.\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    *3 @footnote C1 things_before_setfilename_no_element.texi:l11
+    |EXTRA
+    |global_command_number:{1}
+     *brace_command_context C6
+      *paragraph C1
+       {In footnote.\\n}
+      {empty_line:\\n}
+      *4 @anchor C1 things_before_setfilename_no_element.texi:l13
+      |EXTRA
+      |is_target:{1}
+      |normalized:{Anchor-in-footnote}
+       *brace_arg C1
+        {Anchor in footnote}
+      {spaces_after_close_brace:\\n}
+      {empty_line:\\n}
+      *paragraph C3
+       {Ref to main text anchor\\n}
+       *5 @ref C1 things_before_setfilename_no_element.texi:l16
+        *brace_arg C1
+        |EXTRA
+        |node_content:{An anchor}
+        |normalized:{An-anchor}
+         {An anchor}
+       {\\n}
+    {\\n}
+   {empty_line:\\n}
+   *6 @float C3 things_before_setfilename_no_element.texi:l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |float_number:{1}
+   |float_type:{}
+   |global_command_number:{1}
+   |is_target:{1}
+   |normalized:{float-anchor}
+    *arguments_line C2
+     *block_line_arg
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+     |spaces_before_argument:
+      |{ }
+      {float anchor}
+    *paragraph C1
+     {In float\\n}
+    *@end C1 things_before_setfilename_no_element.texi:l21
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{float}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float}
+   {empty_line:\\n}
+   *paragraph C3
+    {Ref to float\\n}
+    *7 @ref C1 things_before_setfilename_no_element.texi:l24
+     *brace_arg C1
+     |EXTRA
+     |node_content:{float anchor}
+     |normalized:{float-anchor}
+      {float anchor}
+    {.\\n}
+   {empty_line:\\n}
+   *8 @float C6 things_before_setfilename_no_element.texi:l26
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |caption:[E9]
+   |float_number:{1}
+   |float_type:{Text}
+   |global_command_number:{2}
+   |is_target:{1}
+   |normalized:{ta}
+    *arguments_line C2
+     *block_line_arg C1
+      {Text}
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+     |spaces_before_argument:
+      |{ }
+      {ta}
+    *paragraph C1
+     {In float\\n}
+    {empty_line:\\n}
+    *9 @caption C1 things_before_setfilename_no_element.texi:l29
+    |EXTRA
+    |float:[E8]
+     *brace_command_context C1
+      *paragraph C1
+       {ta caption}
+    {spaces_after_close_brace:\\n}
+    *@end C1 things_before_setfilename_no_element.texi:l30
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{float}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float}
+   {empty_line:\\n}
+   *@contents C1 things_before_setfilename_no_element.texi:l32
+   |EXTRA
+   |global_command_number:{1}
+    {rawline_arg:\\n}
+   {empty_line:\\n}
+   *10 @menu C3 things_before_setfilename_no_element.texi:l34
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *menu_entry C4 things_before_setfilename_no_element.texi:l35
+     {menu_entry_leading_text:* }
+     *menu_entry_node C1
+     |EXTRA
+     |node_content:{An anchor}
+     |normalized:{An-anchor}
+      {An anchor}
+     {menu_entry_separator:::                }
+     *menu_entry_description C1
+      *preformatted C1
+       {menu entry pointing to the anchor.\\n}
+    *@end C1 things_before_setfilename_no_element.texi:l36
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{menu}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {menu}
+   {empty_line:\\n}
+   *11 index_entry_command@cindex C1 things_before_setfilename_no_element.texi:l38
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |index_entry:I{cp,1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {index entry}
+   {empty_line:\\n}
+   *@printindex C1 things_before_setfilename_no_element.texi:l40
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |misc_args:A{cp}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cp}
+   {empty_line:\\n}
+   *@listoffloats C1 things_before_setfilename_no_element.texi:l42
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |float_type:{Text}
+   |global_command_number:{1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {Text}
+   {empty_line:\\n}
+  *preamble_before_content C2
+   *@setfilename C1 things_before_setfilename_no_element.texi:l44
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{things_before_setfilename_no_element.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {things_before_setfilename_no_element.info}
+   {empty_line:\\n}
+  *paragraph C3
+   {Ref to anchor\\n}
+   *12 @ref C1 things_before_setfilename_no_element.texi:l47
+    *brace_arg C1
+    |EXTRA
+    |node_content:{An anchor}
+    |normalized:{An-anchor}
+     {An anchor}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Ref to footnote anchor\\n}
+   *13 @ref C1 things_before_setfilename_no_element.texi:l50
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Anchor in footnote}
+    |normalized:{Anchor-in-footnote}
+     {Anchor in footnote}
+   {\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'things_before_setfilename_no_element'} = '\\input texinfo
 

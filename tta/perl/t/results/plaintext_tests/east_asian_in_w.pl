@@ -5,129 +5,41 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'east_asian_in_w'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'utf-8'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'utf-8'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'east_asian_in_w.texi',
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This option overrides an include file name section and aaaaa aaaa
-'
-            },
-            {
-              'text' => '('
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => "\x{5305}\x{542b}\x{6587}\x{5b57}"
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'east_asian_in_w.texi',
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ').
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'noindent',
-          'source_info' => {
-            'file_name' => 'east_asian_in_w.texi',
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This option overrides an include file name section and aaaaa aaaa
-'
-            },
-            {
-              'text' => "(\x{5305}\x{542b}\x{6587}\x{5b57}).
-"
-            }
-          ],
-          'extra' => {
-            'noindent' => 1
-          },
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'east_asian_in_w'} = '*document_root C1
+ *before_node_section C7
+  *preamble_before_content C2
+   *@documentencoding C1 east_asian_in_w.texi:l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {utf-8}
+   {empty_line:\\n}
+  *paragraph C4
+   {This option overrides an include file name section and aaaaa aaaa\\n}
+   {(}
+   *0 @w C1 east_asian_in_w.texi:l4
+    *brace_container C1
+     {包含文字}
+   {).\\n}
+  {empty_line:\\n}
+  *@noindent east_asian_in_w.texi:l6
+  {ignorable_spaces_after_command:\\n}
+  *paragraph C2
+  |EXTRA
+  |noindent:{1}
+   {This option overrides an include file name section and aaaaa aaaa\\n}
+   {(包含文字).\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'east_asian_in_w'} = '@documentencoding utf-8
 

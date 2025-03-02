@@ -5,926 +5,362 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'subentries'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter index'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chapter-index'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Index'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a---a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'b---b'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c---c'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'd---dd'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e---ee'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f---ff'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'g---gg'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'h---hh jjj'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'k---kk'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'subentry' => {
-                      'cmdname' => 'subentry',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'l---ll'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'subentry_level' => 3,
-                        'subentry_parent' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 10
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f---aa'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f---bb'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              2
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f---cc'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 13
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f---ddd'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              3
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f---eee'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ffff'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 14
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 14
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {
-          'cmdname' => 'findex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f---ggg'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'fn',
-              4
-            ],
-            'subentry' => {
-              'cmdname' => 'subentry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f---hhh fjjj'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'subentry' => {
-                  'cmdname' => 'subentry',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'f---kkk'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'subentry' => {
-                      'cmdname' => 'subentry',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'f---lll'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'subentry_level' => 3,
-                        'subentry_parent' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    },
-                    'subentry_level' => 2,
-                    'subentry_parent' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 15
-                  }
-                },
-                'subentry_level' => 1,
-                'subentry_parent' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          },
-          'info' => {
-            'command_name' => 'findex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 15
-          },
-          'type' => 'index_entry_command'
-        },
-        {},
-        {},
-        {},
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 17
-          }
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 18
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[4] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[3]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[5];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[6] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[7] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[5]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[9] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[10] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[11] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[8]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[14]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[14];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[15] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[14]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[16];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[17] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[18] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[16]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'element_node'} = $result_trees{'subentries'}{'contents'}[3];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry_parent'} = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19];
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[20] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[21] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry'};
-$result_trees{'subentries'}{'contents'}[4]{'contents'}[22] = $result_trees{'subentries'}{'contents'}[4]{'contents'}[19]{'extra'}{'subentry'}{'extra'}{'subentry'}{'extra'}{'subentry'};
+$result_tree_text{'subentries'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l2
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  {empty_line:\\n}
+ *2 @node C1 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chapter-index}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter index}
+ *3 @chapter C26 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Index}
+  {empty_line:\\n}
+  *4 index_entry_command@cindex C1 l7
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a---a}
+  *5 index_entry_command@cindex C1 l8
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,2}
+  |subentry:[E6]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {b---b}
+  *6 @subentry C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{1}
+  |subentry_parent:[E5]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {c---c}
+  *7 index_entry_command@cindex C1 l9
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,3}
+  |subentry:[E8]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {d---dd}
+  *8 @subentry C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E9]
+  |subentry_level:{1}
+  |subentry_parent:[E7]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {e---ee}
+  *9 @subentry C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{2}
+  |subentry_parent:[E8]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {f---ff}
+  *10 index_entry_command@cindex C1 l10
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,4}
+  |subentry:[E11]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {g---gg}
+  *11 @subentry C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E12]
+  |subentry_level:{1}
+  |subentry_parent:[E10]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {h---hh jjj}
+  *12 @subentry C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E13]
+  |subentry_level:{2}
+  |subentry_parent:[E11]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {k---kk}
+  *13 @subentry C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{3}
+  |subentry_parent:[E12]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {l---ll}
+  {empty_line:\\n}
+  *14 index_entry_command@findex C1 l12
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{fn,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {f---aa}
+  *15 index_entry_command@findex C1 l13
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{fn,2}
+  |subentry:[E16]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---bb}
+  *16 @subentry C1 l13
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{1}
+  |subentry_parent:[E15]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {f---cc}
+  *17 index_entry_command@findex C1 l14
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{fn,3}
+  |subentry:[E18]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---ddd}
+  *18 @subentry C1 l14
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E19]
+  |subentry_level:{1}
+  |subentry_parent:[E17]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---eee}
+  *19 @subentry C1 l14
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{2}
+  |subentry_parent:[E18]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {ffff}
+  *20 index_entry_command@findex C1 l15
+  |INFO
+  |command_name:{findex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{fn,4}
+  |subentry:[E21]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---ggg}
+  *21 @subentry C1 l15
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E22]
+  |subentry_level:{1}
+  |subentry_parent:[E20]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---hhh fjjj}
+  *22 @subentry C1 l15
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry:[E23]
+  |subentry_level:{2}
+  |subentry_parent:[E21]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {f---kkk}
+  *23 @subentry C1 l15
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |subentry_level:{3}
+  |subentry_parent:[E22]
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {f---lll}
+  {empty_line:\\n}
+  *@printindex C1 l17
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+  *@printindex C1 l18
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fn}
+';
+
 
 $result_texis{'subentries'} = '@node Top
 @top

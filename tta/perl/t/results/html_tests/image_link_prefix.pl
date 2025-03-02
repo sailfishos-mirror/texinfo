@@ -5,35 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'image_link_prefix'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'image'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'image_link_prefix'} = '*document_root C1
+ *before_node_section C1
+  *0 @image C1 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {image}
+';
+
 
 $result_texis{'image_link_prefix'} = '@image{image}';
 

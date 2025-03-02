@@ -5,197 +5,59 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'spaces_after_braced_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'v'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
- '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b 
-'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'TeX',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'spaces_after_braced_command'} = '*document_root C1
+ *before_node_section C10
+  *paragraph C2
+   *0 @code C1 l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *brace_container C1
+     {b}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @samp C1 l3
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *brace_container C1
+     {v}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @AA C1 l6
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n }
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @email C2 l9
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *brace_arg C1
+     {a}
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {b \\n}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *4 @TeX l13
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+   {\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'spaces_after_braced_command'} = '@code {b}
 

@@ -5,34 +5,17 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_documentencoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '   
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_documentencoding'} = '*document_root C1
+ *before_node_section C1
+  *@documentencoding C1 l1
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{   \\n}
+';
+
 
 $result_texis{'empty_documentencoding'} = '@documentencoding   
 ';

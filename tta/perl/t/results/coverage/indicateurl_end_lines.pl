@@ -5,86 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'indicateurl_end_lines'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'indicateurl',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'http://begin
-'
-                    },
-                    {
-                      'text' => 'continue on other line'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'indicateurl',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'http://begin2
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'cut by blank line
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'indicateurl_end_lines'} = '*document_root C1
+ *before_node_section C4
+  *paragraph C2
+   *0 @indicateurl C1 l1
+    *brace_container C2
+     {http://begin\\n}
+     {continue on other line}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   *1 @indicateurl C1 l4
+    *brace_container C2
+     {http://begin2\\n}
+     {empty_line:\\n}
+  *paragraph C1
+   {cut by blank line\\n}
+';
+
 
 $result_texis{'indicateurl_end_lines'} = '@indicateurl{http://begin
 continue on other line}

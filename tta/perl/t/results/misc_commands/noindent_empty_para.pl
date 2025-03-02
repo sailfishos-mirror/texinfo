@@ -5,41 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'noindent_empty_para'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'noindent',
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'aaa
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'noindent_empty_para'} = '*document_root C1
+ *before_node_section C4
+  *@noindent l1
+  {ignorable_spaces_after_command:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {aaa\\n}
+';
+
 
 $result_texis{'noindent_empty_para'} = '@noindent
 

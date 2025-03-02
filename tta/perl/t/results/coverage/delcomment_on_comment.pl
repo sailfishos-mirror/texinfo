@@ -5,76 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'delcomment_on_comment'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'line' => ' after del.
-',
-                  'position' => 10,
-                  'sourcemark_type' => 'delcomment'
-                }
-              ],
-              'text' => 'some text '
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' a comment with del next line
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'delcomment_on_comment'} = '*document_root C2
+ *before_node_section C4
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content
+  *paragraph C2
+   {some text }
+   >SOURCEMARKS
+   >delcomment<1><p:10>{ after del.\\n}
+   *@c C1
+    {rawline_arg: a comment with del next line\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'delcomment_on_comment'} = '\\input texinfo
 

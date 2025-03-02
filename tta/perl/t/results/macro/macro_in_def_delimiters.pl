@@ -5,544 +5,150 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_def_delimiters'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' string
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'aa(b *c)
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'string',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Command'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'forward-word'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'count'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 1,
-                                  'element' => {
-                                    'contents' => [
-                                      {
-                                        'type' => 'brace_arg'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'command_name' => 'string'
-                                    },
-                                    'type' => 'macro_call'
-                                  },
-                                  'position' => 3,
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'start'
-                                }
-                              ],
-                              'text' => 'argaa'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '*c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'string'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'aa'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '*c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 3,
-                                  'element' => {
-                                    'contents' => [
-                                      {
-                                        'type' => 'brace_arg'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'command_name' => 'string'
-                                    },
-                                    'type' => 'macro_call'
-                                  },
-                                  'position' => 2,
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'start'
-                                }
-                              ],
-                              'text' => 'bbaa'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '*c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'string'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => ']',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'aa'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '*c'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'forward-word'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'def_line'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{string}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: string\\n}
+   {raw:aa(b *c)\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @deffn C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l5
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{forward-word}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C38
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {Command}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {forward-word}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {count}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {argaa}
+       >SOURCEMARKS
+       >macro_expansion<start;1><p:3>
+        >*macro_call C1
+        >|INFO
+        >|command_name:{string}
+         >*brace_arg
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {*c}
+     {delimiter:)}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:1>
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a}
+     {spaces: }
+     {delimiter:(}
+     >SOURCEMARKS
+     >macro_expansion<start;2><p:1>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{string}
+       >*brace_arg
+     *def_arg C1
+      *def_line_arg C1
+       {aa}
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {*c}
+     {delimiter:)}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:1>
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {bbaa}
+       >SOURCEMARKS
+       >macro_expansion<start;3><p:2>
+        >*macro_call C1
+        >|INFO
+        >|command_name:{string}
+         >*brace_arg
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {*c}
+     {delimiter:)}
+     >SOURCEMARKS
+     >macro_expansion<end;3><p:1>
+     {delimiter:]}
+     >SOURCEMARKS
+     >macro_expansion<start;4><p:1>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{string}
+       >*brace_arg
+     *def_arg C1
+      *def_line_arg C1
+       {aa}
+     {delimiter:(}
+     *def_arg C1
+      *def_line_arg C1
+       {b}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {*c}
+     {delimiter:)}
+     >SOURCEMARKS
+     >macro_expansion<end;4><p:1>
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {a}
+';
+
 
 $result_texis{'macro_in_def_delimiters'} = '@macro string
 aa(b *c)

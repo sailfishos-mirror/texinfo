@@ -5,1568 +5,372 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'kbdinputstyle'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' codekbdmacro
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@code{in code out of example @code{in nested code}}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@kbd{kbd out of example}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{kbd @kbd{in code}}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{for nesting @r{r in code @kbd{in r in code}}}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'in example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{in code in example @code{in nested code}}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@kbd{kbd in example}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{kbd @kbd{in code} in example}.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end example
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'codekbdmacro',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle code
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'code'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'code'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 18
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code out of example '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in nested code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 20,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd out of example'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'code' => 1
-              },
-              'source_info' => {
-                'line_nr' => 20,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 20,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'for nesting '
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r in code '
-                            },
-                            {
-                              'cmdname' => 'kbd',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in r in code'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'extra' => {
-                                'code' => 1
-                              },
-                              'source_info' => {
-                                'line_nr' => 20,
-                                'macro' => 'codekbdmacro'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 20,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code in example '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in nested code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 20,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 20,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'extra' => {
-                    'code' => 1
-                  },
-                  'source_info' => {
-                    'line_nr' => 20,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'extra' => {
-                            'code' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 20,
-                            'macro' => 'codekbdmacro'
-                          }
-                        },
-                        {
-                          'text' => ' in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 20,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'for nesting in example '
-                        },
-                        {
-                          'cmdname' => 'r',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'r in code in example '
-                                },
-                                {
-                                  'cmdname' => 'kbd',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'in r in code in example'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'code' => 1
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 20,
-                                    'macro' => 'codekbdmacro'
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 20,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 20,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 20,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'example'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'example'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 24
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code out of example '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in nested code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd out of example'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'code' => 1
-              },
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'for nesting '
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r in code '
-                            },
-                            {
-                              'cmdname' => 'kbd',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in r in code'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'extra' => {
-                                'code' => 1
-                              },
-                              'source_info' => {
-                                'line_nr' => 26,
-                                'macro' => 'codekbdmacro'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code in example '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in nested code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26,
-                            'macro' => 'codekbdmacro'
-                          }
-                        },
-                        {
-                          'text' => ' in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'for nesting in example '
-                        },
-                        {
-                          'cmdname' => 'r',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'r in code in example '
-                                },
-                                {
-                                  'cmdname' => 'kbd',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'in r in code in example'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 26,
-                                    'macro' => 'codekbdmacro'
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 26,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle distinct
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'distinct'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'distinct'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 30
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code out of example '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in nested code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 32,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd out of example'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'kbd '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 32,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'for nesting '
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r in code '
-                            },
-                            {
-                              'cmdname' => 'kbd',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in r in code'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 32,
-                                'macro' => 'codekbdmacro'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 32,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code in example '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in nested code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'kbd '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'codekbdmacro'
-                          }
-                        },
-                        {
-                          'text' => ' in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'for nesting in example '
-                        },
-                        {
-                          'cmdname' => 'r',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'r in code in example '
-                                },
-                                {
-                                  'cmdname' => 'kbd',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'in r in code in example'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 32,
-                                    'macro' => 'codekbdmacro'
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'codekbdmacro'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 32,
-            'macro' => 'codekbdmacro'
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'kbdinputstyle'} = '*document_root C1
+ *before_node_section C28
+  *0 @macro C14 l1
+  |EXTRA
+  |macro_name:{codekbdmacro}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: codekbdmacro\\n}
+   {raw:@code{in code out of example @code{in nested code}}.\\n}
+   {raw:@kbd{kbd out of example}.\\n}
+   {raw:@code{kbd @kbd{in code}}.\\n}
+   {raw:@code{for nesting @r{r in code @kbd{in r in code}}}\\n}
+   {raw:\\n}
+   {raw:in example\\n}
+   {raw:@example\\n}
+   {raw:@code{in code in example @code{in nested code}}.\\n}
+   {raw:@kbd{kbd in example}.\\n}
+   {raw:@code{kbd @kbd{in code} in example}.\\n}
+   {raw:@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}\\n}
+   {raw:@end example\\n}
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle code\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l18
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{code}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {code}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *paragraph C8
+   *1 @code C1 l20:@codekbdmacro
+    *brace_container C2
+     {in code out of example }
+     *2 @code C1 l20:@codekbdmacro
+      *brace_container C1
+       {in nested code}
+   {.\\n}
+   *3 @kbd C1 l20:@codekbdmacro
+   |EXTRA
+   |code:{1}
+    *brace_container C1
+     {kbd out of example}
+   {.\\n}
+   *4 @code C1 l20:@codekbdmacro
+    *brace_container C2
+     {kbd }
+     *5 @kbd C1 l20:@codekbdmacro
+     |EXTRA
+     |code:{1}
+      *brace_container C1
+       {in code}
+   {.\\n}
+   *6 @code C1 l20:@codekbdmacro
+    *brace_container C2
+     {for nesting }
+     *7 @r C1 l20:@codekbdmacro
+      *brace_container C2
+       {r in code }
+       *8 @kbd C1 l20:@codekbdmacro
+       |EXTRA
+       |code:{1}
+        *brace_container C1
+         {in r in code}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *9 @example C3 l20:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C8
+    *10 @code C1 l20:@codekbdmacro
+     *brace_container C2
+      {in code in example }
+      *11 @code C1 l20:@codekbdmacro
+       *brace_container C1
+        {in nested code}
+    {.\\n}
+    *12 @kbd C1 l20:@codekbdmacro
+    |EXTRA
+    |code:{1}
+     *brace_container C1
+      {kbd in example}
+    {.\\n}
+    *13 @code C1 l20:@codekbdmacro
+     *brace_container C3
+      {kbd }
+      *14 @kbd C1 l20:@codekbdmacro
+      |EXTRA
+      |code:{1}
+       *brace_container C1
+        {in code}
+      { in example}
+    {.\\n}
+    *15 @code C1 l20:@codekbdmacro
+     *brace_container C2
+      {for nesting in example }
+      *16 @r C1 l20:@codekbdmacro
+       *brace_container C2
+        {r in code in example }
+        *17 @kbd C1 l20:@codekbdmacro
+        |EXTRA
+        |code:{1}
+         *brace_container C1
+          {in r in code in example}
+    {\\n}
+   *@end C1 l20:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:7>
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle example\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l24
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{example}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {example}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;2><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *paragraph C8
+   *18 @code C1 l26:@codekbdmacro
+    *brace_container C2
+     {in code out of example }
+     *19 @code C1 l26:@codekbdmacro
+      *brace_container C1
+       {in nested code}
+   {.\\n}
+   *20 @kbd C1 l26:@codekbdmacro
+   |EXTRA
+   |code:{1}
+    *brace_container C1
+     {kbd out of example}
+   {.\\n}
+   *21 @code C1 l26:@codekbdmacro
+    *brace_container C2
+     {kbd }
+     *22 @kbd C1 l26:@codekbdmacro
+     |EXTRA
+     |code:{1}
+      *brace_container C1
+       {in code}
+   {.\\n}
+   *23 @code C1 l26:@codekbdmacro
+    *brace_container C2
+     {for nesting }
+     *24 @r C1 l26:@codekbdmacro
+      *brace_container C2
+       {r in code }
+       *25 @kbd C1 l26:@codekbdmacro
+       |EXTRA
+       |code:{1}
+        *brace_container C1
+         {in r in code}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *26 @example C3 l26:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C8
+    *27 @code C1 l26:@codekbdmacro
+     *brace_container C2
+      {in code in example }
+      *28 @code C1 l26:@codekbdmacro
+       *brace_container C1
+        {in nested code}
+    {.\\n}
+    *29 @kbd C1 l26:@codekbdmacro
+     *brace_container C1
+      {kbd in example}
+    {.\\n}
+    *30 @code C1 l26:@codekbdmacro
+     *brace_container C3
+      {kbd }
+      *31 @kbd C1 l26:@codekbdmacro
+       *brace_container C1
+        {in code}
+      { in example}
+    {.\\n}
+    *32 @code C1 l26:@codekbdmacro
+     *brace_container C2
+      {for nesting in example }
+      *33 @r C1 l26:@codekbdmacro
+       *brace_container C2
+        {r in code in example }
+        *34 @kbd C1 l26:@codekbdmacro
+         *brace_container C1
+          {in r in code in example}
+    {\\n}
+   *@end C1 l26:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:7>
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle distinct\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l30
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{distinct}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {distinct}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;3><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *paragraph C8
+   *35 @code C1 l32:@codekbdmacro
+    *brace_container C2
+     {in code out of example }
+     *36 @code C1 l32:@codekbdmacro
+      *brace_container C1
+       {in nested code}
+   {.\\n}
+   *37 @kbd C1 l32:@codekbdmacro
+    *brace_container C1
+     {kbd out of example}
+   {.\\n}
+   *38 @code C1 l32:@codekbdmacro
+    *brace_container C2
+     {kbd }
+     *39 @kbd C1 l32:@codekbdmacro
+      *brace_container C1
+       {in code}
+   {.\\n}
+   *40 @code C1 l32:@codekbdmacro
+    *brace_container C2
+     {for nesting }
+     *41 @r C1 l32:@codekbdmacro
+      *brace_container C2
+       {r in code }
+       *42 @kbd C1 l32:@codekbdmacro
+        *brace_container C1
+         {in r in code}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *43 @example C3 l32:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C8
+    *44 @code C1 l32:@codekbdmacro
+     *brace_container C2
+      {in code in example }
+      *45 @code C1 l32:@codekbdmacro
+       *brace_container C1
+        {in nested code}
+    {.\\n}
+    *46 @kbd C1 l32:@codekbdmacro
+     *brace_container C1
+      {kbd in example}
+    {.\\n}
+    *47 @code C1 l32:@codekbdmacro
+     *brace_container C3
+      {kbd }
+      *48 @kbd C1 l32:@codekbdmacro
+       *brace_container C1
+        {in code}
+      { in example}
+    {.\\n}
+    *49 @code C1 l32:@codekbdmacro
+     *brace_container C2
+      {for nesting in example }
+      *50 @r C1 l32:@codekbdmacro
+       *brace_container C2
+        {r in code in example }
+        *51 @kbd C1 l32:@codekbdmacro
+         *brace_container C1
+          {in r in code in example}
+    {\\n}
+   *@end C1 l32:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;3><p:7>
+';
+
 
 $result_texis{'kbdinputstyle'} = '@macro codekbdmacro
 @code{in code out of example @code{in nested code}}.

@@ -5,309 +5,98 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_brace_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' foo
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'foo-expansion
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'foo',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' abar
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'bar-expansion
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'abar',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'bullet',
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'email',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 1,
-                                  'element' => {
-                                    'contents' => [
-                                      {
-                                        'type' => 'brace_arg'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'command_name' => 'foo'
-                                    },
-                                    'type' => 'macro_call'
-                                  },
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'start'
-                                },
-                                {
-                                  'counter' => 1,
-                                  'position' => 13,
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'end'
-                                }
-                              ],
-                              'text' => 'foo-expansion'
-                            },
-                            {
-                              'cmdname' => '@',
-                              'source_marks' => [
-                                {
-                                  'counter' => 2,
-                                  'element' => {
-                                    'contents' => [
-                                      {
-                                        'type' => 'brace_arg'
-                                      }
-                                    ],
-                                    'info' => {
-                                      'command_name' => 'abar'
-                                    },
-                                    'type' => 'macro_call'
-                                  },
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'start'
-                                }
-                              ]
-                            },
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 2,
-                                  'position' => 13,
-                                  'sourcemark_type' => 'macro_expansion',
-                                  'status' => 'end'
-                                }
-                              ],
-                              'text' => 'bar-expansion'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'text' => ',
-'
-                    },
-                    {
-                      'text' => '  also helped.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'itemize'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'itemize'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'macro_in_brace_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'macro_in_brace_command'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{foo}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: foo\\n}
+   {raw:foo-expansion\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l5
+  |EXTRA
+  |macro_name:{abar}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: abar\\n}
+   {raw:bar-expansion\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @itemize C3 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E3]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *3 @bullet l9
+   *@item C2 l10
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C3
+     *4 @email C1 l10
+      *brace_arg C3
+       {foo-expansion}
+       >SOURCEMARKS
+       >macro_expansion<start;1>
+        >*macro_call C1
+        >|INFO
+        >|command_name:{foo}
+         >*brace_arg
+       >macro_expansion<end;1><p:13>
+       *@@
+       >SOURCEMARKS
+       >macro_expansion<start;2>
+        >*macro_call C1
+        >|INFO
+        >|command_name:{abar}
+         >*brace_arg
+       {bar-expansion}
+       >SOURCEMARKS
+       >macro_expansion<end;2><p:13>
+     {,\\n}
+     {  also helped.\\n}
+   *@end C1 l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{itemize}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {itemize}
+';
+
 
 $result_texis{'macro_in_brace_command'} = '@macro foo
 foo-expansion

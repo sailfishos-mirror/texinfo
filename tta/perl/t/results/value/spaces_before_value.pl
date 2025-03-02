@@ -5,79 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'spaces_before_value'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'var',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'val',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' var val
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'var'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => '  '
-                      }
-                    }
-                  },
-                  'line' => 'val',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 3,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'val
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'spaces_before_value'} = '*document_root C1
+ *before_node_section C3
+  *@set C2
+  |INFO
+  |arg_line:{ var val\\n}
+   {rawline_arg:var}
+   {rawline_arg:val}
+  {empty_line:\\n}
+  *paragraph C1
+   {val\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1>{val}
+    >*@value C1
+    >|INFO
+    >|spaces_after_cmd_before_arg:
+     >|{  }
+     >*brace_container C1
+      >{var}
+   >value_expansion<end;1><p:3>
+';
+
 
 $result_texis{'spaces_before_value'} = '@set var val
 

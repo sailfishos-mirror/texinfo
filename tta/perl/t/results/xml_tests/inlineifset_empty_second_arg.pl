@@ -5,101 +5,31 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inlineifset_empty_second_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Toto '
-            },
-            {
-              'cmdname' => 'inlineifset',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'flag'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'flag'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. After.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Again with space '
-            },
-            {
-              'cmdname' => 'inlineifset',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'flag'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'flag'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '. After.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inlineifset_empty_second_arg'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C3
+   {Toto }
+   *0 @inlineifset C2 l1
+   |EXTRA
+   |format:{flag}
+    *brace_arg C1
+     {flag}
+    *elided_brace_command_arg C1
+     {raw:}
+   {. After.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Again with space }
+   *1 @inlineifset C2 l3
+   |EXTRA
+   |format:{flag}
+    *brace_arg C1
+     {flag}
+    *elided_brace_command_arg C1
+     {raw: }
+   {. After.\\n}
+';
+
 
 $result_texis{'inlineifset_empty_second_arg'} = 'Toto @inlineifset{flag,}. After.
 

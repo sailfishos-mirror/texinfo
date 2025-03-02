@@ -5,333 +5,85 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'one_argument_leading_trailing_spaces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' in code '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'slanted',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' in slanted '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' var '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'sub',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' sub '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'hyphenation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a-b c-d'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'cmdname' => 'indicateurl',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' http://example.com '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1234'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' w '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' verb ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ':'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' e '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' a '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' i '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'tieaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' bb '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'aa',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' i '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' ei '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C30
+   *0 @code C1 l1
+    *brace_container C1
+     { in code }
+   { }
+   *1 @slanted C1 l1
+    *brace_container C1
+     { in slanted }
+   { }
+   *2 @var C1 l1
+    *brace_container C1
+     { var }
+   { }
+   *3 @sub C1 l1
+    *brace_container C1
+     { sub }
+   {\\n}
+   *4 @hyphenation C1 l2
+   |EXTRA
+   |global_command_number:{1}
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {a-b c-d}
+   {spaces_after_close_brace:\\n}
+   *5 @indicateurl C1 l3
+    *brace_container C1
+     { http://example.com }
+   { }
+   *6 @U C1 l3
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {1234}
+   { }
+   *7 @w C1 l3
+    *brace_container C1
+     { w }
+   { }
+   *8 @verb C1 l3
+   |INFO
+   |delimiter:{:}
+    *brace_container C1
+     {raw: verb }
+   {.\\n}
+   *9 @^ C1 l4
+    *brace_container C1
+     { e }
+   { }
+   *10 @ringaccent C1 l4
+    *brace_container C1
+     { a }
+   { }
+   *11 @dotless C1 l4
+    *brace_container C1
+     { i }
+   { }
+   *12 @tieaccent C1 l4
+    *brace_container C1
+     { bb }
+   {\\n}
+   *13 @aa C1 l5
+    *brace_container C1
+     { i }
+   { }
+   *14 @enddots C1 l5
+    *brace_container C1
+     { ei }
+   {\\n}
+';
+
 
 $result_texis{'one_argument_leading_trailing_spaces'} = '@code{ in code } @slanted{ in slanted } @var{ var } @sub{ sub }
 @hyphenation{ a-b c-d }

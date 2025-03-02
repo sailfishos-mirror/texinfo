@@ -5,155 +5,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accents'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Valid
-'
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'TeX',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Invalid
-'
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.  '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'truc'
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accents'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C5
+   {Valid\\n}
+   *0 @~ C1 l2
+    *brace_container C1
+     *1 @TeX C1 l2
+      *brace_container
+   {. }
+   *2 @~ C1 l2
+    *brace_container C1
+     *@@
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {Invalid\\n}
+   *3 @~ C1 l5
+    *brace_container C1
+     *4 @code C1 l5
+      *brace_container C1
+       {a}
+   {.  }
+   *5 @^ C1 l5
+    *brace_container C1
+     *6 @anchor C1 l5
+     |EXTRA
+     |is_target:{1}
+     |normalized:{truc}
+      *brace_arg C1
+       {truc}
+   {.\\n}
+';
+
 
 $result_texis{'accents'} = 'Valid
 @~{@TeX{}}. @~{@@}.

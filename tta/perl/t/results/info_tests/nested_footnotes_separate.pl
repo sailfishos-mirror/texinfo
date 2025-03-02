@@ -5,163 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_footnotes_separate'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'footnotestyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'separate'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'separate'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'F'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'F1
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'V'
-                        },
-                        {
-                          'cmdname' => 'footnote',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'F2'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'brace_command_context'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 6
-                          }
-                        },
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_footnotes_separate'} = '*document_root C2
+ *before_node_section C1
+  *@footnotestyle C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{separate}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {separate}
+ *0 @node C3 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+  *paragraph C3
+   {F}
+   *1 @footnote C1 l4
+   |EXTRA
+   |global_command_number:{2}
+    *brace_command_context C3
+     *paragraph C1
+      {F1\\n}
+     {empty_line:\\n}
+     *paragraph C3
+      {V}
+      *2 @footnote C1 l6
+      |EXTRA
+      |global_command_number:{1}
+       *brace_command_context C1
+        *paragraph C1
+         {F2}
+      {\\n}
+   {\\n}
+';
+
 
 $result_texis{'nested_footnotes_separate'} = '@footnotestyle separate
 @node Top

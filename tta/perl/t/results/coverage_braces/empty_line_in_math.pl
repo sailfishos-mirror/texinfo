@@ -5,46 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_line_in_math'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'text' => 'b'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_line_in_math'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @math C1 l1
+    *brace_command_context C3
+     {a\\n}
+     {empty_line:\\n}
+     {b}
+';
+
 
 $result_texis{'empty_line_in_math'} = '@math{a
 

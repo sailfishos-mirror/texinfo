@@ -5,200 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'format_on_first_footnote_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Texte'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'quotation',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in quotation on the first footnote line
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'quotation'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'quotation'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Last text '
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in example
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'format_on_first_footnote_line'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C3
+   {Texte}
+   *0 @footnote C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *1 @quotation C3 l1
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      *paragraph C1
+       {in quotation on the first footnote line\\n}
+      *@end C1 l3
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{quotation}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {quotation}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Last text }
+   *2 @footnote C1 l6
+   |EXTRA
+   |global_command_number:{2}
+    *brace_command_context C2
+     *3 @example C3 l6
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      *preformatted C1
+       {in example\\n}
+      *@end C1 l8
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{example}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {example}
+     {empty_line:\\n}
+   {\\n}
+';
+
 
 $result_texis{'format_on_first_footnote_line'} = 'Texte@footnote{@quotation
 in quotation on the first footnote line

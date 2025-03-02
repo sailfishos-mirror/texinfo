@@ -5,1103 +5,269 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'combined_fonts'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'combined_fonts.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'combined_fonts.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c--ode'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ', '
-            },
-            {
-              'cmdname' => 'dfn',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'd--fn'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ', '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'v--ar'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ', '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 's--trong'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ', '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'k--bd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ', '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 's--amp'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dfn',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'd--fn in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ode in var'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 12
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'v--ar in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 13
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'k--bd in strong'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 's--trong in samp'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 's--amp in strong'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'cite',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c--ite'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'cite',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ite in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 20
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'cite',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ode in cite'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 21
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c--ode'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'slanted',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 's--lanted'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b--'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 't',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 't--'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'slanted',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 's--lanted in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 25
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'slanted',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'c--ode in slanted'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'slanted',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 's--lanted in b'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 27
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'slanted',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b-- in slanted'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 28
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 't',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'slanted',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 's--lanted in t'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 29
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'slanted',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 't',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't-- in slanted'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 't',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'v--ar in t'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 't',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't-- in var'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 32
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'v--ar in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 35
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'cite',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'c--ite in example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 36
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 34
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 7
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'combined_fonts'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C2
+   *@setfilename C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{combined_fonts.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {combined_fonts.info}
+   {empty_line:\\n}
+ *0 @node C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top section}
+  {empty_line:\\n}
+ *2 @node C1 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *3 @chapter C15 l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  *paragraph C12
+   *4 @code C1 l9
+    *brace_container C1
+     {c--ode}
+   {, }
+   *5 @dfn C1 l9
+    *brace_container C1
+     {d--fn}
+   {, }
+   *6 @var C1 l9
+    *brace_container C1
+     {v--ar}
+   {, }
+   *7 @strong C1 l9
+    *brace_container C1
+     {s--trong}
+   {, }
+   *8 @kbd C1 l9
+    *brace_container C1
+     {k--bd}
+   {, }
+   *9 @samp C1 l9
+    *brace_container C1
+     {s--amp}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   *10 @code C1 l11
+    *brace_container C1
+     *11 @dfn C1 l11
+      *brace_container C1
+       {d--fn in code}
+   {\\n}
+   *12 @var C1 l12
+    *brace_container C1
+     *13 @code C1 l12
+      *brace_container C1
+       {c--ode in var}
+   {\\n}
+   *14 @code C1 l13
+    *brace_container C1
+     *15 @var C1 l13
+      *brace_container C1
+       {v--ar in code}
+   {\\n}
+   *16 @strong C1 l14
+    *brace_container C1
+     *17 @kbd C1 l14
+      *brace_container C1
+       {k--bd in strong}
+   {\\n}
+   *18 @samp C1 l15
+    *brace_container C1
+     *19 @strong C1 l15
+      *brace_container C1
+       {s--trong in samp}
+   {\\n}
+   *20 @strong C1 l16
+    *brace_container C1
+     *21 @samp C1 l16
+      *brace_container C1
+       {s--amp in strong}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *22 @cite C1 l18
+    *brace_container C1
+     {c--ite}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *23 @code C1 l20
+    *brace_container C1
+     *24 @cite C1 l20
+      *brace_container C1
+       {c--ite in code}
+   {\\n}
+   *25 @cite C1 l21
+    *brace_container C1
+     *26 @code C1 l21
+      *brace_container C1
+       {c--ode in cite}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C8
+   *27 @code C1 l23
+    *brace_container C1
+     {c--ode}
+   { }
+   *28 @slanted C1 l23
+    *brace_container C1
+     {s--lanted}
+   { }
+   *29 @b C1 l23
+    *brace_container C1
+     {b--}
+   { }
+   *30 @t C1 l23
+    *brace_container C1
+     {t--}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C16
+   *31 @code C1 l25
+    *brace_container C1
+     *32 @slanted C1 l25
+      *brace_container C1
+       {s--lanted in code}
+   {\\n}
+   *33 @slanted C1 l26
+    *brace_container C1
+     *34 @code C1 l26
+      *brace_container C1
+       {c--ode in slanted}
+   {\\n}
+   *35 @b C1 l27
+    *brace_container C1
+     *36 @slanted C1 l27
+      *brace_container C1
+       {s--lanted in b}
+   {\\n}
+   *37 @slanted C1 l28
+    *brace_container C1
+     *38 @b C1 l28
+      *brace_container C1
+       {b-- in slanted}
+   {\\n}
+   *39 @t C1 l29
+    *brace_container C1
+     *40 @slanted C1 l29
+      *brace_container C1
+       {s--lanted in t}
+   {\\n}
+   *41 @slanted C1 l30
+    *brace_container C1
+     *42 @t C1 l30
+      *brace_container C1
+       {t-- in slanted}
+   {\\n}
+   *43 @t C1 l31
+    *brace_container C1
+     *44 @var C1 l31
+      *brace_container C1
+       {v--ar in t}
+   {\\n}
+   *45 @var C1 l32
+    *brace_container C1
+     *46 @t C1 l32
+      *brace_container C1
+       {t-- in var}
+   {\\n}
+  {empty_line:\\n}
+  *47 @example C3 l34
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C4
+    *48 @var C1 l35
+     *brace_container C1
+      {v--ar in example}
+    {\\n}
+    *49 @cite C1 l36
+     *brace_container C1
+      {c--ite in example}
+    {\\n}
+   *@end C1 l37
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'combined_fonts'} = '@setfilename combined_fonts.info
 

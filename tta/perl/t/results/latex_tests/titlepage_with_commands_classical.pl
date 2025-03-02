@@ -5,659 +5,230 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'titlepage_with_commands_classical'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in Copying
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'titlepage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'title',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Some manual '
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => ' tested'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'cmdname' => 'subtitle',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Subtitle manual '
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => ' tested'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                },
-                {
-                  'cmdname' => 'subtitle',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Subtitle 2 manual '
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => ' tested'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 8
-                  }
-                },
-                {
-                  'cmdname' => 'author',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'First '
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => ' author'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'titlepage' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 9
-                  }
-                },
-                {
-                  'cmdname' => 'author',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Second '
-                        },
-                        {
-                          'cmdname' => '*'
-                        },
-                        {
-                          'text' => ' author'
-                        },
-                        {
-                          'cmdname' => 'footnote',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Something
-'
-                                    },
-                                    {
-                                      'text' => 'about the address of author.
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Something about the life. 
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                },
-                                {
-                                  'cmdname' => 'displaymath',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'block_line_arg'
-                                        }
-                                      ],
-                                      'type' => 'arguments_line'
-                                    },
-                                    {
-                                      'text' => '\\frac'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '{a}'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 15
-                                      },
-                                      'type' => 'balanced_braces'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '{b}'
-                                        }
-                                      ],
-                                      'source_info' => {
-                                        'line_nr' => 15
-                                      },
-                                      'type' => 'balanced_braces'
-                                    },
-                                    {
-                                      'text' => '
-'
-                                    },
-                                    {
-                                      'cmdname' => 'end',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'displaymath'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'text_arg' => 'displaymath'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 16
-                                      }
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 14
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_command_context'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 10
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'titlepage' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'cmdname' => 'page',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' The following two commands start the copyright page.
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'page',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'vskip',
-                  'contents' => [
-                    {
-                      'text' => ' 0pt plus 1filll
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                {
-                  'cmdname' => 'insertcopying',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 22
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'titlepage'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'titlepage'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 23
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 25
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'section top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 26
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 28
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In chapter
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 29
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[4]{'extra'}{'titlepage'} = $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[5]{'extra'}{'titlepage'} = $result_trees{'titlepage_with_commands_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C4
+   *0 @copying C3 l1
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C1
+     {in Copying\\n}
+    *@end C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   {empty_line:\\n}
+   *1 @titlepage C12 l5
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *@title C1 l6
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *line_arg C3
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Some manual }
+      *@*
+      { tested}
+    *@subtitle C1 l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{1}
+     *line_arg C3
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Subtitle manual }
+      *@*
+      { tested}
+    *@subtitle C1 l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{2}
+     *line_arg C3
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Subtitle 2 manual }
+      *@*
+      { tested}
+    *2 @author C1 l9
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{1}
+    |titlepage:[E1]
+     *line_arg C3
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {First }
+      *@*
+      { author}
+    *3 @author C1 l10
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{2}
+    |titlepage:[E1]
+     *line_arg C4
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {Second }
+      *@*
+      { author}
+      *4 @footnote C1 l10
+      |EXTRA
+      |global_command_number:{1}
+       *brace_command_context C4
+        *paragraph C2
+         {Something\\n}
+         {about the address of author.\\n}
+        {empty_line:\\n}
+        *paragraph C1
+         {Something about the life. \\n}
+        *5 @displaymath C6 l14
+         *arguments_line C1
+          *block_line_arg
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+         {\\frac}
+         *balanced_braces C1 l15
+          {{a}}
+         *balanced_braces C1 l15
+          {{b}}
+         {\\n}
+         *@end C1 l16
+         |INFO
+         |spaces_before_argument:
+          |{ }
+         |EXTRA
+         |text_arg:{displaymath}
+          *line_arg C1
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+           {displaymath}
+    *@page C1
+     {rawline_arg:\\n}
+    *@c C1
+     {rawline_arg: The following two commands start the copyright page.\\n}
+    *@page C1
+     {rawline_arg:\\n}
+    *@vskip C1
+     {rawline_arg: 0pt plus 1filll\\n}
+    *@insertcopying C1 l22
+    |EXTRA
+    |global_command_number:{1}
+     {rawline_arg:\\n}
+    *@end C1 l23
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{titlepage}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {titlepage}
+   {empty_line:\\n}
+ *6 @node C1 l25
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E7]
+ |is_target:{1}
+ |node_directions:D[next->E8]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *7 @top C2 l26
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E6]
+ |section_childs:EC[E9]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E7]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E9]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {section top}
+  {empty_line:\\n}
+ *8 @node C1 l28
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E9]
+ |is_target:{1}
+ |node_directions:D[prev->E6|up->E6]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *9 @chapter C4 l29
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E8]
+ |section_directions:D[up->E7]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E7|up->E7]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *paragraph C1
+   {In chapter\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'titlepage_with_commands_classical'} = '@copying
 in Copying

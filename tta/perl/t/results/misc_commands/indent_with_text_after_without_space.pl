@@ -5,83 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'indent_with_text_after_without_space'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'myvalue',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'a',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' myvalue a
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'myvalue'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'a',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'a b
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'indent_with_text_after_without_space'} = '*document_root C1
+ *before_node_section C4
+  *@set C2
+  |INFO
+  |arg_line:{ myvalue a\\n}
+   {rawline_arg:myvalue}
+   {rawline_arg:a}
+  {empty_line:\\n}
+  *@indent l3
+  *paragraph C1
+  |EXTRA
+  |indent:{1}
+   {a b\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1>{a}
+    >*@value C1
+     >*brace_container C1
+      >{myvalue}
+   >value_expansion<end;1><p:1>
+';
+
 
 $result_texis{'indent_with_text_after_without_space'} = '@set myvalue a
 

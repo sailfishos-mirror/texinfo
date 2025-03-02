@@ -5,216 +5,60 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'invalid_U'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'U',
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'z'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'abc'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '9999999999999'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '110000'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '10FFFF'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '0023'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'FFFD'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'wxyz'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'invalid_U'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C19
+   *0 @U l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+   *1 @U C1 l1
+    *brace_arg
+   { }
+   *2 @U C1 l1
+    *brace_arg C1
+     {z}
+   { }
+   *3 @U C1 l1
+    *brace_arg C1
+     {abc}
+   { }
+   *4 @U C1 l1
+    *brace_arg C1
+     {9999999999999}
+   { }
+   *5 @U C1 l1
+    *brace_arg C1
+     {110000}
+   { }
+   *6 @U C1 l1
+    *brace_arg C1
+     {10FFFF}
+   {\\n}
+   *7 @U C1 l2
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {0023}
+   { }
+   *8 @U C1 l2
+    *brace_arg C1
+     {FFFD}
+   { }
+   *9 @U C1 l2
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {wxyz}
+   {\\n}
+';
+
 
 $result_texis{'invalid_U'} = '@U @U{} @U{z} @U{abc} @U{9999999999999} @U{110000} @U{10FFFF}
 @U{ 0023 } @U{FFFD} @U{ wxyz }

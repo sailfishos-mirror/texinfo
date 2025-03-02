@@ -5,190 +5,59 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_with_arobase_in_macro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' showarg {a, b}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first: \\a\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second: \\b\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'showarg',
-            'misc_args' => [
-              'a',
-              'b'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@verb{, commas ,}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@verb{@ arobase @}'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'showarg'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first: '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' commas ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ','
-              },
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'showarg'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'second: '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' arobase ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '@'
-              },
-              'source_info' => {
-                'line_nr' => 6,
-                'macro' => 'showarg'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verb_with_arobase_in_macro_call'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C4 l1
+  |EXTRA
+  |macro_name:{showarg}
+  |misc_args:A{a|b}
+   *arguments_line C1
+    {macro_line: showarg {a, b}\\n}
+   {raw:first: \\a\\\\n}
+   {raw:second: \\b\\\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C6
+   {first: }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{showarg}
+     >*brace_arg C1
+      >{@verb{, commas ,}}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{@verb{@ arobase @}}
+   *1 @verb C1 l6:@showarg
+   |INFO
+   |delimiter:{,}
+    *brace_container C1
+     {raw: commas }
+   {\\n}
+   {second: }
+   *2 @verb C1 l6:@showarg
+   |INFO
+   |delimiter:{@}
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *brace_container C1
+     {raw: arobase }
+   {\\n}
+';
+
 
 $result_texis{'verb_with_arobase_in_macro_call'} = '@macro showarg {a, b}
 first: \\a\\

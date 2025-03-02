@@ -5,64 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'commands_and_punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'SomthingA'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '   and now inhibit.'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => ' Now dots '
-            },
-            {
-              'cmdname' => 'dots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' and enddots '
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' and'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'commands_and_punctuation'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C9
+   {SomthingA}
+   *@.
+   {   and now inhibit.}
+   *@:
+   { Now dots }
+   *0 @dots C1 l1
+    *brace_container
+   { and enddots }
+   *1 @enddots C1 l1
+    *brace_container
+   { and}
+';
+
 
 $result_texis{'commands_and_punctuation'} = 'SomthingA@.   and now inhibit.@: Now dots @dots{} and enddots @enddots{} and';
 

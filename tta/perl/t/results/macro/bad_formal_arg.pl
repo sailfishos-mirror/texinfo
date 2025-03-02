@@ -5,228 +5,73 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bad_formal_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' bad  { , not_empty}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in bad macro
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'invalid_syntax' => 1,
-            'macro_name' => 'bad',
-            'misc_args' => [
-              '',
-              'not_empty'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' badspace{first, in 2arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'bad space
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'invalid_syntax' => 1,
-            'macro_name' => 'badspace',
-            'misc_args' => [
-              'first',
-              'in 2arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' abar {:::}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in bar
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@macro foo {? aaa}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'in macro foo
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end macro
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'extra' => {
-            'invalid_syntax' => 1,
-            'macro_name' => 'abar',
-            'misc_args' => [
-              ':::'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bad_formal_arg'} = '*document_root C1
+ *before_node_section C6
+  {empty_line:\\n}
+  *0 @macro C3 l2
+  |EXTRA
+  |invalid_syntax:{1}
+  |macro_name:{bad}
+  |misc_args:A{|not_empty}
+   *arguments_line C1
+    {macro_line: bad  { , not_empty}\\n}
+   {raw:in bad macro\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l6
+  |EXTRA
+  |invalid_syntax:{1}
+  |macro_name:{badspace}
+  |misc_args:A{first|in 2arg}
+   *arguments_line C1
+    {macro_line: badspace{first, in 2arg}\\n}
+   {raw:bad space\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @macro C6 l10
+  |EXTRA
+  |invalid_syntax:{1}
+  |macro_name:{abar}
+  |misc_args:A{:::}
+   *arguments_line C1
+    {macro_line: abar {:::}\\n}
+   {raw:in bar\\n}
+   {raw:@macro foo {? aaa}\\n}
+   {raw:in macro foo\\n}
+   {raw:@end macro\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+';
+
 
 $result_texis{'bad_formal_arg'} = '
 @macro bad  { , not_empty}

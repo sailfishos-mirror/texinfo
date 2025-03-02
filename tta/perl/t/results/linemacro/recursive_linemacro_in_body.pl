@@ -5,126 +5,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'recursive_linemacro_in_body'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' anorecurse {arg, other}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@anorecurse {\\arg\\} d \\other\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'anorecurse',
-            'misc_args' => [
-              'arg',
-              'other'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'aa',
-                        'type' => 'bracketed_linemacro_arg'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'b c'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'anorecurse',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'recursive_linemacro_in_body'} = '*document_root C1
+ *before_node_section C3
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{anorecurse}
+  |misc_args:A{arg|other}
+   *arguments_line C1
+    {macro_line: anorecurse {arg, other}\\n}
+   {raw:@anorecurse {\\arg\\} d \\other\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >linemacro_expansion<start;1>
+   >*linemacro_call C2
+   >|INFO
+   >|command_name:{anorecurse}
+   >|spaces_before_argument:
+    >|{ }
+    >*line_arg C1
+     >{bracketed_linemacro_arg:aa}
+    >*line_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >{b c}
+';
+
 
 $result_texis{'recursive_linemacro_in_body'} = '@linemacro anorecurse {arg, other}
 @anorecurse {\\arg\\} d \\other\\

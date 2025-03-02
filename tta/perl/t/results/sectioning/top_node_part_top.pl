@@ -5,138 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'top_node_part_top'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'associated_part' => {
-          'cmdname' => 'part',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'part'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 5
-      }
-    },
-    'unit_contents' => [
-      {
-        'contents' => [
-          {
-            'type' => 'preamble_before_content'
-          }
-        ],
-        'type' => 'before_node_section'
-      },
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 1
-        }
-      },
-      {},
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'top_node_part_top'}[0]{'unit_contents'}[2] = $result_trees{'top_node_part_top'}[0]{'unit_command'}{'extra'}{'associated_part'};
-$result_trees{'top_node_part_top'}[0]{'unit_contents'}[3] = $result_trees{'top_node_part_top'}[0]{'unit_command'};
+$result_tree_text{'top_node_part_top'} = 'U0 unit[E2]
+UNIT_DIRECTIONS
+This: [U0]
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E2]
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  {empty_line:\\n}
+ *1 @part C2 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |global_command_number:{1}
+ |part_associated_section:[E2]
+ |section_directions:D[next->E2]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1|E2]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {part}
+  {empty_line:\\n}
+ *2 @top C1 l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |associated_part:[E1]
+ |section_directions:D[prev->E1]
+ |section_level:{0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+';
+
 
 $result_texis{'top_node_part_top'} = '@node Top
 

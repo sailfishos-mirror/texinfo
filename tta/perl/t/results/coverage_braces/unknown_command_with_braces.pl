@@ -5,99 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_command_with_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Unknown thing 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Unknown macro  first paragraph
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'second paragraph
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first paragraph
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'second paragraph
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'third
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_command_with_braces'} = '*document_root C1
+ *before_node_section C12
+  *paragraph C1
+   {Unknown thing \\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {Unknown macro  first paragraph\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {second paragraph\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph: }
+  *paragraph C1
+   {first paragraph\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {second paragraph\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {third\\n}
+';
+
 
 $result_texis{'unknown_command_with_braces'} = 'Unknown thing 
 

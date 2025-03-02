@@ -5,304 +5,94 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_call_empty_middle_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' threea {aa, bb, cc}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first \\aa\\,
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second \\bb\\,
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'third \\cc\\,
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'threea',
-            'misc_args' => [
-              'aa',
-              'bb',
-              'cc'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'j'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'k'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'l'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'threea'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first j,
-'
-            },
-            {
-              'text' => 'second k,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third l,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'm'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'n'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'threea'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first m,
-'
-            },
-            {
-              'text' => 'second ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third n,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'o'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'p'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'threea'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first o,
-'
-            },
-            {
-              'text' => 'second ,
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'third p,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
+ *before_node_section C7
+  *0 @macro C5 l1
+  |EXTRA
+  |macro_name:{threea}
+  |misc_args:A{aa|bb|cc}
+   *arguments_line C1
+    {macro_line: threea {aa, bb, cc}\\n}
+   {raw:first \\aa\\,\\n}
+   {raw:second \\bb\\,\\n}
+   {raw:third \\cc\\,\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C3
+   {first j,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C3
+    >|INFO
+    >|command_name:{threea}
+     >*brace_arg C1
+      >{j}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{k}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{l}
+   {second k,\\n}
+   {third l,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:8>
+  {empty_line:\\n}
+  *paragraph C3
+   {first m,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C3
+    >|INFO
+    >|command_name:{threea}
+     >*brace_arg C1
+      >{m}
+     >*brace_arg
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{n}
+   {second ,\\n}
+   {third n,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;2><p:8>
+  {empty_line:\\n}
+  *paragraph C3
+   {first o,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call C3
+    >|INFO
+    >|command_name:{threea}
+     >*brace_arg C1
+      >{o}
+     >*brace_arg
+     >*brace_arg C1
+      >{p}
+   {second ,\\n}
+   {third p,\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;3><p:8>
+';
+
 
 $result_texis{'macro_call_empty_middle_arg'} = '@macro threea {aa, bb, cc}
 first \\aa\\,

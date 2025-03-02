@@ -5,1029 +5,339 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multiple_in_preamble'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentlanguage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'fr'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'fr'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'defivar',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Instance Variable',
-                                      'type' => 'untranslated'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'documentlanguage' => 'fr',
-                                    'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                                  },
-                                  'type' => 'untranslated_def_line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'type' => 'def_category'
-                            },
-                            {
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'copying'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_class'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'b'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defivar',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' de '
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'copying'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_class'
-                            }
-                          ]
-                        },
-                        'def_index_ref_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'a'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' of '
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'copying'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_class'
-                            }
-                          ]
-                        },
-                        'documentlanguage' => 'fr',
-                        'element_region' => 'copying',
-                        'index_entry' => [
-                          'vr',
-                          1
-                        ],
-                        'original_def_cmdname' => 'defivar'
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      },
-                      'type' => 'def_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'error',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 5
-                              }
-                            },
-                            {
-                              'text' => '
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'def_item'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'defivar'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'defivar'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'documentlanguage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'hr'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'hr'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 11
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 12
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'hr',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'type' => 'untranslated_def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'hr'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'CCC'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' od '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'hr'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'hr'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'documentlanguage' => 'hr',
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  2
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 17
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'error',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 18
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 17
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'de'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'de'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 21
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defivar',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Instance Variable',
-                              'type' => 'untranslated'
-                            }
-                          ],
-                          'extra' => {
-                            'documentlanguage' => 'de',
-                            'translation_context' => 'category of instance variables in object-oriented programming for @defivar'
-                          },
-                          'type' => 'untranslated_def_line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'type' => 'def_category'
-                    },
-                    {
-                      'info' => {
-                        'inserted' => 1
-                      },
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'de'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'FFF'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'GGG'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defivar',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'FFF'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' von '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'de'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'def_index_ref_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'FFF'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' of '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'de'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_class'
-                    }
-                  ]
-                },
-                'documentlanguage' => 'de',
-                'element_node' => {},
-                'index_entry' => [
-                  'vr',
-                  3
-                ],
-                'original_def_cmdname' => 'defivar'
-              },
-              'source_info' => {
-                'line_nr' => 23
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defivar'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defivar'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 23
-          }
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 15
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
-$result_trees{'multiple_in_preamble'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'element_node'} = $result_trees{'multiple_in_preamble'}{'contents'}[3];
+$result_tree_text{'multiple_in_preamble'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C6
+   *@documentlanguage C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{fr}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {fr}
+   {empty_line:\\n}
+   *0 @copying C3 l3
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *1 @defivar C3 l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *def_line C1 l4
+     |EXTRA
+     |def_command:{defivar}
+     |def_index_element:
+      |* C3
+       |*def_name C1
+        |*def_line_arg C1
+         |{a}
+       |{ de }
+       |*def_class C1
+        |*def_line_arg C1
+         |{copying}
+     |def_index_ref_element:
+      |* C3
+       |*def_name C1
+        |*def_line_arg C1
+         |{a}
+       |{ of }
+       |*def_class C1
+        |*def_line_arg C1
+         |{copying}
+     |documentlanguage:{fr}
+     |element_region:{copying}
+     |index_entry:I{vr,1}
+     |original_def_cmdname:{defivar}
+      *block_line_arg C7
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+       |INFO
+       |inserted:{1}
+        *untranslated_def_line_arg C1
+        |EXTRA
+        |documentlanguage:{fr}
+        |translation_context:{category of instance variables in object-oriented programming for @defivar}
+         {untranslated:Instance Variable}
+       (i){spaces: }
+       *def_class C1
+        *def_line_arg C1
+         {copying}
+       {spaces: }
+       *def_name C1
+        *def_line_arg C1
+         {a}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         {b}
+     *def_item C1
+      *paragraph C2
+       *2 @error C1 l5
+        *brace_container
+       {\\n}
+     *@end C1 l6
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{defivar}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {defivar}
+    *@end C1 l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   {empty_line:\\n}
+   *@documentlanguage C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{2}
+   |text_arg:{hr}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {hr}
+   {empty_line:\\n}
+ *3 @node C1 l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |node_directions:D[next->E5]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *4 @top C2 l12
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_childs:EC[E6]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E4]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E6]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top section}
+  {empty_line:\\n}
+ *5 @node C1 l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E6]
+ |is_target:{1}
+ |node_directions:D[prev->E3|up->E3]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *6 @chapter C7 l15
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E5]
+ |section_directions:D[up->E4]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E4|up->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *7 @defivar C3 l17
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l17
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ od }
+     |*def_class C1
+      |*def_line_arg C1
+       |{hr}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{BBB}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{hr}
+   |documentlanguage:{hr}
+   |element_node:[E5]
+   |index_entry:I{vr,2}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{hr}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {hr}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {BBB}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {CCC}
+   *def_item C1
+    *paragraph C2
+     *8 @error C1 l18
+      *brace_container
+     {\\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+  {empty_line:\\n}
+  *@documentlanguage C1 l21
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |text_arg:{de}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {de}
+  {empty_line:\\n}
+  *9 @defivar C2 l23
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l23
+   |EXTRA
+   |def_command:{defivar}
+   |def_index_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{FFF}
+     |{ von }
+     |*def_class C1
+      |*def_line_arg C1
+       |{de}
+   |def_index_ref_element:
+    |* C3
+     |*def_name C1
+      |*def_line_arg C1
+       |{FFF}
+     |{ of }
+     |*def_class C1
+      |*def_line_arg C1
+       |{de}
+   |documentlanguage:{de}
+   |element_node:[E5]
+   |index_entry:I{vr,3}
+   |original_def_cmdname:{defivar}
+    *block_line_arg C7
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+     |INFO
+     |inserted:{1}
+      *untranslated_def_line_arg C1
+      |EXTRA
+      |documentlanguage:{de}
+      |translation_context:{category of instance variables in object-oriented programming for @defivar}
+       {untranslated:Instance Variable}
+     (i){spaces: }
+     *def_class C1
+      *def_line_arg C1
+       {de}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {FFF}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {GGG}
+   *@end C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defivar}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defivar}
+';
+
 
 $result_texis{'multiple_in_preamble'} = '@documentlanguage fr
 

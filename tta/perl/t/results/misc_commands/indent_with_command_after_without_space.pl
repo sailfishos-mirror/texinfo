@@ -5,45 +5,17 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'indent_with_command_after_without_space'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' b
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'indent_with_command_after_without_space'} = '*document_root C1
+ *before_node_section C2
+  *@indent l1
+  *paragraph C2
+  |EXTRA
+  |indent:{1}
+   *0 @AA C1 l1
+    *brace_container
+   { b\\n}
+';
+
 
 $result_texis{'indent_with_command_after_without_space'} = '@indent@AA{} b
 ';

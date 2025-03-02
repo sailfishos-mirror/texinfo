@@ -5,170 +5,56 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ifclear_in_ifset_set'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'a',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' a
-'
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 4
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            },
-            {
-              'counter' => 2,
-              'element' => {
-                'cmdname' => 'ifclear',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ok'
-                          }
-                        ],
-                        'info' => {
-                          'comment_at_end' => {
-                            'cmdname' => 'c',
-                            'contents' => [
-                              {
-                                'text' => ' - ok, ignored
-',
-                                'type' => 'rawline_arg'
-                              }
-                            ]
-                          },
-                          'spaces_after_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 5
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'end',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'junky   - ok, ignored'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'junky   - ok, ignored'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' WRONG - missing @end ifset.
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ifclear_in_ifset_set'} = '*document_root C1
+ *before_node_section C5
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ a\\n}
+   {rawline_arg:a}
+   {rawline_arg:}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l4
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{a}
+  >expanded_conditional_command<start;2><p:1>
+   >*@ifclear C1 l5
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|comment_at_end:
+      >|*@c C1
+       >|{rawline_arg: - ok, ignored\\n}
+     >|spaces_after_argument:
+      >|{ }
+      >{ok}
+  *@end C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{junky   - ok, ignored}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {junky   - ok, ignored}
+  *@c C1
+   {rawline_arg: WRONG - missing @end ifset.\\n}
+';
+
 
 $result_texis{'ifclear_in_ifset_set'} = '
 @set a

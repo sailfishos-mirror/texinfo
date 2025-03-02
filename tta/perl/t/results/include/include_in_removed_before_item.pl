@@ -5,186 +5,63 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'include_in_removed_before_item'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' source mark holder comment
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ],
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'include',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'only_comment.texi'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'extra' => {
-                              'text_arg' => 'only_comment.texi'
-                            },
-                            'info' => {
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'source_info' => {
-                              'line_nr' => 3
-                            }
-                          },
-                          'sourcemark_type' => 'include',
-                          'status' => 'start'
-                        }
-                      ]
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' in here
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ],
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'include',
-                          'status' => 'end'
-                        }
-                      ]
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'FOO'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'include_in_removed_before_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'include_in_removed_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'include_in_removed_before_item'} = '*document_root C1
+ *before_node_section C1
+  *0 @table C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @code l1
+   *table_entry C1
+    *table_term C3
+     *@c C1
+     >SOURCEMARKS
+     >include<start;1>
+      >*@include C1 l3
+      >|INFO
+      >|spaces_before_argument:
+       >|{ }
+      >|EXTRA
+      >|text_arg:{only_comment.texi}
+       >*line_arg C1
+       >|INFO
+       >|spaces_after_argument:
+        >|{\\n}
+        >{only_comment.texi}
+      {rawline_arg: source mark holder comment\\n}
+     *@c C1
+     >SOURCEMARKS
+     >include<end;1>
+      {rawline_arg: in here\\n}
+     *@item C1 l4
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {FOO}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+';
+
 
 $result_texis{'include_in_removed_before_item'} = '@table @code
 @c source mark holder comment

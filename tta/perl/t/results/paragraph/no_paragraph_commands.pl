@@ -5,99 +5,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_paragraph_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => '*'
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'cmdname' => 'titlefont',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'title font'
-                }
-              ],
-              'type' => 'brace_container'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aa'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'bb'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'cc'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'dd'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '.ee'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_paragraph_commands'} = '*document_root C1
+ *before_node_section C6
+  *@*
+  {\\n}
+  *0 @titlefont C1 l2
+  |EXTRA
+  |global_command_number:{1}
+   *brace_container C1
+    {title font}
+  {\\n}
+  *1 @image C5 l3
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {aa}
+   *brace_arg C1
+    {bb}
+   *brace_arg C1
+    {cc}
+   *brace_arg C1
+    {dd}
+   *brace_arg C1
+    {.ee}
+  {\\n}
+';
+
 
 $result_texis{'no_paragraph_commands'} = '@*
 @titlefont{title font}

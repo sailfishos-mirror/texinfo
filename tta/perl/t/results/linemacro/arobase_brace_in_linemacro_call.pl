@@ -5,233 +5,73 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'arobase_brace_in_linemacro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' simplemac { arg1 , arg2 }
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first: \\arg1\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second: \\arg2\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'simplemac',
-            'misc_args' => [
-              'arg1',
-              'arg2'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => ' @{ ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => ' @} ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'simplemac'
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first:  '
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'text' => ' |
-'
-            },
-            {
-              'text' => 'second:  '
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 2,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' |
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => ' @} ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => ' @{ ',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'simplemac'
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'first:  '
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => ' |
-'
-            },
-            {
-              'text' => 'second:  '
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 2,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' |
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'arobase_brace_in_linemacro_call'} = '*document_root C1
+ *before_node_section C5
+  *0 @linemacro C4 l1
+  |EXTRA
+  |macro_name:{simplemac}
+  |misc_args:A{arg1|arg2}
+   *arguments_line C1
+    {macro_line: simplemac { arg1 , arg2 }\\n}
+   {raw:first: \\arg1\\|\\n}
+   {raw:second: \\arg2\\|\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *paragraph C6
+   {first:  }
+   >SOURCEMARKS
+   >linemacro_expansion<start;1>
+    >*linemacro_call C2
+    >|INFO
+    >|command_name:{simplemac}
+     >*line_arg C1
+      >{bracketed_linemacro_arg: @{ }
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{bracketed_linemacro_arg: @} }
+   *@{
+   { |\\n}
+   {second:  }
+   *@}
+   { |\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<end;1><p:2>
+  {empty_line:\\n}
+  *paragraph C6
+   {first:  }
+   >SOURCEMARKS
+   >linemacro_expansion<start;2>
+    >*linemacro_call C2
+    >|INFO
+    >|command_name:{simplemac}
+     >*line_arg C1
+      >{bracketed_linemacro_arg: @} }
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{bracketed_linemacro_arg: @{ }
+   *@}
+   { |\\n}
+   {second:  }
+   *@{
+   { |\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<end;2><p:2>
+';
+
 
 $result_texis{'arobase_brace_in_linemacro_call'} = '@linemacro simplemac { arg1 , arg2 }
 first: \\arg1\\|

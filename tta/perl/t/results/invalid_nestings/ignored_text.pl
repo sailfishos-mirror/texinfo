@@ -5,87 +5,33 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ignored_text'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'before ignore'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'cmdname' => 'ifinfo',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'block_line_arg'
-                              }
-                            ],
-                            'type' => 'arguments_line'
-                          }
-                        ],
-                        'source_info' => {
-                          'line_nr' => 1
-                        }
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'ignored_conditional_block'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in ifinfo
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'before-ignore'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ignored_text'} = '*document_root C2
+ *before_node_section
+ *0 @node C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{before-ignore}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    |>SOURCEMARKS
+    |>ignored_conditional_block<1><p:1>
+     |>*@ifinfo C1 l1
+      |>*arguments_line C1
+       |>*block_line_arg
+       |>|INFO
+       |>|spaces_after_argument:
+        |>|{\\n}
+    {before ignore}
+  *paragraph C1
+   {in ifinfo\\n}
+';
+
 
 $result_texis{'ignored_text'} = '@node before ignore in ifinfo
 ';

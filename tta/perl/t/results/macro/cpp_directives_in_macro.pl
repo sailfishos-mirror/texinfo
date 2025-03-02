@@ -5,176 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'cpp_directives_in_macro'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' simplemacro{out}
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '\\out\\
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'cpp_directives_in_macro.texi',
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'simplemacro',
-                'misc_args' => [
-                  'out'
-                ]
-              },
-              'source_info' => {
-                'file_name' => 'cpp_directives_in_macro.texi',
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '#line 100 "in_arg_file"
+$result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
+ *before_node_section C9
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *0 @macro C3 cpp_directives_in_macro.texi:l2
+   |EXTRA
+   |macro_name:{simplemacro}
+   |misc_args:A{out}
+    *arguments_line C1
+     {macro_line: simplemacro{out}\\n}
+    {raw:\\out\\\\n}
+    *@end C1 cpp_directives_in_macro.texi:l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+  *paragraph C1
+   {#line 100 "in_arg_file"\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{simplemacro}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{\\n}
+      >{#line 100 "in_arg_file"\\n\\n@unknownin\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<end;1><p:1>
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+';
 
-@unknownin
-'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'simplemacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '#line 100 "in_arg_file"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
 
 $result_texis{'cpp_directives_in_macro'} = '
 @macro simplemacro{out}

@@ -5,242 +5,71 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_line_in_command_in_expanded_not_expanded'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'tex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '@anchor{a
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'b}.
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@code{v
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'n}
-',
-                  'type' => 'raw'
-                }
-              ],
-              'type' => 'elided_rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'tex'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ha
-'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'text' => 'hb'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'ha-hb'
-                  },
-                  'source_info' => {
-                    'line_nr' => 15
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'hv
-'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'text' => 'hn'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'rawpreformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'html'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 12
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document_root C1
+ *before_node_section C4
+  {empty_line:\\n}
+  *0 @tex C3 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *elided_rawpreformatted C7
+    {raw:@anchor{a\\n}
+    {raw:\\n}
+    {raw:b}.\\n}
+    {raw:\\n}
+    {raw:@code{v\\n}
+    {raw:\\n}
+    {raw:n}\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{tex}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {tex}
+  {empty_line:\\n}
+  *1 @html C3 l12
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *rawpreformatted C5
+    *2 @anchor C1 l15
+    |EXTRA
+    |is_target:{1}
+    |normalized:{ha-hb}
+     *brace_arg C3
+      {ha\\n}
+      {empty_line:\\n}
+      {hb}
+    {.\\n}
+    {empty_line:\\n}
+    *3 @code C1 l17
+     *brace_container C3
+      {hv\\n}
+      {empty_line:\\n}
+      {hn}
+    {\\n}
+   *@end C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{html}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {html}
+';
+
 
 $result_texis{'empty_line_in_command_in_expanded_not_expanded'} = '
 @tex

@@ -5,83 +5,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verbatiminclude_and_encoding_latin1'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'iso-8859-1'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'iso-8859-1',
-            'text_arg' => 'iso-8859-1'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'verbatiminclude',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'verbatim_encoded_latin1.texi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'iso-8859-1',
-            'text_arg' => 'verbatim_encoded_latin1.texi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verbatiminclude_and_encoding_latin1'} = '*document_root C1
+ *before_node_section C3
+  *@documentencoding C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |input_encoding_name:{iso-8859-1}
+  |text_arg:{iso-8859-1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {iso-8859-1}
+  {empty_line:\\n}
+  *@verbatiminclude C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |input_encoding_name:{iso-8859-1}
+  |text_arg:{verbatim_encoded_latin1.texi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {verbatim_encoded_latin1.texi}
+';
+
 
 $result_texis{'verbatiminclude_and_encoding_latin1'} = '@documentencoding iso-8859-1
 

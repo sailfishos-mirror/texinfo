@@ -5,280 +5,68 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'uref_url'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--b'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--c'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--d'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--e'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--f'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--g'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--h'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--i'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--j'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--k'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--l'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'url',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--m'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--n'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'url',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '--o'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--p'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '--q'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'uref_url'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C18
+   *0 @uref C2 l1
+    *brace_arg C1
+     {--a}
+    *brace_arg C1
+     {--b}
+   {\\n}
+   *1 @uref C1 l2
+    *brace_arg C1
+     {--c}
+   {\\n}
+   *2 @uref C2 l3
+    *brace_arg
+    *brace_arg C1
+     {--d}
+   {\\n}
+   *3 @uref C3 l4
+    *brace_arg C1
+     {--e}
+    *brace_arg C1
+     {--f}
+    *brace_arg C1
+     {--g}
+   {\\n}
+   *4 @uref C3 l5
+    *brace_arg
+    *brace_arg C1
+     {--h}
+    *brace_arg C1
+     {--i}
+   {\\n}
+   *5 @uref C3 l6
+    *brace_arg C1
+     {--j}
+    *brace_arg
+    *brace_arg C1
+     {--k}
+   {\\n}
+   *6 @uref C3 l7
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {--l}
+   {\\n}
+   *7 @url C2 l8
+    *brace_arg C1
+     {--m}
+    *brace_arg C1
+     {--n}
+   {\\n}
+   *8 @url C3 l9
+    *brace_arg C1
+     {--o}
+    *brace_arg C1
+     {--p}
+    *brace_arg C1
+     {--q}
+   {\\n}
+';
+
 
 $result_texis{'uref_url'} = '@uref{--a,--b}
 @uref{--c}

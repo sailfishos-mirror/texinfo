@@ -5,96 +5,36 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_then_known_index_entry'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'someindex entry.
-'
-            },
-            {
-              'cmdname' => 'defindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'some'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'some'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'someindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'someindex entry.'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'index_entry' => [
-                  'some',
-                  1
-                ]
-              },
-              'info' => {
-                'command_name' => 'someindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'type' => 'index_entry_command'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_then_known_index_entry'} = '*document_root C1
+ *before_node_section C2
+  {spaces_before_paragraph: }
+  *paragraph C3
+   {someindex entry.\\n}
+   *@defindex C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |misc_args:A{some}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {some}
+   *0 index_entry_command@someindex C1 l3
+   |INFO
+   |command_name:{someindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |index_entry:I{some,1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {someindex entry.}
+';
+
 
 $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.
 @defindex some

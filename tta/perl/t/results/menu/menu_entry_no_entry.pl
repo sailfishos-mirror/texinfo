@@ -5,167 +5,49 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'menu_entry_no_entry'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '* a1:
-'
-                    },
-                    {
-                      'text' => '* a2:  
-'
-                    },
-                    {
-                      'text' => '* a1c:'
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' c
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '* a2c:  '
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' c
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '* a4'
-                    },
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => ': 
-'
-                    },
-                    {
-                      'text' => '* a5'
-                    },
-                    {
-                      'cmdname' => 'b',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'b'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    },
-                    {
-                      'text' => ': '
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' c
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'menu_entry_no_entry'} = '*document_root C1
+ *before_node_section C1
+  *0 @menu C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_comment C1
+    *preformatted C13
+     {* a1:\\n}
+     {* a2:  \\n}
+     {* a1c:}
+     *@c C1
+      {rawline_arg: c\\n}
+     {* a2c:  }
+     *@c C1
+      {rawline_arg: c\\n}
+     {* a4}
+     *1 @b C1 l6
+      *brace_container C1
+       {a}
+     {: \\n}
+     {* a5}
+     *2 @b C1 l7
+      *brace_container C1
+       {b}
+     {: }
+     *@c C1
+      {rawline_arg: c\\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'menu_entry_no_entry'} = '@menu
 * a1:

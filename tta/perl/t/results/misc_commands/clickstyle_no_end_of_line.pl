@@ -5,32 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'clickstyle_no_end_of_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@result',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @result'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'clickstyle_no_end_of_line'} = '*document_root C1
+ *before_node_section C1
+  *@clickstyle C1 l1
+  |INFO
+  |arg_line:{ @result}
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:@result}
+';
+
 
 $result_texis{'clickstyle_no_end_of_line'} = '@clickstyle @result';
 

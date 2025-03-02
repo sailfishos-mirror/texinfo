@@ -5,864 +5,275 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'command_conditionals_user_defined'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' truc
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'machin
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'truc',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'auth'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'auth'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'infoencl, :,:'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'infoencl',
-              ':',
-              ':'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'strongalias = strong'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'strongalias',
-              'strong'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'truc'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 11
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifcommanddefined'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifcommanddefined'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 13
-                    }
-                  },
-                  'position' => 23,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'truc'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => '@@macro truc is wrongly not defined
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifcommandnotdefined'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifcommandnotdefined'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 16
-                        }
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 14
-                    }
-                  },
-                  'position' => 23,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => 'macro truc is defined.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'authindex'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 18
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'index command '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifcommanddefined'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifcommanddefined'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 20
-                    }
-                  },
-                  'position' => 22,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'authindex'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'index command @@authindex is wrongly not defined
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifcommandnotdefined'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifcommandnotdefined'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 23
-                        }
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 21
-                    }
-                  },
-                  'position' => 22,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => 'authindex is defined.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'infoencl'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 25
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'definfoenclose '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifcommanddefined'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifcommanddefined'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 27
-                    }
-                  },
-                  'position' => 21,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'infoencl'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'definfoenclose @@infoencl is wrongly not defined
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifcommandnotdefined'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifcommandnotdefined'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 30
-                        }
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 28
-                    }
-                  },
-                  'position' => 21,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => 'infoencl is defined.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 4,
-              'element' => {
-                'cmdname' => 'ifcommanddefined',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'strongalias'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 32
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'strongalias '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifcommanddefined'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifcommanddefined'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 34
-                    }
-                  },
-                  'position' => 18,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'cmdname' => 'ifcommandnotdefined',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'strongalias'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'strongalias @@alias is wrongly not defined
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifcommandnotdefined'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifcommandnotdefined'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 37
-                        }
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 35
-                    }
-                  },
-                  'position' => 18,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => 'alias is defined.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'command_conditionals_user_defined'} = '*document_root C1
+ *before_node_section C15
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{truc}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: truc\\n}
+   {raw:machin\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@defindex C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{auth}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {auth}
+  {empty_line:\\n}
+  *@definfoenclose C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{infoencl|:|:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {infoencl, :,:}
+  {empty_line:\\n}
+  *@alias C1 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{strongalias|strong}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {strongalias = strong}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifcommanddefined C1 l11
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{truc}
+  *paragraph C2
+   *@@
+   {macro truc is defined.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:23>
+    >*@end C1 l13
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifcommanddefined}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifcommanddefined}
+   >ignored_conditional_block<1><p:23>
+    >*@ifcommandnotdefined C3 l14
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >*arguments_line C1
+      >*block_line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{truc}
+     >{raw:@@macro truc is wrongly not defined\\n}
+     >*@end C1 l16
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifcommandnotdefined}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifcommandnotdefined}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;2><p:1>
+   >*@ifcommanddefined C1 l18
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{authindex}
+  *paragraph C3
+   {index command }
+   *@@
+   {authindex is defined.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;2><p:22>
+    >*@end C1 l20
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifcommanddefined}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifcommanddefined}
+   >ignored_conditional_block<2><p:22>
+    >*@ifcommandnotdefined C3 l21
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >*arguments_line C1
+      >*block_line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{authindex}
+     >{raw:index command @@authindex is wrongly not defined\\n}
+     >*@end C1 l23
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifcommandnotdefined}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifcommandnotdefined}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;3><p:1>
+   >*@ifcommanddefined C1 l25
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{infoencl}
+  *paragraph C3
+   {definfoenclose }
+   *@@
+   {infoencl is defined.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;3><p:21>
+    >*@end C1 l27
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifcommanddefined}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifcommanddefined}
+   >ignored_conditional_block<3><p:21>
+    >*@ifcommandnotdefined C3 l28
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >*arguments_line C1
+      >*block_line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{infoencl}
+     >{raw:definfoenclose @@infoencl is wrongly not defined\\n}
+     >*@end C1 l30
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifcommandnotdefined}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifcommandnotdefined}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;4><p:1>
+   >*@ifcommanddefined C1 l32
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{strongalias}
+  *paragraph C3
+   {strongalias }
+   *@@
+   {alias is defined.\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;4><p:18>
+    >*@end C1 l34
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifcommanddefined}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifcommanddefined}
+   >ignored_conditional_block<4><p:18>
+    >*@ifcommandnotdefined C3 l35
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >*arguments_line C1
+      >*block_line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{strongalias}
+     >{raw:strongalias @@alias is wrongly not defined\\n}
+     >*@end C1 l37
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifcommandnotdefined}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifcommandnotdefined}
+';
+
 
 $result_texis{'command_conditionals_user_defined'} = '@macro truc
 machin

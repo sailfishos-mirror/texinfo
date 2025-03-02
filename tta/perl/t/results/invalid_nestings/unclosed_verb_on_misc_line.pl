@@ -5,60 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unclosed_verb_on_misc_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'setfilename',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'name '
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ile.texi',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => 'f'
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'name '
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unclosed_verb_on_misc_line'} = '*document_root C1
+ *before_node_section C1
+  *@setfilename C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{name }
+   *line_arg C2
+    {name }
+    *0 @verb C1 l1
+    |INFO
+    |delimiter:{f}
+     *brace_container C1
+      {raw:ile.texi}
+';
+
 
 $result_texis{'unclosed_verb_on_misc_line'} = '@setfilename name @verb{file.texif}';
 

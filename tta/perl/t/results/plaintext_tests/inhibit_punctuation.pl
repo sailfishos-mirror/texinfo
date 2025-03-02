@@ -5,96 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inhibit_punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'foo vs.'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => ' bar.
-'
-            },
-            {
-              'text' => 'colon :'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => 'And something else.
-'
-            },
-            {
-              'text' => 'semi colon ;'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'text' => 'And ? ?'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => '. ?'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Now ! !'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => ' !'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'but , ,'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inhibit_punctuation'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C23
+   {foo vs.}
+   *@:
+   { bar.\\n}
+   {colon :}
+   *@:
+   {And something else.\\n}
+   {semi colon ;}
+   *@:
+   {.\\n}
+   {And ? ?}
+   *@:
+   {. ?}
+   *@:
+   {\\n}
+   {Now ! !}
+   *@:
+   *@@
+   { !}
+   *@:
+   {\\n}
+   {but , ,}
+   *@:
+   {\\n}
+';
+
 
 $result_texis{'inhibit_punctuation'} = 'foo vs.@: bar.
 colon :@:And something else.

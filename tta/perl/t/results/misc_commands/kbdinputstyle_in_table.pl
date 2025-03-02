@@ -5,2004 +5,617 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'kbdinputstyle_in_table'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' codekbdmacro
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@table @kbd
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item i--tem out of example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end table
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@table @kbd{}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item braced i--tem out of example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end table
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'in example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@table @kbd
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item i--tem in example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end table
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@table @kbd{}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item braced i--tem in example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end table
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end example
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'codekbdmacro',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle code
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'code'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'code'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 23
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 25,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'braced i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 25,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 25,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'extra' => {
-                            'code' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 25,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'extra' => {
-                            'code' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'braced i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 25,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 25,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 25,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 25,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'example'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'example'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 29
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 31,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'code' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'braced i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 31,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'source_info' => {
-                            'line_nr' => 31,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 31,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 31,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'braced i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 31,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 31,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'kbdinputstyle distinct
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kbdinputstyle',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'distinct'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'distinct'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 35
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'codekbdmacro'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'source_info' => {
-                        'line_nr' => 37,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 37,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 37,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 37,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'braced i--tem out of example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 37,
-                        'macro' => 'codekbdmacro'
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 37,
-            'macro' => 'codekbdmacro'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'source_info' => {
-                            'line_nr' => 37,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 37,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 37,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 37,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'braced i--tem in example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 37,
-                            'macro' => 'codekbdmacro'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 37,
-                    'macro' => 'codekbdmacro'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37,
-                'macro' => 'codekbdmacro'
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 37,
-                'macro' => 'codekbdmacro'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 37,
-            'macro' => 'codekbdmacro'
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
+ *before_node_section C34
+  *0 @macro C19 l1
+  |EXTRA
+  |macro_name:{codekbdmacro}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: codekbdmacro\\n}
+   {raw:@table @kbd\\n}
+   {raw:@item i--tem out of example\\n}
+   {raw:@end table\\n}
+   {raw:\\n}
+   {raw:@table @kbd{}\\n}
+   {raw:@item braced i--tem out of example\\n}
+   {raw:@end table\\n}
+   {raw:\\n}
+   {raw:in example\\n}
+   {raw:@example\\n}
+   {raw:@table @kbd\\n}
+   {raw:@item i--tem in example\\n}
+   {raw:@end table\\n}
+   {raw:@table @kbd{}\\n}
+   {raw:@item braced i--tem in example\\n}
+   {raw:@end table\\n}
+   {raw:@end example\\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle code\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l23
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{code}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {code}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *1 @table C3 l25:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E2]
+  |command_as_argument_kbd_code:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *2 @kbd l25:@codekbdmacro
+     |EXTRA
+     |code:{1}
+   *table_entry C1
+    *table_term C1
+     *@item C1 l25:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {i--tem out of example}
+   *@end C1 l25:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *3 @table C3 l25:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E4]
+  |command_as_argument_kbd_code:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *4 @kbd C1 l25:@codekbdmacro
+     |EXTRA
+     |code:{1}
+      *brace_container
+   *table_entry C1
+    *table_term C1
+     *@item C1 l25:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {braced i--tem out of example}
+   *@end C1 l25:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *5 @example C4 l25:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *6 @table C3 l25:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E7]
+   |command_as_argument_kbd_code:{1}
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *7 @kbd l25:@codekbdmacro
+      |EXTRA
+      |code:{1}
+    *table_entry C1
+     *table_term C1
+      *@item C1 l25:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {i--tem in example}
+    *@end C1 l25:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *8 @table C3 l25:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E9]
+   |command_as_argument_kbd_code:{1}
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *9 @kbd C1 l25:@codekbdmacro
+      |EXTRA
+      |code:{1}
+       *brace_container
+    *table_entry C1
+     *table_term C1
+      *@item C1 l25:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {braced i--tem in example}
+    *@end C1 l25:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *@end C1 l25:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:7>
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle example\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l29
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{example}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {example}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;2><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *10 @table C3 l31:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E11]
+  |command_as_argument_kbd_code:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *11 @kbd l31:@codekbdmacro
+     |EXTRA
+     |code:{1}
+   *table_entry C1
+    *table_term C1
+     *@item C1 l31:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {i--tem out of example}
+   *@end C1 l31:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *12 @table C3 l31:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E13]
+  |command_as_argument_kbd_code:{1}
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *13 @kbd C1 l31:@codekbdmacro
+     |EXTRA
+     |code:{1}
+      *brace_container
+   *table_entry C1
+    *table_term C1
+     *@item C1 l31:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {braced i--tem out of example}
+   *@end C1 l31:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *14 @example C4 l31:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *15 @table C3 l31:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E16]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *16 @kbd l31:@codekbdmacro
+    *table_entry C1
+     *table_term C1
+      *@item C1 l31:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {i--tem in example}
+    *@end C1 l31:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *17 @table C3 l31:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E18]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *18 @kbd C1 l31:@codekbdmacro
+       *brace_container
+    *table_entry C1
+     *table_term C1
+      *@item C1 l31:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {braced i--tem in example}
+    *@end C1 l31:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *@end C1 l31:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:7>
+  {empty_line:\\n}
+  *paragraph C2
+   *@@
+   {kbdinputstyle distinct\\n}
+  {empty_line:\\n}
+  *@kbdinputstyle C1 l35
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{3}
+  |misc_args:A{distinct}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {distinct}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;3><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{codekbdmacro}
+    >*brace_arg
+  *19 @table C3 l37:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E20]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *20 @kbd l37:@codekbdmacro
+   *table_entry C1
+    *table_term C1
+     *@item C1 l37:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {i--tem out of example}
+   *@end C1 l37:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *21 @table C3 l37:@codekbdmacro
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E22]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *22 @kbd C1 l37:@codekbdmacro
+      *brace_container
+   *table_entry C1
+    *table_term C1
+     *@item C1 l37:@codekbdmacro
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {braced i--tem out of example}
+   *@end C1 l37:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *paragraph C1
+   {in example\\n}
+  *23 @example C4 l37:@codekbdmacro
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *24 @table C3 l37:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E25]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *25 @kbd l37:@codekbdmacro
+    *table_entry C1
+     *table_term C1
+      *@item C1 l37:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {i--tem in example}
+    *@end C1 l37:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *26 @table C3 l37:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E27]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *27 @kbd C1 l37:@codekbdmacro
+       *brace_container
+    *table_entry C1
+     *table_term C1
+      *@item C1 l37:@codekbdmacro
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {braced i--tem in example}
+    *@end C1 l37:@codekbdmacro
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *@end C1 l37:@codekbdmacro
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;3><p:7>
+';
+
 
 $result_texis{'kbdinputstyle_in_table'} = '@macro codekbdmacro
 @table @kbd

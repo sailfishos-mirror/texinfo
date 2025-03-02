@@ -5,87 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_value_in_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'myspace',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' myspace
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '1 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'value',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'myspace'
-                      }
-                    ],
-                    'type' => 'brace_container'
-                  }
-                ]
-              },
-              'line' => '',
-              'sourcemark_type' => 'value_expansion',
-              'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'value_expansion',
-              'status' => 'end'
-            }
-          ],
-          'text' => ' 
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '1
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_value_in_line'} = '*document_root C1
+ *before_node_section C5
+  *@set C2
+  |INFO
+  |arg_line:{ myspace\\n}
+   {rawline_arg:myspace}
+   {rawline_arg:}
+  {empty_line:\\n}
+  *paragraph C1
+   {1 \\n}
+  {empty_line: \\n}
+  >SOURCEMARKS
+  >value_expansion<start;1>{}
+   >*@value C1
+    >*brace_container C1
+     >{myspace}
+  >value_expansion<end;1>
+  *paragraph C1
+   {1\\n}
+';
+
 
 $result_texis{'empty_value_in_line'} = '@set myspace
 

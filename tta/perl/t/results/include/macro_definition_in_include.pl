@@ -5,164 +5,55 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_definition_in_include'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'include',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'macro_included.texi'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'macro_included.texi'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'include',
-              'status' => 'start'
-            }
-          ],
-          'text' => ''
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' themacro
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in themacro
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'macro_included.texi',
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'themacro',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'file_name' => 'macro_included.texi',
-            'line_nr' => 1
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'include',
-              'status' => 'end'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Call macro
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'themacro'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 11,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'in themacro
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_definition_in_include'} = '*document_root C1
+ *before_node_section C4
+  {}
+  >SOURCEMARKS
+  >include<start;1>
+   >*@include C1 l1
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{macro_included.texi}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{\\n}
+     >{macro_included.texi}
+  *0 @macro C3 macro_included.texi:l1
+  |EXTRA
+  |macro_name:{themacro}
+  |misc_args:A{}
+  >SOURCEMARKS
+  >include<end;1>
+   *arguments_line C1
+    {macro_line: themacro\\n}
+   {raw:in themacro\\n}
+   *@end C1 macro_included.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   {Call macro\\n}
+   {in themacro\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{themacro}
+     >*brace_arg
+   >macro_expansion<end;1><p:11>
+';
+
 
 $result_texis{'macro_definition_in_include'} = '@macro themacro
 in themacro

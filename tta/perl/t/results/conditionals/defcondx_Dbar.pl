@@ -5,367 +5,115 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'defcondx_Dbar'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' test def*x in a conditional
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' set this from the command line.
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' set bar
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'deffnx inside conditional'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'foo'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'file_name' => 'defxcond.texi',
-                'line_nr' => 10
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'cmdname' => 'ifset',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'bar'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_after_argument' => {
-                                    'text' => '
-'
-                                  }
-                                },
-                                'type' => 'block_line_arg'
-                              }
-                            ],
-                            'type' => 'arguments_line'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'file_name' => 'defxcond.texi',
-                          'line_nr' => 12
-                        }
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'expanded_conditional_command',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'inter_def_item'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'bar'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'defxcond.texi',
-                'line_nr' => 13
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'file_name' => 'defxcond.texi',
-                      'line_nr' => 14
-                    }
-                  },
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Documentation.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'defxcond.texi',
-                'line_nr' => 18
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'defxcond.texi',
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'defxcond.texi',
-        'line_nr' => 8
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'defcondx_Dbar'} = '*document_root C3
+ *before_node_section C2
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C5
+   *@c C1
+    {rawline_arg: test def*x in a conditional\\n}
+   {empty_line:\\n}
+   *@c C1
+    {rawline_arg: set this from the command line.\\n}
+   *@c C1
+    {rawline_arg: set bar\\n}
+   {empty_line:\\n}
+ *0 @top C4 defxcond.texi:l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {deffnx inside conditional}
+  {empty_line:\\n}
+  *1 @deffn C5 defxcond.texi:l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 defxcond.texi:l10
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {foo}
+   *inter_def_item C1
+    {empty_line:\\n}
+    >SOURCEMARKS
+    >expanded_conditional_command<start;1><p:1>
+     >*@ifset C1 defxcond.texi:l12
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >*arguments_line C1
+       >*block_line_arg C1
+       >|INFO
+       >|spaces_after_argument:
+        >|{\\n}
+        >{bar}
+   *@deffnx C1 defxcond.texi:l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{deffn}
+   |original_def_cmdname:{deffnx}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1>
+    >*@end C1 defxcond.texi:l14
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifset}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {bar}
+   *def_item C3
+    {empty_line:\\n}
+    *paragraph C1
+     {Documentation.\\n}
+    {empty_line:\\n}
+   *@end C1 defxcond.texi:l18
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'defcondx_Dbar'} = '\\input texinfo
 

@@ -5,255 +5,82 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'on_node_line'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'c'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'filename'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        },
-                        {
-                          'text' => 'somemanual'
-                        },
-                        {
-                          'text' => ')'
-                        },
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'manual_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ')'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'anchor',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in anchor'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'is_target' => 1,
-                    'normalized' => 'in-anchor'
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'footnote'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'exdent',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'exdent'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'node_content' => {
-                  'contents' => [
-                    {},
-                    {},
-                    {},
-                    {}
-                  ]
-                },
-                'normalized' => '-'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'a'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[3] = $result_trees{'on_node_line'}{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_tree_text{'on_node_line'} = '*document_root C2
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->MISSING: (line_arg)[C8]]
+ |normalized:{a}
+  *arguments_line C2
+   *line_arg C1
+    *1 @ref C4 l1
+     *brace_arg C1
+     |EXTRA
+     |node_content:{a}
+      {a}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {b}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {c}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {filename}
+   *line_arg C8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |manual_content:{@pxref{(somemanual)Top}}
+   |node_content:{@anchor{in anchor}@footnote{footnote} @exdent exdent\\n}
+   |normalized:{-}
+    {(}
+    *2 @pxref C1 l1
+     *brace_arg C4
+     |EXTRA
+     |manual_content:{somemanual}
+     |node_content:{Top}
+      {(}
+      {somemanual}
+      {)}
+      {Top}
+    {)}
+    { }
+    *3 @anchor C1 l1
+    |EXTRA
+    |is_target:{1}
+    |normalized:{in-anchor}
+     *brace_arg C1
+      {in anchor}
+    *4 @footnote C1 l1
+    |EXTRA
+    |global_command_number:{1}
+     *brace_command_context C1
+      *paragraph C1
+       {footnote}
+    { }
+    *@exdent C1 l1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {exdent}
+';
+
 
 $result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{(somemanual)Top}) @anchor{in anchor}@footnote{footnote} @exdent exdent
 ';

@@ -5,74 +5,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unclosed_verb_on_section_line'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in section '
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'ruc
-',
-                          'type' => 'raw'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'raw'
-                        },
-                        {
-                          'text' => 'Now text.
-',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => 'T'
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unclosed_verb_on_section_line'} = '*document_root C2
+ *before_node_section
+ *0 @section C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_level:{2}
+ |section_number:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{1}
+  *arguments_line C1
+   *line_arg C2
+    {in section }
+    *1 @verb C1 l1
+    |INFO
+    |delimiter:{T}
+     *brace_container C3
+      {raw:ruc\\n}
+      {raw:\\n}
+      {raw:Now text.\\n}
+';
+
 
 $result_texis{'unclosed_verb_on_section_line'} = '@section in section @verb{Truc
 

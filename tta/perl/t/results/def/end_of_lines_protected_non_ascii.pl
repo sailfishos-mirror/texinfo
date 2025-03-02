@@ -5,328 +5,90 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'end_of_lines_protected_non_ascii'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => "cat\x{e9}gorie"
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => "deffn_n\x{f9}me"
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => "\x{e0}rguments"
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 1,
-                          'sourcemark_type' => 'defline_continuation'
-                        }
-                      ],
-                      'text' => '    ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'more'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'source_marks' => [
-                                {
-                                  'counter' => 2,
-                                  'position' => 5,
-                                  'sourcemark_type' => 'defline_continuation'
-                                }
-                              ],
-                              'text' => "\x{e0}rgs   with end \x{f4}f line within"
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'end_of_lines_protected_non_ascii.texi',
-                            'line_nr' => 3
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'with'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '3'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '@'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '@',
-                              'source_marks' => [
-                                {
-                                  'counter' => 3,
-                                  'sourcemark_type' => 'defline_continuation'
-                                }
-                              ]
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'one last arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'end_of_lines_protected_non_ascii.texi',
-                            'line_nr' => 5
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => "deffn_n\x{f9}me"
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'file_name' => 'end_of_lines_protected_non_ascii.texi',
-                'line_nr' => 2
-              },
-              'type' => 'def_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'def_item'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'deffn'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'deffn'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'end_of_lines_protected_non_ascii.texi',
-                'line_nr' => 7
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'end_of_lines_protected_non_ascii.texi',
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'end_of_lines_protected_non_ascii'} = '*document_root C1
+ *before_node_section C4
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
+  *0 @deffn C3 end_of_lines_protected_non_ascii.texi:l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 end_of_lines_protected_non_ascii.texi:l2
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{deffn_nùme}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C19
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {catégorie}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {deffn_nùme}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {àrguments}
+     {spaces:    }
+     >SOURCEMARKS
+     >defline_continuation<1><p:1>
+     *def_arg C1
+      *def_line_arg C1
+       {more}
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg C1 end_of_lines_protected_non_ascii.texi:l3
+       {àrgs   with end ôf line within}
+       >SOURCEMARKS
+       >defline_continuation<2><p:5>
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {with}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {3}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       *@@
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       *@@
+       >SOURCEMARKS
+       >defline_continuation<3>
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg C1 end_of_lines_protected_non_ascii.texi:l5
+       {one last arg}
+   *def_item C1
+    *paragraph C1
+     {deffn\\n}
+   *@end C1 end_of_lines_protected_non_ascii.texi:l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{deffn}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {deffn}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'end_of_lines_protected_non_ascii'} = '
 @deffn catégorie deffn_nùme àrguments    more {àrgs   with end ôf line within} with 3 @@ @@ {one last arg}

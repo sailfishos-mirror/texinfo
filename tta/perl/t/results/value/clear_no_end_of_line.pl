@@ -5,28 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'clear_no_end_of_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'clear',
-          'contents' => [
-            {
-              'text' => 'jj',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' jj'
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'clear_no_end_of_line'} = '*document_root C1
+ *before_node_section C1
+  *@clear C1
+  |INFO
+  |arg_line:{ jj}
+   {rawline_arg:jj}
+';
+
 
 $result_texis{'clear_no_end_of_line'} = '@clear jj';
 

@@ -5,188 +5,59 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_at_end_of_linemacro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {a, b}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'c \\a\\ d
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '\\b\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'a',
-              'b'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'something protected',
-                                    'type' => 'bracketed_linemacro_arg'
-                                  }
-                                ],
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'something '
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'lm',
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'linemacro_call'
-                          },
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'c something protected d
-'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 10,
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'something '
-                    },
-                    {
-                      'cmdname' => 'c',
-                      'contents' => [
-                        {
-                          'text' => ' comment }
-',
-                          'type' => 'rawline_arg'
-                        }
-                      ]
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'after
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
+ *before_node_section C4
+  *0 @linemacro C4 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{a|b}
+   *arguments_line C1
+    {macro_line: lm {a, b}\\n}
+   {raw:c \\a\\ d\\n}
+   {raw:\\b\\\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *paragraph C3
+   *1 @math C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{\\n}
+    *brace_command_context C3
+     {c something protected d\\n}
+     >SOURCEMARKS
+     >linemacro_expansion<start;1>
+      >*linemacro_call C2
+      >|INFO
+      >|command_name:{lm}
+      >|spaces_before_argument:
+       >|{ }
+       >*line_arg C1
+        >{bracketed_linemacro_arg:something protected}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{something }
+     {something }
+     >SOURCEMARKS
+     >linemacro_expansion<end;1><p:10>
+     *@c C1
+      {rawline_arg: comment }\\n}
+   {\\n}
+   {after\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'comment_at_end_of_linemacro_call'} = '@linemacro lm {a, b}
 c \\a\\ d

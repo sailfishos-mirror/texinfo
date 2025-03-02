@@ -5,955 +5,274 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_menu'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' astar
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '*
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'astar',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' starspaces
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '* 
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'starspaces',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' spaces
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '  
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'spaces',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' aspace
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => ' 
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'aspace',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 14
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' twocolon
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '::
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'twocolon',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 18
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' acolon
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => ':
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'acolon',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 22
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'starspaces'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'twocolon'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 10,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'menu entry'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'menu-entry'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'spaces'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 3,
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => '  
-',
-                      'type' => 'after_menu_description_line'
-                    },
-                    {
-                      'text' => 'menu comment
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'astar'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 4,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'astar'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 5,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 6,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aspace'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 6,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'other node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'other-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 31
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'acolon'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 16,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'node colon macro'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node-colon-macro'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 7,
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 8,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'acolon'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 8,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 9,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aspace'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 9,
-                      'position' => 3,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '3rd node'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'entry'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'entry'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 10,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'aspace'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 10,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => '. ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'description
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 33
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 26
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[13]{'contents'}[6]{'contents'}[3]{'contents'}[0];
+$result_tree_text{'macro_in_menu'} = '*document_root C1
+ *before_node_section C14
+  {empty_line:\\n}
+  *0 @macro C3 l2
+  |EXTRA
+  |macro_name:{astar}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: astar\\n}
+   {raw:*\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l6
+  |EXTRA
+  |macro_name:{starspaces}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: starspaces\\n}
+   {raw:* \\n}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @macro C3 l10
+  |EXTRA
+  |macro_name:{spaces}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: spaces\\n}
+   {raw:  \\n}
+   *@end C1 l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *3 @macro C3 l14
+  |EXTRA
+  |macro_name:{aspace}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: aspace\\n}
+   {raw: \\n}
+   *@end C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *4 @macro C3 l18
+  |EXTRA
+  |macro_name:{twocolon}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: twocolon\\n}
+   {raw:::\\n}
+   *@end C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *5 @macro C3 l22
+  |EXTRA
+  |macro_name:{acolon}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: acolon\\n}
+   {raw::\\n}
+   *@end C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *6 @menu C8 l26
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l27
+    {menu_entry_leading_text:* }
+    >SOURCEMARKS
+    >macro_expansion<start;1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{starspaces}
+      >*brace_arg
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{menu entry}
+    |normalized:{menu-entry}
+     {menu entry}
+     >SOURCEMARKS
+     >macro_expansion<end;1>
+     >macro_expansion<start;2><p:10>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{twocolon}
+       >*brace_arg
+    {menu_entry_separator::: }
+    >SOURCEMARKS
+    >macro_expansion<end;2><p:2>
+    *menu_entry_description C1
+     *preformatted C1
+      {description\\n}
+   *menu_comment C1
+    *preformatted C2
+     {after_menu_description_line:  \\n}
+     >SOURCEMARKS
+     >macro_expansion<start;3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{spaces}
+       >*brace_arg
+     >macro_expansion<end;3><p:2>
+     {menu comment\\n}
+   *menu_entry C4 l30
+    {menu_entry_leading_text:* }
+    >SOURCEMARKS
+    >macro_expansion<start;4>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{astar}
+      >*brace_arg
+    >macro_expansion<end;4><p:1>
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node}
+    |normalized:{node}
+     {node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l31
+    {menu_entry_leading_text:* }
+    >SOURCEMARKS
+    >macro_expansion<start;5>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{astar}
+      >*brace_arg
+    >macro_expansion<end;5><p:1>
+    >macro_expansion<start;6><p:1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{aspace}
+      >*brace_arg
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{other node}
+    |normalized:{other-node}
+     {other node}
+     >SOURCEMARKS
+     >macro_expansion<end;6>
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l32
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node colon macro}
+    |normalized:{node-colon-macro}
+     {node colon macro}
+     >SOURCEMARKS
+     >macro_expansion<start;7><p:16>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{acolon}
+       >*brace_arg
+    {menu_entry_separator::: }
+    >SOURCEMARKS
+    >macro_expansion<end;7><p:1>
+    >macro_expansion<start;8><p:1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{acolon}
+      >*brace_arg
+    >macro_expansion<end;8><p:2>
+    >macro_expansion<start;9><p:2>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{aspace}
+      >*brace_arg
+    >macro_expansion<end;9><p:3>
+    *menu_entry_description C1
+     *preformatted C1
+      {description\\n}
+   *menu_entry C6 l33
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {3rd node}
+    {menu_entry_separator:: }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{entry}
+    |normalized:{entry}
+     {entry}
+    {menu_entry_separator:. }
+    >SOURCEMARKS
+    >macro_expansion<start;10><p:1>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{aspace}
+      >*brace_arg
+    >macro_expansion<end;10><p:2>
+    *menu_entry_description C1
+     *preformatted C1
+      {description\\n}
+   *@end C1 l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'macro_in_menu'} = '
 @macro astar

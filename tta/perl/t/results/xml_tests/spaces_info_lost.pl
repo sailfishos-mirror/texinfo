@@ -5,149 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'spaces_info_lost'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'display',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'text on display line'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'in bad display
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'display'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'display'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => '  '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'verbatim',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '  
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'in verbatim @g 
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'verbatim'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'verbatim'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'spaces_info_lost'} = '*document_root C1
+ *before_node_section C3
+  *0 @display C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{  }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {text on display line}
+   *preformatted C1
+    {in bad display\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{  }
+   |EXTRA
+   |text_arg:{display}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {display}
+  {empty_line:\\n}
+  *1 @verbatim C3 l5
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{  \\n}
+   {raw:in verbatim @g \\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{  }
+   |EXTRA
+   |text_arg:{verbatim}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {verbatim}
+';
+
 
 $result_texis{'spaces_info_lost'} = '@display  text on display line 
 in bad display

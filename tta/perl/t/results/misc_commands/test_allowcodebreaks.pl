@@ -5,2094 +5,514 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_allowcodebreaks'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' testallowcodebreakspara {nr}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'Out of code --- out-of-code.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{1aaa} @code{2aaa-} @code{-3bbb} @code{4aaa-bbb} 
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{ 5aaa-bb} @code{6aaa-bb } @code{ccc 7aaa-bbb} @code{ccc 8aaa-bbb ddd}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{9aaa-bbb rrr_vv}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@samp{fff-- --- minus@minus{}b aa-tt@\'eff_gg aa@r{r-oman} 
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'anc-hor@anchor{A node\\nr\\}}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'testallowcodebreakspara',
-            'misc_args' => [
-              'nr'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' testallowcodebreaksexample{}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@example
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@code{in-example}
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end example
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 18
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'testallowcodebreaksexample',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 13
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Before first allowcodebreaks
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '0'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'testallowcodebreakspara'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Out of code --- out-of-code.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '2aaa-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '-3bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '4aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' 
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' 5aaa-bb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '6aaa-bb '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 7aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 8aaa-bbb ddd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '9aaa-bbb rrr_vv'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'fff-- --- minus'
-                    },
-                    {
-                      'cmdname' => 'minus',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 21,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'b aa-tt'
-                    },
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 21,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'ff_gg aa'
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r-oman'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 21,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' 
-'
-                    },
-                    {
-                      'text' => 'anc-hor'
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'A node0'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'A-node0'
-                      },
-                      'source_info' => {
-                        'line_nr' => 21,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21,
-                'macro' => 'testallowcodebreakspara'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'testallowcodebreaksexample'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in-example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 22,
-                    'macro' => 'testallowcodebreaksexample'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 22,
-                'macro' => 'testallowcodebreaksexample'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 22,
-            'macro' => 'testallowcodebreaksexample'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'allowcodebreaks',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'false'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'false'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 24
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After false
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '1'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'testallowcodebreakspara'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Out of code --- out-of-code.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '2aaa-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '-3bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '4aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' 
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' 5aaa-bb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '6aaa-bb '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 7aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 8aaa-bbb ddd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '9aaa-bbb rrr_vv'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'fff-- --- minus'
-                    },
-                    {
-                      'cmdname' => 'minus',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'b aa-tt'
-                    },
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'ff_gg aa'
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r-oman'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' 
-'
-                    },
-                    {
-                      'text' => 'anc-hor'
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'A node1'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'A-node1'
-                      },
-                      'source_info' => {
-                        'line_nr' => 26,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26,
-                'macro' => 'testallowcodebreakspara'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 4,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'testallowcodebreaksexample'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in-example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 27,
-                    'macro' => 'testallowcodebreaksexample'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 27,
-                'macro' => 'testallowcodebreaksexample'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 27,
-            'macro' => 'testallowcodebreaksexample'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In w:
-'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'w'
-                                  }
-                                ],
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'testallowcodebreakspara'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'Out of code --- out-of-code.
-'
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '1aaa'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '2aaa-'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '-3bbb'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '4aaa-bbb'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' 
-'
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' 5aaa-bb'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '6aaa-bb '
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'ccc 7aaa-bbb'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'ccc 8aaa-bbb ddd'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '9aaa-bbb rrr_vv'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fff-- --- minus'
-                            },
-                            {
-                              'cmdname' => 'minus',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 30,
-                                'macro' => 'testallowcodebreakspara'
-                              }
-                            },
-                            {
-                              'text' => 'b aa-tt'
-                            },
-                            {
-                              'cmdname' => '\'',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'e'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 30,
-                                'macro' => 'testallowcodebreakspara'
-                              }
-                            },
-                            {
-                              'text' => 'ff_gg aa'
-                            },
-                            {
-                              'cmdname' => 'r',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'r-oman'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 30,
-                                'macro' => 'testallowcodebreakspara'
-                              }
-                            },
-                            {
-                              'text' => ' 
-'
-                            },
-                            {
-                              'text' => 'anc-hor'
-                            },
-                            {
-                              'cmdname' => 'anchor',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'A nodew'
-                                    }
-                                  ],
-                                  'type' => 'brace_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'is_target' => 1,
-                                'normalized' => 'A-nodew'
-                              },
-                              'source_info' => {
-                                'line_nr' => 30,
-                                'macro' => 'testallowcodebreakspara'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 30,
-                        'macro' => 'testallowcodebreakspara'
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'w',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in-example'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 34
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 34
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 35
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 33
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'allowcodebreaks',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'true'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'true'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 37
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After true
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '2'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'testallowcodebreakspara'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Out of code --- out-of-code.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '1aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '2aaa-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '-3bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '4aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' 
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' 5aaa-bb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '6aaa-bb '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 7aaa-bbb'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ccc 8aaa-bbb ddd'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '9aaa-bbb rrr_vv'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'fff-- --- minus'
-                    },
-                    {
-                      'cmdname' => 'minus',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 39,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'b aa-tt'
-                    },
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 39,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => 'ff_gg aa'
-                    },
-                    {
-                      'cmdname' => 'r',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'r-oman'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 39,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    },
-                    {
-                      'text' => ' 
-'
-                    },
-                    {
-                      'text' => 'anc-hor'
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'A node2'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'A-node2'
-                      },
-                      'source_info' => {
-                        'line_nr' => 39,
-                        'macro' => 'testallowcodebreakspara'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 39,
-                'macro' => 'testallowcodebreakspara'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 7,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'testallowcodebreaksexample'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in-example'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 40,
-                    'macro' => 'testallowcodebreaksexample'
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 40,
-                'macro' => 'testallowcodebreaksexample'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 40,
-            'macro' => 'testallowcodebreaksexample'
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_allowcodebreaks'} = '*document_root C3
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @node C23 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *2 @macro C8 l4
+  |EXTRA
+  |macro_name:{testallowcodebreakspara}
+  |misc_args:A{nr}
+   *arguments_line C1
+    {macro_line: testallowcodebreakspara {nr}\\n}
+   {raw:Out of code --- out-of-code.\\n}
+   {raw:@code{1aaa} @code{2aaa-} @code{-3bbb} @code{4aaa-bbb} \\n}
+   {raw:@code{ 5aaa-bb} @code{6aaa-bb } @code{ccc 7aaa-bbb} @code{ccc 8aaa-bbb ddd}\\n}
+   {raw:@code{9aaa-bbb rrr_vv}\\n}
+   {raw:@samp{fff-- --- minus@minus{}b aa-tt@\'eff_gg aa@r{r-oman} \\n}
+   {raw:anc-hor@anchor{A node\\nr\\}}\\n}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *3 @macro C6 l13
+  |EXTRA
+  |macro_name:{testallowcodebreaksexample}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: testallowcodebreaksexample{}\\n}
+   {raw:\\n}
+   {raw:@example\\n}
+   {raw:@code{in-example}\\n}
+   {raw:@end example\\n}
+   *@end C1 l18
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C22
+   {Before first allowcodebreaks\\n}
+   {Out of code --- out-of-code.\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{testallowcodebreakspara}
+     >*brace_arg C1
+      >{0}
+   *4 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {1aaa}
+   { }
+   *5 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {2aaa-}
+   { }
+   *6 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {-3bbb}
+   { }
+   *7 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {4aaa-bbb}
+   { \\n}
+   *8 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     { 5aaa-bb}
+   { }
+   *9 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {6aaa-bb }
+   { }
+   *10 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 7aaa-bbb}
+   { }
+   *11 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 8aaa-bbb ddd}
+   {\\n}
+   *12 @code C1 l21:@testallowcodebreakspara
+    *brace_container C1
+     {9aaa-bbb rrr_vv}
+   {\\n}
+   *13 @samp C1 l21:@testallowcodebreakspara
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *brace_container C9
+     {fff-- --- minus}
+     *14 @minus C1 l21:@testallowcodebreakspara
+      *brace_container
+     {b aa-tt}
+     *15 @\' C1 l21:@testallowcodebreakspara
+      *following_arg C1
+       {e}
+     {ff_gg aa}
+     *16 @r C1 l21:@testallowcodebreakspara
+      *brace_container C1
+       {r-oman}
+     { \\n}
+     {anc-hor}
+     *17 @anchor C1 l21:@testallowcodebreakspara
+     |EXTRA
+     |is_target:{1}
+     |normalized:{A-node0}
+      *brace_arg C1
+       {A node0}
+   {\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;2>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{testallowcodebreaksexample}
+    >*brace_arg
+  *18 @example C3 l22:@testallowcodebreaksexample
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C2
+    *19 @code C1 l22:@testallowcodebreaksexample
+     *brace_container C1
+      {in-example}
+    {\\n}
+   *@end C1 l22:@testallowcodebreaksexample
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:7>
+  {empty_line:\\n}
+  *@allowcodebreaks C1 l24
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{false}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {false}
+  *paragraph C22
+   {After false\\n}
+   {Out of code --- out-of-code.\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;3>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{testallowcodebreakspara}
+     >*brace_arg C1
+      >{1}
+   *20 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {1aaa}
+   { }
+   *21 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {2aaa-}
+   { }
+   *22 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {-3bbb}
+   { }
+   *23 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {4aaa-bbb}
+   { \\n}
+   *24 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     { 5aaa-bb}
+   { }
+   *25 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {6aaa-bb }
+   { }
+   *26 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 7aaa-bbb}
+   { }
+   *27 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 8aaa-bbb ddd}
+   {\\n}
+   *28 @code C1 l26:@testallowcodebreakspara
+    *brace_container C1
+     {9aaa-bbb rrr_vv}
+   {\\n}
+   *29 @samp C1 l26:@testallowcodebreakspara
+   >SOURCEMARKS
+   >macro_expansion<end;3>
+    *brace_container C9
+     {fff-- --- minus}
+     *30 @minus C1 l26:@testallowcodebreakspara
+      *brace_container
+     {b aa-tt}
+     *31 @\' C1 l26:@testallowcodebreakspara
+      *following_arg C1
+       {e}
+     {ff_gg aa}
+     *32 @r C1 l26:@testallowcodebreakspara
+      *brace_container C1
+       {r-oman}
+     { \\n}
+     {anc-hor}
+     *33 @anchor C1 l26:@testallowcodebreakspara
+     |EXTRA
+     |is_target:{1}
+     |normalized:{A-node1}
+      *brace_arg C1
+       {A node1}
+   {\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;4>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{testallowcodebreaksexample}
+    >*brace_arg
+  *34 @example C3 l27:@testallowcodebreaksexample
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C2
+    *35 @code C1 l27:@testallowcodebreaksexample
+     *brace_container C1
+      {in-example}
+    {\\n}
+   *@end C1 l27:@testallowcodebreaksexample
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;4><p:7>
+  {empty_line:\\n}
+  *paragraph C3
+   {In w:\\n}
+   *36 @w C1 l30
+    *brace_container C21
+     {Out of code --- out-of-code.\\n}
+     >SOURCEMARKS
+     >macro_expansion<start;5>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{testallowcodebreakspara}
+       >*brace_arg C1
+        >{w}
+     *37 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {1aaa}
+     { }
+     *38 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {2aaa-}
+     { }
+     *39 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {-3bbb}
+     { }
+     *40 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {4aaa-bbb}
+     { \\n}
+     *41 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       { 5aaa-bb}
+     { }
+     *42 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {6aaa-bb }
+     { }
+     *43 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {ccc 7aaa-bbb}
+     { }
+     *44 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {ccc 8aaa-bbb ddd}
+     {\\n}
+     *45 @code C1 l30:@testallowcodebreakspara
+      *brace_container C1
+       {9aaa-bbb rrr_vv}
+     {\\n}
+     *46 @samp C1 l30:@testallowcodebreakspara
+     >SOURCEMARKS
+     >macro_expansion<end;5>
+      *brace_container C9
+       {fff-- --- minus}
+       *47 @minus C1 l30:@testallowcodebreakspara
+        *brace_container
+       {b aa-tt}
+       *48 @\' C1 l30:@testallowcodebreakspara
+        *following_arg C1
+         {e}
+       {ff_gg aa}
+       *49 @r C1 l30:@testallowcodebreakspara
+        *brace_container C1
+         {r-oman}
+       { \\n}
+       {anc-hor}
+       *50 @anchor C1 l30:@testallowcodebreakspara
+       |EXTRA
+       |is_target:{1}
+       |normalized:{A-nodew}
+        *brace_arg C1
+         {A nodew}
+     {\\n}
+   {\\n}
+  {empty_line:\\n}
+  *51 @example C3 l33
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C2
+    *52 @w C1 l34
+     *brace_container C1
+      *53 @code C1 l34
+       *brace_container C1
+        {in-example}
+    {\\n}
+   *@end C1 l35
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *@allowcodebreaks C1 l37
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{true}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {true}
+  *paragraph C22
+   {After true\\n}
+   {Out of code --- out-of-code.\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;6>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{testallowcodebreakspara}
+     >*brace_arg C1
+      >{2}
+   *54 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {1aaa}
+   { }
+   *55 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {2aaa-}
+   { }
+   *56 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {-3bbb}
+   { }
+   *57 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {4aaa-bbb}
+   { \\n}
+   *58 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     { 5aaa-bb}
+   { }
+   *59 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {6aaa-bb }
+   { }
+   *60 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 7aaa-bbb}
+   { }
+   *61 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {ccc 8aaa-bbb ddd}
+   {\\n}
+   *62 @code C1 l39:@testallowcodebreakspara
+    *brace_container C1
+     {9aaa-bbb rrr_vv}
+   {\\n}
+   *63 @samp C1 l39:@testallowcodebreakspara
+   >SOURCEMARKS
+   >macro_expansion<end;6>
+    *brace_container C9
+     {fff-- --- minus}
+     *64 @minus C1 l39:@testallowcodebreakspara
+      *brace_container
+     {b aa-tt}
+     *65 @\' C1 l39:@testallowcodebreakspara
+      *following_arg C1
+       {e}
+     {ff_gg aa}
+     *66 @r C1 l39:@testallowcodebreakspara
+      *brace_container C1
+       {r-oman}
+     { \\n}
+     {anc-hor}
+     *67 @anchor C1 l39:@testallowcodebreakspara
+     |EXTRA
+     |is_target:{1}
+     |normalized:{A-node2}
+      *brace_arg C1
+       {A node2}
+   {\\n}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;7>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{testallowcodebreaksexample}
+    >*brace_arg
+  *68 @example C3 l40:@testallowcodebreaksexample
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C2
+    *69 @code C1 l40:@testallowcodebreaksexample
+     *brace_container C1
+      {in-example}
+    {\\n}
+   *@end C1 l40:@testallowcodebreaksexample
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+     >SOURCEMARKS
+     >macro_expansion<end;7><p:7>
+';
+
 
 $result_texis{'test_allowcodebreaks'} = '@node Top
 @node chap

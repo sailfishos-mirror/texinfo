@@ -5,598 +5,175 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inline'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '<blink>html</blink> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'plaintext'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '<para>xml</para> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ',
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'docbook'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '<emphasis>docbook</emphasis> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'docbook'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' $\\underline{a < b @code{tex \\hbox{ code }}}$ ``',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'latex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'math',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '\\frac'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '{a < b '
-                                },
-                                {
-                                  'cmdname' => 'code',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'tex \\hbox'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => '{ code }'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 7
-                                          },
-                                          'type' => 'balanced_braces'
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 7
-                                  }
-                                },
-                                {
-                                  'text' => '}'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 7
-                              },
-                              'type' => 'balanced_braces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '{b}'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 7
-                              },
-                              'type' => 'balanced_braces'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    },
-                    {
-                      'text' => ' ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'latex'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'raw <blink>html</blink> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'raw plaintext ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'plaintext'
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'raw <para>xml</para> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => ',
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'docbook'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'raw <emphasis>docbook</emphasis> ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'docbook'
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ', 
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' raw $\\underline{a < b @code{tex \\hbox{ code }}}$ ``',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'latex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'raw $\\frac'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{a < b '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'tex \\hbox'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '{ code }'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 15
-                                  },
-                                  'type' => 'balanced_braces'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 15
-                          }
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{b}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 15
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'text' => '$ ``'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'latex'
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inline'} = '*document_root C1
+ *before_node_section C5
+  {empty_line:\\n}
+  *paragraph C12
+   *0 @inlinefmt C2 l2
+   |EXTRA
+   |expand_index:{1}
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {<blink>html</blink> ``}
+   {, \\n}
+   *1 @inlinefmt C2 l3
+   |EXTRA
+   |expand_index:{1}
+   |format:{plaintext}
+    *brace_arg C1
+     {plaintext}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {plaintext ``}
+   {, \\n}
+   *2 @inlinefmt C2 l4
+   |EXTRA
+   |expand_index:{1}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {<para>xml</para> ``}
+   {,\\n}
+   *3 @inlinefmt C2 l5
+   |EXTRA
+   |expand_index:{1}
+   |format:{docbook}
+    *brace_arg C1
+     {docbook}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {<emphasis>docbook</emphasis> ``}
+   {, \\n}
+   *4 @inlinefmt C2 l6
+   |EXTRA
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw: $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
+   {\\n}
+   *5 @inlinefmt C2 l7
+   |EXTRA
+   |expand_index:{1}
+   |format:{latex}
+    *brace_arg C1
+     {latex}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *6 @math C1 l7
+      *brace_command_context C3
+       {\\frac}
+       *balanced_braces C3 l7
+        {{a < b }
+        *7 @code C1 l7
+         *brace_container C2
+          {tex \\hbox}
+          *balanced_braces C1 l7
+           {{ code }}
+        {}}
+       *balanced_braces C1 l7
+        {{b}}
+     { ``}
+   {\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   *8 @inlineraw C2 l10
+   |EXTRA
+   |expand_index:{1}
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {raw <blink>html</blink> ``}
+   {, \\n}
+   *9 @inlineraw C2 l11
+   |EXTRA
+   |expand_index:{1}
+   |format:{plaintext}
+    *brace_arg C1
+     {plaintext}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {raw plaintext ``}
+   {, \\n}
+   *10 @inlineraw C2 l12
+   |EXTRA
+   |expand_index:{1}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {raw <para>xml</para> ``}
+   {,\\n}
+   *11 @inlineraw C2 l13
+   |EXTRA
+   |expand_index:{1}
+   |format:{docbook}
+    *brace_arg C1
+     {docbook}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {raw <emphasis>docbook</emphasis> ``}
+   {, \\n}
+   *12 @inlineraw C2 l14
+   |EXTRA
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw: raw $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
+   {\\n}
+   *13 @inlineraw C2 l15
+   |EXTRA
+   |expand_index:{1}
+   |format:{latex}
+    *brace_arg C1
+     {latex}
+    *brace_arg C4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {raw $\\frac}
+     *balanced_braces C3 l15
+      {{a < b }
+      *14 @code C1 l15
+       *brace_container C2
+        {tex \\hbox}
+        *balanced_braces C1 l15
+         {{ code }}
+      {}}
+     *balanced_braces C1 l15
+      {{b}}
+     {$ ``}
+   {\\n}
+';
+
 
 $result_texis{'inline'} = '
 @inlinefmt{html, <blink>html</blink> ``}, 

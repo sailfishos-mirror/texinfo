@@ -5,692 +5,199 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'formats_in_menu'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'gcc'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'text
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'table',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'asis',
-                                  'source_info' => {
-                                    'line_nr' => 5
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'item'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => '
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 6
-                                  }
-                                }
-                              ],
-                              'type' => 'table_term'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '* table line::
-'
-                                    }
-                                  ],
-                                  'type' => 'preformatted'
-                                }
-                              ],
-                              'type' => 'table_definition'
-                            }
-                          ],
-                          'type' => 'table_entry'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'table'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'table'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'command_as_argument' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'info'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'verbatim',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'text' => 'some @ verb{x atim
-',
-                          'type' => 'raw'
-                        },
-                        {
-                          'text' => '* texinfo:: in @ verbatim
-',
-                          'type' => 'raw'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'verbatim'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'verbatim'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 14
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'manual2'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '%
-'
-                        },
-                        {
-                          'cmdname' => 'html',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                },
-                                {
-                                  'text' => '<i></i>
-'
-                                }
-                              ],
-                              'type' => 'rawpreformatted'
-                            },
-                            {
-                              'cmdname' => 'end',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'html'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'text_arg' => 'html'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 19
-                              }
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 16
-                          }
-                        },
-                        {
-                          'text' => 'Log$
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'truc'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'acronym',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'description
-'
-                                },
-                                {
-                                  'text' => '* acronym::'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 21
-                          }
-                        },
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'example',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '* subsubsection::
-'
-                        },
-                        {
-                          'text' => 'Menu comment
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'example'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 27
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 24
-                  }
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 29
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'formats_in_menu'} = '*document_root C2
+ *before_node_section
+ *0 @node C3 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menus:EC[E1]
+ |normalized:{first}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first}
+  {empty_line:\\n}
+  *1 @menu C8 l3
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l4
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{gcc}
+     {(}
+     {gcc}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C2
+     *preformatted C1
+      {text\\n}
+     *2 @table C3 l5
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |command_as_argument:[E3]
+      *arguments_line C1
+       *block_line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *3 @asis l5
+      *table_entry C2
+       *table_term C1
+        *@item C1 l6
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{\\n}
+          {item}
+       *table_definition C1
+        *preformatted C1
+         {* table line::\\n}
+      *@end C1 l8
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{table}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {table}
+   *menu_comment C1
+    *preformatted C1
+     {after_menu_description_line:\\n}
+   *menu_entry C4 l10
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{info}
+     {(}
+     {info}
+     {)}
+    {menu_entry_separator:::}
+    *menu_entry_description C2
+     *preformatted C1
+      {\\n}
+     *4 @verbatim C4 l11
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+      {raw:some @ verb{x atim\\n}
+      {raw:* texinfo:: in @ verbatim\\n}
+      *@end C1 l14
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{verbatim}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {verbatim}
+   *menu_entry C4 l15
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{manual2}
+     {(}
+     {manual2}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C1
+     *preformatted C3
+      {%\\n}
+      *5 @html C3 l16
+       *arguments_line C1
+        *block_line_arg
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+       *rawpreformatted C2
+        {empty_line:\\n}
+        {<i></i>\\n}
+       *@end C1 l19
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |text_arg:{html}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {html}
+      {Log$\\n}
+   *menu_entry C4 l21
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{truc}
+     {(}
+     {truc}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C1
+     *preformatted C2
+      *6 @acronym C1 l21
+       *brace_arg C2
+        {description\\n}
+        {* acronym::}
+      {\\n}
+   *menu_comment C3
+    *preformatted C1
+     {after_menu_description_line:\\n}
+    *7 @example C3 l24
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *preformatted C2
+      {* subsubsection::\\n}
+      {Menu comment\\n}
+     *@end C1 l27
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{example}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {example}
+    *preformatted C1
+     {empty_line:\\n}
+   *@end C1 l29
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'formats_in_menu'} = '@node first
 

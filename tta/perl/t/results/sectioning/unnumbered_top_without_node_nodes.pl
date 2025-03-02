@@ -5,301 +5,132 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unnumbered_top_without_node_nodes'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'a-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {},
-      {
-        'cmdname' => 'unnumbered',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'unnumbered'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'in unnumbered
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 2
-        }
-      },
-      {
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'top section'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top section
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 6
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'second'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'dir'
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                }
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'second'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 9
-      }
-    },
-    'unit_contents' => [
-      {},
-      {
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Chapter'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Text of chapter
-'
-              }
-            ],
-            'type' => 'paragraph'
-          }
-        ],
-        'extra' => {
-          'section_number' => '1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 10
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'unnumbered_top_without_node_nodes'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'unnumbered_top_without_node_nodes'}[0]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'unnumbered_top_without_node_nodes'}[0]{'unit_contents'}[1] = $result_trees{'unnumbered_top_without_node_nodes'}[0]{'unit_command'};
-$result_trees{'unnumbered_top_without_node_nodes'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'unnumbered_top_without_node_nodes'}[1]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'unnumbered_top_without_node_nodes'}[1]{'unit_contents'}[0] = $result_trees{'unnumbered_top_without_node_nodes'}[1]{'unit_command'};
+$result_tree_text{'unnumbered_top_without_node_nodes'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U0]
+FastBack: [U0]
+NodeUp: (dir)
+
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |normalized:{a-node}
+  *arguments_line C4
+   *line_arg C1
+    {a node}
+   *line_arg
+   *line_arg
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+ *1 @unnumbered C4 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_directions:D[next->E2]
+ |section_level:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1|E2|E4]
+  ||section_level:{0}
+ |toplevel_directions:D[next->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {unnumbered}
+  {empty_line:\\n}
+  *paragraph C1
+   {in unnumbered\\n}
+  {empty_line:\\n}
+ *2 @top C3 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E4|prev->E1]
+ |section_level:{1}
+ |toplevel_directions:D[next->E4|prev->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top section}
+  *paragraph C1
+   {Top section\\n}
+  {empty_line:\\n}
+U1 unit[E3]
+unit_directions:D[prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Back: [U0]
+Prev: [U0]
+NodeUp: (dir)
+
+ *3 @node C1 l9
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |node_directions:D[up->MISSING: (line_arg)[C3]]
+ |normalized:{second}
+  *arguments_line C4
+   *line_arg C1
+    {second}
+   *line_arg
+   *line_arg
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |manual_content:{dir}
+    {(}
+    {dir}
+    {)}
+ *4 @chapter C3 l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[prev->E2]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E2|up->E2]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *paragraph C1
+   {Text of chapter\\n}
+';
+
 
 $result_texis{'unnumbered_top_without_node_nodes'} = '@node a node,,,(dir)
 @unnumbered unnumbered

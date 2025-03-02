@@ -5,484 +5,148 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_enumerate'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'enumerate',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '   ',
-                  'type' => 'spaces_before_paragraph'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'First level item
-'
-                    },
-                    {
-                      'text' => '   '
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'First level item
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'enumerate',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '     ',
-                          'type' => 'spaces_before_paragraph'
-                        }
-                      ],
-                      'type' => 'before_item'
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Second level item
-'
-                            },
-                            {
-                              'text' => '     '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'item_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Second level item
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'cmdname' => 'enumerate',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '       ',
-                                  'type' => 'spaces_before_paragraph'
-                                }
-                              ],
-                              'type' => 'before_item'
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Third level item
-'
-                                    },
-                                    {
-                                      'text' => '       '
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 1
-                              },
-                              'source_info' => {
-                                'line_nr' => 8
-                              }
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Third level item
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                },
-                                {
-                                  'cmdname' => 'enumerate',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'block_line_arg'
-                                        }
-                                      ],
-                                      'type' => 'arguments_line'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '         ',
-                                          'type' => 'spaces_before_paragraph'
-                                        }
-                                      ],
-                                      'type' => 'before_item'
-                                    },
-                                    {
-                                      'cmdname' => 'item',
-                                      'contents' => [
-                                        {
-                                          'text' => ' ',
-                                          'type' => 'ignorable_spaces_after_command'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'Fourth level item
-'
-                                            },
-                                            {
-                                              'text' => '         '
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'item_number' => 1
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 11
-                                      }
-                                    },
-                                    {
-                                      'cmdname' => 'item',
-                                      'contents' => [
-                                        {
-                                          'text' => ' ',
-                                          'type' => 'ignorable_spaces_after_command'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'Fourth level item
-'
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'item_number' => 2
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 12
-                                      }
-                                    },
-                                    {
-                                      'cmdname' => 'end',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'enumerate'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'text_arg' => 'enumerate'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 13
-                                      }
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'enumerate_specification' => '1'
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 10
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 2
-                              },
-                              'source_info' => {
-                                'line_nr' => 9
-                              }
-                            },
-                            {
-                              'cmdname' => 'end',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'enumerate'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'text_arg' => 'enumerate'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'extra' => {
-                            'enumerate_specification' => '1'
-                          },
-                          'source_info' => {
-                            'line_nr' => 7
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'item_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'enumerate'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'enumerate'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'enumerate_specification' => '1'
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'enumerate'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'enumerate'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            }
-          ],
-          'extra' => {
-            'enumerate_specification' => '1'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_enumerate'} = '*document_root C1
+ *before_node_section C3
+  *preamble_before_content
+  *0 @enumerate C5 l1
+  |EXTRA
+  |enumerate_specification:{1}
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *before_item C1
+    {spaces_before_paragraph:   }
+   *@item C2 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C2
+     {First level item\\n}
+     {   }
+   *@item C3 l3
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {First level item\\n}
+    *1 @enumerate C5 l4
+    |EXTRA
+    |enumerate_specification:{1}
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *before_item C1
+      {spaces_before_paragraph:     }
+     *@item C2 l5
+     |EXTRA
+     |item_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {Second level item\\n}
+       {     }
+     *@item C3 l6
+     |EXTRA
+     |item_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {Second level item\\n}
+      *2 @enumerate C5 l7
+      |EXTRA
+      |enumerate_specification:{1}
+       *arguments_line C1
+        *block_line_arg
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+       *before_item C1
+        {spaces_before_paragraph:       }
+       *@item C2 l8
+       |EXTRA
+       |item_number:{1}
+        {ignorable_spaces_after_command: }
+        *paragraph C2
+         {Third level item\\n}
+         {       }
+       *@item C3 l9
+       |EXTRA
+       |item_number:{2}
+        {ignorable_spaces_after_command: }
+        *paragraph C1
+         {Third level item\\n}
+        *3 @enumerate C5 l10
+        |EXTRA
+        |enumerate_specification:{1}
+         *arguments_line C1
+          *block_line_arg
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+         *before_item C1
+          {spaces_before_paragraph:         }
+         *@item C2 l11
+         |EXTRA
+         |item_number:{1}
+          {ignorable_spaces_after_command: }
+          *paragraph C2
+           {Fourth level item\\n}
+           {         }
+         *@item C2 l12
+         |EXTRA
+         |item_number:{2}
+          {ignorable_spaces_after_command: }
+          *paragraph C1
+           {Fourth level item\\n}
+         *@end C1 l13
+         |INFO
+         |spaces_before_argument:
+          |{ }
+         |EXTRA
+         |text_arg:{enumerate}
+          *line_arg C1
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+           {enumerate}
+       *@end C1 l14
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |text_arg:{enumerate}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {enumerate}
+     *@end C1 l15
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{enumerate}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {enumerate}
+   *@end C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{enumerate}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {enumerate}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'nested_enumerate'} = '@enumerate
    @item First level item

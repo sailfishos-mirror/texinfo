@@ -5,125 +5,47 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bad_syntax'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => '
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' 
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' ?
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' :-/ hey!
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' a@b
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' :-" bad
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'info' => {
-            'arg_line' => ' } no
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'clear',
-          'info' => {
-            'arg_line' => ' aaa ggg
-'
-          }
-        },
-        {
-          'cmdname' => 'clear',
-          'info' => {
-            'arg_line' => ' and{other
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'gurgl
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'value',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'unknown'
-                }
-              ],
-              'type' => 'brace_container'
-            }
-          ]
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bad_syntax'} = '*document_root C1
+ *before_node_section C16
+  {empty_line:\\n}
+  *@set
+  |INFO
+  |arg_line:{\\n}
+  *@set
+  |INFO
+  |arg_line:{ \\n}
+  *@set
+  |INFO
+  |arg_line:{ ?\\n}
+  *@set
+  |INFO
+  |arg_line:{ :-/ hey!\\n}
+  *@set
+  |INFO
+  |arg_line:{ a@b\\n}
+  *@set
+  |INFO
+  |arg_line:{ :-" bad\\n}
+  *@set
+  |INFO
+  |arg_line:{ } no\\n}
+  {empty_line:\\n}
+  *@clear
+  |INFO
+  |arg_line:{ aaa ggg\\n}
+  *@clear
+  |INFO
+  |arg_line:{ and{other\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {gurgl\\n}
+  {empty_line:\\n}
+  *0 @value C1
+   *brace_container C1
+    {unknown}
+  {\\n}
+';
+
 
 $result_texis{'bad_syntax'} = '
 @set

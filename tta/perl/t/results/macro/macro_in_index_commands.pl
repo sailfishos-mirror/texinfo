@@ -5,1291 +5,404 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_in_index_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' cp
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'cp
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'cp',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' fn 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'fn
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'fn',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' syncodeindexcommand 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@syncodeindex
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'syncodeindexcommand',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'syncodeindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 2,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'fn'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 3,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 2,
-                      'position' => 5,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'cp fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp',
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cp'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 11
-          },
-          'source_marks' => [
-            {
-              'counter' => 3,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'syncodeindexcommand'
-                },
-                'type' => 'macro_call'
-              },
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ]
-        },
-        {
-          'cmdname' => 'syncodeindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp fn'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp',
-              'fn'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12,
-            'macro' => 'syncodeindexcommand'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' truc 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'truc
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'truc',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 14
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'definedx truc
-'
-            },
-            {
-              'cmdname' => 'defindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'position' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'truc'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'truc'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 4,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'truc'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 1,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => 'after
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' trucindexcommand 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@trucindex
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'trucindexcommand',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 22
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' codeidx 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'codeidx
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'codeidx',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 26
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defcodeindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 5,
-                      'position' => 7,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'codeidx'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'codeidx'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'codeidx'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 30
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' defcodeindexentry 
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'a @var{index entry} t@\'e @^{@dotless{i}}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'defcodeindexentry',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 32
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 36
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 6,
-              'element' => {
-                'contents' => [
-                  {
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'trucindexcommand'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'trucindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'index truc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'truc',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'trucindex',
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 39,
-            'macro' => 'trucindexcommand'
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'codeidxindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a '
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'index entry'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 41,
-                    'macro' => 'defcodeindexentry'
-                  }
-                },
-                {
-                  'text' => ' t'
-                },
-                {
-                  'cmdname' => '\'',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'e'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 41,
-                    'macro' => 'defcodeindexentry'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 41,
-                            'macro' => 'defcodeindexentry'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 41,
-                    'macro' => 'defcodeindexentry'
-                  },
-                  'source_marks' => [
-                    {
-                      'counter' => 7,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ]
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'codeidx',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'codeidxindex',
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'defcodeindexentry'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 41
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'kindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 8,
-                      'position' => 4,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'truc kindex'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'ky',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'kindex',
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'truc'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 43
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'pindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 9,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'codeidx'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'position' => 7,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 9,
-                      'position' => 14,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'pindex codeidx'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'pg',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'pindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 44
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'macro truc
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 10,
-                      'position' => 4,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'truc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'truc'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 10,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'truc'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 47
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'macro cp
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 11,
-                      'position' => 2,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'source_marks' => [
-                {
-                  'counter' => 11,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cp'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 50
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 37
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
-$result_trees{'macro_in_index_commands'}{'contents'}[2]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'macro_in_index_commands'}{'contents'}[2];
+$result_tree_text{'macro_in_index_commands'} = '*document_root C3
+ *before_node_section C19
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{cp}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: cp\\n}
+   {raw:cp\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *1 @macro C3 l4
+  |EXTRA
+  |macro_name:{fn}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: fn \\n}
+   {raw:fn\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *2 @macro C3 l7
+  |EXTRA
+  |macro_name:{syncodeindexcommand}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: syncodeindexcommand \\n}
+   {raw:@syncodeindex\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@syncodeindex C1 l11
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;1><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{cp}
+     |>*brace_arg
+  |EXTRA
+  |misc_args:A{cp|fn}
+  >SOURCEMARKS
+  >macro_expansion<start;3>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{syncodeindexcommand}
+    >*brace_arg
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp fn}
+    >SOURCEMARKS
+    >macro_expansion<end;1><p:2>
+    >macro_expansion<start;2><p:3>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{fn}
+      >*brace_arg
+    >macro_expansion<end;2><p:5>
+  *@syncodeindex C1 l12:@syncodeindexcommand
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<end;3>
+  |EXTRA
+  |misc_args:A{cp|fn}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp fn}
+  {empty_line:\\n}
+  *3 @macro C3 l14
+  |EXTRA
+  |macro_name:{truc}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: truc \\n}
+   {raw:truc\\n}
+   *@end C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C3
+   {definedx truc\\n}
+   *@defindex C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    |>SOURCEMARKS
+    |>macro_expansion<start;4><p:1>
+     |>*macro_call C1
+     |>|INFO
+     |>|command_name:{truc}
+      |>*brace_arg
+   |EXTRA
+   |misc_args:A{truc}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {truc}
+     >SOURCEMARKS
+     >macro_expansion<end;4><p:4>
+   {after\\n}
+  {empty_line:\\n}
+  *4 @macro C3 l22
+  |EXTRA
+  |macro_name:{trucindexcommand}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: trucindexcommand \\n}
+   {raw:@trucindex\\n}
+   *@end C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *5 @macro C3 l26
+  |EXTRA
+  |macro_name:{codeidx}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: codeidx \\n}
+   {raw:codeidx\\n}
+   *@end C1 l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@defcodeindex C1 l30
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;5><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{codeidx}
+     |>*brace_arg
+  |EXTRA
+  |misc_args:A{codeidx}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {codeidx}
+    >SOURCEMARKS
+    >macro_expansion<end;5><p:7>
+  {empty_line:\\n}
+  *6 @macro C3 l32
+  |EXTRA
+  |macro_name:{defcodeindexentry}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: defcodeindexentry \\n}
+   {raw:a @var{index entry} t@\'e @^{@dotless{i}}\\n}
+   *@end C1 l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+ *7 @node C1 l36
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E8]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *8 @node C15 l37
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E7]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;6><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{trucindexcommand}
+    >*brace_arg
+  *9 index_entry_command@trucindex C1 l39:@trucindexcommand
+  |INFO
+  |command_name:{trucindex}
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<end;6>
+  |EXTRA
+  |element_node:[E8]
+  |index_entry:I{truc,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {index truc}
+  {empty_line:\\n}
+  *10 index_entry_command@codeidxindex C1 l41
+  |INFO
+  |command_name:{codeidxindex}
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;7><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{defcodeindexentry}
+     |>*brace_arg
+  |EXTRA
+  |element_node:[E8]
+  |index_entry:I{codeidx,1}
+   *line_arg C6
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a }
+    *11 @var C1 l41:@defcodeindexentry
+     *brace_container C1
+      {index entry}
+    { t}
+    *12 @\' C1 l41:@defcodeindexentry
+     *following_arg C1
+      {e}
+    { }
+    *13 @^ C1 l41:@defcodeindexentry
+    >SOURCEMARKS
+    >macro_expansion<end;7>
+     *brace_container C1
+      *14 @dotless C1 l41:@defcodeindexentry
+       *brace_container C1
+        {i}
+  {empty_line:\\n}
+  *15 index_entry_command@kindex C1 l43
+  |INFO
+  |command_name:{kindex}
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;8><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{truc}
+     |>*brace_arg
+  |EXTRA
+  |element_node:[E8]
+  |index_entry:I{ky,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {truc kindex}
+    >SOURCEMARKS
+    >macro_expansion<end;8><p:4>
+  *16 index_entry_command@pindex C1 l44
+  |INFO
+  |command_name:{pindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E8]
+  |index_entry:I{pg,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {pindex codeidx}
+    >SOURCEMARKS
+    >macro_expansion<start;9><p:7>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{codeidx}
+      >*brace_arg
+    >macro_expansion<end;9><p:14>
+  {empty_line:\\n}
+  *paragraph C1
+   {macro truc\\n}
+  *@printindex C1 l47
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;10><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{truc}
+     |>*brace_arg
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{truc}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {truc}
+    >SOURCEMARKS
+    >macro_expansion<end;10><p:4>
+  {empty_line:\\n}
+  *paragraph C1
+   {macro cp\\n}
+  *@printindex C1 l50
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   |>SOURCEMARKS
+   |>macro_expansion<start;11><p:1>
+    |>*macro_call C1
+    |>|INFO
+    |>|command_name:{cp}
+     |>*brace_arg
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+    >SOURCEMARKS
+    >macro_expansion<end;11><p:2>
+  {empty_line:\\n}
+';
+
 
 $result_texis{'macro_in_index_commands'} = '@macro cp
 cp

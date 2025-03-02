@@ -5,884 +5,270 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'direntry_dircategory'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\\input texinfo @c -*-texinfo-*-
-',
-                  'type' => 'text_before_beginning'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'text_before_beginning'
-                }
-              ],
-              'type' => 'preamble_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_setfilename'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setfilename',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'direntry_dircategory.info'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'direntry_dircategory.info'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'dircategory',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``category---'
-                    },
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'th  ere'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'direntry_dircategory.texi',
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => '?\'\''
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 5
-              }
-            },
-            {
-              'cmdname' => 'direntry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'foo'
-                        }
-                      ],
-                      'type' => 'menu_entry_name'
-                    },
-                    {
-                      'text' => ': ',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '('
-                        },
-                        {
-                          'text' => 'foo'
-                        },
-                        {
-                          'text' => ')'
-                        }
-                      ],
-                      'extra' => {
-                        'manual_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '.   ',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``hello---'
-                            },
-                            {
-                              'cmdname' => 'var',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'there'
-                                    }
-                                  ],
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'file_name' => 'direntry_dircategory.texi',
-                                'line_nr' => 7
-                              }
-                            },
-                            {
-                              'text' => '?\'\'
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'direntry_dircategory.texi',
-                    'line_nr' => 7
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'direntry'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'direntry'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'direntry_dircategory.texi',
-                    'line_nr' => 8
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'dircategory',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cat2'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 10
-              }
-            },
-            {
-              'cmdname' => 'direntry',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '* ',
-                      'type' => 'menu_entry_leading_text'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aaa'
-                        },
-                        {
-                          'text' => ' ',
-                          'type' => 'space_at_end_menu_node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {},
-                            {}
-                          ]
-                        },
-                        'normalized' => 'aaa'
-                      },
-                      'type' => 'menu_entry_node'
-                    },
-                    {
-                      'text' => '::               ',
-                      'type' => 'menu_entry_separator'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'aaaa
-'
-                            },
-                            {
-                              'text' => '                   bbbbb
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'menu_entry_description'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'direntry_dircategory.texi',
-                    'line_nr' => 12
-                  },
-                  'type' => 'menu_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'after_menu_description_line'
-                        },
-                        {
-                          'text' => 'menutitle
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_comment'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'direntry'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'direntry'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'direntry_dircategory.texi',
-                    'line_nr' => 16
-                  }
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'direntry_dircategory.texi',
-        'line_nr' => 19
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Test dircategory and direntry'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'dircategory',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in text'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'direntry_dircategory.texi',
-            'line_nr' => 23
-          }
-        },
-        {
-          'cmdname' => 'direntry',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in text'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ': ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'in_text'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '. ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in text
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 25
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'direntry'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'direntry'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 26
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'direntry_dircategory.texi',
-            'line_nr' => 24
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 29
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'direntry_dircategory.texi',
-                'line_nr' => 30
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'direntry_dircategory.texi',
-            'line_nr' => 28
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'direntry_dircategory.texi',
-        'line_nr' => 20
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'direntry_dircategory.texi',
-        'line_nr' => 32
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'In chapter
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'direntry_dircategory.texi',
-        'line_nr' => 33
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'direntry_dircategory'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'direntry_dircategory'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_tree_text{'direntry_dircategory'} = '*document_root C6
+ *before_node_section C2
+  *preamble_before_setfilename C1
+   *preamble_before_beginning C2
+    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
+    {text_before_beginning:\\n}
+  *preamble_before_content C9
+   *@setfilename C1 direntry_dircategory.texi:l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{direntry_dircategory.info}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {direntry_dircategory.info}
+   {empty_line:\\n}
+   *@dircategory C1 direntry_dircategory.texi:l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {``category---}
+     *0 @var C1 direntry_dircategory.texi:l5
+      *brace_container C1
+       {th  ere}
+     {?\'\'}
+   *1 @direntry C3 direntry_dircategory.texi:l6
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *menu_entry C6 direntry_dircategory.texi:l7
+     {menu_entry_leading_text:* }
+     *menu_entry_name C1
+      {foo}
+     {menu_entry_separator:: }
+     *menu_entry_node C3
+     |EXTRA
+     |manual_content:{foo}
+      {(}
+      {foo}
+      {)}
+     {menu_entry_separator:.   }
+     *menu_entry_description C1
+      *preformatted C3
+       {``hello---}
+       *2 @var C1 direntry_dircategory.texi:l7
+        *brace_container C1
+         {there}
+       {?\'\'\\n}
+    *@end C1 direntry_dircategory.texi:l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{direntry}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {direntry}
+   {empty_line:\\n}
+   *@dircategory C1 direntry_dircategory.texi:l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {cat2}
+   *3 @direntry C4 direntry_dircategory.texi:l11
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *menu_entry C4 direntry_dircategory.texi:l12
+     {menu_entry_leading_text:* }
+     *menu_entry_node C2
+     |EXTRA
+     |node_content:{aaa }
+     |normalized:{aaa}
+      {aaa}
+      {space_at_end_menu_node: }
+     {menu_entry_separator:::               }
+     *menu_entry_description C1
+      *preformatted C2
+       {aaaa\\n}
+       {                   bbbbb\\n}
+    *menu_comment C1
+     *preformatted C2
+      {after_menu_description_line:\\n}
+      {menutitle\\n}
+    *@end C1 direntry_dircategory.texi:l16
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{direntry}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {direntry}
+   {empty_line:\\n}
+   {empty_line:\\n}
+ *4 @node C1 direntry_dircategory.texi:l19
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E5]
+ |is_target:{1}
+ |menus:EC[E7]
+ |node_directions:D[next->E8]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *5 @top C8 direntry_dircategory.texi:l20
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E4]
+ |section_childs:EC[E9]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E5]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E9]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Test dircategory and direntry}
+  {empty_line:\\n}
+  *paragraph C1
+   {Text\\n}
+  *@dircategory C1 direntry_dircategory.texi:l23
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {in text}
+  *6 @direntry C3 direntry_dircategory.texi:l24
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C6 direntry_dircategory.texi:l25
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {in text}
+    {menu_entry_separator:: }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{in_text}
+     {(}
+     {in_text}
+     {)}
+    {menu_entry_separator:. }
+    *menu_entry_description C1
+     *preformatted C1
+      {in text\\n}
+   *@end C1 direntry_dircategory.texi:l26
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{direntry}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {direntry}
+  {empty_line:\\n}
+  *7 @menu C3 direntry_dircategory.texi:l28
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 direntry_dircategory.texi:l29
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 direntry_dircategory.texi:l30
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *8 @node C1 direntry_dircategory.texi:l32
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E9]
+ |is_target:{1}
+ |menu_directions:D[up->E4]
+ |node_directions:D[prev->E4|up->E4]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *9 @chapter C4 direntry_dircategory.texi:l33
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E8]
+ |section_directions:D[up->E5]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E5|up->E5]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  *paragraph C1
+   {In chapter\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'direntry_dircategory'} = '\\input texinfo @c -*-texinfo-*-
 

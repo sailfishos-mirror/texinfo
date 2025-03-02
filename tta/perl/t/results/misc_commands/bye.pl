@@ -5,24 +5,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bye'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bye'} = '*document_root C2
+ *before_node_section
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'bye'} = '@bye
 ';

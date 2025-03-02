@@ -5,554 +5,121 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_accents'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'X'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'x'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Q'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Y'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'q'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'r'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Q'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'R'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'H'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'h'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'r'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 't'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'k'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'R'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'T'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'K'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'm'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'p'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Z'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 's'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_accents'} = '*document_root C1
+ *before_node_section C11
+  *paragraph C8
+   *0 @" C1 l1
+    *following_arg C1
+     {X}
+   { }
+   *1 @" C1 l1
+    *following_arg C1
+     {x}
+   { }
+   *2 @" C1 l1
+    *following_arg C1
+     {Q}
+   { }
+   *3 @" C1 l1
+    *following_arg C1
+     {Y}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   *4 @\' C1 l3
+    *following_arg C1
+     {z}
+   { }
+   *5 @\' C1 l3
+    *following_arg C1
+     {q}
+   { }
+   *6 @\' C1 l3
+    *following_arg C1
+     {r}
+   {\\n}
+   *7 @\' C1 l4
+    *following_arg C1
+     {Z}
+   { }
+   *8 @\' C1 l4
+    *following_arg C1
+     {Q}
+   { }
+   *9 @\' C1 l4
+    *following_arg C1
+     {R}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *10 @, C1 l6
+    *brace_container C1
+     {H}
+   { }
+   *11 @, C1 l6
+    *brace_container C1
+     {h}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C16
+   *12 @^ C1 l8
+    *following_arg C1
+     {z}
+   { }
+   *13 @^ C1 l8
+    *following_arg C1
+     {r}
+   { }
+   *14 @^ C1 l8
+    *following_arg C1
+     {t}
+   { }
+   *15 @^ C1 l8
+    *following_arg C1
+     {k}
+   {\\n}
+   *16 @^ C1 l9
+    *following_arg C1
+     {Z}
+   { }
+   *17 @^ C1 l9
+    *following_arg C1
+     {R}
+   { }
+   *18 @^ C1 l9
+    *following_arg C1
+     {T}
+   { }
+   *19 @^ C1 l9
+    *following_arg C1
+     {K}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C6
+   *20 @` C1 l11
+    *following_arg C1
+     {z}
+   { }
+   *21 @` C1 l11
+    *following_arg C1
+     {m}
+   { }
+   *22 @` C1 l11
+    *following_arg C1
+     {p}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *23 @~ C1 l13
+    *following_arg C1
+     {Z}
+   { }
+   *24 @~ C1 l13
+    *following_arg C1
+     {s}
+   {\\n}
+';
+
 
 $result_texis{'unknown_accents'} = '@"X @"x @"Q @"Y
 

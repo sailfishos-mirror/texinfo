@@ -5,281 +5,85 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'float_type_with_tieaccent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'A '
-                    },
-                    {
-                      'cmdname' => 'tieaccent',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '1a'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'tieaccent',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => "\x{7b2c}H"
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'tieaccent',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => '^',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'e'
-                                    }
-                                  ],
-                                  'type' => 'following_arg'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            },
-                            {
-                              'text' => "\x{4e00} and text"
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'inside
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'float_type' => "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text",
-            'is_target' => 1,
-            'normalized' => 'label'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A '
-                },
-                {
-                  'cmdname' => 'tieaccent',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '1a'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'tieaccent',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => "\x{7b2c}H"
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'tieaccent',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '^',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'e'
-                                }
-                              ],
-                              'type' => 'following_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 5
-                          }
-                        },
-                        {
-                          'text' => "\x{4e00} and text"
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text"
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
+ *before_node_section C4
+  *preamble_before_content
+  *0 @float C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_number:{1}
+  |float_type:{A 1͡a 第͡H ê͡一 and text}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{label}
+   *arguments_line C2
+    *block_line_arg C6
+     {A }
+     *1 @tieaccent C1 l1
+      *brace_container C1
+       {1a}
+     { }
+     *2 @tieaccent C1 l1
+      *brace_container C1
+       {第H}
+     { }
+     *3 @tieaccent C1 l1
+      *brace_container C2
+       *4 @^ C1 l1
+        *following_arg C1
+         {e}
+       {一 and text}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {label}
+   *paragraph C1
+    {inside\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *@listoffloats C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{A 1͡a 第͡H ê͡一 and text}
+  |global_command_number:{1}
+   *line_arg C6
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A }
+    *5 @tieaccent C1 l5
+     *brace_container C1
+      {1a}
+    { }
+    *6 @tieaccent C1 l5
+     *brace_container C1
+      {第H}
+    { }
+    *7 @tieaccent C1 l5
+     *brace_container C2
+      *8 @^ C1 l5
+       *following_arg C1
+        {e}
+      {一 and text}
+';
+
 
 $result_texis{'float_type_with_tieaccent'} = '@float A @tieaccent{1a} @tieaccent{第H} @tieaccent{@^e一 and text}, label
 inside

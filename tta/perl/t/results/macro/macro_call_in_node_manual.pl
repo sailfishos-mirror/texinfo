@@ -5,1186 +5,333 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_call_in_node_manual'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' openbrace
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '(
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'openbrace',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' openbracetext
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '(begin
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'openbracetext',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' manualnameend
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'last
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'manualnameend',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' manualnameendbrace
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'last)
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'manualnameendbrace',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 13
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' manualnameendbracespace
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'last)   
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 19
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'manualnameendbracespace',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 17
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' manualnameendbracespacetext
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'last)  mynode
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 23
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'manualnameendbracespacetext',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 21
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'openbrace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 1,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'a_man'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'openbracetext'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'begin'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'openbracetext'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'begin'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'the node'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'the-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'openbracetext'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 5,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'manualnameend'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 5,
-                          'position' => 9,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'beginlast'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 6,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'manualnameendbrace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'nomlast'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 6,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'text' => 'distant'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'distant'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'openbracetext'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 7,
-                          'position' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'begin'
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 8,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'manualnameendbrace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => 'last'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 8,
-                          'position' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 31
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 9,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'manualnameendbracespace'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'nomlast'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 9,
-                          'position' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => '    '
-                    },
-                    {
-                      'text' => 'thenode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'thenode'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 10,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'manualnameendbracespacetext'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'nomlast'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => '  '
-                    },
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 10,
-                          'position' => 6,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'mynodeand after'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'mynodeand-after'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 33
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 25
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[2]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[3]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[4]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[5]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[5]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[5]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[5]{'contents'}[1]{'contents'}[4];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[1] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'contents'}[2];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[2] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[6]{'contents'}[1]{'contents'}[3];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[7]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[7]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[7]{'contents'}[1]{'contents'}[4];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[8]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[8]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[8]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'macro_call_in_node_manual'}{'contents'}[0]{'contents'}[12]{'contents'}[8]{'contents'}[1]{'contents'}[4];
+$result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
+ *before_node_section C13
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{openbrace}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: openbrace\\n}
+   {raw:(\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l5
+  |EXTRA
+  |macro_name:{openbracetext}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: openbracetext\\n}
+   {raw:(begin\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @macro C3 l9
+  |EXTRA
+  |macro_name:{manualnameend}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: manualnameend\\n}
+   {raw:last\\n}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *3 @macro C3 l13
+  |EXTRA
+  |macro_name:{manualnameendbrace}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: manualnameendbrace\\n}
+   {raw:last)\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *4 @macro C3 l17
+  |EXTRA
+  |macro_name:{manualnameendbracespace}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: manualnameendbracespace\\n}
+   {raw:last)   \\n}
+   *@end C1 l19
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *5 @macro C3 l21
+  |EXTRA
+  |macro_name:{manualnameendbracespacetext}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: manualnameendbracespacetext\\n}
+   {raw:last)  mynode\\n}
+   *@end C1 l23
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *6 @menu C10 l25
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l26
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{a_man}
+     {(}
+     >SOURCEMARKS
+     >macro_expansion<start;1>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{openbrace}
+       >*brace_arg
+     >macro_expansion<end;1><p:1>
+     {a_man}
+     {)}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l27
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{begin}
+     {(}
+     >SOURCEMARKS
+     >macro_expansion<start;2>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{openbracetext}
+       >*brace_arg
+     {begin}
+     >SOURCEMARKS
+     >macro_expansion<end;2><p:5>
+     {)}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l28
+    {menu_entry_leading_text:* }
+    *menu_entry_node C4
+    |EXTRA
+    |manual_content:{begin}
+    |node_content:{the node}
+    |normalized:{the-node}
+     {(}
+     >SOURCEMARKS
+     >macro_expansion<start;3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{openbracetext}
+       >*brace_arg
+     {begin}
+     >SOURCEMARKS
+     >macro_expansion<end;3><p:5>
+     {)}
+     {the node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l29
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{beginlast}
+     {(}
+     >SOURCEMARKS
+     >macro_expansion<start;4>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{openbracetext}
+       >*brace_arg
+     {beginlast}
+     >SOURCEMARKS
+     >macro_expansion<end;4><p:5>
+     >macro_expansion<start;5><p:5>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{manualnameend}
+       >*brace_arg
+     >macro_expansion<end;5><p:9>
+     {)}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l30
+    {menu_entry_leading_text:* }
+    *menu_entry_node C5
+    |EXTRA
+    |manual_content:{nomlast}
+    |node_content:{distant}
+    |normalized:{distant}
+     {(}
+     {nomlast}
+     >SOURCEMARKS
+     >macro_expansion<start;6><p:3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{manualnameendbrace}
+       >*brace_arg
+     {)}
+     >SOURCEMARKS
+     >macro_expansion<end;6><p:1>
+     { }
+     {distant}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l31
+    {menu_entry_leading_text:* }
+    *menu_entry_node C5
+    |EXTRA
+    |manual_content:{begin@code{in code}last}
+     {(}
+     >SOURCEMARKS
+     >macro_expansion<start;7>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{openbracetext}
+       >*brace_arg
+     {begin}
+     >SOURCEMARKS
+     >macro_expansion<end;7><p:5>
+     *7 @code C1 l31
+     >SOURCEMARKS
+     >macro_expansion<start;8>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{manualnameendbrace}
+       >*brace_arg
+      *brace_container C1
+       {in code}
+     {last}
+     {)}
+     >SOURCEMARKS
+     >macro_expansion<end;8><p:1>
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l32
+    {menu_entry_leading_text:* }
+    *menu_entry_node C5
+    |EXTRA
+    |manual_content:{nomlast}
+    |node_content:{thenode}
+    |normalized:{thenode}
+     {(}
+     {nomlast}
+     >SOURCEMARKS
+     >macro_expansion<start;9><p:3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{manualnameendbracespace}
+       >*brace_arg
+     {)}
+     {    }
+     >SOURCEMARKS
+     >macro_expansion<end;9><p:3>
+     {thenode}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l33
+    {menu_entry_leading_text:* }
+    *menu_entry_node C5
+    |EXTRA
+    |manual_content:{nomlast}
+    |node_content:{mynodeand after}
+    |normalized:{mynodeand-after}
+     {(}
+     {nomlast}
+     >SOURCEMARKS
+     >macro_expansion<start;10><p:3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{manualnameendbracespacetext}
+       >*brace_arg
+     {)}
+     {  }
+     {mynodeand after}
+     >SOURCEMARKS
+     >macro_expansion<end;10><p:6>
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'macro_call_in_node_manual'} = '@macro openbrace
 (

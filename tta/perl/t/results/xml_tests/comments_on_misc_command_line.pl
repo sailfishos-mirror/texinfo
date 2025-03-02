@@ -5,281 +5,95 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comments_on_misc_command_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'setfilename',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'comments_on_misc_command_line.info'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' setfilename (text)
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => '  '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'comments_on_misc_command_line.info'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => '  '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'phoo,;,:'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' definfoenclose (number)
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => '  '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'phoo',
-              ';',
-              ':'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'cmdname' => 'firstparagraphindent',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'none'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' c (number)
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'none'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'cmdname' => 'raisesections',
-          'contents' => [
-            {
-              'text' => ' @c raisesections (skipline)
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'cmdname' => 'insertcopying',
-          'contents' => [
-            {
-              'text' => '  @comment  (noarg)
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'cmdname' => 'pagesizes',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '200mm'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' pagesizes  (line)
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'cmdname' => 'everyheading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'thispage'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '|'
-                },
-                {
-                  'text' => ' aaa'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' everyheading (lineraw)
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => ' ',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' indent (skipspace)
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Para.
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comments_on_misc_command_line'} = '*document_root C1
+ *before_node_section C12
+  *@setfilename C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{  }
+  |EXTRA
+  |text_arg:{comments_on_misc_command_line.info}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: setfilename (text)\\n}
+   |spaces_after_argument:
+    |{  }
+    {comments_on_misc_command_line.info}
+  *@definfoenclose C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{phoo|;|:}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: definfoenclose (number)\\n}
+   |spaces_after_argument:
+    |{  }
+    {phoo,;,:}
+  *@firstparagraphindent C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{none}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: c (number)\\n}
+   |spaces_after_argument:
+    |{ }
+    {none}
+  *@raisesections C1
+   {rawline_arg: @c raisesections (skipline)\\n}
+  *@insertcopying C1 l5
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:  @comment  (noarg)\\n}
+  *@pagesizes C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: pagesizes  (line)\\n}
+   |spaces_after_argument:
+    |{ }
+    {200mm}
+  *@everyheading C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C4
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: everyheading (lineraw)\\n}
+   |spaces_after_argument:
+    |{ }
+    *@thispage
+    { }
+    *@|
+    { aaa}
+  {empty_line:\\n}
+  *@indent l9
+  {ignorable_spaces_after_command: }
+  *@c C1
+   {rawline_arg: indent (skipspace)\\n}
+  *paragraph C1
+  |EXTRA
+  |indent:{1}
+   {Para.\\n}
+';
+
 
 $result_texis{'comments_on_misc_command_line'} = '@setfilename  comments_on_misc_command_line.info  @c setfilename (text)
 @definfoenclose phoo,;,:  @c definfoenclose (number)

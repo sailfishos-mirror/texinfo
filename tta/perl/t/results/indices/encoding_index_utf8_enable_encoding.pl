@@ -5,2688 +5,864 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'encoding_index_utf8_enable_encoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'documentencoding',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'utf-8'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'input_encoding_name' => 'utf-8',
-                'text_arg' => 'utf-8'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'encoding_index_utf8.texi',
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'encoding index utf8'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 5
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => "\x{e9} \x{e9}"
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 9
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10
-                  }
-                },
-                {
-                  'cmdname' => '"',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 10
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              2
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 10
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'following_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 11
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              3
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 11
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              4
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 12
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'b'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              5
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 13
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'c'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              6
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 14
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'd'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              7
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 15
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'e'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              8
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 16
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              9
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 17
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'g'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              10
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 18
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'h'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              11
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 19
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'i'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              12
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 20
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'j'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              13
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 21
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'k'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              14
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 22
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'l'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              15
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 23
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'm'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              16
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 24
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'n'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              17
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 25
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'o'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              18
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 26
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'p'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              19
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 27
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'q'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              20
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 28
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'r'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              21
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 29
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 's'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              22
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 30
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 't'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              23
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 31
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'u'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              24
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 32
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'v'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              25
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 33
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'w'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              26
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 34
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'x'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              27
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 35
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'y'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              28
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 36
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'z'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              29
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 37
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              30
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 38
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'B'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              31
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 39
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'l',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 40
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              32
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 40
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'L',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 41
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              33
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 41
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'dotless',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 42
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'dotless',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'i'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 42
-                  }
-                },
-                {
-                  'text' => ' (dotless)'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              34
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 42
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 43
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 43
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'dotless',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'i'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'file_name' => 'encoding_index_utf8.texi',
-                            'line_nr' => 43
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 43
-                  }
-                },
-                {
-                  'text' => ' (dotless)'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              35
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 43
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ss',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 44
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              36
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 44
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'euro',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 45
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              37
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 45
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'AE',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 46
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              38
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 46
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'exclamdown',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 47
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              39
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 47
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'TH',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 48
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              40
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 48
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'DH',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 49
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              41
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 49
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'textdegree',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 50
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              42
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 50
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '0'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              43
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 51
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '9'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              44
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 52
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'quotedblleft',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 53
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              45
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 53
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'geq',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 54
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              46
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 54
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'comma',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'encoding_index_utf8.texi',
-                    'line_nr' => 55
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              47
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 55
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '``'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              48
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 56
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '`'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              49
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 57
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\''
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              50
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 58
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '\'\''
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              51
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 59
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '"'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              52
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 60
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => '@'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              53
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 61
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '--'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              54
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 62
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '---'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'element_node' => {},
-            'index_entry' => [
-              'cp',
-              55
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 63
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'printindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'cp'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'file_name' => 'encoding_index_utf8.texi',
-            'line_nr' => 65
-          }
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'isindex' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'encoding_index_utf8.texi',
-        'line_nr' => 7
-      }
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[2]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[3]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[4]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[5]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[6]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[7]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[8]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[9]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[10]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[11]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[12]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[13]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[14]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[15]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[16]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[17]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[18]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[19]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[20]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[21]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[22]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[23]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[24]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[25]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[26]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[27]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[28]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[29]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[30]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[31]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[32]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[33]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[34]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[35]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[36]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[37]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[38]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[39]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[40]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[41]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[42]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[43]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[44]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[45]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[46]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[47]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[48]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[49]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[50]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[51]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[52]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[53]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[54]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[55]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
-$result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3]{'contents'}[56]{'extra'}{'element_node'} = $result_trees{'encoding_index_utf8_enable_encoding'}{'contents'}[3];
+$result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C2
+   *@documentencoding C1 encoding_index_utf8.texi:l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {utf-8}
+   {empty_line:\\n}
+ *0 @node C1 encoding_index_utf8.texi:l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 encoding_index_utf8.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {encoding index utf8}
+  {empty_line:\\n}
+ *2 @node C59 encoding_index_utf8.texi:l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |isindex:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *3 index_entry_command@cindex C1 encoding_index_utf8.texi:l9
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {é é}
+  *4 index_entry_command@cindex C1 encoding_index_utf8.texi:l10
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,2}
+   *line_arg C5
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *5 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
+    { }
+    *6 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
+    *7 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
+    *8 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
+  *9 index_entry_command@cindex C1 encoding_index_utf8.texi:l11
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,3}
+   *line_arg C6
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *10 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    { }
+    *11 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    *12 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    *13 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    *14 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+  *15 index_entry_command@cindex C1 encoding_index_utf8.texi:l12
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a}
+  *16 index_entry_command@cindex C1 encoding_index_utf8.texi:l13
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,5}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {b}
+  *17 index_entry_command@cindex C1 encoding_index_utf8.texi:l14
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,6}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {c}
+  *18 index_entry_command@cindex C1 encoding_index_utf8.texi:l15
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,7}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {d}
+  *19 index_entry_command@cindex C1 encoding_index_utf8.texi:l16
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,8}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {e}
+  *20 index_entry_command@cindex C1 encoding_index_utf8.texi:l17
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,9}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {f}
+  *21 index_entry_command@cindex C1 encoding_index_utf8.texi:l18
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,10}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {g}
+  *22 index_entry_command@cindex C1 encoding_index_utf8.texi:l19
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,11}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {h}
+  *23 index_entry_command@cindex C1 encoding_index_utf8.texi:l20
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,12}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {i}
+  *24 index_entry_command@cindex C1 encoding_index_utf8.texi:l21
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,13}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {j}
+  *25 index_entry_command@cindex C1 encoding_index_utf8.texi:l22
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,14}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {k}
+  *26 index_entry_command@cindex C1 encoding_index_utf8.texi:l23
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,15}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {l}
+  *27 index_entry_command@cindex C1 encoding_index_utf8.texi:l24
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,16}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {m}
+  *28 index_entry_command@cindex C1 encoding_index_utf8.texi:l25
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,17}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {n}
+  *29 index_entry_command@cindex C1 encoding_index_utf8.texi:l26
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,18}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {o}
+  *30 index_entry_command@cindex C1 encoding_index_utf8.texi:l27
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,19}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {p}
+  *31 index_entry_command@cindex C1 encoding_index_utf8.texi:l28
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,20}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {q}
+  *32 index_entry_command@cindex C1 encoding_index_utf8.texi:l29
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,21}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {r}
+  *33 index_entry_command@cindex C1 encoding_index_utf8.texi:l30
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,22}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {s}
+  *34 index_entry_command@cindex C1 encoding_index_utf8.texi:l31
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,23}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {t}
+  *35 index_entry_command@cindex C1 encoding_index_utf8.texi:l32
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,24}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {u}
+  *36 index_entry_command@cindex C1 encoding_index_utf8.texi:l33
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,25}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {v}
+  *37 index_entry_command@cindex C1 encoding_index_utf8.texi:l34
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,26}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {w}
+  *38 index_entry_command@cindex C1 encoding_index_utf8.texi:l35
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,27}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {x}
+  *39 index_entry_command@cindex C1 encoding_index_utf8.texi:l36
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,28}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {y}
+  *40 index_entry_command@cindex C1 encoding_index_utf8.texi:l37
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,29}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {z}
+  *41 index_entry_command@cindex C1 encoding_index_utf8.texi:l38
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,30}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A}
+  *42 index_entry_command@cindex C1 encoding_index_utf8.texi:l39
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,31}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {B}
+  *43 index_entry_command@cindex C1 encoding_index_utf8.texi:l40
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,32}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *44 @l C1 encoding_index_utf8.texi:l40
+     *brace_container
+  *45 index_entry_command@cindex C1 encoding_index_utf8.texi:l41
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,33}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *46 @L C1 encoding_index_utf8.texi:l41
+     *brace_container
+  *47 index_entry_command@cindex C1 encoding_index_utf8.texi:l42
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,34}
+   *line_arg C4
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *48 @dotless C1 encoding_index_utf8.texi:l42
+     *brace_container C1
+      {i}
+    { }
+    *49 @dotless C1 encoding_index_utf8.texi:l42
+     *brace_container C1
+      {i}
+    { (dotless)}
+  *50 index_entry_command@cindex C1 encoding_index_utf8.texi:l43
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,35}
+   *line_arg C4
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *51 @^ C1 encoding_index_utf8.texi:l43
+     *brace_container C1
+      *52 @dotless C1 encoding_index_utf8.texi:l43
+       *brace_container C1
+        {i}
+    { }
+    *53 @^ C1 encoding_index_utf8.texi:l43
+     *brace_container C1
+      *54 @dotless C1 encoding_index_utf8.texi:l43
+       *brace_container C1
+        {i}
+    { (dotless)}
+  *55 index_entry_command@cindex C1 encoding_index_utf8.texi:l44
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,36}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *56 @ss C1 encoding_index_utf8.texi:l44
+     *brace_container
+  *57 index_entry_command@cindex C1 encoding_index_utf8.texi:l45
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,37}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *58 @euro C1 encoding_index_utf8.texi:l45
+     *brace_container
+  *59 index_entry_command@cindex C1 encoding_index_utf8.texi:l46
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,38}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *60 @AE C1 encoding_index_utf8.texi:l46
+     *brace_container
+  *61 index_entry_command@cindex C1 encoding_index_utf8.texi:l47
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,39}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *62 @exclamdown C1 encoding_index_utf8.texi:l47
+     *brace_container
+  *63 index_entry_command@cindex C1 encoding_index_utf8.texi:l48
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,40}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *64 @TH C1 encoding_index_utf8.texi:l48
+     *brace_container
+  *65 index_entry_command@cindex C1 encoding_index_utf8.texi:l49
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,41}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *66 @DH C1 encoding_index_utf8.texi:l49
+     *brace_container
+  *67 index_entry_command@cindex C1 encoding_index_utf8.texi:l50
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,42}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *68 @textdegree C1 encoding_index_utf8.texi:l50
+     *brace_container
+  *69 index_entry_command@cindex C1 encoding_index_utf8.texi:l51
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,43}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {0}
+  *70 index_entry_command@cindex C1 encoding_index_utf8.texi:l52
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,44}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {9}
+  *71 index_entry_command@cindex C1 encoding_index_utf8.texi:l53
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,45}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *72 @quotedblleft C1 encoding_index_utf8.texi:l53
+     *brace_container
+  *73 index_entry_command@cindex C1 encoding_index_utf8.texi:l54
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,46}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *74 @geq C1 encoding_index_utf8.texi:l54
+     *brace_container
+  *75 index_entry_command@cindex C1 encoding_index_utf8.texi:l55
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,47}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *76 @comma C1 encoding_index_utf8.texi:l55
+     *brace_container
+  *77 index_entry_command@cindex C1 encoding_index_utf8.texi:l56
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,48}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {``}
+  *78 index_entry_command@cindex C1 encoding_index_utf8.texi:l57
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,49}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {`}
+  *79 index_entry_command@cindex C1 encoding_index_utf8.texi:l58
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,50}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {\'}
+  *80 index_entry_command@cindex C1 encoding_index_utf8.texi:l59
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,51}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {\'\'}
+  *81 index_entry_command@cindex C1 encoding_index_utf8.texi:l60
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,52}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {"}
+  *82 index_entry_command@cindex C1 encoding_index_utf8.texi:l61
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,53}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *@@
+  *83 index_entry_command@cindex C1 encoding_index_utf8.texi:l62
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,54}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {--}
+  *84 index_entry_command@cindex C1 encoding_index_utf8.texi:l63
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |element_node:[E2]
+  |index_entry:I{cp,55}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {---}
+  {empty_line:\\n}
+  *@printindex C1 encoding_index_utf8.texi:l65
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{cp}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'encoding_index_utf8_enable_encoding'} = '
 @documentencoding utf-8

@@ -5,272 +5,85 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_two_include'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'include',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'version.texi'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'version.texi'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 2
-                    }
-                  },
-                  'position' => 16,
-                  'sourcemark_type' => 'include',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Include version
-'
-            },
-            {
-              'cmdname' => 'set',
-              'contents' => [
-                {
-                  'text' => 'UPDATED',
-                  'type' => 'rawline_arg'
-                },
-                {
-                  'text' => '28 March 2002',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' UPDATED 28 March 2002
-'
-              }
-            },
-            {
-              'cmdname' => 'set',
-              'contents' => [
-                {
-                  'text' => 'UPDATED-MONTH',
-                  'type' => 'rawline_arg'
-                },
-                {
-                  'text' => 'March 2002',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' UPDATED-MONTH March 2002
-'
-              }
-            },
-            {
-              'cmdname' => 'set',
-              'contents' => [
-                {
-                  'text' => 'EDITION',
-                  'type' => 'rawline_arg'
-                },
-                {
-                  'text' => '4.2',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' EDITION 4.2
-'
-              }
-            },
-            {
-              'cmdname' => 'set',
-              'contents' => [
-                {
-                  'text' => 'VERSION',
-                  'type' => 'rawline_arg'
-                },
-                {
-                  'text' => '4.2',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'info' => {
-                'arg_line' => ' VERSION 4.2
-'
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'VERSION_DATE',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'October 2002',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' VERSION_DATE October 2002
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'SHORT_VERSION',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '2-0',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' SHORT_VERSION 2-0
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'RPM_VERSION',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '2.0.4',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' RPM_VERSION 2.0.4
-'
-          },
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'sourcemark_type' => 'include',
-              'status' => 'end'
-            }
-          ]
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'include',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'inc_file.texi'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'inc_file.texi'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 5
-                    }
-                  },
-                  'position' => 17,
-                  'sourcemark_type' => 'include',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'include inc_file
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'In included file.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After inclusion.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_two_include'} = '*document_root C1
+ *before_node_section C9
+  *paragraph C5
+   {Include version\\n}
+   >SOURCEMARKS
+   >include<start;1><p:16>
+    >*@include C1 l2
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{version.texi}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{version.texi}
+   *@set C2
+   |INFO
+   |arg_line:{ UPDATED 28 March 2002\\n}
+    {rawline_arg:UPDATED}
+    {rawline_arg:28 March 2002}
+   *@set C2
+   |INFO
+   |arg_line:{ UPDATED-MONTH March 2002\\n}
+    {rawline_arg:UPDATED-MONTH}
+    {rawline_arg:March 2002}
+   *@set C2
+   |INFO
+   |arg_line:{ EDITION 4.2\\n}
+    {rawline_arg:EDITION}
+    {rawline_arg:4.2}
+   *@set C2
+   |INFO
+   |arg_line:{ VERSION 4.2\\n}
+    {rawline_arg:VERSION}
+    {rawline_arg:4.2}
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ VERSION_DATE October 2002\\n}
+   {rawline_arg:VERSION_DATE}
+   {rawline_arg:October 2002}
+  *@set C2
+  |INFO
+  |arg_line:{ SHORT_VERSION 2-0\\n}
+   {rawline_arg:SHORT_VERSION}
+   {rawline_arg:2-0}
+  *@set C2
+  |INFO
+  |arg_line:{ RPM_VERSION 2.0.4\\n}
+  >SOURCEMARKS
+  >include<end;1>
+   {rawline_arg:RPM_VERSION}
+   {rawline_arg:2.0.4}
+  {empty_line:\\n}
+  *paragraph C2
+   {include inc_file\\n}
+   >SOURCEMARKS
+   >include<start;2><p:17>
+    >*@include C1 l5
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{inc_file.texi}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{inc_file.texi}
+   {In included file.\\n}
+   >SOURCEMARKS
+   >include<end;2><p:18>
+  {empty_line:\\n}
+  *paragraph C1
+   {After inclusion.\\n}
+';
+
 
 $result_texis{'test_two_include'} = 'Include version
 @set UPDATED 28 March 2002

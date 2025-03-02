@@ -5,130 +5,41 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'protected_space_end_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'First para
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This is a very simple texi manual followed by tab a <>.
-'
-            },
-            {
-              'text' => 'followed by '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'text' => 'newline.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This is a very simple texi manual followed by tab a <>.
-'
-            },
-            {
-              'text' => 'followed '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'text' => 'newline.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'This is a very simple texi manual followed by tab a <>. '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => '
-'
-            },
-            {
-              'text' => 'text.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'protected_space_end_line'} = '*document_root C1
+ *before_node_section C7
+  *paragraph C1
+   {First para\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {This is a very simple texi manual followed by tab a <>.\\n}
+   {followed by }
+   *@ 
+   *@ 
+   {newline.\\n}
+  {empty_line:\\n}
+  *paragraph C6
+   {This is a very simple texi manual followed by tab a <>.\\n}
+   {followed }
+   *@ 
+   *@ 
+   *@ 
+   {newline.\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   {This is a very simple texi manual followed by tab a <>. }
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@ 
+   *@\\n
+   {text.\\n}
+';
+
 
 $result_texis{'protected_space_end_line'} = 'First para
 

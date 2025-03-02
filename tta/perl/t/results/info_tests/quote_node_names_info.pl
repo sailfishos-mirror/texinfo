@@ -5,2003 +5,587 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'quote_node_names_info'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'normal node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'normal-node'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption and a word'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'normal node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'normal-node'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blah:blah'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blah_003ablah'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption and a word'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blah:blah'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blah_003ablah'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blumpty.fump'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blumpty_002efump'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption and a word'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blumpty.fump'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blumpty_002efump'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the::caption'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '.mrmrmrmmrmrmr
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blah:blah'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blah_003ablah'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'secret,node'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'nodequote.texi',
-                        'line_nr' => 15
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'secret_002cnode'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA '
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blah:blah'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blah_003ablah'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '.)
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'x:y::z'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man_ual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'x.y.z'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man_ual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'pp:qq::rr'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man_ual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'pp:qq.rr'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man_ual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ext'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man:u.al'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e:x.t'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man:u.al'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ext'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'la:bel'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'man:u.al'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Book Title'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blah'
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ':'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'nodequote.texi',
-                        'line_nr' => 34
-                      }
-                    },
-                    {
-                      'text' => 'blah'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blah_003ablah'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 34
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the topic'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ':',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'blumpty'
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '.'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'nodequote.texi',
-                        'line_nr' => 35
-                      }
-                    },
-                    {
-                      'text' => 'fump'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'blumpty_002efump'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 35
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'normal node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'normal-node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 36
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'funny'
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ':'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'nodequote.texi',
-                        'line_nr' => 37
-                      }
-                    },
-                    {
-                      'text' => 'label'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ':',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'secret,node'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'file_name' => 'nodequote.texi',
-                        'line_nr' => 37
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'secret_002cnode'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '.',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 37
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '(man'
-                    }
-                  ],
-                  'type' => 'menu_entry_name'
-                },
-                {
-                  'text' => ':',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u.al)ext::'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'space_at_end_menu_node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {},
-                        {}
-                      ]
-                    },
-                    'normalized' => 'u_002eal_0029ext_003a_003a'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 38
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'after_menu_description_line'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                }
-              ],
-              'type' => 'menu_comment'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'file_name' => 'nodequote.texi',
-                'line_nr' => 40
-              }
-            }
-          ],
-          'source_info' => {
-            'file_name' => 'nodequote.texi',
-            'line_nr' => 33
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'blah:blah'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'blah_003ablah'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 42
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'blah:blah'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'stuff here.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 43
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'blumpty.fump'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'blumpty_002efump'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 47
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'blumpty.fump'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 48
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'normal node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'man'
-                },
-                {
-                  'cmdname' => 'comma',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'nodequote.texi',
-                    'line_nr' => 50
-                  }
-                },
-                {
-                  'text' => 'u:a.l'
-                },
-                {
-                  'text' => ')'
-                },
-                {
-                  'text' => 'direction'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {},
-                    {},
-                    {}
-                  ]
-                },
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'direction'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'man_ual'
-                },
-                {
-                  'text' => ')'
-                },
-                {
-                  'text' => 'direct'
-                },
-                {
-                  'cmdname' => 'comma',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'nodequote.texi',
-                    'line_nr' => 50
-                  }
-                },
-                {
-                  'text' => 'ion'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'node_content' => {
-                  'contents' => [
-                    {},
-                    {},
-                    {}
-                  ]
-                },
-                'normalized' => 'direct_002cion'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'text' => 'man_ual'
-                },
-                {
-                  'text' => ')'
-                },
-                {
-                  'text' => 'direct::i.on'
-                }
-              ],
-              'extra' => {
-                'manual_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'direct_003a_003ai_002eon'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'normal-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 50
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'normal node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '3'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 51
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'asis',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'secret,node'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'nodequote.texi',
-                    'line_nr' => 53
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'secret_002cnode'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 53
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'asis',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'secret,node'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'file_name' => 'nodequote.texi',
-                    'line_nr' => 54
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '4'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 54
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top secret node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'stuff here.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'top-secret-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'nodequote.texi',
-        'line_nr' => 56
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[12]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[24]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[24]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[26]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[1]{'contents'}[1]{'contents'}[2];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[2]{'contents'}[3]{'contents'}[2];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[4]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[5]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[5]{'contents'}[3]{'contents'}[0];
-$result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[5]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'quote_node_names_info'}{'contents'}[2]{'contents'}[28]{'contents'}[5]{'contents'}[3]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[1] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[2] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[3];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[1] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[4];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[2] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[2]{'contents'}[5];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'quote_node_names_info'}{'contents'}[7]{'contents'}[0]{'contents'}[3]{'contents'}[3];
+$result_tree_text{'quote_node_names_info'} = '*document_root C12
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 nodequote.texi:l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E19]
+ |node_directions:D[next->E24]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C30 nodequote.texi:l2
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E25|E27|E31|E34]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E25]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *2 @xref C2 nodequote.texi:l4
+    *brace_arg C1
+    |EXTRA
+    |node_content:{normal node}
+    |normalized:{normal-node}
+     {normal node}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption and a word}
+   {\\n}
+   *3 @xref C2 nodequote.texi:l5
+    *brace_arg C1
+    |EXTRA
+    |node_content:{normal node}
+    |normalized:{normal-node}
+     {normal node}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *4 @xref C2 nodequote.texi:l7
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blah:blah}
+    |normalized:{blah_003ablah}
+     {blah:blah}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption and a word}
+   {\\n}
+   *5 @xref C2 nodequote.texi:l8
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blah:blah}
+    |normalized:{blah_003ablah}
+     {blah:blah}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   *6 @xref C2 nodequote.texi:l10
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blumpty.fump}
+    |normalized:{blumpty_002efump}
+     {blumpty.fump}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption and a word}
+   {\\n}
+   *7 @xref C2 nodequote.texi:l11
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blumpty.fump}
+    |normalized:{blumpty_002efump}
+     {blumpty.fump}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {the::caption}
+   {.mrmrmrmmrmrmr\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *8 @xref C1 nodequote.texi:l13
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blah:blah}
+    |normalized:{blah_003ablah}
+     {blah:blah}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *9 @xref C1 nodequote.texi:l15
+    *brace_arg C1
+    |EXTRA
+    |node_content:{@asis{secret,node}}
+    |normalized:{secret_002cnode}
+     *10 @asis C1 nodequote.texi:l15
+      *brace_container C1
+       {secret,node}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA }
+   *11 @xref C1 nodequote.texi:l17
+    *brace_arg C1
+    |EXTRA
+    |node_content:{blah:blah}
+    |normalized:{blah_003ablah}
+     {blah:blah}
+   {.)\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *12 @xref C5 nodequote.texi:l19
+    *brace_arg C1
+    |EXTRA
+    |node_content:{x:y::z}
+     {x:y::z}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {man_ual}
+    *brace_arg C1
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *13 @xref C5 nodequote.texi:l21
+    *brace_arg C1
+    |EXTRA
+    |node_content:{x.y.z}
+     {x.y.z}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {man_ual}
+    *brace_arg C1
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *14 @xref C5 nodequote.texi:l23
+    *brace_arg C1
+    |EXTRA
+    |node_content:{pp:qq::rr}
+     {pp:qq::rr}
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {label}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {man_ual}
+    *brace_arg C1
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *15 @xref C5 nodequote.texi:l25
+    *brace_arg C1
+    |EXTRA
+    |node_content:{pp:qq.rr}
+     {pp:qq.rr}
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {label}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {man_ual}
+    *brace_arg C1
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *16 @xref C5 nodequote.texi:l27
+    *brace_arg C1
+    |EXTRA
+    |node_content:{ext}
+     {ext}
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {label}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {man:u.al}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *17 @xref C5 nodequote.texi:l29
+    *brace_arg C1
+    |EXTRA
+    |node_content:{e:x.t}
+     {e:x.t}
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {label}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {man:u.al}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *18 @xref C5 nodequote.texi:l31
+    *brace_arg C1
+    |EXTRA
+    |node_content:{ext}
+     {ext}
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {la:bel}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {man:u.al}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Book Title}
+   {.\\n}
+  {empty_line:\\n}
+  *19 @menu C8 nodequote.texi:l33
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 nodequote.texi:l34
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |node_content:{blah@asis{:}blah}
+    |normalized:{blah_003ablah}
+     {blah}
+     *20 @asis C1 nodequote.texi:l34
+      *brace_container C1
+       {:}
+     {blah}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C6 nodequote.texi:l35
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {the topic}
+    {menu_entry_separator::}
+    *menu_entry_node C3
+    |EXTRA
+    |node_content:{blumpty@asis{.}fump}
+    |normalized:{blumpty_002efump}
+     {blumpty}
+     *21 @asis C1 nodequote.texi:l35
+      *brace_container C1
+       {.}
+     {fump}
+    {menu_entry_separator:.}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 nodequote.texi:l36
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{normal node}
+    |normalized:{normal-node}
+     {normal node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C6 nodequote.texi:l37
+    {menu_entry_leading_text:* }
+    *menu_entry_name C3
+     {funny}
+     *22 @asis C1 nodequote.texi:l37
+      *brace_container C1
+       {:}
+     {label}
+    {menu_entry_separator::}
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{@asis{secret,node}}
+    |normalized:{secret_002cnode}
+     *23 @asis C1 nodequote.texi:l37
+      *brace_container C1
+       {secret,node}
+    {menu_entry_separator:.}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C5 nodequote.texi:l38
+    {menu_entry_leading_text:* }
+    *menu_entry_name C1
+     {(man}
+    {menu_entry_separator::}
+    *menu_entry_node C2
+    |EXTRA
+    |node_content:{u.al)ext::\\n}
+    |normalized:{u_002eal_0029ext_003a_003a}
+     {u.al)ext::}
+     {space_at_end_menu_node:\\n}
+    *menu_entry_description
+   *menu_comment C1
+    *preformatted C1
+     {after_menu_description_line:\\n}
+   *@end C1 nodequote.texi:l40
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *24 @node C1 nodequote.texi:l42
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E25]
+ |is_target:{1}
+ |menu_directions:D[next->E26|up->E0]
+ |node_directions:D[next->E26|prev->E0|up->E0]
+ |normalized:{blah_003ablah}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {blah:blah}
+ *25 @chapter C4 nodequote.texi:l43
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E24]
+ |section_directions:D[next->E27|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E27|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {blah:blah}
+  {empty_line:\\n}
+  *paragraph C1
+   {stuff here.\\n}
+  {empty_line:\\n}
+ *26 @node C1 nodequote.texi:l47
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E27]
+ |is_target:{1}
+ |menu_directions:D[next->E28|prev->E24|up->E0]
+ |node_directions:D[next->E28|prev->E24|up->E0]
+ |normalized:{blumpty_002efump}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {blumpty.fump}
+ *27 @chapter C2 nodequote.texi:l48
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E26]
+ |section_directions:D[next->E31|prev->E25|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[next->E31|prev->E25|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {blumpty.fump}
+  {empty_line:\\n}
+ *28 @node C1 nodequote.texi:l50
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E31]
+ |is_target:{1}
+ |menu_directions:D[next->E32|prev->E26|up->E0]
+ |node_directions:D[next->MISSING: (line_arg)[C6]|prev->MISSING: (line_arg)[C6]|up->MISSING: (line_arg)[C4]]
+ |normalized:{normal-node}
+  *arguments_line C4
+   *line_arg C1
+    {normal node}
+   *line_arg C6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |manual_content:{man@comma{}u:a.l}
+   |node_content:{direction}
+   |normalized:{direction}
+    {(}
+    {man}
+    *29 @comma C1 nodequote.texi:l50
+     *brace_container
+    {u:a.l}
+    {)}
+    {direction}
+   *line_arg C6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |manual_content:{man_ual}
+   |node_content:{direct@comma{}ion}
+   |normalized:{direct_002cion}
+    {(}
+    {man_ual}
+    {)}
+    {direct}
+    *30 @comma C1 nodequote.texi:l50
+     *brace_container
+    {ion}
+   *line_arg C4
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |manual_content:{man_ual}
+   |node_content:{direct::i.on}
+   |normalized:{direct_003a_003ai_002eon}
+    {(}
+    {man_ual}
+    {)}
+    {direct::i.on}
+ *31 @chapter C2 nodequote.texi:l51
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E28]
+ |section_directions:D[next->E34|prev->E27|up->E1]
+ |section_level:{1}
+ |section_number:{3}
+ |toplevel_directions:D[next->E34|prev->E27|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {normal node}
+  {empty_line:\\n}
+ *32 @node C1 nodequote.texi:l53
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E34]
+ |is_target:{1}
+ |menu_directions:D[prev->E28|up->E0]
+ |node_directions:D[prev->E28|up->E0]
+ |normalized:{secret_002cnode}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *33 @asis C1 nodequote.texi:l53
+     *brace_container C1
+      {secret,node}
+ *34 @chapter C2 nodequote.texi:l54
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E32]
+ |section_directions:D[prev->E31|up->E1]
+ |section_level:{1}
+ |section_number:{4}
+ |toplevel_directions:D[prev->E31|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *35 @asis C1 nodequote.texi:l54
+     *brace_container C1
+      {secret,node}
+  {empty_line:\\n}
+ *36 @node C3 nodequote.texi:l56
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{top-secret-node}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top secret node}
+  {empty_line:\\n}
+  *paragraph C1
+   {stuff here.\\n}
+';
+
 
 $result_texis{'quote_node_names_info'} = '@node Top
 @top

@@ -5,229 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_on_clear_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'x',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' x
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'y',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' y
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'z',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'g',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' z g
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 't',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'a vv',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' t a vv @comment@ggg
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'clear',
-          'contents' => [
-            {
-              'text' => 'x',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' x@c
-'
-          }
-        },
-        {
-          'cmdname' => 'clear',
-          'contents' => [
-            {
-              'text' => 'y',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' y @c
-'
-          }
-        },
-        {
-          'cmdname' => 'clear',
-          'info' => {
-            'arg_line' => ' z g@c
-'
-          }
-        },
-        {
-          'cmdname' => 'clear',
-          'info' => {
-            'arg_line' => ' t a vv @comment@ggg
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '!'
-            },
-            {
-              'cmdname' => 'value',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'x'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ]
-            },
-            {
-              'text' => '!, !'
-            },
-            {
-              'cmdname' => 'value',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'y'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ]
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'z'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'g',
-                  'position' => 4,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 5,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 't'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'a vv',
-                  'position' => 9,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 13,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '!, !g!, !a vv!
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_on_clear_line'} = '*document_root C1
+ *before_node_section C11
+  *@set C2
+  |INFO
+  |arg_line:{ x\\n}
+   {rawline_arg:x}
+   {rawline_arg:}
+  *@set C2
+  |INFO
+  |arg_line:{ y\\n}
+   {rawline_arg:y}
+   {rawline_arg:}
+  *@set C2
+  |INFO
+  |arg_line:{ z g\\n}
+   {rawline_arg:z}
+   {rawline_arg:g}
+  *@set C2
+  |INFO
+  |arg_line:{ t a vv @comment@ggg\\n}
+   {rawline_arg:t}
+   {rawline_arg:a vv}
+  {empty_line:\\n}
+  *@clear C1
+  |INFO
+  |arg_line:{ x@c\\n}
+   {rawline_arg:x}
+  *@clear C1
+  |INFO
+  |arg_line:{ y @c\\n}
+   {rawline_arg:y}
+  *@clear
+  |INFO
+  |arg_line:{ z g@c\\n}
+  *@clear
+  |INFO
+  |arg_line:{ t a vv @comment@ggg\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {!}
+   *0 @value C1
+    *brace_container C1
+     {x}
+   {!, !}
+   *1 @value C1
+    *brace_container C1
+     {y}
+   {!, !g!, !a vv!\\n}
+   >SOURCEMARKS
+   >value_expansion<start;1><p:4>{g}
+    >*@value C1
+     >*brace_container C1
+      >{z}
+   >value_expansion<end;1><p:5>
+   >value_expansion<start;2><p:9>{a vv}
+    >*@value C1
+     >*brace_container C1
+      >{t}
+   >value_expansion<end;2><p:13>
+';
+
 
 $result_texis{'comment_on_clear_line'} = '@set x
 @set y

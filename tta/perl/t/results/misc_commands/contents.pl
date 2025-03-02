@@ -5,170 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'contents'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'first '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'contents '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => ' line following first content
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'second '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => 'contents '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => ' line following second content
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Third content on the following line on his own
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Line following contents
-'
-            },
-            {
-              'text' => 'shortcontents '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'shortcontents',
-          'contents' => [
-            {
-              'text' => ' eol
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'shortcontents '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'shortcontents',
-          'contents' => [
-            {
-              'text' => ' eol
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'summarycontents '
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'summarycontents',
-          'contents' => [
-            {
-              'text' => ' line following summarycontents
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'contents'} = '*document_root C1
+ *before_node_section C13
+  {empty_line:\\n}
+  *paragraph C3
+   {first }
+   *@@
+   {contents }
+  *@contents C1 l2
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg: line following first content\\n}
+  *paragraph C3
+   {second }
+   *@@
+   {contents }
+  *@contents C1 l3
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg: line following second content\\n}
+  *paragraph C1
+   {Third content on the following line on his own\\n}
+  *@contents C1 l5
+  |EXTRA
+  |global_command_number:{3}
+   {rawline_arg:\\n}
+  *paragraph C2
+   {Line following contents\\n}
+   {shortcontents }
+  *@shortcontents C1 l7
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg: eol\\n}
+  *paragraph C1
+   {shortcontents }
+  *@shortcontents C1 l8
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg: eol\\n}
+  *paragraph C1
+   {summarycontents }
+  *@summarycontents C1 l9
+  |EXTRA
+  |global_command_number:{3}
+   {rawline_arg: line following summarycontents\\n}
+';
+
 
 $result_texis{'contents'} = '
 first @@contents @contents line following first content

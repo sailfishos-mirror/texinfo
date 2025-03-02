@@ -5,43 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'synindex_too_much_args'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'syncodeindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'cp fn    truc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'synindex_too_much_args'} = '*document_root C1
+ *before_node_section C1
+  *@syncodeindex C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {cp fn    truc}
+';
+
 
 $result_texis{'synindex_too_much_args'} = '@syncodeindex cp fn    truc
 ';

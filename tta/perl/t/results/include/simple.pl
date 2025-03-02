@@ -5,73 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'include',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'inc_file.texi'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'inc_file.texi'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'include',
-              'status' => 'start'
-            }
-          ],
-          'text' => ''
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'In included file.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simple'} = '*document_root C1
+ *before_node_section C2
+  {}
+  >SOURCEMARKS
+  >include<start;1>
+   >*@include C1 l1
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{inc_file.texi}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{\\n}
+     >{inc_file.texi}
+  *paragraph C1
+   {In included file.\\n}
+   >SOURCEMARKS
+   >include<end;1><p:18>
+';
+
 
 $result_texis{'simple'} = 'In included file.
 ';

@@ -5,36 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_value_after_spaces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '  ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'cmdname' => 'value',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'unknown'
-                }
-              ],
-              'type' => 'brace_container'
-            }
-          ]
-        },
-        {
-          'text' => '  '
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_value_after_spaces'} = '*document_root C1
+ *before_node_section C3
+  {spaces_before_paragraph:  }
+  *0 @value C1
+   *brace_container C1
+    {unknown}
+  {  }
+';
+
 
 $result_texis{'unknown_value_after_spaces'} = '  @value{unknown}  ';
 

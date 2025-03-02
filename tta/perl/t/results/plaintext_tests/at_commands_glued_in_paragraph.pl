@@ -5,396 +5,112 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'at_commands_glued_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'at'
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'text' => 'TeX'
-            },
-            {
-              'cmdname' => 'TeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => 'TeX.
-'
-            },
-            {
-              'text' => 'code'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => 'code.
-'
-            },
-            {
-              'text' => 'acronym'
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ABC'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa bb cc'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => 'acronym.
-'
-            },
-            {
-              'text' => 'acronym2'
-            },
-            {
-              'cmdname' => 'acronym',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ABC'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => 'acronym.
-'
-            },
-            {
-              'text' => 'email'
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'somebody'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'mali'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => 'email.
-'
-            },
-            {
-              'text' => 'ref'
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'Top'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => 'ref.
-'
-            },
-            {
-              'text' => 'Foornote'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in footnote'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => 'after footnote.
-'
-            },
-            {
-              'text' => 'accent'
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => 'accent.
-'
-            },
-            {
-              'text' => 'and star'
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => 'star.
-'
-            },
-            {
-              'text' => 'noindent'
-            },
-            {
-              'cmdname' => 'noindent',
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' ',
-              'type' => 'ignorable_spaces_after_command'
-            },
-            {
-              'text' => 'after noindent
-'
-            },
-            {
-              'text' => 'sp'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'sp',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '4'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '4'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'anchor'
-            },
-            {
-              'cmdname' => 'anchor',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'anchor'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'is_target' => 1,
-                'normalized' => 'anchor'
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => 'anchor
-'
-            },
-            {
-              'text' => 'index'
-            },
-            {
-              'cmdname' => 'cindex',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'index'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'index_entry' => [
-                  'cp',
-                  1
-                ]
-              },
-              'info' => {
-                'command_name' => 'cindex',
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              },
-              'type' => 'index_entry_command'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'at_commands_glued_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C35
+   {at}
+   *@@
+   {.\\n}
+   {TeX}
+   *0 @TeX C1 l2
+    *brace_container
+   {TeX.\\n}
+   {code}
+   *1 @code C1 l3
+    *brace_container C1
+     {in code}
+   {code.\\n}
+   {acronym}
+   *2 @acronym C2 l4
+    *brace_arg C1
+     {ABC}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {aaa bb cc}
+   {acronym.\\n}
+   {acronym2}
+   *3 @acronym C1 l5
+    *brace_arg C1
+     {ABC}
+   {acronym.\\n}
+   {email}
+   *4 @email C2 l6
+    *brace_arg C1
+     {somebody}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {mali}
+   {email.\\n}
+   {ref}
+   *5 @ref C1 l7
+    *brace_arg C1
+    |EXTRA
+    |node_content:{Top}
+    |normalized:{Top}
+     {Top}
+   {ref.\\n}
+   {Foornote}
+   *6 @footnote C1 l8
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C1
+      {in footnote}
+   {after footnote.\\n}
+   {accent}
+   *7 @^ C1 l9
+    *brace_container C1
+     *8 @dotless C1 l9
+      *brace_container C1
+       {i}
+   {accent.\\n}
+   {and star}
+   *@*
+   {star.\\n}
+   {noindent}
+   *@noindent l11
+   {ignorable_spaces_after_command: }
+   {after noindent\\n}
+   {sp}
+  *@sp C1 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{4}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {4}
+  *paragraph C5
+   {anchor}
+   *9 @anchor C1 l13
+   |EXTRA
+   |is_target:{1}
+   |normalized:{anchor}
+    *brace_arg C1
+     {anchor}
+   {anchor\\n}
+   {index}
+   *10 index_entry_command@cindex C1 l14
+   |INFO
+   |command_name:{cindex}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |index_entry:I{cp,1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {index}
+';
+
 
 $result_texis{'at_commands_glued_in_paragraph'} = 'at@@.
 TeX@TeX{}TeX.

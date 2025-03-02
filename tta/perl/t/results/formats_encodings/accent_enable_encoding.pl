@@ -5,1959 +5,451 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accent_enable_encoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'first'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'first'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e`: '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e\': '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e^: '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be u": '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be i`: '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be i\': '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be i^: '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be u": '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be c,: '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be n~: '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'n'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'n'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e=: '
-            },
-            {
-              'cmdname' => '=',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '=',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '\''
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => '\': '
-            },
-            {
-              'cmdname' => 'H',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'H',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e.: '
-            },
-            {
-              'cmdname' => 'dotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e*: '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be ee[: '
-            },
-            {
-              'cmdname' => 'tieaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ee'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e(: '
-            },
-            {
-              'cmdname' => 'u',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'u',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e_: '
-            },
-            {
-              'cmdname' => 'ubaraccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 36
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ubaraccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 36
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be .e: '
-            },
-            {
-              'cmdname' => 'udotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 38
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'udotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e<: '
-            },
-            {
-              'cmdname' => 'v',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 40
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'v',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 40
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be a; : '
-            },
-            {
-              'cmdname' => 'ogonek',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 42
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ogonek',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 42
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be e; : '
-            },
-            {
-              'cmdname' => 'ogonek',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 44
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ogonek',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 44
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'upside down: '
-            },
-            {
-              'cmdname' => 'questiondown',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 46
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'exclamdown',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 46
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A-with-circle: '
-            },
-            {
-              'cmdname' => 'aa',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 48
-              }
-            },
-            {
-              'text' => ','
-            },
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 48
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'AE, OE ligatures: '
-            },
-            {
-              'cmdname' => 'ae',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 50
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'AE',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 50
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'oe',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 50
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'OE',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 50
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'dotless i, j: '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 52
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'j'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 52
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Polish suppressed-L: '
-            },
-            {
-              'cmdname' => 'l',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 54
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'L',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 54
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'O-with-slash: '
-            },
-            {
-              'cmdname' => 'o',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 56
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'O',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 56
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'es-zet or sharp S: '
-            },
-            {
-              'cmdname' => 'ss',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 58
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'pounds sterling: '
-            },
-            {
-              'cmdname' => 'pounds',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 60
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' arg is command -- @dotless{i} is special-cased for HTML
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless i`: '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 63
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 63
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless i\': '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 65
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 65
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless i^: '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 67
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 67
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless i": '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 69
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 69
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'c',
-          'contents' => [
-            {
-              'text' => ' arg is command -- @dotless{j}
-',
-              'type' => 'rawline_arg'
-            }
-          ]
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless j`: '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 72
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 72
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless j\': '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 74
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 74
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless j^: '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 76
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 76
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'should be dotless j": '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 78
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 78
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accent_enable_encoding'} = '*document_root C3
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |normalized:{first}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first}
+ *1 @top C77 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e`: }
+   *2 @` C1 l4
+    *brace_container C1
+     {e}
+   { }
+   *3 @` C1 l4
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e\': }
+   *4 @\' C1 l6
+    *brace_container C1
+     {e}
+   { }
+   *5 @\' C1 l6
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e^: }
+   *6 @^ C1 l8
+    *brace_container C1
+     {e}
+   { }
+   *7 @^ C1 l8
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be u": }
+   *8 @" C1 l10
+    *brace_container C1
+     {u}
+   { }
+   *9 @" C1 l10
+    *following_arg C1
+     {u}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be i`: }
+   *10 @` C1 l12
+    *brace_container C1
+     {i}
+   { }
+   *11 @` C1 l12
+    *following_arg C1
+     {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be i\': }
+   *12 @\' C1 l14
+    *brace_container C1
+     {i}
+   { }
+   *13 @\' C1 l14
+    *following_arg C1
+     {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be i^: }
+   *14 @^ C1 l16
+    *brace_container C1
+     {i}
+   { }
+   *15 @^ C1 l16
+    *following_arg C1
+     {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be u": }
+   *16 @" C1 l18
+    *brace_container C1
+     {u}
+   { }
+   *17 @" C1 l18
+    *following_arg C1
+     {u}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be c,: }
+   *18 @, C1 l20
+    *brace_container C1
+     {c}
+   { }
+   *19 @, C1 l20
+    *following_arg C1
+     {c}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be n~: }
+   *20 @~ C1 l22
+    *brace_container C1
+     {n}
+   { }
+   *21 @~ C1 l22
+    *following_arg C1
+     {n}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e=: }
+   *22 @= C1 l24
+    *brace_container C1
+     {e}
+   { }
+   *23 @= C1 l24
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C7
+   {should be e}
+   *24 @w C1 l26
+    *brace_container C1
+     {\'}
+   {\': }
+   *25 @H C1 l26
+    *brace_container C1
+     {e}
+   { }
+   *26 @H C1 l26
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e.: }
+   *27 @dotaccent C1 l28
+    *brace_container C1
+     {e}
+   { }
+   *28 @dotaccent C1 l28
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e*: }
+   *29 @ringaccent C1 l30
+    *brace_container C1
+     {e}
+   { }
+   *30 @ringaccent C1 l30
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be ee[: }
+   *31 @tieaccent C1 l32
+    *brace_container C1
+     {ee}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e(: }
+   *32 @u C1 l34
+    *brace_container C1
+     {e}
+   { }
+   *33 @u C1 l34
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e_: }
+   *34 @ubaraccent C1 l36
+    *brace_container C1
+     {e}
+   { }
+   *35 @ubaraccent C1 l36
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be .e: }
+   *36 @udotaccent C1 l38
+    *brace_container C1
+     {e}
+   { }
+   *37 @udotaccent C1 l38
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e<: }
+   *38 @v C1 l40
+    *brace_container C1
+     {e}
+   { }
+   *39 @v C1 l40
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be a; : }
+   *40 @ogonek C1 l42
+    *brace_container C1
+     {a}
+   { }
+   *41 @ogonek C1 l42
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {should be e; : }
+   *42 @ogonek C1 l44
+    *brace_container C1
+     {e}
+   { }
+   *43 @ogonek C1 l44
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {e}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {upside down: }
+   *44 @questiondown C1 l46
+    *brace_container
+   { }
+   *45 @exclamdown C1 l46
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {A-with-circle: }
+   *46 @aa C1 l48
+    *brace_container
+   {,}
+   *47 @AA C1 l48
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C9
+   {AE, OE ligatures: }
+   *48 @ae C1 l50
+    *brace_container
+   { }
+   *49 @AE C1 l50
+    *brace_container
+   { }
+   *50 @oe C1 l50
+    *brace_container
+   { }
+   *51 @OE C1 l50
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {dotless i, j: }
+   *52 @dotless C1 l52
+    *brace_container C1
+     {i}
+   { }
+   *53 @dotless C1 l52
+    *brace_container C1
+     {j}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {Polish suppressed-L: }
+   *54 @l C1 l54
+    *brace_container
+   { }
+   *55 @L C1 l54
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {O-with-slash: }
+   *56 @o C1 l56
+    *brace_container
+   { }
+   *57 @O C1 l56
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {es-zet or sharp S: }
+   *58 @ss C1 l58
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {pounds sterling: }
+   *59 @pounds C1 l60
+    *brace_container
+   {\\n}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: arg is command -- @dotless{i} is special-cased for HTML\\n}
+  *paragraph C3
+   {should be dotless i`: }
+   *60 @` C1 l63
+    *brace_container C1
+     *61 @dotless C1 l63
+      *brace_container C1
+       {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless i\': }
+   *62 @\' C1 l65
+    *brace_container C1
+     *63 @dotless C1 l65
+      *brace_container C1
+       {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless i^: }
+   *64 @^ C1 l67
+    *brace_container C1
+     *65 @dotless C1 l67
+      *brace_container C1
+       {i}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless i": }
+   *66 @" C1 l69
+    *brace_container C1
+     *67 @dotless C1 l69
+      *brace_container C1
+       {i}
+   {\\n}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: arg is command -- @dotless{j}\\n}
+  *paragraph C3
+   {should be dotless j`: }
+   *68 @` C1 l72
+    *brace_container C1
+     *69 @dotless C1 l72
+      *brace_container C1
+       {j}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless j\': }
+   *70 @\' C1 l74
+    *brace_container C1
+     *71 @dotless C1 l74
+      *brace_container C1
+       {j}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless j^: }
+   *72 @^ C1 l76
+    *brace_container C1
+     *73 @dotless C1 l76
+      *brace_container C1
+       {j}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {should be dotless j": }
+   *74 @" C1 l78
+    *brace_container C1
+     *75 @dotless C1 l78
+      *brace_container C1
+       {j}
+   {\\n}
+';
+
 
 $result_texis{'accent_enable_encoding'} = '@node first
 @top top

@@ -5,264 +5,70 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraph_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' also dotless i.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '0075'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => ' also U+0075.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'm1'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' email.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'foo,\\,//'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'foo',
-              '\\',
-              '//'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'foo',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'definfoenclose'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'begin' => '\\',
-                'end' => '//'
-              },
-              'info' => {
-                'command_name' => 'foo'
-              },
-              'source_info' => {
-                'line_nr' => 12
-              },
-              'type' => 'definfoenclose_command'
-            },
-            {
-              'text' => ' should work at the beginning of a new paragraph.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'lone footnote'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraph_command'} = '*document_root C1
+ *before_node_section C15
+  *paragraph C2
+   *@@
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @b C1 l3
+    *brace_container C1
+     {aaa}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @dotless C1 l5
+    *brace_container C1
+     {i}
+   { also dotless i.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @U C1 l7
+    *brace_arg C1
+     {0075}
+   { also U+0075.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @email C1 l9
+    *brace_arg C1
+     {m1}
+   { email.\\n}
+  {empty_line:\\n}
+  *@definfoenclose C1 l11
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{foo|\\|//}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {foo,\\,//}
+  *paragraph C2
+   *4 definfoenclose_command@foo C1 l12
+   |INFO
+   |command_name:{foo}
+   |EXTRA
+   |begin:{\\}
+   |end:{//}
+    *brace_container C2
+     *@@
+     {definfoenclose}
+   { should work at the beginning of a new paragraph.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *5 @footnote C1 l14
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C1
+      {lone footnote}
+   {.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'paragraph_command'} = '@@
 

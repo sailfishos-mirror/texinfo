@@ -5,37 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'math_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '\\delta + 2'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'math_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @math C1 l1
+    *brace_command_context C1
+     {\\delta + 2}
+';
+
 
 $result_texis{'math_not_closed'} = '@math{\\delta + 2}';
 

@@ -5,342 +5,96 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Dot'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ' Exclam'
-            },
-            {
-              'cmdname' => '!'
-            },
-            {
-              'text' => ' Question'
-            },
-            {
-              'cmdname' => '?'
-            },
-            {
-              'text' => ' Dot'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '  Exclam'
-            },
-            {
-              'cmdname' => '!'
-            },
-            {
-              'text' => '  Question'
-            },
-            {
-              'cmdname' => '?'
-            },
-            {
-              'text' => '  GAAA.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Enddots'
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' Enddots'
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '  GBBB.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines Dot'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Exclam'
-            },
-            {
-              'cmdname' => '!'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Question'
-            },
-            {
-              'cmdname' => '?'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Enddots'
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines and spaces
-'
-            },
-            {
-              'text' => 'Dot'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Exclam'
-            },
-            {
-              'cmdname' => '!'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Question'
-            },
-            {
-              'cmdname' => '?'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'Enddots'
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'With paren'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ') paren'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')  Symb'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')"\'] Symb'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')"\']  End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines paren'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')
-'
-            },
-            {
-              'text' => 'Symb'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')"\']
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'End of lines and spaces paren'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')
-'
-            },
-            {
-              'text' => 'Symb'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ')"\']
-'
-            },
-            {
-              'text' => 'End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_commands'} = '*document_root C1
+ *before_node_section C14
+  {empty_line:\\n}
+  *paragraph C13
+   {Dot}
+   *@.
+   { Exclam}
+   *@!
+   { Question}
+   *@?
+   { Dot}
+   *@.
+   {  Exclam}
+   *@!
+   {  Question}
+   *@?
+   {  GAAA.\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {Enddots}
+   *0 @enddots C1 l4
+    *brace_container
+   { Enddots}
+   *1 @enddots C1 l4
+    *brace_container
+   {  GBBB.\\n}
+  {empty_line:\\n}
+  *paragraph C13
+   {End of lines Dot}
+   *@.
+   {\\n}
+   {Exclam}
+   *@!
+   {\\n}
+   {Question}
+   *@?
+   {\\n}
+   {Enddots}
+   *2 @enddots C1 l9
+    *brace_container
+   {\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C14
+   {End of lines and spaces\\n}
+   {Dot}
+   *@.
+   {\\n}
+   {Exclam}
+   *@!
+   {\\n}
+   {Question}
+   *@?
+   {\\n}
+   {Enddots}
+   *3 @enddots C1 l16
+    *brace_container
+   {\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C9
+   {With paren}
+   *@.
+   {) paren}
+   *@.
+   {)  Symb}
+   *@.
+   {)"\'] Symb}
+   *@.
+   {)"\']  End.\\n}
+  {empty_line:\\n}
+  *paragraph C7
+   {End of lines paren}
+   *@.
+   {)\\n}
+   {Symb}
+   *@.
+   {)"\']\\n}
+   {End.\\n}
+  {empty_line:\\n}
+  *paragraph C7
+   {End of lines and spaces paren}
+   *@.
+   {)\\n}
+   {Symb}
+   *@.
+   {)"\']\\n}
+   {End.\\n}
+';
+
 
 $result_texis{'punctuation_commands'} = '
 Dot@. Exclam@! Question@? Dot@.  Exclam@!  Question@?  GAAA.

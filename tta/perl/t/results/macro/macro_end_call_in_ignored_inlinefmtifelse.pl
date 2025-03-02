@@ -5,159 +5,53 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_end_call_in_ignored_inlinefmtifelse'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' inlinefirstfmt
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'Toto @inlinefmtifelse{tex, before
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'inlinefirstfmt',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'inlinefirstfmt'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Toto '
-            },
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 7,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ' before comma',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'finish'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 5,
-                'macro' => 'inlinefirstfmt'
-              }
-            },
-            {
-              'text' => ' done.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse'} = '*document_root C1
+ *before_node_section C3
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{inlinefirstfmt}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: inlinefirstfmt\\n}
+   {raw:Toto @inlinefmtifelse{tex, before\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C3
+   {Toto }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{inlinefirstfmt}
+     >*brace_arg
+   *1 @inlinefmtifelse C3 l5:@inlinefirstfmt
+   |EXTRA
+   |expand_index:{2}
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw: before comma}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:7>
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {finish}
+   { done.\\n}
+';
+
 
 $result_texis{'macro_end_call_in_ignored_inlinefmtifelse'} = '@macro inlinefirstfmt
 Toto @inlinefmtifelse{tex, before

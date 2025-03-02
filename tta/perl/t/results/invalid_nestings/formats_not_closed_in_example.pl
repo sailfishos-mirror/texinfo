@@ -5,270 +5,81 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'formats_not_closed_in_example'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'table line
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'text' => 'Some text.
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'enumerate',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => '
-',
-                                      'type' => 'empty_line'
-                                    }
-                                  ],
-                                  'type' => 'preformatted'
-                                }
-                              ],
-                              'type' => 'before_item'
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'text' => 'first item
-'
-                                    }
-                                  ],
-                                  'type' => 'preformatted'
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 1
-                              },
-                              'source_info' => {
-                                'line_nr' => 10
-                              }
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'text' => 'an item
-'
-                                    },
-                                    {
-                                      'text' => '
-',
-                                      'type' => 'empty_line'
-                                    }
-                                  ],
-                                  'type' => 'preformatted'
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 2
-                              },
-                              'source_info' => {
-                                'line_nr' => 11
-                              }
-                            }
-                          ],
-                          'extra' => {
-                            'enumerate_specification' => '1'
-                          },
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 13
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'formats_not_closed_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
+ *before_node_section C1
+  *0 @example C4 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C1
+    {empty_line:\\n}
+   *1 @table C2 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E2]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *2 @asis l3
+    *table_entry C2
+     *table_term C1
+      *@item C1 l4
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {item}
+     *table_definition C2
+      *preformatted C3
+       {table line\\n}
+       {empty_line:\\n}
+       {Some text.\\n}
+      *3 @enumerate C4 l8
+      |EXTRA
+      |enumerate_specification:{1}
+       *arguments_line C1
+        *block_line_arg
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+       *before_item C1
+        *preformatted C1
+         {empty_line:\\n}
+       *@item C1 l10
+       |EXTRA
+       |item_number:{1}
+        *preformatted C2
+         {ignorable_spaces_after_command: }
+         {first item\\n}
+       *@item C1 l11
+       |EXTRA
+       |item_number:{2}
+        *preformatted C3
+         {ignorable_spaces_after_command: }
+         {an item\\n}
+         {empty_line:\\n}
+   *@end C1 l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'formats_not_closed_in_example'} = '@example
 

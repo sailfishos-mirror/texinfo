@@ -5,194 +5,58 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'protect_node_after_label_source_mark_in_protected'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' vvv {}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'some text .,
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'vvv',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'punct',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => ',.',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' punct ,.
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'vvv'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'There is some text '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'value',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'punct'
-                                  }
-                                ],
-                                'type' => 'brace_container'
-                              }
-                            ]
-                          },
-                          'line' => ',.',
-                          'position' => 3,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 1,
-                          'position' => 5,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => '.,,,..'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ]
-            },
-            {
-              'text' => ' and after'
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{vvv}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: vvv {}\\n}
+   {raw:some text .,\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *@set C2
+  |INFO
+  |arg_line:{ punct ,.\\n}
+   {rawline_arg:punct}
+   {rawline_arg:,.}
+  {empty_line:\\n}
+  *paragraph C5
+   {There is some text }
+   >SOURCEMARKS
+   >macro_expansion<start;1><p:9>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{vvv}
+     >*brace_arg
+   *1 @asis C1
+    *brace_container C1
+     {.,,,..}
+     >SOURCEMARKS
+     >macro_expansion<end;1><p:2>
+     >value_expansion<start;1><p:3>{,.}
+      >*@value C1
+       >*brace_container C1
+        >{punct}
+     >value_expansion<end;1><p:5>
+   { and after}
+   *2 @asis C1
+    *brace_container C1
+     {.}
+   {\\n}
+';
+
 
 $result_texis{'protect_node_after_label_source_mark_in_protected'} = '@macro vvv {}
 some text .,

@@ -5,80 +5,27 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_ifset_in_ifset_no_set'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'notset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => '@verbatim
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@ifset
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@end verbatim
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@end ifset
-',
-                    'type' => 'raw'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 2
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_ifset_in_ifset_no_set'} = '*document_root C1
+ *before_node_section C1
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<1><p:1>
+   >*@ifset C5 l2
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{notset}
+    >{raw:@verbatim\\n}
+    >{raw:@ifset\\n}
+    >{raw:@end verbatim\\n}
+    >{raw:@end ifset\\n}
+';
+
 
 $result_texis{'empty_ifset_in_ifset_no_set'} = '
 ';

@@ -5,1959 +5,567 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'table_nested'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' myvtable
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@vtable @asis
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item first item
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@itemx second itemx
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Text.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item second item
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Text 2
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item last
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end vtable
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Something.
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@table @emph
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item in item
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Text without blank line
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@item second item
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'Text without blank line 2
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end table
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'After table.
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 23
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'myvtable',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Quotation
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'myvtable'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'vtable',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'first item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              1
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        },
-                        {
-                          'cmdname' => 'itemx',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second itemx'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              2
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text.
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              3
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text 2
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'last'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              4
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'vtable'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'vtable'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 27,
-                    'macro' => 'myvtable'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 27,
-                'macro' => 'myvtable'
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Something.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'emph',
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text without blank line
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 27,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text without blank line 2
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 27,
-                    'macro' => 'myvtable'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 27,
-                'macro' => 'myvtable'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'position' => 12,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'After table.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 28
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 26
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Example
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'myvtable'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'vtable',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'asis',
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'first item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              5
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        },
-                        {
-                          'cmdname' => 'itemx',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second itemx'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              6
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'text' => 'Text.
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              7
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'text' => 'Text 2
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'last'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'index_entry' => [
-                              'vr',
-                              8
-                            ]
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'vtable'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'vtable'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'myvtable'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'myvtable'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'text' => 'Something.
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'emph',
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text without blank line
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'second item'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 32,
-                            'macro' => 'myvtable'
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Text without blank line 2
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 32,
-                    'macro' => 'myvtable'
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 32,
-                'macro' => 'myvtable'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'position' => 12,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ],
-                  'text' => 'After table.
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 33
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 31
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Double quotation
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'quotation',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'quotation',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'source_marks' => [
-                    {
-                      'counter' => 3,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'myvtable'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'vtable',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'asis',
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'first item'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'vr',
-                                  9
-                                ]
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            },
-                            {
-                              'cmdname' => 'itemx',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'second itemx'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'vr',
-                                  10
-                                ]
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Text.
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'second item'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'vr',
-                                  11
-                                ]
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Text 2
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'last'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'index_entry' => [
-                                  'vr',
-                                  12
-                                ]
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'vtable'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'vtable'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 38,
-                        'macro' => 'myvtable'
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'command_as_argument' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 38,
-                    'macro' => 'myvtable'
-                  }
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Something.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'table',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'emph',
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'in item'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Text without blank line
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'second item'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 38,
-                                'macro' => 'myvtable'
-                              }
-                            }
-                          ],
-                          'type' => 'table_term'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Text without blank line 2
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'table_definition'
-                        }
-                      ],
-                      'type' => 'table_entry'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'table'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'table'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 38,
-                        'macro' => 'myvtable'
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'command_as_argument' => {}
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 38,
-                    'macro' => 'myvtable'
-                  }
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'position' => 12,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'After table.
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'quotation'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'quotation'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 39
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 37
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'quotation'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'quotation'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 40
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 36
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'table_nested'} = '*document_root C1
+ *before_node_section C10
+  *0 @macro C23 l1
+  |EXTRA
+  |macro_name:{myvtable}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: myvtable\\n}
+   {raw:@vtable @asis\\n}
+   {raw:@item first item\\n}
+   {raw:@itemx second itemx\\n}
+   {raw:\\n}
+   {raw:Text.\\n}
+   {raw:\\n}
+   {raw:@item second item\\n}
+   {raw:\\n}
+   {raw:Text 2\\n}
+   {raw:\\n}
+   {raw:@item last\\n}
+   {raw:@end vtable\\n}
+   {raw:\\n}
+   {raw:Something.\\n}
+   {raw:@table @emph\\n}
+   {raw:@item in item\\n}
+   {raw:Text without blank line\\n}
+   {raw:@item second item\\n}
+   {raw:Text without blank line 2\\n}
+   {raw:@end table\\n}
+   {raw:After table.\\n}
+   *@end C1 l23
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C1
+   {Quotation\\n}
+  *1 @quotation C7 l26
+   *arguments_line C1
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{myvtable}
+     >*brace_arg
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *2 @vtable C5 l27:@myvtable
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E3]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *3 @asis l27:@myvtable
+    *table_entry C2
+     *table_term C2
+      *@item C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,1}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {first item}
+      *@itemx C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,2}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second itemx}
+     *table_definition C3
+      {empty_line:\\n}
+      *paragraph C1
+       {Text.\\n}
+      {empty_line:\\n}
+    *table_entry C2
+     *table_term C1
+      *@item C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,3}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second item}
+     *table_definition C3
+      {empty_line:\\n}
+      *paragraph C1
+       {Text 2\\n}
+      {empty_line:\\n}
+    *table_entry C1
+     *table_term C1
+      *@item C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,4}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {last}
+    *@end C1 l27:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{vtable}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {vtable}
+   {empty_line:\\n}
+   *paragraph C1
+    {Something.\\n}
+   *4 @table C4 l27:@myvtable
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E5]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *5 @emph l27:@myvtable
+    *table_entry C2
+     *table_term C1
+      *@item C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {in item}
+     *table_definition C1
+      *paragraph C1
+       {Text without blank line\\n}
+    *table_entry C2
+     *table_term C1
+      *@item C1 l27:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second item}
+     *table_definition C1
+      *paragraph C1
+       {Text without blank line 2\\n}
+    *@end C1 l27:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *paragraph C1
+    {After table.\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;1><p:12>
+   *@end C1 l28
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+  {empty_line:\\n}
+  *paragraph C1
+   {Example\\n}
+  *6 @example C7 l31
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{myvtable}
+     >*brace_arg
+   *7 @vtable C5 l32:@myvtable
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E8]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *8 @asis l32:@myvtable
+    *table_entry C2
+     *table_term C2
+      *@item C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,5}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {first item}
+      *@itemx C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,6}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second itemx}
+     *table_definition C1
+      *preformatted C3
+       {empty_line:\\n}
+       {Text.\\n}
+       {empty_line:\\n}
+    *table_entry C2
+     *table_term C1
+      *@item C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,7}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second item}
+     *table_definition C1
+      *preformatted C3
+       {empty_line:\\n}
+       {Text 2\\n}
+       {empty_line:\\n}
+    *table_entry C1
+     *table_term C1
+      *@item C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |index_entry:I{vr,8}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {last}
+    *@end C1 l32:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{vtable}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {vtable}
+   *preformatted C2
+    {empty_line:\\n}
+    {Something.\\n}
+   *9 @table C4 l32:@myvtable
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E10]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *10 @emph l32:@myvtable
+    *table_entry C2
+     *table_term C1
+      *@item C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {in item}
+     *table_definition C1
+      *preformatted C1
+       {Text without blank line\\n}
+    *table_entry C2
+     *table_term C1
+      *@item C1 l32:@myvtable
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {second item}
+     *table_definition C1
+      *preformatted C1
+       {Text without blank line 2\\n}
+    *@end C1 l32:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   *preformatted C1
+    {After table.\\n}
+    >SOURCEMARKS
+    >macro_expansion<end;2><p:12>
+   *@end C1 l33
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *paragraph C1
+   {Double quotation\\n}
+  *11 @quotation C3 l36
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *12 @quotation C7 l37
+    *arguments_line C1
+    >SOURCEMARKS
+    >macro_expansion<start;3>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{myvtable}
+      >*brace_arg
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *13 @vtable C5 l38:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |command_as_argument:[E14]
+     *arguments_line C1
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *14 @asis l38:@myvtable
+     *table_entry C2
+      *table_term C2
+       *@item C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{vr,9}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {first item}
+       *@itemx C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{vr,10}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {second itemx}
+      *table_definition C3
+       {empty_line:\\n}
+       *paragraph C1
+        {Text.\\n}
+       {empty_line:\\n}
+     *table_entry C2
+      *table_term C1
+       *@item C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{vr,11}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {second item}
+      *table_definition C3
+       {empty_line:\\n}
+       *paragraph C1
+        {Text 2\\n}
+       {empty_line:\\n}
+     *table_entry C1
+      *table_term C1
+       *@item C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |index_entry:I{vr,12}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {last}
+     *@end C1 l38:@myvtable
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{vtable}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {vtable}
+    {empty_line:\\n}
+    *paragraph C1
+     {Something.\\n}
+    *15 @table C4 l38:@myvtable
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |command_as_argument:[E16]
+     *arguments_line C1
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *16 @emph l38:@myvtable
+     *table_entry C2
+      *table_term C1
+       *@item C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {in item}
+      *table_definition C1
+       *paragraph C1
+        {Text without blank line\\n}
+     *table_entry C2
+      *table_term C1
+       *@item C1 l38:@myvtable
+       |INFO
+       |spaces_before_argument:
+        |{ }
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {second item}
+      *table_definition C1
+       *paragraph C1
+        {Text without blank line 2\\n}
+     *@end C1 l38:@myvtable
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{table}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {table}
+    *paragraph C1
+     {After table.\\n}
+     >SOURCEMARKS
+     >macro_expansion<end;3><p:12>
+    *@end C1 l39
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{quotation}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {quotation}
+   *@end C1 l40
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{quotation}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {quotation}
+';
+
 
 $result_texis{'table_nested'} = '@macro myvtable
 @vtable @asis

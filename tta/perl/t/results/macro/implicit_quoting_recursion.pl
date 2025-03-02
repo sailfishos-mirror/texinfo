@@ -5,327 +5,101 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'implicit_quoting_recursion'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'rmacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' cat{a,b}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\\\b\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'rmacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'rmacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'cat',
-            'misc_args' => [
-              'a',
-              'b'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'tam'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'oto'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 3,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@cat{@cat{@cat{na, to}, po}, co}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'tu'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@cat{@cat{na, to}, po}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'co'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@cat{na, to}'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'po'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'na'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'to'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'cat'
-                    },
-                    'type' => 'rmacro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 6,
-                  'position' => 4,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 5,
-                  'position' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 4,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 3,
-                  'position' => 10,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 2,
-                  'position' => 13,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 16,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'natopocotuototam
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'implicit_quoting_recursion'} = '*document_root C1
+ *before_node_section C3
+  *0 @rmacro C3 l1
+  |EXTRA
+  |macro_name:{cat}
+  |misc_args:A{a|b}
+   *arguments_line C1
+    {macro_line: cat{a,b}\\n}
+   {raw:\\a\\\\b\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{rmacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {rmacro}
+  {empty_line:\\n}
+  *paragraph C1
+   {natopocotuototam\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{@cat{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}, oto}}
+     >*brace_arg C1
+      >{tam}
+   >macro_expansion<start;2>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{@cat{@cat{@cat{@cat{na, to}, po}, co}, tu}}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{oto}
+   >macro_expansion<start;3>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{@cat{@cat{@cat{na, to}, po}, co}}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{tu}
+   >macro_expansion<start;4>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{@cat{@cat{na, to}, po}}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{co}
+   >macro_expansion<start;5>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{@cat{na, to}}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{po}
+   >macro_expansion<start;6>
+    >*rmacro_call C2
+    >|INFO
+    >|command_name:{cat}
+     >*brace_arg C1
+      >{na}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{to}
+   >macro_expansion<end;6><p:4>
+   >macro_expansion<end;5><p:6>
+   >macro_expansion<end;4><p:8>
+   >macro_expansion<end;3><p:10>
+   >macro_expansion<end;2><p:13>
+   >macro_expansion<end;1><p:16>
+';
+
 
 $result_texis{'implicit_quoting_recursion'} = '@rmacro cat{a,b}
 \\a\\\\b\\

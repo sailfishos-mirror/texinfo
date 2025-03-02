@@ -5,63 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'command_not_closed_on_center_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'c '
-                },
-                {
-                  'cmdname' => 'strong',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'st
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'command_not_closed_on_center_line'} = '*document_root C1
+ *before_node_section C2
+  *@center C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C2
+    {c }
+    *0 @strong C1 l1
+     *brace_container C1
+      {\\n}
+  *paragraph C1
+   {st\\n}
+';
+
 
 $result_texis{'command_not_closed_on_center_line'} = '@center c @strong{
 }st

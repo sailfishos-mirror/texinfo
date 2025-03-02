@@ -5,95 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'additional_space_in_end_conditional_expanded'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifnothtml',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => ''
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifnothtml'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifnothtml'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => '  '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 3
-                    }
-                  },
-                  'position' => 9,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'not html
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'additional_space_in_end_conditional_expanded'} = '*document_root C1
+ *before_node_section C2
+  {}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1>
+   >*@ifnothtml C1 l1
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+  *paragraph C1
+   {not html\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:9>
+    >*@end C1 l3
+    >|INFO
+    >|spaces_before_argument:
+     >|{  }
+    >|EXTRA
+    >|text_arg:{ifnothtml}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifnothtml}
+';
+
 
 $result_texis{'additional_space_in_end_conditional_expanded'} = 'not html
 ';

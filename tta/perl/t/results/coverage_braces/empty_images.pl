@@ -5,168 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_images'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'aa'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'bb'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'cc'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'dd'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => ' '
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-'
-        },
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => ':'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_images'} = '*document_root C1
+ *before_node_section C10
+  *0 @image C1 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg
+  {\\n}
+  {empty_line:\\n}
+  *1 @image C5 l3
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   *brace_arg C1
+    {aa}
+   *brace_arg C1
+    {bb}
+   *brace_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ }
+    {cc}
+   *brace_arg C1
+    {dd}
+  {\\n}
+  {empty_line:\\n}
+  *2 @image C4 l5
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    *@ 
+  {\\n}
+  *3 @image C4 l6
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    *@:
+  {\\n}
+';
+
 
 $result_texis{'empty_images'} = '@image{}
 

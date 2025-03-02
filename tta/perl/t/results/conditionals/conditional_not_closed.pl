@@ -5,52 +5,20 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'conditional_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifhtml',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => 'in ifhtml
-',
-                    'type' => 'raw'
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => ''
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'conditional_not_closed'} = '*document_root C1
+ *before_node_section C1
+  {}
+  >SOURCEMARKS
+  >ignored_conditional_block<1>
+   >*@ifhtml C2 l1
+    >*arguments_line C1
+     >*block_line_arg
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+    >{raw:in ifhtml\\n}
+';
+
 
 $result_texis{'conditional_not_closed'} = '';
 

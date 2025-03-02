@@ -5,123 +5,50 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'clickstyle_and_comments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@comment',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => '@comment a
-'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@comment',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @comment b
-'
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' nocmd@comment c
-'
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' more than one word @comment d
-'
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@result',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @result@comment e
-'
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@result',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @result   @comment f
-'
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'cmdname' => 'clickstyle',
-          'contents' => [
-            {
-              'text' => '@result',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'arg_line' => ' @result on the same line @comment g
-'
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'clickstyle_and_comments'} = '*document_root C1
+ *before_node_section C7
+  *@clickstyle C1 l1
+  |INFO
+  |arg_line:{@comment a\\n}
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:@comment}
+  *@clickstyle C1 l2
+  |INFO
+  |arg_line:{ @comment b\\n}
+  |EXTRA
+  |global_command_number:{2}
+   {rawline_arg:@comment}
+  *@clickstyle l3
+  |INFO
+  |arg_line:{ nocmd@comment c\\n}
+  |EXTRA
+  |global_command_number:{3}
+  *@clickstyle l4
+  |INFO
+  |arg_line:{ more than one word @comment d\\n}
+  |EXTRA
+  |global_command_number:{4}
+  *@clickstyle C1 l5
+  |INFO
+  |arg_line:{ @result@comment e\\n}
+  |EXTRA
+  |global_command_number:{5}
+   {rawline_arg:@result}
+  *@clickstyle C1 l6
+  |INFO
+  |arg_line:{ @result   @comment f\\n}
+  |EXTRA
+  |global_command_number:{6}
+   {rawline_arg:@result}
+  *@clickstyle C1 l7
+  |INFO
+  |arg_line:{ @result on the same line @comment g\\n}
+  |EXTRA
+  |global_command_number:{7}
+   {rawline_arg:@result}
+';
+
 
 $result_texis{'clickstyle_and_comments'} = '@clickstyle@comment a
 @clickstyle @comment b

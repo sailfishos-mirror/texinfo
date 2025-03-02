@@ -5,72 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'sc_with_utf8_enable_encoding'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'utf-8'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'utf-8'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in sc'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'sc_with_utf8_enable_encoding'} = '*document_root C1
+ *before_node_section C2
+  *@documentencoding C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |input_encoding_name:{utf-8}
+  |text_arg:{utf-8}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {utf-8}
+  *paragraph C2
+   *0 @sc C1 l2
+    *brace_container C1
+     {in sc}
+   {.\\n}
+';
+
 
 $result_texis{'sc_with_utf8_enable_encoding'} = '@documentencoding utf-8
 @sc{in sc}.

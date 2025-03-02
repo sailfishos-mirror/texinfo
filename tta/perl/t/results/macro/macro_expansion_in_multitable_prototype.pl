@@ -5,576 +5,165 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_expansion_in_multitable_prototype'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' simple
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'ab
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'simple',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' endbrace {arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'c\\arg\\d}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'endbrace',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'type' => 'brace_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'simple'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'position' => 2,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            },
-                            {
-                              'counter' => 1,
-                              'position' => 4,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'h ab i'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 2,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'type' => 'brace_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'simple'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'position' => 2,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            },
-                            {
-                              'counter' => 2,
-                              'position' => 4,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'j ab'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'k '
-                        },
-                        {
-                          'cmdname' => 'emph',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 's'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9
-                          }
-                        },
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 3,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'type' => 'brace_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'simple'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'position' => 1,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            },
-                            {
-                              'counter' => 3,
-                              'position' => 3,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'text' => 'nab'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 4,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => '@code{l}'
-                                      }
-                                    ],
-                                    'type' => 'brace_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'endbrace'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'position' => 2,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => 'g c'
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'l'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'endbrace'
-                          }
-                        },
-                        {
-                          'text' => 'd'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'source_marks' => [
-                            {
-                              'counter' => 5,
-                              'element' => {
-                                'contents' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'text' => 'T'
-                                      }
-                                    ],
-                                    'type' => 'brace_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'command_name' => 'endbrace'
-                                },
-                                'type' => 'macro_call'
-                              },
-                              'position' => 2,
-                              'sourcemark_type' => 'macro_expansion',
-                              'status' => 'start'
-                            }
-                          ],
-                          'text' => 'h cTd'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      },
-                      'source_marks' => [
-                        {
-                          'counter' => 5,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'l1 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't1 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't2 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 3
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't3 '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 4
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 't4
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 5
-                      },
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 5
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{simple}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: simple\\n}
+   {raw:ab\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l5
+  |EXTRA
+  |macro_name:{endbrace}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: endbrace {arg}\\n}
+   {raw:c\\arg\\d}\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @multitable C3 l9
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{5}
+   *arguments_line C1
+    *block_line_arg C9
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l9
+      {h ab i}
+      >SOURCEMARKS
+      >macro_expansion<start;1><p:2>
+       >*macro_call C1
+       >|INFO
+       >|command_name:{simple}
+        >*brace_arg
+      >macro_expansion<end;1><p:4>
+     { }
+     *bracketed_arg C1 l9
+      {j ab}
+      >SOURCEMARKS
+      >macro_expansion<start;2><p:2>
+       >*macro_call C1
+       >|INFO
+       >|command_name:{simple}
+        >*brace_arg
+      >macro_expansion<end;2><p:4>
+     { }
+     *bracketed_arg C3 l9
+      {k }
+      *3 @emph C1 l9
+       *brace_container C1
+        {s}
+      {nab}
+      >SOURCEMARKS
+      >macro_expansion<start;3><p:1>
+       >*macro_call C1
+       >|INFO
+       >|command_name:{simple}
+        >*brace_arg
+      >macro_expansion<end;3><p:3>
+     { }
+     *bracketed_arg C3 l9
+     >SOURCEMARKS
+     >macro_expansion<end;4>
+      {g c}
+      >SOURCEMARKS
+      >macro_expansion<start;4><p:2>
+       >*macro_call C1
+       >|INFO
+       >|command_name:{endbrace}
+        >*brace_arg C1
+         >{@code{l}}
+      *4 @code C1 l9:@endbrace
+       *brace_container C1
+        {l}
+      {d}
+     { }
+     *bracketed_arg C1 l9
+     >SOURCEMARKS
+     >macro_expansion<end;5>
+      {h cTd}
+      >SOURCEMARKS
+      >macro_expansion<start;5><p:2>
+       >*macro_call C1
+       >|INFO
+       >|command_name:{endbrace}
+        >*brace_arg C1
+         >{T}
+   *multitable_body C1
+    *row C5
+    |EXTRA
+    |row_number:{1}
+     *@item C2 l10
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {l1 }
+     *@tab C2 l10
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {t1 }
+     *@tab C2 l10
+     |EXTRA
+     |cell_number:{3}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {t2 }
+     *@tab C2 l10
+     |EXTRA
+     |cell_number:{4}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {t3 }
+     *@tab C2 l10
+     |EXTRA
+     |cell_number:{5}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {t4\\n}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+';
+
 
 $result_texis{'macro_expansion_in_multitable_prototype'} = '@macro simple
 ab

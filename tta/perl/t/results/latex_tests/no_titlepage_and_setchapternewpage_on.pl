@@ -5,53 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_titlepage_and_setchapternewpage_on'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'setchapternewpage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'on'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'misc_args' => [
-                  'on'
-                ]
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_titlepage_and_setchapternewpage_on'} = '*document_root C1
+ *before_node_section C1
+  *preamble_before_content C1
+   *@setchapternewpage C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |misc_args:A{on}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {on}
+';
+
 
 $result_texis{'no_titlepage_and_setchapternewpage_on'} = '@setchapternewpage on
 ';

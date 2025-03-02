@@ -5,79 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'double_style_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '
-'
-                            },
-                            {
-                              'text' => 'First para.
-'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'empty_line'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Second para.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'double_style_paragraph'} = '*document_root C1
+ *before_node_section C4
+  *paragraph C1
+   *0 @emph C1 l1
+    *brace_container C1
+     *1 @strong C1 l1
+      *brace_container C3
+       {\\n}
+       {First para.\\n}
+       {empty_line:\\n}
+  *paragraph C1
+   {Second para.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'double_style_paragraph'} = '@emph{@strong{
 First para.

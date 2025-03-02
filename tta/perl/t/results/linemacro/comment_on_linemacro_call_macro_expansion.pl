@@ -5,268 +5,85 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_on_linemacro_call_macro_expansion'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' lm {a, b}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first |\\a\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second |\\b\\|
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'lm',
-            'misc_args' => [
-              'a',
-              'b'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mymacro {a}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'macro \\a\\ text
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'after arg
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mymacro',
-            'misc_args' => [
-              'a'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@lm {a} @c in comment'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => ''
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'lm',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'position' => 6,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'macro first |a|
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 9,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'second ||'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' in comment text
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 9,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'after arg
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root C1
+ *before_node_section C5
+  *0 @linemacro C4 l1
+  |EXTRA
+  |macro_name:{lm}
+  |misc_args:A{a|b}
+   *arguments_line C1
+    {macro_line: lm {a, b}\\n}
+   {raw:first |\\a\\|\\n}
+   {raw:second |\\b\\|\\n}
+   *@end C1 l4
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *1 @macro C4 l6
+  |EXTRA
+  |macro_name:{mymacro}
+  |misc_args:A{a}
+   *arguments_line C1
+    {macro_line: mymacro {a}\\n}
+   {raw:macro \\a\\ text\\n}
+   {raw:after arg\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C4
+   {macro first |a|\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{mymacro}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{\\n}
+      >{@lm {a} @c in comment}
+   >linemacro_expansion<start;1><p:6>
+    >*linemacro_call C2
+    >|INFO
+    >|command_name:{lm}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:a}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{}
+   {second ||}
+   >SOURCEMARKS
+   >linemacro_expansion<end;1><p:9>
+   *@c C1
+    {rawline_arg: in comment text\\n}
+   {after arg\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:9>
+';
+
 
 $result_texis{'comment_on_linemacro_call_macro_expansion'} = '@linemacro lm {a, b}
 first |\\a\\|

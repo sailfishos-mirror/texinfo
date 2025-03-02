@@ -5,520 +5,160 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_itemize'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'cmdname' => 'itemize',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'bullet',
-                      'info' => {
-                        'inserted' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '   ',
-                  'type' => 'spaces_before_paragraph'
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'First level item
-'
-                    },
-                    {
-                      'text' => '   '
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'item_number' => 1
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'item',
-              'contents' => [
-                {
-                  'text' => ' ',
-                  'type' => 'ignorable_spaces_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'First level item
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'itemize',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'bullet',
-                              'info' => {
-                                'inserted' => 1
-                              }
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '     ',
-                          'type' => 'spaces_before_paragraph'
-                        }
-                      ],
-                      'type' => 'before_item'
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Second level item
-'
-                            },
-                            {
-                              'text' => '     '
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'item_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Second level item
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        },
-                        {
-                          'cmdname' => 'itemize',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'cmdname' => 'bullet',
-                                      'info' => {
-                                        'inserted' => 1
-                                      }
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'block_line_arg'
-                                }
-                              ],
-                              'type' => 'arguments_line'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '       ',
-                                  'type' => 'spaces_before_paragraph'
-                                }
-                              ],
-                              'type' => 'before_item'
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Third level item
-'
-                                    },
-                                    {
-                                      'text' => '       '
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 1
-                              },
-                              'source_info' => {
-                                'line_nr' => 8
-                              }
-                            },
-                            {
-                              'cmdname' => 'item',
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Third level item
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                },
-                                {
-                                  'cmdname' => 'itemize',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'cmdname' => 'bullet',
-                                              'info' => {
-                                                'inserted' => 1
-                                              }
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'block_line_arg'
-                                        }
-                                      ],
-                                      'type' => 'arguments_line'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => '         ',
-                                          'type' => 'spaces_before_paragraph'
-                                        }
-                                      ],
-                                      'type' => 'before_item'
-                                    },
-                                    {
-                                      'cmdname' => 'item',
-                                      'contents' => [
-                                        {
-                                          'text' => ' ',
-                                          'type' => 'ignorable_spaces_after_command'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'Fourth level item
-'
-                                            },
-                                            {
-                                              'text' => '         '
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'item_number' => 1
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 11
-                                      }
-                                    },
-                                    {
-                                      'cmdname' => 'item',
-                                      'contents' => [
-                                        {
-                                          'text' => ' ',
-                                          'type' => 'ignorable_spaces_after_command'
-                                        },
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'Fourth level item
-'
-                                            }
-                                          ],
-                                          'type' => 'paragraph'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'item_number' => 2
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 12
-                                      }
-                                    },
-                                    {
-                                      'cmdname' => 'end',
-                                      'contents' => [
-                                        {
-                                          'contents' => [
-                                            {
-                                              'text' => 'itemize'
-                                            }
-                                          ],
-                                          'info' => {
-                                            'spaces_after_argument' => {
-                                              'text' => '
-'
-                                            }
-                                          },
-                                          'type' => 'line_arg'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'text_arg' => 'itemize'
-                                      },
-                                      'info' => {
-                                        'spaces_before_argument' => {
-                                          'text' => ' '
-                                        }
-                                      },
-                                      'source_info' => {
-                                        'line_nr' => 13
-                                      }
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'command_as_argument' => {}
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 10
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'item_number' => 2
-                              },
-                              'source_info' => {
-                                'line_nr' => 9
-                              }
-                            },
-                            {
-                              'cmdname' => 'end',
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'itemize'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_after_argument' => {
-                                      'text' => '
-'
-                                    }
-                                  },
-                                  'type' => 'line_arg'
-                                }
-                              ],
-                              'extra' => {
-                                'text_arg' => 'itemize'
-                              },
-                              'info' => {
-                                'spaces_before_argument' => {
-                                  'text' => ' '
-                                }
-                              },
-                              'source_info' => {
-                                'line_nr' => 14
-                              }
-                            }
-                          ],
-                          'extra' => {
-                            'command_as_argument' => {}
-                          },
-                          'source_info' => {
-                            'line_nr' => 7
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'item_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'itemize'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'itemize'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 15
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'command_as_argument' => {}
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'item_number' => 2
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'itemize'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'itemize'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 16
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'nested_itemize'} = '*document_root C1
+ *before_node_section C3
+  *preamble_before_content
+  *0 @itemize C5 l1
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @bullet
+     |INFO
+     |inserted:{1}
+   *before_item C1
+    {spaces_before_paragraph:   }
+   *@item C2 l2
+   |EXTRA
+   |item_number:{1}
+    {ignorable_spaces_after_command: }
+    *paragraph C2
+     {First level item\\n}
+     {   }
+   *@item C3 l3
+   |EXTRA
+   |item_number:{2}
+    {ignorable_spaces_after_command: }
+    *paragraph C1
+     {First level item\\n}
+    *2 @itemize C5 l4
+    |EXTRA
+    |command_as_argument:[E3]
+     *arguments_line C1
+      *block_line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *3 @bullet
+       |INFO
+       |inserted:{1}
+     *before_item C1
+      {spaces_before_paragraph:     }
+     *@item C2 l5
+     |EXTRA
+     |item_number:{1}
+      {ignorable_spaces_after_command: }
+      *paragraph C2
+       {Second level item\\n}
+       {     }
+     *@item C3 l6
+     |EXTRA
+     |item_number:{2}
+      {ignorable_spaces_after_command: }
+      *paragraph C1
+       {Second level item\\n}
+      *4 @itemize C5 l7
+      |EXTRA
+      |command_as_argument:[E5]
+       *arguments_line C1
+        *block_line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         *5 @bullet
+         |INFO
+         |inserted:{1}
+       *before_item C1
+        {spaces_before_paragraph:       }
+       *@item C2 l8
+       |EXTRA
+       |item_number:{1}
+        {ignorable_spaces_after_command: }
+        *paragraph C2
+         {Third level item\\n}
+         {       }
+       *@item C3 l9
+       |EXTRA
+       |item_number:{2}
+        {ignorable_spaces_after_command: }
+        *paragraph C1
+         {Third level item\\n}
+        *6 @itemize C5 l10
+        |EXTRA
+        |command_as_argument:[E7]
+         *arguments_line C1
+          *block_line_arg C1
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+           *7 @bullet
+           |INFO
+           |inserted:{1}
+         *before_item C1
+          {spaces_before_paragraph:         }
+         *@item C2 l11
+         |EXTRA
+         |item_number:{1}
+          {ignorable_spaces_after_command: }
+          *paragraph C2
+           {Fourth level item\\n}
+           {         }
+         *@item C2 l12
+         |EXTRA
+         |item_number:{2}
+          {ignorable_spaces_after_command: }
+          *paragraph C1
+           {Fourth level item\\n}
+         *@end C1 l13
+         |INFO
+         |spaces_before_argument:
+          |{ }
+         |EXTRA
+         |text_arg:{itemize}
+          *line_arg C1
+          |INFO
+          |spaces_after_argument:
+           |{\\n}
+           {itemize}
+       *@end C1 l14
+       |INFO
+       |spaces_before_argument:
+        |{ }
+       |EXTRA
+       |text_arg:{itemize}
+        *line_arg C1
+        |INFO
+        |spaces_after_argument:
+         |{\\n}
+         {itemize}
+     *@end C1 l15
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{itemize}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {itemize}
+   *@end C1 l16
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{itemize}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {itemize}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'nested_itemize'} = '@itemize
    @item First level item

@@ -5,25 +5,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comment_without_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'comment',
-          'contents' => [
-            {
-              'text' => '',
-              'type' => 'rawline_arg'
-            }
-          ]
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comment_without_line'} = '*document_root C1
+ *before_node_section C1
+  *@comment C1
+   {rawline_arg:}
+';
+
 
 $result_texis{'comment_without_line'} = '@comment';
 

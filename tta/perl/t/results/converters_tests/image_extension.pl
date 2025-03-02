@@ -5,56 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'image_extension'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'f---ile'
-                }
-              ],
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'type' => 'brace_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '.gr--a'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'image_extension'} = '*document_root C1
+ *before_node_section C2
+  *0 @image C5 l1
+  |EXTRA
+  |input_encoding_name:{utf-8}
+   *brace_arg C1
+    {f---ile}
+   *brace_arg
+   *brace_arg
+   *brace_arg
+   *brace_arg C1
+    {.gr--a}
+  {\\n}
+';
+
 
 $result_texis{'image_extension'} = '@image{f---ile,,,,.gr--a}
 ';

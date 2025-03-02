@@ -5,93 +5,48 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'part_before_section'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'section'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'associated_part' => {
-          'cmdname' => 'part',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'part'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {},
-      {}
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'part_before_section'}[0]{'unit_contents'}[1] = $result_trees{'part_before_section'}[0]{'unit_command'}{'extra'}{'associated_part'};
-$result_trees{'part_before_section'}[0]{'unit_contents'}[2] = $result_trees{'part_before_section'}[0]{'unit_command'};
+$result_tree_text{'part_before_section'} = 'U0 unit[E1]
+UNIT_DIRECTIONS
+This: [U0]
+ *before_node_section
+ *0 @part C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |global_command_number:{1}
+ |part_associated_section:[E1]
+ |section_childs:EC[E1]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{-1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {part}
+  {empty_line:\\n}
+ *1 @section C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_part:[E0]
+ |section_directions:D[up->E0]
+ |section_level:{1}
+ |section_number:{1}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    {section}
+';
+
 
 $result_texis{'part_before_section'} = '@part part
 

@@ -5,40 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in  b'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simple'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @b C1 l1
+    *brace_container C1
+     {in  b}
+   {.}
+';
+
 
 $result_texis{'simple'} = '@b{in  b}.';
 

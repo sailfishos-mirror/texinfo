@@ -5,170 +5,55 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'myalias = code'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'myalias',
-              'code'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'alias',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'o-theralias=verb'
-                }
-              ],
-              'info' => {
-                'comment_at_end' => {
-                  'cmdname' => 'c',
-                  'contents' => [
-                    {
-                      'text' => ' comment
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ]
-                },
-                'spaces_after_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'o-theralias',
-              'verb'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Should be code: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'code'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'alias_of' => 'myalias'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Should be verb: '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'verb',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'alias_of' => 'o-theralias',
-                'delimiter' => '!'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simple'} = '*document_root C1
+ *before_node_section C7
+  *@alias C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{myalias|code}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {myalias = code}
+  {empty_line:\\n}
+  *@alias C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{o-theralias|verb}
+   *line_arg C1
+   |INFO
+   |comment_at_end:
+    |*@c C1
+     |{rawline_arg: comment\\n}
+   |spaces_after_argument:
+    |{ }
+    {o-theralias=verb}
+  {empty_line:\\n}
+  *paragraph C3
+   {Should be code: }
+   *0 @code C1 l5
+   |INFO
+   |alias_of:{myalias}
+    *brace_container C1
+     {code}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Should be verb: }
+   *1 @verb C1 l7
+   |INFO
+   |alias_of:{o-theralias}
+   |delimiter:{!}
+    *brace_container C1
+     {raw:verb}
+   {\\n}
+';
+
 
 $result_texis{'simple'} = '@alias myalias = code
 

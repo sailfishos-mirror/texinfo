@@ -5,53 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'command_in_end_ignored_raw_in_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'html',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'In html
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end @code{html}
-',
-                  'type' => 'raw'
-                }
-              ],
-              'type' => 'elided_rawpreformatted'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'command_in_end_ignored_raw_in_command'} = '*document_root C1
+ *before_node_section C1
+  *0 @html C2 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *elided_rawpreformatted C2
+    {raw:In html\\n}
+    {raw:@end @code{html}\\n}
+';
+
 
 $result_texis{'command_in_end_ignored_raw_in_command'} = '@html
 In html

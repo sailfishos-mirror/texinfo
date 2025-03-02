@@ -5,261 +5,82 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_on_ifset'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'xval',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'x',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' xval x
-'
-          }
-        },
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'x',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '1',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' x 1
-'
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'source_marks' => [
-                              {
-                                'counter' => 1,
-                                'position' => 1,
-                                'sourcemark_type' => 'value_expansion',
-                                'status' => 'end'
-                              }
-                            ],
-                            'text' => 'x'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'source_marks' => [
-                      {
-                        'counter' => 1,
-                        'element' => {
-                          'cmdname' => 'value',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'xval'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ]
-                        },
-                        'line' => 'x',
-                        'position' => 1,
-                        'sourcemark_type' => 'value_expansion',
-                        'status' => 'start'
-                      }
-                    ],
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 4
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'expanded_conditional_command',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 6
-                    }
-                  },
-                  'position' => 9,
-                  'sourcemark_type' => 'expanded_conditional_command',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'XVAL SET
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'ifset',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'b'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  },
-                  {
-                    'text' => '@ifset @value{xval}
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => 'INTERNALXV
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'text' => '@end ifset
-',
-                    'type' => 'raw'
-                  },
-                  {
-                    'cmdname' => 'end',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'ifset'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_after_argument' => {
-                            'text' => '
-'
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'extra' => {
-                      'text_arg' => 'ifset'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 12
-                    }
-                  }
-                ],
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 8
-                }
-              },
-              'position' => 1,
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_on_ifset'} = '*document_root C1
+ *before_node_section C5
+  *@set C2
+  |INFO
+  |arg_line:{ xval x\\n}
+   {rawline_arg:xval}
+   {rawline_arg:x}
+  *@set C2
+  |INFO
+  |arg_line:{ x 1\\n}
+   {rawline_arg:x}
+   {rawline_arg:1}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >expanded_conditional_command<start;1><p:1>
+   >*@ifset C1 l4
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >|>SOURCEMARKS
+    >|>value_expansion<start;1><p:1>{x}
+     >|>*@value C1
+      >|>*brace_container C1
+       >|>{xval}
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{x}
+      >>SOURCEMARKS
+      >>value_expansion<end;1><p:1>
+  *paragraph C1
+   {XVAL SET\\n}
+   >SOURCEMARKS
+   >expanded_conditional_command<end;1><p:9>
+    >*@end C1 l6
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifset}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >ignored_conditional_block<1><p:1>
+   >*@ifset C5 l8
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+    >*arguments_line C1
+     >*block_line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{b}
+    >{raw:@ifset @value{xval}\\n}
+    >{raw:INTERNALXV\\n}
+    >{raw:@end ifset\\n}
+    >*@end C1 l12
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+    >|EXTRA
+    >|text_arg:{ifset}
+     >*line_arg C1
+     >|INFO
+     >|spaces_after_argument:
+      >|{\\n}
+      >{ifset}
+';
+
 
 $result_texis{'value_on_ifset'} = '@set xval x
 @set x 1

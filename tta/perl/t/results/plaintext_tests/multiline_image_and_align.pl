@@ -5,399 +5,119 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multiline_image_and_align'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'CCCC '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'fffffffffffffffffffffffffffffffffffffff '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 5
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'dddd '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                },
-                {
-                  'text' => ' iiiii'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'flushright',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'AAA
-'
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'BBB '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
-                },
-                {
-                  'text' => ' gggg '
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'HHH
-'
-                },
-                {
-                  'cmdname' => 'image',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'figure'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'input_encoding_name' => 'utf-8'
-                  },
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'text' => ' JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'flushright'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'flushright'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 9
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'multiline_image_and_align'} = '*document_root C1
+ *before_node_section C9
+  *@center C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *0 @image C1 l1
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+  {empty_line:\\n}
+  *@center C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    {CCCC }
+    *1 @image C1 l3
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+  {empty_line:\\n}
+  *@center C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {fffffffffffffffffffffffffffffffffffffff }
+    *2 @image C1 l5
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+  {empty_line:\\n}
+  *@center C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {dddd }
+    *3 @image C1 l7
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+    { iiiii}
+  {empty_line:\\n}
+  *4 @flushright C7 l9
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *paragraph C3
+    {AAA\\n}
+    *5 @image C1 l11
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+    {\\n}
+   {empty_line:\\n}
+   *paragraph C5
+    {BBB }
+    *6 @image C1 l13
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+    { gggg }
+    *7 @image C1 l13
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+    {\\n}
+   {empty_line:\\n}
+   *paragraph C3
+    {HHH\\n}
+    *8 @image C1 l16
+    |EXTRA
+    |input_encoding_name:{utf-8}
+     *brace_arg C1
+      {figure}
+    { JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ\\n}
+   *@end C1 l17
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{flushright}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {flushright}
+';
+
 
 $result_texis{'multiline_image_and_align'} = '@center @image{figure}
 

@@ -5,338 +5,130 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'in_menu_only_special_ascii_spaces_node_menu'} = {
-  "contents" => [
-    {
-      "contents" => [
-        {
-          "type" => "preamble_before_content"
-        }
-      ],
-      "type" => "before_node_section"
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "Top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "Top"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 1
-      }
-    },
-    {
-      "cmdname" => "top",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "cmdname" => "menu",
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "block_line_arg"
-                }
-              ],
-              "type" => "arguments_line"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* \r",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 5
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* \t\f",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 6
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "cmdname" => "end",
-              "contents" => [
-                {
-                  "contents" => [
-                    {
-                      "text" => "menu"
-                    }
-                  ],
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "line_arg"
-                }
-              ],
-              "extra" => {
-                "text_arg" => "menu"
-              },
-              "info" => {
-                "spaces_before_argument" => {
-                  "text" => " "
-                }
-              },
-              "source_info" => {
-                "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-                "line_nr" => 7
-              }
-            }
-          ],
-          "source_info" => {
-            "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-            "line_nr" => 4
-          }
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {},
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 2
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \r\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {},
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 9
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CARRIAGE RETURN|\r|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 1
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 10
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \t\f\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {},
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 12
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 2
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
-        "line_nr" => 13
-      }
-    }
-  ],
-  "type" => "document_root"
-};
+$result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_root C7
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 in_menu_only_special_ascii_spaces_node.texi:l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 in_menu_only_special_ascii_spaces_node.texi:l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4|E6]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *2 @menu C4 in_menu_only_special_ascii_spaces_node.texi:l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 in_menu_only_special_ascii_spaces_node.texi:l5
+    {menu_entry_leading_text:* '."\r".'}
+    *menu_entry_node
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_ascii_spaces_node.texi:l6
+    {menu_entry_leading_text:* \\t\\f}
+    *menu_entry_node
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 in_menu_only_special_ascii_spaces_node.texi:l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *3 @node C1 in_menu_only_special_ascii_spaces_node.texi:l9
+ |EXTRA
+ |associated_section:[E4]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{ '."\r".'\\n}
+ *4 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[next->E6|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CARRIAGE RETURN|'."\r".'|}
+  {empty_line:\\n}
+ *5 @node C1 in_menu_only_special_ascii_spaces_node.texi:l12
+ |EXTRA
+ |associated_section:[E6]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{ \\t\\f\\n}
+ *6 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E5]
+ |section_directions:D[prev->E4|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[prev->E4|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CHARACTER TABULATION|\\t| FORM FEED|\\f|}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'in_menu_only_special_ascii_spaces_node_menu'} = '@node Top
 @top top

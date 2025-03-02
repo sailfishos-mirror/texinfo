@@ -5,258 +5,76 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'cpp_directives_after_macros'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' noargsspaces
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '  
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'cpp_directives_after_macros.texi',
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'noargsspaces',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'cpp_directives_after_macros.texi',
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' emptyexpansion
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'file_name' => 'cpp_directives_after_macros.texi',
-                    'line_nr' => 8
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'emptyexpansion',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'file_name' => 'cpp_directives_after_macros.texi',
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'noargsspaces'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 1,
-                  'position' => 2,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '  ',
-              'type' => 'spaces_before_paragraph'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '#line 46 "a_file_after_macro_call"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'emptyexpansion'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '#line 75 "a_file_after_macro_call_no_spaces"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
+ *before_node_section C9
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content C6
+   *0 @macro C3 cpp_directives_after_macros.texi:l2
+   |EXTRA
+   |macro_name:{noargsspaces}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: noargsspaces\\n}
+    {raw:  \\n}
+    *@end C1 cpp_directives_after_macros.texi:l4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   *1 @macro C3 cpp_directives_after_macros.texi:l6
+   |EXTRA
+   |macro_name:{emptyexpansion}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: emptyexpansion\\n}
+    {raw:\\n}
+    *@end C1 cpp_directives_after_macros.texi:l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   {empty_line:\\n}
+   {spaces_before_paragraph:  }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{noargsspaces}
+     >*brace_arg
+   >macro_expansion<end;1><p:2>
+  *paragraph C1
+   {#line 46 "a_file_after_macro_call"\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {#line 75 "a_file_after_macro_call_no_spaces"\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{emptyexpansion}
+     >*brace_arg
+   >macro_expansion<end;2>
+  {empty_line:\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'cpp_directives_after_macros'} = '
 @macro noargsspaces

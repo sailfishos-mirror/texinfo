@@ -5,65 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unmatched_brace'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Closing'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '}'
-                    },
-                    {
-                      'text' => ' without opening macro '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unmatched_brace'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C4
+   *0 @samp C1 l1
+    *brace_container C1
+     {Closing}
+   { }
+   *1 @samp C1 l1
+    *brace_container C3
+     { }
+     *@}
+     { without opening macro }
+   {.}
+';
+
 
 $result_texis{'unmatched_brace'} = '@samp{Closing} @samp{ @} without opening macro }.';
 

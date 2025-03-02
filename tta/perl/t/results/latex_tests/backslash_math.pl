@@ -5,64 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'backslash_math'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a '
-                    },
-                    {
-                      'cmdname' => '\\'
-                    },
-                    {
-                      'text' => ' b '
-                    },
-                    {
-                      'cmdname' => 'backslashchar',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => ' c'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'backslash_math'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_content
+  *paragraph C2
+   *0 @math C1 l1
+    *brace_command_context C5
+     {a }
+     *@\\
+     { b }
+     *1 @backslashchar C1 l1
+      *brace_container
+     { c}
+   {.\\n}
+';
+
 
 $result_texis{'backslash_math'} = '@math{a @\\ b @backslashchar{} c}.
 ';

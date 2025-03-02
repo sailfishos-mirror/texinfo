@@ -5,44 +5,21 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'author_outside_titlepage_quotation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'author',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Some One'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'author_outside_titlepage_quotation'} = '*document_root C1
+ *before_node_section C1
+  *0 @author C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Some One}
+';
+
 
 $result_texis{'author_outside_titlepage_quotation'} = '@author Some One
 ';

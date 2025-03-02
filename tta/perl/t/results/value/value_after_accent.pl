@@ -5,141 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'value_after_accent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'a_letter',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'a',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' a_letter a
-'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 1,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'a_letter'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => 'a',
-                      'position' => 1,
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'source_marks' => [
-                    {
-                      'counter' => 2,
-                      'element' => {
-                        'cmdname' => 'value',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'a_letter'
-                              }
-                            ],
-                            'type' => 'brace_container'
-                          }
-                        ]
-                      },
-                      'line' => 'a',
-                      'sourcemark_type' => 'value_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => ''
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'value_after_accent'} = '*document_root C1
+ *before_node_section C2
+  *@set C2
+  |INFO
+  |arg_line:{ a_letter a\\n}
+   {rawline_arg:a_letter}
+   {rawline_arg:a}
+  *paragraph C3
+   *0 @ringaccent C1 l2
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    |>SOURCEMARKS
+    |>value_expansion<start;1><p:1>{a}
+     |>*@value C1
+      |>*brace_container C1
+       |>{a_letter}
+   >SOURCEMARKS
+   >value_expansion<end;1>
+    *following_arg C1
+     {a}
+   {\\n}
+   *1 @~ C1 l3
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{}
+    |>SOURCEMARKS
+    |>value_expansion<start;2>{a}
+     |>*@value C1
+      |>*brace_container C1
+       |>{a_letter}
+   >SOURCEMARKS
+   >value_expansion<end;2>
+    *following_arg C1
+     {a}
+';
+
 
 $result_texis{'value_after_accent'} = '@set a_letter a
 @ringaccent a

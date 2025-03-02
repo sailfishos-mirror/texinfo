@@ -5,307 +5,95 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraph_no_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\a\\, \\b\\ \\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => '*'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@anchor{aa}'
-                      }
-                    ],
-                    'type' => 'line_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'definite'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'line_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'and @code{more}'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'mycommand',
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'type' => 'linemacro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'linemacro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => ' '
-        },
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aa'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'is_target' => 1,
-            'normalized' => 'aa'
-          },
-          'source_info' => {
-            'line_nr' => 5,
-            'macro' => 'mycommand'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => ', definite and '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'more'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5,
-                'macro' => 'mycommand'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a
-  protected',
-                            'type' => 'bracketed_linemacro_arg'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'in'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => '@var{the
- call}'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mycommand',
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'linemacro_call'
-                  },
-                  'position' => 10,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Some text a
-'
-            },
-            {
-              'text' => '  protected, in '
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'the
-'
-                    },
-                    {
-                      'text' => ' call'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9,
-                'macro' => 'mycommand'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'sourcemark_type' => 'linemacro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'and after.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
+ *before_node_section C8
+  *0 @linemacro C3 l1
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c}\\n}
+   {raw:\\a\\, \\b\\ \\c\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *@*
+  { }
+  >SOURCEMARKS
+  >linemacro_expansion<start;1><p:1>
+   >*linemacro_call C3
+   >|INFO
+   >|command_name:{mycommand}
+   >|spaces_before_argument:
+    >|{ }
+    >*line_arg C1
+     >{@anchor{aa}}
+    >*line_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >{definite}
+    >*line_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >{and @code{more}}
+  *1 @anchor C1 l5:@mycommand
+  |EXTRA
+  |is_target:{1}
+  |normalized:{aa}
+   *brace_arg C1
+    {aa}
+  *paragraph C3
+   {, definite and }
+   *2 @code C1 l5:@mycommand
+   >SOURCEMARKS
+   >linemacro_expansion<end;1>
+    *brace_container C1
+     {more}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C5
+   {Some text a\\n}
+   >SOURCEMARKS
+   >linemacro_expansion<start;2><p:10>
+    >*linemacro_call C3
+    >|INFO
+    >|command_name:{mycommand}
+    >|spaces_before_argument:
+     >|{ }
+     >*line_arg C1
+      >{bracketed_linemacro_arg:a\\n  protected}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{in}
+     >*line_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{@var{the\\n call}}
+   {  protected, in }
+   *3 @var C1 l9:@mycommand
+   >SOURCEMARKS
+   >linemacro_expansion<end;2>
+    *brace_container C2
+     {the\\n}
+     { call}
+   {\\n}
+   {and after.\\n}
+';
+
 
 $result_texis{'paragraph_no_paragraph'} = '@linemacro mycommand {a, b, c}
 \\a\\, \\b\\ \\c\\

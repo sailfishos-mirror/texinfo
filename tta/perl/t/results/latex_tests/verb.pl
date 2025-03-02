@@ -5,155 +5,43 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '!'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a!a',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '!'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'b',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '!'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a%|!:@b',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '%'
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verb'} = '*document_root C1
+ *before_node_section C8
+  *preamble_before_content
+  *paragraph C2
+   *0 @verb C1 l1
+   |INFO
+   |delimiter:{!}
+    *brace_container C1
+     {raw:a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @verb C1 l3
+   |INFO
+   |delimiter:{!}
+    *brace_container C1
+     {raw:a!a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @verb C1 l5
+   |INFO
+   |delimiter:{!}
+    *brace_container C2
+     {raw:a\\n}
+     {raw:b}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *3 @verb C1 l8
+   |INFO
+   |delimiter:{%}
+    *brace_container C1
+     {raw:a%|!:@b}
+   {\\n}
+';
+
 
 $result_texis{'verb'} = '@verb{!a!}
 

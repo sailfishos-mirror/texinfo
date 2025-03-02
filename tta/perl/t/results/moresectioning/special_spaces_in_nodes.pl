@@ -5,979 +5,328 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'special_spaces_in_nodes'} = {
-  "contents" => [
-    {
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "text" => "\n",
-              "type" => "text_before_beginning"
-            }
-          ],
-          "type" => "preamble_before_beginning"
-        },
-        {
-          "type" => "preamble_before_content"
-        }
-      ],
-      "type" => "before_node_section"
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "Top\x{2000}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "Top_2002"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 2
-      }
-    },
-    {
-      "cmdname" => "top",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {},
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 3
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 5
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "chap"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "cmdname" => "menu",
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "block_line_arg"
-                }
-              ],
-              "type" => "arguments_line"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 10
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "CARRIAGE RETURN|\r|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "CARRIAGE-RETURN_007c-_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 11
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 12
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 13
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 14
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 15
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "HAIR SPACE|\x{200a}| LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 16
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 17
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "cmdname" => "end",
-              "contents" => [
-                {
-                  "contents" => [
-                    {
-                      "text" => "menu"
-                    }
-                  ],
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "line_arg"
-                }
-              ],
-              "extra" => {
-                "text_arg" => "menu"
-              },
-              "info" => {
-                "spaces_before_argument" => {
-                  "text" => " "
-                }
-              },
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 18
-              }
-            }
-          ],
-          "source_info" => {
-            "file_name" => "special_spaces_in_nodes.texi",
-            "line_nr" => 9
-          }
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 1
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 6
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 20
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CARRIAGE RETURN|\r|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "CARRIAGE-RETURN_007c-_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 22
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 24
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 26
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 28
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 30
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "HAIR SPACE|\x{200a}| LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 32
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "cmdname" => "ref",
-              "contents" => [
-                {
-                  "contents" => [
-                    {
-                      "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
-                  },
-                  "type" => "brace_arg"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "special_spaces_in_nodes.texi",
-                "line_nr" => 36
-              }
-            },
-            {
-              "text" => "\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "special_spaces_in_nodes.texi",
-        "line_nr" => 34
-      }
-    },
-    {
-      "cmdname" => "bye",
-      "contents" => [
-        {
-          "text" => "\n",
-          "type" => "rawline_arg"
-        }
-      ]
-    }
-  ],
-  "type" => "document_root"
-};
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[1]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[1]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[2]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[2]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[3]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[3]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[4]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[5]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[6]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[7]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[7]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[8]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"contents"}[8]{"contents"}[1]{"contents"}[0];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[2]{"contents"}[0]{"contents"}[0]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'special_spaces_in_nodes'}{"contents"}[12]{"contents"}[2]{"contents"}[0]{"contents"}[0]{"contents"}[0];
+$result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
+ *0 @node C1 special_spaces_in_nodes.texi:l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top_2002}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    {Top }
+ *1 @top C2 special_spaces_in_nodes.texi:l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 special_spaces_in_nodes.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |menus:EC[E4]
+ |node_directions:D[up->E0]
+ |normalized:{EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {EN QUAD| | EM QUAD| | EN SPACE| |}
+ *3 @chapter C5 special_spaces_in_nodes.texi:l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  *4 @menu C10 special_spaces_in_nodes.texi:l9
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l10
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
+    |normalized:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
+     {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l11
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{CARRIAGE RETURN|'."\r".'|}
+    |normalized:{CARRIAGE-RETURN_007c-_007c}
+     {CARRIAGE RETURN|'."\r".'|}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l12
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+    |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
+     {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l13
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+    |normalized:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
+     {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l14
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
+    |normalized:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
+     {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l15
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
+    |normalized:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
+     {FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l16
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
+    |normalized:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
+     {HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 special_spaces_in_nodes.texi:l17
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+    |normalized:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
+     {NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 special_spaces_in_nodes.texi:l18
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *5 @node C2 special_spaces_in_nodes.texi:l20
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E6|up->E2]
+ |node_directions:D[next->E6|up->E2]
+ |normalized:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
+  {empty_line:\\n}
+ *6 @node C2 special_spaces_in_nodes.texi:l22
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E7|prev->E5|up->E2]
+ |node_directions:D[next->E7|prev->E5|up->E2]
+ |normalized:{CARRIAGE-RETURN_007c-_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CARRIAGE RETURN|'."\r".'|}
+  {empty_line:\\n}
+ *7 @node C2 special_spaces_in_nodes.texi:l24
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E8|prev->E6|up->E2]
+ |node_directions:D[next->E8|prev->E6|up->E2]
+ |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+  {empty_line:\\n}
+ *8 @node C2 special_spaces_in_nodes.texi:l26
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E9|prev->E7|up->E2]
+ |node_directions:D[next->E9|prev->E7|up->E2]
+ |normalized:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+  {empty_line:\\n}
+ *9 @node C2 special_spaces_in_nodes.texi:l28
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E10|prev->E8|up->E2]
+ |node_directions:D[next->E10|prev->E8|up->E2]
+ |normalized:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |}
+  {empty_line:\\n}
+ *10 @node C2 special_spaces_in_nodes.texi:l30
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E11|prev->E9|up->E2]
+ |node_directions:D[next->E11|prev->E9|up->E2]
+ |normalized:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |}
+  {empty_line:\\n}
+ *11 @node C2 special_spaces_in_nodes.texi:l32
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E12|prev->E10|up->E2]
+ |node_directions:D[next->E12|prev->E10|up->E2]
+ |normalized:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |}
+  {empty_line:\\n}
+ *12 @node C4 special_spaces_in_nodes.texi:l34
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[prev->E11|up->E2]
+ |node_directions:D[prev->E11|up->E2]
+ |normalized:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+  {empty_line:\\n}
+  *paragraph C2
+   *13 @ref C1 special_spaces_in_nodes.texi:l36
+    *brace_arg C1
+    |EXTRA
+    |node_content:{NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+    |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
+     {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+   {\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'special_spaces_in_nodes'} = '
 @node Top  

@@ -5,64 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'thischapter_in_math_in_evenfooting'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'evenfooting',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'math',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aa '
-                        },
-                        {
-                          'cmdname' => 'thischapter'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 2
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'thischapter_in_math_in_evenfooting'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *@evenfooting C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *0 @math C1 l2
+     *brace_command_context C2
+      {aa }
+      *@thischapter
+';
+
 
 $result_texis{'thischapter_in_math_in_evenfooting'} = '
 @evenfooting @math{aa @thischapter}

@@ -5,153 +5,60 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'bad_documentlanguage'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'documentlanguage '
-            },
-            {
-              'cmdname' => 'documentlanguage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'en'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'en'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'en '
-                },
-                {
-                  'cmdname' => 'documentlanguage',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'en'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '  
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'en'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => '  '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'en '
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => '  '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'documentlanguage',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'en  after documentlanguage'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'en  after documentlanguage'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => '  '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 6
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'bad_documentlanguage'} = '*document_root C1
+ *before_node_section C6
+  {empty_line:\\n}
+  *paragraph C2
+   {documentlanguage }
+   *@documentlanguage C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{  }
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{en}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ \\n}
+     {en}
+  {empty_line:\\n}
+  *@documentlanguage C1 l4
+  |INFO
+  |spaces_before_argument:
+   |{  }
+  |EXTRA
+  |global_command_number:{2}
+  |text_arg:{en }
+   *line_arg C2
+    {en }
+    *@documentlanguage C1 l4
+    |INFO
+    |spaces_before_argument:
+     |{  }
+    |EXTRA
+    |global_command_number:{3}
+    |text_arg:{en}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{  \\n}
+      {en}
+  {empty_line:\\n}
+  *@documentlanguage C1 l6
+  |INFO
+  |spaces_before_argument:
+   |{  }
+  |EXTRA
+  |global_command_number:{4}
+  |text_arg:{en  after documentlanguage}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {en  after documentlanguage}
+';
+
 
 $result_texis{'bad_documentlanguage'} = '
 documentlanguage @documentlanguage  en 

@@ -5,94 +5,37 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'include_setfilename_on_setfilename_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'setfilename',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'file '
-                },
-                {
-                  'cmdname' => 'setfilename',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other file '
-                        },
-                        {
-                          'cmdname' => 'include',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'are you joking!'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'are you joking!'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 1
-                          }
-                        }
-                      ],
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'other file '
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 1
-                  }
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'file '
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'include_setfilename_on_setfilename_line'} = '*document_root C1
+ *before_node_section C1
+  *@setfilename C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{file }
+   *line_arg C2
+    {file }
+    *@setfilename C1 l1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{other file }
+     *line_arg C2
+      {other file }
+      *@include C1 l1
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{are you joking!}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {are you joking!}
+';
+
 
 $result_texis{'include_setfilename_on_setfilename_line'} = '@setfilename file @setfilename other file @include are you joking!
 ';

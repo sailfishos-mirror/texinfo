@@ -5,3827 +5,1009 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'codequoteundirected_codequotebacktick'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' quotes
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'code: @code{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'asis: @asis{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'strong: @strong{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'kbd: @kbd{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => 'samp: @samp{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 8
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'quotes',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'macro',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' allquotes
-',
-                      'type' => 'macro_line'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'text' => '@quotes{}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@example
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@@codequoteundirected on
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@@codequotebacktick on
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end example
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@codequoteundirected
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@codequotebacktick
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@quotes{}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@example
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@@codequoteundirected off
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@@codequotebacktick off
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@end example
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@codequoteundirected off
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@codequotebacktick off
-',
-                  'type' => 'raw'
-                },
-                {
-                  'text' => '@quotes{}
-',
-                  'type' => 'raw'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'macro'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'macro'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 28
-                  }
-                }
-              ],
-              'extra' => {
-                'macro_name' => 'allquotes',
-                'misc_args' => []
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'copying',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'allquotes'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'quotes'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'code: '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'asis: '
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'strong: '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'kbd: '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'samp: '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*',
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'example',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'codequoteundirected on
-'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'codequotebacktick on
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'example'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'allquotes'
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequoteundirected',
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequotebacktick',
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'quotes'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'code: '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'asis: '
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'strong: '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'kbd: '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'samp: '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*',
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'cmdname' => 'example',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'type' => 'arguments_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'codequoteundirected off
-'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => 'codequotebacktick off
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'end',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'text_arg' => 'example'
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'allquotes'
-                      }
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequoteundirected',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'off'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'misc_args' => [
-                      'off'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequotebacktick',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'off'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'misc_args' => [
-                      'off'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 31,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'quotes'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'code: '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'asis: '
-                    },
-                    {
-                      'cmdname' => 'asis',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'strong: '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'kbd: '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*'
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'samp: '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                            },
-                            {
-                              'cmdname' => 'quotedblleft',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 31,
-                                'macro' => 'quotes'
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 31,
-                        'macro' => 'quotes'
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '*',
-                      'source_marks' => [
-                        {
-                          'counter' => 4,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        },
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ]
-                    },
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'copying'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'copying'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 32
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'cmdname' => 'titlepage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Titlepage
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                },
-                {
-                  'cmdname' => 'insertcopying',
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'rawline_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 35
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'titlepage'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'titlepage'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 36
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 39
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'test quotes'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 40
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 42
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'allquotes'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                },
-                {
-                  'counter' => 6,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'quotes'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-            },
-            {
-              'cmdname' => 'quotedblleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'code: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'asis: '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'strong: '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'kbd: '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'samp: '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*',
-              'source_marks' => [
-                {
-                  'counter' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'codequoteundirected on
-'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'codequotebacktick on
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'allquotes'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'cmdname' => 'codequoteundirected',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'cmdname' => 'codequotebacktick',
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'quotes'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-            },
-            {
-              'cmdname' => 'quotedblleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'code: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'asis: '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'strong: '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'kbd: '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'samp: '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*',
-              'source_marks' => [
-                {
-                  'counter' => 7,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'codequoteundirected off
-'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'codequotebacktick off
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'allquotes'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'cmdname' => 'codequoteundirected',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'off'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'off'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'cmdname' => 'codequotebacktick',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'off'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'off'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 45,
-            'macro' => 'allquotes'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'quotes'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-            },
-            {
-              'cmdname' => 'quotedblleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'code: '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'asis: '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'strong: '
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'kbd: '
-            },
-            {
-              'cmdname' => 'kbd',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'samp: '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                    },
-                    {
-                      'cmdname' => 'quotedblleft',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 45,
-                        'macro' => 'quotes'
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 45,
-                'macro' => 'quotes'
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '*',
-              'source_marks' => [
-                {
-                  'counter' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                },
-                {
-                  'counter' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 9,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'allquotes'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    },
-                    {
-                      'counter' => 10,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'quotes'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                },
-                {
-                  'cmdname' => 'quotedblleft',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'code: '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'asis: '
-                },
-                {
-                  'cmdname' => 'asis',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'strong: '
-                },
-                {
-                  'cmdname' => 'strong',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'kbd: '
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'samp: '
-                },
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*',
-                  'source_marks' => [
-                    {
-                      'counter' => 10,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'example',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'codequoteundirected on
-'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'codequotebacktick on
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'example'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'example'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 48,
-                'macro' => 'allquotes'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'codequoteundirected',
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequotebacktick',
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 11,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'quotes'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                },
-                {
-                  'cmdname' => 'quotedblleft',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'code: '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'asis: '
-                },
-                {
-                  'cmdname' => 'asis',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'strong: '
-                },
-                {
-                  'cmdname' => 'strong',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'kbd: '
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'samp: '
-                },
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*',
-                  'source_marks' => [
-                    {
-                      'counter' => 11,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'example',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'codequoteundirected off
-'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'codequotebacktick off
-'
-                    }
-                  ],
-                  'type' => 'preformatted'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'example'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'example'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 48,
-                'macro' => 'allquotes'
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'codequoteundirected',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'off'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'misc_args' => [
-                      'off'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'cmdname' => 'codequotebacktick',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'off'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'misc_args' => [
-                      'off'
-                    ]
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'allquotes'
-                  }
-                },
-                {
-                  'source_marks' => [
-                    {
-                      'counter' => 12,
-                      'element' => {
-                        'contents' => [
-                          {
-                            'type' => 'brace_arg'
-                          }
-                        ],
-                        'info' => {
-                          'command_name' => 'quotes'
-                        },
-                        'type' => 'macro_call'
-                      },
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'start'
-                    }
-                  ],
-                  'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                },
-                {
-                  'cmdname' => 'quotedblleft',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'code: '
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'asis: '
-                },
-                {
-                  'cmdname' => 'asis',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'strong: '
-                },
-                {
-                  'cmdname' => 'strong',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'kbd: '
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => 'samp: '
-                },
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '``simple-double--three---four----\'\' `simple\' quotedblleft: '
-                        },
-                        {
-                          'cmdname' => 'quotedblleft',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 48,
-                            'macro' => 'quotes'
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 48,
-                    'macro' => 'quotes'
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '*',
-                  'source_marks' => [
-                    {
-                      'counter' => 12,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    },
-                    {
-                      'counter' => 9,
-                      'sourcemark_type' => 'macro_expansion',
-                      'status' => 'end'
-                    }
-                  ]
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 49
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 47
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 43
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C8
+   *0 @macro C8 l1
+   |EXTRA
+   |macro_name:{quotes}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: quotes\\n}
+    {raw:``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*\\n}
+    {raw:code: @code{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
+    {raw:asis: @asis{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
+    {raw:strong: @strong{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
+    {raw:kbd: @kbd{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
+    {raw:samp: @samp{``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{}} @*\\n}
+    *@end C1 l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   *1 @macro C19 l10
+   |EXTRA
+   |macro_name:{allquotes}
+   |misc_args:A{}
+    *arguments_line C1
+     {macro_line: allquotes\\n}
+    {raw:@quotes{}\\n}
+    {raw:\\n}
+    {raw:@example\\n}
+    {raw:@@codequoteundirected on\\n}
+    {raw:@@codequotebacktick on\\n}
+    {raw:@end example\\n}
+    {raw:@codequoteundirected\\n}
+    {raw:@codequotebacktick\\n}
+    {raw:@quotes{}\\n}
+    {raw:\\n}
+    {raw:@example\\n}
+    {raw:@@codequoteundirected off\\n}
+    {raw:@@codequotebacktick off\\n}
+    {raw:@end example\\n}
+    {raw:@codequoteundirected off\\n}
+    {raw:@codequotebacktick off\\n}
+    {raw:@quotes{}\\n}
+    *@end C1 l28
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{macro}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {macro}
+   {empty_line:\\n}
+   *2 @copying C13 l30
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C30
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     >SOURCEMARKS
+     >macro_expansion<start;1>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{allquotes}
+       >*brace_arg
+     >macro_expansion<start;2>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{quotes}
+       >*brace_arg
+     *3 @quotedblleft C1 l31:@quotes
+      *brace_container
+     { }
+     *@*
+     {\\n}
+     {code: }
+     *4 @code C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *5 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {asis: }
+     *6 @asis C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *7 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {strong: }
+     *8 @strong C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *9 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {kbd: }
+     *10 @kbd C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *11 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {samp: }
+     *12 @samp C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *13 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     >SOURCEMARKS
+     >macro_expansion<end;2>
+     {\\n}
+    {empty_line:\\n}
+    *14 @example C3 l31:@allquotes
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *preformatted C4
+      *@@
+      {codequoteundirected on\\n}
+      *@@
+      {codequotebacktick on\\n}
+     *@end C1 l31:@allquotes
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{example}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {example}
+    *@codequoteundirected C1 l31:@allquotes
+    |EXTRA
+    |global_command_number:{1}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *@codequotebacktick C1 l31:@allquotes
+    |EXTRA
+    |global_command_number:{1}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C30
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     >SOURCEMARKS
+     >macro_expansion<start;3>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{quotes}
+       >*brace_arg
+     *15 @quotedblleft C1 l31:@quotes
+      *brace_container
+     { }
+     *@*
+     {\\n}
+     {code: }
+     *16 @code C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *17 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {asis: }
+     *18 @asis C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *19 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {strong: }
+     *20 @strong C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *21 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {kbd: }
+     *22 @kbd C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *23 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {samp: }
+     *24 @samp C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *25 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     >SOURCEMARKS
+     >macro_expansion<end;3>
+     {\\n}
+    {empty_line:\\n}
+    *26 @example C3 l31:@allquotes
+     *arguments_line C1
+      *block_line_arg
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+     *preformatted C4
+      *@@
+      {codequoteundirected off\\n}
+      *@@
+      {codequotebacktick off\\n}
+     *@end C1 l31:@allquotes
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |text_arg:{example}
+      *line_arg C1
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       {example}
+    *@codequoteundirected C1 l31:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{2}
+    |misc_args:A{off}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {off}
+    *@codequotebacktick C1 l31:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{2}
+    |misc_args:A{off}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {off}
+    *paragraph C30
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     >SOURCEMARKS
+     >macro_expansion<start;4>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{quotes}
+       >*brace_arg
+     *27 @quotedblleft C1 l31:@quotes
+      *brace_container
+     { }
+     *@*
+     {\\n}
+     {code: }
+     *28 @code C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *29 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {asis: }
+     *30 @asis C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *31 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {strong: }
+     *32 @strong C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *33 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {kbd: }
+     *34 @kbd C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *35 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     {\\n}
+     {samp: }
+     *36 @samp C1 l31:@quotes
+      *brace_container C2
+       {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+       *37 @quotedblleft C1 l31:@quotes
+        *brace_container
+     { }
+     *@*
+     >SOURCEMARKS
+     >macro_expansion<end;4>
+     >macro_expansion<end;1>
+     {\\n}
+    *@end C1 l32
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{copying}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {copying}
+   *38 @titlepage C4 l33
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *paragraph C1
+     {Titlepage\\n}
+    *@insertcopying C1 l35
+    |EXTRA
+    |global_command_number:{1}
+     {rawline_arg:\\n}
+    *@end C1 l36
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{titlepage}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {titlepage}
+   {empty_line:\\n}
+   {empty_line:\\n}
+ *39 @node C1 l39
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E40]
+ |is_target:{1}
+ |node_directions:D[next->E41]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    {Top}
+ *40 @top C2 l40
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E39]
+ |section_childs:EC[E42]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E40]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E42]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {test quotes}
+  {empty_line:\\n}
+ *41 @node C1 l42
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E42]
+ |is_target:{1}
+ |node_directions:D[prev->E39|up->E39]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *42 @chapter C16 l43
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E41]
+ |section_directions:D[up->E40]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E40|up->E40]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter}
+  {empty_line:\\n}
+  *paragraph C30
+   {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+   >SOURCEMARKS
+   >macro_expansion<start;5>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{allquotes}
+     >*brace_arg
+   >macro_expansion<start;6>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{quotes}
+     >*brace_arg
+   *43 @quotedblleft C1 l45:@quotes
+    *brace_container
+   { }
+   *@*
+   {\\n}
+   {code: }
+   *44 @code C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *45 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {asis: }
+   *46 @asis C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *47 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {strong: }
+   *48 @strong C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *49 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {kbd: }
+   *50 @kbd C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *51 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {samp: }
+   *52 @samp C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *53 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   >SOURCEMARKS
+   >macro_expansion<end;6>
+   {\\n}
+  {empty_line:\\n}
+  *54 @example C3 l45:@allquotes
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C4
+    *@@
+    {codequoteundirected on\\n}
+    *@@
+    {codequotebacktick on\\n}
+   *@end C1 l45:@allquotes
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  *@codequoteundirected C1 l45:@allquotes
+  |EXTRA
+  |global_command_number:{3}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  *@codequotebacktick C1 l45:@allquotes
+  |EXTRA
+  |global_command_number:{3}
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  *paragraph C30
+   {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+   >SOURCEMARKS
+   >macro_expansion<start;7>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{quotes}
+     >*brace_arg
+   *55 @quotedblleft C1 l45:@quotes
+    *brace_container
+   { }
+   *@*
+   {\\n}
+   {code: }
+   *56 @code C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *57 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {asis: }
+   *58 @asis C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *59 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {strong: }
+   *60 @strong C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *61 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {kbd: }
+   *62 @kbd C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *63 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {samp: }
+   *64 @samp C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *65 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   >SOURCEMARKS
+   >macro_expansion<end;7>
+   {\\n}
+  {empty_line:\\n}
+  *66 @example C3 l45:@allquotes
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C4
+    *@@
+    {codequoteundirected off\\n}
+    *@@
+    {codequotebacktick off\\n}
+   *@end C1 l45:@allquotes
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  *@codequoteundirected C1 l45:@allquotes
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{4}
+  |misc_args:A{off}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {off}
+  *@codequotebacktick C1 l45:@allquotes
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{4}
+  |misc_args:A{off}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {off}
+  *paragraph C30
+   {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+   >SOURCEMARKS
+   >macro_expansion<start;8>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{quotes}
+     >*brace_arg
+   *67 @quotedblleft C1 l45:@quotes
+    *brace_container
+   { }
+   *@*
+   {\\n}
+   {code: }
+   *68 @code C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *69 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {asis: }
+   *70 @asis C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *71 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {strong: }
+   *72 @strong C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *73 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {kbd: }
+   *74 @kbd C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *75 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   {\\n}
+   {samp: }
+   *76 @samp C1 l45:@quotes
+    *brace_container C2
+     {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+     *77 @quotedblleft C1 l45:@quotes
+      *brace_container
+   { }
+   *@*
+   >SOURCEMARKS
+   >macro_expansion<end;8>
+   >macro_expansion<end;5>
+   {\\n}
+  {empty_line:\\n}
+  *78 @example C7 l47
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C31
+    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+    >SOURCEMARKS
+    >macro_expansion<start;9>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{allquotes}
+      >*brace_arg
+    >macro_expansion<start;10>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{quotes}
+      >*brace_arg
+    *79 @quotedblleft C1 l48:@quotes
+     *brace_container
+    { }
+    *@*
+    {\\n}
+    {code: }
+    *80 @code C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *81 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {asis: }
+    *82 @asis C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *83 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {strong: }
+    *84 @strong C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *85 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {kbd: }
+    *86 @kbd C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *87 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {samp: }
+    *88 @samp C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *89 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    >SOURCEMARKS
+    >macro_expansion<end;10>
+    {\\n}
+    {empty_line:\\n}
+   *90 @example C3 l48:@allquotes
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *preformatted C4
+     *@@
+     {codequoteundirected on\\n}
+     *@@
+     {codequotebacktick on\\n}
+    *@end C1 l48:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{example}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {example}
+   *preformatted C33
+    *@codequoteundirected C1 l48:@allquotes
+    |EXTRA
+    |global_command_number:{5}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *@codequotebacktick C1 l48:@allquotes
+    |EXTRA
+    |global_command_number:{5}
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+    >SOURCEMARKS
+    >macro_expansion<start;11>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{quotes}
+      >*brace_arg
+    *91 @quotedblleft C1 l48:@quotes
+     *brace_container
+    { }
+    *@*
+    {\\n}
+    {code: }
+    *92 @code C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *93 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {asis: }
+    *94 @asis C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *95 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {strong: }
+    *96 @strong C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *97 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {kbd: }
+    *98 @kbd C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *99 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {samp: }
+    *100 @samp C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *101 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    >SOURCEMARKS
+    >macro_expansion<end;11>
+    {\\n}
+    {empty_line:\\n}
+   *102 @example C3 l48:@allquotes
+    *arguments_line C1
+     *block_line_arg
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+    *preformatted C4
+     *@@
+     {codequoteundirected off\\n}
+     *@@
+     {codequotebacktick off\\n}
+    *@end C1 l48:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{example}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {example}
+   *preformatted C32
+    *@codequoteundirected C1 l48:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{6}
+    |misc_args:A{off}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {off}
+    *@codequotebacktick C1 l48:@allquotes
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |global_command_number:{6}
+    |misc_args:A{off}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {off}
+    {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+    >SOURCEMARKS
+    >macro_expansion<start;12>
+     >*macro_call C1
+     >|INFO
+     >|command_name:{quotes}
+      >*brace_arg
+    *103 @quotedblleft C1 l48:@quotes
+     *brace_container
+    { }
+    *@*
+    {\\n}
+    {code: }
+    *104 @code C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *105 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {asis: }
+    *106 @asis C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *107 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {strong: }
+    *108 @strong C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *109 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {kbd: }
+    *110 @kbd C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *111 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    {\\n}
+    {samp: }
+    *112 @samp C1 l48:@quotes
+     *brace_container C2
+      {``simple-double--three---four----\'\' `simple\' quotedblleft: }
+      *113 @quotedblleft C1 l48:@quotes
+       *brace_container
+    { }
+    *@*
+    >SOURCEMARKS
+    >macro_expansion<end;12>
+    >macro_expansion<end;9>
+    {\\n}
+   *@end C1 l49
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'codequoteundirected_codequotebacktick'} = '@macro quotes
 ``simple-double--three---four----\'\' `simple\' quotedblleft: @quotedblleft{} @*

@@ -5,178 +5,54 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'accents_errors'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'accent at end of line '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => 'ccent at end of line and spaces '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '  
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => 'ccent followed by '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'accent character with spaces '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'f'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => 'ollowing.
-'
-            },
-            {
-              'text' => 'accent character at end of line '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => '
-'
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => 'ccent character followed by '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'accents_errors'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C10
+   {accent at end of line }
+   *0 @ringaccent C1 l1
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *following_arg C1
+     {a}
+   {ccent at end of line and spaces }
+   *1 @ringaccent C1 l2
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{  \\n}
+    *following_arg C1
+     {a}
+   {ccent followed by }
+   *@@
+   { }
+   *2 @ringaccent l3
+   *@.
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C11
+   {accent character with spaces }
+   *3 @~ C1 l5
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {f}
+   {ollowing.\\n}
+   {accent character at end of line }
+   *4 @~ C1 l6
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{\\n}
+    *following_arg C1
+     {a}
+   {ccent character followed by }
+   *@@
+   { }
+   *5 @~ l7
+   *@.
+   {\\n}
+';
+
 
 $result_texis{'accents_errors'} = 'accent at end of line @ringaccent
 accent at end of line and spaces @ringaccent  

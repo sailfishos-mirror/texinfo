@@ -5,110 +5,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'split_punctuation_detection_in_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Before '
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'B'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'asis',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '.'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ']]? Afte'
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'R'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '"!'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '\'? Last'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'split_punctuation_detection_in_commands'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C8
+   {Before }
+   *0 @asis C1 l1
+    *brace_container C1
+     {B}
+   *1 @asis C1 l1
+    *brace_container C1
+     {)}
+   *2 @asis C1 l1
+    *brace_container C1
+     {.}
+   {]]? Afte}
+   *3 @strong C1 l1
+    *brace_container C1
+     {R}
+   *4 @emph C1 l1
+    *brace_container C1
+     {"!}
+   {\'? Last}
+';
+
 
 $result_texis{'split_punctuation_detection_in_commands'} = 'Before @asis{B}@asis{)}@asis{.}]]? Afte@strong{R}@emph{"!}\'? Last';
 

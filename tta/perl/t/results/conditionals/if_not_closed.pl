@@ -5,41 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'if_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'iftex',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'type' => 'block_line_arg'
-                      }
-                    ],
-                    'type' => 'arguments_line'
-                  }
-                ],
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'ignored_conditional_block'
-            }
-          ],
-          'text' => ''
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'if_not_closed'} = '*document_root C1
+ *before_node_section C1
+  {}
+  >SOURCEMARKS
+  >ignored_conditional_block<1>
+   >*@iftex C1 l1
+    >*arguments_line C1
+     >*block_line_arg
+';
+
 
 $result_texis{'if_not_closed'} = '';
 

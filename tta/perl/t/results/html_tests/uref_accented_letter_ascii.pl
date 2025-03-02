@@ -5,109 +5,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'uref_accented_letter_ascii'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'documentencoding',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'US-ASCII'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'us-ascii',
-            'text_arg' => 'US-ASCII'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'http://example.com/acc_'
-                    },
-                    {
-                      'cmdname' => '"',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'cmdname' => 'ogonek',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'a'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'uref_accented_letter_ascii'} = '*document_root C1
+ *before_node_section C3
+  *@documentencoding C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |input_encoding_name:{us-ascii}
+  |text_arg:{US-ASCII}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {US-ASCII}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @uref C1 l3
+    *brace_arg C3
+     {http://example.com/acc_}
+     *1 @" C1 l3
+      *following_arg C1
+       {a}
+     *2 @ogonek C1 l3
+      *brace_container C1
+       {a}
+   {\\n}
+';
+
 
 $result_texis{'uref_accented_letter_ascii'} = '@documentencoding US-ASCII
 

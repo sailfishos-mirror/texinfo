@@ -5,888 +5,320 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'in_menu_only_special_spaces_node_menu'} = {
-  "contents" => [
-    {
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "text" => "\n",
-              "type" => "text_before_beginning"
-            }
-          ],
-          "type" => "preamble_before_beginning"
-        },
-        {
-          "type" => "preamble_before_content"
-        }
-      ],
-      "type" => "before_node_section"
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "Top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "Top"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 2
-      }
-    },
-    {
-      "cmdname" => "top",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "cmdname" => "menu",
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "block_line_arg"
-                }
-              ],
-              "type" => "arguments_line"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "\x{2000}\x{2001}\x{2002}"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "_2002_2003_2002"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 6
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* \t\f\13",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 7
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* \r",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 8
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "\x{85}\x{a0}\x{1680}"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "_0085_00a0_1680"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 9
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "\x{180e}\x{2003}"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "_180e_2003"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 10
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "contents" => [
-                {
-                  "text" => "* ",
-                  "type" => "menu_entry_leading_text"
-                },
-                {
-                  "contents" => [
-                    {
-                      "text" => "\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{202f}\x{205f}\x{3000}"
-                    }
-                  ],
-                  "extra" => {
-                    "node_content" => {
-                      "contents" => [
-                        {}
-                      ]
-                    },
-                    "normalized" => "_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000"
-                  },
-                  "type" => "menu_entry_node"
-                },
-                {
-                  "text" => "::",
-                  "type" => "menu_entry_separator"
-                },
-                {
-                  "contents" => [
-                    {
-                      "contents" => [
-                        {
-                          "text" => "\n"
-                        },
-                        {
-                          "cmdname" => "c",
-                          "contents" => [
-                            {
-                              "text" => " * \x{2028}\x{2029}::\n",
-                              "type" => "rawline_arg"
-                            }
-                          ]
-                        }
-                      ],
-                      "type" => "preformatted"
-                    }
-                  ],
-                  "type" => "menu_entry_description"
-                }
-              ],
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 11
-              },
-              "type" => "menu_entry"
-            },
-            {
-              "cmdname" => "end",
-              "contents" => [
-                {
-                  "contents" => [
-                    {
-                      "text" => "menu"
-                    }
-                  ],
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "line_arg"
-                }
-              ],
-              "extra" => {
-                "text_arg" => "menu"
-              },
-              "info" => {
-                "spaces_before_argument" => {
-                  "text" => " "
-                }
-              },
-              "source_info" => {
-                "file_name" => "in_menu_only_special_spaces_node.texi",
-                "line_nr" => 13
-              }
-            }
-          ],
-          "source_info" => {
-            "file_name" => "in_menu_only_special_spaces_node.texi",
-            "line_nr" => 5
-          }
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {},
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 3
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{2000}\x{2001}\x{2002}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_2002_2003_2002"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 16
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 1
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 17
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \t\f\13\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {},
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 19
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 2
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 20
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \r\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {},
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 22
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CARRIAGE RETURN|\r|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 3
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 23
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{85}\x{a0}\x{1680}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_0085_00a0_1680"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 25
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 4
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 26
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{180e}\x{2003}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_180e_2003"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 28
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 5
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 29
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{202f}\x{205f}\x{3000}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 31
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}| FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}| HAIR SPACE|\x{200a}| NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "cmdname" => "c",
-          "contents" => [
-            {
-              "text" => " Perl and XS code give different width.\n",
-              "type" => "rawline_arg"
-            }
-          ]
-        },
-        {
-          "cmdname" => "c",
-          "contents" => [
-            {
-              "text" => " \@node \x{2028}\x{2029}\n",
-              "type" => "rawline_arg"
-            }
-          ]
-        },
-        {
-          "cmdname" => "c",
-          "contents" => [
-            {
-              "text" => " \@chapter LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|\n",
-              "type" => "rawline_arg"
-            }
-          ]
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 6
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "in_menu_only_special_spaces_node.texi",
-        "line_nr" => 32
-      }
-    },
-    {
-      "cmdname" => "bye",
-      "contents" => [
-        {
-          "text" => "\n",
-          "type" => "rawline_arg"
-        }
-      ]
-    }
-  ],
-  "type" => "document_root"
-};
-$result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[1]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[1]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[4]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[4]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[5]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"extra"}{"node_content"}{"contents"}[0] = $result_trees{'in_menu_only_special_spaces_node_menu'}{"contents"}[2]{"contents"}[2]{"contents"}[6]{"contents"}[1]{"contents"}[0];
+$result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
+ *before_node_section C2
+  *preamble_before_beginning C1
+   {text_before_beginning:\\n}
+  *preamble_before_content
+ *0 @node C1 in_menu_only_special_spaces_node.texi:l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C5 in_menu_only_special_spaces_node.texi:l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4|E6|E8|E10|E12|E14]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+  *2 @menu C8 in_menu_only_special_spaces_node.texi:l5
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l6
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{   }
+    |normalized:{_2002_2003_2002}
+     {   }
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l7
+    {menu_entry_leading_text:* \\t\\f}
+    *menu_entry_node
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l8
+    {menu_entry_leading_text:* '."\r".'}
+    *menu_entry_node
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l9
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{  }
+    |normalized:{_0085_00a0_1680}
+     {  }
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l10
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{᠎ }
+    |normalized:{_180e_2003}
+     {᠎ }
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 in_menu_only_special_spaces_node.texi:l11
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{         　}
+    |normalized:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
+     {         　}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C2
+      {\\n}
+      *@c C1
+       {rawline_arg: *   ::\\n}
+   *@end C1 in_menu_only_special_spaces_node.texi:l13
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *3 @node C1 in_menu_only_special_spaces_node.texi:l16
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menu_directions:D[next->E9|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
+ |normalized:{_2002_2003_2002}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {   }
+ *4 @chapter C2 in_menu_only_special_spaces_node.texi:l17
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[next->E6|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {EN QUAD| | EM QUAD| | EN SPACE| |}
+  {empty_line:\\n}
+ *5 @node C1 in_menu_only_special_spaces_node.texi:l19
+ |EXTRA
+ |associated_section:[E6]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{ \\t\\f\\n}
+ *6 @chapter C2 in_menu_only_special_spaces_node.texi:l20
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E5]
+ |section_directions:D[next->E8|prev->E4|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[next->E8|prev->E4|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CHARACTER TABULATION|\\t| FORM FEED|\\f| LINE TABULATION||}
+  {empty_line:\\n}
+ *7 @node C1 in_menu_only_special_spaces_node.texi:l22
+ |EXTRA
+ |associated_section:[E8]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{ '."\r".'\\n}
+ *8 @chapter C2 in_menu_only_special_spaces_node.texi:l23
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E7]
+ |section_directions:D[next->E10|prev->E6|up->E1]
+ |section_level:{1}
+ |section_number:{3}
+ |toplevel_directions:D[next->E10|prev->E6|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CARRIAGE RETURN|'."\r".'|}
+  {empty_line:\\n}
+ *9 @node C1 in_menu_only_special_spaces_node.texi:l25
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E10]
+ |is_target:{1}
+ |menu_directions:D[next->E11|prev->E3|up->E0]
+ |node_directions:D[next->E11|prev->E7|up->E0]
+ |normalized:{_0085_00a0_1680}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {  }
+ *10 @chapter C2 in_menu_only_special_spaces_node.texi:l26
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E9]
+ |section_directions:D[next->E12|prev->E8|up->E1]
+ |section_level:{1}
+ |section_number:{4}
+ |toplevel_directions:D[next->E12|prev->E8|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
+  {empty_line:\\n}
+ *11 @node C1 in_menu_only_special_spaces_node.texi:l28
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E12]
+ |is_target:{1}
+ |menu_directions:D[next->E13|prev->E9|up->E0]
+ |node_directions:D[next->E13|prev->E9|up->E0]
+ |normalized:{_180e_2003}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {᠎ }
+ *12 @chapter C2 in_menu_only_special_spaces_node.texi:l29
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E11]
+ |section_directions:D[next->E14|prev->E10|up->E1]
+ |section_level:{1}
+ |section_number:{5}
+ |toplevel_directions:D[next->E14|prev->E10|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
+  {empty_line:\\n}
+ *13 @node C1 in_menu_only_special_spaces_node.texi:l31
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E14]
+ |is_target:{1}
+ |menu_directions:D[prev->E11|up->E0]
+ |node_directions:D[prev->E11|up->E0]
+ |normalized:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {         　}
+ *14 @chapter C6 in_menu_only_special_spaces_node.texi:l32
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E13]
+ |section_directions:D[prev->E12|up->E1]
+ |section_level:{1}
+ |section_number:{6}
+ |toplevel_directions:D[prev->E12|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
+  {empty_line:\\n}
+  *@c C1
+   {rawline_arg: Perl and XS code give different width.\\n}
+  *@c C1
+   {rawline_arg: @node   \\n}
+  *@c C1
+   {rawline_arg: @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| |\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'in_menu_only_special_spaces_node_menu'} = '
 @node Top

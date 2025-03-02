@@ -5,1779 +5,596 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ref_in_sectioning'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'contents',
-          'contents' => [
-            {
-              'text' => '
-',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'extra' => {},
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'for example '
-                },
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                },
-                {
-                  'text' => ' ('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                },
-                {
-                  'text' => ') ('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 4
-                  }
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'node'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'node'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chap'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chap'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 6
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 11
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'xref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'title'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 12
-                  }
-                },
-                {
-                  'text' => '.'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 12
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chap'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chap'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 14
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 15
-                  }
-                },
-                {
-                  'text' => ' just node'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 15
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'for example '
-                },
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
-                },
-                {
-                  'text' => ' ('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
-                },
-                {
-                  'text' => ') ('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
-                },
-                {
-                  'text' => ')'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 17
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cross ref name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 19
-                  }
-                },
-                {
-                  'text' => '  node, crossref arg2'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.2'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 19
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'node'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 21
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'node'
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'samp',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'title'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 21
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 21
-                  }
-                },
-                {
-                  'text' => '  code node, samptitle arg3'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.3'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 21
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'node'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 23
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 23
-                  }
-                },
-                {
-                  'text' => ' code node, file name'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.4'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 23
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'node'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
-                },
-                {
-                  'text' => ' node and manual'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.5'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 25
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 27
-                  }
-                },
-                {
-                  'text' => ' Top and manual'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.6'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 27
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Manual'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 29
-                  }
-                },
-                {
-                  'text' => ' no node just manual'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.7'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 29
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'ref',
-                  'contents' => [
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 31
-                  }
-                },
-                {
-                  'text' => ' no node just file name'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.8'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 31
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'inforef',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'a'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'b'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'c'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 33
-                  }
-                },
-                {
-                  'text' => ' inforef a b c'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => ' 
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.9'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 33
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 35
-                  }
-                },
-                {
-                  'text' => ') pxref Top file name, spaces'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.10'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 35
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '('
-                },
-                {
-                  'cmdname' => 'pxref',
-                  'contents' => [
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'file name'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => ' '
-                        },
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 37
-                  }
-                },
-                {
-                  'text' => ') pxref file name only, spaces'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.11'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 37
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'xref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        }
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'filename'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 39
-                  }
-                },
-                {
-                  'text' => ', xref Top filename only, no spaces'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.12'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 39
-      }
-    },
-    {
-      'cmdname' => 'section',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'xref',
-                  'contents' => [
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'filename'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 41
-                  }
-                },
-                {
-                  'text' => '. xref filename only, no spaces'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '2.13'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 41
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[10]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[12]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[15]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[16]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_sectioning'}{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'ref_in_sectioning'}{'contents'}[18]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'ref_in_sectioning'} = '*document_root C20
+ *before_node_section C2
+  *@contents C1 l1
+  |EXTRA
+  |global_command_number:{1}
+   {rawline_arg:\\n}
+  {empty_line:\\n}
+ *0 @node C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E5]
+ |node_directions:D[next->E6]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E7|E10]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E7]
+  *arguments_line C1
+   *line_arg C7
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {for example }
+    *2 @ref C1 l4
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+    { (}
+    *3 @pxref C1 l4
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+    {) (}
+    *4 @pxref C5 l4
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Top}
+      {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {file}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    {)}
+  {empty_line:\\n}
+  *5 @menu C4 l6
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l7
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node}
+    |normalized:{node}
+     {node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 l8
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chap}
+    |normalized:{chap}
+     {chap}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l9
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+ *6 @node C1 l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E7]
+ |is_target:{1}
+ |menu_directions:D[next->E9|up->E0]
+ |node_directions:D[next->E9|prev->E0|up->E0]
+ |normalized:{node}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node}
+ *7 @chapter C2 l12
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E6]
+ |section_directions:D[next->E10|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E10|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *8 @xref C5 l12
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+      {node}
+     *brace_arg
+     *brace_arg C1
+      {title}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {file name}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    {.}
+  {empty_line:\\n}
+ *9 @node C1 l14
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E10]
+ |is_target:{1}
+ |menu_directions:D[prev->E6|up->E0]
+ |node_directions:D[prev->E6|up->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+ *10 @chapter C2 l15
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E9]
+ |section_childs:EC[E12|E16|E18|E22|E25|E27|E29|E31|E33|E35|E37|E39|E41]
+ |section_directions:D[prev->E7|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[prev->E7|up->E1]
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *11 @ref C1 l15
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+    { just node}
+  {empty_line:\\n}
+ *12 @section C2 l17
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E16|up->E10]
+ |section_level:{2}
+ |section_number:{2.1}
+  *arguments_line C1
+   *line_arg C7
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {for example }
+    *13 @ref C1 l17
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+    { (}
+    *14 @pxref C1 l17
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+    {) (}
+    *15 @pxref C5 l17
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Top}
+      {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {file}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    {)}
+  {empty_line:\\n}
+ *16 @section C2 l19
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E18|prev->E12|up->E10]
+ |section_level:{2}
+ |section_number:{2.2}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *17 @ref C2 l19
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+     |normalized:{node}
+      {node}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {cross ref name}
+    {  node, crossref arg2}
+  {empty_line:\\n}
+ *18 @section C2 l21
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E22|prev->E16|up->E10]
+ |section_level:{2}
+ |section_number:{2.3}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *19 @ref C3 l21
+     *brace_arg C1
+     |EXTRA
+     |node_content:{@code{node}}
+     |normalized:{node}
+      *20 @code C1 l21
+       *brace_container C1
+        {node}
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *21 @samp C1 l21
+       *brace_container C1
+        {title}
+    {  code node, samptitle arg3}
+  {empty_line:\\n}
+ *22 @section C2 l23
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E25|prev->E18|up->E10]
+ |section_level:{2}
+ |section_number:{2.4}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *23 @ref C4 l23
+     *brace_arg C1
+     |EXTRA
+     |node_content:{@code{node}}
+      *24 @code C1 l23
+       *brace_container C1
+        {node}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {file name}
+    { code node, file name}
+  {empty_line:\\n}
+ *25 @section C2 l25
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E27|prev->E22|up->E10]
+ |section_level:{2}
+ |section_number:{2.5}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *26 @ref C5 l25
+     *brace_arg C1
+     |EXTRA
+     |node_content:{node}
+      {node}
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    { node and manual}
+  {empty_line:\\n}
+ *27 @section C2 l27
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E29|prev->E25|up->E10]
+ |section_level:{2}
+ |section_number:{2.6}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *28 @ref C5 l27
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Top}
+      {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    { Top and manual}
+  {empty_line:\\n}
+ *29 @section C2 l29
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E31|prev->E27|up->E10]
+ |section_level:{2}
+ |section_number:{2.7}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *30 @ref C5 l29
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+      {Manual}
+    { no node just manual}
+  {empty_line:\\n}
+ *31 @section C2 l31
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E33|prev->E29|up->E10]
+ |section_level:{2}
+ |section_number:{2.8}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *32 @ref C4 l31
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {file name}
+    { no node just file name}
+  {empty_line:\\n}
+ *33 @section C2 l33
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E35|prev->E31|up->E10]
+ |section_level:{2}
+ |section_number:{2.9}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{ \\n}
+    *34 @inforef C3 l33
+     *brace_arg C1
+     |EXTRA
+     |node_content:{a}
+      {a}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {b}
+     *brace_arg C1
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      {c}
+    { inforef a b c}
+  {empty_line:\\n}
+ *35 @section C2 l35
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E37|prev->E33|up->E10]
+ |section_level:{2}
+ |section_number:{2.10}
+  *arguments_line C1
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {(}
+    *36 @pxref C4 l35
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |node_content:{Top}
+      {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+      {file name}
+    {) pxref Top file name, spaces}
+  {empty_line:\\n}
+ *37 @section C2 l37
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E39|prev->E35|up->E10]
+ |section_level:{2}
+ |section_number:{2.11}
+  *arguments_line C1
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {(}
+    *38 @pxref C4 l37
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{ }
+     |spaces_before_argument:
+      |{ }
+      {file name}
+    {) pxref file name only, spaces}
+  {empty_line:\\n}
+ *39 @section C2 l39
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[next->E41|prev->E37|up->E10]
+ |section_level:{2}
+ |section_number:{2.12}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *40 @xref C4 l39
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Top}
+      {Top}
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+      {filename}
+    {, xref Top filename only, no spaces}
+  {empty_line:\\n}
+ *41 @section C2 l41
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_directions:D[prev->E39|up->E10]
+ |section_level:{2}
+ |section_number:{2.13}
+  *arguments_line C1
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *42 @xref C4 l41
+     *brace_arg
+     *brace_arg
+     *brace_arg
+     *brace_arg C1
+      {filename}
+    {. xref filename only, no spaces}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'ref_in_sectioning'} = '@contents
 

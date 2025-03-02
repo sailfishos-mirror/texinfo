@@ -5,446 +5,130 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'punctuation_and_footnotes_frenchspacing'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'frenchspacing',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'on'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'on'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Text.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after period'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' Sentence 
-'
-            },
-            {
-              'text' => 'end.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after period double'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '  S2.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after period triple'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '   S3.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'No PERIOD.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'no period'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => ' worD.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'no period double'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '  w2 
-'
-            },
-            {
-              'text' => 'wW.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'no period triple'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '   S3.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Force PERIOD'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced period'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' Sentence 
-'
-            },
-            {
-              'text' => 'W'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced period double'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '  S2 
-'
-            },
-            {
-              'text' => 'W'
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced period triple'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '   S3.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Force no period.'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced no period'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' Sentence 
-'
-            },
-            {
-              'text' => 'w.'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced no period double'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '  S2 
-'
-            },
-            {
-              'text' => 'w.'
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'after forced no period triple'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '   S3.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'punctuation_and_footnotes_frenchspacing'} = '*document_root C1
+ *before_node_section C9
+  *@frenchspacing C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{on}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {on}
+  {empty_line:\\n}
+  *paragraph C8
+   {Text.}
+   *0 @footnote C1 l3
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C1
+     *paragraph C1
+      {after period}
+   { Sentence \\n}
+   {end.}
+   *1 @footnote C1 l4
+   |EXTRA
+   |global_command_number:{2}
+    *brace_command_context C1
+     *paragraph C1
+      {after period double}
+   {  S2.}
+   *2 @footnote C1 l4
+   |EXTRA
+   |global_command_number:{3}
+    *brace_command_context C1
+     *paragraph C1
+      {after period triple}
+   {   S3.\\n}
+  {empty_line:\\n}
+  *paragraph C8
+   {No PERIOD.}
+   *3 @footnote C1 l6
+   |EXTRA
+   |global_command_number:{4}
+    *brace_command_context C1
+     *paragraph C1
+      {no period}
+   { worD.}
+   *4 @footnote C1 l6
+   |EXTRA
+   |global_command_number:{5}
+    *brace_command_context C1
+     *paragraph C1
+      {no period double}
+   {  w2 \\n}
+   {wW.}
+   *5 @footnote C1 l7
+   |EXTRA
+   |global_command_number:{6}
+    *brace_command_context C1
+     *paragraph C1
+      {no period triple}
+   {   S3.\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   {Force PERIOD}
+   *@.
+   *6 @footnote C1 l9
+   |EXTRA
+   |global_command_number:{7}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced period}
+   { Sentence \\n}
+   {W}
+   *@.
+   *7 @footnote C1 l10
+   |EXTRA
+   |global_command_number:{8}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced period double}
+   {  S2 \\n}
+   {W}
+   *@.
+   *8 @footnote C1 l11
+   |EXTRA
+   |global_command_number:{9}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced period triple}
+   {   S3.\\n}
+  {empty_line:\\n}
+  *paragraph C12
+   {Force no period.}
+   *@:
+   *9 @footnote C1 l13
+   |EXTRA
+   |global_command_number:{10}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced no period}
+   { Sentence \\n}
+   {w.}
+   *@:
+   *10 @footnote C1 l14
+   |EXTRA
+   |global_command_number:{11}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced no period double}
+   {  S2 \\n}
+   {w.}
+   *@:
+   *11 @footnote C1 l15
+   |EXTRA
+   |global_command_number:{12}
+    *brace_command_context C1
+     *paragraph C1
+      {after forced no period triple}
+   {   S3.\\n}
+';
+
 
 $result_texis{'punctuation_and_footnotes_frenchspacing'} = '@frenchspacing on
 

@@ -5,104 +5,33 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'heading_separator_in_accent_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '|'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'oddfooting',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'a '
-                },
-                {
-                  'cmdname' => '|'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '^',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => '|'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => '|'
-                },
-                {
-                  'text' => ' b'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'heading_separator_in_accent_command'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C2
+   *0 @, C1 l1
+    *brace_container C1
+     *@|
+   {\\n}
+  {empty_line:\\n}
+  *@oddfooting C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C7
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {a }
+    *@|
+    { }
+    *1 @^ C1 l3
+     *brace_container C1
+      *@|
+    { }
+    *@|
+    { b}
+';
+
 
 $result_texis{'heading_separator_in_accent_command'} = '@,{@|}
 

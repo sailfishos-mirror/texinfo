@@ -5,113 +5,30 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'paragraph_in_style_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'a 2 paragraphs sample '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in first paragraph
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in second.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'a 3 paragraphs sample '
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in first paragraph
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in second
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'in third.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'paragraph_in_style_command'} = '*document_root C1
+ *before_node_section C7
+  *paragraph C2
+   {a 2 paragraphs sample }
+   *0 @samp C1 l1
+    *brace_container C2
+     {in first paragraph\\n}
+     {empty_line:\\n}
+  *paragraph C1
+   {in second.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {a 3 paragraphs sample }
+   *1 @samp C1 l5
+    *brace_container C2
+     {in first paragraph\\n}
+     {empty_line:\\n}
+  *paragraph C1
+   {in second\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {in third.\\n}
+';
+
 
 $result_texis{'paragraph_in_style_command'} = 'a 2 paragraphs sample @samp{in first paragraph
 

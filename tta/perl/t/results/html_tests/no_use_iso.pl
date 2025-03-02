@@ -5,43 +5,16 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'no_use_iso'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'AA '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' --- -- \'` \'\' ``'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'no_use_iso'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {AA }
+   *0 @^ C1 l1
+    *following_arg C1
+     {e}
+   { --- -- \'` \'\' ``}
+';
+
 
 $result_texis{'no_use_iso'} = 'AA @^e --- -- \'` \'\' ``';
 

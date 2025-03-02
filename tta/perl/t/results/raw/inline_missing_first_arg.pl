@@ -5,79 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inline_missing_first_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' aaa',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => undef
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' bbb',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => undef
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inline_missing_first_arg'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C4
+   *0 @inlinefmt C2 l1
+   |EXTRA
+   |format:{}
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    *elided_brace_command_arg C1
+     {raw: aaa}
+   {. }
+   *1 @inlineraw C2 l1
+   |EXTRA
+   |format:{}
+    *brace_arg
+    *elided_brace_command_arg C1
+     {raw: bbb}
+   {.\\n}
+';
+
 
 $result_texis{'inline_missing_first_arg'} = '@inlinefmt{ , aaa}. @inlineraw{, bbb}.
 ';

@@ -5,78 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'command_brace_no_arg_punctuation'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'TeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. And '
-            },
-            {
-              'cmdname' => 'LaTeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'copyright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. '
-            },
-            {
-              'cmdname' => 'registeredsymbol',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '. End.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'command_brace_no_arg_punctuation'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C8
+   *0 @TeX C1 l1
+    *brace_container
+   {. And }
+   *1 @LaTeX C1 l1
+    *brace_container
+   {. }
+   *2 @copyright C1 l1
+    *brace_container
+   {. }
+   *3 @registeredsymbol C1 l1
+    *brace_container
+   {. End.\\n}
+';
+
 
 $result_texis{'command_brace_no_arg_punctuation'} = '@TeX{}. And @LaTeX{}. @copyright{}. @registeredsymbol{}. End.
 ';

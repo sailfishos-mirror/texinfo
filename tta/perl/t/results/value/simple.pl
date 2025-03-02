@@ -5,94 +5,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'a-_5b',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => 'the value @b{b}',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' a-_5b the value @b{b} @c comment
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'value',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a-_5b'
-                          }
-                        ],
-                        'type' => 'brace_container'
-                      }
-                    ]
-                  },
-                  'line' => 'the value @b{b}',
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'the value '
-            },
-            {
-              'cmdname' => 'b',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => ' After value.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'simple'} = '*document_root C1
+ *before_node_section C3
+  *@set C2
+  |INFO
+  |arg_line:{ a-_5b the value @b{b} @c comment\\n}
+   {rawline_arg:a-_5b}
+   {rawline_arg:the value @b{b}}
+  {empty_line:\\n}
+  *paragraph C3
+   {the value }
+   >SOURCEMARKS
+   >value_expansion<start;1>{the value @b{b}}
+    >*@value C1
+     >*brace_container C1
+      >{a-_5b}
+   *0 @b C1 l3
+   >SOURCEMARKS
+   >value_expansion<end;1>
+    *brace_container C1
+     {b}
+   { After value.\\n}
+';
+
 
 $result_texis{'simple'} = '@set a-_5b the value @b{b} @c comment
 

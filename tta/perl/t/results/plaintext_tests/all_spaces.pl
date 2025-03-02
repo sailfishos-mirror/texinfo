@@ -5,459 +5,136 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'all_spaces'} = {
-  "contents" => [
-    {
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "cmdname" => "documentencoding",
-              "contents" => [
-                {
-                  "contents" => [
-                    {
-                      "text" => "utf-8"
-                    }
-                  ],
-                  "info" => {
-                    "spaces_after_argument" => {
-                      "text" => "\n"
-                    }
-                  },
-                  "type" => "line_arg"
-                }
-              ],
-              "extra" => {
-                "input_encoding_name" => "utf-8",
-                "text_arg" => "utf-8"
-              },
-              "info" => {
-                "spaces_before_argument" => {
-                  "text" => " "
-                }
-              },
-              "source_info" => {
-                "file_name" => "all_spaces.texi",
-                "line_nr" => 1
-              }
-            },
-            {
-              "text" => "\n",
-              "type" => "empty_line"
-            }
-          ],
-          "type" => "preamble_before_content"
-        }
-      ],
-      "type" => "before_node_section"
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "Top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "Top"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "all_spaces.texi",
-        "line_nr" => 3
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "chap"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "CHARACTER TABULATION: |\t|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "LINE FEED (LF): |\n"
-            },
-            {
-              "text" => "|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "LINE TABULATION: |\13|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "FORM FEED (FF): |"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\f",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "CARRIAGE RETURN (CR): |\r|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "SPACE: | |\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "NEXT LINE (NEL): |\x{85}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "NO-BREAK SPACE: |\x{a0}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "OGHAM SPACE MARK: |\x{1680}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "MONGOLIAN VOWEL SEPARATOR: |\x{180e}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "EN QUAD: |\x{2000}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "EM QUAD: |\x{2001}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "EN SPACE: |\x{2002}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "EM SPACE: |\x{2003}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "THREE-PER-EM SPACE: |\x{2004}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "FOUR-PER-EM SPACE: |\x{2005}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "SIX-PER-EM SPACE: |\x{2006}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "FIGURE SPACE: |\x{2007}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "PUNCTUATION SPACE: |\x{2008}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "THIN SPACE: |\x{2009}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "HAIR SPACE: |\x{200a}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "LINE SEPARATOR: |\x{2028}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "PARAGRAPH SEPARATOR: |\x{2029}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "NARROW NO-BREAK SPACE: |\x{202f}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "MEDIUM MATHEMATICAL SPACE: |\x{205f}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        },
-        {
-          "contents" => [
-            {
-              "text" => "IDEOGRAPHIC SPACE: |\x{3000}|\n"
-            }
-          ],
-          "type" => "paragraph"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "chap"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "all_spaces.texi",
-        "line_nr" => 4
-      }
-    }
-  ],
-  "type" => "document_root"
-};
+$result_tree_text{'all_spaces'} = '*document_root C3
+ *before_node_section C1
+  *preamble_before_content C2
+   *@documentencoding C1 all_spaces.texi:l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+   |input_encoding_name:{utf-8}
+   |text_arg:{utf-8}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {utf-8}
+   {empty_line:\\n}
+ *0 @node C1 all_spaces.texi:l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[next->E1]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @node C56 all_spaces.texi:l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |node_directions:D[prev->E0]
+ |normalized:{chap}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *paragraph C1
+   {CHARACTER TABULATION: |\\t|\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   {LINE FEED (LF): |\\n}
+   {|\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {LINE TABULATION: ||\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {FORM FEED (FF): |}
+  {empty_line:\\f}
+  *paragraph C1
+   {|\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {CARRIAGE RETURN (CR): |'."\r".'|\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {NEXT LINE (NEL): ||\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {NO-BREAK SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {OGHAM SPACE MARK: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {MONGOLIAN VOWEL SEPARATOR: |᠎|\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {EN QUAD: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {EM QUAD: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {EN SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {EM SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {THREE-PER-EM SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {FOUR-PER-EM SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {SIX-PER-EM SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {FIGURE SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {PUNCTUATION SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {THIN SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {HAIR SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {LINE SEPARATOR: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {PARAGRAPH SEPARATOR: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {NARROW NO-BREAK SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {MEDIUM MATHEMATICAL SPACE: | |\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {IDEOGRAPHIC SPACE: |　|\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'all_spaces'} = '@documentencoding utf-8
 

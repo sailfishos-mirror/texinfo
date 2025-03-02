@@ -5,237 +5,62 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'a'
-            },
-            {
-              'cmdname' => 'sup',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b - \\frac'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{\\xi}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'balanced_braces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{phi '
-                        },
-                        {
-                          'cmdname' => 'copyright',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 2
-                          }
-                        },
-                        {
-                          'text' => '}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Some '
-            },
-            {
-              'cmdname' => 'math',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a '
-                    },
-                    {
-                      'cmdname' => 'minus',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' b '
-                    },
-                    {
-                      'cmdname' => 'geq',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'AA',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => '^',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'mathjax_with_texinfo_no_convert_to_latex'} = '*document_root C1
+ *before_node_section C3
+  *0 @displaymath C7 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {a}
+   *1 @sup C1 l2
+    *brace_container C3
+     {b - \\frac}
+     *balanced_braces C1 l2
+      {{\\xi}}
+     *balanced_braces C3 l2
+      {{phi }
+      *2 @copyright C1 l2
+       *brace_container
+      {}}
+   { }
+   *3 @dotless C1 l2
+    *brace_container C1
+     {i}
+   {\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *paragraph C3
+   {Some }
+   *4 @math C1 l5
+    *brace_command_context C8
+     {a }
+     *5 @minus C1 l5
+      *brace_container
+     { b }
+     *6 @geq C1 l5
+      *brace_container
+     { }
+     *7 @AA C1 l5
+      *brace_container
+     { }
+     *8 @^ C1 l5
+      *following_arg C1
+       {e}
+   {.\\n}
+';
+
 
 $result_texis{'mathjax_with_texinfo_no_convert_to_latex'} = '@displaymath
 a@sup{b - \\frac{\\xi}{phi @copyright{}}} @dotless{i}

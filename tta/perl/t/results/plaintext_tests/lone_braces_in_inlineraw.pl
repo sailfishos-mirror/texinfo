@@ -5,66 +5,24 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'lone_braces_in_inlineraw'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '{truc}'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'balanced_braces'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'plaintext'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'lone_braces_in_inlineraw'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @inlineraw C2 l1
+   |EXTRA
+   |expand_index:{1}
+   |format:{plaintext}
+    *brace_arg C1
+     {plaintext}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *balanced_braces C1 l1
+      {{truc}}
+   {.\\n}
+';
+
 
 $result_texis{'lone_braces_in_inlineraw'} = '@inlineraw{plaintext, {truc}}.
 ';

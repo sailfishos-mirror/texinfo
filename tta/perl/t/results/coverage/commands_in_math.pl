@@ -5,1733 +5,404 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'commands_in_math'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'strong',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '``simple-double--three---four----\'\''
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => '`'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '`simple-double-'
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '-three---four----\''
-            },
-            {
-              'cmdname' => 'w',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '\''
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'u'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'U'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'n'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '=',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'o'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '\'',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'i'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotless',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'j'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '`',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '=',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'E'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'l',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'C'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '\'',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'C'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ',',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'c'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'H',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'tieaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'u',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ubaraccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'udotaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'v',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ogonek',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' a'
-            },
-            {
-              'cmdname' => 'sup',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'h'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'cmdname' => 'sub',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'l'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => '*'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'cmdname' => ' '
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '
-'
-            },
-            {
-              'cmdname' => '-'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '|'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => ':'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '!'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '?'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '/'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'today',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 14
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 7
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'click',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'clickstyle' => 'arrow'
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'U',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '0075'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 18
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'TeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'LaTeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'bullet',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'copyright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'enddots',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'equiv',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'error',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'expansion',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'minus',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'point',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'print',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'result',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'aa',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'AA',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ae',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'oe',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'AE',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'OE',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'o',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'O',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ss',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'l',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'L',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'DH',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'TH',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'dh',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'th',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'exclamdown',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'questiondown',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'pounds',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'registeredsymbol',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ordf',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ordm',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'comma',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' 
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 24
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 16
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'displaymath',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'quotedblleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'quotedblright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'quoteleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'quoteright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'quotedblbase',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'quotesinglbase',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'guillemetleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'guillemetright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'guillemotleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'guillemotright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'guilsinglleft',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'guilsinglright',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'textdegree',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'euro',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'arrow',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'leq',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'geq',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'displaymath'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'displaymath'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 26
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'commands_in_math'} = '*document_root C1
+ *before_node_section C8
+  {empty_line:\\n}
+  *0 @displaymath C15 l2
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *1 @strong C1 l3
+    *brace_container C1
+     {``simple-double--three---four----\'\'}
+   { }
+   *2 @w C1 l3
+    *brace_container C1
+     {aa}
+   {\\n}
+   {`}
+   *3 @w C1 l4
+    *brace_container
+   {`simple-double-}
+   *4 @w C1 l4
+    *brace_container
+   {-three---four----\'}
+   *5 @w C1 l4
+    *brace_container
+   {\'}
+   *@*
+   {\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *6 @displaymath C81 l7
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *7 @" C1 l8
+    *following_arg C1
+     {u}
+   { }
+   *8 @" C1 l8
+    *brace_container C1
+     {U}
+   { }
+   *9 @~ C1 l8
+    *following_arg C1
+     {n}
+   { }
+   *10 @^ C1 l8
+    *following_arg C1
+     {a}
+   { }
+   *11 @\' C1 l8
+    *following_arg C1
+     {e}
+   { }
+   *12 @= C1 l8
+    *following_arg C1
+     {o}
+   { }
+   *13 @` C1 l8
+    *following_arg C1
+     {i}
+   { }
+   *14 @\' C1 l8
+    *brace_container C1
+     {e}
+   { }
+   *15 @dotless C1 l8
+    *brace_container C1
+     {i}
+   { }
+   *16 @dotless C1 l8
+    *brace_container C1
+     {j}
+   { }
+   *17 @` C1 l8
+    *brace_container C1
+     *18 @= C1 l8
+      *following_arg C1
+       {E}
+   {\\n}
+   *19 @l C1 l9
+    *brace_container
+   { }
+   *20 @, C1 l9
+    *brace_container C1
+     *21 @\' C1 l9
+      *following_arg C1
+       {C}
+   { }
+   *22 @, C1 l9
+    *brace_container C1
+     *23 @\' C1 l9
+      *following_arg C1
+       {C}
+   { }
+   *24 @, C1 l9
+    *following_arg C1
+     {c}
+   { }
+   *25 @H C1 l9
+    *brace_container C1
+     {a}
+   { }
+   *26 @dotaccent C1 l9
+    *brace_container C1
+     {a}
+   { }
+   *27 @ringaccent C1 l9
+    *brace_container C1
+     {a}
+   { }
+   *28 @tieaccent C1 l9
+    *brace_container C1
+     {a}
+   {\\n}
+   *29 @u C1 l10
+    *brace_container C1
+     {a}
+   { }
+   *30 @ubaraccent C1 l10
+    *brace_container C1
+     {a}
+   { }
+   *31 @udotaccent C1 l10
+    *brace_container C1
+     {a}
+   { }
+   *32 @v C1 l10
+    *brace_container C1
+     {a}
+   { }
+   *33 @ogonek C1 l10
+    *brace_container C1
+     {a}
+   { a}
+   *34 @sup C1 l10
+    *brace_container C1
+     {h}
+   *35 @sub C1 l10
+    *brace_container C1
+     {l}
+   {\\n}
+   *@*
+   { }
+   *@ 
+   *@ 
+   { }
+   *@\\n
+   *@-
+   { }
+   *@|
+   { }
+   *@:
+   { }
+   *@!
+   { }
+   *@?
+   { }
+   *@.
+   { }
+   *@@
+   { }
+   *@}
+   { }
+   *@{
+   { }
+   *@/
+   {\\n}
+   *36 @today C1 l13
+    *brace_container
+   {\\n}
+   *@end C1 l14
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *37 @displaymath C76 l16
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *38 @click C1 l17
+   |EXTRA
+   |clickstyle:{arrow}
+    *brace_container
+   {\\n}
+   *39 @U C1 l18
+    *brace_arg C1
+     {0075}
+   {\\n}
+   *40 @TeX C1 l19
+    *brace_container
+   { }
+   *41 @LaTeX C1 l19
+    *brace_container
+   { }
+   *42 @bullet C1 l19
+    *brace_container
+   { }
+   *43 @copyright C1 l19
+    *brace_container
+   { }
+   *44 @dots C1 l19
+    *brace_container
+   { }
+   *45 @enddots C1 l19
+    *brace_container
+   { }
+   *46 @equiv C1 l19
+    *brace_container
+   {\\n}
+   *47 @error C1 l20
+    *brace_container
+   { }
+   *48 @expansion C1 l20
+    *brace_container
+   { }
+   *49 @minus C1 l20
+    *brace_container
+   { }
+   *50 @point C1 l20
+    *brace_container
+   { }
+   *51 @print C1 l20
+    *brace_container
+   { }
+   *52 @result C1 l20
+    *brace_container
+   {\\n}
+   *53 @aa C1 l21
+    *brace_container
+   { }
+   *54 @AA C1 l21
+    *brace_container
+   { }
+   *55 @ae C1 l21
+    *brace_container
+   { }
+   *56 @oe C1 l21
+    *brace_container
+   { }
+   *57 @AE C1 l21
+    *brace_container
+   { }
+   *58 @OE C1 l21
+    *brace_container
+   { }
+   *59 @o C1 l21
+    *brace_container
+   { }
+   *60 @O C1 l21
+    *brace_container
+   { }
+   *61 @ss C1 l21
+    *brace_container
+   { }
+   *62 @l C1 l21
+    *brace_container
+   { }
+   *63 @L C1 l21
+    *brace_container
+   { }
+   *64 @DH C1 l21
+    *brace_container
+   {\\n}
+   *65 @TH C1 l22
+    *brace_container
+   { }
+   *66 @dh C1 l22
+    *brace_container
+   { }
+   *67 @th C1 l22
+    *brace_container
+   { }
+   *68 @exclamdown C1 l22
+    *brace_container
+   { }
+   *69 @questiondown C1 l22
+    *brace_container
+   { }
+   *70 @pounds C1 l22
+    *brace_container
+   {\\n}
+   *71 @registeredsymbol C1 l23
+    *brace_container
+   { }
+   *72 @ordf C1 l23
+    *brace_container
+   { }
+   *73 @ordm C1 l23
+    *brace_container
+   { }
+   *74 @comma C1 l23
+    *brace_container
+   { \\n}
+   *@end C1 l24
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+  {empty_line:\\n}
+  *75 @displaymath C36 l26
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *76 @quotedblleft C1 l27
+    *brace_container
+   { }
+   *77 @quotedblright C1 l27
+    *brace_container
+   {\\n}
+   *78 @quoteleft C1 l28
+    *brace_container
+   { }
+   *79 @quoteright C1 l28
+    *brace_container
+   { }
+   *80 @quotedblbase C1 l28
+    *brace_container
+   { }
+   *81 @quotesinglbase C1 l28
+    *brace_container
+   { }
+   *82 @guillemetleft C1 l28
+    *brace_container
+   {\\n}
+   *83 @guillemetright C1 l29
+    *brace_container
+   { }
+   *84 @guillemotleft C1 l29
+    *brace_container
+   { }
+   *85 @guillemotright C1 l29
+    *brace_container
+   { }
+   *86 @guilsinglleft C1 l29
+    *brace_container
+   {\\n}
+   *87 @guilsinglright C1 l30
+    *brace_container
+   { }
+   *88 @textdegree C1 l30
+    *brace_container
+   { }
+   *89 @euro C1 l30
+    *brace_container
+   { }
+   *90 @arrow C1 l30
+    *brace_container
+   { }
+   *91 @leq C1 l30
+    *brace_container
+   { }
+   *92 @geq C1 l30
+    *brace_container
+   {\\n}
+   *@end C1 l31
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{displaymath}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {displaymath}
+';
+
 
 $result_texis{'commands_in_math'} = '
 @displaymath

@@ -5,130 +5,39 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'noindent_indent'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'First para
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'noindent',
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
-'
-            },
-            {
-              'text' => 'qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
-'
-            }
-          ],
-          'extra' => {
-            'noindent' => 1
-          },
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'noindent',
-          'source_info' => {
-            'line_nr' => 9
-          }
-        },
-        {
-          'text' => ' ',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'noindent in para.
-'
-            }
-          ],
-          'extra' => {
-            'noindent' => 1
-          },
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'indent',
-          'source_info' => {
-            'line_nr' => 11
-          }
-        },
-        {
-          'text' => ' ',
-          'type' => 'ignorable_spaces_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'unneeded indent
-'
-            }
-          ],
-          'extra' => {
-            'indent' => 1
-          },
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'noindent_indent'} = '*document_root C1
+ *before_node_section C16
+  {empty_line:\\n}
+  *@indent l2
+  {ignorable_spaces_after_command:\\n}
+  *paragraph C1
+  |EXTRA
+  |indent:{1}
+   {First para\\n}
+  {empty_line:\\n}
+  *@noindent l5
+  {ignorable_spaces_after_command:\\n}
+  *paragraph C2
+  |EXTRA
+  |noindent:{1}
+   {qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq \\n}
+   {qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q\\n}
+  {empty_line:\\n}
+  *@noindent l9
+  {ignorable_spaces_after_command: }
+  *paragraph C1
+  |EXTRA
+  |noindent:{1}
+   {noindent in para.\\n}
+  {empty_line:\\n}
+  *@indent l11
+  {ignorable_spaces_after_command: }
+  *paragraph C1
+  |EXTRA
+  |indent:{1}
+   {unneeded indent\\n}
+';
+
 
 $result_texis{'noindent_indent'} = '
 @indent

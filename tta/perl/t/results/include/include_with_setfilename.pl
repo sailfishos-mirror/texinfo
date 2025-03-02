@@ -5,143 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'include_with_setfilename'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'include',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'included_file_with_setfilename.texi'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => ' 
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'included_file_with_setfilename.texi'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'include',
-              'status' => 'start'
-            },
-            {
-              'counter' => 1,
-              'element' => {
-                'cmdname' => 'setfilename',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'included_file.info'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'included_file.info'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'file_name' => 'included_file_with_setfilename.texi',
-                  'line_nr' => 1
-                }
-              },
-              'sourcemark_type' => 'setfilename'
-            }
-          ],
-          'text' => ''
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 18,
-                  'sourcemark_type' => 'include',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'In included file.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'setfilename',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'include_with_setfilename.info'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'text_arg' => 'include_with_setfilename.info'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'include_with_setfilename'} = '*document_root C1
+ *before_node_section C4
+  {}
+  >SOURCEMARKS
+  >include<start;1>
+   >*@include C1 l1
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{included_file_with_setfilename.texi}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{ \\n}
+     >{included_file_with_setfilename.texi}
+  >setfilename<1>
+   >*@setfilename C1 included_file_with_setfilename.texi:l1
+   >|INFO
+   >|spaces_before_argument:
+    >|{ }
+   >|EXTRA
+   >|text_arg:{included_file.info}
+    >*line_arg C1
+    >|INFO
+    >|spaces_after_argument:
+     >|{\\n}
+     >{included_file.info}
+  {empty_line:\\n}
+  *paragraph C1
+   {In included file.\\n}
+   >SOURCEMARKS
+   >include<end;1><p:18>
+  *@setfilename C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |text_arg:{include_with_setfilename.info}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {include_with_setfilename.info}
+';
+
 
 $result_texis{'include_with_setfilename'} = '
 In included file.

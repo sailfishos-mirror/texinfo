@@ -5,281 +5,90 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'form_feeds'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mymacro{a, b}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'f \\a\\ n \\b\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mymacro',
-            'misc_args' => [
-              'a',
-              'b'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' oneargmacro{c}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'g \\c\\ v
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'oneargmacro',
-            'misc_args' => [
-              'c'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'arg1'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => '  '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      },
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'arg2'
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'mymacro',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => '  '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'f arg1'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 6,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'n arg2
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'a@{rgline'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'oneargmacro',
-                      'spaces_before_argument' => {
-                        'text' => '   '
-                      }
-                    },
-                    'type' => 'macro_call_line'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'g a'
-            },
-            {
-              'cmdname' => '{'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 8,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'rgline v
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'form_feeds'} = '*document_root C1
+ *before_node_section C11
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{mymacro}
+  |misc_args:A{a|b}
+   *arguments_line C1
+    {macro_line: mymacro{a, b}\\n}
+   {raw:f \\a\\ n \\b\\\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C3 l5
+  |EXTRA
+  |macro_name:{oneargmacro}
+  |misc_args:A{c}
+   *arguments_line C1
+    {macro_line: oneargmacro{c}\\n}
+   {raw:g \\c\\ v\\n}
+   *@end C1 l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C1
+   {f arg1}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C2
+    >|INFO
+    >|command_name:{mymacro}
+    >|spaces_after_cmd_before_arg:
+     >|{  \\f}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ \\f }
+      >{arg1\\f}
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{\\f }
+      >{arg2}
+  {empty_line:\\f}
+  {spaces_before_paragraph: }
+  *paragraph C1
+   {n arg2\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:6>
+  {empty_line:\\n}
+  *paragraph C3
+   {g a}
+   >SOURCEMARKS
+   >macro_expansion<start;2>
+    >*macro_call_line C1
+    >|INFO
+    >|command_name:{oneargmacro}
+    >|spaces_before_argument:
+     >|{ \\f \\f }
+     >*line_arg C1
+      >{a@{rgline}
+   *@{
+   {rgline v\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;2><p:8>
+  {empty_line:\\n}
+';
+
 
 $result_texis{'form_feeds'} = '@macro mymacro{a, b}
 f \\a\\ n \\b\\

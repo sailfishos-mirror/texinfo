@@ -5,68 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'empty_line_in_email'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' 
-'
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'mail,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'text
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'empty_line_in_email'} = '*document_root C1
+ *before_node_section C4
+  *paragraph C1
+   *0 @email C1 l1
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ \\n}
+     {empty_line:\\n}
+  *paragraph C1
+   {mail,\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {text\\n}
+';
+
 
 $result_texis{'empty_line_in_email'} = '@email{ 
 

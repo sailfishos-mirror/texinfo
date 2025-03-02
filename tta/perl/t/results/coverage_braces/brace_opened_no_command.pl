@@ -5,63 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'brace_opened_no_command'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'anchortruc'
-            },
-            {
-              'cmdname' => '}'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'anchor',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'truc'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'is_target' => 1,
-                'normalized' => 'truc'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'brace_opened_no_command'} = '*document_root C2
+ *before_node_section C1
+  *paragraph C5
+   {anchortruc}
+   *@}
+   { }
+   *0 @anchor C1 l1
+   |EXTRA
+   |is_target:{1}
+   |normalized:{truc}
+    *brace_arg C1
+     {truc}
+   {.\\n}
+ *@bye C1
+  {rawline_arg:}
+';
+
 
 $result_texis{'brace_opened_no_command'} = 'anchortruc@} @anchor{truc}.
 @bye';

@@ -5,288 +5,87 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'multitable_in_example'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'cmdname' => 'multitable',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'AAA'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 2
-                          },
-                          'type' => 'bracketed_arg'
-                        },
-                        {
-                          'text' => '  '
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'BBB'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 2
-                          },
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'truc '
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        },
-                        {
-                          'cmdname' => 'tab',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'bidule example
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 2
-                          },
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'row_number' => 1
-                      },
-                      'type' => 'row'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'begin item example
-'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                },
-                                {
-                                  'text' => 'new paragraph in item. example
-'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 4
-                          }
-                        },
-                        {
-                          'cmdname' => 'tab',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => ' ',
-                                  'type' => 'ignorable_spaces_after_command'
-                                },
-                                {
-                                  'text' => 'begin tab example
-'
-                                },
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                },
-                                {
-                                  'text' => 'new paragraph in tab. example
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'extra' => {
-                            'cell_number' => 2
-                          },
-                          'source_info' => {
-                            'line_nr' => 8
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'row_number' => 2
-                      },
-                      'type' => 'row'
-                    }
-                  ],
-                  'type' => 'multitable_body'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'multitable'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'multitable'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 11
-                  }
-                }
-              ],
-              'extra' => {
-                'max_columns' => 2
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 12
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'multitable_in_example'} = '*document_root C1
+ *before_node_section C1
+  *0 @example C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *1 @multitable C3 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |max_columns:{2}
+    *arguments_line C1
+     *block_line_arg C3
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *bracketed_arg C1 l2
+       {AAA}
+      {  }
+      *bracketed_arg C1 l2
+       {BBB}
+    *multitable_body C2
+     *row C2
+     |EXTRA
+     |row_number:{1}
+      *@item C1 l3
+      |EXTRA
+      |cell_number:{1}
+       *preformatted C2
+        {ignorable_spaces_after_command: }
+        {truc }
+      *@tab C1 l3
+      |EXTRA
+      |cell_number:{2}
+       *preformatted C2
+        {ignorable_spaces_after_command: }
+        {bidule example\\n}
+     *row C2
+     |EXTRA
+     |row_number:{2}
+      *@item C1 l4
+      |EXTRA
+      |cell_number:{1}
+       *preformatted C5
+        {ignorable_spaces_after_command: }
+        {begin item example\\n}
+        {empty_line:\\n}
+        {new paragraph in item. example\\n}
+        {empty_line:\\n}
+      *@tab C1 l8
+      |EXTRA
+      |cell_number:{2}
+       *preformatted C4
+        {ignorable_spaces_after_command: }
+        {begin tab example\\n}
+        {empty_line:\\n}
+        {new paragraph in tab. example\\n}
+    *@end C1 l11
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{multitable}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {multitable}
+   *@end C1 l12
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+     {example}
+';
+
 
 $result_texis{'multitable_in_example'} = '@example
 @multitable {AAA}  {BBB}

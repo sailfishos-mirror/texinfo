@@ -5,125 +5,38 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_in_xref'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'anchor',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'point'
-                }
-              ],
-              'type' => 'brace_arg'
-            }
-          ],
-          'extra' => {
-            'is_target' => 1,
-            'normalized' => 'point'
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'spaces_after_close_brace'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'point'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'point'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'with
-',
-                              'type' => 'raw'
-                            },
-                            {
-                              'text' => 'verb
-',
-                              'type' => 'raw'
-                            },
-                            {
-                              'text' => '
-',
-                              'type' => 'raw'
-                            },
-                            {
-                              'text' => 'ggg ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => '*'
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'verb_in_xref'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'verb_in_xref'} = '*document_root C1
+ *before_node_section C4
+  *0 @anchor C1 l1
+  |EXTRA
+  |is_target:{1}
+  |normalized:{point}
+   *brace_arg C1
+    {point}
+  {spaces_after_close_brace:\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *1 @xref C2 l3
+    *brace_arg C1
+    |EXTRA
+    |node_content:{point}
+    |normalized:{point}
+     {point}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *2 @verb C1 l3
+     |INFO
+     |delimiter:{*}
+      *brace_container C4
+       {raw:with\\n}
+       {raw:verb\\n}
+       {raw:\\n}
+       {raw:ggg }
+   {.\\n}
+';
+
 
 $result_texis{'verb_in_xref'} = '@anchor{point}
 

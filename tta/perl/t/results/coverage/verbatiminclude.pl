@@ -5,52 +5,23 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verbatiminclude'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'verbatiminclude',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'incl-incl.txi'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'text_arg' => 'incl-incl.txi'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verbatiminclude'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *@verbatiminclude C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |input_encoding_name:{utf-8}
+  |text_arg:{incl-incl.txi}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {incl-incl.txi}
+';
+
 
 $result_texis{'verbatiminclude'} = '
 @verbatiminclude incl-incl.txi

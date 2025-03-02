@@ -5,101 +5,35 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'definfoenclose_with_empty_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'headword, , :'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'headword',
-              '',
-              ':'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'My '
-            },
-            {
-              'cmdname' => 'headword',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'something'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'begin' => '',
-                'end' => ':'
-              },
-              'info' => {
-                'command_name' => 'headword'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              },
-              'type' => 'definfoenclose_command'
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'definfoenclose_with_empty_arg'} = '*document_root C1
+ *before_node_section C5
+  {empty_line:\\n}
+  *@definfoenclose C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{headword||:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {headword, , :}
+  {empty_line:\\n}
+  *paragraph C3
+   {My }
+   *0 definfoenclose_command@headword C1 l4
+   |INFO
+   |command_name:{headword}
+   |EXTRA
+   |begin:{}
+   |end:{:}
+    *brace_container C1
+     {something}
+   {.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'definfoenclose_with_empty_arg'} = '
 @definfoenclose headword, , :

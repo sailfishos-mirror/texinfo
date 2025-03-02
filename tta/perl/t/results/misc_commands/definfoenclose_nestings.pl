@@ -5,219 +5,67 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'definfoenclose_nestings'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'phoo,//,\\'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'phoo',
-              '//',
-              '\\'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'phoo',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in phoo in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'begin' => '//',
-                        'end' => '\\'
-                      },
-                      'info' => {
-                        'command_name' => 'phoo'
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      },
-                      'type' => 'definfoenclose_command'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'phoo',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code in phoo'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'begin' => '//',
-                'end' => '\\'
-              },
-              'info' => {
-                'command_name' => 'phoo'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              },
-              'type' => 'definfoenclose_command'
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'phoo',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'extra' => {
-                'begin' => '//',
-                'end' => '\\'
-              },
-              'info' => {
-                'command_name' => 'phoo'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              },
-              'type' => 'definfoenclose_command'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'center',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'in center in phoo'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'definfoenclose_nestings'} = '*document_root C1
+ *before_node_section C9
+  *@definfoenclose C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{phoo|//|\\}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {phoo,//,\\}
+  {empty_line:\\n}
+  *paragraph C2
+   *0 @code C1 l3
+    *brace_container C1
+     *1 definfoenclose_command@phoo C1 l3
+     |INFO
+     |command_name:{phoo}
+     |EXTRA
+     |begin:{//}
+     |end:{\\}
+      *brace_container C1
+       {in phoo in code}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 definfoenclose_command@phoo C1 l5
+   |INFO
+   |command_name:{phoo}
+   |EXTRA
+   |begin:{//}
+   |end:{\\}
+    *brace_container C1
+     *3 @code C1 l5
+      *brace_container C1
+       {in code in phoo}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   *4 definfoenclose_command@phoo C1 l7
+   |INFO
+   |command_name:{phoo}
+   |EXTRA
+   |begin:{//}
+   |end:{\\}
+    *brace_container C1
+     {\\n}
+  *@center C1 l8
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {in center in phoo}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'definfoenclose_nestings'} = '@definfoenclose phoo,//,\\
 

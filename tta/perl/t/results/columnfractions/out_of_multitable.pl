@@ -5,43 +5,18 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'out_of_multitable'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'columnfractions',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '0.6 0.4 aaa'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              '0.6',
-              '0.4'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'out_of_multitable'} = '*document_root C1
+ *before_node_section C1
+  *0 @columnfractions C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{0.6|0.4}
+   *line_arg C1
+    {0.6 0.4 aaa}
+';
+
 
 $result_texis{'out_of_multitable'} = '@columnfractions 0.6 0.4 aaa';
 

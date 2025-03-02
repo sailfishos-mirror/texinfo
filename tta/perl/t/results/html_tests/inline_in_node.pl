@@ -5,361 +5,133 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inline_in_node'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'settitle',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'inlineraw',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'html'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '<strong class="ttitle">'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'expand_index' => 1,
-                        'format' => 'html'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => 'Title'
-                    },
-                    {
-                      'cmdname' => 'inlineraw',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'html'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => '</strong>'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'expand_index' => 1,
-                        'format' => 'html'
-                      },
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 3
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'source_info' => {
-        'line_nr' => 4
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'inlineraw',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '<code class="tnode">'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'expand_index' => 1,
-                    'format' => 'html'
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                },
-                {
-                  'text' => 'One'
-                },
-                {
-                  'cmdname' => 'inlineraw',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '</code>'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'expand_index' => 1,
-                    'format' => 'html'
-                  },
-                  'source_info' => {
-                    'line_nr' => 6
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'htmlOnehtml'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 6
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'inlineraw',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '<span class="test">'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'expand_index' => 1,
-                    'format' => 'html'
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                },
-                {
-                  'text' => 'One'
-                },
-                {
-                  'cmdname' => 'inlineraw',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'html'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => '</span>'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'expand_index' => 1,
-                    'format' => 'html'
-                  },
-                  'source_info' => {
-                    'line_nr' => 7
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 7
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inline_in_node'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content C2
+   *@settitle C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C3
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *0 @inlineraw C2 l1
+     |EXTRA
+     |expand_index:{1}
+     |format:{html}
+      *brace_arg C1
+       {html}
+      *brace_arg C1
+       {<strong class="ttitle">}
+     {Title}
+     *1 @inlineraw C2 l1
+     |EXTRA
+     |expand_index:{1}
+     |format:{html}
+      *brace_arg C1
+       {html}
+      *brace_arg C1
+       {</strong>}
+   {empty_line:\\n}
+ *2 @node C1 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[next->E4]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *3 @top C2 l4
+ |EXTRA
+ |associated_node:[E2]
+ |section_childs:EC[E7]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E3]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E7]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+  {empty_line:\\n}
+ *4 @node C1 l6
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E7]
+ |is_target:{1}
+ |node_directions:D[prev->E2|up->E2]
+ |normalized:{htmlOnehtml}
+  *arguments_line C1
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *5 @inlineraw C2 l6
+    |EXTRA
+    |expand_index:{1}
+    |format:{html}
+     *brace_arg C1
+      {html}
+     *brace_arg C1
+      {<code class="tnode">}
+    {One}
+    *6 @inlineraw C2 l6
+    |EXTRA
+    |expand_index:{1}
+    |format:{html}
+     *brace_arg C1
+      {html}
+     *brace_arg C1
+      {</code>}
+ *7 @chapter C2 l7
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E4]
+ |section_directions:D[up->E3]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E3|up->E3]
+  *arguments_line C1
+   *line_arg C3
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    *8 @inlineraw C2 l7
+    |EXTRA
+    |expand_index:{1}
+    |format:{html}
+     *brace_arg C1
+      {html}
+     *brace_arg C1
+      {<span class="test">}
+    {One}
+    *9 @inlineraw C2 l7
+    |EXTRA
+    |expand_index:{1}
+    |format:{html}
+     *brace_arg C1
+      {html}
+     *brace_arg C1
+      {</span>}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'inline_in_node'} = '@settitle @inlineraw{html,<strong class="ttitle">}Title@inlineraw{html,</strong>}
 

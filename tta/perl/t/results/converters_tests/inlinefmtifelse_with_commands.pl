@@ -5,434 +5,117 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inlinefmtifelse_with_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'if @code{html}',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'else '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'html'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'if @emph{plaintext}',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'else '
-                    },
-                    {
-                      'cmdname' => 'emph',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'plaintext'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'plaintext'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'if xml @env{second} arg',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'xml '
-                    },
-                    {
-                      'cmdname' => 'env',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'else'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'xml'
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'docbook'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => ' '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => ' if docbook @string{spaces} ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'else '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'docbook spaces'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'docbook'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'if @var{tex}',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'else'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    },
-                    {
-                      'text' => ' tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmtifelse',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'latex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'if @sc{latex}',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'sc',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'else'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
-                    },
-                    {
-                      'text' => ' latex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 2,
-                'format' => 'latex'
-              },
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
+ *before_node_section C11
+  *paragraph C2
+   *0 @inlinefmtifelse C3 l1
+   |EXTRA
+   |expand_index:{2}
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *elided_brace_command_arg C1
+     {raw:if @code{html}}
+    *brace_arg C2
+     {else }
+     *1 @code C1 l1
+      *brace_container C1
+       {html}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *2 @inlinefmtifelse C3 l3
+   |EXTRA
+   |expand_index:{2}
+   |format:{plaintext}
+    *brace_arg C1
+     {plaintext}
+    *elided_brace_command_arg C1
+     {raw:if @emph{plaintext}}
+    *brace_arg C2
+     {else }
+     *3 @emph C1 l3
+      *brace_container C1
+       {plaintext}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *4 @inlinefmtifelse C3 l5
+   |EXTRA
+   |expand_index:{2}
+   |format:{xml}
+    *brace_arg C1
+     {xml}
+    *elided_brace_command_arg C1
+     {raw:if xml @env{second} arg}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {xml }
+     *5 @env C1 l5
+      *brace_container C1
+       {else}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *6 @inlinefmtifelse C3 l7
+   |EXTRA
+   |expand_index:{2}
+   |format:{docbook}
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+     {docbook}
+    *elided_brace_command_arg C1
+     {raw: if docbook @string{spaces} }
+    *brace_arg C3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {else }
+     *7 @strong C1 l7
+      *brace_container C1
+       {docbook spaces}
+     { }
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *8 @inlinefmtifelse C3 l9
+   |EXTRA
+   |expand_index:{2}
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw:if @var{tex}}
+    *brace_arg C2
+     *9 @var C1 l9
+      *brace_container C1
+       {else}
+     { tex}
+   {.\\n}
+  {empty_line:\\n}
+  *paragraph C2
+   *10 @inlinefmtifelse C3 l11
+   |EXTRA
+   |expand_index:{2}
+   |format:{latex}
+    *brace_arg C1
+     {latex}
+    *elided_brace_command_arg C1
+     {raw:if @sc{latex}}
+    *brace_arg C2
+     *11 @sc C1 l11
+      *brace_container C1
+       {else}
+     { latex}
+   {.\\n}
+';
+
 
 $result_texis{'inlinefmtifelse_with_commands'} = '@inlinefmtifelse{html,if @code{html},else @code{html}}.
 

@@ -5,79 +5,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'footnote'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'text'
-            },
-            {
-              'cmdname' => 'footnote',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in footnote.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'r',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in footnote r'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 3
-                          }
-                        },
-                        {
-                          'text' => '. '
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' after footnote.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'footnote'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {text}
+   *0 @footnote C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    *brace_command_context C3
+     *paragraph C1
+      {in footnote.\\n}
+     {empty_line:\\n}
+     *paragraph C2
+      *1 @r C1 l3
+       *brace_container C1
+        {in footnote r}
+      {. }
+   { after footnote.}
+';
+
 
 $result_texis{'footnote'} = 'text@footnote{in footnote.
 

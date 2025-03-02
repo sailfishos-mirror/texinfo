@@ -5,1468 +5,531 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'character_and_spaces_in_refs_out'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'contents' => [
-          {
-            'type' => 'preamble_before_content'
-          }
-        ],
-        'type' => 'before_node_section'
-      },
-      {},
-      {
-        'cmdname' => 'top',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Test refs'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'menu',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'type' => 'arguments_line'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'node to avoid DocBook or LaTeX ignored'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 5
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'other nodes'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'other-nodes'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 6
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'menu'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'menu'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 7
-                }
-              }
-            ],
-            'source_info' => {
-              'file_name' => 'character_and_spaces_in_refs_text.texi',
-              'line_nr' => 4
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {},
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'character_and_spaces_in_refs_text.texi',
-          'line_nr' => 2
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'node to avoid DocBook or LaTeX ignored'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 9
-      }
-    },
-    'unit_contents' => [
-      {},
-      {
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'first chapter'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'subheading',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Testing distant nodes'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'extra' => {},
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
-            },
-            'source_info' => {
-              'file_name' => 'character_and_spaces_in_refs_text.texi',
-              'line_nr' => 12
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'a  node'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      }
-                    },
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => ' '
-                      },
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'manual'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 14
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => ':'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'manual'
-                      }
-                    ],
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 15
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'top'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      }
-                    },
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => ' '
-                      },
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'manual'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 16
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '('
-                      },
-                      {
-                        'text' => 'texinfo'
-                      },
-                      {
-                        'text' => ')'
-                      },
-                      {
-                        'text' => 'Cross References'
-                      }
-                    ],
-                    'extra' => {
-                      'manual_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 17
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'node'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'type' => 'brace_arg'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => '../manual/doc'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 18
-                }
-              },
-              {
-                'text' => '
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'subheading',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Testing local nodes'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'extra' => {},
-            'info' => {
-              'spaces_before_argument' => {
-                'text' => ' '
-              }
-            },
-            'source_info' => {
-              'file_name' => 'character_and_spaces_in_refs_text.texi',
-              'line_nr' => 20
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'contents' => [
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '!_"#$%&\'()*+-.'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 22
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '/;<=>?[\\]^_`|~'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 23
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'Top'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'Top'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 24
-                }
-              },
-              {
-                'text' => '
-'
-              },
-              {
-                'cmdname' => 'ref',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'local   node'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'local-node'
-                    },
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => '  '
-                      }
-                    },
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 25
-                }
-              },
-              {
-                'text' => '
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '1'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'character_and_spaces_in_refs_text.texi',
-          'line_nr' => 10
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'other nodes'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '!_"#$%&\'()*+-.'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'node to avoid DocBook or LaTeX ignored'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'Top'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'other-nodes'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 27
-      }
-    },
-    'unit_contents' => [
-      {},
-      {
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Chapter with nodes'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'menu',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'block_line_arg'
-                  }
-                ],
-                'type' => 'arguments_line'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => '!_"#$%&\'()*+-.'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 31
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => '/;<=>?[\\]^_`|~'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 32
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'contents' => [
-                  {
-                    'text' => '* ',
-                    'type' => 'menu_entry_leading_text'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'local node'
-                      }
-                    ],
-                    'extra' => {
-                      'node_content' => {
-                        'contents' => [
-                          {}
-                        ]
-                      },
-                      'normalized' => 'local-node'
-                    },
-                    'type' => 'menu_entry_node'
-                  },
-                  {
-                    'text' => '::',
-                    'type' => 'menu_entry_separator'
-                  },
-                  {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => '
-'
-                          }
-                        ],
-                        'type' => 'preformatted'
-                      }
-                    ],
-                    'type' => 'menu_entry_description'
-                  }
-                ],
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 33
-                },
-                'type' => 'menu_entry'
-              },
-              {
-                'cmdname' => 'end',
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => 'menu'
-                      }
-                    ],
-                    'info' => {
-                      'spaces_after_argument' => {
-                        'text' => '
-'
-                      }
-                    },
-                    'type' => 'line_arg'
-                  }
-                ],
-                'extra' => {
-                  'text_arg' => 'menu'
-                },
-                'info' => {
-                  'spaces_before_argument' => {
-                    'text' => ' '
-                  }
-                },
-                'source_info' => {
-                  'file_name' => 'character_and_spaces_in_refs_text.texi',
-                  'line_nr' => 34
-                }
-              }
-            ],
-            'source_info' => {
-              'file_name' => 'character_and_spaces_in_refs_text.texi',
-              'line_nr' => 30
-            }
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'section_number' => '2'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'file_name' => 'character_and_spaces_in_refs_text.texi',
-          'line_nr' => 28
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '!_"#$%&\'()*+-.'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '/;<=>?[\\]^_`|~'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'other nodes'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'other-nodes'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'other nodes'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'other-nodes'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 36
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => '/;<=>?[\\]^_`|~'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'local   node'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'local-node'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '!_"#$%&\'()*+-.'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'other nodes'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'other-nodes'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                },
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 38
-      }
-    },
-    'unit_contents' => [
-      {}
-    ],
-    'unit_type' => 'unit'
-  },
-  {
-    'unit_command' => {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'local   node'
-                }
-              ],
-              'type' => 'line_arg'
-            },
-            {
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '/;<=>?[\\]^_`|~'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
-              },
-              'type' => 'line_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'other nodes'
-                }
-              ],
-              'extra' => {
-                'node_content' => {
-                  'contents' => [
-                    {}
-                  ]
-                },
-                'normalized' => 'other-nodes'
-              },
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'local-node'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => '  '
-        }
-      },
-      'source_info' => {
-        'file_name' => 'character_and_spaces_in_refs_text.texi',
-        'line_nr' => 40
-      }
-    },
-    'unit_contents' => [
-      {},
-      {
-        'cmdname' => 'bye',
-        'contents' => [
-          {
-            'text' => '
-',
-            'type' => 'rawline_arg'
-          }
-        ]
-      }
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[1] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[0]{'unit_contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[1];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[3];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[8]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[4]{'contents'}[8]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[4]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[4]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[1]{'unit_contents'}[1]{'contents'}[8]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[2]{'unit_contents'}[1]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[3]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[4]{'unit_command'};
-$result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_command'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_contents'}[0] = $result_trees{'character_and_spaces_in_refs_out'}[5]{'unit_command'};
+$result_tree_text{'character_and_spaces_in_refs_out'} = 'U0 unit[E0]
+unit_directions:D[next->[U1]]
+UNIT_DIRECTIONS
+This: [U0]
+Forward: [U1]
+FastForward: [U1]
+NodeNext: [U1]
+NodeForward: [U1]
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 character_and_spaces_in_refs_text.texi:l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E3]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C4 character_and_spaces_in_refs_text.texi:l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E4|E17]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E4]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Test refs}
+  {empty_line:\\n}
+  *2 @menu C4 character_and_spaces_in_refs_text.texi:l4
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l5
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{node to avoid DocBook or LaTeX ignored}
+    |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
+     {node to avoid DocBook or LaTeX ignored}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l6
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{other nodes}
+    |normalized:{other-nodes}
+     {other nodes}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 character_and_spaces_in_refs_text.texi:l7
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U1 unit[E3]
+unit_directions:D[next->[U2]|prev->[U0]]
+UNIT_DIRECTIONS
+This: [U1]
+Forward: [U2]
+Back: [U0]
+FastForward: [U2]
+FastBack: [U0]
+Next: [U2]
+Up: [U0]
+NodeNext: [U2]
+NodePrev: [U0]
+NodeUp: [U0]
+NodeForward: [U2]
+NodeBack: [U0]
+ *3 @node C1 character_and_spaces_in_refs_text.texi:l9
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E4]
+ |is_target:{1}
+ |menu_directions:D[next->E16|up->E0]
+ |node_directions:D[next->E16|prev->E0|up->E0]
+ |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {node to avoid DocBook or LaTeX ignored}
+ *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E3]
+ |section_directions:D[next->E17|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E17|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {first chapter}
+  {empty_line:\\n}
+  *5 @subheading C1 character_and_spaces_in_refs_text.texi:l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Testing distant nodes}
+  {empty_line:\\n}
+  *paragraph C10
+   *6 @ref C4 character_and_spaces_in_refs_text.texi:l14
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |node_content:{a  node}
+     {a  node}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *7 @ref C4 character_and_spaces_in_refs_text.texi:l15
+    *brace_arg C1
+    |EXTRA
+    |node_content:{:}
+     {:}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *8 @ref C4 character_and_spaces_in_refs_text.texi:l16
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{ }
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |node_content:{top}
+     {top}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *9 @ref C1 character_and_spaces_in_refs_text.texi:l17
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{texinfo}
+    |node_content:{Cross References}
+     {(}
+     {texinfo}
+     {)}
+     {Cross References}
+   {\\n}
+   *10 @ref C4 character_and_spaces_in_refs_text.texi:l18
+    *brace_arg C1
+    |EXTRA
+    |node_content:{node}
+     {node}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {../manual/doc}
+   {\\n}
+  {empty_line:\\n}
+  *11 @subheading C1 character_and_spaces_in_refs_text.texi:l20
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{2}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Testing local nodes}
+  {empty_line:\\n}
+  *paragraph C8
+   *12 @ref C1 character_and_spaces_in_refs_text.texi:l22
+    *brace_arg C1
+    |EXTRA
+    |node_content:{!_"#$%&\'()*+-.}
+    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+     {!_"#$%&\'()*+-.}
+   {\\n}
+   *13 @ref C1 character_and_spaces_in_refs_text.texi:l23
+    *brace_arg C1
+    |EXTRA
+    |node_content:{/;<=>?[\\]^_`|~}
+    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+     {/;<=>?[\\]^_`|~}
+   {\\n}
+   *14 @ref C1 character_and_spaces_in_refs_text.texi:l24
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |node_content:{Top}
+    |normalized:{Top}
+     {Top}
+   {\\n}
+   *15 @ref C1 character_and_spaces_in_refs_text.texi:l25
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{  }
+    |EXTRA
+    |node_content:{local   node}
+    |normalized:{local-node}
+     {local   node}
+   {\\n}
+  {empty_line:\\n}
+U2 unit[E16]
+unit_directions:D[next->[U3]|prev->[U1]]
+UNIT_DIRECTIONS
+This: [U2]
+Forward: [U3]
+Back: [U1]
+FastBack: [U1]
+Prev: [U1]
+Up: [U0]
+NodeNext: [U3]
+NodePrev: [U1]
+NodeUp: [U0]
+NodeForward: [U3]
+NodeBack: [U1]
+ *16 @node C1 character_and_spaces_in_refs_text.texi:l27
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E17]
+ |is_target:{1}
+ |menu_directions:D[prev->E3|up->E0]
+ |menus:EC[E18]
+ |node_directions:D[next->E19|prev->E3|up->E0]
+ |normalized:{other-nodes}
+  *arguments_line C4
+   *line_arg C1
+    {other nodes}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{!_"#$%&\'()*+-.}
+   |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+    {!_"#$%&\'()*+-.}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{node to avoid DocBook or LaTeX ignored}
+   |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
+    {node to avoid DocBook or LaTeX ignored}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{Top}
+   |normalized:{Top}
+    {Top}
+ *17 @chapter C4 character_and_spaces_in_refs_text.texi:l28
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E16]
+ |section_directions:D[prev->E4|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[prev->E4|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Chapter with nodes}
+  {empty_line:\\n}
+  *18 @menu C5 character_and_spaces_in_refs_text.texi:l30
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l31
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{!_"#$%&\'()*+-.}
+    |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+     {!_"#$%&\'()*+-.}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l32
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{/;<=>?[\\]^_`|~}
+    |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+     {/;<=>?[\\]^_`|~}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *menu_entry C4 character_and_spaces_in_refs_text.texi:l33
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{local node}
+    |normalized:{local-node}
+     {local node}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 character_and_spaces_in_refs_text.texi:l34
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+U3 unit[E19]
+unit_directions:D[next->[U4]|prev->[U2]]
+UNIT_DIRECTIONS
+This: [U3]
+Forward: [U4]
+Back: [U2]
+FastBack: [U2]
+NodeNext: [U4]
+NodePrev: [U2]
+NodeUp: [U2]
+NodeForward: [U4]
+NodeBack: [U2]
+ *19 @node C2 character_and_spaces_in_refs_text.texi:l36
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E20|up->E16]
+ |node_directions:D[next->E20|prev->E16|up->E16]
+ |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+  *arguments_line C4
+   *line_arg C1
+    {!_"#$%&\'()*+-.}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{/;<=>?[\\]^_`|~}
+   |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+    {/;<=>?[\\]^_`|~}
+   *line_arg C1
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{other nodes}
+   |normalized:{other-nodes}
+    {other nodes}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{other nodes}
+   |normalized:{other-nodes}
+    {other nodes}
+  {empty_line:\\n}
+U4 unit[E20]
+unit_directions:D[next->[U5]|prev->[U3]]
+UNIT_DIRECTIONS
+This: [U4]
+Forward: [U5]
+Back: [U3]
+FastBack: [U2]
+NodeNext: [U5]
+NodePrev: [U3]
+NodeUp: [U2]
+NodeForward: [U5]
+NodeBack: [U3]
+ *20 @node C2 character_and_spaces_in_refs_text.texi:l38
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[next->E21|prev->E19|up->E16]
+ |node_directions:D[next->E21|prev->E19|up->E16]
+ |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+  *arguments_line C4
+   *line_arg C1
+    {/;<=>?[\\]^_`|~}
+   *line_arg C1
+   |EXTRA
+   |node_content:{local   node}
+   |normalized:{local-node}
+    {local   node}
+   *line_arg C1
+   |EXTRA
+   |node_content:{!_"#$%&\'()*+-.}
+   |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
+    {!_"#$%&\'()*+-.}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |node_content:{other nodes}
+   |normalized:{other-nodes}
+    {other nodes}
+  {empty_line:\\n}
+U5 unit[E21]
+unit_directions:D[prev->[U4]]
+UNIT_DIRECTIONS
+This: [U5]
+Back: [U4]
+FastBack: [U2]
+NodePrev: [U4]
+NodeUp: [U2]
+NodeForward: [U3]
+NodeBack: [U4]
+ *21 @node C2 character_and_spaces_in_refs_text.texi:l40
+ |INFO
+ |spaces_before_argument:
+  |{  }
+ |EXTRA
+ |is_target:{1}
+ |menu_directions:D[prev->E20|up->E16]
+ |node_directions:D[prev->E20|up->E16]
+ |normalized:{local-node}
+  *arguments_line C4
+   *line_arg C1
+    {local   node}
+   *line_arg
+   *line_arg C1
+   |EXTRA
+   |node_content:{/;<=>?[\\]^_`|~}
+   |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
+    {/;<=>?[\\]^_`|~}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+   |EXTRA
+   |node_content:{other nodes}
+   |normalized:{other-nodes}
+    {other nodes}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'character_and_spaces_in_refs_out'} = '@node Top
 @top Test refs

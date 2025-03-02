@@ -5,155 +5,46 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'closing_brace_in_value_in_ignored_inline'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'closebrace',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => '}',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' closebrace }
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'value',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'closebrace'
-                                  }
-                                ],
-                                'type' => 'brace_container'
-                              }
-                            ]
-                          },
-                          'line' => '}',
-                          'position' => 5,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'truc '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 3
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'value_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => 'machin
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'inlinefmt',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'tex'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-bidule @value{closebrace}
-after
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'elided_brace_command_arg'
-                }
-              ],
-              'extra' => {
-                'format' => 'tex'
-              },
-              'source_info' => {
-                'line_nr' => 7
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root C1
+ *before_node_section C5
+  *@set C2
+  |INFO
+  |arg_line:{ closebrace }\\n}
+   {rawline_arg:closebrace}
+   {rawline_arg:}}
+  {empty_line:\\n}
+  *paragraph C3
+   *0 @inlinefmt C2 l3
+   |EXTRA
+   |expand_index:{1}
+   |format:{html}
+   >SOURCEMARKS
+   >value_expansion<end;1>
+    *brace_arg C1
+     {html}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{\\n}
+     {truc }
+     >SOURCEMARKS
+     >value_expansion<start;1><p:5>{}}
+      >*@value C1
+       >*brace_container C1
+        >{closebrace}
+   {\\n}
+   {machin\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   *1 @inlinefmt C2 l7
+   |EXTRA
+   |format:{tex}
+    *brace_arg C1
+     {tex}
+    *elided_brace_command_arg C1
+     {raw:\\nbidule @value{closebrace}\\nafter\\n}
+';
+
 
 $result_texis{'closing_brace_in_value_in_ignored_inline'} = '@set closebrace }
 

@@ -5,156 +5,49 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'protect_comma_macro_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrotwo { arg }
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'we get \\arg\\ and another \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'and another one on another line \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'and a last in another paragraph
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrotwo',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'arg,  comma \\,'
-                          }
-                        ],
-                        'type' => 'line_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrotwo',
-                      'spaces_before_argument' => {
-                        'text' => '  '
-                      }
-                    },
-                    'type' => 'macro_call_line'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'we get arg,  comma \\, and another arg,  comma \\,
-'
-            },
-            {
-              'text' => 'and another one on another line arg,  comma \\,
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 31,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => 'and a last in another paragraph
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'protect_comma_macro_line'} = '*document_root C1
+ *before_node_section C5
+  *0 @macro C6 l1
+  |EXTRA
+  |macro_name:{macrotwo}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: macrotwo { arg }\\n}
+   {raw:we get \\arg\\ and another \\arg\\\\n}
+   {raw:and another one on another line \\arg\\\\n}
+   {raw:\\n}
+   {raw:and a last in another paragraph\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C2
+   {we get arg,  comma \\, and another arg,  comma \\,\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call_line C1
+    >|INFO
+    >|command_name:{macrotwo}
+    >|spaces_before_argument:
+     >|{  }
+     >*line_arg C1
+      >{arg,  comma \\,}
+   {and another one on another line arg,  comma \\,\\n}
+  {empty_line:\\n}
+  *paragraph C1
+   {and a last in another paragraph\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:31>
+';
+
 
 $result_texis{'protect_comma_macro_line'} = '@macro macrotwo { arg }
 we get \\arg\\ and another \\arg\\

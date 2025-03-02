@@ -5,154 +5,53 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'example_class'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'perl'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'foreach my $unclosed_file (keys(%unclosed_files)) '
-                },
-                {
-                  'cmdname' => '{'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => '  if (!close($unclosed_files'
-                },
-                {
-                  'cmdname' => '{'
-                },
-                {
-                  'text' => '$unclosed_file'
-                },
-                {
-                  'cmdname' => '}'
-                },
-                {
-                  'text' => ')) '
-                },
-                {
-                  'cmdname' => '{'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'text' => '    warn(sprintf("%s: error on closing %s: %s\\n",
-'
-                },
-                {
-                  'text' => '                     $real_command_name, $unclosed_file, $!));
-'
-                },
-                {
-                  'text' => '    $error_count++;
-'
-                },
-                {
-                  'text' => '    _exit($error_count, \\'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => 'opened_files);
-'
-                },
-                {
-                  'text' => '  '
-                },
-                {
-                  'cmdname' => '}'
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => '}'
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'example_class'} = '*document_root C1
+ *before_node_section C1
+  *0 @example C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {perl}
+   *preformatted C21
+    {foreach my $unclosed_file (keys(%unclosed_files)) }
+    *@{
+    {\\n}
+    {  if (!close($unclosed_files}
+    *@{
+    {$unclosed_file}
+    *@}
+    {)) }
+    *@{
+    {\\n}
+    {    warn(sprintf("%s: error on closing %s: %s\\n",\\n}
+    {                     $real_command_name, $unclosed_file, $!));\\n}
+    {    $error_count++;\\n}
+    {    _exit($error_count, \\}
+    *@@
+    {opened_files);\\n}
+    {  }
+    *@}
+    {\\n}
+    *@}
+    {\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+';
+
 
 $result_texis{'example_class'} = '@example perl
 foreach my $unclosed_file (keys(%unclosed_files)) @{

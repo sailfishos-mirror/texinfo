@@ -5,61 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'footnote_in_command_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'aaa'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code'
-                    },
-                    {
-                      'cmdname' => 'footnote',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in footnote'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'type' => 'brace_command_context'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'footnote_in_command_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {aaa}
+   *0 @code C1 l1
+    *brace_container C2
+     {in code}
+     *1 @footnote C1 l1
+      *brace_command_context C1
+       *paragraph C1
+        {in footnote}
+';
+
 
 $result_texis{'footnote_in_command_not_closed'} = 'aaa@code{in code@footnote{in footnote}}';
 

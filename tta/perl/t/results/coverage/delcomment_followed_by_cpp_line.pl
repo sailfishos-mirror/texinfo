@@ -5,177 +5,44 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'delcomment_followed_by_cpp_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => '\\input texinfo
-',
-              'type' => 'text_before_beginning'
-            },
-            {
-              'text' => '
-',
-              'type' => 'text_before_beginning'
-            }
-          ],
-          'type' => 'preamble_before_beginning'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' this tests both the del comment and a file without
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' element.
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'line' => ' this is a comment.
-',
-                  'sourcemark_type' => 'delcomment'
-                }
-              ],
-              'text' => '#line 46 "a_file_after_del_comment"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 2,
-              'line' => ' this is a comment.
-',
-              'position' => 2,
-              'sourcemark_type' => 'delcomment'
-            }
-          ],
-          'text' => '  ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => '#line 106 "a_file_after_space_del_comment"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'line' => ' this is a comment.
-',
-                  'position' => 2,
-                  'sourcemark_type' => 'delcomment'
-                }
-              ],
-              'text' => 'a #line 206 "a_file_after_text_space_del_comment"
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'delcomment_followed_by_cpp_line'} = '*document_root C2
+ *before_node_section C16
+  *preamble_before_beginning C2
+   {text_before_beginning:\\input texinfo\\n}
+   {text_before_beginning:\\n}
+  *preamble_before_content C3
+   *@c C1
+    {rawline_arg: this tests both the del comment and a file without\\n}
+   *@c C1
+    {rawline_arg: element.\\n}
+   {empty_line:\\n}
+  *paragraph C1
+   {#line 46 "a_file_after_del_comment"\\n}
+   >SOURCEMARKS
+   >delcomment<1>{ this is a comment.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph:  }
+  >SOURCEMARKS
+  >delcomment<2><p:2>{ this is a comment.\\n}
+  *paragraph C1
+   {#line 106 "a_file_after_space_del_comment"\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {spaces_before_paragraph: }
+  *paragraph C1
+   {a #line 206 "a_file_after_text_space_del_comment"\\n}
+   >SOURCEMARKS
+   >delcomment<3><p:2>{ this is a comment.\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+  {empty_line:\\n}
+ *@bye C1
+  {rawline_arg:\\n}
+';
+
 
 $result_texis{'delcomment_followed_by_cpp_line'} = '\\input texinfo
 

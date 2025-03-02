@@ -5,59 +5,25 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'command_line_in_paragraph'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'documentlanguage on its line
-'
-            },
-            {
-              'cmdname' => 'documentlanguage',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'en'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '  
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'en'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => '  '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => 'line following documentlanguage
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'command_line_in_paragraph'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {documentlanguage on its line\\n}
+   *@documentlanguage C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{  }
+   |EXTRA
+   |global_command_number:{1}
+   |text_arg:{en}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{  \\n}
+     {en}
+   {line following documentlanguage\\n}
+';
+
 
 $result_texis{'command_line_in_paragraph'} = 'documentlanguage on its line
 @documentlanguage  en  

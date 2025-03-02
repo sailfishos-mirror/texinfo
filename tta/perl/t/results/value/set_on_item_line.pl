@@ -5,505 +5,147 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'set_on_item_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'ca',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => 'b',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' ca b@c
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'item text
-'
-                        },
-                        {
-                          'text' => 'in item
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cjj '
-                            },
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'cj',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => '',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' cj@c
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'line
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'cvvv '
-                            },
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'cg',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => '',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' cg@c
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 8
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'code',
-                      'source_info' => {
-                        'line_nr' => 10
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'a',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => 'b',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' a b
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 11
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'item text
-'
-                        },
-                        {
-                          'text' => 'in item
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'jj '
-                            },
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'j',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => '',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' j
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 14
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'line
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'vvv '
-                            },
-                            {
-                              'cmdname' => 'set',
-                              'contents' => [
-                                {
-                                  'text' => 'g',
-                                  'type' => 'rawline_arg'
-                                },
-                                {
-                                  'text' => '',
-                                  'type' => 'rawline_arg'
-                                }
-                              ],
-                              'info' => {
-                                'arg_line' => ' g
-'
-                              }
-                            }
-                          ],
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 17
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'set_on_item_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'set_on_item_line'} = '*document_root C1
+ *before_node_section C3
+  *0 @table C5 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E1]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *1 @code l1
+   *table_entry C2
+    *table_term C1
+     *@item C1 l2
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+       *@set C2
+       |INFO
+       |arg_line:{ ca b@c\\n}
+        {rawline_arg:ca}
+        {rawline_arg:b}
+    *table_definition C1
+     *paragraph C2
+      {item text\\n}
+      {in item\\n}
+   *table_entry C2
+    *table_term C1
+     *@item C1 l5
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C2
+       {cjj }
+       *@set C2
+       |INFO
+       |arg_line:{ cj@c\\n}
+        {rawline_arg:cj}
+        {rawline_arg:}
+    *table_definition C1
+     *paragraph C1
+      {line\\n}
+   *table_entry C1
+    *table_term C1
+     *@item C1 l7
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C2
+       {cvvv }
+       *@set C2
+       |INFO
+       |arg_line:{ cg@c\\n}
+        {rawline_arg:cg}
+        {rawline_arg:}
+   *@end C1 l8
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+  {empty_line:\\n}
+  *2 @table C5 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |command_as_argument:[E3]
+   *arguments_line C1
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *3 @code l10
+   *table_entry C2
+    *table_term C1
+     *@item C1 l11
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C1
+       *@set C2
+       |INFO
+       |arg_line:{ a b\\n}
+        {rawline_arg:a}
+        {rawline_arg:b}
+    *table_definition C1
+     *paragraph C2
+      {item text\\n}
+      {in item\\n}
+   *table_entry C2
+    *table_term C1
+     *@item C1 l14
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C2
+       {jj }
+       *@set C2
+       |INFO
+       |arg_line:{ j\\n}
+        {rawline_arg:j}
+        {rawline_arg:}
+    *table_definition C1
+     *paragraph C1
+      {line\\n}
+   *table_entry C1
+    *table_term C1
+     *@item C1 l16
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *line_arg C2
+       {vvv }
+       *@set C2
+       |INFO
+       |arg_line:{ g\\n}
+        {rawline_arg:g}
+        {rawline_arg:}
+   *@end C1 l17
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{table}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {table}
+';
+
 
 $result_texis{'set_on_item_line'} = '@table @code
 @item @set ca b@c

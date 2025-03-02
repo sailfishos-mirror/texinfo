@@ -5,134 +5,49 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'recursive_synindex'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'aaa'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'cmdname' => 'defindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'bbb'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'bbb'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 2
-          }
-        },
-        {
-          'cmdname' => 'synindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'aaa bbb'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'aaa',
-              'bbb'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'cmdname' => 'synindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'bbb aaa'
-                }
-              ],
-              'type' => 'line_arg'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 4
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'recursive_synindex'} = '*document_root C1
+ *before_node_section C4
+  *@defindex C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{aaa}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {aaa}
+  *@defindex C1 l2
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{bbb}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {bbb}
+  *@synindex C1 l3
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{aaa|bbb}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {aaa bbb}
+  *@synindex C1 l4
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *line_arg C1
+    {bbb aaa}
+';
+
 
 $result_texis{'recursive_synindex'} = '@defindex aaa
 @defindex bbb

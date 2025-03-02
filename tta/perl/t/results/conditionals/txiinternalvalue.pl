@@ -5,21 +5,11 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'txiinternalvalue'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'txiinternalvalue'} = '*document_root C1
+ *before_node_section C1
+  {empty_line:\\n}
+';
+
 
 $result_texis{'txiinternalvalue'} = '
 ';

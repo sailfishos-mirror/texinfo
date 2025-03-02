@@ -5,997 +5,215 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_code_commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aA '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fg'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cc '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'gg'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '.
-'
-            },
-            {
-              'cmdname' => 'command',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in command '
-                    },
-                    {
-                      'cmdname' => 'kbd',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'fg'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code '
-                    },
-                    {
-                      'cmdname' => 'command',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in command'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'samp',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in samp '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 5
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code '
-                    },
-                    {
-                      'cmdname' => 'samp',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in samp'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'var',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in var '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 7
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in code '
-                    },
-                    {
-                      'cmdname' => 'var',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'in var'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 8
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'example',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 11
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aA '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'fg'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 12
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 12
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'hh'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'command',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in command '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'fg'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 14
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 14
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'command',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in command'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 15
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 15
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in samp '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 16
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 16
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'samp',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in samp'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 17
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 17
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in var '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 18
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 18
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in var'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 19
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 19
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'example'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'example'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 20
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 10
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'display',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'kbd',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in disp'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 23
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'aA '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'fg'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 24
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 24
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'command',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in command '
-                        },
-                        {
-                          'cmdname' => 'kbd',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'fg'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 25
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 25
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'command',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in command'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 26
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 26
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'samp',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in samp '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 27
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 27
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'samp',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in samp'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 28
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 28
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'var',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in var '
-                        },
-                        {
-                          'cmdname' => 'code',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in code'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 29
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 29
-                  }
-                },
-                {
-                  'text' => '
-'
-                },
-                {
-                  'cmdname' => 'code',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in code '
-                        },
-                        {
-                          'cmdname' => 'var',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'in var'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 30
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 30
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'preformatted'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'display'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'display'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 31
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 22
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_code_commands'} = '*document_root C1
+ *before_node_section C5
+  *paragraph C16
+   *0 @code C1 l1
+    *brace_container C2
+     {aA }
+     *1 @kbd C1 l1
+      *brace_container C1
+       {fg}
+   {.\\n}
+   *2 @code C1 l2
+    *brace_container C2
+     {cc }
+     *3 @code C1 l2
+      *brace_container C1
+       {gg}
+   {.\\n}
+   *4 @command C1 l3
+    *brace_container C2
+     {in command }
+     *5 @kbd C1 l3
+      *brace_container C1
+       {fg}
+   {\\n}
+   *6 @code C1 l4
+    *brace_container C2
+     {in code }
+     *7 @command C1 l4
+      *brace_container C1
+       {in command}
+   {\\n}
+   *8 @samp C1 l5
+    *brace_container C2
+     {in samp }
+     *9 @code C1 l5
+      *brace_container C1
+       {in code}
+   {\\n}
+   *10 @code C1 l6
+    *brace_container C2
+     {in code }
+     *11 @samp C1 l6
+      *brace_container C1
+       {in samp}
+   {\\n}
+   *12 @var C1 l7
+    *brace_container C2
+     {in var }
+     *13 @code C1 l7
+      *brace_container C1
+       {in code}
+   {\\n}
+   *14 @code C1 l8
+    *brace_container C2
+     {in code }
+     *15 @var C1 l8
+      *brace_container C1
+       {in var}
+   {\\n}
+  {empty_line:\\n}
+  *16 @example C3 l10
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C18
+    *17 @code C1 l11
+     *brace_container C1
+      {in code}
+    {\\n}
+    *18 @code C1 l12
+     *brace_container C2
+      {aA }
+      *19 @kbd C1 l12
+       *brace_container C1
+        {fg}
+    {\\n}
+    *20 @kbd C1 l13
+     *brace_container C1
+      {hh}
+    {\\n}
+    *21 @command C1 l14
+     *brace_container C2
+      {in command }
+      *22 @kbd C1 l14
+       *brace_container C1
+        {fg}
+    {\\n}
+    *23 @code C1 l15
+     *brace_container C2
+      {in code }
+      *24 @command C1 l15
+       *brace_container C1
+        {in command}
+    {\\n}
+    *25 @samp C1 l16
+     *brace_container C2
+      {in samp }
+      *26 @code C1 l16
+       *brace_container C1
+        {in code}
+    {\\n}
+    *27 @code C1 l17
+     *brace_container C2
+      {in code }
+      *28 @samp C1 l17
+       *brace_container C1
+        {in samp}
+    {\\n}
+    *29 @var C1 l18
+     *brace_container C2
+      {in var }
+      *30 @code C1 l18
+       *brace_container C1
+        {in code}
+    {\\n}
+    *31 @code C1 l19
+     *brace_container C2
+      {in code }
+      *32 @var C1 l19
+       *brace_container C1
+        {in var}
+    {\\n}
+   *@end C1 l20
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {example}
+  {empty_line:\\n}
+  *33 @display C3 l22
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *preformatted C16
+    *34 @kbd C1 l23
+     *brace_container C1
+      {in disp}
+    {\\n}
+    *35 @code C1 l24
+     *brace_container C2
+      {aA }
+      *36 @kbd C1 l24
+       *brace_container C1
+        {fg}
+    {\\n}
+    *37 @command C1 l25
+     *brace_container C2
+      {in command }
+      *38 @kbd C1 l25
+       *brace_container C1
+        {fg}
+    {\\n}
+    *39 @code C1 l26
+     *brace_container C2
+      {in code }
+      *40 @command C1 l26
+       *brace_container C1
+        {in command}
+    {\\n}
+    *41 @samp C1 l27
+     *brace_container C2
+      {in samp }
+      *42 @code C1 l27
+       *brace_container C1
+        {in code}
+    {\\n}
+    *43 @code C1 l28
+     *brace_container C2
+      {in code }
+      *44 @samp C1 l28
+       *brace_container C1
+        {in samp}
+    {\\n}
+    *45 @var C1 l29
+     *brace_container C2
+      {in var }
+      *46 @code C1 l29
+       *brace_container C1
+        {in code}
+    {\\n}
+    *47 @code C1 l30
+     *brace_container C2
+      {in code }
+      *48 @var C1 l30
+       *brace_container C1
+        {in var}
+    {\\n}
+   *@end C1 l31
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{display}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {display}
+';
+
 
 $result_texis{'nested_code_commands'} = '@code{aA @kbd{fg}}.
 @code{cc @code{gg}}.

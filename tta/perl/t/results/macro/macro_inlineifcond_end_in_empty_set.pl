@@ -5,210 +5,69 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'macro_inlineifcond_end_in_empty_set'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' clearargendignored
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'ag,
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'clearargendignored',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Toto '
-            },
-            {
-              'cmdname' => 'inlineifclear',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'clearargendignored'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'flag'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ''
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'flag'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '. After.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'Again with space '
-            },
-            {
-              'cmdname' => 'inlineifclear',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'clearargendignored'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'flag'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'flag'
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '. After.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'macro_inlineifcond_end_in_empty_set'} = '*document_root C1
+ *before_node_section C4
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{clearargendignored}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: clearargendignored\\n}
+   {raw:ag,\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *paragraph C3
+   {Toto }
+   *1 @inlineifclear C2 l4
+   |EXTRA
+   |expand_index:{1}
+   |format:{flag}
+    *brace_arg C1
+     {flag}
+     >SOURCEMARKS
+     >macro_expansion<start;1><p:2>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{clearargendignored}
+       >*brace_arg
+    *brace_arg C1
+     {}
+     >SOURCEMARKS
+     >macro_expansion<end;1>
+   {. After.\\n}
+  {empty_line:\\n}
+  *paragraph C3
+   {Again with space }
+   *2 @inlineifclear C2 l6
+   |EXTRA
+   |expand_index:{1}
+   |format:{flag}
+    *brace_arg C1
+     {flag}
+     >SOURCEMARKS
+     >macro_expansion<start;2><p:2>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{clearargendignored}
+       >*brace_arg
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     |>SOURCEMARKS
+     |>macro_expansion<end;2>
+   {. After.\\n}
+';
+
 
 $result_texis{'macro_inlineifcond_end_in_empty_set'} = '@macro clearargendignored
 ag,

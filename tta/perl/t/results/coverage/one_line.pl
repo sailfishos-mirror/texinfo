@@ -5,28 +5,13 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'one_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'AB
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'one_line'} = '*document_root C1
+ *before_node_section C2
+  *preamble_before_content
+  *paragraph C1
+   {AB\\n}
+';
+
 
 $result_texis{'one_line'} = 'AB
 ';

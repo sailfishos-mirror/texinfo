@@ -5,336 +5,100 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'deffn',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'bidule'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'machin'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'bidule'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  1
-                ],
-                'original_def_cmdname' => 'deffn'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              },
-              'type' => 'def_line'
-            },
-            {
-              'cmdname' => 'deffnx',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'truc'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'chose'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'args'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'chose'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'index_entry' => [
-                  'fn',
-                  2
-                ],
-                'original_def_cmdname' => 'deffnx'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'defvar',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'Variable'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'type' => 'def_category'
-                            },
-                            {
-                              'info' => {
-                                'inserted' => 1
-                              },
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'type1'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'var'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            },
-                            {
-                              'text' => ' ',
-                              'type' => 'spaces'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'bidule'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => {
-                              'text' => '
-'
-                            }
-                          },
-                          'type' => 'block_line_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'def_command' => 'defvar',
-                        'def_index_element' => {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'type1'
-                                }
-                              ],
-                              'type' => 'def_line_arg'
-                            }
-                          ],
-                          'type' => 'def_name'
-                        },
-                        'index_entry' => [
-                          'vr',
-                          1
-                        ],
-                        'original_def_cmdname' => 'defvar'
-                      },
-                      'source_info' => {
-                        'line_nr' => 3
-                      },
-                      'type' => 'def_line'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 3
-                  }
-                }
-              ],
-              'type' => 'def_item'
-            }
-          ],
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'not_closed'} = '*document_root C1
+ *before_node_section C1
+  *0 @deffn C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l1
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{bidule}
+   |index_entry:I{fn,1}
+   |original_def_cmdname:{deffn}
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {truc}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {bidule}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {machin}
+   *@deffnx C1 l2
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{deffn}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{chose}
+   |index_entry:I{fn,2}
+   |original_def_cmdname:{deffnx}
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {truc}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {chose}
+     {spaces: }
+     *def_arg C1
+      *def_line_arg C1
+       {args}
+   *def_item C1
+    *1 @defvar C1 l3
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     *def_line C1 l3
+     |EXTRA
+     |def_command:{defvar}
+     |def_index_element:
+      |*def_name C1
+       |*def_line_arg C1
+        |{type1}
+     |index_entry:I{vr,1}
+     |original_def_cmdname:{defvar}
+      *block_line_arg C7
+      |INFO
+      |spaces_after_argument:
+       |{\\n}
+       *def_category C1
+       |INFO
+       |inserted:{1}
+        *def_line_arg C1
+         {Variable}
+       (i){spaces: }
+       *def_name C1
+        *def_line_arg C1
+         {type1}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         {var}
+       {spaces: }
+       *def_arg C1
+        *def_line_arg C1
+         {bidule}
+';
+
 
 $result_texis{'not_closed'} = '@deffn truc bidule machin
 @deffnx truc chose args

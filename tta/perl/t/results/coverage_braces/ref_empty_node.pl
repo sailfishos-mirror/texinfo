@@ -5,193 +5,65 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'ref_empty_node'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'inforef',
-              'contents' => [
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'imanual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Bidule'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Truc'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Printed'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'ref_empty_node'} = '*document_root C1
+ *before_node_section C2
+  {empty_line:\\n}
+  *paragraph C8
+   *0 @ref C4 l2
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   { }
+   *1 @ref C5 l2
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Manual}
+   { }
+   *2 @inforef C3 l2
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {imanual}
+   {\\n}
+   *3 @xref C5 l3
+    *brace_arg
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Bidule}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Truc}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {Printed}
+   {.\\n}
+';
+
 
 $result_texis{'ref_empty_node'} = '
 @ref{,,,manual} @ref{,,, , Manual} @inforef{,,imanual}

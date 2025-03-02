@@ -5,115 +5,34 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'uref_with_commands_characters'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'http://my-host.com/~'
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'toto'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    },
-                    {
-                      'text' => '%5Cs\'q"a&e?b'
-                    },
-                    {
-                      'cmdname' => '}'
-                    },
-                    {
-                      'text' => 'b'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'ba'
-                    },
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 's\\s p+h#aaa'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'see that '
-                    },
-                    {
-                      'cmdname' => 'strong',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'cmdname' => 'LaTeX',
-                              'contents' => [
-                                {
-                                  'type' => 'brace_container'
-                                }
-                              ],
-                              'source_info' => {
-                                'line_nr' => 1
-                              }
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      }
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'uref_with_commands_characters'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   *0 @uref C2 l1
+    *brace_arg C9
+     {http://my-host.com/~}
+     *1 @strong C1 l1
+      *brace_container C1
+       {toto}
+     {%5Cs\'q"a&e?b}
+     *@}
+     {b}
+     *@{
+     {ba}
+     *@@
+     {s\\s p+h#aaa}
+    *brace_arg C2
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {see that }
+     *2 @strong C1 l1
+      *brace_container C1
+       *3 @LaTeX C1 l1
+        *brace_container
+   {\\n}
+';
+
 
 $result_texis{'uref_with_commands_characters'} = '@uref{http://my-host.com/~@strong{toto}%5Cs\'q"a&e?b@}b@{ba@@s\\s p+h#aaa, see that @strong{@LaTeX{}}}
 ';

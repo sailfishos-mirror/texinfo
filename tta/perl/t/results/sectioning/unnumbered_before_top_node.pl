@@ -5,127 +5,52 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unnumbered_before_top_node'} = [
-  {
-    'unit_command' => {
-      'cmdname' => 'unnumbered',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'before nodes'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    'unit_contents' => [
-      {
-        'type' => 'before_node_section'
-      },
-      {},
-      {
-        'cmdname' => 'node',
-        'contents' => [
-          {
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Top'
-                  }
-                ],
-                'info' => {
-                  'spaces_after_argument' => {
-                    'text' => '
-'
-                  }
-                },
-                'type' => 'line_arg'
-              }
-            ],
-            'type' => 'arguments_line'
-          },
-          {
-            'contents' => [
-              {
-                'text' => 'Top node
-'
-              }
-            ],
-            'type' => 'paragraph'
-          },
-          {
-            'text' => '
-',
-            'type' => 'empty_line'
-          },
-          {
-            'cmdname' => 'titlefont',
-            'contents' => [
-              {
-                'contents' => [
-                  {
-                    'text' => 'Title titlefont'
-                  }
-                ],
-                'type' => 'brace_container'
-              }
-            ],
-            'extra' => {},
-            'source_info' => {
-              'line_nr' => 6
-            }
-          },
-          {
-            'text' => '
-'
-          }
-        ],
-        'extra' => {
-          'is_target' => 1,
-          'normalized' => 'Top'
-        },
-        'info' => {
-          'spaces_before_argument' => {
-            'text' => ' '
-          }
-        },
-        'source_info' => {
-          'line_nr' => 3
-        }
-      }
-    ],
-    'unit_type' => 'unit'
-  }
-];
-$result_trees{'unnumbered_before_top_node'}[0]{'unit_contents'}[1] = $result_trees{'unnumbered_before_top_node'}[0]{'unit_command'};
+$result_tree_text{'unnumbered_before_top_node'} = 'U0 unit[E0]
+UNIT_DIRECTIONS
+This: [U0]
+ *before_node_section
+ *0 @unnumbered C2 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |section_level:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E0]
+  ||section_level:{0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {before nodes}
+  {empty_line:\\n}
+ *1 @node C5 l3
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |is_target:{1}
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+  *paragraph C1
+   {Top node\\n}
+  {empty_line:\\n}
+  *2 @titlefont C1 l6
+  |EXTRA
+  |global_command_number:{1}
+   *brace_container C1
+    {Title titlefont}
+  {\\n}
+';
+
 
 $result_texis{'unnumbered_before_top_node'} = '@unnumbered before nodes
 

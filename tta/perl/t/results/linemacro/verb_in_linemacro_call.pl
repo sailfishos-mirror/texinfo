@@ -5,387 +5,118 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_in_linemacro_call'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'linemacro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' mycommand {a, b, c, d}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'first \\a\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'second \\b\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => 'third \\c\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@defline \\a\\ \\d\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'linemacro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'linemacro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 6
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'mycommand',
-            'misc_args' => [
-              'a',
-              'b',
-              'c',
-              'd'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'defblock',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'Name',
-                                    'type' => 'bracketed_linemacro_arg'
-                                  }
-                                ],
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => '@verb{: in verb :}'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'A @verb{| in bracketed |} ',
-                                    'type' => 'bracketed_linemacro_arg'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              },
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'other {j}'
-                                  }
-                                ],
-                                'info' => {
-                                  'spaces_before_argument' => {
-                                    'text' => ' '
-                                  }
-                                },
-                                'type' => 'line_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'mycommand',
-                              'spaces_before_argument' => {
-                                'text' => ' '
-                              }
-                            },
-                            'type' => 'linemacro_call'
-                          },
-                          'sourcemark_type' => 'linemacro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'first Name
-'
-                    },
-                    {
-                      'text' => 'second '
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' in verb ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => ':'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'mycommand'
-                      }
-                    },
-                    {
-                      'text' => '
-'
-                    },
-                    {
-                      'text' => 'third A '
-                    },
-                    {
-                      'cmdname' => 'verb',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => ' in bracketed ',
-                              'type' => 'raw'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'info' => {
-                        'delimiter' => '|'
-                      },
-                      'source_info' => {
-                        'line_nr' => 9,
-                        'macro' => 'mycommand'
-                      }
-                    },
-                    {
-                      'text' => ' 
-'
-                    }
-                  ],
-                  'type' => 'paragraph'
-                }
-              ],
-              'type' => 'before_defline'
-            },
-            {
-              'cmdname' => 'defline',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Name'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_category'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'other'
-                            }
-                          ],
-                          'type' => 'def_line_arg'
-                        }
-                      ],
-                      'type' => 'def_name'
-                    },
-                    {
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'j'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 9,
-                            'macro' => 'mycommand'
-                          },
-                          'source_marks' => [
-                            {
-                              'counter' => 1,
-                              'sourcemark_type' => 'linemacro_expansion',
-                              'status' => 'end'
-                            }
-                          ],
-                          'type' => 'bracketed_arg'
-                        }
-                      ],
-                      'type' => 'def_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'def_command' => 'defline',
-                'def_index_element' => {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'other'
-                        }
-                      ],
-                      'type' => 'def_line_arg'
-                    }
-                  ],
-                  'type' => 'def_name'
-                },
-                'original_def_cmdname' => 'defline'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 9,
-                'macro' => 'mycommand'
-              }
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'defblock'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'defblock'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 8
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verb_in_linemacro_call'} = '*document_root C1
+ *before_node_section C3
+  *0 @linemacro C6 l1
+  |EXTRA
+  |macro_name:{mycommand}
+  |misc_args:A{a|b|c|d}
+   *arguments_line C1
+    {macro_line: mycommand {a, b, c, d}\\n}
+   {raw:first \\a\\\\n}
+   {raw:second \\b\\\\n}
+   {raw:third \\c\\\\n}
+   {raw:@defline \\a\\ \\d\\\\n}
+   *@end C1 l6
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{linemacro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {linemacro}
+  {empty_line:\\n}
+  *1 @defblock C4 l8
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *before_defline C1
+    *paragraph C7
+     {first Name\\n}
+     >SOURCEMARKS
+     >linemacro_expansion<start;1>
+      >*linemacro_call C4
+      >|INFO
+      >|command_name:{mycommand}
+      >|spaces_before_argument:
+       >|{ }
+       >*line_arg C1
+        >{bracketed_linemacro_arg:Name}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{@verb{: in verb :}}
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{bracketed_linemacro_arg:A @verb{| in bracketed |} }
+       >*line_arg C1
+       >|INFO
+       >|spaces_before_argument:
+        >|{ }
+        >{other {j}}
+     {second }
+     *2 @verb C1 l9:@mycommand
+     |INFO
+     |delimiter:{:}
+      *brace_container C1
+       {raw: in verb }
+     {\\n}
+     {third A }
+     *3 @verb C1 l9:@mycommand
+     |INFO
+     |delimiter:{|}
+      *brace_container C1
+       {raw: in bracketed }
+     { \\n}
+   *@defline C1 l9:@mycommand
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |def_command:{defline}
+   |def_index_element:
+    |*def_name C1
+     |*def_line_arg C1
+      |{other}
+   |original_def_cmdname:{defline}
+    *line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *def_category C1
+      *def_line_arg C1
+       {Name}
+     {spaces: }
+     *def_name C1
+      *def_line_arg C1
+       {other}
+     {spaces: }
+     *def_arg C1
+      *bracketed_arg C1 l9:@mycommand
+      >SOURCEMARKS
+      >linemacro_expansion<end;1>
+       {j}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{defblock}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {defblock}
+';
+
 
 $result_texis{'verb_in_linemacro_call'} = '@linemacro mycommand {a, b, c, d}
 first \\a\\

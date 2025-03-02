@@ -5,101 +5,30 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comments'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' comment @c comment
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => 'in a verb ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => 'a'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' comment
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'something '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' in verb',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => ','
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' other comment',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comments'} = '*document_root C1
+ *before_node_section C3
+  *paragraph C2
+   *0 @verb C1 l1
+   |INFO
+   |delimiter:{a}
+    *brace_container C2
+     {raw: comment @c comment\\n}
+     {raw:in a verb }
+   *@c C1
+    {rawline_arg: comment\\n}
+  {empty_line:\\n}
+  *paragraph C4
+   {something }
+   *1 @verb C1 l4
+   |INFO
+   |delimiter:{,}
+    *brace_container C1
+     {raw: in verb}
+   { }
+   *@c C1
+    {rawline_arg: other comment}
+';
+
 
 $result_texis{'comments'} = '@verb{a comment @c comment
 in a verb a}@c comment

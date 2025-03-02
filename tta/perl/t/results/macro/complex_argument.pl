@@ -5,900 +5,258 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'complex_argument'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrotwo{arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'coucou \\arg\\ after arg
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 3
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrotwo',
-            'misc_args' => [
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrofour {}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '1
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '2
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '3
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '4
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrofour',
-            'misc_args' => []
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macrothree{text, arg}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '\\text\\
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '&&&& \\arg\\
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 15
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macrothree',
-            'misc_args' => [
-              'text',
-              'arg'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'source_marks' => [
-            {
-              'counter' => 1,
-              'element' => {
-                'contents' => [
-                  {
-                    'contents' => [
-                      {
-                        'text' => '@verb{% @macrotwo %}
-@c @macrofour
-@pagesizes 4 @macrofour{}
-@headings doubleafter @macrofour{}
-@verbatim
-@macrotwo
-@end verbatim
-@ignore
-@macrofour
-@end ignore
-@macro macroseven {truc}
-@emph{\\truc\\}
-@end macro
-macroseven defined
-@ifinfo
-@macrofour
-@end ifinfo
-@iftex
-@macrotwo{aa,bb}
-@end iftex
-@macrofour{}
-'
-                      }
-                    ],
-                    'type' => 'brace_arg'
-                  }
-                ],
-                'info' => {
-                  'command_name' => 'macrothree'
-                },
-                'type' => 'macro_call'
-              },
-              'position' => 1,
-              'sourcemark_type' => 'macro_expansion',
-              'status' => 'start'
-            }
-          ],
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => ' @macrotwo ',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '%'
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' @macrofour
-',
-                  'type' => 'rawline_arg'
-                }
-              ]
-            },
-            {
-              'cmdname' => 'pagesizes',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 2,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'macrofour'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 2,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => '4 1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            },
-            {
-              'text' => '2
-'
-            },
-            {
-              'text' => '3
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 2,
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '4
-'
-            },
-            {
-              'cmdname' => 'headings',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 3,
-                          'element' => {
-                            'contents' => [
-                              {
-                                'type' => 'brace_arg'
-                              }
-                            ],
-                            'info' => {
-                              'command_name' => 'macrofour'
-                            },
-                            'type' => 'macro_call'
-                          },
-                          'position' => 12,
-                          'sourcemark_type' => 'macro_expansion',
-                          'status' => 'start'
-                        }
-                      ],
-                      'text' => 'doubleafter 1'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {},
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            },
-            {
-              'text' => '2
-'
-            },
-            {
-              'text' => '3
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 3,
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '4
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'verbatim',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@macrotwo
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'verbatim'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'verbatim'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 38,
-            'macro' => 'macrothree'
-          }
-        },
-        {
-          'cmdname' => 'ignore',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@macrofour
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'ignore'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'ignore'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 38,
-            'macro' => 'macrothree'
-          }
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macroseven {truc}
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@emph{\\truc\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 38,
-                'macro' => 'macrothree'
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macroseven',
-            'misc_args' => [
-              'truc'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 38,
-            'macro' => 'macrothree'
-          }
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifinfo',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => '@macrofour
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifinfo'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifinfo'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 38,
-                          'macro' => 'macrothree'
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'line_nr' => 38,
-                      'macro' => 'macrothree'
-                    }
-                  },
-                  'position' => 19,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                },
-                {
-                  'counter' => 2,
-                  'element' => {
-                    'cmdname' => 'iftex',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => '@macrotwo{aa,bb}
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'iftex'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'iftex'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 38,
-                          'macro' => 'macrothree'
-                        }
-                      }
-                    ],
-                    'source_info' => {
-                      'line_nr' => 38,
-                      'macro' => 'macrothree'
-                    }
-                  },
-                  'position' => 19,
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ],
-              'text' => 'macroseven defined
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macrofour'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => '1
-'
-            },
-            {
-              'text' => '2
-'
-            },
-            {
-              'text' => '3
-'
-            },
-            {
-              'source_marks' => [
-                {
-                  'counter' => 4,
-                  'position' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '4
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'position' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ],
-              'text' => '&&&& 
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'aaa'
-                          }
-                        ],
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macroseven'
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'position' => 16,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'Call macroseven
-'
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'aaa'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 41,
-                'macro' => 'macroseven'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 5,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'complex_argument'} = '*document_root C1
+ *before_node_section C16
+  *0 @macro C3 l1
+  |EXTRA
+  |macro_name:{macrotwo}
+  |misc_args:A{arg}
+   *arguments_line C1
+    {macro_line: macrotwo{arg}\\n}
+   {raw:coucou \\arg\\ after arg\\n}
+   *@end C1 l3
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *1 @macro C6 l5
+  |EXTRA
+  |macro_name:{macrofour}
+  |misc_args:A{}
+   *arguments_line C1
+    {macro_line: macrofour {}\\n}
+   {raw:1\\n}
+   {raw:2\\n}
+   {raw:3\\n}
+   {raw:4\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *2 @macro C4 l12
+  |EXTRA
+  |macro_name:{macrothree}
+  |misc_args:A{text|arg}
+   *arguments_line C1
+    {macro_line: macrothree{text, arg}\\n}
+   {raw:\\text\\\\n}
+   {raw:&&&& \\arg\\\\n}
+   *@end C1 l15
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  >SOURCEMARKS
+  >macro_expansion<start;1><p:1>
+   >*macro_call C1
+   >|INFO
+   >|command_name:{macrothree}
+    >*brace_arg C1
+     >{@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
+  *paragraph C11
+   *3 @verb C1 l38:@macrothree
+   |INFO
+   |delimiter:{%}
+    *brace_container C1
+     {raw: @macrotwo }
+   {\\n}
+   *@c C1
+    {rawline_arg: @macrofour\\n}
+   *@pagesizes C1 l38:@macrothree
+   |INFO
+   |spaces_before_argument:
+    |{ }
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {4 1}
+     >SOURCEMARKS
+     >macro_expansion<start;2><p:2>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{macrofour}
+       >*brace_arg
+   {2\\n}
+   {3\\n}
+   {4\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;2><p:1>
+   *@headings C1 l38:@macrothree
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |global_command_number:{1}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {doubleafter 1}
+     >SOURCEMARKS
+     >macro_expansion<start;3><p:12>
+      >*macro_call C1
+      >|INFO
+      >|command_name:{macrofour}
+       >*brace_arg
+   {2\\n}
+   {3\\n}
+   {4\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;3><p:1>
+  *4 @verbatim C3 l38:@macrothree
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {raw:@macrotwo\\n}
+   *@end C1 l38:@macrothree
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{verbatim}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {verbatim}
+  *5 @ignore C3 l38:@macrothree
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {raw:@macrofour\\n}
+   *@end C1 l38:@macrothree
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{ignore}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {ignore}
+  *6 @macro C3 l38:@macrothree
+  |EXTRA
+  |macro_name:{macroseven}
+  |misc_args:A{truc}
+   *arguments_line C1
+    {macro_line: macroseven {truc}\\n}
+   {raw:@emph{\\truc\\}\\n}
+   *@end C1 l38:@macrothree
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  *paragraph C5
+   {macroseven defined\\n}
+   >SOURCEMARKS
+   >ignored_conditional_block<1><p:19>
+    >*@ifinfo C3 l38:@macrothree
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:@macrofour\\n}
+     >*@end C1 l38:@macrothree
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifinfo}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifinfo}
+   >ignored_conditional_block<2><p:19>
+    >*@iftex C3 l38:@macrothree
+     >*arguments_line C1
+      >*block_line_arg
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+     >{raw:@macrotwo{aa,bb}\\n}
+     >*@end C1 l38:@macrothree
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{iftex}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{iftex}
+   {1\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;4>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macrofour}
+     >*brace_arg
+   {2\\n}
+   {3\\n}
+   {4\\n}
+   >SOURCEMARKS
+   >macro_expansion<end;4><p:1>
+  {empty_line:\\n}
+  *paragraph C1
+   {&&&& \\n}
+   >SOURCEMARKS
+   >macro_expansion<end;1><p:5>
+  {empty_line:\\n}
+  *paragraph C3
+   {Call macroseven\\n}
+   >SOURCEMARKS
+   >macro_expansion<start;5><p:16>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macroseven}
+     >*brace_arg C1
+      >{aaa}
+   *7 @emph C1 l41:@macroseven
+   >SOURCEMARKS
+   >macro_expansion<end;5>
+    *brace_container C1
+     {aaa}
+   {\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'complex_argument'} = '@macro macrotwo{arg}
 coucou \\arg\\ after arg

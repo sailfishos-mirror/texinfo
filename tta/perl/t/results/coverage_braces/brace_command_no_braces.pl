@@ -5,27 +5,12 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'brace_command_no_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'brace_command_no_braces'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C1
+   *0 @xref l1
+';
+
 
 $result_texis{'brace_command_no_braces'} = '@xref';
 

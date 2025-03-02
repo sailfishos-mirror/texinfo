@@ -5,27 +5,14 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'image_no_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'image',
-          'info' => {
-            'spaces_after_cmd_before_arg' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'image_no_braces'} = '*document_root C1
+ *before_node_section C1
+  *0 @image l1
+  |INFO
+  |spaces_after_cmd_before_arg:
+   |{ }
+';
+
 
 $result_texis{'image_no_braces'} = '@image ';
 

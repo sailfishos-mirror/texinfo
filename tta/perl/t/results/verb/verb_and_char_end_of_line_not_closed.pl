@@ -5,55 +5,19 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'verb_and_char_end_of_line_not_closed'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'verb, not  closed '
-            },
-            {
-              'cmdname' => 'verb',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'raw'
-                    },
-                    {
-                      'text' => '@bye
-',
-                      'type' => 'raw'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'info' => {
-                'delimiter' => '*'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'verb_and_char_end_of_line_not_closed'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C2
+   {verb, not  closed }
+   *0 @verb C1 l1
+   |INFO
+   |delimiter:{*}
+    *brace_container C3
+     {raw:\\n}
+     {raw:\\n}
+     {raw:@bye\\n}
+';
+
 
 $result_texis{'verb_and_char_end_of_line_not_closed'} = 'verb, not  closed @verb{*
 

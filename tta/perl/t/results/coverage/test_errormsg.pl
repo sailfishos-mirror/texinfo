@@ -5,108 +5,32 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'test_errormsg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Some text
-'
-            },
-            {
-              'cmdname' => 'errormsg',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text '
-                    },
-                    {
-                      'cmdname' => '~',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'e'
-                            }
-                          ],
-                          'type' => 'following_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'cmdname' => 'code',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'code'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'errormsg',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'with surrounding spaces'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '   '
-                    },
-                    'spaces_before_argument' => {
-                      'text' => '  '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 3
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'test_errormsg'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C5
+   {Some text\\n}
+   *0 @errormsg C1 l2
+    *brace_arg C4
+     {Text }
+     *1 @~ C1 l2
+      *following_arg C1
+       {e}
+     { }
+     *2 @code C1 l2
+      *brace_container C1
+       {code}
+   {\\n}
+   *3 @errormsg C1 l3
+    *brace_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{   }
+    |spaces_before_argument:
+     |{  }
+     {with surrounding spaces}
+   {\\n}
+';
+
 
 $result_texis{'test_errormsg'} = 'Some text
 @errormsg{Text @~e @code{code}}

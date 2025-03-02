@@ -5,213 +5,64 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'comma_value_in_macro_arg'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'set',
-          'contents' => [
-            {
-              'text' => 'comma',
-              'type' => 'rawline_arg'
-            },
-            {
-              'text' => ',',
-              'type' => 'rawline_arg'
-            }
-          ],
-          'info' => {
-            'arg_line' => ' comma ,
-'
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => ' macro1 { arg1 , arg2 }
-',
-                  'type' => 'macro_line'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => 'result: @emph{\\arg1\\} protected \\\\ -> \\\\arg1\\\\ @emph{\\arg2\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'macro'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'macro'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'extra' => {
-            'macro_name' => 'macro1',
-            'misc_args' => [
-              'arg1',
-              'arg2'
-            ]
-          },
-          'source_info' => {
-            'line_nr' => 3
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'text' => 'arg1 @value{comma} arg2 '
-                          }
-                        ],
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'type' => 'brace_arg'
-                      }
-                    ],
-                    'info' => {
-                      'command_name' => 'macro1',
-                      'spaces_after_cmd_before_arg' => {
-                        'text' => ' '
-                      }
-                    },
-                    'type' => 'macro_call'
-                  },
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'start'
-                }
-              ],
-              'text' => 'result: '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'source_marks' => [
-                        {
-                          'counter' => 1,
-                          'element' => {
-                            'cmdname' => 'value',
-                            'contents' => [
-                              {
-                                'contents' => [
-                                  {
-                                    'text' => 'comma'
-                                  }
-                                ],
-                                'type' => 'brace_container'
-                              }
-                            ]
-                          },
-                          'line' => ',',
-                          'position' => 5,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'start'
-                        },
-                        {
-                          'counter' => 1,
-                          'position' => 6,
-                          'sourcemark_type' => 'value_expansion',
-                          'status' => 'end'
-                        }
-                      ],
-                      'text' => 'arg1 , arg2 '
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7,
-                'macro' => 'macro1'
-              }
-            },
-            {
-              'text' => ' protected \\ -> \\arg1\\ '
-            },
-            {
-              'cmdname' => 'emph',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7,
-                'macro' => 'macro1'
-              },
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'sourcemark_type' => 'macro_expansion',
-                  'status' => 'end'
-                }
-              ]
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
+ *before_node_section C5
+  *@set C2
+  |INFO
+  |arg_line:{ comma ,\\n}
+   {rawline_arg:comma}
+   {rawline_arg:,}
+  {empty_line:\\n}
+  *0 @macro C3 l3
+  |EXTRA
+  |macro_name:{macro1}
+  |misc_args:A{arg1|arg2}
+   *arguments_line C1
+    {macro_line: macro1 { arg1 , arg2 }\\n}
+   {raw:result: @emph{\\arg1\\} protected \\\\ -> \\\\arg1\\\\ @emph{\\arg2\\}\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{macro}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {macro}
+  {empty_line:\\n}
+  *paragraph C5
+   {result: }
+   >SOURCEMARKS
+   >macro_expansion<start;1>
+    >*macro_call C1
+    >|INFO
+    >|command_name:{macro1}
+    >|spaces_after_cmd_before_arg:
+     >|{ }
+     >*brace_arg C1
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+      >{arg1 @value{comma} arg2 }
+   *1 @emph C1 l7:@macro1
+    *brace_container C1
+     {arg1 , arg2 }
+     >SOURCEMARKS
+     >value_expansion<start;1><p:5>{,}
+      >*@value C1
+       >*brace_container C1
+        >{comma}
+     >value_expansion<end;1><p:6>
+   { protected \\ -> \\arg1\\ }
+   *2 @emph C1 l7:@macro1
+   >SOURCEMARKS
+   >macro_expansion<end;1>
+    *brace_container
+   {\\n}
+';
+
 
 $result_texis{'comma_value_in_macro_arg'} = '@set comma ,
 

@@ -5,60 +5,22 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'end_of_line_in_uref'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'See the '
-            },
-            {
-              'cmdname' => 'uref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'https://gcc.gnu.org/codingconventions.html#Spelling
-'
-                    },
-                    {
-                      'text' => 'Spelling'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'terminology and markup'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' section.'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'end_of_line_in_uref'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C3
+   {See the }
+   *0 @uref C2 l1
+    *brace_arg C2
+     {https://gcc.gnu.org/codingconventions.html#Spelling\\n}
+     {Spelling}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {terminology and markup}
+   { section.}
+';
+
 
 $result_texis{'end_of_line_in_uref'} = 'See the @uref{https://gcc.gnu.org/codingconventions.html#Spelling
 Spelling, terminology and markup} section.';

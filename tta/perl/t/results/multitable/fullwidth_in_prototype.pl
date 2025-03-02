@@ -5,265 +5,77 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'fullwidth_in_prototype'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'multitable',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => "\x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9} \x{e9}\x{e9}\x{e9}\x{e9}"
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'xxxx xxxx xxxx xxxx'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    },
-                    {
-                      'text' => ' '
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => "\x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba} \x{4eba}\x{4eba}"
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 1
-                      },
-                      'type' => 'bracketed_arg'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'item',
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 1
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 2
-                      },
-                      'source_info' => {
-                        'line_nr' => 9
-                      }
-                    },
-                    {
-                      'cmdname' => 'tab',
-                      'contents' => [
-                        {
-                          'text' => '
-',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            },
-                            {
-                              'text' => "aaa a\x{e0} aaa aa aaa aa
-"
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'extra' => {
-                        'cell_number' => 3
-                      },
-                      'source_info' => {
-                        'line_nr' => 16
-                      }
-                    }
-                  ],
-                  'extra' => {
-                    'row_number' => 1
-                  },
-                  'type' => 'row'
-                }
-              ],
-              'type' => 'multitable_body'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'multitable'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'multitable'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 23
-              }
-            }
-          ],
-          'extra' => {
-            'max_columns' => 3
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'fullwidth_in_prototype'} = '*document_root C1
+ *before_node_section C1
+  *0 @multitable C3 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |max_columns:{3}
+   *arguments_line C1
+    *block_line_arg C5
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     *bracketed_arg C1 l1
+      {éééé éééé éééé éééé}
+     { }
+     *bracketed_arg C1 l1
+      {xxxx xxxx xxxx xxxx}
+     { }
+     *bracketed_arg C1 l1
+      {人人 人人 人人 人人}
+   *multitable_body C1
+    *row C3
+    |EXTRA
+    |row_number:{1}
+     *@item C2 l2
+     |EXTRA
+     |cell_number:{1}
+      {ignorable_spaces_after_command:\\n}
+      *paragraph C6
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+     *@tab C2 l9
+     |EXTRA
+     |cell_number:{2}
+      {ignorable_spaces_after_command:\\n}
+      *paragraph C6
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+     *@tab C2 l16
+     |EXTRA
+     |cell_number:{3}
+      {ignorable_spaces_after_command:\\n}
+      *paragraph C6
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+       {aaa aà aaa aa aaa aa\\n}
+   *@end C1 l23
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{multitable}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {multitable}
+';
+
 
 $result_texis{'fullwidth_in_prototype'} = '@multitable {éééé éééé éééé éééé} {xxxx xxxx xxxx xxxx} {人人 人人 人人 人人}
 @item

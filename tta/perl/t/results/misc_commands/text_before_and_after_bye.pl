@@ -5,49 +5,17 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'text_before_and_after_bye'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'Before bye '
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'bye',
-      'contents' => [
-        {
-          'text' => ' on bye line
-',
-          'type' => 'rawline_arg'
-        }
-      ]
-    },
-    {
-      'contents' => [
-        {
-          'text' => '
-',
-          'type' => 'text_after_end'
-        },
-        {
-          'text' => 'after bye
-',
-          'type' => 'text_after_end'
-        }
-      ],
-      'type' => 'postamble_after_end'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'text_before_and_after_bye'} = '*document_root C3
+ *before_node_section C1
+  *paragraph C1
+   {Before bye }
+ *@bye C1
+  {rawline_arg: on bye line\\n}
+ *postamble_after_end C2
+  {text_after_end:\\n}
+  {text_after_end:after bye\\n}
+';
+
 
 $result_texis{'text_before_and_after_bye'} = 'Before bye @bye on bye line
 

@@ -5,238 +5,71 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'def_not_closed_in_menu_description'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'info'
-                    },
-                    {
-                      'text' => ')'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => ':: ',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'before deff '
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    },
-                    {
-                      'cmdname' => 'deffn',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'bidule'
-                                        }
-                                      ],
-                                      'type' => 'def_line_arg'
-                                    }
-                                  ],
-                                  'type' => 'def_category'
-                                },
-                                {
-                                  'text' => ' ',
-                                  'type' => 'spaces'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc'
-                                        }
-                                      ],
-                                      'type' => 'def_line_arg'
-                                    }
-                                  ],
-                                  'type' => 'def_name'
-                                },
-                                {
-                                  'text' => ' ',
-                                  'type' => 'spaces'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'chose'
-                                        }
-                                      ],
-                                      'type' => 'def_line_arg'
-                                    }
-                                  ],
-                                  'type' => 'def_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'def_command' => 'deffn',
-                            'def_index_element' => {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'truc'
-                                    }
-                                  ],
-                                  'type' => 'def_line_arg'
-                                }
-                              ],
-                              'type' => 'def_name'
-                            },
-                            'index_entry' => [
-                              'fn',
-                              1
-                            ],
-                            'original_def_cmdname' => 'deffn'
-                          },
-                          'source_info' => {
-                            'line_nr' => 2
-                          },
-                          'type' => 'def_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => '
-',
-                                  'type' => 'empty_line'
-                                },
-                                {
-                                  'text' => 'deffn text
-'
-                                }
-                              ],
-                              'type' => 'preformatted'
-                            }
-                          ],
-                          'type' => 'def_item'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 5
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'def_not_closed_in_menu_description'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_tree_text{'def_not_closed_in_menu_description'} = '*document_root C1
+ *before_node_section C1
+  *0 @menu C3 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l2
+    {menu_entry_leading_text:* }
+    *menu_entry_node C3
+    |EXTRA
+    |manual_content:{info}
+     {(}
+     {info}
+     {)}
+    {menu_entry_separator::: }
+    *menu_entry_description C2
+     *preformatted C1
+      {before deff }
+     *1 @deffn C2 l2
+     |INFO
+     |spaces_before_argument:
+      |{ }
+      *def_line C1 l2
+      |EXTRA
+      |def_command:{deffn}
+      |def_index_element:
+       |*def_name C1
+        |*def_line_arg C1
+         |{truc}
+      |index_entry:I{fn,1}
+      |original_def_cmdname:{deffn}
+       *block_line_arg C5
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *def_category C1
+         *def_line_arg C1
+          {bidule}
+        {spaces: }
+        *def_name C1
+         *def_line_arg C1
+          {truc}
+        {spaces: }
+        *def_arg C1
+         *def_line_arg C1
+          {chose}
+      *def_item C1
+       *preformatted C2
+        {empty_line:\\n}
+        {deffn text\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+';
+
 
 $result_texis{'def_not_closed_in_menu_description'} = '@menu
 * (info):: before deff @deffn bidule truc chose

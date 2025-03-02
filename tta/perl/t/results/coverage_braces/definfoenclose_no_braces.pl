@@ -5,69 +5,28 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'definfoenclose_no_braces'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'definfoenclose',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'phoo,;,:'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'misc_args' => [
-              'phoo',
-              ';',
-              ':'
-            ]
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 1
-          }
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'phoo',
-              'extra' => {
-                'begin' => ';',
-                'end' => ':'
-              },
-              'info' => {
-                'command_name' => 'phoo'
-              },
-              'source_info' => {
-                'line_nr' => 2
-              },
-              'type' => 'definfoenclose_command'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'definfoenclose_no_braces'} = '*document_root C1
+ *before_node_section C2
+  *@definfoenclose C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |misc_args:A{phoo|;|:}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {phoo,;,:}
+  *paragraph C1
+   *0 definfoenclose_command@phoo l2
+   |INFO
+   |command_name:{phoo}
+   |EXTRA
+   |begin:{;}
+   |end:{:}
+';
+
 
 $result_texis{'definfoenclose_no_braces'} = '@definfoenclose phoo,;,:
 @phoo';

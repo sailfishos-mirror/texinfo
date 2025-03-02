@@ -5,304 +5,136 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'simple_only_special_spaces_node_no_translit_files'} = {
-  "contents" => [
-    {
-      "contents" => [
-        {
-          "type" => "preamble_before_content"
-        }
-      ],
-      "type" => "before_node_section"
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "Top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "Top"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 1
-      }
-    },
-    {
-      "cmdname" => "top",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "top"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {},
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 2
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{2000}\x{2001}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_2002_2003"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 4
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "EN QUAD|\x{2000}|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 1
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 5
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => " \r\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {},
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 7
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "CARRIAGE RETURN|\r|"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 2
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 8
-      }
-    },
-    {
-      "cmdname" => "node",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "\x{2004}\x{2005}"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        }
-      ],
-      "extra" => {
-        "is_target" => 1,
-        "normalized" => "_2004_2005"
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 10
-      }
-    },
-    {
-      "cmdname" => "chapter",
-      "contents" => [
-        {
-          "contents" => [
-            {
-              "contents" => [
-                {
-                  "text" => "THREE-PER-EM SPACE"
-                }
-              ],
-              "info" => {
-                "spaces_after_argument" => {
-                  "text" => "\n"
-                }
-              },
-              "type" => "line_arg"
-            }
-          ],
-          "type" => "arguments_line"
-        },
-        {
-          "text" => "\n",
-          "type" => "empty_line"
-        }
-      ],
-      "extra" => {
-        "section_number" => 3
-      },
-      "info" => {
-        "spaces_before_argument" => {
-          "text" => " "
-        }
-      },
-      "source_info" => {
-        "file_name" => "simple_only_special_spaces_node.texi",
-        "line_nr" => 11
-      }
-    }
-  ],
-  "type" => "document_root"
-};
+$result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*document_root C9
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 simple_only_special_spaces_node.texi:l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |node_directions:D[next->E2]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C2 simple_only_special_spaces_node.texi:l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E3|E5|E7]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E3]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {top}
+  {empty_line:\\n}
+ *2 @node C1 simple_only_special_spaces_node.texi:l4
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E3]
+ |is_target:{1}
+ |node_directions:D[next->E4|prev->E0|up->E0]
+ |normalized:{_2002_2003}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {  }
+ *3 @chapter C2 simple_only_special_spaces_node.texi:l5
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E2]
+ |section_directions:D[next->E5|up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[next->E5|prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {EN QUAD| |}
+  {empty_line:\\n}
+ *4 @node C1 simple_only_special_spaces_node.texi:l7
+ |EXTRA
+ |associated_section:[E5]
+  *arguments_line C1
+   *line_arg
+   |INFO
+   |spaces_after_argument:
+    |{ '."\r".'\\n}
+ *5 @chapter C2 simple_only_special_spaces_node.texi:l8
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E4]
+ |section_directions:D[next->E7|prev->E3|up->E1]
+ |section_level:{1}
+ |section_number:{2}
+ |toplevel_directions:D[next->E7|prev->E3|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {CARRIAGE RETURN|'."\r".'|}
+  {empty_line:\\n}
+ *6 @node C1 simple_only_special_spaces_node.texi:l10
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E7]
+ |is_target:{1}
+ |node_directions:D[prev->E4|up->E0]
+ |normalized:{_2004_2005}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {  }
+ *7 @chapter C2 simple_only_special_spaces_node.texi:l11
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E6]
+ |section_directions:D[prev->E5|up->E1]
+ |section_level:{1}
+ |section_number:{3}
+ |toplevel_directions:D[prev->E5|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {THREE-PER-EM SPACE}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'simple_only_special_spaces_node_no_translit_files'} = '@node Top
 @top top

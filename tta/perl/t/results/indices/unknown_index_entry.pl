@@ -5,29 +5,13 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'unknown_index_entry'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'text' => ' ',
-          'type' => 'spaces_before_paragraph'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'someindex entry.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'unknown_index_entry'} = '*document_root C1
+ *before_node_section C2
+  {spaces_before_paragraph: }
+  *paragraph C1
+   {someindex entry.\\n}
+';
+
 
 $result_texis{'unknown_index_entry'} = ' someindex entry.
 ';

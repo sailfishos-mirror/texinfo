@@ -5,3375 +5,955 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'complex_float'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Top'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'Top'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Test floats'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'A list of floats at the beginning.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'listoffloats',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'Text'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'float_type' => 'Text'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 5
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'text' => 'After the listoffloats.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'cmdname' => 'menu',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => '* ',
-                  'type' => 'menu_entry_leading_text'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'menu_entry_node'
-                },
-                {
-                  'text' => '::',
-                  'type' => 'menu_entry_separator'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => '
-'
-                        }
-                      ],
-                      'type' => 'preformatted'
-                    }
-                  ],
-                  'type' => 'menu_entry_description'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              },
-              'type' => 'menu_entry'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'menu'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'menu'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 10
-              }
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 8
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'text with a lot of features'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'An example of float '
-                },
-                {
-                  'cmdname' => 'enddots',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 13
-                  }
-                },
-                {
-                  'text' => '
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'c',
-              'contents' => [
-                {
-                  'text' => ' makeinfo --docbook segfaults
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'source_marks' => [
-                {
-                  'counter' => 1,
-                  'element' => {
-                    'cmdname' => 'ifset',
-                    'contents' => [
-                      {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'texi2html'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'block_line_arg'
-                          }
-                        ],
-                        'type' => 'arguments_line'
-                      },
-                      {
-                        'text' => 'An example.
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@example 
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => 'example
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@end example
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => 'A multitable.
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@multitable {truc} {bidule}
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@item truc @tab bidule
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@item truc @tab bidule
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'text' => '@end multitable
-',
-                        'type' => 'raw'
-                      },
-                      {
-                        'cmdname' => 'end',
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'text' => 'ifset'
-                              }
-                            ],
-                            'info' => {
-                              'spaces_after_argument' => {
-                                'text' => '
-'
-                              }
-                            },
-                            'type' => 'line_arg'
-                          }
-                        ],
-                        'extra' => {
-                          'text_arg' => 'ifset'
-                        },
-                        'info' => {
-                          'spaces_before_argument' => {
-                            'text' => ' '
-                          }
-                        },
-                        'source_info' => {
-                          'line_nr' => 27
-                        }
-                      }
-                    ],
-                    'info' => {
-                      'spaces_before_argument' => {
-                        'text' => ' '
-                      }
-                    },
-                    'source_info' => {
-                      'line_nr' => 16
-                    }
-                  },
-                  'sourcemark_type' => 'ignored_conditional_block'
-                }
-              ]
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'An index entry
-'
-                },
-                {
-                  'cmdname' => 'cindex',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'float example'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'element_node' => {},
-                    'index_entry' => [
-                      'cp',
-                      1
-                    ]
-                  },
-                  'info' => {
-                    'command_name' => 'cindex',
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 30
-                  },
-                  'type' => 'index_entry_command'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'A table.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'table',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'emph',
-                          'source_info' => {
-                            'line_nr' => 33
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'truc'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => ' 
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 34
-                          }
-                        }
-                      ],
-                      'type' => 'table_term'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'line
-'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'table_definition'
-                    }
-                  ],
-                  'type' => 'table_entry'
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'table'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 36
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 33
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'An itemize.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'itemize',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'minus',
-                          'source_info' => {
-                            'line_nr' => 39
-                          }
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'block_line_arg'
-                    }
-                  ],
-                  'type' => 'arguments_line'
-                },
-                {
-                  'cmdname' => 'item',
-                  'contents' => [
-                    {
-                      'text' => ' ',
-                      'type' => 'ignorable_spaces_after_command'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'truc 
-'
-                        },
-                        {
-                          'text' => 'line
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'extra' => {
-                    'item_number' => 1
-                  },
-                  'source_info' => {
-                    'line_nr' => 40
-                  }
-                },
-                {
-                  'cmdname' => 'end',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'itemize'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => {
-                          'text' => '
-'
-                        }
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'extra' => {
-                    'text_arg' => 'itemize'
-                  },
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'source_info' => {
-                    'line_nr' => 42
-                  }
-                }
-              ],
-              'extra' => {
-                'command_as_argument' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 39
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'A ref.
-'
-                },
-                {
-                  'cmdname' => 'xref',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'Top'
-                        }
-                      ],
-                      'extra' => {
-                        'node_content' => {
-                          'contents' => [
-                            {}
-                          ]
-                        },
-                        'normalized' => 'Top'
-                      },
-                      'type' => 'brace_arg'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'xref Text with features'
-                        }
-                      ],
-                      'type' => 'brace_arg'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 45
-                  }
-                },
-                {
-                  'text' => '.
-'
-                },
-                {
-                  'text' => 'A footnote.
-'
-                },
-                {
-                  'cmdname' => 'footnote',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'footnote Text with features'
-                            }
-                          ],
-                          'type' => 'paragraph'
-                        }
-                      ],
-                      'type' => 'brace_command_context'
-                    }
-                  ],
-                  'extra' => {},
-                  'source_info' => {
-                    'line_nr' => 47
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'TeX',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 49
-                  }
-                },
-                {
-                  'text' => ' and '
-                },
-                {
-                  'cmdname' => 'emph',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'b',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 't'
-                                },
-                                {
-                                  'cmdname' => '\'',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'e'
-                                        }
-                                      ],
-                                      'type' => 'following_arg'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 49
-                                  }
-                                },
-                                {
-                                  'cmdname' => '^',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'cmdname' => 'dotless',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'i'
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 49
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 49
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 49
-                          }
-                        },
-                        {
-                          'cmdname' => 'url',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'an_url'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 49
-                          }
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 49
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'sc',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'and'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 49
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'verb',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'it is @verb',
-                          'type' => 'raw'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'info' => {
-                    'delimiter' => '!'
-                  },
-                  'source_info' => {
-                    'line_nr' => 49
-                  }
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => ' '
-                },
-                {
-                  'text' => 'a wo'
-                },
-                {
-                  'cmdname' => '-'
-                },
-                {
-                  'text' => 'rd '
-                },
-                {
-                  'cmdname' => '!'
-                },
-                {
-                  'cmdname' => '@'
-                },
-                {
-                  'text' => ' '
-                },
-                {
-                  'cmdname' => 'AE',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 49
-                  }
-                },
-                {
-                  'text' => '.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'caption',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An example of float caption'
-                        },
-                        {
-                          'cmdname' => 'enddots',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 51
-                          }
-                        },
-                        {
-                          'text' => '
-'
-                        },
-                        {
-                          'text' => 'An example.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => ' 
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 55
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 53
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Anchor in caption'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'Anchor-in-caption'
-                      },
-                      'source_info' => {
-                        'line_nr' => 57
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'spaces_after_close_brace'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A table.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'table',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'emph',
-                                  'source_info' => {
-                                    'line_nr' => 60
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => ' 
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 61
-                                  }
-                                }
-                              ],
-                              'type' => 'table_term'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'line
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'table_definition'
-                            }
-                          ],
-                          'type' => 'table_entry'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'table'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'table'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 63
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'command_as_argument' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 60
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A multitable.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'multitable',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'truc'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 66
-                                  },
-                                  'type' => 'bracketed_arg'
-                                },
-                                {
-                                  'text' => ' '
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'bidule'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 66
-                                  },
-                                  'type' => 'bracketed_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc '
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 1
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 67
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'tab',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'bidule
-'
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 2
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 67
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'row_number' => 1
-                              },
-                              'type' => 'row'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc '
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 1
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 68
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'tab',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'bidule
-'
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 2
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 68
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'row_number' => 2
-                              },
-                              'type' => 'row'
-                            }
-                          ],
-                          'type' => 'multitable_body'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'multitable'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'multitable'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 69
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'max_columns' => 2
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 66
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An index entry
-'
-                        },
-                        {
-                          'cmdname' => 'cindex',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'float example in caption'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => [
-                              'cp',
-                              2
-                            ]
-                          },
-                          'info' => {
-                            'command_name' => 'cindex',
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 71
-                          },
-                          'type' => 'index_entry_command'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An itemize.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'itemize',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'minus',
-                                  'source_info' => {
-                                    'line_nr' => 74
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'text' => ' ',
-                              'type' => 'ignorable_spaces_after_command'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'truc 
-'
-                                },
-                                {
-                                  'text' => 'line
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'extra' => {
-                            'item_number' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 75
-                          }
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'itemize'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'itemize'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 77
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'command_as_argument' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 74
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A ref.
-'
-                        },
-                        {
-                          'cmdname' => 'xref',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Top'
-                                }
-                              ],
-                              'extra' => {
-                                'node_content' => {
-                                  'contents' => [
-                                    {}
-                                  ]
-                                },
-                                'normalized' => 'Top'
-                              },
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'xref Text with features caption'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 80
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        },
-                        {
-                          'text' => 'A footnote.
-'
-                        },
-                        {
-                          'cmdname' => 'footnote',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'footnote Text with features caption'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'brace_command_context'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 82
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'TeX',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 84
-                          }
-                        },
-                        {
-                          'text' => ' and '
-                        },
-                        {
-                          'cmdname' => 'emph',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'b',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 't'
-                                        },
-                                        {
-                                          'cmdname' => '\'',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'e'
-                                                }
-                                              ],
-                                              'type' => 'following_arg'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 84
-                                          }
-                                        },
-                                        {
-                                          'cmdname' => '^',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'cmdname' => 'dotless',
-                                                  'contents' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'i'
-                                                        }
-                                                      ],
-                                                      'type' => 'brace_container'
-                                                    }
-                                                  ],
-                                                  'source_info' => {
-                                                    'line_nr' => 84
-                                                  }
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 84
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 84
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'url',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'an_url'
-                                        }
-                                      ],
-                                      'type' => 'brace_arg'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 84
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 84
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'sc',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'and'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 84
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'it is @verb',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => '!'
-                          },
-                          'source_info' => {
-                            'line_nr' => 84
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => ' '
-                        },
-                        {
-                          'text' => 'a wo'
-                        },
-                        {
-                          'cmdname' => '-'
-                        },
-                        {
-                          'text' => 'rd '
-                        },
-                        {
-                          'cmdname' => '!'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'AE',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 84
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 51
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'shortcaption',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'TeX',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 87
-                          }
-                        },
-                        {
-                          'text' => ' and '
-                        },
-                        {
-                          'cmdname' => 'emph',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'b',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 't'
-                                        },
-                                        {
-                                          'cmdname' => '\'',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'e'
-                                                }
-                                              ],
-                                              'type' => 'following_arg'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 87
-                                          }
-                                        },
-                                        {
-                                          'cmdname' => '^',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'cmdname' => 'dotless',
-                                                  'contents' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'i'
-                                                        }
-                                                      ],
-                                                      'type' => 'brace_container'
-                                                    }
-                                                  ],
-                                                  'source_info' => {
-                                                    'line_nr' => 87
-                                                  }
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 87
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 87
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'url',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'an_url'
-                                        }
-                                      ],
-                                      'type' => 'brace_arg'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 87
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 87
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'sc',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'and'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 87
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'it is @verb',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => '!'
-                          },
-                          'source_info' => {
-                            'line_nr' => 87
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => ' '
-                        },
-                        {
-                          'text' => 'a wo'
-                        },
-                        {
-                          'cmdname' => '-'
-                        },
-                        {
-                          'text' => 'rd '
-                        },
-                        {
-                          'cmdname' => '!'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'AE',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 87
-                          }
-                        },
-                        {
-                          'text' => '.'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'source_info' => {
-                'line_nr' => 87
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 89
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_section' => {},
-            'float_type' => 'Text',
-            'is_target' => 1,
-            'normalized' => 'text-with-a-lot-of-features',
-            'shortcaption' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 12
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {},
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 91
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'A chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'float',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'Text'
-                    }
-                  ],
-                  'type' => 'block_line_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float with a lot of features and no shortcaption'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    },
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'contents' => [
-                {
-                  'text' => 'Float text of a float with a lot of features.
-'
-                }
-              ],
-              'type' => 'paragraph'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'caption',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An example of float caption'
-                        },
-                        {
-                          'cmdname' => 'enddots',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 98
-                          }
-                        },
-                        {
-                          'text' => ' 2
-'
-                        },
-                        {
-                          'text' => 'An example 2.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'example',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => ' 
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'example 2
-'
-                            }
-                          ],
-                          'type' => 'preformatted'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'example'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'example'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 102
-                          }
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 100
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A table 2.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'table',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'emph',
-                                  'source_info' => {
-                                    'line_nr' => 105
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc 2'
-                                        }
-                                      ],
-                                      'info' => {
-                                        'spaces_after_argument' => {
-                                          'text' => ' 
-'
-                                        }
-                                      },
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'info' => {
-                                    'spaces_before_argument' => {
-                                      'text' => ' '
-                                    }
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 106
-                                  }
-                                }
-                              ],
-                              'type' => 'table_term'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'line 2
-'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'table_definition'
-                            }
-                          ],
-                          'type' => 'table_entry'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'table'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'table'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 108
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'command_as_argument' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 105
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A multitable 2.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'multitable',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'truc'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 111
-                                  },
-                                  'type' => 'bracketed_arg'
-                                },
-                                {
-                                  'text' => ' '
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'bidule'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 111
-                                  },
-                                  'type' => 'bracketed_arg'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc 2 '
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 1
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 112
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'tab',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'bidule
-'
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 2
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 112
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'row_number' => 1
-                              },
-                              'type' => 'row'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'truc 2 '
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 1
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 113
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'tab',
-                                  'contents' => [
-                                    {
-                                      'text' => ' ',
-                                      'type' => 'ignorable_spaces_after_command'
-                                    },
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'bidule
-'
-                                        }
-                                      ],
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'cell_number' => 2
-                                  },
-                                  'source_info' => {
-                                    'line_nr' => 113
-                                  }
-                                }
-                              ],
-                              'extra' => {
-                                'row_number' => 2
-                              },
-                              'type' => 'row'
-                            }
-                          ],
-                          'type' => 'multitable_body'
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'multitable'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'multitable'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 114
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'max_columns' => 2
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 111
-                      }
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An index entry 2
-'
-                        },
-                        {
-                          'cmdname' => 'cindex',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'float example in caption 2'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'element_node' => {},
-                            'index_entry' => [
-                              'cp',
-                              3
-                            ]
-                          },
-                          'info' => {
-                            'command_name' => 'cindex',
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 116
-                          },
-                          'type' => 'index_entry_command'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'An itemize 2.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'itemize',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'minus',
-                                  'source_info' => {
-                                    'line_nr' => 119
-                                  }
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'block_line_arg'
-                            }
-                          ],
-                          'type' => 'arguments_line'
-                        },
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'text' => ' ',
-                              'type' => 'ignorable_spaces_after_command'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'truc 2
-'
-                                },
-                                {
-                                  'text' => 'line
-'
-                                }
-                              ],
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'extra' => {
-                            'item_number' => 1
-                          },
-                          'source_info' => {
-                            'line_nr' => 120
-                          }
-                        },
-                        {
-                          'cmdname' => 'end',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'itemize'
-                                }
-                              ],
-                              'info' => {
-                                'spaces_after_argument' => {
-                                  'text' => '
-'
-                                }
-                              },
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'extra' => {
-                            'text_arg' => 'itemize'
-                          },
-                          'info' => {
-                            'spaces_before_argument' => {
-                              'text' => ' '
-                            }
-                          },
-                          'source_info' => {
-                            'line_nr' => 122
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'command_as_argument' => {}
-                      },
-                      'info' => {
-                        'spaces_before_argument' => {
-                          'text' => ' '
-                        }
-                      },
-                      'source_info' => {
-                        'line_nr' => 119
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'cmdname' => 'anchor',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'Anchor in caption 2'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'extra' => {
-                        'is_target' => 1,
-                        'normalized' => 'Anchor-in-caption-2'
-                      },
-                      'source_info' => {
-                        'line_nr' => 124
-                      }
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'spaces_after_close_brace'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'A ref 2.
-'
-                        },
-                        {
-                          'cmdname' => 'xref',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'Top'
-                                }
-                              ],
-                              'extra' => {
-                                'node_content' => {
-                                  'contents' => [
-                                    {}
-                                  ]
-                                },
-                                'normalized' => 'Top'
-                              },
-                              'type' => 'brace_arg'
-                            },
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'xref Text with features caption'
-                                }
-                              ],
-                              'type' => 'brace_arg'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 127
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        },
-                        {
-                          'text' => 'A footnote 2.
-'
-                        },
-                        {
-                          'cmdname' => 'footnote',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'text' => 'footnote Text with features caption 2'
-                                    }
-                                  ],
-                                  'type' => 'paragraph'
-                                }
-                              ],
-                              'type' => 'brace_command_context'
-                            }
-                          ],
-                          'extra' => {},
-                          'source_info' => {
-                            'line_nr' => 129
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'cmdname' => 'TeX',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
-                        },
-                        {
-                          'text' => ' and '
-                        },
-                        {
-                          'cmdname' => 'emph',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'cmdname' => 'b',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 't'
-                                        },
-                                        {
-                                          'cmdname' => '\'',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'text' => 'e'
-                                                }
-                                              ],
-                                              'type' => 'following_arg'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 131
-                                          }
-                                        },
-                                        {
-                                          'cmdname' => '^',
-                                          'contents' => [
-                                            {
-                                              'contents' => [
-                                                {
-                                                  'cmdname' => 'dotless',
-                                                  'contents' => [
-                                                    {
-                                                      'contents' => [
-                                                        {
-                                                          'text' => 'i'
-                                                        }
-                                                      ],
-                                                      'type' => 'brace_container'
-                                                    }
-                                                  ],
-                                                  'source_info' => {
-                                                    'line_nr' => 131
-                                                  }
-                                                }
-                                              ],
-                                              'type' => 'brace_container'
-                                            }
-                                          ],
-                                          'source_info' => {
-                                            'line_nr' => 131
-                                          }
-                                        }
-                                      ],
-                                      'type' => 'brace_container'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 131
-                                  }
-                                },
-                                {
-                                  'cmdname' => 'url',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'text' => 'an_url'
-                                        }
-                                      ],
-                                      'type' => 'brace_arg'
-                                    }
-                                  ],
-                                  'source_info' => {
-                                    'line_nr' => 131
-                                  }
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'sc',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'and'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'verb',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'text' => 'it is @verb',
-                                  'type' => 'raw'
-                                }
-                              ],
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'info' => {
-                            'delimiter' => '!'
-                          },
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => ' '
-                        },
-                        {
-                          'text' => 'a wo'
-                        },
-                        {
-                          'cmdname' => '-'
-                        },
-                        {
-                          'text' => 'rd '
-                        },
-                        {
-                          'cmdname' => '!'
-                        },
-                        {
-                          'cmdname' => '@'
-                        },
-                        {
-                          'text' => ' '
-                        },
-                        {
-                          'cmdname' => 'AE',
-                          'contents' => [
-                            {
-                              'type' => 'brace_container'
-                            }
-                          ],
-                          'source_info' => {
-                            'line_nr' => 131
-                          }
-                        },
-                        {
-                          'text' => '.
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'brace_command_context'
-                }
-              ],
-              'extra' => {
-                'float' => {}
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 98
-              }
-            },
-            {
-              'text' => '
-',
-              'type' => 'spaces_after_close_brace'
-            },
-            {
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'cmdname' => 'end',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'float'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'extra' => {
-                'text_arg' => 'float'
-              },
-              'info' => {
-                'spaces_before_argument' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 134
-              }
-            }
-          ],
-          'extra' => {
-            'caption' => {},
-            'float_section' => {},
-            'float_type' => 'Text',
-            'is_target' => 1,
-            'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
-          },
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 94
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'xref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'text with a lot of features'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'text-with-a-lot-of-features'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 136
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 92
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[5]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[1];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[20]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[17];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[2];
-$result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'extra'}{'shortcaption'} = $result_trees{'complex_float'}{'contents'}[2]{'contents'}[8]{'contents'}[20];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[8]{'contents'}[1]{'extra'}{'element_node'} = $result_trees{'complex_float'}{'contents'}[3];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'extra'}{'command_as_argument'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'contents'}[0]{'contents'}[16]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4]{'extra'}{'float'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'extra'}{'caption'} = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'contents'}[4];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[2]{'extra'}{'float_section'} = $result_trees{'complex_float'}{'contents'}[4];
-$result_trees{'complex_float'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'complex_float'}{'contents'}[4]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'complex_float'} = '*document_root C5
+ *before_node_section C1
+  *preamble_before_content
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |menus:EC[E2]
+ |node_directions:D[next->E55]
+ |normalized:{Top}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Top}
+ *1 @top C10 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_childs:EC[E56]
+ |section_level:{0}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{-1}
+ |toplevel_directions:D[next->E56]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Test floats}
+  {empty_line:\\n}
+  *paragraph C1
+   {A list of floats at the beginning.\\n}
+  *@listoffloats C1 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |float_type:{Text}
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {Text}
+  {empty_line:\\n}
+  *paragraph C1
+   {After the listoffloats.\\n}
+  *2 @menu C3 l8
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   *menu_entry C4 l9
+    {menu_entry_leading_text:* }
+    *menu_entry_node C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    {menu_entry_separator:::}
+    *menu_entry_description C1
+     *preformatted C1
+      {\\n}
+   *@end C1 l10
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{menu}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {menu}
+  {empty_line:\\n}
+  *3 @float C24 l12
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E22]
+  |float_number:{1}
+  |float_section:[E1]
+  |float_type:{Text}
+  |global_command_number:{1}
+  |is_target:{1}
+  |normalized:{text-with-a-lot-of-features}
+  |shortcaption:[E44]
+   *arguments_line C2
+    *block_line_arg C1
+     {Text}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {text with a lot of features}
+   *paragraph C3
+    {An example of float }
+    *4 @enddots C1 l13
+     *brace_container
+    {\\n}
+   {empty_line:\\n}
+   *@c C1
+   >SOURCEMARKS
+   >ignored_conditional_block<1>
+    >*@ifset C12 l16
+    >|INFO
+    >|spaces_before_argument:
+     >|{ }
+     >*arguments_line C1
+      >*block_line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{texi2html}
+     >{raw:An example.\\n}
+     >{raw:@example \\n}
+     >{raw:example\\n}
+     >{raw:@end example\\n}
+     >{raw:\\n}
+     >{raw:A multitable.\\n}
+     >{raw:@multitable {truc} {bidule}\\n}
+     >{raw:@item truc @tab bidule\\n}
+     >{raw:@item truc @tab bidule\\n}
+     >{raw:@end multitable\\n}
+     >*@end C1 l27
+     >|INFO
+     >|spaces_before_argument:
+      >|{ }
+     >|EXTRA
+     >|text_arg:{ifset}
+      >*line_arg C1
+      >|INFO
+      >|spaces_after_argument:
+       >|{\\n}
+       >{ifset}
+    {rawline_arg: makeinfo --docbook segfaults\\n}
+   {empty_line:\\n}
+   *paragraph C2
+    {An index entry\\n}
+    *5 index_entry_command@cindex C1 l30
+    |INFO
+    |command_name:{cindex}
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |element_node:[E0]
+    |index_entry:I{cp,1}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {float example}
+   {empty_line:\\n}
+   *paragraph C1
+    {A table.\\n}
+   *6 @table C3 l33
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E7]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *7 @emph l33
+    *table_entry C2
+     *table_term C1
+      *@item C1 l34
+      |INFO
+      |spaces_before_argument:
+       |{ }
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{ \\n}
+        {truc}
+     *table_definition C1
+      *paragraph C1
+       {line\\n}
+    *@end C1 l36
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{table}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {table}
+   {empty_line:\\n}
+   *paragraph C1
+    {An itemize.\\n}
+   *8 @itemize C3 l39
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |command_as_argument:[E9]
+    *arguments_line C1
+     *block_line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *9 @minus l39
+    *@item C2 l40
+    |EXTRA
+    |item_number:{1}
+     {ignorable_spaces_after_command: }
+     *paragraph C2
+      {truc \\n}
+      {line\\n}
+    *@end C1 l42
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |text_arg:{itemize}
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {itemize}
+   {empty_line:\\n}
+   *paragraph C6
+    {A ref.\\n}
+    *10 @xref C2 l45
+     *brace_arg C1
+     |EXTRA
+     |node_content:{Top}
+     |normalized:{Top}
+      {Top}
+     *brace_arg C1
+      {xref Text with features}
+    {.\\n}
+    {A footnote.\\n}
+    *11 @footnote C1 l47
+    |EXTRA
+    |global_command_number:{1}
+     *brace_command_context C1
+      *paragraph C1
+       {footnote Text with features}
+    {.\\n}
+   {empty_line:\\n}
+   *paragraph C17
+    *12 @TeX C1 l49
+     *brace_container
+    { and }
+    *13 @emph C1 l49
+     *brace_container C2
+      *14 @b C1 l49
+       *brace_container C3
+        {t}
+        *15 @\' C1 l49
+         *following_arg C1
+          {e}
+        *16 @^ C1 l49
+         *brace_container C1
+          *17 @dotless C1 l49
+           *brace_container C1
+            {i}
+      *18 @url C1 l49
+       *brace_arg C1
+        {an_url}
+    { }
+    *19 @sc C1 l49
+     *brace_container C1
+      {and}
+    { }
+    *20 @verb C1 l49
+    |INFO
+    |delimiter:{!}
+     *brace_container C1
+      {raw:it is @verb}
+    { }
+    *@ 
+    {a wo}
+    *@-
+    {rd }
+    *@!
+    *@@
+    { }
+    *21 @AE C1 l49
+     *brace_container
+    {.\\n}
+   {empty_line:\\n}
+   *22 @caption C1 l51
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |float:[E3]
+    *brace_command_context C19
+     *paragraph C4
+      {An example of float caption}
+      *23 @enddots C1 l51
+       *brace_container
+      {\\n}
+      {An example.\\n}
+     *24 @example C3 l53
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{ \\n}
+      *preformatted C1
+       {example\\n}
+      *@end C1 l55
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{example}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {example}
+     {empty_line:\\n}
+     *25 @anchor C1 l57
+     |EXTRA
+     |is_target:{1}
+     |normalized:{Anchor-in-caption}
+      *brace_arg C1
+       {Anchor in caption}
+     {spaces_after_close_brace:\\n}
+     {empty_line:\\n}
+     *paragraph C1
+      {A table.\\n}
+     *26 @table C3 l60
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |command_as_argument:[E27]
+      *arguments_line C1
+       *block_line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *27 @emph l60
+      *table_entry C2
+       *table_term C1
+        *@item C1 l61
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{ \\n}
+          {truc}
+       *table_definition C1
+        *paragraph C1
+         {line\\n}
+      *@end C1 l63
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{table}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {table}
+     {empty_line:\\n}
+     *paragraph C1
+      {A multitable.\\n}
+     *28 @multitable C3 l66
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |max_columns:{2}
+      *arguments_line C1
+       *block_line_arg C3
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *bracketed_arg C1 l66
+         {truc}
+        { }
+        *bracketed_arg C1 l66
+         {bidule}
+      *multitable_body C2
+       *row C2
+       |EXTRA
+       |row_number:{1}
+        *@item C2 l67
+        |EXTRA
+        |cell_number:{1}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {truc }
+        *@tab C2 l67
+        |EXTRA
+        |cell_number:{2}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {bidule\\n}
+       *row C2
+       |EXTRA
+       |row_number:{2}
+        *@item C2 l68
+        |EXTRA
+        |cell_number:{1}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {truc }
+        *@tab C2 l68
+        |EXTRA
+        |cell_number:{2}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {bidule\\n}
+      *@end C1 l69
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{multitable}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {multitable}
+     *paragraph C2
+      {An index entry\\n}
+      *29 index_entry_command@cindex C1 l71
+      |INFO
+      |command_name:{cindex}
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |element_node:[E0]
+      |index_entry:I{cp,2}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {float example in caption}
+     {empty_line:\\n}
+     *paragraph C1
+      {An itemize.\\n}
+     *30 @itemize C3 l74
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |command_as_argument:[E31]
+      *arguments_line C1
+       *block_line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *31 @minus l74
+      *@item C2 l75
+      |EXTRA
+      |item_number:{1}
+       {ignorable_spaces_after_command: }
+       *paragraph C2
+        {truc \\n}
+        {line\\n}
+      *@end C1 l77
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{itemize}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {itemize}
+     {empty_line:\\n}
+     *paragraph C6
+      {A ref.\\n}
+      *32 @xref C2 l80
+       *brace_arg C1
+       |EXTRA
+       |node_content:{Top}
+       |normalized:{Top}
+        {Top}
+       *brace_arg C1
+        {xref Text with features caption}
+      {.\\n}
+      {A footnote.\\n}
+      *33 @footnote C1 l82
+      |EXTRA
+      |global_command_number:{2}
+       *brace_command_context C1
+        *paragraph C1
+         {footnote Text with features caption}
+      {.\\n}
+     {empty_line:\\n}
+     *paragraph C17
+      *34 @TeX C1 l84
+       *brace_container
+      { and }
+      *35 @emph C1 l84
+       *brace_container C2
+        *36 @b C1 l84
+         *brace_container C3
+          {t}
+          *37 @\' C1 l84
+           *following_arg C1
+            {e}
+          *38 @^ C1 l84
+           *brace_container C1
+            *39 @dotless C1 l84
+             *brace_container C1
+              {i}
+        *40 @url C1 l84
+         *brace_arg C1
+          {an_url}
+      { }
+      *41 @sc C1 l84
+       *brace_container C1
+        {and}
+      { }
+      *42 @verb C1 l84
+      |INFO
+      |delimiter:{!}
+       *brace_container C1
+        {raw:it is @verb}
+      { }
+      *@ 
+      {a wo}
+      *@-
+      {rd }
+      *@!
+      *@@
+      { }
+      *43 @AE C1 l84
+       *brace_container
+      {.\\n}
+   {spaces_after_close_brace:\\n}
+   {empty_line:\\n}
+   *44 @shortcaption C1 l87
+   |EXTRA
+   |float:[E3]
+    *brace_command_context C1
+     *paragraph C17
+      *45 @TeX C1 l87
+       *brace_container
+      { and }
+      *46 @emph C1 l87
+       *brace_container C2
+        *47 @b C1 l87
+         *brace_container C3
+          {t}
+          *48 @\' C1 l87
+           *following_arg C1
+            {e}
+          *49 @^ C1 l87
+           *brace_container C1
+            *50 @dotless C1 l87
+             *brace_container C1
+              {i}
+        *51 @url C1 l87
+         *brace_arg C1
+          {an_url}
+      { }
+      *52 @sc C1 l87
+       *brace_container C1
+        {and}
+      { }
+      *53 @verb C1 l87
+      |INFO
+      |delimiter:{!}
+       *brace_container C1
+        {raw:it is @verb}
+      { }
+      *@ 
+      {a wo}
+      *@-
+      {rd }
+      *@!
+      *@@
+      { }
+      *54 @AE C1 l87
+       *brace_container
+      {.}
+   {spaces_after_close_brace:\\n}
+   {empty_line:\\n}
+   *@end C1 l89
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+ *55 @node C1 l91
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E56]
+ |is_target:{1}
+ |menu_directions:D[up->E0]
+ |node_directions:D[prev->E0|up->E0]
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *56 @chapter C6 l92
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E55]
+ |section_directions:D[up->E1]
+ |section_level:{1}
+ |section_number:{1}
+ |toplevel_directions:D[prev->E1|up->E1]
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {A chapter}
+  {empty_line:\\n}
+  *57 @float C8 l94
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |caption:[E58]
+  |float_number:{1.1}
+  |float_section:[E56]
+  |float_type:{Text}
+  |global_command_number:{2}
+  |is_target:{1}
+  |normalized:{float-with-a-lot-of-features-and-no-shortcaption}
+   *arguments_line C2
+    *block_line_arg C1
+     {Text}
+    *block_line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+    |spaces_before_argument:
+     |{ }
+     {float with a lot of features and no shortcaption}
+   {empty_line:\\n}
+   *paragraph C1
+    {Float text of a float with a lot of features.\\n}
+   {empty_line:\\n}
+   *58 @caption C1 l98
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |float:[E57]
+    *brace_command_context C19
+     *paragraph C4
+      {An example of float caption}
+      *59 @enddots C1 l98
+       *brace_container
+      { 2\\n}
+      {An example 2.\\n}
+     *60 @example C3 l100
+      *arguments_line C1
+       *block_line_arg
+       |INFO
+       |spaces_after_argument:
+        |{ \\n}
+      *preformatted C1
+       {example 2\\n}
+      *@end C1 l102
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{example}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {example}
+     {empty_line:\\n}
+     *paragraph C1
+      {A table 2.\\n}
+     *61 @table C3 l105
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |command_as_argument:[E62]
+      *arguments_line C1
+       *block_line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *62 @emph l105
+      *table_entry C2
+       *table_term C1
+        *@item C1 l106
+        |INFO
+        |spaces_before_argument:
+         |{ }
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{ \\n}
+          {truc 2}
+       *table_definition C1
+        *paragraph C1
+         {line 2\\n}
+      *@end C1 l108
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{table}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {table}
+     {empty_line:\\n}
+     *paragraph C1
+      {A multitable 2.\\n}
+     *63 @multitable C3 l111
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |max_columns:{2}
+      *arguments_line C1
+       *block_line_arg C3
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *bracketed_arg C1 l111
+         {truc}
+        { }
+        *bracketed_arg C1 l111
+         {bidule}
+      *multitable_body C2
+       *row C2
+       |EXTRA
+       |row_number:{1}
+        *@item C2 l112
+        |EXTRA
+        |cell_number:{1}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {truc 2 }
+        *@tab C2 l112
+        |EXTRA
+        |cell_number:{2}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {bidule\\n}
+       *row C2
+       |EXTRA
+       |row_number:{2}
+        *@item C2 l113
+        |EXTRA
+        |cell_number:{1}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {truc 2 }
+        *@tab C2 l113
+        |EXTRA
+        |cell_number:{2}
+         {ignorable_spaces_after_command: }
+         *paragraph C1
+          {bidule\\n}
+      *@end C1 l114
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{multitable}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {multitable}
+     *paragraph C2
+      {An index entry 2\\n}
+      *64 index_entry_command@cindex C1 l116
+      |INFO
+      |command_name:{cindex}
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |element_node:[E55]
+      |index_entry:I{cp,3}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {float example in caption 2}
+     {empty_line:\\n}
+     *paragraph C1
+      {An itemize 2.\\n}
+     *65 @itemize C3 l119
+     |INFO
+     |spaces_before_argument:
+      |{ }
+     |EXTRA
+     |command_as_argument:[E66]
+      *arguments_line C1
+       *block_line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *66 @minus l119
+      *@item C2 l120
+      |EXTRA
+      |item_number:{1}
+       {ignorable_spaces_after_command: }
+       *paragraph C2
+        {truc 2\\n}
+        {line\\n}
+      *@end C1 l122
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |text_arg:{itemize}
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {itemize}
+     {empty_line:\\n}
+     *67 @anchor C1 l124
+     |EXTRA
+     |is_target:{1}
+     |normalized:{Anchor-in-caption-2}
+      *brace_arg C1
+       {Anchor in caption 2}
+     {spaces_after_close_brace:\\n}
+     {empty_line:\\n}
+     *paragraph C6
+      {A ref 2.\\n}
+      *68 @xref C2 l127
+       *brace_arg C1
+       |EXTRA
+       |node_content:{Top}
+       |normalized:{Top}
+        {Top}
+       *brace_arg C1
+        {xref Text with features caption}
+      {.\\n}
+      {A footnote 2.\\n}
+      *69 @footnote C1 l129
+      |EXTRA
+      |global_command_number:{3}
+       *brace_command_context C1
+        *paragraph C1
+         {footnote Text with features caption 2}
+      {.\\n}
+     {empty_line:\\n}
+     *paragraph C17
+      *70 @TeX C1 l131
+       *brace_container
+      { and }
+      *71 @emph C1 l131
+       *brace_container C2
+        *72 @b C1 l131
+         *brace_container C3
+          {t}
+          *73 @\' C1 l131
+           *following_arg C1
+            {e}
+          *74 @^ C1 l131
+           *brace_container C1
+            *75 @dotless C1 l131
+             *brace_container C1
+              {i}
+        *76 @url C1 l131
+         *brace_arg C1
+          {an_url}
+      { }
+      *77 @sc C1 l131
+       *brace_container C1
+        {and}
+      { }
+      *78 @verb C1 l131
+      |INFO
+      |delimiter:{!}
+       *brace_container C1
+        {raw:it is @verb}
+      { }
+      *@ 
+      {a wo}
+      *@-
+      {rd }
+      *@!
+      *@@
+      { }
+      *79 @AE C1 l131
+       *brace_container
+      {.\\n}
+   {spaces_after_close_brace:\\n}
+   {empty_line:\\n}
+   *@end C1 l134
+   |INFO
+   |spaces_before_argument:
+    |{ }
+   |EXTRA
+   |text_arg:{float}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+     {float}
+  {empty_line:\\n}
+  *paragraph C2
+   *80 @xref C1 l136
+    *brace_arg C1
+    |EXTRA
+    |node_content:{text with a lot of features}
+    |normalized:{text-with-a-lot-of-features}
+     {text with a lot of features}
+   {.\\n}
+  {empty_line:\\n}
+';
+
 
 $result_texis{'complex_float'} = '@node Top
 @top Test floats

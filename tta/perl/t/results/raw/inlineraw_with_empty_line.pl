@@ -5,146 +5,46 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'inlineraw_with_empty_line'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'text' => 'A '
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'plaintext ``
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'cmdname' => 'lbracechar',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 3
-                      }
-                    },
-                    {
-                      'text' => ' '
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'plaintext'
-              },
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' a.  Now html
-'
-            },
-            {
-              'cmdname' => 'inlineraw',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'html'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'in 
-'
-                    },
-                    {
-                      'text' => '
-',
-                      'type' => 'empty_line'
-                    },
-                    {
-                      'text' => '<i>'
-                    },
-                    {
-                      'cmdname' => 'acronym',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'HTML'
-                            }
-                          ],
-                          'type' => 'brace_arg'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 6
-                      }
-                    },
-                    {
-                      'text' => '</i>'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'extra' => {
-                'expand_index' => 1,
-                'format' => 'html'
-              },
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
+ *before_node_section C1
+  *paragraph C5
+   {A }
+   *0 @inlineraw C2 l1
+   |EXTRA
+   |expand_index:{1}
+   |format:{plaintext}
+    *brace_arg C1
+     {plaintext}
+    *brace_arg C4
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {plaintext ``\\n}
+     {empty_line:\\n}
+     *1 @lbracechar C1 l3
+      *brace_container
+     { }
+   { a.  Now html\\n}
+   *2 @inlineraw C2 l4
+   |EXTRA
+   |expand_index:{1}
+   |format:{html}
+    *brace_arg C1
+     {html}
+    *brace_arg C5
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {in \\n}
+     {empty_line:\\n}
+     {<i>}
+     *3 @acronym C1 l6
+      *brace_arg C1
+       {HTML}
+     {</i>}
+   {.\\n}
+';
+
 
 $result_texis{'inlineraw_with_empty_line'} = 'A @inlineraw{plaintext, plaintext ``
 

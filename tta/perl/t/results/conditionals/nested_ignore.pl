@@ -5,103 +5,29 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'nested_ignore'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'cmdname' => 'ignore',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'info' => {
-                    'spaces_after_argument' => {
-                      'text' => '
-'
-                    }
-                  },
-                  'type' => 'block_line_arg'
-                }
-              ],
-              'type' => 'arguments_line'
-            },
-            {
-              'text' => '@ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end iftex
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ifinfo
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ignore 
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'text' => '@end ignore
-',
-              'type' => 'raw'
-            }
-          ],
-          'source_info' => {
-            'line_nr' => 1
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'nested_ignore'} = '*document_root C1
+ *before_node_section C1
+  *0 @ignore C14 l1
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{\\n}
+   {raw:@ignore\\n}
+   {raw:\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore\\n}
+   {raw:@end iftex\\n}
+   {raw:@ifinfo\\n}
+   {raw:@end ignore\\n}
+   {raw:\\n}
+   {raw:@ignore \\n}
+   {raw:@end ifclear\\n}
+   {raw:@ifclear\\n}
+   {raw:@end ignore\\n}
+';
+
 
 $result_texis{'nested_ignore'} = '@ignore
 @ignore

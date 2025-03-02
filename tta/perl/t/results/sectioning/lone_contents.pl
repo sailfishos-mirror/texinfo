@@ -5,35 +5,15 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'lone_contents'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => 'contents',
-              'contents' => [
-                {
-                  'text' => '
-',
-                  'type' => 'rawline_arg'
-                }
-              ],
-              'extra' => {},
-              'source_info' => {
-                'line_nr' => 1
-              }
-            }
-          ],
-          'type' => 'preamble_before_content'
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'lone_contents'} = '*document_root C1
+ *before_node_section C1
+  *preamble_before_content C1
+   *@contents C1 l1
+   |EXTRA
+   |global_command_number:{1}
+    {rawline_arg:\\n}
+';
+
 
 $result_texis{'lone_contents'} = '@contents
 ';

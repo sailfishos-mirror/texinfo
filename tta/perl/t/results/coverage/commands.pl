@@ -5,365 +5,98 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'commands'} = {
-  'contents' => [
-    {
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'cmdname' => '@'
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'TeX',
-              'contents' => [
-                {
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 1
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '
-'
-            },
-            {
-              'cmdname' => '"',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'e'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '^',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => 'dotless',
-                      'contents' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'i'
-                            }
-                          ],
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'source_info' => {
-                        'line_nr' => 2
-                      }
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => '~',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ringaccent',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'following_arg'
-                }
-              ],
-              'info' => {
-                'spaces_after_cmd_before_arg' => {
-                  'text' => ' '
-                }
-              },
-              'source_info' => {
-                'line_nr' => 2
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'clicksequence',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'File '
-                    },
-                    {
-                      'cmdname' => 'click',
-                      'contents' => [
-                        {
-                          'type' => 'brace_container'
-                        }
-                      ],
-                      'extra' => {
-                        'clickstyle' => 'arrow'
-                      },
-                      'source_info' => {
-                        'line_nr' => 4
-                      }
-                    },
-                    {
-                      'text' => ' Open'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'cmdname' => '.'
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'email',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'a'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'b'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'code --- -- \'\' ``'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'text' => '--- -- \'\' ``. '
-            },
-            {
-              'cmdname' => 'sc',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'small caps'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '.
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'cindex',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'index entry ``in text\'\' '
-                },
-                {
-                  'cmdname' => 'LaTeX',
-                  'contents' => [
-                    {
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 8
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {
-            'index_entry' => [
-              'cp',
-              1
-            ]
-          },
-          'info' => {
-            'command_name' => 'cindex',
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 8
-          },
-          'type' => 'index_entry_command'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'majorheading',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'majorheading '
-                },
-                {
-                  'cmdname' => 'b',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'in b'
-                        }
-                      ],
-                      'type' => 'brace_container'
-                    }
-                  ],
-                  'source_info' => {
-                    'line_nr' => 10
-                  }
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'extra' => {},
-          'info' => {
-            'spaces_before_argument' => {
-              'text' => ' '
-            }
-          },
-          'source_info' => {
-            'line_nr' => 10
-          }
-        }
-      ],
-      'type' => 'before_node_section'
-    }
-  ],
-  'type' => 'document_root'
-};
+$result_tree_text{'commands'} = '*document_root C1
+ *before_node_section C7
+  *paragraph C13
+   *@@
+   { }
+   *0 @TeX C1 l1
+    *brace_container
+   { }
+   *@\\n
+   *1 @" C1 l2
+    *following_arg C1
+     {e}
+   { }
+   *2 @^ C1 l2
+    *brace_container C1
+     *3 @dotless C1 l2
+      *brace_container C1
+       {i}
+   { }
+   *4 @~ C1 l2
+    *brace_container C1
+     {a}
+   { }
+   *5 @ringaccent C1 l2
+   |INFO
+   |spaces_after_cmd_before_arg:
+    |{ }
+    *following_arg C1
+     {a}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C10
+   *6 @clicksequence C1 l4
+    *brace_container C3
+     {File }
+     *7 @click C1 l4
+     |EXTRA
+     |clickstyle:{arrow}
+      *brace_container
+     { Open}
+   *@.
+   {\\n}
+   *8 @email C2 l5
+    *brace_arg C1
+     {a}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {b}
+   { }
+   *9 @code C1 l5
+    *brace_container C1
+     {code --- -- \'\' ``}
+   {\\n}
+   {--- -- \'\' ``. }
+   *10 @sc C1 l6
+    *brace_container C1
+     {small caps}
+   {.\\n}
+  {empty_line:\\n}
+  *11 index_entry_command@cindex C1 l8
+  |INFO
+  |command_name:{cindex}
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |index_entry:I{cp,1}
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {index entry ``in text\'\' }
+    *12 @LaTeX C1 l8
+     *brace_container
+  {empty_line:\\n}
+  *13 @majorheading C1 l10
+  |INFO
+  |spaces_before_argument:
+   |{ }
+  |EXTRA
+  |global_command_number:{1}
+   *line_arg C2
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {majorheading }
+    *14 @b C1 l10
+     *brace_container C1
+      {in b}
+';
+
 
 $result_texis{'commands'} = '@@ @TeX{} @
 @"e @^{@dotless{i}} @~{a} @ringaccent a

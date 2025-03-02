@@ -5,2874 +5,750 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_
 
 use utf8;
 
-$result_trees{'refs_formatting'} = {
-  'contents' => [
-    {
-      'type' => 'before_node_section'
-    },
-    {
-      'cmdname' => 'node',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        }
-      ],
-      'extra' => {
-        'is_target' => 1,
-        'normalized' => 'chapter'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 1
-      }
-    },
-    {
-      'cmdname' => 'chapter',
-      'contents' => [
-        {
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'text' => 'chapter'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => {
-                  'text' => '
-'
-                }
-              },
-              'type' => 'line_arg'
-            }
-          ],
-          'type' => 'arguments_line'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 4
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,title'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 5
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 6
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 7
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,title,'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 8
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 9
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 10
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,title,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 11
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,title,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 12
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,cross ref name,title, file name, manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 13
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,title,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 14
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,title,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 15
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,title, file name, manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 16
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,,file name,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 17
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 19
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,title'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 20
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 21
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 22
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,title,'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 23
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 24
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 25
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,title,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 26
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,title,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 27
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,cross ref name,title, file name, manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 28
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,title,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 29
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,title,,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 30
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,title, file name, manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'title'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 31
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'ref'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => '(pman)anode,,,file name,manual'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'ref',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => '('
-                    },
-                    {
-                      'text' => 'pman'
-                    },
-                    {
-                      'text' => ')'
-                    },
-                    {
-                      'text' => 'anode'
-                    }
-                  ],
-                  'extra' => {
-                    'manual_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'manual'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 32
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'inforef'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter, cross ref name, file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'inforef',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 34
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'inforef'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 35
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'inforef',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 35
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'inforef'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter, cross ref name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 36
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'inforef',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    },
-                    'normalized' => 'chapter'
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'cross ref name'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_before_argument' => {
-                      'text' => ' '
-                    }
-                  },
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 36
-              }
-            },
-            {
-              'text' => '
-'
-            },
-            {
-              'cmdname' => 'code',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@'
-                    },
-                    {
-                      'text' => 'inforef'
-                    },
-                    {
-                      'cmdname' => '{'
-                    },
-                    {
-                      'text' => 'chapter,,file name'
-                    },
-                    {
-                      'cmdname' => '}'
-                    }
-                  ],
-                  'type' => 'brace_container'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 37
-              }
-            },
-            {
-              'text' => ' '
-            },
-            {
-              'cmdname' => 'inforef',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'node_content' => {
-                      'contents' => [
-                        {}
-                      ]
-                    }
-                  },
-                  'type' => 'brace_arg'
-                },
-                {
-                  'type' => 'brace_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'text' => 'file name'
-                    }
-                  ],
-                  'type' => 'brace_arg'
-                }
-              ],
-              'source_info' => {
-                'line_nr' => 37
-              }
-            },
-            {
-              'text' => '
-'
-            }
-          ],
-          'type' => 'paragraph'
-        }
-      ],
-      'extra' => {
-        'section_number' => '1'
-      },
-      'info' => {
-        'spaces_before_argument' => {
-          'text' => ' '
-        }
-      },
-      'source_info' => {
-        'line_nr' => 2
-      }
-    }
-  ],
-  'type' => 'document_root'
-};
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[10]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[10]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[14]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[14]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[18]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[18]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[22]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[22]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[26]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[26]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[30]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[30]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[34]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[34]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[38]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[38]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[42]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[42]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[46]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[46]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[50]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[50]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[54]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[2]{'contents'}[54]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[6]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[10]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[10]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[10]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[14]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[14]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[14]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[14]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[18]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[18]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[18]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[18]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[22]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[22]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[22]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[26]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[26]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[26]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[30]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[30]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[30]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[34]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[34]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[34]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[38]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[38]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[38]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[38]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[42]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[42]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[42]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[42]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[46]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[46]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[46]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[46]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[50]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[50]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[50]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[50]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[54]{'contents'}[0]{'extra'}{'manual_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[54]{'contents'}[0]{'contents'}[1];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[54]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[4]{'contents'}[54]{'contents'}[0]{'contents'}[3];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[6]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[10]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[10]{'contents'}[0]{'contents'}[0];
-$result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[14]{'contents'}[0]{'extra'}{'node_content'}{'contents'}[0] = $result_trees{'refs_formatting'}{'contents'}[2]{'contents'}[6]{'contents'}[14]{'contents'}[0]{'contents'}[0];
+$result_tree_text{'refs_formatting'} = '*document_root C3
+ *before_node_section
+ *0 @node C1 l1
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_section:[E1]
+ |is_target:{1}
+ |normalized:{chapter}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+ *1 @chapter C7 l2
+ |INFO
+ |spaces_before_argument:
+  |{ }
+ |EXTRA
+ |associated_node:[E0]
+ |section_level:{1}
+ |section_number:{1}
+ |sectioning_root:
+  |*
+  ||EXTRA
+  ||section_childs:EC[E1]
+  ||section_level:{0}
+  *arguments_line C1
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chapter}
+  {empty_line:\\n}
+  *paragraph C56
+   *2 @code C1 l4
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name}
+     *@}
+   { }
+   *3 @ref C2 l4
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+   {\\n}
+   *4 @code C1 l5
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,title}
+     *@}
+   { }
+   *5 @ref C3 l5
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg C1
+     {title}
+   {\\n}
+   *6 @code C1 l6
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,,file name}
+     *@}
+   { }
+   *7 @ref C4 l6
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *8 @code C1 l7
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,,,manual}
+     *@}
+   { }
+   *9 @ref C5 l7
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *10 @code C1 l8
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,title,}
+     *@}
+   { }
+   *11 @ref C4 l8
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg
+   {\\n}
+   *12 @code C1 l9
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,,file name}
+     *@}
+   { }
+   *13 @ref C4 l9
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *14 @code C1 l10
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,,,manual}
+     *@}
+   { }
+   *15 @ref C5 l10
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *16 @code C1 l11
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,title,file name}
+     *@}
+   { }
+   *17 @ref C4 l11
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *18 @code C1 l12
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,title,,manual}
+     *@}
+   { }
+   *19 @ref C5 l12
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *20 @code C1 l13
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,cross ref name,title, file name, manual}
+     *@}
+   { }
+   *21 @ref C5 l13
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file name}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *22 @code C1 l14
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,title,file name}
+     *@}
+   { }
+   *23 @ref C4 l14
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *24 @code C1 l15
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,title,,manual}
+     *@}
+   { }
+   *25 @ref C5 l15
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *26 @code C1 l16
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,title, file name, manual}
+     *@}
+   { }
+   *27 @ref C5 l16
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file name}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *28 @code C1 l17
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {chapter,,,file name,manual}
+     *@}
+   { }
+   *29 @ref C5 l17
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {file name}
+    *brace_arg C1
+     {manual}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C56
+   *30 @code C1 l19
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name}
+     *@}
+   { }
+   *31 @ref C2 l19
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+   {\\n}
+   *32 @code C1 l20
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,title}
+     *@}
+   { }
+   *33 @ref C3 l20
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg C1
+     {title}
+   {\\n}
+   *34 @code C1 l21
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,,file name}
+     *@}
+   { }
+   *35 @ref C4 l21
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *36 @code C1 l22
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,,,manual}
+     *@}
+   { }
+   *37 @ref C5 l22
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *38 @code C1 l23
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,title,}
+     *@}
+   { }
+   *39 @ref C4 l23
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg
+   {\\n}
+   *40 @code C1 l24
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,,file name}
+     *@}
+   { }
+   *41 @ref C4 l24
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *42 @code C1 l25
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,,,manual}
+     *@}
+   { }
+   *43 @ref C5 l25
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *44 @code C1 l26
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,title,file name}
+     *@}
+   { }
+   *45 @ref C4 l26
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *46 @code C1 l27
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,title,,manual}
+     *@}
+   { }
+   *47 @ref C5 l27
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *48 @code C1 l28
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,cross ref name,title, file name, manual}
+     *@}
+   { }
+   *49 @ref C5 l28
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg C1
+     {cross ref name}
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file name}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *50 @code C1 l29
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,title,file name}
+     *@}
+   { }
+   *51 @ref C4 l29
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+     {file name}
+   {\\n}
+   *52 @code C1 l30
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,title,,manual}
+     *@}
+   { }
+   *53 @ref C5 l30
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg
+    *brace_arg C1
+     {manual}
+   {\\n}
+   *54 @code C1 l31
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,title, file name, manual}
+     *@}
+   { }
+   *55 @ref C5 l31
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg C1
+     {title}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file name}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {manual}
+   {\\n}
+   *56 @code C1 l32
+    *brace_container C5
+     *@@
+     {ref}
+     *@{
+     {(pman)anode,,,file name,manual}
+     *@}
+   { }
+   *57 @ref C5 l32
+    *brace_arg C4
+    |EXTRA
+    |manual_content:{pman}
+    |node_content:{anode}
+     {(}
+     {pman}
+     {)}
+     {anode}
+    *brace_arg
+    *brace_arg
+    *brace_arg C1
+     {file name}
+    *brace_arg C1
+     {manual}
+   {\\n}
+  {empty_line:\\n}
+  *paragraph C16
+   *58 @code C1 l34
+    *brace_container C5
+     *@@
+     {inforef}
+     *@{
+     {chapter, cross ref name, file name}
+     *@}
+   { }
+   *59 @inforef C3 l34
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {cross ref name}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {file name}
+   {\\n}
+   *60 @code C1 l35
+    *brace_container C5
+     *@@
+     {inforef}
+     *@{
+     {chapter}
+     *@}
+   { }
+   *61 @inforef C1 l35
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+   {\\n}
+   *62 @code C1 l36
+    *brace_container C5
+     *@@
+     {inforef}
+     *@{
+     {chapter, cross ref name}
+     *@}
+   { }
+   *63 @inforef C2 l36
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+    |normalized:{chapter}
+     {chapter}
+    *brace_arg C1
+    |INFO
+    |spaces_before_argument:
+     |{ }
+     {cross ref name}
+   {\\n}
+   *64 @code C1 l37
+    *brace_container C5
+     *@@
+     {inforef}
+     *@{
+     {chapter,,file name}
+     *@}
+   { }
+   *65 @inforef C3 l37
+    *brace_arg C1
+    |EXTRA
+    |node_content:{chapter}
+     {chapter}
+    *brace_arg
+    *brace_arg C1
+     {file name}
+   {\\n}
+';
+
 
 $result_texis{'refs_formatting'} = '@node chapter
 @chapter chapter
