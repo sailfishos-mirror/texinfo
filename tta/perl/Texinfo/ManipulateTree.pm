@@ -775,6 +775,12 @@ sub remove_element_tree_numbers($)
       }
     }
   }
+
+  if ($element->{'contents'}) {
+    foreach my $content (@{$element->{'contents'}}) {
+      remove_element_tree_numbers($content);
+    }
+  }
 }
 
 sub print_tree($;$$)

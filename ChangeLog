@@ -11,6 +11,11 @@
 
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (remove_element_tree_numbers):
+	recurse in the tree.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	In C program pass unclosed files from Perl as PerlIO and close
 
 	* tta/C/main/utils.c (allocate_file_stream),
