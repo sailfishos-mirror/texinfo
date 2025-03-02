@@ -6748,7 +6748,9 @@ sub _handle_comma($$$$)
           $expandp = 0;
         }
       }
-      $command_element->{'extra'}->{'format'} = $inline_type;
+      if (defined($inline_type)) {
+        $command_element->{'extra'}->{'format'} = $inline_type;
+      }
 
       # Skip first argument for a false @inlinefmtifelse
       if (!$expandp and $command_element->{'cmdname'} eq 'inlinefmtifelse') {

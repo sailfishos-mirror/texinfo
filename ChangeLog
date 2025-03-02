@@ -1,5 +1,11 @@
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/separator.c (handle_comma),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_comma): do not add format
+	extra infromation for @*inline if the first argument is empty.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (add_info_name_string_value),
 	tta/perl/Texinfo/ManipulateTree.pm (_print_element_associated_info):
 	specific output when extra string is undef/NULL.

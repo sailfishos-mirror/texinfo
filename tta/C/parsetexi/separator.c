@@ -660,7 +660,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
             {
               /* Condition is missing */
               debug ("INLINE COND MISSING");
-              add_extra_string (command_element, AI_key_format, 0);
+              /* add_extra_string (command_element, AI_key_format, 0); */
             }
           else
             {
