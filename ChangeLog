@@ -1,5 +1,9 @@
 2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (@xrefname): Add command.
+
+2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Output Structure Customization)
 	<ADD_TRANSLITERATED_REDIRECTION_FILES>: Do not say that node
 	name transliteration must be turned off for this option to do

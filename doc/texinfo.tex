@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-03-01.21}
+\def\texinfoversion{2025-03-02.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -6467,6 +6467,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \suppressfirstparagraphindent}
 \parseargdef\subsubheading{\sectionheading{#1}{subsubsec}{Yomitfromtoc}{}
   \suppressfirstparagraphindent}
+
+% @xrefname - give text with printed name for linking to node and allow
+% referencing node, but do not print any heading.
+\parseargdef\xrefname{\donoderef{Yomitfromtoc}{#1}}%
 
 % These macros generate a chapter, section, etc. heading only
 % (including whitespace, linebreaking, etc. around it),
