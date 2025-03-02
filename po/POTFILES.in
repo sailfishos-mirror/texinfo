@@ -58,6 +58,7 @@ tta/C/convert/convert_html.c
 tta/C/convert/format_html.c
 tta/C/convert/html_prepare_converter.c
 tta/C/convert/rawtext_converter_api.c
+tta/C/convert/texinfo.c
 tta/C/main/errors.c
 tta/C/main/errors.h
 tta/C/main/manipulate_indices.c

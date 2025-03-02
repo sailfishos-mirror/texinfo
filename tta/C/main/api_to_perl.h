@@ -9,6 +9,7 @@ int get_refcount (void *sv);
 
 void unregister_perl_data (void *sv);
 void register_perl_data (void *sv);
+char *call_close_perl_io (void *io);
 
 void call_switch_to_global_locale (void);
 void call_sync_locale (void);

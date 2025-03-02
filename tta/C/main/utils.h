@@ -257,7 +257,8 @@ void add_translated_command (TRANSLATED_COMMAND_LIST *translated_commands,
 void clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands);
 
 OUTPUT_FILES_INFORMATION *new_output_files_information (void);
-FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self);
+FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self,
+                                   const char *file_path);
 
 char *enumerate_item_representation (char *specification, int number);
 

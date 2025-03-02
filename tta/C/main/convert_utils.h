@@ -73,7 +73,7 @@ void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
 void free_output_files_information (OUTPUT_FILES_INFORMATION *self);
 void clear_output_files_information (OUTPUT_FILES_INFORMATION *self);
 void register_unclosed_file (OUTPUT_FILES_INFORMATION *self,
-                             const char *file_path, FILE *stream);
+                             const char *file_path, FILE *stream, void *io);
 
 const ELEMENT *find_root_command_next_heading_command (const ELEMENT *root,
                                   const EXPANDED_FORMAT *formats,

@@ -682,7 +682,7 @@ translated_command_tree (CONVERTER *self, enum command_id cmd)
 
 void
 register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
-                        FILE *stream)
+                        FILE *stream, void *io)
 {
   FILE_STREAM *file_stream = 0;
   size_t file_stream_index;
@@ -714,10 +714,10 @@ register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
     }
 
   if (!file_stream)
-    file_stream = allocate_file_stream (self);
+    file_stream = allocate_file_stream (self, file_path);
 
-  file_stream->file_path = strdup (file_path);
   file_stream->stream = stream;
+  file_stream->io = io;
 
   return;
 }
@@ -772,7 +772,7 @@ output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
   *overwritten_file = 0;
   if (!strcmp (file_path, "-"))
     {
-      register_unclosed_file (self, file_path, stdout);
+      register_unclosed_file (self, file_path, stdout, 0);
       return stdout;
     }
 
@@ -790,7 +790,7 @@ output_files_open_out (OUTPUT_FILES_INFORMATION *self, const char *file_path,
     }
   else
     {
-      register_unclosed_file (self, file_path, stream_handle);
+      register_unclosed_file (self, file_path, stream_handle, 0);
       if (!(*overwritten_file))
         add_string (file_path, &self->opened_files);
     }

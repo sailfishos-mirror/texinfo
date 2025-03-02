@@ -1,3 +1,29 @@
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
+	In C program pass unclosed files from Perl as PerlIO and close
+
+	* tta/C/main/utils.c (allocate_file_stream),
+	tta/C/main/convert_utils.c (register_unclosed_file),
+	tta/C/main/converter_types.h (FILE_STREAM), tta/C/convert/texinfo.c
+	(txi_converter_output): add file_path argument to
+	allocate_file_stream, update callers.  Add io field to FILE_STREAM,
+	and as argument to register_unclosed_file, update callers.  Initialize
+	the whole FILE_STREAM to 0 in allocate_file_stream.
+
+	* tta/C/convert/texinfo.c (txi_close_file_stream),
+	tta/C/main/api_to_perl.c (call_close_perl_io): add to be able to close
+	a PerlIO passed as io in FILE_STREAM.
+
+	* tta/C/main/get_perl_info.c (get_output_files_information): pass
+	unclosed PerlIO associated to filehandle to output files information
+	as FILE_STREAM io.
+
+	* tta/C/texi2any.c (main): make main_program_unclosed_stdout a
+	FILE_STREAM such that it may hold a C FILE or a Perl PerlIO.  Set it
+	and call txi_close_file_stream to close.  Also call
+	txi_close_file_stream to close unclosed file streams returned by the
+	converter.
+
 2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (HTML Xref 8-bit Character Expansion)

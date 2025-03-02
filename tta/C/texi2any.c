@@ -980,12 +980,14 @@ main (int argc, char *argv[], char *env[])
   unsigned long transformation_flags = 0;
   const char *txi_xs_external_conversion;
   const char *txi_xs_external_formatting;
-  FILE *main_program_unclosed_stdout = 0;
+  FILE_STREAM main_program_unclosed_stdout;
   DEPRECATED_DIRS_LIST deprecated_dirs_used;
   char *perl_embed_env;
   char *texinfo_dev_source_env;
   char *command_directory;
   char *program_basename;
+
+  memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
 
   texinfo_dev_source_env = getenv ("TEXINFO_DEV_SOURCE");
 
@@ -2711,7 +2713,10 @@ main (int argc, char *argv[], char *env[])
                              encoded_macro_expand_file_name);
 
               if (!strcmp (macro_expand_file_name, "-"))
-                main_program_unclosed_stdout = file_fh;
+                {
+                  main_program_unclosed_stdout.stream = file_fh;
+                  main_program_unclosed_stdout.file_path = "-";
+                }
               else
                 {
                   output_files_register_closed (&output_files_information,
@@ -2934,21 +2939,36 @@ main (int argc, char *argv[], char *env[])
             {
               FILE_STREAM *file_stream = &unclosed_files->list[j];
                /*
-              fprintf (stderr, "Unclosed file '%s' %p\n",
-                file_stream->file_path, file_stream->stream);
+              fprintf (stderr, "%zu: Unclosed file %p %p '%s' %p %p\n", j,
+                unclosed_files, file_stream,
+                file_stream->file_path, file_stream->stream, file_stream->io);
                 */
               if (!strcmp (file_stream->file_path, "-"))
-                main_program_unclosed_stdout = file_stream->stream;
+                /* we may be overwriting information on C file stream
+                   but it is not an issue, as it is probably more
+                   important to close the PerlIO, and it is not clear if it
+                   is possible to close both.  Also using stdout for more than
+                   one type of output should be considered as an error,
+                   so it is not a big deal if there are no error messages
+                   if stdout cannot be closed in that case.
+                 */
+                {
+                  main_program_unclosed_stdout = *file_stream;
+                  /* do not keep the original file path, as it is held by
+                     the converter which is bound to be destroyed,
+                     while main_program_unclosed_stdout data must survive
+                     until the end of the program.
+                   */
+                  main_program_unclosed_stdout.file_path = "-";
+                }
               else
                 {
-                  if (fclose (file_stream->stream))
-                    {
-                      fprintf (stderr, _("%s: error on closing %s: %s"),
-                               program_file, file_stream->file_path,
-                               strerror (errno));
-                      errors_count = handle_errors (1,
-                                                errors_count, &opened_files);
-                    }
+                  int close_error = txi_close_file_stream (program_file,
+                                                           file_stream);
+
+                  if (close_error)
+                    errors_count = handle_errors (close_error,
+                                               errors_count, &opened_files);
                 }
             }
         }
@@ -2994,7 +3014,10 @@ main (int argc, char *argv[], char *env[])
                                  encoded_internal_links_file_name);
 
                   if (!strcmp (internal_links_file_name, "-"))
-                    main_program_unclosed_stdout = file_fh;
+                    {
+                      main_program_unclosed_stdout.stream = file_fh;
+                      main_program_unclosed_stdout.file_path = "-";
+                    }
                   else
                     {
                       output_files_register_closed (&output_files_information,
@@ -3142,7 +3165,10 @@ main (int argc, char *argv[], char *env[])
                         }
                     }
                   else
-                    main_program_unclosed_stdout = file_fh;
+                    {
+                      main_program_unclosed_stdout.stream = file_fh;
+                      main_program_unclosed_stdout.file_path = "-";
+                    }
                 }
               else
                 {
@@ -3185,14 +3211,12 @@ main (int argc, char *argv[], char *env[])
       clear_options_list (&convert_options);
     }
 
-  if (main_program_unclosed_stdout)
+  if (main_program_unclosed_stdout.file_path)
     {
-      if (fclose (main_program_unclosed_stdout))
-        {
-          fprintf (stderr, _("%s: error on closing %s: %s"),
-                   program_file, "-", strerror (errno));
-          errors_count = handle_errors (1, errors_count, &opened_files);
-        }
+      int close_error = txi_close_file_stream (program_file,
+                                         &main_program_unclosed_stdout);
+      if (close_error)
+        errors_count = handle_errors (close_error, errors_count, &opened_files);
     }
 
   destroy_converter_initialization_info (converter_init_info);

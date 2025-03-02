@@ -28,6 +28,9 @@
 
 #undef context
 
+#include <string.h>
+#include <errno.h>
+
 #include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
@@ -61,6 +64,16 @@ register_perl_data (void *sv)
   dTHX;
 
   SvREFCNT_inc (sv);
+}
+
+char *
+call_close_perl_io (void *io)
+{
+  dTHX;
+
+  if (PerlIO_close ((PerlIO *) io))
+    return non_perl_strdup (strerror (errno));
+  return 0;
 }
 
 void

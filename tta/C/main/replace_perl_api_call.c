@@ -58,6 +58,12 @@ register_perl_data (void *sv)
 {
 }
 
+char *
+call_close_perl_io (void *io)
+{
+  return strdup ("BUG: no Perl but call_close_perl_io");
+}
+
 /* it is up to the caller to do something useful if NULL is returned */
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text,

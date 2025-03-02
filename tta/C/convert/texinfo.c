@@ -27,6 +27,13 @@
 #include <string.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <errno.h>
+#ifdef ENABLE_NLS
+#include <libintl.h>
+#endif
+/* to have a definition of gettext in case ENABLE_NLS
+   is not set */
+#include "gettext.h"
 
 #include "document_types.h"
 #include "option_types.h"
@@ -50,7 +57,10 @@
 #include "call_embed_perl.h"
 /* set_no_perl_interpreter */
 #include "xs_utils.h"
+#include "api_to_perl.h"
 #include "texinfo.h"
+
+#define _(String) gettext (String)
 
 const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
 #define tt_type(name) {#name, STTF_ ## name},
@@ -583,7 +593,8 @@ txi_converter_output (const char *external_module,
               register_unclosed_file (
                    &converter->output_files_information,
                    unclosed_files->list[i].file_path,
-                   unclosed_files->list[i].stream);
+                   unclosed_files->list[i].stream,
+                   unclosed_files->list[i].io);
             }
           free_output_files_information (output_files_information);
           free (output_files_information);
@@ -662,6 +673,40 @@ void
 txi_converter_destroy (CONVERTER *converter)
 {
   destroy_converter (converter);
+}
+
+/* defined here to hide PerlIO closing function call */
+int
+txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
+{
+  int error_nrs = 0;
+
+  if (file_stream->stream)
+    {
+      if (fclose (file_stream->stream))
+        {
+          fprintf (stderr, _("%s: error on closing %s: %s"),
+                   program_file, file_stream->file_path,
+                   strerror (errno));
+          fprintf (stderr, "%s", "\n");
+          error_nrs++;
+        }
+    }
+  if (file_stream->io)
+    {
+      char *errno_message = call_close_perl_io (file_stream->io);
+      if (errno_message)
+        {
+          fprintf (stderr, _("%s: error on closing io %s: %s"),
+                   program_file, file_stream->file_path,
+                   errno_message);
+          fprintf (stderr, "%s", "\n");
+          free (errno_message);
+          error_nrs++;
+        }
+    }
+
+  return error_nrs;
 }
 
 size_t

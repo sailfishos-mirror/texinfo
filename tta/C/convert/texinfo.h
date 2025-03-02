@@ -120,5 +120,8 @@ void txi_document_remove (DOCUMENT *document);
 void txi_converter_reset (CONVERTER *converter);
 void txi_converter_destroy (CONVERTER *converter);
 
+int txi_close_file_stream (const char *program_file,
+                           const FILE_STREAM *file_stream);
+
 char *txi_builtin_default_css_text (void);
 #endif

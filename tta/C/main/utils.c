@@ -760,7 +760,7 @@ new_output_files_information (void)
 }
 
 FILE_STREAM *
-allocate_file_stream (OUTPUT_FILES_INFORMATION *self)
+allocate_file_stream (OUTPUT_FILES_INFORMATION *self, const char *file_path)
 {
   size_t file_stream_index;
   if (self->unclosed_files.number == self->unclosed_files.space)
@@ -769,6 +769,11 @@ allocate_file_stream (OUTPUT_FILES_INFORMATION *self)
          (self->unclosed_files.space += 5) * sizeof (FILE_STREAM));
     }
   file_stream_index = self->unclosed_files.number;
+
+  memset (&self->unclosed_files.list[file_stream_index], 0,
+          sizeof (FILE_STREAM));
+  self->unclosed_files.list[file_stream_index].file_path = strdup (file_path);
+
   self->unclosed_files.number++;
 
   return &self->unclosed_files.list[file_stream_index];

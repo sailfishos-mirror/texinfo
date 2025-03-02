@@ -434,6 +434,8 @@ typedef struct FILE_NAME_PATH_COUNTER_LIST {
 typedef struct FILE_STREAM {
     char *file_path;
     FILE *stream;
+    /* actually PerlIO */
+    void *io;
 } FILE_STREAM;
 
 typedef struct FILE_STREAM_LIST {

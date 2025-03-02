@@ -1327,8 +1327,15 @@ get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 
 /* Note that it is not really possible to get FILE from a filehandle associated
-   to a file to be closed in unclosed_files.  See comment in
-   build_output_files_unclosed_files */
+   to a file to be closed in unclosed_files.  If the file was opened in C,
+   it is not possible to directly associate a the unclosed stream to a SV
+   to transit through Perl, see comment in build_output_files_unclosed_files.
+   If the file was opened in Perl, it is possible to get a PerlIO, as done
+   below in code, but not a FILE to be closed.  A file obtained with
+   PerlIO_exportFILE is a new FILE and should be released before closed and
+   do not close the PerlIO.  The PerlIO can be closed, though, or be carried
+   around to be closed later on.
+ */
 OUTPUT_FILES_INFORMATION *
 get_output_files_information (SV *output_files_sv)
 {
@@ -1390,6 +1397,11 @@ get_output_files_information (SV *output_files_sv)
           HE *next = hv_iternext (unclosed_files_hv);
           SV *file_name_sv = hv_iterkeysv (next);
           const char *file_name = (char *) SvPVutf8_nolen (file_name_sv);
+          SV *value_sv = HeVAL(next);
+
+          file_stream = allocate_file_stream (output_files_information,
+                                              file_name);
+
           /* Should be two possibilities, undef meaning the a FILE was opened
              in C, or Perl file handle.
              In case of undef, it could be possible to find the FILE, by adding
@@ -1398,7 +1410,6 @@ get_output_files_information (SV *output_files_sv)
              However, from Perl it is not possible to do the same, so we
              do not try to do it in either case.
            */
-          SV *value_sv = HeVAL(next);
           if (!SvOK (value_sv))
             {
               fprintf (stderr, "REMARK: unclosed C stream for `%s'\n",
@@ -1407,13 +1418,33 @@ get_output_files_information (SV *output_files_sv)
           else
             {/* SvTYPE(SvRV(value_sv)) should be SVt_PVGV,
                 Glob (possibly a file handle) */
+               /*
               fprintf (stderr,
                        "REMARK: unclosed SV: %d (expected %d) for `%s'\n",
                        SvTYPE(SvRV(value_sv)), SVt_PVGV, file_name);
+                */
+              IO *file_stream_IO = sv_2io (value_sv);
+              if (file_stream_IO)
+                {
+                  PerlIO *file_stream_PerlIO = IoOFP (file_stream_IO);
+                  if (!file_stream_PerlIO)
+                    {
+                      fprintf (stderr,
+                        "BUG? unclosed SV no PerlIO: %d %p %p for `%s'\n",
+                        SvTYPE(SvRV(value_sv)), SvRV(value_sv), value_sv,
+                        file_name);
+                    }
+                  else
+                    {
+                      file_stream->io = (void *) file_stream_PerlIO;
+                    }
+                }
+              else
+                fprintf (stderr,
+                        "BUG? unclosed SV no IO: %d %p %p for `%s'\n",
+                        SvTYPE(SvRV(value_sv)), SvRV(value_sv), value_sv,
+                        file_name);
             }
-          file_stream = allocate_file_stream (output_files_information);
-          file_stream->file_path = strdup (file_name);
-          file_stream->stream = 0;
         }
     }
   return output_files_information;
