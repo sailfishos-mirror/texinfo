@@ -1086,7 +1086,8 @@ my @file_tests = (
 
 @chapter
 ', {}, {'SPLIT' => 'chapter', 'USE_NODES' => 0}],
-# test that the node name that goes in the redirection file is reproducible.
+# test that the node name that goes in the redirection file with
+# TRANSLITERATE_FILE_NAMES is reproducible.
 ['redirection_same_labels',
 '@node Top
 @top the top
@@ -1119,12 +1120,13 @@ my @file_tests = (
 @end menu
 
 @node @^i
-', {'test_split' => 'section'}, {'SPLIT' => 'chapter'}],
+', {'test_split' => 'section'}, {'SPLIT' => 'chapter',
+                                 'TRANSLITERATE_FILE_NAMES' => 1}],
 ['transliterated_names_conflicts',
   undef,
   {'test_file' => 'transliterated_names_conflicts.texi',
    'test_split' => 'node'},
-  {'SPLIT' => 'node'},
+  {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['file_name_conflict_with_section',
 '@node Top
@@ -1343,7 +1345,7 @@ $check_htmlxref_text
   # also tests for node without section command nor directions after
   # a section, and Top without @top and chapter in menu
   {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0,},
-  {'FORMAT_MENU' => 'menu'}
+  {'FORMAT_MENU' => 'menu', 'TRANSLITERATE_FILE_NAMES' => 1}
 ],
 ['node_footnote_end',
   undef,
@@ -1362,7 +1364,9 @@ $check_htmlxref_text
 ['node_footnote_use_node_separate',
   undef,
   {'test_file' => 'node_footnote.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 0},
-  {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu'}
+  {'footnotestyle' => 'separate', 'FORMAT_MENU' => 'menu',
+   # needed to have the three nodes with footnotes end up in the same node
+   'TRANSLITERATE_FILE_NAMES' => 1}
 ],
 ['simplest_test_date_in_header',
   undef,
@@ -1594,13 +1598,16 @@ $css_init_file_texinfo, {'init_files' => ['test_css_info_functions.pm']}],
 # the objective is not to test the init file, the init files allows
 # to remove navigation in output files to have simpler output easier to
 # interpret.  This was set for a bug with div closed in the wrong file.
+# TODO add the same test without TRANSLITERATE_FILE_NAMES set
 ['simple_only_special_spaces_node',
 undef, {'test_file' => 'simple_only_special_spaces_node.texi',
         'init_files' => ['no_navigation.pm'],
         'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef,
        },
-       # needed to test for the bug
-       {'SPLIT' => 'node'}],
+       # split at node is needed to test for the bug, not sure about
+       # TRANSLITERATE_FILE_NAMES, but it is interesting anyway to have
+       # it with special spaces.
+       {'SPLIT' => 'node', 'TRANSLITERATE_FILE_NAMES' => 1}],
 # also in *sectioning.t.  Here we are interested both by the infinite
 # recursion and by the title strings to verify that they do not end up
 # with attributes

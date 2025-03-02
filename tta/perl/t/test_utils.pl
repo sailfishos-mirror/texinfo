@@ -559,10 +559,6 @@ sub convert_to_html($$$$$)
 
   $converter_options = {} if (!defined($converter_options));
 
-  if (!exists($converter_options->{'TRANSLITERATE_FILE_NAMES'})) {
-    $converter_options->{'TRANSLITERATE_FILE_NAMES'} = 1;
-  }
-
   $converter_options
     = set_converter_option_defaults($converter_options, 'html',
                                     $self->{'DEBUG'});

@@ -1383,7 +1383,8 @@ my @test_out_files = (
 @node n
 
 @node @^a
-', {'test_split' => 'node'}],
+', {'test_split' => 'node'},
+{'TRANSLITERATE_FILE_NAMES' => 1}],
 # test the texi2html style to test the style for tests
 # interesting to test diverse tree splitting options, and already
 # used for that above.  Since all the options for test_split have

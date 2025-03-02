@@ -369,16 +369,25 @@ $latin1_accents_text, {}, {'ENABLE_ENCODING' => 1, 'OUTPUT_CHARACTERS' => 1}
 
 my @file_tests = (
 ['char_utf8_latin1_in_refs',
-undef, {'test_file' => 'char_utf8_latin1_in_refs.texi'}
+undef, {'test_file' => 'char_utf8_latin1_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['char_latin1_latin1_in_refs',
-undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'}
+undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
+# FIXME add a test without transliteration
 ['char_us_ascii_latin1_in_refs',
-undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'}
+undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['char_latin2_latin2_in_refs',
-undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'}
+undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['japanese_shift_jis',
 # test fails on solaris11 with recent Perl, with encoding errors.  Could
@@ -389,7 +398,9 @@ undef, {'test_file' => 'japanese_shift_jis.texi',
          ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,}
 ],
 ['sample_utf8',
-undef, {'test_file' => 'sample_utf8.texi'}
+undef, {'test_file' => 'sample_utf8.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['manual_simple_utf8_with_error',
 undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
@@ -408,15 +419,22 @@ undef, {'test_file' => 'multiple_include_encodings.texi',
 
 '.
 $at_commands_in_refs_text, 
-  {'full_document' => 1},
-  {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
+{'full_document' => 1},
+ # TEST => 1 triggers @today constant expansion for diffs
+{'TEST' => 1,
+ # interesting to test transliteration too
+ 'TRANSLITERATE_FILE_NAMES' => 1}],
 ['at_commands_in_refs_latin1',
 '@setfilename at_commands_in_refs_latin1.info
 @documentencoding ISO-8859-15
 
 '.
 $at_commands_in_refs_text, 
-{'full_document' => 1}, {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
+{'full_document' => 1},
+ # TEST => 1 triggers @today constant expansion for diffs
+{'TEST' => 1,
+ # interesting to test transliteration too
+ 'TRANSLITERATE_FILE_NAMES' => 1}],
 );
 
 my %info_tests = (
