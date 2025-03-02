@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'unnumbered_before_top'} = '*document_root C3
  *before_node_section
- *0 @unnumbered C2 l1
+ *0 @unnumbered C2 l1 {before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'unnumbered_before_top'} = '*document_root C3
     |{\\n}
     {before top}
   {empty_line:\\n}
- *1 @top C1 l3
+ *1 @top C1 l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }

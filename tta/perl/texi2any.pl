@@ -1998,8 +1998,10 @@ while(@input_files) {
                                             $input_file_names_encoding);
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
-      $printed_tree = "OUTPUT_ENCODING: $output_encoding\n"
-                     .Encode::encode($output_encoding, $printed_tree);
+      $printed_tree = Encode::encode($output_encoding, $printed_tree);
+      if ($output_encoding ne 'utf-8') {
+        $printed_tree = "OUTPUT_ENCODING: $output_encoding\n" .$printed_tree;
+      }
     }
     my $dump_structure = get_conf('DUMP_STRUCTURE');
     if (!defined($dump_structure) or $dump_structure eq '-') {

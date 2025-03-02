@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'double_node_anchor_float'} = '*document_root C5
  *before_node_section
- *0 @node C2 l1
+ *0 @node C2 l1 {node1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
     |{\\n}
     {node1}
   {empty_line:\\n}
- *1 @node C8 l3
+ *1 @node C8 l3 {node1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
     {anchor1}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *4 @node C8 l9
+ *4 @node C8 l9 {anchor1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'double_node_anchor_float'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
- *8 @node C1 l20
+ *8 @node C1 l20 {float1}
  |INFO
  |spaces_before_argument:
   |{ }

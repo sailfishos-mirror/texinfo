@@ -12,7 +12,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l4
+ *1 @top C4 l4 {for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -121,7 +121,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l11
+ *6 @node C1 l11 {node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -137,7 +137,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
    |spaces_after_argument:
     |{\\n}
     {node}
- *7 @chapter C2 l12
+ *7 @chapter C2 l12 {@xref{node,,title, file name, Manual}.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -172,7 +172,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
     {.}
   {empty_line:\\n}
- *9 @node C1 l14
+ *9 @node C1 l14 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -188,7 +188,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
    |spaces_after_argument:
     |{\\n}
     {chap}
- *10 @chapter C2 l15
+ *10 @chapter C2 l15 {@ref{node} just node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -212,7 +212,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {node}
     { just node}
   {empty_line:\\n}
- *12 @section C2 l17
+ *12 @section C2 l17 {for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -259,7 +259,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
     {)}
   {empty_line:\\n}
- *16 @section C2 l19
+ *16 @section C2 l19 {@ref{node, cross ref name}  node, crossref arg2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -285,7 +285,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {cross ref name}
     {  node, crossref arg2}
   {empty_line:\\n}
- *18 @section C2 l21
+ *18 @section C2 l21 {@ref{@code{node},, @samp{title}}  code node, samptitle arg3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -316,7 +316,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
         {title}
     {  code node, samptitle arg3}
   {empty_line:\\n}
- *22 @section C2 l23
+ *22 @section C2 l23 {@ref{@code{node},,, file name} code node, file name}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -345,7 +345,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
     { code node, file name}
   {empty_line:\\n}
- *25 @section C2 l25
+ *25 @section C2 l25 {@ref{node,,,, Manual } node and manual}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -375,7 +375,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
     { node and manual}
   {empty_line:\\n}
- *27 @section C2 l27
+ *27 @section C2 l27 {@ref{Top,,,, Manual } Top and manual}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -405,7 +405,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
     { Top and manual}
   {empty_line:\\n}
- *29 @section C2 l29
+ *29 @section C2 l29 {@ref{,,,, Manual } no node just manual}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -432,7 +432,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {Manual}
     { no node just manual}
   {empty_line:\\n}
- *31 @section C2 l31
+ *31 @section C2 l31 {@ref{,,, file name} no node just file name}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -456,7 +456,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
     { no node just file name}
   {empty_line:\\n}
- *33 @section C2 l33
+ *33 @section C2 l33 {@inforef{a, b, c} inforef a b c}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -486,7 +486,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {c}
     { inforef a b c}
   {empty_line:\\n}
- *35 @section C2 l35
+ *35 @section C2 l35 {(@pxref{ Top ,,, file name }) pxref Top file name, spaces}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -521,7 +521,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
     {) pxref Top file name, spaces}
   {empty_line:\\n}
- *37 @section C2 l37
+ *37 @section C2 l37 {(@pxref{,,, file name }) pxref file name only, spaces}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -548,7 +548,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {file name}
     {) pxref file name only, spaces}
   {empty_line:\\n}
- *39 @section C2 l39
+ *39 @section C2 l39 {@xref{Top,,,filename}, xref Top filename only, no spaces}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -572,7 +572,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
       {filename}
     {, xref Top filename only, no spaces}
   {empty_line:\\n}
- *41 @section C2 l41
+ *41 @section C2 l41 {@xref{,,,filename}. xref filename only, no spaces}
  |INFO
  |spaces_before_argument:
   |{ }

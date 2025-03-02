@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'item_index_transformation'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {chap}
- *1 @chapter C9 l2
+ *1 @chapter C9 l2 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

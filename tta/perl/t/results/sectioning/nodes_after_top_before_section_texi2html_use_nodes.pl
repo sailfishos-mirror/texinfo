@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1
+ *0 @node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 l8
+ *2 @node C4 l8 {chap node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
   *paragraph C1
    {second node\\n}
   {empty_line:\\n}
- *3 @node C1 l12
+ *3 @node C1 l12 {third node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes'} = '*docu
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @subsection C1 l13
+ *4 @subsection C1 l13 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }

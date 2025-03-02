@@ -58,7 +58,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
      |{\\n}
      {ja}
    {empty_line:\\n}
- *0 @node C1 japanese_shift_jis.texi:l8
+ *0 @node C1 japanese_shift_jis.texi:l8 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C9 japanese_shift_jis.texi:l9
+ *1 @top C9 japanese_shift_jis.texi:l9 {GNU LilyPond --- 学習マニュアル}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -177,7 +177,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 japanese_shift_jis.texi:l30
+ *7 @node C1 japanese_shift_jis.texi:l30 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -193,7 +193,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Preface}
- *8 @chapter C5 japanese_shift_jis.texi:l31
+ *8 @chapter C5 japanese_shift_jis.texi:l31 {Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -214,7 +214,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    {それは 1995 年のある日の EJE (Eindhoven Youth Orchestra) のリハーサル中のできごとでした − ある変わり者のバイオリン奏者であるジャンは同じく変わり者のフレンチホルン奏者のハン-ウェンに彼がかかわっている新しい大きなプロジェクトのことを話しました。それは音楽を出版するための自動化されたシステムです (正確には、それは MPP − MusiXTeX のプリプロセッサです)。それを聞いてハン-ウェンはすぐに楽譜からいくつかの部分をプリントアウトしたいと思い、彼はそのためのソフトウェアを探し始め、すぐにその虜になってしまいました。それが MPP の終わりを決定付けました。多くの哲学的考察を含み白熱した email の交換の後、ハン-ウェンは 1996 年に LilyPond の製作を開始しました。この時、ジャンはハン-ウェンの新しいプロジェクトに引きずり込まれました。\\n}
   {empty_line:\\n}
   {empty_line:\\n}
- *9 @node C1 japanese_shift_jis.texi:l36
+ *9 @node C1 japanese_shift_jis.texi:l36 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -230,7 +230,7 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *10 @chapter C4 japanese_shift_jis.texi:l37
+ *10 @chapter C4 japanese_shift_jis.texi:l37 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }

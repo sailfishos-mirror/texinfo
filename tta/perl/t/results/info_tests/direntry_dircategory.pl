@@ -119,7 +119,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
       {direntry}
    {empty_line:\\n}
    {empty_line:\\n}
- *4 @node C1 direntry_dircategory.texi:l19
+ *4 @node C1 direntry_dircategory.texi:l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -135,7 +135,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C8 direntry_dircategory.texi:l20
+ *5 @top C8 direntry_dircategory.texi:l20 {Test dircategory and direntry}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -229,7 +229,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 direntry_dircategory.texi:l32
+ *8 @node C1 direntry_dircategory.texi:l32 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -245,7 +245,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C4 direntry_dircategory.texi:l33
+ *9 @chapter C4 direntry_dircategory.texi:l33 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

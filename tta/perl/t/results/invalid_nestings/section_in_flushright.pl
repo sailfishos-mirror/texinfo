@@ -17,7 +17,7 @@ $result_tree_text{'section_in_flushright'} = '*document_root C2
    *paragraph C1
     {text flushed right\\n}
    {empty_line:\\n}
- *1 @section C1 l5
+ *1 @section C1 l5 {a section}
  |INFO
  |spaces_before_argument:
   |{ }

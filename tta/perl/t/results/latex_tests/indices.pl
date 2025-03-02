@@ -16,7 +16,7 @@ $result_tree_text{'indices'} = '*document_root C5
     {rawline_arg:txiindexbackslashignore}
     {rawline_arg:}
    {empty_line:\\n}
- *0 @node C1 l4
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l5
+ *1 @top C2 l5 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'indices'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 l7
+ *2 @node C1 l7 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C23 l8
+ *3 @chapter C23 l8 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -20,7 +20,7 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
    |spaces_after_argument:
     |{ }
     {entry}
- *1 @node C3 l2
+ *1 @node C3 l2 {a}
  |INFO
  |spaces_before_argument:
   |{ }

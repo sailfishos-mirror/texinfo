@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'menu'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

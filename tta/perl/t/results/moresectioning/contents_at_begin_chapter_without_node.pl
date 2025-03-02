@@ -12,7 +12,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4
+ *1 @top C2 l4 {contents at document begin}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'contents_at_begin_chapter_without_node'} = '*document_root C4
     |{\\n}
     {contents at document begin}
   {empty_line:\\n}
- *2 @chapter C1 l6
+ *2 @chapter C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -18,7 +18,7 @@ $result_tree_text{'print_merged_index'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {fn cp}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'print_merged_index'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C2 l3
+ *1 @node C2 l3 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

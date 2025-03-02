@@ -37,7 +37,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |global_command_number:{1}
    {rawline_arg:@arrow}
   {empty_line:\\n}
- *0 @node C46 l9
+ *0 @node C46 l9 {a}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -17,7 +17,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
     |{\\n}
     {out of any node}
   {empty_line:\\n}
- *1 @node C1 l3
+ *1 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l4
+ *2 @top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *3 @node C1 l6
+ *3 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'nodedescription'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C7 l7
+ *4 @chapter C7 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

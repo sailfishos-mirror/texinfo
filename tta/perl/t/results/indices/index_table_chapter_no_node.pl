@@ -11,7 +11,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 index_table.texi:l3
+ *0 @node C1 index_table.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 index_table.texi:l4
+ *1 @top C3 index_table.texi:l4 {Test for indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,7 +98,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 index_table.texi:l11
+ *3 @node C1 index_table.texi:l11 {node with ftable and vtable}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -114,7 +114,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {node with ftable and vtable}
- *4 @chapter C13 index_table.texi:l12
+ *4 @chapter C13 index_table.texi:l12 {first node chapter, with ftable and vtable}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -294,7 +294,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
      |{\\n}
      {ftable}
   {empty_line:\\n}
- *13 @node C1 index_table.texi:l36
+ *13 @node C1 index_table.texi:l36 {node with printindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -311,7 +311,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {node with printindex}
- *14 @chapter C6 index_table.texi:l37
+ *14 @chapter C6 index_table.texi:l37 {node with printindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -365,7 +365,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     |{\\n}
     {cp}
   {empty_line:\\n}
- *15 @node C1 index_table.texi:l43
+ *15 @node C1 index_table.texi:l43 {indices refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -383,7 +383,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {indices refs}
- *16 @chapter C135 index_table.texi:l44
+ *16 @chapter C135 index_table.texi:l44 {Indices refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -2110,7 +2110,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
     |{\\n}
     {cp}
   {empty_line:\\n}
- *146 @node C1 index_table.texi:l181
+ *146 @node C1 index_table.texi:l181 {node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -2128,7 +2128,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
    |INFO
    |spaces_after_argument:
     |{\\n}
- *147 @section C5 index_table.texi:l182
+ *147 @section C5 index_table.texi:l182 {node}
  |INFO
  |spaces_before_argument:
   |{ }

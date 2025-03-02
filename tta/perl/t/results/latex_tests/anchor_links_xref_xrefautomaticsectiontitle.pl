@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1
+ *0 @node C4 l1 {node before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node before}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C4 l7
+ *3 @top C4 l7 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node top}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *5 @node C4 l12
+ *5 @node C4 l12 {after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
      {anch: in node after}
    {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *7 @node C1 l17
+ *7 @node C1 l17 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -117,7 +117,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {chap}
- *8 @chapter C9 l18
+ *8 @chapter C9 l18 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

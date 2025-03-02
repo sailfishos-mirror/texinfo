@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
     {(}
     {dir}
     {)}
- *1 @top C6 l2
+ *1 @top C6 l2 {The top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ $result_tree_text{'top_node_up_explicit_no_nodes'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chap}
- *4 @chapter C3 l11
+ *4 @chapter C3 l11 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }

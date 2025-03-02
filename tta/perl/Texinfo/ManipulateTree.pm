@@ -691,8 +691,10 @@ sub print_element_details($$$$;$$)
   if (defined($element->{'type'})) {
     $result .= $element->{'type'};
   }
-  if (defined($element->{'cmdname'})) {
-    $result .= '@'.Texinfo::Common::debug_command_name($element->{'cmdname'});
+
+  my $cmdname = $element->{'cmdname'};
+  if (defined($cmdname)) {
+    $result .= '@'.Texinfo::Common::debug_command_name($cmdname);
   }
 
   my $contents_nr = 0;
@@ -705,6 +707,17 @@ sub print_element_details($$$$;$$)
 
   $result .= _print_element_source_info($element, $fname_encoding,
                                         $use_filename);
+
+  if (defined($cmdname) and $Texinfo::Commands::root_commands{$cmdname}) {
+    my $argument_line = $element->{'contents'}->[0];
+    if ($argument_line->{'contents'}
+        and $argument_line->{'contents'}->[0]->{'contents'}) {
+      my $root_command_texi
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
+             {'contents' => $argument_line->{'contents'}->[0]->{'contents'}});
+      $result .= " {${root_command_texi}}";
+    }
+  }
 
   $result .= "\n";
 

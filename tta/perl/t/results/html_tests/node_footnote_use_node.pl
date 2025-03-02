@@ -14,7 +14,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    *@c C1
     {rawline_arg: test footnotes with nodes only\\n}
    {empty_line:\\n}
- *0 @node C4 node_footnote.texi:l5
+ *0 @node C4 node_footnote.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,7 +98,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C4 node_footnote.texi:l14
+ *5 @node C4 node_footnote.texi:l14 {@\'a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -134,7 +134,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
         {a}
    {.\\n}
   {empty_line:\\n}
- *10 @node C4 node_footnote.texi:l19
+ *10 @node C4 node_footnote.texi:l19 {@^a}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -170,7 +170,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
         {a}
    {.\\n}
   {empty_line:\\n}
- *15 @node C1 node_footnote.texi:l24
+ *15 @node C1 node_footnote.texi:l24 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -187,7 +187,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *16 @chapter C4 node_footnote.texi:l25
+ *16 @chapter C4 node_footnote.texi:l25 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -238,7 +238,7 @@ $result_tree_text{'node_footnote_use_node'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *19 @node C4 node_footnote.texi:l31
+ *19 @node C4 node_footnote.texi:l31 {@`a}
  |INFO
  |spaces_before_argument:
   |{ }

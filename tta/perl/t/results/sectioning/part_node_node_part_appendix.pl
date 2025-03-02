@@ -15,7 +15,7 @@ Next: [U1]
 NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *3 @part C2 l9
+ *3 @part C2 l9 {Part 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -123,7 +123,7 @@ NodeBack: [U0]
     |{\\n}
     {Part 1}
   {empty_line:\\n}
- *4 @node C1 l11
+ *4 @node C1 l11 {chapter node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -140,7 +140,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {chapter node}
- *5 @chapter C2 l12
+ *5 @chapter C2 l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -167,7 +167,7 @@ FastBack: [U1]
 NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
- *6 @node C1 l14
+ *6 @node C1 l14 {appendix part}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -183,7 +183,7 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
     {appendix part}
- *7 @part C2 l15
+ *7 @part C2 l15 {Part Appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -200,7 +200,7 @@ NodeBack: [U1]
     |{\\n}
     {Part Appendix}
   {empty_line:\\n}
- *8 @appendix C1 l17
+ *8 @appendix C1 l17 {Appendix}
  |INFO
  |spaces_before_argument:
   |{ }

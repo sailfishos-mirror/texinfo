@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {section node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {section node}
- *1 @section C2 l2
+ *1 @section C2 l2 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
     |{ \\n}
     {section}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {chapter node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter node}
- *3 @chapter C4 l5
+ *3 @chapter C4 l5 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l11
+ *5 @node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -125,7 +125,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @top C4 l12
+ *6 @top C4 l12 {top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -35,7 +35,7 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *1 @node C1 l5
+ *1 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l6
+ *2 @top C2 l6 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *3 @node C1 l8
+ *3 @node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'titlepage_no_author'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C3 l9
+ *4 @chapter C3 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

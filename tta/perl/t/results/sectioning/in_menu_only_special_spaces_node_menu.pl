@@ -10,7 +10,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 in_menu_only_special_spaces_node.texi:l2
+ *0 @node C1 in_menu_only_special_spaces_node.texi:l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 in_menu_only_special_spaces_node.texi:l3
+ *1 @top C5 in_menu_only_special_spaces_node.texi:l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -126,7 +126,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
- *3 @node C1 in_menu_only_special_spaces_node.texi:l16
+ *3 @node C1 in_menu_only_special_spaces_node.texi:l16 {   }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -142,7 +142,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {   }
- *4 @chapter C2 in_menu_only_special_spaces_node.texi:l17
+ *4 @chapter C2 in_menu_only_special_spaces_node.texi:l17 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -167,7 +167,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |INFO
    |spaces_after_argument:
     |{ \\t\\f\\n}
- *6 @chapter C2 in_menu_only_special_spaces_node.texi:l20
+ *6 @chapter C2 in_menu_only_special_spaces_node.texi:l20 {CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -192,7 +192,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |INFO
    |spaces_after_argument:
     |{ '."\r".'\\n}
- *8 @chapter C2 in_menu_only_special_spaces_node.texi:l23
+ *8 @chapter C2 in_menu_only_special_spaces_node.texi:l23 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -209,7 +209,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
     |{\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
- *9 @node C1 in_menu_only_special_spaces_node.texi:l25
+ *9 @node C1 in_menu_only_special_spaces_node.texi:l25 {  }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -225,7 +225,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {  }
- *10 @chapter C2 in_menu_only_special_spaces_node.texi:l26
+ *10 @chapter C2 in_menu_only_special_spaces_node.texi:l26 {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -242,7 +242,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
     |{\\n}
     {NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |}
   {empty_line:\\n}
- *11 @node C1 in_menu_only_special_spaces_node.texi:l28
+ *11 @node C1 in_menu_only_special_spaces_node.texi:l28 {᠎ }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -258,7 +258,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {᠎ }
- *12 @chapter C2 in_menu_only_special_spaces_node.texi:l29
+ *12 @chapter C2 in_menu_only_special_spaces_node.texi:l29 {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -275,7 +275,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
     |{\\n}
     {MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |}
   {empty_line:\\n}
- *13 @node C1 in_menu_only_special_spaces_node.texi:l31
+ *13 @node C1 in_menu_only_special_spaces_node.texi:l31 {         　}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -291,7 +291,7 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
    |spaces_after_argument:
     |{\\n}
     {         　}
- *14 @chapter C6 in_menu_only_special_spaces_node.texi:l32
+ *14 @chapter C6 in_menu_only_special_spaces_node.texi:l32 {THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|}
  |INFO
  |spaces_before_argument:
   |{ }

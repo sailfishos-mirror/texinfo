@@ -39,7 +39,7 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
     {cp}
   {empty_line:\\n}
   {empty_line:\\n}
- *1 @unnumbered C8 index_no_node_no_top.texi:l8
+ *1 @unnumbered C8 index_no_node_no_top.texi:l8 {unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
- *4 @unnumbered C15 index_no_node_no_top.texi:l17
+ *4 @unnumbered C15 index_no_node_no_top.texi:l17 {top (chapter) section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -228,7 +228,7 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
     {top section1}
   {empty_line:\\n}
   {empty_line:\\n}
- *12 @section C7 index_no_node_no_top.texi:l32
+ *12 @section C7 index_no_node_no_top.texi:l32 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -293,7 +293,7 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {cp}
- *15 @chapter C6 index_no_node_no_top.texi:l40
+ *15 @chapter C6 index_no_node_no_top.texi:l40 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -348,7 +348,7 @@ $result_tree_text{'index_no_node_no_top_no_node'} = '*document_root C7
      |{\\n}
      {Chapter2}
   {empty_line:\\n}
- *18 @chapter C4 index_no_node_no_top.texi:l47
+ *18 @chapter C4 index_no_node_no_top.texi:l47 {Chapter 2}
  |INFO
  |spaces_before_argument:
   |{ }

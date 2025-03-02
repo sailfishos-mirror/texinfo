@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2
+ *1 @top C6 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l13
+ *3 @node C1 l13 {Dedication}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -125,7 +125,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Dedication}
- *4 @unnumbered C4 l14
+ *4 @unnumbered C4 l14 {a dedication}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -144,7 +144,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   *paragraph C1
    {Dedicated\\n}
   {empty_line:\\n}
- *5 @node C1 l18
+ *5 @node C1 l18 {preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -160,7 +160,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {preface}
- *6 @unnumbered C4 l19
+ *6 @unnumbered C4 l19 {The Preface}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -179,7 +179,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   *paragraph C1
    {Preface.\\n}
   {empty_line:\\n}
- *7 @node C1 l23
+ *7 @node C1 l23 {colophon}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -195,7 +195,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {colophon}
- *8 @unnumbered C4 l24
+ *8 @unnumbered C4 l24 {A colophon}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -214,7 +214,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
   *paragraph C1
    {Glossary\\n}
   {empty_line:\\n}
- *9 @node C1 l28
+ *9 @node C1 l28 {acknowledgements}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -230,7 +230,7 @@ $result_tree_text{'special_docbook_unnumbered'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {acknowledgements}
- *10 @chapter C3 l29
+ *10 @chapter C3 l29 {A chapter Acnkowledgements}
  |INFO
  |spaces_before_argument:
   |{ }

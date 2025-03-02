@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'quotation_in_ref'} = '*document_root C2
  *before_node_section
- *0 @node C5 l1
+ *0 @node C5 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }

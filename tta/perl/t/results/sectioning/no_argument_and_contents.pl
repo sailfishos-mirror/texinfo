@@ -13,7 +13,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @top C2 l3
+ *0 @top C2 l3 {for example}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'no_argument_and_contents'} = '*document_root C3
     |{\\n}
     {for example}
   {empty_line:\\n}
- *1 @chapter C2 l5
+ *1 @chapter C2 l5 {@asis{}}
  |INFO
  |spaces_before_argument:
   |{ }

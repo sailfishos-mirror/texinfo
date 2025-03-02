@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'one_node_explicit_directions_anchor'} = '*document_root C2
  *before_node_section
- *0 @node C6 l1
+ *0 @node C6 l1 {one node}
  |INFO
  |spaces_before_argument:
   |{ }

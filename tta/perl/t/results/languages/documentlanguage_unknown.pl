@@ -61,7 +61,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
      |{\\n}
      {pt}
    {empty_line:\\n}
- *0 @node C1 documentlanguage.texi:l24
+ *0 @node C1 documentlanguage.texi:l24 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -76,7 +76,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 documentlanguage.texi:l25
+ *1 @top C2 documentlanguage.texi:l25 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 documentlanguage.texi:l27
+ *2 @node C1 documentlanguage.texi:l27 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -113,7 +113,7 @@ $result_tree_text{'documentlanguage_unknown'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C8 documentlanguage.texi:l28
+ *3 @chapter C8 documentlanguage.texi:l28 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

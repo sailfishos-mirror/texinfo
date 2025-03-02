@@ -45,7 +45,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      |{\\n}
      {macro}
   {empty_line:\\n}
- *2 @node C1 l9
+ *2 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     {Top}
     >SOURCEMARKS
     >macro_expansion<end;1><p:3>
- *3 @top C127 l10
+ *3 @top C127 l10 {top atext}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1514,7 +1514,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *44 @node C1 l203
+ *44 @node C1 l203 {node atext}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1537,7 +1537,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
      >|command_name:{text}
       >*brace_arg
     >macro_expansion<end;48><p:10>
- *45 @chapter C9 l204
+ *45 @chapter C9 l204 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

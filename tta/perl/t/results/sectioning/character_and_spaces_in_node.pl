@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C1 l3
+ *1 @node C1 l3 {chap nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *2 @node C1 l4
+ *2 @node C1 l4 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |node_content:{chap nodes}
    |normalized:{chap-nodes}
     {chap nodes}
- *3 @node C1 l5
+ *3 @node C1 l5 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'character_and_spaces_in_node'} = '*document_root C6
    |node_content:{chap nodes}
    |normalized:{chap-nodes}
     {chap nodes}
- *4 @node C1 l6
+ *4 @node C1 l6 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }

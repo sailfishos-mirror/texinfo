@@ -9,7 +9,7 @@ $result_tree_text{'loweredheading'} = '*document_root C3
  *before_node_section C1
   *@lowersections C1
    {rawline_arg:\\n}
- *0 @section C2 l2
+ *0 @section C2 l2 {Foo}
  |INFO
  |spaces_before_argument:
   |{ }

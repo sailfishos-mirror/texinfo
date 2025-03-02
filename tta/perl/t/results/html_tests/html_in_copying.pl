@@ -48,7 +48,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *2 @node C1 l10
+ *2 @node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'html_in_copying'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l11
+ *3 @top C2 l11 {top}
  |INFO
  |spaces_before_argument:
   |{ }

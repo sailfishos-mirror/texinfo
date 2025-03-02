@@ -75,7 +75,7 @@ $result_tree_text{'before_node_and_section'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l11
+ *5 @node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'before_node_and_section'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @top C6 l12
+ *6 @top C6 l12 {top @@top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -163,7 +163,7 @@ $result_tree_text{'before_node_and_section'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @node C1 l20
+ *10 @node C1 l20 {node1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'before_node_and_section'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {node1}
- *11 @chapter C4 l21
+ *11 @chapter C4 l21 {node1 chapter}
  |INFO
  |spaces_before_argument:
   |{ }

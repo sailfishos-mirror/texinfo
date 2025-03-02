@@ -36,7 +36,7 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *2 @top C1 l6
+ *2 @top C1 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {top}
- *3 @node C2 l7
+ *3 @node C2 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
     |{\\n}
     {Top}
   {empty_line:\\n}
- *4 @chapter C1 l9
+ *4 @chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'anchor_in_titlepage_titlepage'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *5 @node C3 l10
+ *5 @node C3 l10 {nchap}
  |INFO
  |spaces_before_argument:
   |{ }

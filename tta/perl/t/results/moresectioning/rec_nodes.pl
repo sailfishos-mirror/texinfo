@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'rec_nodes'} = '*document_root C6
  *before_node_section
- *0 @node C5 l1
+ *0 @node C5 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 l9
+ *2 @node C4 l9 {chap node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -133,7 +133,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C4 l16
+ *4 @node C4 l16 {other node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -186,7 +186,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C5 l22
+ *6 @node C5 l22 {node up node following second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -241,7 +241,7 @@ $result_tree_text{'rec_nodes'} = '*document_root C6
   *paragraph C1
    {in node up node following second\\n}
   {empty_line:\\n}
- *8 @node C4 l29
+ *8 @node C4 l29 {node following second}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -30,7 +30,7 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l5
+ *2 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l6
+ *3 @top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'today_in_copying'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C3 l8
+ *4 @node C3 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

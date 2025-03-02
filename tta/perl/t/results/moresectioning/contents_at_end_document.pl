@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'contents_at_end_document'} = '*document_root C4
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2
+ *1 @top C2 l2 {contents at end document}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'contents_at_end_document'} = '*document_root C4
     |{ \\n}
     {contents at end document}
   {empty_line:\\n}
- *2 @chapter C3 l4
+ *2 @chapter C3 l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

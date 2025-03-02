@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {node! After punc}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {node! After punc}
- *1 @top C25 l3
+ *1 @top C25 l3 {top! After punc}
  |INFO
  |spaces_before_argument:
   |{ }

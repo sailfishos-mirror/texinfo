@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C7 l2
+ *1 @top C7 l2 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
     |{\\n}
     {2}
   {empty_line:\\n}
- *3 @node C1 l9
+ *3 @node C1 l9 {next node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'informative_commands_in_top_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {next node}
- *4 @chapter C3 l10
+ *4 @chapter C3 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

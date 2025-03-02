@@ -21,7 +21,7 @@ $result_tree_text{'unknown_encoding'} = '*document_root C2
     |{\\n}
     {ggg}
   {empty_line:\\n}
- *0 @node C2 l4
+ *0 @node C2 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

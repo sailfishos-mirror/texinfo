@@ -238,7 +238,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
      |{ \\n}
      {things_before_setfilename.info}
    {empty_line:\\n}
- *12 @node C1 things_before_setfilename.texi:l46
+ *12 @node C1 things_before_setfilename.texi:l46 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -253,7 +253,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *13 @top C2 things_before_setfilename.texi:l47
+ *13 @top C2 things_before_setfilename.texi:l47 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -274,7 +274,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *14 @node C1 things_before_setfilename.texi:l49
+ *14 @node C1 things_before_setfilename.texi:l49 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -289,7 +289,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *15 @chapter C6 things_before_setfilename.texi:l50
+ *15 @chapter C6 things_before_setfilename.texi:l50 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

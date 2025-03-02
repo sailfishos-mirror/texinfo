@@ -37,7 +37,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l5
+ *2 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l6
+ *3 @top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C1 l8
+ *4 @node C1 l8 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -88,7 +88,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *5 @chapter C7 l9
+ *5 @chapter C7 l9 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

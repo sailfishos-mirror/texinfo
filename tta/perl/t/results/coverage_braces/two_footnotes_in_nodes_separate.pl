@@ -19,7 +19,7 @@ $result_tree_text{'two_footnotes_in_nodes_separate'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
      {separate}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'two_footnotes_in_nodes_separate'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 l3
+ *1 @top C8 l3 {2 footnotes in 2 nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -111,7 +111,7 @@ $result_tree_text{'two_footnotes_in_nodes_separate'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l17
+ *5 @node C1 l17 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ $result_tree_text{'two_footnotes_in_nodes_separate'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C6 l18
+ *6 @chapter C6 l18 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

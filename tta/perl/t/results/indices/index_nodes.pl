@@ -11,7 +11,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C13 index_nodes.texi:l3
+ *0 @node C13 index_nodes.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C7 index_nodes.texi:l18
+ *3 @node C7 index_nodes.texi:l18 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -239,7 +239,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C5 index_nodes.texi:l31
+ *9 @node C5 index_nodes.texi:l31 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -316,7 +316,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {fn}
   {empty_line:\\n}
- *11 @node C6 index_nodes.texi:l39
+ *11 @node C6 index_nodes.texi:l39 {another}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -391,7 +391,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {another}
   {empty_line:\\n}
- *15 @node C10 index_nodes.texi:l45
+ *15 @node C10 index_nodes.texi:l45 {a node}
  |INFO
  |spaces_before_argument:
   |{ }

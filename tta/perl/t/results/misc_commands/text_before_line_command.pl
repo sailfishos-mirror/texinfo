@@ -21,7 +21,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
   {empty_line:\\n}
   *paragraph C1
    {i}
- *0 @node C2 l3
+ *0 @node C2 l3 {LD Version Scripts}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
     {LD Version Scripts}
   *paragraph C1
    {--- }
- *1 @chapter C6 l4
+ *1 @chapter C6 l4 {LD Version Scripts}
  |INFO
  |spaces_before_argument:
   |{ }

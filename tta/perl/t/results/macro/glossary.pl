@@ -99,7 +99,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       |{\\n}
       {macro}
    {empty_line:\\n}
- *3 @node C1 glossary.texi:l35
+ *3 @node C1 glossary.texi:l35 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -115,7 +115,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C6 glossary.texi:l36
+ *4 @top C6 glossary.texi:l36 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -428,7 +428,7 @@ $result_tree_text{'glossary'} = '*document_root C5
       >macro_expansion<end;4><p:5>
    { is quite specific\\n}
   {empty_line:\\n}
- *12 @node C1 glossary.texi:l45
+ *12 @node C1 glossary.texi:l45 {glossary}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -444,7 +444,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {glossary}
- *13 @chapter C6 glossary.texi:l46
+ *13 @chapter C6 glossary.texi:l46 {glossary}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2
+ *1 @top C5 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
     *brace_container C2
      {not closed\\n}
      {empty_line:\\n}
- *4 @node C1 l10
+ *4 @node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'style_not_closed_root_commands'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *5 @chapter C3 l11
+ *5 @chapter C3 l11 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

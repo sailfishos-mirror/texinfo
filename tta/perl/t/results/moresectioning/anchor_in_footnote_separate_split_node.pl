@@ -19,7 +19,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
      {separate}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l3
+ *1 @top C6 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l13
+ *5 @node C1 l13 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ $result_tree_text{'anchor_in_footnote_separate_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C3 l14
+ *6 @chapter C3 l14 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

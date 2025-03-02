@@ -49,7 +49,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
       |{\\n}
       {copying}
    {empty_line:\\n}
- *3 @node C2 l10
+ *3 @node C2 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *4 @node C8 l12
+ *4 @node C8 l12 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

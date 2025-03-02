@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l3
+ *1 @top C4 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -114,7 +114,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *16 @node C1 l9
+ *16 @node C1 l9 {A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -170,7 +170,7 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
     { }
     *29 @exclamdown C1 l9
      *brace_container
- *30 @chapter C5 l10
+ *30 @chapter C5 l10 {A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}
  |INFO
  |spaces_before_argument:
   |{  }

@@ -16,7 +16,7 @@ NodeNext: [U0]
 NodeForward: [U0]
 NodeBack: [U0]
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -81,7 +81,7 @@ NodeBack: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l8
+ *3 @node C1 l8 {chap part node after top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ This: [U1]
 Back: [U0]
 FastBack: [U0]
 Prev: [U0]
- *4 @part C1 l9
+ *4 @part C1 l9 {part}
  |INFO
  |spaces_before_argument:
   |{ }

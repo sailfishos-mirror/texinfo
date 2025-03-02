@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'empty_caption'} = '*document_root C2
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C5 l2
+ *0 @node C5 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

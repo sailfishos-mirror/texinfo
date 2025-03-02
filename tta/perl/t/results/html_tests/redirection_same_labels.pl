@@ -15,7 +15,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {the top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -115,7 +115,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U1]
 NodeBack: [U0]
- *3 @node C1 l12
+ *3 @node C1 l12 {umlaut}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {umlaut}
- *4 @chapter C4 l13
+ *4 @chapter C4 l13 {umlaut}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -195,7 +195,7 @@ NodeBack: [U0]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C2 l20
+ *9 @node C2 l20 {@"i}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -213,7 +213,7 @@ NodeBack: [U0]
      *following_arg C1
       {i}
   {empty_line:\\n}
- *11 @node C2 l22
+ *11 @node C2 l22 {@~{@dotless{i}}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -245,7 +245,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U2]
- *14 @node C1 l24
+ *14 @node C1 l24 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -262,7 +262,7 @@ NodeBack: [U2]
    |spaces_after_argument:
     |{\\n}
     {circumflex}
- *15 @chapter C4 l25
+ *15 @chapter C4 l25 {circumflex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -310,7 +310,7 @@ NodeBack: [U2]
      |{\\n}
      {menu}
   {empty_line:\\n}
- *18 @node C1 l31
+ *18 @node C1 l31 {@^i}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -147,7 +147,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *10 @section C5 l30
+ *10 @section C5 l30 {section}
  |INFO
  |spaces_before_argument:
   |{ }

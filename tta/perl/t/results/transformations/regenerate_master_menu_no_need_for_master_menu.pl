@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'regenerate_master_menu_no_need_for_master_menu'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'regenerate_master_menu_no_need_for_master_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'regenerate_master_menu_no_need_for_master_menu'} = '*document
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l8
+ *3 @node C1 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'regenerate_master_menu_no_need_for_master_menu'} = '*document
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C1 l9
+ *4 @chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

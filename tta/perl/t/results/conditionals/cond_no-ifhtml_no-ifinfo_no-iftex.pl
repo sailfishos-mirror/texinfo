@@ -79,7 +79,7 @@ $result_tree_text{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '*document_root C5
       >|{\\n}
       >{ifnothtml}
   {empty_line:\\n}
- *1 @node C1 cond.texi:l17
+ *1 @node C1 cond.texi:l17 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 cond.texi:l18
+ *2 @top C2 cond.texi:l18 {conditionals}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -113,7 +113,7 @@ $result_tree_text{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '*document_root C5
     |{\\n}
     {conditionals}
   {empty_line:\\n}
- *3 @node C12 cond.texi:l20
+ *3 @node C12 cond.texi:l20 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

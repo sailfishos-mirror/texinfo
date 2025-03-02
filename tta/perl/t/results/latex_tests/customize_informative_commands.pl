@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'customize_informative_commands'} = '*document_root C2
  *before_node_section C1
   *preamble_before_content
- *0 @chapter C1 l1
+ *0 @chapter C1 l1 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

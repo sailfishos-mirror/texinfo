@@ -38,7 +38,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *1 @node C1 l6
+ *1 @node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l7
+ *2 @top C2 l7 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *3 @node C1 l9
+ *3 @node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C3 l10
+ *4 @chapter C3 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

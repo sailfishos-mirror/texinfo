@@ -55,7 +55,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
       *brace_container C1
        *@thischaptername
    {empty_line:\\n}
- *1 @node C1 l5
+ *1 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l6
+ *2 @top C2 l6 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
     |{\\n}
     {top sectionning}
   {empty_line:\\n}
- *3 @node C1 l8
+ *3 @node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C10 l9
+ *4 @chapter C10 l9 {ch--ap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -136,7 +136,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   *paragraph C1
    {after ch--ap second page\\n}
   {empty_line:\\n}
- *5 @section C2 l19
+ *5 @section C2 l19 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -151,7 +151,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
     |{\\n}
     {sec1}
   {empty_line:\\n}
- *6 @chapter C12 l21
+ *6 @chapter C12 l21 {chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,7 +191,7 @@ $result_tree_text{'custom_headings'} = '*document_root C8
   *paragraph C1
    {after everyheading before chap 3 second page\\n}
   {empty_line:\\n}
- *7 @chapter C6 l33
+ *7 @chapter C6 l33 {chap 3}
  |INFO
  |spaces_before_argument:
   |{ }

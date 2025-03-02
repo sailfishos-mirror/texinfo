@@ -13,7 +13,7 @@ $result_tree_text{'button_replacement_and_direction_customization'} = '*document
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'button_replacement_and_direction_customization'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4
+ *1 @top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'button_replacement_and_direction_customization'} = '*document
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'button_replacement_and_direction_customization'} = '*document
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C1 l7
+ *3 @chapter C1 l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

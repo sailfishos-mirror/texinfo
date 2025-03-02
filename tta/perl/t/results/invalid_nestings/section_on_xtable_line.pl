@@ -18,7 +18,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
      *1 @asis
      |INFO
      |inserted:{1}
- *2 @section C3 l1
+ *2 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
      |INFO
      |inserted:{1}
      *5 @TeX l3
- *6 @section C3 l3
+ *6 @section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
     |spaces_after_argument:
      |{ }
      *8 @code l5
- *9 @section C3 l5
+ *9 @section C3 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -113,7 +113,7 @@ $result_tree_text{'section_on_xtable_line'} = '*document_root C5
      |INFO
      |spaces_after_cmd_before_arg:
       |{ }
- *13 @section C1 l7
+ *13 @section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:
   |{ }

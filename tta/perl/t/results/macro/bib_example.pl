@@ -601,7 +601,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    *@comment C1
     {rawline_arg: %**end of header\\n}
    {empty_line:\\n}
- *7 @node C1 bib-example.texi:l30
+ *7 @node C1 bib-example.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -617,7 +617,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *8 @top C4 bib-example.texi:l31
+ *8 @top C4 bib-example.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -693,7 +693,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @node C1 bib-example.texi:l39
+ *10 @node C1 bib-example.texi:l39 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -709,7 +709,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Introduction}
- *11 @chapter C4 bib-example.texi:l40
+ *11 @chapter C4 bib-example.texi:l40 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -828,7 +828,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {, isn\'t\\n}
    {currently supported in Texinfo.\\n}
   {empty_line:\\n}
- *13 @node C1 bib-example.texi:l46
+ *13 @node C1 bib-example.texi:l46 {References}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -857,7 +857,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >SOURCEMARKS
     >value_expansion<end;3><p:10>
     >macro_expansion<end;7><p:10>
- *14 @chapter C4 bib-example.texi:l47
+ *14 @chapter C4 bib-example.texi:l47 {References}
  |INFO
  |spaces_before_argument:
   |{ }

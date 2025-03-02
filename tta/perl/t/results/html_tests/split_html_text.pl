@@ -14,7 +14,7 @@ FastForward: [U1]
 NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C3 l2
+ *1 @top C3 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ Up: [U0]
 NodePrev: [U0]
 NodeUp: [U0]
 NodeBack: [U0]
- *2 @node C1 l5
+ *2 @node C1 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C1 l6
+ *3 @chapter C1 l6 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

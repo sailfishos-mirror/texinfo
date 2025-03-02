@@ -17,7 +17,7 @@ NodePrev: (dir)
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 complex_sectioning_case.texi:l1
+ *0 @node C1 complex_sectioning_case.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -158,7 +158,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *3 @node C1 complex_sectioning_case.texi:l12
+ *3 @node C1 complex_sectioning_case.texi:l12 {First node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -186,7 +186,7 @@ NodeBack: [U0]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @chapter C5 complex_sectioning_case.texi:l13
+ *4 @chapter C5 complex_sectioning_case.texi:l13 {first node chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -274,7 +274,7 @@ NodeNext: [U7]
 NodeUp: [U1]
 NodeForward: [U3]
 NodeBack: [U1]
- *6 @node C1 complex_sectioning_case.texi:l23
+ *6 @node C1 complex_sectioning_case.texi:l23 {unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -291,7 +291,7 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
     {unnumbered}
- *7 @unnumberedsec C4 complex_sectioning_case.texi:l24
+ *7 @unnumberedsec C4 complex_sectioning_case.texi:l24 {unnumbered section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -383,7 +383,7 @@ NodeNext: [U4]
 NodeUp: [U2]
 NodeForward: [U4]
 NodeBack: [U2]
- *9 @node C1 complex_sectioning_case.texi:l33
+ *9 @node C1 complex_sectioning_case.texi:l33 {unnumbered sub}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -399,7 +399,7 @@ NodeBack: [U2]
    |spaces_after_argument:
     |{\\n}
     {unnumbered sub}
- *10 @unnumberedsubsec C2 complex_sectioning_case.texi:l34
+ *10 @unnumberedsubsec C2 complex_sectioning_case.texi:l34 {unnumbered subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -430,7 +430,7 @@ NodePrev: [U3]
 NodeUp: [U2]
 NodeForward: [U5]
 NodeBack: [U3]
- *11 @node C1 complex_sectioning_case.texi:l36
+ *11 @node C1 complex_sectioning_case.texi:l36 {numbered sub}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -446,7 +446,7 @@ NodeBack: [U3]
    |spaces_after_argument:
     |{\\n}
     {numbered sub}
- *12 @subsection C2 complex_sectioning_case.texi:l37
+ *12 @subsection C2 complex_sectioning_case.texi:l37 {numbered subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -477,7 +477,7 @@ NodePrev: [U4]
 NodeUp: [U2]
 NodeForward: [U6]
 NodeBack: [U4]
- *13 @node C1 complex_sectioning_case.texi:l39
+ *13 @node C1 complex_sectioning_case.texi:l39 {unnumbered sub2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -493,7 +493,7 @@ NodeBack: [U4]
    |spaces_after_argument:
     |{\\n}
     {unnumbered sub2}
- *14 @unnumberedsubsec C2 complex_sectioning_case.texi:l40
+ *14 @unnumberedsubsec C2 complex_sectioning_case.texi:l40 {unnumbered subsection2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -522,7 +522,7 @@ NodePrev: [U5]
 NodeUp: [U2]
 NodeForward: [U7]
 NodeBack: [U5]
- *15 @node C1 complex_sectioning_case.texi:l42
+ *15 @node C1 complex_sectioning_case.texi:l42 {numbered sub2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -538,7 +538,7 @@ NodeBack: [U5]
    |spaces_after_argument:
     |{\\n}
     {numbered sub2}
- *16 @subsection C2 complex_sectioning_case.texi:l43
+ *16 @subsection C2 complex_sectioning_case.texi:l43 {numbered subsection2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -569,7 +569,7 @@ NodePrev: [U2]
 NodeUp: [U1]
 NodeForward: [U8]
 NodeBack: [U6]
- *17 @node C1 complex_sectioning_case.texi:l45
+ *17 @node C1 complex_sectioning_case.texi:l45 {unnumbered2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -586,7 +586,7 @@ NodeBack: [U6]
    |spaces_after_argument:
     |{\\n}
     {unnumbered2}
- *18 @unnumberedsec C4 complex_sectioning_case.texi:l46
+ *18 @unnumberedsec C4 complex_sectioning_case.texi:l46 {unnumbered section2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -643,7 +643,7 @@ Up: [U7]
 NodeUp: [U7]
 NodeForward: [U9]
 NodeBack: [U7]
- *20 @node C1 complex_sectioning_case.texi:l52
+ *20 @node C1 complex_sectioning_case.texi:l52 {numbered sub3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -659,7 +659,7 @@ NodeBack: [U7]
    |spaces_after_argument:
     |{\\n}
     {numbered sub3}
- *21 @subsection C3 complex_sectioning_case.texi:l53
+ *21 @subsection C3 complex_sectioning_case.texi:l53 {numbered subsection3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -688,7 +688,7 @@ Up: [U1]
 NodePrev: [U7]
 NodeUp: [U1]
 NodeBack: [U8]
- *22 @node C1 complex_sectioning_case.texi:l56
+ *22 @node C1 complex_sectioning_case.texi:l56 {numbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -704,7 +704,7 @@ NodeBack: [U8]
    |spaces_after_argument:
     |{\\n}
     {numbered}
- *23 @section C2 complex_sectioning_case.texi:l57
+ *23 @section C2 complex_sectioning_case.texi:l57 {numbered section}
  |INFO
  |spaces_before_argument:
   |{  }
@@ -720,7 +720,7 @@ NodeBack: [U8]
     |{\\n}
     {numbered section}
   {empty_line:\\n}
- *24 @node C4 complex_sectioning_case.texi:l59
+ *24 @node C4 complex_sectioning_case.texi:l59 {between node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -760,7 +760,7 @@ Up: [U0]
 NodeNext: [U11]
 NodeUp: [U0]
 NodeForward: [U11]
- *25 @node C4 complex_sectioning_case.texi:l63
+ *25 @node C4 complex_sectioning_case.texi:l63 {Second node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -791,7 +791,7 @@ NodeForward: [U11]
   *paragraph C1
    {Second node text\\n}
   {empty_line:\\n}
- *26 @chapter C4 complex_sectioning_case.texi:l67
+ *26 @chapter C4 complex_sectioning_case.texi:l67 {second node chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -827,7 +827,7 @@ NodePrev: [U10]
 NodeUp: [U0]
 NodeForward: [U12]
 NodeBack: [U10]
- *27 @node C1 complex_sectioning_case.texi:l71
+ *27 @node C1 complex_sectioning_case.texi:l71 {Third node unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -843,7 +843,7 @@ NodeBack: [U10]
    |spaces_after_argument:
     |{\\n}
     {Third node unnumbered}
- *28 @unnumbered C4 complex_sectioning_case.texi:l72
+ *28 @unnumbered C4 complex_sectioning_case.texi:l72 {unnumbered chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -875,7 +875,7 @@ NodePrev: [U12]
 NodeUp: [U0]
 NodeForward: [U11]
 NodeBack: [U11]
- *29 @node C1 complex_sectioning_case.texi:l76
+ *29 @node C1 complex_sectioning_case.texi:l76 {continuity}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -914,7 +914,7 @@ NodeBack: [U11]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *30 @unnumbered C4 complex_sectioning_case.texi:l77
+ *30 @unnumbered C4 complex_sectioning_case.texi:l77 {unnumbered continuity}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -934,7 +934,7 @@ NodeBack: [U11]
    {Unumbered and node needed for continuity between automatic \\n}
    {directions and lone node.\\n}
   {empty_line:\\n}
- *31 @node C3 complex_sectioning_case.texi:l82
+ *31 @node C3 complex_sectioning_case.texi:l82 {Last node no description}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
  *before_node_section
- *0 @node C4 l1
+ *0 @node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -78,7 +78,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C2 l9
+ *3 @node C2 l9 {@ @ }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -90,7 +90,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
     *@ 
     *@ 
   {empty_line:\\n}
- *4 @node C2 l11
+ *4 @node C2 l11 {@verb{:  :}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'spaces_in_empty_node_names'} = '*document_root C5
      *brace_container C1
       {raw:  }
   {empty_line:\\n}
- *6 @node C7 l13
+ *6 @node C7 l13 {@w{  }}
  |INFO
  |spaces_before_argument:
   |{ }

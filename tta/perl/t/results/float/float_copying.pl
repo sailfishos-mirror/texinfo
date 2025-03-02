@@ -164,7 +164,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *11 @node C1 l26
+ *11 @node C1 l26 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *12 @top C6 l27
+ *12 @top C6 l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -235,7 +235,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *14 @node C1 l35
+ *14 @node C1 l35 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -252,7 +252,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Copying and floats}
- *15 @appendix C9 l36
+ *15 @appendix C9 l36 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }

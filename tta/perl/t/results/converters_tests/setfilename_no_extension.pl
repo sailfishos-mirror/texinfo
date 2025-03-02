@@ -20,7 +20,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
      |{\\n}
      {setfilename_no_extension}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4
+ *1 @top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C3 l6
+ *2 @node C3 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

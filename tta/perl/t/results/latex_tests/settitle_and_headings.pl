@@ -33,7 +33,7 @@ $result_tree_text{'settitle_and_headings'} = '*document_root C2
      |{\\n}
      {double}
    {empty_line:\\n}
- *0 @chapter C9 l5
+ *0 @chapter C9 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

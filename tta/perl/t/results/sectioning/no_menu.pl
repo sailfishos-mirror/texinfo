@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'no_menu'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {c1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {c1}
- *3 @chapter C2 l5
+ *3 @chapter C2 l5 {c1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
     |{\\n}
     {c1}
   {empty_line:\\n}
- *4 @node C1 l7
+ *4 @node C1 l7 {c2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {c2}
- *5 @chapter C2 l8
+ *5 @chapter C2 l8 {c2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
     |{\\n}
     {c2}
   {empty_line:\\n}
- *6 @node C1 l10
+ *6 @node C1 l10 {c3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ $result_tree_text{'no_menu'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {c3}
- *7 @chapter C1 l11
+ *7 @chapter C1 l11 {c3}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -67,7 +67,7 @@ $result_tree_text{'printindex_index_entry_in_copying_in_footnote'} = '*document_
       |{\\n}
       {copying}
    {empty_line:\\n}
- *3 @node C1 l13
+ *3 @node C1 l13 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -83,7 +83,7 @@ $result_tree_text{'printindex_index_entry_in_copying_in_footnote'} = '*document_
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C7 l14
+ *4 @top C7 l14 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -140,7 +140,7 @@ $result_tree_text{'printindex_index_entry_in_copying_in_footnote'} = '*document_
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l23
+ *6 @node C1 l23 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'printindex_index_entry_in_copying_in_footnote'} = '*document_
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *7 @chapter C4 l24
+ *7 @chapter C4 l24 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

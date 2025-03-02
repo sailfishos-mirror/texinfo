@@ -10,7 +10,7 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
   *0 @cartouche C1 l1
    *arguments_line C1
     *block_line_arg
- *1 @section C3 l1
+ *1 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'section_on_cartouche_line'} = '*document_root C3
    |{ }
    *arguments_line C1
     *block_line_arg
- *3 @section C1 l3
+ *3 @section C1 l3 {second spaces}
  |INFO
  |spaces_before_argument:
   |{ }

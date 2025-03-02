@@ -11,7 +11,7 @@ $result_tree_text{'index_entries_relate_to_item_transformation'} = '*document_ro
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 index_entries_relate_to_item.texi:l3
+ *0 @node C1 index_entries_relate_to_item.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'index_entries_relate_to_item_transformation'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 index_entries_relate_to_item.texi:l4
+ *1 @top C2 index_entries_relate_to_item.texi:l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'index_entries_relate_to_item_transformation'} = '*document_ro
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 index_entries_relate_to_item.texi:l6
+ *2 @node C1 index_entries_relate_to_item.texi:l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -63,7 +63,7 @@ $result_tree_text{'index_entries_relate_to_item_transformation'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C6 index_entries_relate_to_item.texi:l7
+ *3 @chapter C6 index_entries_relate_to_item.texi:l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

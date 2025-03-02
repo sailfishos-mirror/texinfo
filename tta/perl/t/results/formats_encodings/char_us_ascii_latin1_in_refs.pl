@@ -25,7 +25,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
      |{\\n}
      {US-ASCII}
    {empty_line:\\n}
- *0 @node C1 char_us_ascii_latin1_in_refs.texi:l5
+ *0 @node C1 char_us_ascii_latin1_in_refs.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 char_us_ascii_latin1_in_refs.texi:l6
+ *1 @top C6 char_us_ascii_latin1_in_refs.texi:l6 {accented char in latin1 in refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -149,7 +149,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 char_us_ascii_latin1_in_refs.texi:l18
+ *3 @node C1 char_us_ascii_latin1_in_refs.texi:l18 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
- *4 @chapter C2 char_us_ascii_latin1_in_refs.texi:l19
+ *4 @chapter C2 char_us_ascii_latin1_in_refs.texi:l19 {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -182,7 +182,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     |{\\n}
     {ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}
   {empty_line:\\n}
- *5 @node C1 char_us_ascii_latin1_in_refs.texi:l21
+ *5 @node C1 char_us_ascii_latin1_in_refs.texi:l21 {é}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -198,7 +198,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {é}
- *6 @chapter C2 char_us_ascii_latin1_in_refs.texi:l22
+ *6 @chapter C2 char_us_ascii_latin1_in_refs.texi:l22 {é}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -215,7 +215,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     |{\\n}
     {é}
   {empty_line:\\n}
- *7 @node C1 char_us_ascii_latin1_in_refs.texi:l24
+ *7 @node C1 char_us_ascii_latin1_in_refs.texi:l24 {à è ù}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -231,7 +231,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {à è ù}
- *8 @chapter C2 char_us_ascii_latin1_in_refs.texi:l25
+ *8 @chapter C2 char_us_ascii_latin1_in_refs.texi:l25 {à è ù}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -248,7 +248,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     |{\\n}
     {à è ù}
   {empty_line:\\n}
- *9 @node C1 char_us_ascii_latin1_in_refs.texi:l27
+ *9 @node C1 char_us_ascii_latin1_in_refs.texi:l27 {â ê î ô û Â Ê Î Ô Û}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -264,7 +264,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {â ê î ô û Â Ê Î Ô Û}
- *10 @chapter C2 char_us_ascii_latin1_in_refs.texi:l28
+ *10 @chapter C2 char_us_ascii_latin1_in_refs.texi:l28 {â ê î ô û Â Ê Î Ô Û}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -281,7 +281,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
     |{\\n}
     {â ê î ô û Â Ê Î Ô Û}
   {empty_line:\\n}
- *11 @node C1 char_us_ascii_latin1_in_refs.texi:l30
+ *11 @node C1 char_us_ascii_latin1_in_refs.texi:l30 {ç}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -297,7 +297,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {ç}
- *12 @chapter C11 char_us_ascii_latin1_in_refs.texi:l31
+ *12 @chapter C11 char_us_ascii_latin1_in_refs.texi:l31 {ç}
  |INFO
  |spaces_before_argument:
   |{ }

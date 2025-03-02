@@ -72,7 +72,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *6 @node C1 l9
+ *6 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *7 @node C3 l10
+ *7 @node C3 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -12,7 +12,7 @@ $result_tree_text{'style_not_closed_before_first_node'} = '*document_root C2
     *brace_container C2
      {in code\\n}
      {empty_line:\\n}
- *1 @node C2 l3
+ *1 @node C2 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

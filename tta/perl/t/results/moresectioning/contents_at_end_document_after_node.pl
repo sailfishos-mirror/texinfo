@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {contents at end document after node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @chapter C2 l8
+ *3 @chapter C2 l8 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -89,7 +89,7 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
- *4 @node C3 l10
+ *4 @node C3 l10 {a node}
  |INFO
  |spaces_before_argument:
   |{ }

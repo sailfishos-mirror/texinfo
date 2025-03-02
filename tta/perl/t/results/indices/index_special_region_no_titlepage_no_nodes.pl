@@ -180,7 +180,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *12 @node C1 index_special_region.texi:l33
+ *12 @node C1 index_special_region.texi:l33 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -196,7 +196,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {Top}
- *13 @top C1 index_special_region.texi:l34
+ *13 @top C1 index_special_region.texi:l34 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -216,7 +216,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {Top}
- *14 @chapter C15 index_special_region.texi:l35
+ *14 @chapter C15 index_special_region.texi:l35 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -396,7 +396,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
      |{\\n}
      {menu}
   {empty_line:\\n}
- *21 @node C1 index_special_region.texi:l59
+ *21 @node C1 index_special_region.texi:l59 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -413,7 +413,7 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
    |spaces_after_argument:
     |{\\n}
     {Copying and indices}
- *22 @appendix C18 index_special_region.texi:l60
+ *22 @appendix C18 index_special_region.texi:l60 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }

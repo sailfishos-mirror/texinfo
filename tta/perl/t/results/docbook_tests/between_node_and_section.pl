@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'between_node_and_section'} = '*document_root C7
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
- *1 @chapter C2 l3
+ *1 @chapter C2 l3 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
     |{\\n}
     {Chap}
   {empty_line:\\n}
- *2 @node C1 l5
+ *2 @node C1 l5 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {sec1}
- *3 @section C2 l6
+ *3 @section C2 l6 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
     |{\\n}
     {sec1}
   {empty_line:\\n}
- *4 @node C3 l8
+ *4 @node C3 l8 {sec2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'between_node_and_section'} = '*document_root C7
    *brace_arg C1
     {Old name}
   {spaces_after_close_brace:\\n}
- *6 @section C1 l10
+ *6 @section C1 l10 {sec2}
  |INFO
  |spaces_before_argument:
   |{ }

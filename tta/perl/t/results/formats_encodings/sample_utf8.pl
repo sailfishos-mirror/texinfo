@@ -125,7 +125,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
       >|INFO
       >|spaces_after_argument:
        >|{\\n}
- *2 @node C1 sample_utf8.texi:l27
+ *2 @node C1 sample_utf8.texi:l27 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -141,7 +141,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C7 sample_utf8.texi:l28
+ *3 @top C7 sample_utf8.texi:l28 {Texinfo中文示例}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -233,7 +233,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
- *5 @node C1 sample_utf8.texi:l41
+ *5 @node C1 sample_utf8.texi:l41 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -249,7 +249,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {第一章（First Chapter）}
- *6 @chapter C10 sample_utf8.texi:l42
+ *6 @chapter C10 sample_utf8.texi:l42 {第一章（First Chapter）}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -360,7 +360,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      |{\\n}
      {enumerate}
   {empty_line:\\n}
- *12 @node C1 sample_utf8.texi:l61
+ *12 @node C1 sample_utf8.texi:l61 {Second Chapter AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -376,7 +376,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Second Chapter AE ĄĘ ae ąę}
- *13 @chapter C4 sample_utf8.texi:l62
+ *13 @chapter C4 sample_utf8.texi:l62 {Chapter 2 AE ĄĘ ae ąę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -396,7 +396,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   *paragraph C1
    {Zażółć gęślą jaźń!\\n}
   {empty_line:\\n}
- *14 @node C1 sample_utf8.texi:l66
+ *14 @node C1 sample_utf8.texi:l66 {Index node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -413,7 +413,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Index node}
- *15 @unnumbered C4 sample_utf8.texi:l67
+ *15 @unnumbered C4 sample_utf8.texi:l67 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

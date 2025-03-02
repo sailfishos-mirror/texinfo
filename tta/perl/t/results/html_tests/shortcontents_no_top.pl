@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'shortcontents_no_top'} = '*document_root C4
  *before_node_section
- *0 @chapter C2 l1
+ *0 @chapter C2 l1 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
     |{\\n}
     {chap}
   {empty_line:\\n}
- *1 @chapter C2 l3
+ *1 @chapter C2 l3 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'shortcontents_no_top'} = '*document_root C4
     |{\\n}
     {chap2}
   {empty_line:\\n}
- *2 @section C3 l5
+ *2 @section C3 l5 {sec}
  |INFO
  |spaces_before_argument:
   |{ }

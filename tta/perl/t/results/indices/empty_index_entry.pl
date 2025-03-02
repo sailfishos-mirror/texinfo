@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'empty_index_entry'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C2 l1
+ *0 @node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C5 l3
+ *1 @node C5 l3 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

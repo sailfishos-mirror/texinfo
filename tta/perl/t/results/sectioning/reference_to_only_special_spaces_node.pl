@@ -10,7 +10,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 reference_to_only_special_spaces_node.texi:l2
+ *0 @node C1 reference_to_only_special_spaces_node.texi:l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 reference_to_only_special_spaces_node.texi:l3
+ *1 @top C2 reference_to_only_special_spaces_node.texi:l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 reference_to_only_special_spaces_node.texi:l5
+ *2 @node C1 reference_to_only_special_spaces_node.texi:l5 {   }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {   }
- *3 @chapter C4 reference_to_only_special_spaces_node.texi:l6
+ *3 @chapter C4 reference_to_only_special_spaces_node.texi:l6 {EN QUAD| | EM QUAD| | EN SPACE| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -95,7 +95,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
      {   }
    {.\\n}
   {empty_line:\\n}
- *5 @node C1 reference_to_only_special_spaces_node.texi:l10
+ *5 @node C1 reference_to_only_special_spaces_node.texi:l10 {@code{   }}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -111,7 +111,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
     *6 @code C1 reference_to_only_special_spaces_node.texi:l10
      *brace_container C1
       {   }
- *7 @chapter C5 reference_to_only_special_spaces_node.texi:l11
+ *7 @chapter C5 reference_to_only_special_spaces_node.texi:l11 {@code{EN QUAD| | EM QUAD| | EN SPACE| |}}
  |INFO
  |spaces_before_argument:
   |{ }

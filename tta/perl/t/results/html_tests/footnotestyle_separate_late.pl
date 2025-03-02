@@ -15,7 +15,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2
+ *1 @top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *2 @node C1 l4
+ *2 @node C1 l4 {chap f}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -81,7 +81,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {chap f}
- *3 @chapter C4 l5
+ *3 @chapter C4 l5 {Chapter f}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ Up: [U0]
 NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
- *5 @node C1 l9
+ *5 @node C1 l9 {chap s}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -133,7 +133,7 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
     {chap s}
- *6 @chapter C5 l10
+ *6 @chapter C5 l10 {Chapter s}
  |INFO
  |spaces_before_argument:
   |{ }

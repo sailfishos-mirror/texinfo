@@ -23,7 +23,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
   *paragraph C1
    {truc machin et reuc machin  ze aze zea zae eaz eaz zae\\n}
   {empty_line:\\n}
- *0 @node C1 l5
+ *0 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -39,7 +39,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l6
+ *1 @top C6 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l14
+ *3 @node C1 l14 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'split_test_before_first_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap1}
- *4 @chapter C4 l15
+ *4 @chapter C4 l15 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

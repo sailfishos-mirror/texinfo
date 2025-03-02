@@ -12,7 +12,7 @@ This: [U0]
 Forward: [U1]
 FastForward: [U1]
  *before_node_section
- *0 @top C3 l1
+ *0 @top C3 l1 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -43,7 +43,7 @@ FastBack: [U0]
 Up: [U0]
 NodeUp: (dir)
 
- *1 @node C1 l4
+ *1 @node C1 l4 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ NodeUp: (dir)
     {(}
     {dir}
     {)}
- *2 @chapter C3 l5
+ *2 @chapter C3 l5 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

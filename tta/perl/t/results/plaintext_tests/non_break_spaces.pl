@@ -22,7 +22,7 @@ $result_tree_text{'non_break_spaces'} = '*document_root C2
      |{\\n}
      {utf-8}
    {empty_line:\\n}
- *0 @node C3 non_break_spaces.texi:l3
+ *0 @node C3 non_break_spaces.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

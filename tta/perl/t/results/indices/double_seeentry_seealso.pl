@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'double_seeentry_seealso'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'double_seeentry_seealso'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 l2
+ *1 @top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'double_seeentry_seealso'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {node index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -60,7 +60,7 @@ $result_tree_text{'double_seeentry_seealso'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {node index}
- *3 @chapter C9 l5
+ *3 @chapter C9 l5 {Chapter Index}
  |INFO
  |spaces_before_argument:
   |{ }

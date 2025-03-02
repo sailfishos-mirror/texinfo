@@ -21,7 +21,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
     |{\\n}
     {off}
   {empty_line:\\n}
- *0 @node C1 l4
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l5
+ *1 @top C4 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -87,7 +87,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l11
+ *3 @node C1 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -103,7 +103,7 @@ $result_tree_text{'test_xrefautomaticsectiontitle_off_first'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C7 l12
+ *4 @chapter C7 l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

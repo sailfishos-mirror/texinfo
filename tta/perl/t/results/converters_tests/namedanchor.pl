@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'namedanchor'} = '*document_root C11
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2
+ *1 @top C5 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
       {n in Top}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *4 @node C1 l6
+ *4 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chap}
- *5 @chapter C12 l7
+ *5 @chapter C12 l7 {chapter @namedanchor{Not here!, There} after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -150,7 +150,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     {here we are}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *11 @node C1 l17
+ *11 @node C1 l17 {secc1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {secc1}
- *12 @section C16 l18
+ *12 @section C16 l18 {secc1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -375,7 +375,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
      {Not here!}
    {\\n}
   {empty_line:\\n}
- *27 @node C1 l43
+ *27 @node C1 l43 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -391,7 +391,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chap1}
- *28 @chapter C4 l44
+ *28 @chapter C4 l44 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -493,7 +493,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
      |{\\n}
      {menu}
   {empty_line:\\n}
- *30 @node C1 l55
+ *30 @node C1 l55 {secc2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -509,7 +509,7 @@ $result_tree_text{'namedanchor'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {secc2}
- *31 @section C1 l56
+ *31 @section C1 l56 {Secc2}
  |INFO
  |spaces_before_argument:
   |{ }

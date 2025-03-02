@@ -13,7 +13,7 @@ $result_tree_text{'node_in_copying'} = '*document_root C2
     |INFO
     |spaces_after_argument:
      |{\\n}
- *1 @node C2 l2
+ *1 @node C2 l2 {node}
  |INFO
  |spaces_before_argument:
   |{ }

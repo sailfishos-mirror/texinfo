@@ -19,7 +19,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
     |spaces_after_argument:
      |{ }
      {something}
- *1 @section C3 l1
+ *1 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
     |spaces_after_argument:
      |{ }
      {4}
- *3 @section C1 l3
+ *3 @section C1 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }

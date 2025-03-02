@@ -34,7 +34,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l5
+ *2 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C2 l6
+ *3 @top C2 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *4 @node C1 l8
+ *4 @node C1 l8 {Intro}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Intro}
- *5 @chapter C6 l9
+ *5 @chapter C6 l9 {Introduction}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -138,7 +138,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 l17
+ *7 @node C1 l17 {GFDL}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -154,7 +154,7 @@ $result_tree_text{'ref_in_copying_insert_in_chapter'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {GFDL}
- *8 @section C2 l18
+ *8 @section C2 l18 {GFDL}
  |INFO
  |spaces_before_argument:
   |{ }

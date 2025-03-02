@@ -15,7 +15,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l4
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C7 l5
+ *1 @top C7 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
      {menu}
   {empty_line:\\n}
   {empty_line:\\n}
- *3 @node C1 l14
+ *3 @node C1 l14 {Unn}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Unn}
- *4 @unnumbered C4 l15
+ *4 @unnumbered C4 l15 {Unn}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l21
+ *6 @node C1 l21 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -164,7 +164,7 @@ $result_tree_text{'section_below_unnumbered'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Sec}
- *7 @section C4 l22
+ *7 @section C4 l22 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }

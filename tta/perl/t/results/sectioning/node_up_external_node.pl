@@ -14,7 +14,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1
+ *0 @node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -70,7 +70,7 @@ NodeUp:  (manual3)
 
 NodeForward:  (manual1)
 NodeBack: [U0]
- *2 @node C1 l7
+ *2 @node C1 l7 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }

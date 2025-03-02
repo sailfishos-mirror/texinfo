@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C22 l2
+ *1 @top C22 l2 {Test floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -470,7 +470,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {menu}
   {empty_line:\\n}
- *25 @node C1 l64
+ *25 @node C1 l64 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -487,7 +487,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *26 @chapter C14 l65
+ *26 @chapter C14 l65 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -793,7 +793,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {menu}
   {empty_line:\\n}
- *47 @node C1 l101
+ *47 @node C1 l101 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -809,7 +809,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {section}
- *48 @section C4 l102
+ *48 @section C4 l102 {A section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -862,7 +862,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *50 @node C1 l110
+ *50 @node C1 l110 {Unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -879,7 +879,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Unnumbered}
- *51 @unnumbered C7 l111
+ *51 @unnumbered C7 l111 {Unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1024,7 +1024,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      {float}
   {empty_line:\\n}
   {empty_line:\\n}
- *59 @node C1 l129
+ *59 @node C1 l129 {Section within unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1040,7 +1040,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Section within unnumbered}
- *60 @section C5 l130
+ *60 @section C5 l130 {Section within unnumbered}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1107,7 +1107,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *64 @node C1 l139
+ *64 @node C1 l139 {Chapter with unnumbsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1124,7 +1124,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Chapter with unnumbsubsec}
- *65 @chapter C5 l140
+ *65 @chapter C5 l140 {Chapter with unnumbsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1221,7 +1221,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *70 @node C1 l151
+ *70 @node C1 l151 {unnumbered sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1237,7 +1237,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {unnumbered sec}
- *71 @unnumberedsec C6 l152
+ *71 @unnumberedsec C6 l152 {unnumbered sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1352,7 +1352,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *78 @node C1 l167
+ *78 @node C1 l167 {Appendix for float}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1368,7 +1368,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {Appendix for float}
- *79 @appendix C4 l168
+ *79 @appendix C4 l168 {Appendix for float}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1437,7 +1437,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
      |{\\n}
      {float}
   {empty_line:\\n}
- *83 @node C1 l177
+ *83 @node C1 l177 {list of floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1453,7 +1453,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |spaces_after_argument:
     |{\\n}
     {list of floats}
- *84 @unnumbered C15 l178
+ *84 @unnumbered C15 l178 {list of floats}
  |INFO
  |spaces_before_argument:
   |{ }

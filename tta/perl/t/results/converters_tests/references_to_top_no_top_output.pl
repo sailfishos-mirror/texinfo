@@ -52,7 +52,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C1 l9
+ *2 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -67,7 +67,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C19 l10
+ *3 @top C19 l10 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -202,7 +202,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   *paragraph C1
    {End of Top\\n}
   {empty_line:\\n}
- *13 @node C1 l32
+ *13 @node C1 l32 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -218,7 +218,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *14 @chapter C11 l33
+ *14 @chapter C11 l33 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

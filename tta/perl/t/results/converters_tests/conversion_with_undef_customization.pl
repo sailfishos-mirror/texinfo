@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2
+ *1 @top C5 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *2 @node C1 l7
+ *2 @node C1 l7 {chap@^e}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     *3 @^ C1 l7
      *following_arg C1
       {e}
- *4 @chapter C6 l8
+ *4 @chapter C6 l8 {Chap@^e}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -119,7 +119,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |{\\n}
     {entry}
   {empty_line:\\n}
- *9 @node C1 l14
+ *9 @node C1 l14 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -135,7 +135,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {sec}
- *10 @section C5 l15
+ *10 @section C5 l15 {Section}
  |INFO
  |spaces_before_argument:
   |{ }

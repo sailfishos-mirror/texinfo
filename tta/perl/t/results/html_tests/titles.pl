@@ -26,7 +26,7 @@ $result_tree_text{'titles'} = '*document_root C3
      *brace_container C1
       {test}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ $result_tree_text{'titles'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *3 @top C5 l5
+ *3 @top C5 l5 {Top of @@title @sc{html} @code{test}}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -16,7 +16,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 contents_at_document_begin.texi:l5
+ *0 @node C1 contents_at_document_begin.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 contents_at_document_begin.texi:l6
+ *1 @top C6 contents_at_document_begin.texi:l6 {Contents at beginning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 contents_at_document_begin.texi:l14
+ *3 @node C1 contents_at_document_begin.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 contents_at_document_begin.texi:l15
+ *4 @chapter C4 contents_at_document_begin.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }

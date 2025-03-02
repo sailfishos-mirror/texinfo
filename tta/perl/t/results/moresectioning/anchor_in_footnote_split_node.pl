@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2
+ *1 @top C6 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l12
+ *5 @node C1 l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C3 l13
+ *6 @chapter C3 l13 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

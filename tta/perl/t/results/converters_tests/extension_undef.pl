@@ -10,7 +10,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
   *preamble_before_content
   *paragraph C1
    {node Top\\n}
- *0 @top C2 l2
+ *0 @top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
     |{\\n}
     {top}
   {empty_line:\\n}
- *1 @node C1 l4
+ *1 @node C1 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *2 @chapter C1 l5
+ *2 @chapter C1 l5 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

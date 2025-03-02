@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {test of nodedescription used in menu}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l15
+ *3 @node C1 l15 {toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {toto}
- *4 @chapter C4 l16
+ *4 @chapter C4 l16 {Toto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -214,7 +214,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
       {a}
     {nexpected}
   {empty_line:\\n}
- *10 @node C1 l20
+ *10 @node C1 l20 {titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -231,7 +231,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {titi}
- *11 @chapter C4 l21
+ *11 @chapter C4 l21 {Titi}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -260,7 +260,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {this describes titi}
   {empty_line:\\n}
- *13 @node C1 l25
+ *13 @node C1 l25 {other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -277,7 +277,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {other}
- *14 @chapter C4 l26
+ *14 @chapter C4 l26 {Other}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -306,7 +306,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {other comes here}
   {empty_line:\\n}
- *16 @node C1 l30
+ *16 @node C1 l30 {last}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -323,7 +323,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {last}
- *17 @chapter C4 l31
+ *17 @chapter C4 l31 {Last}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -352,7 +352,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {we are last}
   {empty_line:\\n}
- *19 @node C1 l35
+ *19 @node C1 l35 {a somewhat long node without description nor following space}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -369,7 +369,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {a somewhat long node without description nor following space}
- *20 @chapter C4 l36
+ *20 @chapter C4 l36 {Somewhat long}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -398,7 +398,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {not as long as the node}
   {empty_line:\\n}
- *22 @node C1 l40
+ *22 @node C1 l40 {a very long node without description with very little space left for}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -415,7 +415,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {a very long node without description with very little space left for}
- *23 @chapter C4 l41
+ *23 @chapter C4 l41 {Very long}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -444,7 +444,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
     |{\\n}
     {starting the desciption with a somewhat long word}
   {empty_line:\\n}
- *25 @node C1 l45
+ *25 @node C1 l45 {very very long node extending past the max columns and without description}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -461,7 +461,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
    |spaces_after_argument:
     |{\\n}
     {very very long node extending past the max columns and without description}
- *26 @chapter C3 l46
+ *26 @chapter C3 l46 {Past max columns}
  |INFO
  |spaces_before_argument:
   |{ }

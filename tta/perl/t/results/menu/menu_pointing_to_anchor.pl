@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 l2
+ *1 @top C8 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }

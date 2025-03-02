@@ -226,7 +226,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
      |{\\n}
      {macro}
   {empty_line:\\n}
- *7 @node C1 l36
+ *7 @node C1 l36 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -240,7 +240,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *8 @node C15 l37
+ *8 @node C15 l37 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

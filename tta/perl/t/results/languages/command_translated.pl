@@ -21,7 +21,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
      |{\\n}
      {fr}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l4
+ *1 @top C4 l4 {top @error{}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -64,7 +64,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
     *brace_container
    {\\n}
   {empty_line:\\n}
- *4 @node C1 l8
+ *4 @node C1 l8 {chapter @error{}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
     {chapter }
     *5 @error C1 l8
      *brace_container
- *6 @chapter C1 l9
+ *6 @chapter C1 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

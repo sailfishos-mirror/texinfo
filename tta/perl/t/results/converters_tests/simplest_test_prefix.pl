@@ -11,7 +11,7 @@ $result_tree_text{'simplest_test_prefix'} = '*document_root C3
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C4 simplest.texi:l3
+ *0 @node C4 simplest.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

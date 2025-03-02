@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {my node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {my node}
- *1 @chapter C2 l2
+ *1 @chapter C2 l2 {chap my node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
     |{\\n}
     {chap my node}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {other node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -60,7 +60,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {other node}
- *3 @chapter C2 l5
+ *3 @chapter C2 l5 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
     |{\\n}
     {chapter}
   {empty_line:\\n}
- *4 @top C2 l7
+ *4 @top C2 l7 {top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1
+ *0 @node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C4 l8
+ *2 @node C4 l8 {second node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
   *paragraph C1
    {second node\\n}
   {empty_line:\\n}
- *3 @node C1 l12
+ *3 @node C1 l12 {third node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'nodes_after_top_before_chapter_no_use_nodes_chapter'} = '*doc
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @chapter C1 l13
+ *4 @chapter C1 l13 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

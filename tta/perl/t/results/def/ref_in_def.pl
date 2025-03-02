@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'ref_in_def'} = '*document_root C2
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C6 l2
+ *0 @node C6 l2 {first}
  |INFO
  |spaces_before_argument:
   |{ }

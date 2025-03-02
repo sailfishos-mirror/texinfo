@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'top_node_normalization'} = '*document_root C2
  *before_node_section
- *0 @node C5 l1
+ *0 @node C5 l1 {ToP}
  |INFO
  |spaces_before_argument:
   |{ }

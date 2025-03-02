@@ -19,7 +19,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     {Settitle }
     *@ 
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
    |spaces_after_argument:
     |{  }
     {Top}
- *1 @top C2 l4
+ *1 @top C2 l4 {top element@ }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     {top element}
     *@ 
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -81,7 +81,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
    |spaces_after_argument:
     |{ }
     {chap}
- *3 @chapter C16 l7
+ *3 @chapter C16 l7 {Chapter@ }
  |INFO
  |spaces_before_argument:
   |{ }

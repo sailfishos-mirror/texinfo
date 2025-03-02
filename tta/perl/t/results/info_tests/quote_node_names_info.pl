@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'quote_node_names_info'} = '*document_root C12
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 nodequote.texi:l1
+ *0 @node C1 nodequote.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -388,7 +388,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
      |{\\n}
      {menu}
   {empty_line:\\n}
- *24 @node C1 nodequote.texi:l42
+ *24 @node C1 nodequote.texi:l42 {blah:blah}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -404,7 +404,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {blah:blah}
- *25 @chapter C4 nodequote.texi:l43
+ *25 @chapter C4 nodequote.texi:l43 {blah:blah}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -424,7 +424,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   *paragraph C1
    {stuff here.\\n}
   {empty_line:\\n}
- *26 @node C1 nodequote.texi:l47
+ *26 @node C1 nodequote.texi:l47 {blumpty.fump}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -440,7 +440,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
    |spaces_after_argument:
     |{\\n}
     {blumpty.fump}
- *27 @chapter C2 nodequote.texi:l48
+ *27 @chapter C2 nodequote.texi:l48 {blumpty.fump}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -457,7 +457,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     |{\\n}
     {blumpty.fump}
   {empty_line:\\n}
- *28 @node C1 nodequote.texi:l50
+ *28 @node C1 nodequote.texi:l50 {normal node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -514,7 +514,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     {man_ual}
     {)}
     {direct::i.on}
- *31 @chapter C2 nodequote.texi:l51
+ *31 @chapter C2 nodequote.texi:l51 {normal node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -531,7 +531,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     |{\\n}
     {normal node}
   {empty_line:\\n}
- *32 @node C1 nodequote.texi:l53
+ *32 @node C1 nodequote.texi:l53 {@asis{secret,node}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -549,7 +549,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     *33 @asis C1 nodequote.texi:l53
      *brace_container C1
       {secret,node}
- *34 @chapter C2 nodequote.texi:l54
+ *34 @chapter C2 nodequote.texi:l54 {@asis{secret,node}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -568,7 +568,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
      *brace_container C1
       {secret,node}
   {empty_line:\\n}
- *36 @node C3 nodequote.texi:l56
+ *36 @node C3 nodequote.texi:l56 {top secret node}
  |INFO
  |spaces_before_argument:
   |{ }

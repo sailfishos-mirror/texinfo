@@ -71,7 +71,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *3 @node C1 l12
+ *3 @node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -86,7 +86,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C2 l13
+ *4 @top C2 l13 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
     |{\\n}
     {top}
   {empty_line:\\n}
- *5 @node C1 l15
+ *5 @node C1 l15 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -122,7 +122,7 @@ $result_tree_text{'anchor_in_copying_insertcopying_titlepage_chap'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *6 @chapter C7 l16
+ *6 @chapter C7 l16 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

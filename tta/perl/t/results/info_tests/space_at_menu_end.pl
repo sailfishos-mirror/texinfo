@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'space_at_menu_end'} = '*document_root C2
  *before_node_section
- *0 @node C5 l1
+ *0 @node C5 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }

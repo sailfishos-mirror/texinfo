@@ -79,7 +79,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
      |{\\n}
      {ja}
    {empty_line:\\n}
- *0 @node C1 l12
+ *0 @node C1 l12 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -95,7 +95,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l13
+ *1 @top C5 l13 {Multi language file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -201,7 +201,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {ja}
- *3 @node C1 l24
+ *3 @node C1 l24 {chapter ja}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -217,7 +217,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter ja}
- *4 @chapter C6 l25
+ *4 @chapter C6 l25 {ja}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -320,7 +320,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {en}
- *7 @node C1 l32
+ *7 @node C1 l32 {chapter en}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -336,7 +336,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter en}
- *8 @chapter C6 l33
+ *8 @chapter C6 l33 {en}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -439,7 +439,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {fr_FR}
- *11 @node C1 l40
+ *11 @node C1 l40 {chapter fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -455,7 +455,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter fr_FR}
- *12 @chapter C5 l41
+ *12 @chapter C5 l41 {fr_FR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -549,7 +549,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {de}
- *14 @node C1 l47
+ *14 @node C1 l47 {chapter de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -565,7 +565,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter de}
- *15 @chapter C3 l48
+ *15 @chapter C3 l48 {de}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -594,7 +594,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {pt_BR}
- *16 @node C1 l51
+ *16 @node C1 l51 {chapter pt_BR}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -610,7 +610,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter pt_BR}
- *17 @chapter C3 l52
+ *17 @chapter C3 l52 {pt_bR}
  |INFO
  |spaces_before_argument:
   |{ }

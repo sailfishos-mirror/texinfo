@@ -148,7 +148,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *10 @node C1 l30
+ *10 @node C1 l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -163,7 +163,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *11 @top C2 l31
+ *11 @top C2 l31 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -184,7 +184,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *12 @node C1 l33
+ *12 @node C1 l33 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -199,7 +199,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *13 @chapter C5 l34
+ *13 @chapter C5 l34 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

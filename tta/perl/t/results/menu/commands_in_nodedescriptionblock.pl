@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 l2
+ *1 @top C6 l2 {test commands in nodedescriptionblock}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -100,7 +100,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      {f1}
    {.\\n}
   {empty_line:\\n}
- *5 @node C1 l11
+ *5 @node C1 l11 {node1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node1}
- *6 @chapter C4 l12
+ *6 @chapter C4 l12 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -245,7 +245,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *16 @node C1 l29
+ *16 @node C1 l29 {node2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -263,7 +263,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node2}
- *17 @chapter C11 l30
+ *17 @chapter C11 l30 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   *paragraph C1
    {In T.\\n}
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C4 l7
+ *3 @chapter C4 l7 {Chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   *paragraph C1
    {In c1.\\n}
   {empty_line:\\n}
- *4 @node C1 l11
+ *4 @node C1 l11 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {sec}
- *5 @section C4 l12
+ *5 @section C4 l12 {sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
   *paragraph C1
    {In s1.1.\\n}
   {empty_line:\\n}
- *6 @node C1 l16
+ *6 @node C1 l16 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -131,7 +131,7 @@ $result_tree_text{'sectioning_test_no_use_nodes'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chap2}
- *7 @chapter C3 l17
+ *7 @chapter C3 l17 {Chap2}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -205,7 +205,7 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *12 @node C1 index_special_region_no_insertcopying.texi:l36
+ *12 @node C1 index_special_region_no_insertcopying.texi:l36 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -221,7 +221,7 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
    |spaces_after_argument:
     |{\\n}
     {Top}
- *13 @top C1 index_special_region_no_insertcopying.texi:l37
+ *13 @top C1 index_special_region_no_insertcopying.texi:l37 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -241,7 +241,7 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
    |spaces_after_argument:
     |{\\n}
     {Top}
- *14 @chapter C15 index_special_region_no_insertcopying.texi:l38
+ *14 @chapter C15 index_special_region_no_insertcopying.texi:l38 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -419,7 +419,7 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
      |{\\n}
      {menu}
   {empty_line:\\n}
- *21 @node C1 index_special_region_no_insertcopying.texi:l62
+ *21 @node C1 index_special_region_no_insertcopying.texi:l62 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -435,7 +435,7 @@ $result_tree_text{'index_special_region_no_insertcopying_titlepage_no_nodes_foot
    |spaces_after_argument:
     |{\\n}
     {Copying and indices}
- *22 @appendix C15 index_special_region_no_insertcopying.texi:l63
+ *22 @appendix C15 index_special_region_no_insertcopying.texi:l63 {Copying and indices}
  |INFO
  |spaces_before_argument:
   |{ }

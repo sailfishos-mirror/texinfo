@@ -44,7 +44,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *4 @node C1 l6
+ *4 @node C1 l6 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C2 l7
+ *5 @top C2 l7 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{\\n}
     {top}
   {empty_line:\\n}
- *6 @node C1 l9
+ *6 @node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -95,7 +95,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *7 @chapter C28 l10
+ *7 @chapter C28 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -358,7 +358,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   |global_command_number:{2}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *37 @node C1 l49
+ *37 @node C1 l49 {my node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -373,7 +373,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {my node}
- *38 @chapter C8 l50
+ *38 @chapter C8 l50 {New node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -413,7 +413,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     *brace_container
    {\\n}
   {empty_line:\\n}
- *41 @node C1 l58
+ *41 @node C1 l58 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -429,7 +429,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Index}
- *42 @appendix C4 l59
+ *42 @appendix C4 l59 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -459,7 +459,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{\\n}
     {cp}
   {empty_line:\\n}
- *43 @node C1 l63
+ *43 @node C1 l63 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -474,7 +474,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Second appendix}
- *44 @appendix C2 l64
+ *44 @appendix C2 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }

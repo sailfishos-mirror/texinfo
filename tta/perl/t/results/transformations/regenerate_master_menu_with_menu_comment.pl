@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -114,7 +114,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 l10
+ *4 @node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -130,7 +130,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {chap}
- *5 @chapter C2 l11
+ *5 @chapter C2 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
     |{\\n}
     {Chapter}
   {empty_line:\\n}
- *6 @node C1 l13
+ *6 @node C1 l13 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -163,7 +163,7 @@ $result_tree_text{'regenerate_master_menu_with_menu_comment'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {sec}
- *7 @section C1 l14
+ *7 @section C1 l14 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }

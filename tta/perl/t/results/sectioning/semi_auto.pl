@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'semi_auto'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l9
+ *3 @node C1 l9 {Chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Chap1}
- *4 @chapter C4 l10
+ *4 @chapter C4 l10 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l16
+ *6 @node C1 l16 {Sec in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -164,7 +164,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Sec in chapter}
- *7 @section C2 l17
+ *7 @section C2 l17 {Sec in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
     |{\\n}
     {Sec in chapter}
   {empty_line:\\n}
- *8 @node C1 l19
+ *8 @node C1 l19 {Section non auto}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -212,7 +212,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *9 @section C1 l20
+ *9 @section C1 l20 {Section}
  |INFO
  |spaces_before_argument:
   |{ }

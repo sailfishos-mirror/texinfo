@@ -34,7 +34,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
       *brace_arg C1
        {</strong>}
    {empty_line:\\n}
- *2 @node C1 l3
+ *2 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -66,7 +66,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *4 @node C1 l6
+ *4 @node C1 l6 {@inlineraw{html,<code class="tnode">}One@inlineraw{html,</code>}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
       {html}
      *brace_arg C1
       {</code>}
- *7 @chapter C2 l7
+ *7 @chapter C2 l7 {@inlineraw{html,<span class="test">}One@inlineraw{html,</span>}}
  |INFO
  |spaces_before_argument:
   |{ }

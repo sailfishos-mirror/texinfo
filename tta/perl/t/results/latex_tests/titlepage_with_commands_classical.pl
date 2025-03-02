@@ -156,7 +156,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *6 @node C1 l25
+ *6 @node C1 l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *7 @top C2 l26
+ *7 @top C2 l26 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -192,7 +192,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *8 @node C1 l28
+ *8 @node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -207,7 +207,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C4 l29
+ *9 @chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -11,7 +11,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    {text_before_beginning:\\input texinfo.tex\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 topic_guide.texi:l3
+ *0 @node C1 topic_guide.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 topic_guide.texi:l4
+ *1 @top C6 topic_guide.texi:l4 {A example quide topic collection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 topic_guide.texi:l14
+ *3 @node C1 topic_guide.texi:l14 {guide1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -109,7 +109,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {guide1}
- *4 @chapter C6 topic_guide.texi:l15
+ *4 @chapter C6 topic_guide.texi:l15 {guide 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C6 topic_guide.texi:l25
+ *6 @node C6 topic_guide.texi:l25 {topic1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -240,7 +240,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C6 topic_guide.texi:l35
+ *8 @node C6 topic_guide.texi:l35 {topic2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -308,7 +308,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *10 @node C6 topic_guide.texi:l45
+ *10 @node C6 topic_guide.texi:l45 {topic3}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -364,7 +364,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *12 @node C6 topic_guide.texi:l54
+ *12 @node C6 topic_guide.texi:l54 {topic4}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -417,7 +417,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *14 @node C6 topic_guide.texi:l64
+ *14 @node C6 topic_guide.texi:l64 {topic5}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -492,7 +492,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *16 @node C1 topic_guide.texi:l75
+ *16 @node C1 topic_guide.texi:l75 {guide2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -509,7 +509,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {guide2}
- *17 @chapter C6 topic_guide.texi:l76
+ *17 @chapter C6 topic_guide.texi:l76 {guide 2}
  |INFO
  |spaces_before_argument:
   |{ }

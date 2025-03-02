@@ -27,7 +27,7 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {l}
- *1 @section C1 l1
+ *1 @section C1 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }

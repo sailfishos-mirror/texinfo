@@ -24,7 +24,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      |{\\n}
      {split_chapter_index}
    {empty_line:\\n}
- *0 @node C1 split_chapter_index.texi:l5
+ *0 @node C1 split_chapter_index.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 split_chapter_index.texi:l6
+ *1 @top C8 split_chapter_index.texi:l6 {split indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 split_chapter_index.texi:l16
+ *4 @node C1 split_chapter_index.texi:l16 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -125,7 +125,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {first}
- *5 @chapter C14 split_chapter_index.texi:l17
+ *5 @chapter C14 split_chapter_index.texi:l17 {First chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -294,7 +294,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      |{\\n}
      {menu}
   {empty_line:\\n}
- *15 @node C1 split_chapter_index.texi:l37
+ *15 @node C1 split_chapter_index.texi:l37 {section 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -311,7 +311,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {section 1}
- *16 @section C8 split_chapter_index.texi:l38
+ *16 @section C8 split_chapter_index.texi:l38 {Section 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -385,7 +385,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
     |{\\n}
     {another}
   {empty_line:\\n}
- *20 @node C1 split_chapter_index.texi:l48
+ *20 @node C1 split_chapter_index.texi:l48 {subsection 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -401,7 +401,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    |spaces_after_argument:
     |{\\n}
     {subsection 1}
- *21 @subsection C6 split_chapter_index.texi:l49
+ *21 @subsection C6 split_chapter_index.texi:l49 {Subsection 1}
  |INFO
  |spaces_before_argument:
   |{ }

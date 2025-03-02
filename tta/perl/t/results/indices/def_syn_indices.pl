@@ -20,7 +20,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
      |{\\n}
      {cp fn}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l4
+ *1 @top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {Chapter index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -72,7 +72,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter index}
- *3 @chapter C55 l7
+ *3 @chapter C55 l7 {Index}
  |INFO
  |spaces_before_argument:
   |{ }

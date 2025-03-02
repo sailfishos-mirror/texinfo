@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 character_and_spaces_in_refs_text.texi:l1
+ *0 @node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 character_and_spaces_in_refs_text.texi:l2
+ *1 @top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 character_and_spaces_in_refs_text.texi:l9
+ *3 @node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {node to avoid DocBook or LaTeX ignored}
- *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10
+ *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -249,7 +249,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      {local   node}
    {\\n}
   {empty_line:\\n}
- *16 @node C1 character_and_spaces_in_refs_text.texi:l27
+ *16 @node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -289,7 +289,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *17 @chapter C4 character_and_spaces_in_refs_text.texi:l28
+ *17 @chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -357,7 +357,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      |{\\n}
      {menu}
   {empty_line:\\n}
- *19 @node C2 character_and_spaces_in_refs_text.texi:l36
+ *19 @node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -396,7 +396,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
- *20 @node C2 character_and_spaces_in_refs_text.texi:l38
+ *20 @node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -429,7 +429,7 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
    |normalized:{other-nodes}
     {other nodes}
   {empty_line:\\n}
- *21 @node C2 character_and_spaces_in_refs_text.texi:l40
+ *21 @node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }

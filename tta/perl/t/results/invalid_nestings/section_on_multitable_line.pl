@@ -15,7 +15,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
   |max_columns:{0}
    *arguments_line C1
     *block_line_arg
- *1 @section C3 l1
+ *1 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
      *3 @code C1 l3
       *brace_container C1
        {this}
- *4 @section C3 l3
+ *4 @section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'section_on_multitable_line'} = '*document_root C4
      { }
      *bracketed_arg C1 l5
       {bbb}
- *6 @section C1 l5
+ *6 @section C1 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }

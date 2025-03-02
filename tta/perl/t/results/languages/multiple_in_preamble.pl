@@ -121,7 +121,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
      |{\\n}
      {hr}
    {empty_line:\\n}
- *3 @node C1 l11
+ *3 @node C1 l11 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -136,7 +136,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C2 l12
+ *4 @top C2 l12 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -157,7 +157,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *5 @node C1 l14
+ *5 @node C1 l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -172,7 +172,7 @@ $result_tree_text{'multiple_in_preamble'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C7 l15
+ *6 @chapter C7 l15 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

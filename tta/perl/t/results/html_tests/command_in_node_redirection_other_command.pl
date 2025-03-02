@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'command_in_node_redirection_other_command'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'command_in_node_redirection_other_command'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {t @r{in r}}
  |INFO
  |spaces_before_argument:
   |{ }

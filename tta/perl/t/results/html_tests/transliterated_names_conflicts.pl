@@ -18,7 +18,7 @@ NodeForward: [U1]
    {text_before_beginning:\\input texinfo.tex\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 transliterated_names_conflicts.texi:l3
+ *0 @node C1 transliterated_names_conflicts.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -33,7 +33,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 transliterated_names_conflicts.texi:l4
+ *1 @top C2 transliterated_names_conflicts.texi:l4 {Same transliterated names}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *2 @node C1 transliterated_names_conflicts.texi:l6
+ *2 @node C1 transliterated_names_conflicts.texi:l6 {Prés}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {Prés}
- *3 @chapter C2 transliterated_names_conflicts.texi:l7
+ *3 @chapter C2 transliterated_names_conflicts.texi:l7 {Prés}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ Up: [U0]
 NodePrev: [U1]
 NodeUp: [U0]
 NodeBack: [U1]
- *4 @node C1 transliterated_names_conflicts.texi:l9
+ *4 @node C1 transliterated_names_conflicts.texi:l9 {Other node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -127,7 +127,7 @@ NodeBack: [U1]
    |spaces_after_argument:
     |{\\n}
     {Other node}
- *5 @chapter C7 transliterated_names_conflicts.texi:l10
+ *5 @chapter C7 transliterated_names_conflicts.texi:l10 {Other chapter}
  |INFO
  |spaces_before_argument:
   |{ }

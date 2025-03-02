@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -73,7 +73,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l8
+ *3 @node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -90,7 +90,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 l9
+ *4 @chapter C4 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l16
+ *6 @node C1 l16 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C4 l17
+ *7 @section C4 l17 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -211,7 +211,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C1 l23
+ *9 @node C1 l23 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -227,7 +227,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {subsection}
- *10 @subsection C1 l24
+ *10 @subsection C1 l24 {subsection}
  |INFO
  |spaces_before_argument:
   |{ }

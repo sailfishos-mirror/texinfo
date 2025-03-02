@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'ref_in_preformatted'} = '*document_root C3
  *before_node_section
- *0 @node C6 l1
+ *0 @node C6 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'ref_in_preformatted'} = '*document_root C3
      |{\\n}
      {example}
   {empty_line:\\n}
- *4 @node C1 l12
+ *4 @node C1 l12 {chap nnn the node name}
  |INFO
  |spaces_before_argument:
   |{ }

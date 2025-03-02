@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -165,7 +165,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 l20
+ *5 @node C1 l20 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -182,7 +182,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C4 l21
+ *6 @chapter C4 l21 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -229,7 +229,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 l27
+ *8 @node C1 l27 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -245,7 +245,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {section}
- *9 @section C2 l28
+ *9 @section C2 l28 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -261,7 +261,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     |{\\n}
     {section}
   {empty_line:\\n}
- *10 @node C1 l30
+ *10 @node C1 l30 {chapter 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -278,7 +278,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {chapter 2}
- *11 @chapter C4 l31
+ *11 @chapter C4 l31 {chapter 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -336,7 +336,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *13 @node C1 l38
+ *13 @node C1 l38 {section chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -352,7 +352,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {section chap 2}
- *14 @section C2 l39
+ *14 @section C2 l39 {section chap 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -368,7 +368,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
     |{\\n}
     {section chap 2}
   {empty_line:\\n}
- *15 @node C1 l41
+ *15 @node C1 l41 {unnumberedsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -384,7 +384,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {unnumberedsec}
- *16 @unnumberedsec C1 l42
+ *16 @unnumberedsec C1 l42 {unnumberedsec}
  |INFO
  |spaces_before_argument:
   |{ }

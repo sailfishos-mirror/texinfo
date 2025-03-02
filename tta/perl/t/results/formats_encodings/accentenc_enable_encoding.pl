@@ -21,7 +21,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
     |{\\n}
     {ISO-8859-1}
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -35,7 +35,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {first}
- *1 @top C77 l4
+ *1 @top C77 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -180,7 +180,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
       |{\\n}
       {copying}
    {empty_line:\\n}
- *5 @node C1 l19
+ *5 @node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -196,7 +196,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @top C7 l20
+ *6 @top C7 l20 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -253,7 +253,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 l29
+ *8 @node C1 l29 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -270,7 +270,7 @@ $result_tree_text{'printindex_index_entry_in_copying'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C6 l30
+ *9 @chapter C6 l30 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

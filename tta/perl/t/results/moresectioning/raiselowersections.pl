@@ -12,7 +12,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    *@c C1
     {rawline_arg: -*-texinfo-*-\\n}
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *4 @chapter C11 l11
+ *4 @chapter C11 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -242,7 +242,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
       >|{\\n}
       >{ifclear}
   {empty_line:\\n}
- *6 @node C1 section_file.texi:l12
+ *6 @node C1 section_file.texi:l12 {Chapter in included file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -259,7 +259,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Chapter in included file}
- *7 @chapter C4 section_file.texi:l13
+ *7 @chapter C4 section_file.texi:l13 {Chapter in included file}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -306,7 +306,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C1 section_file.texi:l19
+ *9 @node C1 section_file.texi:l19 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -323,7 +323,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Section}
- *10 @section C4 section_file.texi:l20
+ *10 @section C4 section_file.texi:l20 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -370,7 +370,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
      |{\\n}
      {menu}
   {empty_line:\\n}
- *12 @node C1 section_file.texi:l26
+ *12 @node C1 section_file.texi:l26 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -386,7 +386,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Subsection}
- *13 @subsection C7 section_file.texi:l27
+ *13 @subsection C7 section_file.texi:l27 {Subsection}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -479,7 +479,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |arg_line:{ do-top\\n}
    {rawline_arg:do-top}
   {empty_line:\\n}
- *14 @node C1 l30
+ *14 @node C1 l30 {Second chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -495,7 +495,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
    |spaces_after_argument:
     |{\\n}
     {Second chapter}
- *15 @chapter C5 l31
+ *15 @chapter C5 l31 {Second chapter}
  |INFO
  |spaces_before_argument:
   |{ }

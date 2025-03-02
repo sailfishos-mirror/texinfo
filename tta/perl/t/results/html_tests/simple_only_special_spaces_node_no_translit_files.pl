@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*document_root C9
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 simple_only_special_spaces_node.texi:l1
+ *0 @node C1 simple_only_special_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 simple_only_special_spaces_node.texi:l2
+ *1 @top C2 simple_only_special_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 simple_only_special_spaces_node.texi:l4
+ *2 @node C1 simple_only_special_spaces_node.texi:l4 {  }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    |spaces_after_argument:
     |{\\n}
     {  }
- *3 @chapter C2 simple_only_special_spaces_node.texi:l5
+ *3 @chapter C2 simple_only_special_spaces_node.texi:l5 {EN QUAD| |}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    |INFO
    |spaces_after_argument:
     |{ '."\r".'\\n}
- *5 @chapter C2 simple_only_special_spaces_node.texi:l8
+ *5 @chapter C2 simple_only_special_spaces_node.texi:l8 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
     |{\\n}
     {CARRIAGE RETURN|'."\r".'|}
   {empty_line:\\n}
- *6 @node C1 simple_only_special_spaces_node.texi:l10
+ *6 @node C1 simple_only_special_spaces_node.texi:l10 {  }
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
    |spaces_after_argument:
     |{\\n}
     {  }
- *7 @chapter C2 simple_only_special_spaces_node.texi:l11
+ *7 @chapter C2 simple_only_special_spaces_node.texi:l11 {THREE-PER-EM SPACE}
  |INFO
  |spaces_before_argument:
   |{ }

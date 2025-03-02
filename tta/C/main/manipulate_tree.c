@@ -1473,6 +1473,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
 {
   size_t i;
   int j;
+  enum command_id data_cmd = 0;
 
   for (j = 0; j < level; j++)
     text_append_n (result, " ", 1);
@@ -1501,12 +1502,32 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
     text_append (result, type_data[element->type].name);
 
   if (element->e.c->cmd)
-    text_printf (result, "@%s", debug_element_command_name (element));
+    {
+      data_cmd = element_builtin_data_cmd (element);
+      text_printf (result, "@%s", debug_element_command_name (element));
+    }
 
   if (element->e.c->contents.number > 0)
     text_printf (result, " C%zu", element->e.c->contents.number);
 
   print_element_source_info (element, result, fname_encoding, use_filename);
+
+  if (data_cmd
+      && builtin_command_data[data_cmd].flags & CF_root)
+    {
+      ELEMENT *argument_line = element->e.c->contents.list[0];
+      if (argument_line->e.c->contents.number > 0)
+        {
+          ELEMENT *line_arg = argument_line->e.c->contents.list[0];
+          if (line_arg->e.c->contents.number > 0)
+            {
+              char *root_command_texi
+                = convert_contents_to_texinfo (line_arg);
+              text_printf (result, " {%s}", root_command_texi);
+              free (root_command_texi);
+            }
+        }
+    }
 
   text_append_n (result, "\n", 1);
 

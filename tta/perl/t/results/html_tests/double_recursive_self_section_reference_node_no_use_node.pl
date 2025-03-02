@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {n1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    |spaces_after_argument:
     |{\\n}
     {n1}
- *1 @chapter C2 l2
+ *1 @chapter C2 l2 {@ref{n2}}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
      |normalized:{n2}
       {n2}
   {empty_line:\\n}
- *3 @node C1 l4
+ *3 @node C1 l4 {n2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
    |spaces_after_argument:
     |{\\n}
     {n2}
- *4 @chapter C1 l5
+ *4 @chapter C1 l5 {@ref{n1}}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -20,7 +20,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      |{ }
      *1 @minus C1 l1
       *brace_container
- *2 @section C3 l1
+ *2 @section C3 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      *4 @minus C1 l3
       *brace_container
      { aa}
- *5 @section C3 l3
+ *5 @section C3 l3 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      *7 @bullet
      |INFO
      |inserted:{1}
- *8 @section C3 l5
+ *8 @section C3 l5 {third}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -106,7 +106,7 @@ $result_tree_text{'section_on_itemize_line'} = '*document_root C5
      |INFO
      |spaces_after_cmd_before_arg:
       |{ }
- *11 @section C1 l7
+ *11 @section C1 l7 {fourth}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -16,7 +16,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 double_contents.texi:l5
+ *0 @node C1 double_contents.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -32,7 +32,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 double_contents.texi:l6
+ *1 @top C6 double_contents.texi:l6 {Double contents}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 double_contents.texi:l14
+ *3 @node C1 double_contents.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -102,7 +102,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C7 double_contents.texi:l15
+ *4 @chapter C7 double_contents.texi:l15 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 double_contents.texi:l24
+ *6 @node C1 double_contents.texi:l24 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -172,7 +172,7 @@ $result_tree_text{'double_contents_after_title'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C3 double_contents.texi:l25
+ *7 @section C3 double_contents.texi:l25 {section with contents}
  |INFO
  |spaces_before_argument:
   |{ }

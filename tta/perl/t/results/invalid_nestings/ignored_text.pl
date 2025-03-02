@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'ignored_text'} = '*document_root C2
  *before_node_section
- *0 @node C2 l1
+ *0 @node C2 l1 {before ignore}
  |INFO
  |spaces_before_argument:
   |{ }

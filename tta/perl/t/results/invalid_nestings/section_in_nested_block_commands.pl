@@ -44,7 +44,7 @@ $result_tree_text{'section_in_nested_block_commands'} = '*document_root C2
       *paragraph C1
        {in quotation\\n}
       {empty_line:\\n}
- *3 @section C1 l9
+ *3 @section C1 l9 {a section}
  |INFO
  |spaces_before_argument:
   |{ }

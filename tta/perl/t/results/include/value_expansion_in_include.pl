@@ -30,7 +30,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    {rawline_arg:ncl-incl.tx}
   {empty_line:\\n}
   {empty_line:\\n}
- *0 @node C1 l10
+ *0 @node C1 l10 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'value_expansion_in_include'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C18 l11
+ *1 @node C18 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

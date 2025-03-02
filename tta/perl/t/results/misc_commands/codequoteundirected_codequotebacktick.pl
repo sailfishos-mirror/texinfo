@@ -379,7 +379,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
       {titlepage}
    {empty_line:\\n}
    {empty_line:\\n}
- *39 @node C1 l39
+ *39 @node C1 l39 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -394,7 +394,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    |spaces_after_argument:
     |{ \\n}
     {Top}
- *40 @top C2 l40
+ *40 @top C2 l40 {test quotes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -415,7 +415,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     |{\\n}
     {test quotes}
   {empty_line:\\n}
- *41 @node C1 l42
+ *41 @node C1 l42 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -430,7 +430,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *42 @chapter C16 l43
+ *42 @chapter C16 l43 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

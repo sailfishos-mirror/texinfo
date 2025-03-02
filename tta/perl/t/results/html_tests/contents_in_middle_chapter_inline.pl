@@ -11,7 +11,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 contents_in_middle_chapter.texi:l3
+ *0 @node C1 contents_in_middle_chapter.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 contents_in_middle_chapter.texi:l4
+ *1 @top C6 contents_in_middle_chapter.texi:l4 {Contents in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 contents_in_middle_chapter.texi:l12
+ *3 @node C1 contents_in_middle_chapter.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C7 contents_in_middle_chapter.texi:l13
+ *4 @chapter C7 contents_in_middle_chapter.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -151,7 +151,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 contents_in_middle_chapter.texi:l22
+ *6 @node C1 contents_in_middle_chapter.texi:l22 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -167,7 +167,7 @@ $result_tree_text{'contents_in_middle_chapter_inline'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {section}
- *7 @section C4 contents_in_middle_chapter.texi:l23
+ *7 @section C4 contents_in_middle_chapter.texi:l23 {section}
  |INFO
  |spaces_before_argument:
   |{ }

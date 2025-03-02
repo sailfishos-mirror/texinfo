@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'part_section_part'} = '*document_root C4
  *before_node_section
- *0 @part C2 l1
+ *0 @part C2 l1 {Part1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
     |{\\n}
     {Part1}
   {empty_line:\\n}
- *1 @section C2 l3
+ *1 @section C2 l3 {section 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -45,7 +45,7 @@ $result_tree_text{'part_section_part'} = '*document_root C4
     |{\\n}
     {section 1}
   {empty_line:\\n}
- *2 @part C1 l5
+ *2 @part C1 l5 {Part 2}
  |INFO
  |spaces_before_argument:
   |{ }

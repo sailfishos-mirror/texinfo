@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root C6
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2
+ *1 @top C5 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
    *3 @code C1 l8
     *brace_container C1
      {not closed\\n}
- *4 @node C1 l9
+ *4 @node C1 l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'style_not_closed_no_newline_root_commands'} = '*document_root
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *5 @chapter C3 l10
+ *5 @chapter C3 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

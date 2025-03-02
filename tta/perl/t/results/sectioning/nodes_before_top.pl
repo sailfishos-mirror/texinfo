@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'nodes_before_top'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C4 l1
+ *0 @node C4 l1 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C2 l7
+ *2 @node C2 l7 {node in menu before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -94,7 +94,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    |normalized:{first}
     {first}
   {empty_line:\\n}
- *3 @node C1 l9
+ *3 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    |node_content:{first}
    |normalized:{first}
     {first}
- *4 @top C4 l10
+ *4 @top C4 l10 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -166,7 +166,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C1 l16
+ *6 @node C1 l16 {second node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -182,7 +182,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {second node}
- *7 @chapter C1 l17
+ *7 @chapter C1 l17 {a chapter}
  |INFO
  |spaces_before_argument:
   |{ }

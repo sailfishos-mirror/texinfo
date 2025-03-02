@@ -11,7 +11,7 @@ $result_tree_text{'test_accents_sc_enable_encoding'} = '*document_root C5
    {text_before_beginning:\\input texinfo\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 punctuation_small_case_accents_utf8.texi:l3
+ *0 @node C1 punctuation_small_case_accents_utf8.texi:l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'test_accents_sc_enable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 punctuation_small_case_accents_utf8.texi:l4
+ *1 @top C2 punctuation_small_case_accents_utf8.texi:l4 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'test_accents_sc_enable_encoding'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 punctuation_small_case_accents_utf8.texi:l6
+ *2 @node C1 punctuation_small_case_accents_utf8.texi:l6 {node chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'test_accents_sc_enable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {node chap}
- *3 @chapter C11 punctuation_small_case_accents_utf8.texi:l7
+ *3 @chapter C11 punctuation_small_case_accents_utf8.texi:l7 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

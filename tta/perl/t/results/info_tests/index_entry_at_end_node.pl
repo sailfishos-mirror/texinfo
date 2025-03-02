@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C5 l2
+ *1 @top C5 l2 {Element}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C6 l11
+ *4 @chapter C6 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -134,7 +134,7 @@ $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *6 @node C1 l17
+ *6 @node C1 l17 {indices}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -151,7 +151,7 @@ $result_tree_text{'index_entry_at_end_node'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {indices}
- *7 @appendix C3 l18
+ *7 @appendix C3 l18 {indices}
  |INFO
  |spaces_before_argument:
   |{ }

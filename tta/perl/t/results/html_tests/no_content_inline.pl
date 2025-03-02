@@ -11,7 +11,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 no_content.texi:l3
+ *0 @node C1 no_content.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C6 no_content.texi:l4
+ *1 @top C6 no_content.texi:l4 {No ccontent}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -80,7 +80,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 no_content.texi:l12
+ *3 @node C1 no_content.texi:l12 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'no_content_inline'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *4 @chapter C4 no_content.texi:l13
+ *4 @chapter C4 no_content.texi:l13 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }

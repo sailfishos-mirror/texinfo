@@ -31,7 +31,7 @@ $result_tree_text{'alias_of_added_index'} = '*document_root C5
     |{\\n}
     {new = sliindex}
   {empty_line:\\n}
- *0 @node C1 l5
+ *0 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -46,7 +46,7 @@ $result_tree_text{'alias_of_added_index'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l6
+ *1 @top C4 l6 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -82,7 +82,7 @@ $result_tree_text{'alias_of_added_index'} = '*document_root C5
     |{\\n}
     {entry}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,7 +98,7 @@ $result_tree_text{'alias_of_added_index'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C3 l11
+ *4 @chapter C3 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

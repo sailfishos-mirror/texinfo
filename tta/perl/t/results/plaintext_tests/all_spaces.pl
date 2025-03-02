@@ -22,7 +22,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
      |{\\n}
      {utf-8}
    {empty_line:\\n}
- *0 @node C1 all_spaces.texi:l3
+ *0 @node C1 all_spaces.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -36,7 +36,7 @@ $result_tree_text{'all_spaces'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C56 all_spaces.texi:l4
+ *1 @node C56 all_spaces.texi:l4 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

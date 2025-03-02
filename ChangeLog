@@ -1,5 +1,14 @@
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (print_element_details),
+	tta/perl/Texinfo/ManipulateTree.pm (print_element_details): print root
+	commands Texinfo code for a more readable tree.
+
+	* tta/perl/texi2any.pl: prepend information on output encoding of
+	DUMP_STRUCTURE tree only if not utf-8.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	Switch tta/perl/t/*.t tests tree results to a textual representation
 
 	* tta/perl/t/test_utils.pl ($do_perl_tree): set to a textual

@@ -180,7 +180,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
       |{\\n}
       {copying}
    {empty_line:\\n}
- *11 @node C1 float_copying.texi:l30
+ *11 @node C1 float_copying.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -196,7 +196,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *12 @top C12 float_copying.texi:l31
+ *12 @top C12 float_copying.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -285,7 +285,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *17 @node C1 float_copying.texi:l45
+ *17 @node C1 float_copying.texi:l45 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -302,7 +302,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Copying and floats}
- *18 @appendix C20 float_copying.texi:l46
+ *18 @appendix C20 float_copying.texi:l46 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }

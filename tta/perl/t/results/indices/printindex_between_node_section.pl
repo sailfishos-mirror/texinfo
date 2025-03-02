@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'printindex_between_node_section'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'printindex_between_node_section'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C7 l2
+ *1 @top C7 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'printindex_between_node_section'} = '*document_root C7
     |{\\n}
     {aop1}
   {empty_line:\\n}
- *6 @node C1 l9
+ *6 @node C1 l9 {node chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ $result_tree_text{'printindex_between_node_section'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node chap1}
- *7 @chapter C5 l10
+ *7 @chapter C5 l10 {chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -157,7 +157,7 @@ $result_tree_text{'printindex_between_node_section'} = '*document_root C7
     |{\\n}
     {chap1}
   {empty_line:\\n}
- *10 @node C2 l15
+ *10 @node C2 l15 {node sec1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -185,7 +185,7 @@ $result_tree_text{'printindex_between_node_section'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {cp}
- *11 @section C1 l17
+ *11 @section C1 l17 {section1}
  |INFO
  |spaces_before_argument:
   |{ }

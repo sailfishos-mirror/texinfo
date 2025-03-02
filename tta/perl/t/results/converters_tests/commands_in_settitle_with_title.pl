@@ -56,7 +56,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
     *12 @exclamdown C1 l1
      *brace_container
   {empty_line:\\n}
- *13 @node C1 l3
+ *13 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -71,7 +71,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *14 @top C2 l4
+ *14 @top C2 l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -92,7 +92,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *15 @node C1 l6
+ *15 @node C1 l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *16 @chapter C4 l7
+ *16 @chapter C4 l7 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

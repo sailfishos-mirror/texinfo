@@ -18,7 +18,7 @@ $result_tree_text{'anchor_before_top'} = '*document_root C5
     {a before Top}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *1 @node C1 l4
+ *1 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -33,7 +33,7 @@ $result_tree_text{'anchor_before_top'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C2 l5
+ *2 @top C2 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'anchor_before_top'} = '*document_root C5
     |{\\n}
     {top}
   {empty_line:\\n}
- *3 @node C1 l7
+ *3 @node C1 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'anchor_before_top'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Chapter}
- *4 @chapter C3 l8
+ *4 @chapter C3 l8 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }

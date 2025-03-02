@@ -25,7 +25,7 @@ $result_tree_text{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '*documen
      |{\\n}
      {US-ASCII}
    {empty_line:\\n}
- *0 @node C1 punctuation_small_case_accents_us_ascii.texi:l5
+ *0 @node C1 punctuation_small_case_accents_us_ascii.texi:l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ $result_tree_text{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '*documen
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @top C2 punctuation_small_case_accents_us_ascii.texi:l6
+ *1 @top C2 punctuation_small_case_accents_us_ascii.texi:l6 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '*documen
     |{\\n}
     {top section}
   {empty_line:\\n}
- *2 @node C1 punctuation_small_case_accents_us_ascii.texi:l8
+ *2 @node C1 punctuation_small_case_accents_us_ascii.texi:l8 {node chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -76,7 +76,7 @@ $result_tree_text{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '*documen
    |spaces_after_argument:
     |{\\n}
     {node chap}
- *3 @chapter C11 punctuation_small_case_accents_us_ascii.texi:l9
+ *3 @chapter C11 punctuation_small_case_accents_us_ascii.texi:l9 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }

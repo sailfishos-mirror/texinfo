@@ -7,7 +7,8 @@ use utf8;
 
 $result_tree_text{'on_section_line'} = '*document_root C2
  *before_node_section
- *0 @section C1 l1
+ *0 @section C1 l1 {@noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent
+}
  |INFO
  |spaces_before_argument:
   |{ }

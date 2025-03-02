@@ -11,7 +11,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 no_monolithic.texi:l3
+ *0 @node C1 no_monolithic.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C8 no_monolithic.texi:l4
+ *1 @top C8 no_monolithic.texi:l4 {Not monolithic}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 no_monolithic.texi:l14
+ *5 @node C1 no_monolithic.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -118,7 +118,7 @@ $result_tree_text{'no_monolithic_only_toc_out'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C8 no_monolithic.texi:l15
+ *6 @chapter C8 no_monolithic.texi:l15 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

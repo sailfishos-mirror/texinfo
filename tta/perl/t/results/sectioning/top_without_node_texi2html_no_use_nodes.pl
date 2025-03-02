@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C4
  *before_node_section C1
   *preamble_before_content
- *0 @top C3 l1
+ *0 @top C3 l1 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
   *paragraph C1
    {Top section\\n}
   {empty_line:\\n}
- *1 @node C1 l4
+ *1 @node C1 l4 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -53,7 +53,7 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
     {(}
     {dir}
     {)}
- *2 @chapter C3 l5
+ *2 @chapter C3 l5 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

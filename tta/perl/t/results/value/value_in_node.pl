@@ -13,7 +13,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    {rawline_arg:node1}
    {rawline_arg:Node 1}
   {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     {(}
     {dir}
     {)}
- *1 @top C4 l4
+ *1 @top C4 l4 {Expansion in Node Names}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -112,7 +112,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {Node 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @chapter C6 l11
+ *4 @chapter C6 l11 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -210,7 +210,7 @@ $result_tree_text{'value_in_node'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *6 @node C3 l19
+ *6 @node C3 l19 {Section 1.1}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -15,7 +15,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
     {rawline_arg: test nodes before Top node\\n}
    {empty_line:\\n}
    {empty_line:\\n}
- *0 @node C6 nodes_before_top.texi:l6
+ *0 @node C6 nodes_before_top.texi:l6 {first before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -105,7 +105,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C9 nodes_before_top.texi:l14
+ *3 @node C9 nodes_before_top.texi:l14 {node in menu before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -172,7 +172,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
     {printindex node in menu before top}
   {empty_line:\\n}
   {empty_line:\\n}
- *6 @node C13 nodes_before_top.texi:l23
+ *6 @node C13 nodes_before_top.texi:l23 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -282,7 +282,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C7 nodes_before_top.texi:l38
+ *9 @node C7 nodes_before_top.texi:l38 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -396,7 +396,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *14 @node C5 nodes_before_top.texi:l50
+ *14 @node C5 nodes_before_top.texi:l50 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -473,7 +473,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
     |{\\n}
     {fn}
   {empty_line:\\n}
- *16 @node C6 nodes_before_top.texi:l58
+ *16 @node C6 nodes_before_top.texi:l58 {another}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -548,7 +548,7 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
     |{\\n}
     {another}
   {empty_line:\\n}
- *20 @node C10 nodes_before_top.texi:l64
+ *20 @node C10 nodes_before_top.texi:l64 {a node}
  |INFO
  |spaces_before_argument:
   |{ }

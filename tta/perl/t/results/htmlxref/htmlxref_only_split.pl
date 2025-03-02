@@ -11,7 +11,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
    {text_before_beginning:\\input texinfo @c -*-texinfo-*-\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 test_refs.texi:l3
+ *0 @node C1 test_refs.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C37 test_refs.texi:l4
+ *1 @top C37 test_refs.texi:l4 {Test refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -468,7 +468,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *33 @node C1 test_refs.texi:l66
+ *33 @node C1 test_refs.texi:l66 {other nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -508,7 +508,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *34 @chapter C9 test_refs.texi:l67
+ *34 @chapter C9 test_refs.texi:l67 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -633,7 +633,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *40 @node C3 test_refs.texi:l84
+ *40 @node C3 test_refs.texi:l84 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -691,7 +691,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *42 @node C3 test_refs.texi:l89
+ *42 @node C3 test_refs.texi:l89 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -743,7 +743,7 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      |{\\n}
      {example}
   {empty_line:\\n}
- *44 @node C3 test_refs.texi:l94
+ *44 @node C3 test_refs.texi:l94 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }

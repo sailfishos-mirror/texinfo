@@ -24,7 +24,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      |{\\n}
      {fr}
    {empty_line:\\n}
- *0 @node C1 no_master_menu_fr.texi:l5
+ *0 @node C1 no_master_menu_fr.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -40,7 +40,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 no_master_menu_fr.texi:l6
+ *1 @top C4 no_master_menu_fr.texi:l6 {max}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -129,7 +129,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 no_master_menu_fr.texi:l12
+ *4 @node C1 no_master_menu_fr.texi:l12 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -146,7 +146,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
- *5 @chapter C4 no_master_menu_fr.texi:l13
+ *5 @chapter C4 no_master_menu_fr.texi:l13 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -193,7 +193,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 no_master_menu_fr.texi:l19
+ *7 @node C1 no_master_menu_fr.texi:l19 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -209,7 +209,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {section}
- *8 @section C1 no_master_menu_fr.texi:l20
+ *8 @section C1 no_master_menu_fr.texi:l20 {sec}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -10,7 +10,7 @@ $result_tree_text{'unknown_node_in_menu_novalidate'} = '*document_root C2
   *@novalidate C1 l1
    {rawline_arg:\\n}
   {empty_line:\\n}
- *0 @node C3 l3
+ *0 @node C3 l3 {first}
  |INFO
  |spaces_before_argument:
   |{ }

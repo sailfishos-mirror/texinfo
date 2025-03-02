@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'menu_title_before_entries'} = '*document_root C3
  *before_node_section
- *0 @node C4 l1
+ *0 @node C4 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'menu_title_before_entries'} = '*document_root C3
      |{\\n}
      {menu}
   {empty_line:\\n}
- *2 @node C1 l8
+ *2 @node C1 l8 {chap subnode}
  |INFO
  |spaces_before_argument:
   |{ }

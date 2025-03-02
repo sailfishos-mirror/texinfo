@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'part_chapter_appendix'} = '*document_root C4
  *before_node_section C1
   {empty_line:\\n}
- *0 @part C2 l2
+ *0 @part C2 l2 {Part 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -30,7 +30,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
     |{\\n}
     {Part 1}
   {empty_line:\\n}
- *1 @chapter C2 l4
+ *1 @chapter C2 l4 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'part_chapter_appendix'} = '*document_root C4
     |{\\n}
     {chapter}
   {empty_line:\\n}
- *2 @appendix C1 l6
+ *2 @appendix C1 l6 {Appendix}
  |INFO
  |spaces_before_argument:
   |{ }

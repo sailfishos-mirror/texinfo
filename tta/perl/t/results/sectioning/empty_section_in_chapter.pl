@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'empty_section_in_chapter'} = '*document_root C3
  *before_node_section C1
   *preamble_before_content
- *0 @chapter C2 l1
+ *0 @chapter C2 l1 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

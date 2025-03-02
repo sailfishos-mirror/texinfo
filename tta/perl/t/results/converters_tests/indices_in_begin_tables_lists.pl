@@ -11,7 +11,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    {text_before_beginning:\\input texinfo.tex\\n}
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 indices_in_begin_tables_lists.texi:l3
+ *0 @node C1 indices_in_begin_tables_lists.texi:l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 indices_in_begin_tables_lists.texi:l4
+ *1 @top C2 indices_in_begin_tables_lists.texi:l4 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -47,7 +47,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 indices_in_begin_tables_lists.texi:l6
+ *2 @node C1 indices_in_begin_tables_lists.texi:l6 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -62,7 +62,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C42 indices_in_begin_tables_lists.texi:l7
+ *3 @chapter C42 indices_in_begin_tables_lists.texi:l7 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1141,7 +1141,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      |{\\n}
      {table}
   {empty_line:\\n}
- *60 @node C1 indices_in_begin_tables_lists.texi:l150
+ *60 @node C1 indices_in_begin_tables_lists.texi:l150 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -1157,7 +1157,7 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {printindex}
- *61 @chapter C8 indices_in_begin_tables_lists.texi:l151
+ *61 @chapter C8 indices_in_begin_tables_lists.texi:l151 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }

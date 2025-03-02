@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'omit_def_space'} = '*document_root C3
  *before_node_section
- *0 @node C2 l1
+ *0 @node C2 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'omit_def_space'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *1 @node C5 l3
+ *1 @node C5 l3 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

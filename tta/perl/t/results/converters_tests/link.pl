@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'link'} = '*document_root C4
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {One}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'link'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {One}
- *1 @chapter C4 l2
+ *1 @chapter C4 l2 {ONEX}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'link'} = '*document_root C4
   *paragraph C1
    {target node\\n}
   {empty_line:\\n}
- *2 @node C19 l6
+ *2 @node C19 l6 {Two}
  |INFO
  |spaces_before_argument:
   |{ }

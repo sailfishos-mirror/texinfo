@@ -25,7 +25,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      |{\\n}
      {ISO-8859-2}
    {empty_line:\\n}
- *0 @node C1 char_latin2_latin2_in_refs.texi:l5
+ *0 @node C1 char_latin2_latin2_in_refs.texi:l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -42,7 +42,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C9 char_latin2_latin2_in_refs.texi:l6
+ *1 @top C9 char_latin2_latin2_in_refs.texi:l6 {char latin2 latin2 in refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C1 char_latin2_latin2_in_refs.texi:l17
+ *4 @node C1 char_latin2_latin2_in_refs.texi:l17 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Ą ą ˛ Ę ę}
- *5 @chapter C4 char_latin2_latin2_in_refs.texi:l18
+ *5 @chapter C4 char_latin2_latin2_in_refs.texi:l18 {Ą ą ˛ Ę ę}
  |INFO
  |spaces_before_argument:
   |{ }

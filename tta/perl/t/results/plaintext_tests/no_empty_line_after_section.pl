@@ -9,7 +9,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
  *before_node_section C1
   *paragraph C1
    {Text\\n}
- *0 @top C3 l2
+ *0 @top C3 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
   *paragraph C1
    {Other text\\n}
   {empty_line:\\n}
- *1 @chapter C4 l5
+ *1 @chapter C4 l5 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    {Para\\n}
    *@comment C1
     {rawline_arg: c\\n}
- *2 @section C4 l10
+ *2 @section C4 l10 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'no_empty_line_after_section'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {3}
- *4 @section C5 l14
+ *4 @section C5 l14 {after sp}
  |INFO
  |spaces_before_argument:
   |{ }

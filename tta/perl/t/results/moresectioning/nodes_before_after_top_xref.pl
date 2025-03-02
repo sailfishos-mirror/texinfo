@@ -20,7 +20,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
      |{\\n}
      {nodes_before_after_top_xref.info}
    {empty_line:\\n}
- *0 @node C4 l3
+ *0 @node C4 l3 {node before}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   *paragraph C1
    {In node before\\n}
   {empty_line:\\n}
- *1 @node C1 l7
+ *1 @node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *2 @top C4 l8
+ *2 @top C4 l8 {top sectionning}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -76,7 +76,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   *paragraph C1
    {in node Top\\n}
   {empty_line:\\n}
- *3 @node C4 l12
+ *3 @node C4 l12 {after}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -93,7 +93,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
   *paragraph C1
    {in node after\\n}
   {empty_line:\\n}
- *4 @node C1 l16
+ *4 @node C1 l16 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -108,7 +108,7 @@ $result_tree_text{'nodes_before_after_top_xref'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chap}
- *5 @chapter C10 l17
+ *5 @chapter C10 l17 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

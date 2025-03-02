@@ -15,7 +15,7 @@ NodeNext: [U1]
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 character_and_spaces_in_refs_text.texi:l1
+ *0 @node C1 character_and_spaces_in_refs_text.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -31,7 +31,7 @@ NodeForward: [U1]
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 character_and_spaces_in_refs_text.texi:l2
+ *1 @top C4 character_and_spaces_in_refs_text.texi:l2 {Test refs}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -107,7 +107,7 @@ NodePrev: [U0]
 NodeUp: [U0]
 NodeForward: [U2]
 NodeBack: [U0]
- *3 @node C1 character_and_spaces_in_refs_text.texi:l9
+ *3 @node C1 character_and_spaces_in_refs_text.texi:l9 {node to avoid DocBook or LaTeX ignored}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -123,7 +123,7 @@ NodeBack: [U0]
    |spaces_after_argument:
     |{\\n}
     {node to avoid DocBook or LaTeX ignored}
- *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10
+ *4 @chapter C10 character_and_spaces_in_refs_text.texi:l10 {first chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -285,7 +285,7 @@ NodePrev: [U1]
 NodeUp: [U0]
 NodeForward: [U3]
 NodeBack: [U1]
- *16 @node C1 character_and_spaces_in_refs_text.texi:l27
+ *16 @node C1 character_and_spaces_in_refs_text.texi:l27 {other nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -325,7 +325,7 @@ NodeBack: [U1]
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *17 @chapter C4 character_and_spaces_in_refs_text.texi:l28
+ *17 @chapter C4 character_and_spaces_in_refs_text.texi:l28 {Chapter with nodes}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -405,7 +405,7 @@ NodePrev: [U2]
 NodeUp: [U2]
 NodeForward: [U4]
 NodeBack: [U2]
- *19 @node C2 character_and_spaces_in_refs_text.texi:l36
+ *19 @node C2 character_and_spaces_in_refs_text.texi:l36 {!_"#$%&\'()*+-.}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -456,7 +456,7 @@ NodePrev: [U3]
 NodeUp: [U2]
 NodeForward: [U5]
 NodeBack: [U3]
- *20 @node C2 character_and_spaces_in_refs_text.texi:l38
+ *20 @node C2 character_and_spaces_in_refs_text.texi:l38 {/;<=>?[\\]^_`|~}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -499,7 +499,7 @@ NodePrev: [U4]
 NodeUp: [U2]
 NodeForward: [U3]
 NodeBack: [U4]
- *21 @node C2 character_and_spaces_in_refs_text.texi:l40
+ *21 @node C2 character_and_spaces_in_refs_text.texi:l40 {local   node}
  |INFO
  |spaces_before_argument:
   |{  }

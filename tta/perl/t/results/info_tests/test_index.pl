@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'test_index'} = '*document_root C13
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C12 l2
+ *1 @top C12 l2 {Element top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -302,7 +302,7 @@ $result_tree_text{'test_index'} = '*document_root C13
      |{\\n}
      {menu}
   {empty_line:\\n}
- *13 @node C1 l31
+ *13 @node C1 l31 {name}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -318,7 +318,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {name}
- *14 @chapter C171 l32
+ *14 @chapter C171 l32 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -647,7 +647,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {after more than 100 lines}
   {empty_line:\\n}
- *20 @node C1 l205
+ *20 @node C1 l205 {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -664,7 +664,7 @@ $result_tree_text{'test_index'} = '*document_root C13
    |spaces_after_argument:
     |{\\n}
     {name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
- *21 @appendix C13 l206
+ *21 @appendix C13 l206 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -742,7 +742,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {fn}
   {empty_line:\\n}
- *24 @appendixsec C2 l219
+ *24 @appendixsec C2 l219 {appendixsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -758,7 +758,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {appendixsec}
   {empty_line:\\n}
- *25 @appendixsubsec C2 l221
+ *25 @appendixsubsec C2 l221 {appendixsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -774,7 +774,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {appendixsubsec}
   {empty_line:\\n}
- *26 @appendixsubsubsec C4 l223
+ *26 @appendixsubsubsec C4 l223 {appendixsubsubsec}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -801,7 +801,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {chapheading}
   {empty_line:\\n}
- *28 @centerchap C2 l227
+ *28 @centerchap C2 l227 {centerchap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -816,7 +816,7 @@ $result_tree_text{'test_index'} = '*document_root C13
     |{\\n}
     {centerchap}
   {empty_line:\\n}
- *29 @chapter C7 l229
+ *29 @chapter C7 l229 {chapter end}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -13,7 +13,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -27,7 +27,7 @@ $result_tree_text{'top_node_top_contents'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C1 l4
+ *1 @top C1 l4 {Texinfo modules documentation}
  |INFO
  |spaces_before_argument:
   |{ }

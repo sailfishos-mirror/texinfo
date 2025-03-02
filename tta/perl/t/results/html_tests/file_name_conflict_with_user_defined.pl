@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l2
+ *1 @top C2 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -44,7 +44,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
     |{\\n}
     {top}
   {empty_line:\\n}
- *2 @node C1 l4
+ *2 @node C1 l4 {Chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -59,7 +59,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Chapter 1}
- *3 @chapter C5 l5
+ *3 @chapter C5 l5 {Chap 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,7 +84,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
     {myanchor}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
- *5 @node C1 l9
+ *5 @node C1 l9 {Chapter 2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Chapter 2}
- *6 @chapter C1 l10
+ *6 @chapter C1 l10 {Chap 2}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -135,7 +135,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *4 @chapter C2 l11
+ *4 @chapter C2 l11 {chapter c1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -152,7 +152,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
     |{\\n}
     {chapter c1}
   {empty_line:\\n}
- *5 @node C4 l13
+ *5 @node C4 l13 {node after chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -171,7 +171,7 @@ $result_tree_text{'two_nodes_at_the_end_nodes'} = '*document_root C7
   *paragraph C1
    {in node after chapter 1\\n}
   {empty_line:\\n}
- *6 @node C1 l17
+ *6 @node C1 l17 {last node in chapter 1}
  |INFO
  |spaces_before_argument:
   |{ }

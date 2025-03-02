@@ -41,7 +41,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
       |{\\n}
       {copying}
    {empty_line:\\n}
- *2 @node C2 l9
+ *2 @node C2 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'anchor_in_copying'} = '*document_root C3
     |{\\n}
     {Top}
   {empty_line:\\n}
- *3 @node C8 l11
+ *3 @node C8 l11 {chap}
  |INFO
  |spaces_before_argument:
   |{ }

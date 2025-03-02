@@ -102,7 +102,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
      {direntry}
   {empty_line:\\n}
   {empty_line:\\n}
- *4 @node C1 l15
+ *4 @node C1 l15 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -116,7 +116,7 @@ $result_tree_text{'direntry_dircategory_and_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C3 l16
+ *5 @top C3 l16 {Test dircategory and direntry}
  |INFO
  |spaces_before_argument:
   |{ }

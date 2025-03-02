@@ -11,7 +11,7 @@ $result_tree_text{'text_before_top_and_contents_after_title'} = '*document_root 
   *paragraph C1
    {Some text before top\\n}
   {empty_line:\\n}
- *0 @node C1 l4
+ *0 @node C1 l4 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -25,7 +25,7 @@ $result_tree_text{'text_before_top_and_contents_after_title'} = '*document_root 
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l5
+ *1 @top C4 l5 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -49,7 +49,7 @@ $result_tree_text{'text_before_top_and_contents_after_title'} = '*document_root 
   *paragraph C1
    {In top.\\n}
   {empty_line:\\n}
- *2 @chapter C4 l9
+ *2 @chapter C4 l9 {the chap}
  |INFO
  |spaces_before_argument:
   |{ }

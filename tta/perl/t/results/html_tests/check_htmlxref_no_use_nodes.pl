@@ -10,7 +10,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
   *preamble_before_content
- *0 @node C1 l2
+ *0 @node C1 l2 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -51,7 +51,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {(}
     {dir}
     {)}
- *1 @top C6 l3
+ *1 @top C6 l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -168,7 +168,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C2 l14
+ *5 @node C2 l14 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -192,7 +192,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {no_existing_no_manual.info}
     {)}
   {empty_line:\\n}
- *6 @node C1 l16
+ *6 @node C1 l16 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -228,7 +228,7 @@ $result_tree_text{'check_htmlxref_no_use_nodes'} = '*document_root C6
     {dir}
     {)}
     {node in dir}
- *7 @chapter C3 l17
+ *7 @chapter C3 l17 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_root C7
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 in_menu_only_special_ascii_spaces_node.texi:l1
+ *0 @node C1 in_menu_only_special_ascii_spaces_node.texi:l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 in_menu_only_special_ascii_spaces_node.texi:l2
+ *1 @top C4 in_menu_only_special_ascii_spaces_node.texi:l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -85,7 +85,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    |INFO
    |spaces_after_argument:
     |{ '."\r".'\\n}
- *4 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10
+ *4 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l10 {CARRIAGE RETURN|'."\r".'|}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -110,7 +110,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node_menu'} = '*document_ro
    |INFO
    |spaces_after_argument:
     |{ \\t\\f\\n}
- *6 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13
+ *6 @chapter C2 in_menu_only_special_ascii_spaces_node.texi:l13 {CHARACTER TABULATION|	| FORM FEED||}
  |INFO
  |spaces_before_argument:
   |{ }

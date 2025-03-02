@@ -20,7 +20,7 @@ $result_tree_text{'same_index_entry_merged_indices'} = '*document_root C5
      |{\\n}
      {vr fn}
    {empty_line:\\n}
- *0 @node C1 l3
+ *0 @node C1 l3 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -52,7 +52,7 @@ $result_tree_text{'same_index_entry_merged_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
   {empty_line:\\n}
- *2 @node C1 l6
+ *2 @node C1 l6 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -68,7 +68,7 @@ $result_tree_text{'same_index_entry_merged_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *3 @chapter C9 l7
+ *3 @chapter C9 l7 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }

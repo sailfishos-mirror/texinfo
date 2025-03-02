@@ -14,7 +14,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    *@afourwide C1 l3
     {rawline_arg:\\n}
    {empty_line:\\n}
- *0 @node C1 l5
+ *0 @node C1 l5 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -29,7 +29,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C2 l6
+ *1 @top C2 l6 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -50,7 +50,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
     |{\\n}
     {section top}
   {empty_line:\\n}
- *2 @node C1 l8
+ *2 @node C1 l8 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -65,7 +65,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C11 l9
+ *3 @chapter C11 l9 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -97,7 +97,7 @@ $result_tree_text{'pagetype'} = '*document_root C6
   *paragraph C1
    {After afourpaper\\n}
   {empty_line:\\n}
- *4 @chapter C3 l20
+ *4 @chapter C3 l20 {afourpaper reset}
  |INFO
  |spaces_before_argument:
   |{ }

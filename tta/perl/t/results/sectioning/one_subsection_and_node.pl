@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'one_subsection_and_node'} = '*document_root C3
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {one node}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -21,7 +21,7 @@ $result_tree_text{'one_subsection_and_node'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {one node}
- *1 @subsection C1 l2
+ *1 @subsection C1 l2 {The subsection}
  |INFO
  |spaces_before_argument:
   |{ }

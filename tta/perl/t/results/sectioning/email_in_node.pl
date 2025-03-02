@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'email_in_node'} = '*document_root C2
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {@email{ a } @email{c , d} @email{ , e}}
  |INFO
  |spaces_before_argument:
   |{ }

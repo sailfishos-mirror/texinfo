@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  *before_node_section C1
   {empty_line:\\n}
- *0 @node C1 l2
+ *0 @node C1 l2 {first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {first}
- *1 @top C4 l3
+ *1 @top C4 l3 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -74,7 +74,7 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
      |{\\n}
      {menu}
   {empty_line:\\n}
- *4 @node C6 l9
+ *4 @node C6 l9 {@asis{(}manual) name}
  |INFO
  |spaces_before_argument:
   |{ }

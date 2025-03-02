@@ -8,7 +8,7 @@ use utf8;
 $result_tree_text{'complex_float'} = '*document_root C5
  *before_node_section C1
   *preamble_before_content
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C10 l2
+ *1 @top C10 l2 {Test floats}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -619,7 +619,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
- *55 @node C1 l91
+ *55 @node C1 l91 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -635,7 +635,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *56 @chapter C6 l92
+ *56 @chapter C6 l92 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }

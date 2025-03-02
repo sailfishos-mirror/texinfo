@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'external_node_in_menu'} = '*document_root C7
  *before_node_section
- *0 @node C1 l1
+ *0 @node C1 l1 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -23,7 +23,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @top C4 l2
+ *1 @top C4 l2 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -99,7 +99,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C1 l10
+ *3 @node C1 l10 {nchapter1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -115,7 +115,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {nchapter1}
- *4 @chapter C2 l11
+ *4 @chapter C2 l11 {chap1}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -132,7 +132,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
     |{\\n}
     {chap1}
   {empty_line:\\n}
- *5 @node C1 l13
+ *5 @node C1 l13 {nchapter2}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -148,7 +148,7 @@ $result_tree_text{'external_node_in_menu'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {nchapter2}
- *6 @chapter C1 l14
+ *6 @chapter C1 l14 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }

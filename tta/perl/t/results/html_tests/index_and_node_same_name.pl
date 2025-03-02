@@ -7,7 +7,7 @@ use utf8;
 
 $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  *before_node_section
- *0 @top C1 l1
+ *0 @top C1 l1 {top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -24,7 +24,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {top}
- *1 @node C5 l2
+ *1 @node C5 l2 {index node}
  |INFO
  |spaces_before_argument:
   |{ }
