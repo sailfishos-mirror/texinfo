@@ -18302,11 +18302,14 @@ systematically associated, this customization has no practical effect.
 
 @vindex ADD_TRANSLITERATED_REDIRECTION_FILES
 @anchor{ADD_TRANSLITERATED_REDIRECTION_FILES}
-If @code{ADD_TRANSLITERATED_REDIRECTION_FILES} is set, and transliteration
-of file names is turned off (@pxref{HTML Xref 8-bit Character Expansion}),
-additional redirection files are created with the transliterated file names.
-This is only relevant if you use non-ASCII characters in
-node names, for example for a manual which is not written in English.
+If @code{ADD_TRANSLITERATED_REDIRECTION_FILES} is set, additional
+redirection files with transliterated names are created for nodes,
+whenever a file with the transliterated name is not already being
+output (@pxref{HTML Xref 8-bit Character Expansion}).  This is likely
+if you use non-ASCII characters in node names, for example for a
+manual which is not written in English, and you do not pass the
+@samp{--transliterate-file-names} option to @command{texi2any}.
+
 This option is useful when there may be links to your manual from other
 online locations using the transliterated names.  This is possible
 because older versions of Texinfo output used transliteration by default.

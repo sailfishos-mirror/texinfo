@@ -1,3 +1,10 @@
+2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Output Structure Customization)
+	<ADD_TRANSLITERATED_REDIRECTION_FILES>: Do not say that node
+	name transliteration must be turned off for this option to do
+	anything.  Report from Patrice.
+
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
 	In C program pass unclosed files from Perl as PerlIO and close
