@@ -921,7 +921,11 @@ print_source_marks (ELEMENT *element, int level, const char *prepended,
       if (s_mark->position)
         text_printf (result, "<p:%d>", s_mark->position);
       if (s_mark->line)
-        text_printf (result, "{%s}", s_mark->line);
+        {
+          char *sm_line = debug_protect_eol (s_mark->line);
+          text_printf (result, "{%s}", sm_line);
+          free (sm_line);
+        }
       text_append_n (result, "\n", 1);
 
       if (s_mark->element)
@@ -1484,7 +1488,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
       return current_nr;
     }
 
-  text_append_n (result, "+", 1);
+  text_append_n (result, "*", 1);
 
   if (element->flags & EF_numbered)
     {
@@ -1500,7 +1504,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
     text_printf (result, "@%s", debug_element_command_name (element));
 
   if (element->e.c->contents.number > 0)
-    text_printf (result, " *%zu", element->e.c->contents.number);
+    text_printf (result, " C%zu", element->e.c->contents.number);
 
   print_element_source_info (element, result, fname_encoding, use_filename);
 

@@ -422,7 +422,7 @@ sub _print_source_marks($$$$;$$)
       $result .= "<p:$s_mark->{'position'}>";
     }
     if (defined($s_mark->{'line'})) {
-      $result .= "{$s_mark->{'line'}}";
+      $result .= '{'._debug_protect_eol($s_mark->{'line'}).'}';
     }
     $result .= "\n";
 
@@ -678,7 +678,7 @@ sub print_element_details($$$$;$$)
     return ($current_nr, $result);
   }
 
-  $result .= '+';
+  $result .= '*';
 
   if (defined($element->{'_number'})) {
     $result .= "$element->{'_number'} ";
@@ -696,7 +696,7 @@ sub print_element_details($$$$;$$)
     $contents_nr = scalar(@{$element->{'contents'}});
   }
   if ($contents_nr) {
-    $result .= " *$contents_nr";
+    $result .= " C$contents_nr";
   }
 
   $result .= _print_element_source_info($element, $fname_encoding,
