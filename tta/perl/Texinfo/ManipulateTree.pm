@@ -514,6 +514,10 @@ sub element_number_or_error($)
 {
   my $element = shift;
 
+  if (ref($element) eq '' or ref($element) ne 'HASH') {
+    cluck("element_number_or_error: not an hash: $element\n");
+  }
+
   if (defined($element->{'_number'})) {
     return "E$element->{'_number'}";
   } else {
@@ -593,7 +597,7 @@ sub _print_element_associated_info($$$$$;$$)
       }
     } elsif ($key eq 'misc_args') {
       $result .= 'A{'.join('|', @{$value}).'}';
-    } elsif ($key eq 'index_entry') {
+    } elsif ($key eq 'index_entry' or $key eq 'associated_index_entry') {
       my ($index_name, $number) = @{$value};
       $result .= "I{${index_name},${number}}";
     } elsif ($ref eq 'ARRAY') {

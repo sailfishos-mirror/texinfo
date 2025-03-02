@@ -662,7 +662,7 @@ sub _output_unit_name_string($)
 {
   my $output_unit = shift;
   if ($output_unit->{'unit_type'} eq 'unit') {
-    return "[U$output_unit->{'index'}]";
+    return "[U$output_unit->{'_index'}]";
   } elsif ($output_unit->{'unit_type'} eq 'external_node_unit') {
     my $output_unit_name
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -683,20 +683,21 @@ my @all_directions_order
     = (@relative_directions_order, @file_directions_order,
        map {'FirstInFile'.$_} @relative_directions_order);
 
-sub print_output_units_details($$;$)
+sub print_output_units_details($$;$$)
 {
   my $output_units = shift;
   my $current_nr = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
   my $result = '';
 
   for (my $i = 0; $i < scalar(@$output_units); $i++) {
     my $output_unit = $output_units->[$i];
-    $output_unit->{'index'} = $i;
+    $output_unit->{'_index'} = $i;
   }
 
   foreach my $output_unit (@$output_units) {
-    $result .= "U$output_unit->{'index'} $output_unit->{'unit_type'}";
+    $result .= "U$output_unit->{'_index'} $output_unit->{'unit_type'}";
     if ($output_unit->{'special_unit_variety'}) {
       $result .= "-$output_unit->{'special_unit_variety'}";
     }
@@ -766,19 +767,24 @@ sub print_output_units_details($$;$)
         my $element_result;
         ($current_nr, $element_result)
           = Texinfo::ManipulateTree::print_element_details($element,
-                 1, undef, $current_nr, $use_filename);
+                 1, undef, $current_nr, $fname_encoding, $use_filename);
         $result .= $element_result;
       }
     }
   }
 
+  foreach my $output_unit (@$output_units) {
+    delete $output_unit->{'_index'};
+  }
+
   return ($current_nr, $result);
 }
 
-sub print_output_units_tree_details ($$;$)
+sub print_output_units_tree_details($$;$$)
 {
   my $output_units = shift;
   my $tree = shift;
+  my $fname_encoding = shift;
   my $use_filename = shift;
 
   my $current_nr
@@ -787,7 +793,7 @@ sub print_output_units_tree_details ($$;$)
   my $output_unit_result;
   ($current_nr, $output_unit_result)
     = print_output_units_details($output_units, $current_nr,
-                                 $use_filename);
+                                 $fname_encoding, $use_filename);
 
   Texinfo::ManipulateTree::remove_element_tree_numbers($tree);
 
