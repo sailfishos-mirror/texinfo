@@ -17970,6 +17970,7 @@ option enables @dfn{transliteration} of node names into ASCII
 characters for the purposes of file name creation and referencing.
 The transliteration is based on phonetic principles, which makes the
 generated file names more easily understandable.
+See also @ref{ADD_TRANSLITERATED_REDIRECTION_FILES}.
 
 @cindex Normalization Form C, Unicode
 For the definition of Unicode Normalization Form@tie{}C, see Unicode
@@ -18298,6 +18299,20 @@ Note that this setting does not determine the link string, only where the
 links points to; see @ref{Three Arguments, , xrefautomaticsectiontitle}
 for the link string customization.  If nodes and sections are
 systematically associated, this customization has no practical effect.
+
+@vindex ADD_TRANSLITERATED_REDIRECTION_FILES
+@anchor{ADD_TRANSLITERATED_REDIRECTION_FILES}
+If @code{ADD_TRANSLITERATED_REDIRECTION_FILES} is set, and transliteration
+of file names is turned off (@pxref{HTML Xref 8-bit Character Expansion}),
+additional redirection files are created with the transliterated file names.
+This is only relevant if you use non-ASCII characters in
+node names, for example for a manual which is not written in English.
+This option is useful when there may be links to your manual from other
+online locations using the transliterated names.  This is possible
+because older versions of Texinfo output used transliteration by default.
+(It is possible that this variable may be removed in future versions
+of Texinfo.)
+
 
 @vindex DO_ABOUT
 @vindex PROGRAM_NAME_IN_ABOUT

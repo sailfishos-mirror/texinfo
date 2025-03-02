@@ -1,3 +1,10 @@
+2025-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Xref 8-bit Character Expansion)
+	(HTML Output Structure Customization):
+	Document ADD_TRANSLITERATED_REDIRECTION_FILES.
+	* NEWS: update.
+
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/html_tests.t
