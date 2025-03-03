@@ -183,7 +183,7 @@ sub is_with_diff($$$)
   #  eq_or_diff_text($result, $reference, $test_name);
   #} elsif ($text_diff_loading_error) {
   if ($text_diff_loading_error or !defined($reference)
-      or ref($reference) ne '') {
+      or ref($reference) ne '' or !defined($result)) {
     is($result, $reference, $test_name);
   } else {
     ok($result eq $reference, $test_name)
@@ -1504,34 +1504,31 @@ sub test($$)
   #  Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
   #}
 
- COMPARE:
-
-  my $file = "t/results/$self->{'name'}/$test_name.pl";
-  my $new_file = $file.'.new';
-
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);
 
-  my $split_result;
   my $tree_text;
   if ($output_units) {
-    $split_result = $output_units;
-    if (!$do_perl_tree) {
-      $tree_text
-     = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
+    $tree_text
+      = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
                                      $tree, $input_file_names_encoding, 1);
-    }
   } else {
-    $split_result = $tree;
-    if (!$do_perl_tree) {
-      $tree_text = Texinfo::ManipulateTree::print_tree($tree,
+    $tree_text = Texinfo::ManipulateTree::print_tree($tree,
                                          $input_file_names_encoding, 1);
+  }
+
+  my $split_result;
+  if ($do_perl_tree) {
+    if ($output_units) {
+      $split_result = $output_units;
+    } else {
+      $split_result = $tree;
     }
   }
 
   my $float_text;
   my $floats;
-  if ($document->floats_information()) {
+  if ($document) {
     $floats = $document->floats_information();
     if ($floats and scalar(keys(%$floats)) > 0) {
       if (!$do_perl_tree) {
@@ -1542,6 +1539,11 @@ sub test($$)
       $floats = undef;
     }
   }
+
+ COMPARE:
+
+  my $file = "t/results/$self->{'name'}/$test_name.pl";
+  my $new_file = $file.'.new';
 
   if ($symbols_before_init_file) {
     foreach my $symbol (keys(%Texinfo::Config::)) {
@@ -1705,10 +1707,8 @@ sub test($$)
     %result_converted = ();
     require "$srcdir/$file";
 
-    if (defined($tree_text)) {
-      is_with_diff($tree_text, $result_tree_text{$test_name},
-                   $test_name.' tree');
-    }
+    is_with_diff($tree_text, $result_tree_text{$test_name},
+                 $test_name.' tree');
 
     if ($do_perl_tree) {
       cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,

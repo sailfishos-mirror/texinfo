@@ -1,5 +1,17 @@
 2025-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): always generate and compare
+	$tree_text.
+
+	* tta/perl/t/test_utils.pl (is_with_diff): handle better undefined 
+	result.
+
+	* tta/perl/t/test_utils.pl (test): move code around, in particular
+	move COMPARE label down, such that less variables are set if there
+	was nothing done.
+
+2025-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): fix generation of floats results.
 
 	* tta/perl/t/test_utils.pl (test): reorganize code.
