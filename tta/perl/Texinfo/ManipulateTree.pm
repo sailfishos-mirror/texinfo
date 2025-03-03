@@ -1383,13 +1383,19 @@ sub _print_caption_shortcaption($$$$$)
   }
 
   my $result;
-  my @caption_lines = split /\n/, $caption_texi;
-  if (scalar(@caption_lines)) {
+  # important to have the -1 last argument to keep the traling new lines
+  my @caption_lines = split /\n/, $caption_texi, -1;
+  my $lines_nr = scalar(@caption_lines);
+  if ($lines_nr > 0) {
     $result = "  ${caption_type}: ";
     my $first_line = shift @caption_lines;
     $result .= $first_line ."\n";
-    foreach my $line (@caption_lines) {
-      $result .= "   $line\n";
+    if ($lines_nr > 1) {
+      # remove empty string after the last end of line
+      pop(@caption_lines) if ($caption_lines[-1] eq '');
+      foreach my $line (@caption_lines) {
+        $result .= "   $line\n";
+      }
     }
   } else {
     $result = "  ${caption_type}(E)\n";

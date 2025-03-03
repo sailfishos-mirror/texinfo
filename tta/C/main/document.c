@@ -527,6 +527,15 @@ sorted_indices_by_letter (DOCUMENT *document,
   return collation_sorted_indices;
 }
 
+char *
+print_document_listoffloats (DOCUMENT *document)
+{
+  if (document)
+    return print_listoffloats_types (&document->listoffloats);
+
+  return 0;
+}
+
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {

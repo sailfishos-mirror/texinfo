@@ -171,7 +171,7 @@ document_errors (SV *document_in)
 
         /* NOTE this is incorrect, as the callers do not expect
            undef errors_warnings_sv.  This should not happen, however,
-           as registrar objects are always associated to documents 
+           as registrar objects are always associated to documents
            and the corresponding array reference should always be found
          */
         if (!errors_warnings_sv)
@@ -393,4 +393,26 @@ indices_sort_strings (SV *document_in, ...)
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+print_document_listoffloats (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "print_document_listoffloats");
+        if (document)
+          {
+            char *listoffloats_str = print_document_listoffloats (document);
+            if (listoffloats_str)
+              RETVAL = newSVpv_utf8 (listoffloats_str, 0);
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          RETVAL = newSV (0);
+
+    OUTPUT:
+        RETVAL
+
 

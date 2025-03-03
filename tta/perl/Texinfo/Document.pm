@@ -86,6 +86,9 @@ our %XS_overrides = (
     => "Texinfo::DocumentXS::setup_indices_sort_strings",
   "Texinfo::Document::indices_sort_strings"
     => "Texinfo::DocumentXS::indices_sort_strings",
+
+  "Texinfo::Document::print_document_listoffloats"
+    => "Texinfo::DocumentXS::print_document_listoffloats",
 );
 
 our $module_loaded = 0;

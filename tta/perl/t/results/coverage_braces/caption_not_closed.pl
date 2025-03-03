@@ -89,6 +89,7 @@ $result_floats{'caption_not_closed'} = 'Text: 1
    
    The caption is closed as soon as @@end float is encountered, since
    as much as possible is closed in order to find the @@float beginning.
+   
 ';
 
 1;

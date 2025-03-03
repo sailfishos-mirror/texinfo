@@ -67,6 +67,8 @@ COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           const char *collation_language,
                           const char *collation_locale);
 
+char *print_document_listoffloats (DOCUMENT *document);
+
 void remove_document_descriptor (size_t document_descriptor);
 ELEMENT *unregister_document_merge_with_document (size_t document_descriptor,
                                                   DOCUMENT *document);

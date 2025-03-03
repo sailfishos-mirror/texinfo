@@ -183,14 +183,14 @@ print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
                      builtin_command_name (element->e.c->cmd),
                      type, float_number, caption_texi);
 
-  if (caption_texi)
+  if (caption_texi && strlen (caption_texi))
     {
       text_printf (result, "  %s: ", caption_type);
       print_indented (caption_texi, result);
       free (caption_texi);
     }
   else
-    text_printf (result, "  %s(E)\n");
+    text_printf (result, "  %s(E)\n", caption_type);
 }
 
 /* this should be mainly to verify listoffloats types, association with
