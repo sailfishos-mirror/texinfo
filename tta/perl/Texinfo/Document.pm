@@ -35,6 +35,7 @@ use Texinfo::XSLoader;
 use Texinfo::Common;
 use Texinfo::Report;
 use Texinfo::Indices;
+use Texinfo::ManipulateTree;
 
 our $VERSION = '7.2dev';
 
@@ -400,6 +401,25 @@ sub sorted_indices_by_index($$$$)
            $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
+}
+
+
+
+sub print_document_listoffloats($)
+{
+  my $document = shift;
+
+  my $float_text;
+
+  if ($document) {
+    my $floats = $document->floats_information();
+    if ($floats) {
+      $float_text
+          = Texinfo::ManipulateTree::print_listoffloats_types($floats);
+    }
+  }
+
+  return $float_text;
 }
 
 

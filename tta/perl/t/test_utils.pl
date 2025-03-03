@@ -1507,6 +1507,7 @@ sub test($$)
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);
 
+  my $float_text;
   my $tree_text;
   if ($output_units) {
     $tree_text
@@ -1517,6 +1518,7 @@ sub test($$)
                                          $input_file_names_encoding, 1);
   }
 
+  my $floats;
   my $split_result;
   if ($do_perl_tree) {
     if ($output_units) {
@@ -1524,20 +1526,15 @@ sub test($$)
     } else {
       $split_result = $tree;
     }
-  }
 
-  my $float_text;
-  my $floats;
-  if ($document) {
-    $floats = $document->floats_information();
-    if ($floats and scalar(keys(%$floats)) > 0) {
-      if (!$do_perl_tree) {
-        $float_text
-          = Texinfo::ManipulateTree::print_listoffloats_types($floats);
+    if ($document) {
+      $floats = $document->floats_information();
+      if (not ($floats and scalar(keys(%$floats)) > 0)) {
+        $floats = undef;
       }
-    } else {
-      $floats = undef;
     }
+  } else {
+    $float_text = Texinfo::Document::print_document_listoffloats($document);
   }
 
  COMPARE:
@@ -1655,16 +1652,17 @@ sub test($$)
                             ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
     }
-    if ($floats) {
-      if ($do_perl_tree) {
-        local $Data::Dumper::Sortkeys = \&filter_floats_keys;
-        $out_result .= Data::Dumper->Dump([$floats],
-                            ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
-      } else {
-        $out_result .= '$result_floats{\''.$test_name.'\'} = \''
-          . protect_perl_string($float_text)."';\n\n";
-      }
+    if ($do_perl_tree and $floats) {
+      local $Data::Dumper::Sortkeys = \&filter_floats_keys;
+      $out_result .= Data::Dumper->Dump([$floats],
+                          ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
     }
+
+    if (defined($float_text)) {
+      $out_result .= '$result_floats{\''.$test_name.'\'} = \''
+                    . protect_perl_string($float_text)."';\n\n";
+    }
+
     if ($indices_sorted_sort_strings) {
       local $Data::Dumper::Sortkeys = 1;
       $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings],
