@@ -371,6 +371,17 @@ typedef struct TREE_ADDED_ELEMENTS {
     enum tree_added_elements_status status;
 } TREE_ADDED_ELEMENTS;
 
+/* not used in parser, used in diverse codes */
+typedef struct NAME_NUMBER {
+    size_t number;
+    const char *name;
+} NAME_NUMBER;
+
+typedef struct NAME_NUMBER_LIST {
+    size_t number;
+    NAME_NUMBER *list;
+} NAME_NUMBER_LIST;
+
 /* tree element flags */
 /* in info in Perl */
 #define EF_inserted                      0x0001

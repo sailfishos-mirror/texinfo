@@ -374,35 +374,34 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
 }
 
 static int
-compare_page_name_number (const void *a, const void *b)
+compare_name_number (const void *a, const void *b)
 {
-  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
-  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
+  const NAME_NUMBER *nn_a = (const NAME_NUMBER *) a;
+  const NAME_NUMBER *nn_b = (const NAME_NUMBER *) b;
 
-  return strcmp (pnn_a->page_name, pnn_b->page_name);
+  return strcmp (nn_a->name, nn_b->name);
 }
 
 size_t
-find_page_name_number
-            (const PAGE_NAME_NUMBER_LIST *page_name_number,
-                                          const char *page_name)
+find_name_number (const NAME_NUMBER_LIST *name_number,
+                  const char *name)
 {
-  PAGE_NAME_NUMBER *result = 0;
-  static PAGE_NAME_NUMBER searched_page_name;
+  NAME_NUMBER *result = 0;
+  static NAME_NUMBER searched_name;
 
-  searched_page_name.page_name = page_name;
-  if (page_name_number->number == 0)
+  searched_name.name = name;
+  if (name_number->number == 0)
     {
       char *msg;
-      xasprintf (&msg, "no pages, searching for '%s'\n", page_name);
+      xasprintf (&msg, "no names, searching for '%s'\n", name);
       fatal (msg);
       free (msg);
     }
 
-  result = (PAGE_NAME_NUMBER *) bsearch (&searched_page_name,
-                page_name_number->list,
-                page_name_number->number, sizeof (PAGE_NAME_NUMBER),
-                compare_page_name_number);
+  result = (NAME_NUMBER *) bsearch (&searched_name,
+                name_number->list,
+                name_number->number, sizeof (NAME_NUMBER),
+                compare_name_number);
   if (!result)
     return 0;
   return result->number;
@@ -431,8 +430,8 @@ html_count_elements_in_filename (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
                  const char *filename)
 {
-  size_t page_number = find_page_name_number (&self->page_name_number,
-                                              filename);
+  size_t page_number = find_name_number (&self->page_name_number,
+                                         filename);
 
   if (!page_number)
     return 0;
@@ -988,8 +987,8 @@ html_get_file_information (const CONVERTER *self, const char *key,
   *status = 0;
   if (filename)
     {
-      page_number = find_page_name_number (&self->page_name_number,
-                                           filename);
+      page_number = find_name_number (&self->page_name_number,
+                                      filename);
       if (!page_number)
         {
           *status = -1;
@@ -1029,8 +1028,8 @@ html_register_opened_filename_section_level (CONVERTER *self,
                                     const char *filename,
                                     int level, const char *close_string)
 {
-  size_t page_number = find_page_name_number (&self->page_name_number,
-                                              filename);
+  size_t page_number = find_name_number (&self->page_name_number,
+                                         filename);
 
   if (!page_number)
     return;
@@ -1064,8 +1063,8 @@ STRING_LIST *
 html_close_registered_filename_sections_level (CONVERTER *self,
                                       const char *filename, int level)
 {
-  size_t page_number = find_page_name_number (&self->page_name_number,
-                                              filename);
+  size_t page_number = find_name_number (&self->page_name_number,
+                                         filename);
 
   if (!page_number)
     return 0;
@@ -1376,8 +1375,8 @@ html_get_css_elements_classes (CONVERTER *self, const char *filename)
 
   if (filename)
     {
-      page_number = find_page_name_number (&self->page_name_number,
-                                           filename);
+      page_number = find_name_number (&self->page_name_number,
+                                      filename);
       if (!page_number)
         {
           if (self->page_css.number > 1)

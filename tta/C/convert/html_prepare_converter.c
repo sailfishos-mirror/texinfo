@@ -5878,12 +5878,12 @@ prepare_special_units_directions (CONVERTER *self,
 }
 
 static int
-compare_page_name_number (const void *a, const void *b)
+compare_name_number (const void *a, const void *b)
 {
-  const PAGE_NAME_NUMBER *pnn_a = (const PAGE_NAME_NUMBER *) a;
-  const PAGE_NAME_NUMBER *pnn_b = (const PAGE_NAME_NUMBER *) b;
+  const NAME_NUMBER *nn_a = (const NAME_NUMBER *) a;
+  const NAME_NUMBER *nn_b = (const NAME_NUMBER *) b;
 
-  return strcmp (pnn_a->page_name, pnn_b->page_name);
+  return strcmp (nn_a->name, nn_b->name);
 }
 
 /* Return structure to be freed by the caller */
@@ -5959,26 +5959,26 @@ html_prepare_units_directions_files (CONVERTER *self,
       /* set elements_in_file_count and prepare page_name_number
          for sorting */
       self->page_name_number.number = self->output_unit_files.number;
-      self->page_name_number.list = (PAGE_NAME_NUMBER *)
-        malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
+      self->page_name_number.list = (NAME_NUMBER *)
+        malloc (self->page_name_number.number * sizeof (NAME_NUMBER));
 
       for (i = 0; i < self->output_unit_files.number; i++)
         {
           FILE_NAME_PATH_COUNTER *file_counter
             = &self->output_unit_files.list[i];
-          PAGE_NAME_NUMBER *page_name_number = &self->page_name_number.list[i];
+          NAME_NUMBER *page_name_number = &self->page_name_number.list[i];
 
           /* counter is dynamic, decreased when the element is encountered
              elements_in_file_count is not modified afterwards */
           file_counter->elements_in_file_count = file_counter->counter;
 
           page_name_number->number = i+1;
-          page_name_number->page_name = file_counter->filename;
+          page_name_number->name = file_counter->filename;
         }
 
       qsort (self->page_name_number.list,
              self->page_name_number.number,
-             sizeof (PAGE_NAME_NUMBER), compare_page_name_number);
+             sizeof (NAME_NUMBER), compare_name_number);
     }
 
   return files_source_info;

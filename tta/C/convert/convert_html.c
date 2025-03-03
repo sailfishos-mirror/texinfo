@@ -878,7 +878,7 @@ html_prepare_direction_icons (CONVERTER *self)
 void
 html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
-  PAGE_NAME_NUMBER *page_name_number;
+  NAME_NUMBER *page_name_number;
   self->page_css.number = 1+1;
   self->page_css.space = self->page_css.number;
   self->page_css.list = (CSS_LIST *)
@@ -900,12 +900,12 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
           self->pending_closes.number * sizeof (STRING_STACK));
 
   self->page_name_number.number = 1;
-  self->page_name_number.list = (PAGE_NAME_NUMBER *)
-      malloc (self->page_name_number.number * sizeof (PAGE_NAME_NUMBER));
+  self->page_name_number.list = (NAME_NUMBER *)
+      malloc (self->page_name_number.number * sizeof (NAME_NUMBER));
 
   page_name_number = &self->page_name_number.list[0];
   page_name_number->number = 1;
-  page_name_number->page_name = output_filename;
+  page_name_number->name = output_filename;
 }
 
 void

@@ -1,5 +1,19 @@
 2025-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_setup_output_simple_page),
+	tta/C/convert/html_conversion_state.c (compare_name_number)
+	(find_name_number), tta/C/convert/html_converter_finish.c
+	(html_reset_converter), tta/C/convert/html_prepare_converter.c
+	(compare_name_number, html_prepare_units_directions_files),
+	tta/C/main/converter_types.h (CONVERTER), tta/C/main/tree_types.h
+	(NAME_NUMBER, NAME_NUMBER_LIST): move PAGE_NAME_NUMBER and
+	PAGE_NAME_NUMBER_LIST to tree_types.h and rename NAME_NUMBER and
+	NAME_NUMBER_LIST.  Rename compare_page_name_number as
+	compare_name_number and find_page_name_number as find_name_number.
+	Update callers.
+
+2025-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (print_element_extra): add a local
 	context for extra_misc_args case, which has a variable definition.
 

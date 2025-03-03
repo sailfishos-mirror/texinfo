@@ -363,16 +363,6 @@ typedef struct ARRAY_INDEX_LIST {
     size_t *list;
 } ARRAY_INDEX_LIST;
 
-typedef struct PAGE_NAME_NUMBER {
-    size_t number;
-    const char *page_name;
-} PAGE_NAME_NUMBER;
-
-typedef struct PAGE_NAME_NUMBER_LIST {
-    size_t number;
-    PAGE_NAME_NUMBER *list;
-} PAGE_NAME_NUMBER_LIST;
-
 typedef struct CSS_LIST {
   /* 0 if associated to output units and found by number */
     char *page_name;
@@ -832,7 +822,7 @@ typedef struct CONVERTER {
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
 
   /* to find index in output_unit_files based on name */
-    PAGE_NAME_NUMBER_LIST page_name_number;
+    NAME_NUMBER_LIST page_name_number;
 
   /* API to open, set encoding and register files */
     OUTPUT_FILES_INFORMATION output_files_information;

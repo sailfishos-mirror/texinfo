@@ -271,7 +271,7 @@ html_reset_converter (CONVERTER *self)
   clear_strings_list (&self->check_htmlxref_already_warned);
 
   free (self->page_name_number.list);
-  memset (&self->page_name_number, 0, sizeof (PAGE_NAME_NUMBER_LIST));
+  memset (&self->page_name_number, 0, sizeof (NAME_NUMBER_LIST));
 
   for (i = 0; i < self->page_css.number; i++)
     {
