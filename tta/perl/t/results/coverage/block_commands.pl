@@ -136,26 +136,12 @@ In float
 $result_errors{'block_commands'} = [];
 
 
-$result_floats{'block_commands'} = {
-  'a float' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'a float',
-        'normalized' => 'b-float'
-      }
-    }
-  ]
-};
-$result_floats{'block_commands'}{'a float'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'block_commands'}{'a float'}[0];
-
+$result_tree_text{'block_commands'} = 'a float: 1
+ F1: {b-float}
+  C: in caption
+   
+   in caption
+';
 
 
 $result_converted{'plaintext'}->{'block_commands'} = 'in group

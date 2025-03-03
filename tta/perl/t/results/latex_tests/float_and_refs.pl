@@ -649,91 +649,19 @@ my figure.
 $result_errors{'float_and_refs'} = [];
 
 
-$result_floats{'float_and_refs'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => '',
-        'normalized' => 'no-type',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ],
-  'Figure' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {},
-        'float_type' => 'Figure',
-        'normalized' => 'my-figure',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ],
-  'Thing' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {},
-        'float_type' => 'Thing',
-        'normalized' => 'with-type',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ]
-};
-$result_floats{'float_and_refs'}{''}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{''}[0];
-$result_floats{'float_and_refs'}{''}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{''}[0];
-$result_floats{'float_and_refs'}{'Figure'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{'Figure'}[0];
-$result_floats{'float_and_refs'}{'Figure'}[0]{'extra'}{'float_section'} = $result_floats{'float_and_refs'}{''}[0]{'extra'}{'float_section'};
-$result_floats{'float_and_refs'}{'Figure'}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{'Figure'}[0];
-$result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{'Thing'}[0];
-$result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'float_section'} = $result_floats{'float_and_refs'}{''}[0]{'extra'}{'float_section'};
-$result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'float_and_refs'}{'Thing'}[0];
-
+$result_tree_text{'float_and_refs'} = ': 1
+ F1.1: {no-type}
+  S: short no type float
+  C: no type float
+Figure: 1
+ F1.1: {my-figure}
+  S: short caption for figure
+  C: caption for figure
+Thing: 1
+ F1.1: {with-type}
+  S: short with type float
+  C: with type float
+';
 
 
 $result_converted{'latex_text'}->{'float_and_refs'} = '\\begin{document}

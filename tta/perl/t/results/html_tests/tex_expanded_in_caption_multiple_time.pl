@@ -105,26 +105,12 @@ My float.
 $result_errors{'tex_expanded_in_caption_multiple_time'} = [];
 
 
-$result_floats{'tex_expanded_in_caption_multiple_time'} = {
-  'A' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'A',
-        'normalized' => 'B'
-      }
-    }
-  ]
-};
-$result_floats{'tex_expanded_in_caption_multiple_time'}{'A'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'tex_expanded_in_caption_multiple_time'}{'A'}[0];
-
+$result_tree_text{'tex_expanded_in_caption_multiple_time'} = 'A: 1
+ F1: {B}
+  C: @tex
+   aa
+   @end tex
+';
 
 
 $result_converted{'html'}->{'tex_expanded_in_caption_multiple_time'} = '<!DOCTYPE html>

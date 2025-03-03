@@ -659,33 +659,11 @@ $result_errors{'commands_and_spaces'} = [
 ];
 
 
-$result_floats{'commands_and_spaces'} = {
-  'ff' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'ff',
-        'normalized' => 'b',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ]
-};
-$result_floats{'commands_and_spaces'}{'ff'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'commands_and_spaces'}{'ff'}[0];
-$result_floats{'commands_and_spaces'}{'ff'}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'commands_and_spaces'}{'ff'}[0];
-
+$result_tree_text{'commands_and_spaces'} = 'ff: 1
+ F1: {b}
+  S: Short
+  C: In caption 
+';
 
 $result_indices_sort_strings{'commands_and_spaces'} = {
   'fn' => [

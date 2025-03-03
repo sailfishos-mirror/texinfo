@@ -47,17 +47,9 @@ $result_texts{'empty_label_no_space'} = 'Type
 $result_errors{'empty_label_no_space'} = [];
 
 
-$result_floats{'empty_label_no_space'} = {
-  'Type' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_type' => 'Type'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'empty_label_no_space'} = 'Type: 1
+ F
+';
 
 
 $result_converted{'plaintext'}->{'empty_label_no_space'} = 'Type

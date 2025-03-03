@@ -1285,6 +1285,7 @@ sub relate_index_entries_to_table_items_in_document($)
 }
 
 
+
 # Methods used to get information on menu entries and nodes.  Used in
 # structuring and transformation codes, here because this module is
 # used by all the structuring and transformation modules.
@@ -1357,6 +1358,97 @@ sub first_menu_node($$)
   return undef;
 }
 
+
+
+sub _print_caption_shortcaption($$$$$)
+{
+  my $element = shift;
+  my $float = shift;
+  my $caption_type = shift;
+  my $type = shift;
+  my $float_number = shift;
+
+  my $caption_texi = "";
+  if ($element->{'contents'}) {
+    $caption_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                                $element->{'contents'}->[0]);
+  }
+
+  my $caption_float;
+  if (!$element->{'extra'} or !$element->{'extra'}->{'float'}
+      or $element->{'extra'}->{'float'} ne $float) {
+    $float_number = 'UNDEF' unless(defined($float_number));
+    print STDERR "BUG: \@${element}->{'cmdname'} $type; $float_number: "
+       . "caption_float != float_e: $caption_texi\n";
+  }
+
+  my $result;
+  my @caption_lines = split /\n/, $caption_texi;
+  if (scalar(@caption_lines)) {
+    $result = "  ${caption_type}: ";
+    my $first_line = shift @caption_lines;
+    $result .= $first_line ."\n";
+    foreach my $line (@caption_lines) {
+      $result .= "   $line\n";
+    }
+  } else {
+    $result = "  ${caption_type}(E)\n";
+  }
+  return $result;
+}
+
+# Print listoffloats information.  In a separate floats.c file in C,
+# no equivalent in Perl, so use this file.  Used in tests.
+
+sub print_listoffloats_types($)
+{
+  my $listoffloats_list = shift;
+
+  return undef if (scalar(keys(%$listoffloats_list)) == 0);
+
+  my $result = '';
+  foreach my $type (sort(keys(%$listoffloats_list))) {
+    my $listoffloats = $listoffloats_list->{$type};
+    $result .= "$type: ".scalar(@$listoffloats)."\n";
+    foreach my $float (@$listoffloats) {
+      if (!$float->{'extra'}) {
+         print STDERR "BUG: $type: float without extra: $float\n";
+         next;
+      }
+      my $float_type = $float->{'extra'}->{'float_type'};
+      my $float_normalized = $float->{'extra'}->{'normalized'};
+      my $float_number = $float->{'extra'}->{'float_number'};
+      if (!defined($float_type) or $float_type ne $type) {
+        $float_normalized = 'UNDEF' unless(defined($float_normalized));
+        $float_number = 'UNDEF' unless(defined($float_number));
+        $float_type = 'UNDEF' unless(defined($float_type));
+        print STDERR "BUG: $type: listoffloats != float type "
+            ."'$float_type' ($float_normalized;$float_number)\n";
+        next;
+      }
+      my $caption = $float->{'extra'}->{'caption'};
+      my $shortcaption = $float->{'extra'}->{'shortcaption'};
+
+      $result .= ' F';
+      $result .= "${float_number}:" if (defined($float_number));
+      $result .= " {${float_normalized}}" if (defined($float_normalized));
+      $result .= "\n";
+      if ($shortcaption) {
+        my $shortcaption_text
+          = _print_caption_shortcaption ($shortcaption, $float, "S",
+                                         $type, $float_number);
+        $result .= $shortcaption_text;
+      }
+      if ($caption) {
+        my $caption_text
+          = _print_caption_shortcaption ($caption, $float, "C",
+                                         $type, $float_number);
+        $result .= $caption_text;
+      }
+    }
+  }
+  return $result;
+}
 
 1;
 

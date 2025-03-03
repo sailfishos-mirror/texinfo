@@ -73,19 +73,9 @@ inside
 $result_errors{'multiple_spaces_in_float_type'} = [];
 
 
-$result_floats{'multiple_spaces_in_float_type'} = {
-  'Type of Float' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'Type of Float',
-        'normalized' => 'myfloat'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'multiple_spaces_in_float_type'} = 'Type of Float: 1
+ F1: {myfloat}
+';
 
 
 $result_converted{'plaintext'}->{'multiple_spaces_in_float_type'} = 'inside

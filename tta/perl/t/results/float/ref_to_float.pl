@@ -123,29 +123,11 @@ Label2
 $result_errors{'ref_to_float'} = [];
 
 
-$result_floats{'ref_to_float'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'Label2'
-      }
-    }
-  ],
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'Label1'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'ref_to_float'} = ': 1
+ F1: {Label2}
+Text: 1
+ F1: {Label1}
+';
 
 
 $result_converted{'plaintext'}->{'ref_to_float'} = 'Float

@@ -230,19 +230,9 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
 ];
 
 
-$result_floats{'equivalent_nodes_defined_linked'} = {
-  'Figure' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'Figure',
-        'normalized' => 'chap'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'equivalent_nodes_defined_linked'} = 'Figure: 1
+ F1: {chap}
+';
 
 
 $result_converted{'info'}->{'equivalent_nodes_defined_linked'} = 'This is , produced from .

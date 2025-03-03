@@ -457,26 +457,10 @@ in center
 $result_errors{'commands_in_flushright'} = [];
 
 
-$result_floats{'commands_in_flushright'} = {
-  'label' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'label',
-        'normalized' => 'type'
-      }
-    }
-  ]
-};
-$result_floats{'commands_in_flushright'}{'label'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'commands_in_flushright'}{'label'}[0];
-
+$result_tree_text{'commands_in_flushright'} = 'label: 1
+ F1: {type}
+  C: in caption
+';
 
 
 $result_converted{'plaintext'}->{'commands_in_flushright'} = '                                                               in group

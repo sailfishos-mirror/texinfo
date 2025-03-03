@@ -154,63 +154,16 @@ In float
 $result_errors{'empty_caption'} = [];
 
 
-$result_floats{'empty_caption'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'c',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_type' => '',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ],
-  'a' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'a',
-        'normalized' => 'b'
-      }
-    }
-  ]
-};
-$result_floats{'empty_caption'}{''}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'empty_caption'}{''}[0];
-$result_floats{'empty_caption'}{''}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'empty_caption'}{''}[1];
-$result_floats{'empty_caption'}{''}[1]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'empty_caption'}{''}[1];
-$result_floats{'empty_caption'}{'a'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'empty_caption'}{'a'}[0];
-
+$result_tree_text{'empty_caption'} = ': 2
+ F1: {c}
+  S(E)
+ F
+  S(E)
+  C(E)
+a: 1
+ F1: {b}
+  C(E)
+';
 
 
 $result_converted{'plaintext'}->{'empty_caption'} = 'In float A, B

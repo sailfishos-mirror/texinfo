@@ -266,19 +266,9 @@ $result_errors{'placed_things_before_element_no_use_node'} = [
 ];
 
 
-$result_floats{'placed_things_before_element_no_use_node'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'float-anchor'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'placed_things_before_element_no_use_node'} = ': 1
+ F1: {float-anchor}
+';
 
 $result_indices_sort_strings{'placed_things_before_element_no_use_node'} = {
   'cp' => [

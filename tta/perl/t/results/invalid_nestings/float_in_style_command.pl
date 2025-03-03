@@ -86,25 +86,9 @@ $result_errors{'float_in_style_command'} = [
 ];
 
 
-$result_floats{'float_in_style_command'} = {
-  'A' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'A',
-        'normalized' => 'B'
-      }
-    }
-  ]
-};
-$result_floats{'float_in_style_command'}{'A'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_in_style_command'}{'A'}[0];
-
+$result_tree_text{'float_in_style_command'} = 'A: 1
+ F1: {B}
+  C: Caption
+';
 
 1;

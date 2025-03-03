@@ -217,56 +217,14 @@ Text, in cartouche
 $result_errors{'float_in_block_commands'} = [];
 
 
-$result_floats{'float_in_block_commands'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'in-example'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '2',
-        'float_type' => 'Text',
-        'normalized' => 'in-quotation'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '3',
-        'float_type' => 'Text',
-        'normalized' => 'in-cartouche'
-      }
-    }
-  ]
-};
-$result_floats{'float_in_block_commands'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_in_block_commands'}{'Text'}[0];
-$result_floats{'float_in_block_commands'}{'Text'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_in_block_commands'}{'Text'}[1];
-$result_floats{'float_in_block_commands'}{'Text'}[2]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_in_block_commands'}{'Text'}[2];
-
+$result_tree_text{'float_in_block_commands'} = 'Text: 3
+ F1: {in-example}
+  C: float in example
+ F2: {in-quotation}
+  C: float in quotation
+ F3: {in-cartouche}
+  C: float in cartouche
+';
 
 
 $result_converted{'plaintext'}->{'float_in_block_commands'} = '

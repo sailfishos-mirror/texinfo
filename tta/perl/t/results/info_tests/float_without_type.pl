@@ -86,17 +86,9 @@ aa
 $result_errors{'float_without_type'} = [];
 
 
-$result_floats{'float_without_type'} = {
-  'a' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_type' => 'a'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'float_without_type'} = 'a: 1
+ F
+';
 
 
 $result_converted{'info'}->{'float_without_type'} = 'This is , produced from .

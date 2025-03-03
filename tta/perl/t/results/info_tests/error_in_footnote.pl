@@ -161,26 +161,13 @@ $result_errors{'error_in_footnote'} = [
 ];
 
 
-$result_floats{'error_in_footnote'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'label'
-      }
-    }
-  ]
-};
-$result_floats{'error_in_footnote'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'error_in_footnote'}{'Text'}[0];
-
+$result_tree_text{'error_in_footnote'} = 'Text: 1
+ F1: {label}
+  C: Caption. @TeX. 
+   In caption @strong{note caption}.  
+   Now footnote@footnote{@LaTeX. 
+   and strong @strong{Note footnote}.}
+';
 
 
 $result_converted{'info'}->{'error_in_footnote'} = 'This is , produced from .

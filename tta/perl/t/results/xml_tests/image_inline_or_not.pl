@@ -529,32 +529,10 @@ in_float
 $result_errors{'image_inline_or_not'} = [];
 
 
-$result_floats{'image_inline_or_not'} = {
-  'F' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'F',
-        'normalized' => 'g'
-      }
-    }
-  ]
-};
-$result_floats{'image_inline_or_not'}{'F'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'image_inline_or_not'}{'F'}[0];
-
+$result_tree_text{'image_inline_or_not'} = 'F: 1
+ F1.1: {g}
+  C: @image{in_caption} PAra @image{in_caption_para}
+';
 
 
 $result_converted{'xml'}->{'image_inline_or_not'} = '<image><imagefile>A</imagefile></image>

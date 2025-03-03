@@ -458,51 +458,12 @@ In Main
 $result_errors{'references_to_top_no_top_output'} = [];
 
 
-$result_floats{'references_to_top_no_top_output'} = {
-  'list' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_section' => {
-          'cmdname' => 'top',
-          'extra' => {}
-        },
-        'float_type' => 'list',
-        'normalized' => 'My-Flist'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'list',
-        'normalized' => 'Main-Flist'
-      }
-    }
-  ]
-};
-$result_floats{'references_to_top_no_top_output'}{'list'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'references_to_top_no_top_output'}{'list'}[0];
-$result_floats{'references_to_top_no_top_output'}{'list'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'references_to_top_no_top_output'}{'list'}[1];
-
+$result_tree_text{'references_to_top_no_top_output'} = 'list: 2
+ F1: {My-Flist}
+  C: Caption Flist. @anchor{a in caption}
+ F1.1: {Main-Flist}
+  C: Caption Main
+';
 
 $result_indices_sort_strings{'references_to_top_no_top_output'} = {
   'cp' => [

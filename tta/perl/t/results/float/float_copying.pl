@@ -382,26 +382,23 @@ Appendix A Copying and floats
 $result_errors{'float_copying'} = [];
 
 
-$result_floats{'float_copying'} = {
-  'Copyright notice' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Copyright notice',
-        'normalized' => 'public-domain'
-      }
-    }
-  ]
-};
-$result_floats{'float_copying'}{'Copyright notice'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_copying'}{'Copyright notice'}[0];
-
+$result_tree_text{'float_copying'} = 'Copyright notice: 1
+ F1: {public-domain}
+  C: The Public Domain notice@footnote{
+   The caption copying footnote
+   @anchor{caption copying footnote anchor}
+   
+   @cindex indexed caption copying footnote
+   @findex public domain function
+   
+   see @ref{Copying and floats}.
+   
+   }
+   
+   @anchor{public domain anchor}
+   @cindex indexed caption
+   @findex indexed caption function
+';
 
 $result_indices_sort_strings{'float_copying'} = {
   'cp' => [

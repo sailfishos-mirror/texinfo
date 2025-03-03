@@ -137,26 +137,10 @@ $result_errors{'footnote_in_caption_and_error'} = [
 ];
 
 
-$result_floats{'footnote_in_caption_and_error'} = {
-  'fl' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'fl',
-        'normalized' => 'label'
-      }
-    }
-  ]
-};
-$result_floats{'footnote_in_caption_and_error'}{'fl'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'footnote_in_caption_and_error'}{'fl'}[0];
-
+$result_tree_text{'footnote_in_caption_and_error'} = 'fl: 1
+ F1: {label}
+  C: in caption@footnote{in footnote @error}
+';
 
 
 $result_converted{'plaintext'}->{'footnote_in_caption_and_error'} = '* Menu:

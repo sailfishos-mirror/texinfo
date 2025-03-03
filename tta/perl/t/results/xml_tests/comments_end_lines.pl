@@ -368,19 +368,9 @@ raggedright
 $result_errors{'comments_end_lines'} = [];
 
 
-$result_floats{'comments_end_lines'} = {
-  'f' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'f',
-        'normalized' => 'g'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'comments_end_lines'} = 'f: 1
+ F1: {g}
+';
 
 
 $result_converted{'xml'}->{'comments_end_lines'} = '<itemize commandarg="bullet" automaticcommandarg="on" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>

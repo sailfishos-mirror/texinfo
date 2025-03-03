@@ -140,41 +140,12 @@ Text, text2
 $result_errors{'float_long_captions'} = [];
 
 
-$result_floats{'float_long_captions'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'text1'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '2',
-        'float_type' => 'Text',
-        'normalized' => 'text2'
-      }
-    }
-  ]
-};
-$result_floats{'float_long_captions'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_long_captions'}{'Text'}[0];
-$result_floats{'float_long_captions'}{'Text'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_long_captions'}{'Text'}[1];
-
+$result_tree_text{'float_long_captions'} = 'Text: 2
+ F1: {text1}
+  C: AAAAAAAAAAAAAAAA BBBBB CCCCCCCCCCC
+ F2: {text2}
+  C: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
+';
 
 
 $result_converted{'info'}->{'float_long_captions'} = 'This is , produced from .

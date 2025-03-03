@@ -785,19 +785,9 @@ raggedright
 $result_errors{'comments_on_block_command_lines'} = [];
 
 
-$result_floats{'comments_on_block_command_lines'} = {
-  'f' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'f',
-        'normalized' => 'g'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'comments_on_block_command_lines'} = 'f: 1
+ F1: {g}
+';
 
 
 $result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" automaticcommandarg="on" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend><!-- c comm -->

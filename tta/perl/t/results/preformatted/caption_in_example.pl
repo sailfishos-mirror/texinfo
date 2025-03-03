@@ -100,24 +100,10 @@ $result_errors{'caption_in_example'} = [
 ];
 
 
-$result_floats{'caption_in_example'} = {
-  'float' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_type' => 'float'
-      }
-    }
-  ]
-};
-$result_floats{'caption_in_example'}{'float'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'caption_in_example'}{'float'}[0];
-
+$result_tree_text{'caption_in_example'} = 'float: 1
+ F
+  C: caption
+';
 
 
 $result_converted{'plaintext'}->{'caption_in_example'} = '     in example

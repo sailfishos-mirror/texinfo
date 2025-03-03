@@ -183,32 +183,10 @@ F
 $result_errors{'special_characters_in_float_type'} = [];
 
 
-$result_floats{'special_characters_in_float_type'} = {
-  'A < " `` ` \' \' \\aaa . --- in var' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'A < " `` ` \' \' \\aaa . --- in var',
-        'normalized' => 'L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var'
-      }
-    }
-  ]
-};
-$result_floats{'special_characters_in_float_type'}{'A < " `` ` \' \' \\aaa . --- in var'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'special_characters_in_float_type'}{'A < " `` ` \' \' \\aaa . --- in var'}[0];
-
+$result_tree_text{'special_characters_in_float_type'} = 'A < " `` ` \' \' \\aaa . --- in var: 1
+ F1.1: {L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}
+  C: float A < " `` ` \' \' \\aaa @. --- @var{in var}
+';
 
 
 $result_converted{'plaintext'}->{'special_characters_in_float_type'} = 'top

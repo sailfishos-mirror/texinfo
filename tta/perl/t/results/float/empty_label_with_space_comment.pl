@@ -50,17 +50,9 @@ $result_texts{'empty_label_with_space_comment'} = 'Type
 $result_errors{'empty_label_with_space_comment'} = [];
 
 
-$result_floats{'empty_label_with_space_comment'} = {
-  'Type' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_type' => 'Type'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'empty_label_with_space_comment'} = 'Type: 1
+ F
+';
 
 
 $result_converted{'plaintext'}->{'empty_label_with_space_comment'} = 'Type

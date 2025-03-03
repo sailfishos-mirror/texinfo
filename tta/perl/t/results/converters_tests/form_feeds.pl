@@ -530,41 +530,13 @@ $result_errors{'form_feeds'} = [
 ];
 
 
-$result_floats{'form_feeds'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_type' => '',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    }
-  ],
-  'type' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'type',
-        'normalized' => 'fl'
-      }
-    }
-  ]
-};
-$result_floats{'form_feeds'}{''}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'form_feeds'}{''}[0];
-$result_floats{'form_feeds'}{''}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'form_feeds'}{''}[0];
-
+$result_tree_text{'form_feeds'} = ': 1
+ F
+  S: shc within  shortcaption 
+  C: within  cation 
+type: 1
+ F1: {fl}
+';
 
 $result_indices_sort_strings{'form_feeds'} = {
   'fn' => [

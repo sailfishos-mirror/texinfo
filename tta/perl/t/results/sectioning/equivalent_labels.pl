@@ -156,19 +156,9 @@ $result_errors{'equivalent_labels'} = [
 ];
 
 
-$result_floats{'equivalent_labels'} = {
-  'truc' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'truc',
-        'normalized' => 'floa'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'equivalent_labels'} = 'truc: 1
+ F1: {floa}
+';
 
 
 $result_converted{'info'}->{'equivalent_labels'} = 'This is , produced from .

@@ -1139,58 +1139,79 @@ $result_errors{'complex_float'} = [
 ];
 
 
-$result_floats{'complex_float'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_section' => {
-          'cmdname' => 'top',
-          'extra' => {}
-        },
-        'float_type' => 'Text',
-        'normalized' => 'text-with-a-lot-of-features',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'Text',
-        'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption'
-      }
-    }
-  ]
-};
-$result_floats{'complex_float'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'complex_float'}{'Text'}[0];
-$result_floats{'complex_float'}{'Text'}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'complex_float'}{'Text'}[0];
-$result_floats{'complex_float'}{'Text'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'complex_float'}{'Text'}[1];
-
+$result_tree_text{'complex_float'} = 'Text: 2
+ F1: {text-with-a-lot-of-features}
+  S: @TeX{} and @emph{@b{t@\'e@^{@dotless{i}}}@url{an_url}} @sc{and} @verb{!it is @verb!} @ a wo@-rd @!@@ @AE{}.
+  C: An example of float caption@enddots{}
+   An example.
+   @example 
+   example
+   @end example
+   
+   @anchor{Anchor in caption}
+   
+   A table.
+   @table @emph
+   @item truc 
+   line
+   @end table
+   
+   A multitable.
+   @multitable {truc} {bidule}
+   @item truc @tab bidule
+   @item truc @tab bidule
+   @end multitable
+   An index entry
+   @cindex float example in caption
+   
+   An itemize.
+   @itemize @minus
+   @item truc 
+   line
+   @end itemize
+   
+   A ref.
+   @xref{Top,xref Text with features caption}.
+   A footnote.
+   @footnote{footnote Text with features caption}.
+   
+   @TeX{} and @emph{@b{t@\'e@^{@dotless{i}}}@url{an_url}} @sc{and} @verb{!it is @verb!} @ a wo@-rd @!@@ @AE{}.
+ F1.1: {float-with-a-lot-of-features-and-no-shortcaption}
+  C: An example of float caption@enddots{} 2
+   An example 2.
+   @example 
+   example 2
+   @end example
+   
+   A table 2.
+   @table @emph
+   @item truc 2 
+   line 2
+   @end table
+   
+   A multitable 2.
+   @multitable {truc} {bidule}
+   @item truc 2 @tab bidule
+   @item truc 2 @tab bidule
+   @end multitable
+   An index entry 2
+   @cindex float example in caption 2
+   
+   An itemize 2.
+   @itemize @minus
+   @item truc 2
+   line
+   @end itemize
+   
+   @anchor{Anchor in caption 2}
+   
+   A ref 2.
+   @xref{Top,xref Text with features caption}.
+   A footnote 2.
+   @footnote{footnote Text with features caption 2}.
+   
+   @TeX{} and @emph{@b{t@\'e@^{@dotless{i}}}@url{an_url}} @sc{and} @verb{!it is @verb!} @ a wo@-rd @!@@ @AE{}.
+';
 
 $result_indices_sort_strings{'complex_float'} = {
   'cp' => [

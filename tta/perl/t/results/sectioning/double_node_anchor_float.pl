@@ -308,35 +308,11 @@ $result_errors{'double_node_anchor_float'} = [
 ];
 
 
-$result_floats{'double_node_anchor_float'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'node1'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '2',
-        'float_type' => 'Text',
-        'normalized' => 'anchor1'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '3',
-        'float_type' => 'Text',
-        'normalized' => 'float1'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'double_node_anchor_float'} = 'Text: 3
+ F1: {node1}
+ F2: {anchor1}
+ F3: {float1}
+';
 
 
 $result_converted{'info'}->{'double_node_anchor_float'} = 'This is , produced from .

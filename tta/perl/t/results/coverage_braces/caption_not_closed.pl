@@ -83,23 +83,12 @@ $result_errors{'caption_not_closed'} = [
 ];
 
 
-$result_floats{'caption_not_closed'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_type' => 'Text'
-      }
-    }
-  ]
-};
-$result_floats{'caption_not_closed'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'caption_not_closed'}{'Text'}[0];
-
+$result_tree_text{'caption_not_closed'} = 'Text: 1
+ F
+  C: Not closed caption
+   
+   The caption is closed as soon as @@end float is encountered, since
+   as much as possible is closed in order to find the @@float beginning.
+';
 
 1;

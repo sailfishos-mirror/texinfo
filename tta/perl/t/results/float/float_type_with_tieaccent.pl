@@ -101,19 +101,9 @@ inside
 $result_errors{'float_type_with_tieaccent'} = [];
 
 
-$result_floats{'float_type_with_tieaccent'} = {
-  "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text" => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => "A 1\x{361}a \x{7b2c}\x{361}H \x{ea}\x{361}\x{4e00} and text",
-        'normalized' => 'label'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'float_type_with_tieaccent'} = 'A 1͡a 第͡H ê͡一 and text: 1
+ F1: {label}
+';
 
 
 $result_converted{'plaintext'}->{'float_type_with_tieaccent'} = 'inside

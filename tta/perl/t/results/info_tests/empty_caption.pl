@@ -97,26 +97,10 @@ aa
 $result_errors{'empty_caption'} = [];
 
 
-$result_floats{'empty_caption'} = {
-  'a' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'a',
-        'normalized' => 'b'
-      }
-    }
-  ]
-};
-$result_floats{'empty_caption'}{'a'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'empty_caption'}{'a'}[0];
-
+$result_tree_text{'empty_caption'} = 'a: 1
+ F1: {b}
+  C(E)
+';
 
 
 $result_converted{'info'}->{'empty_caption'} = 'This is , produced from .

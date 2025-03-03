@@ -65,26 +65,10 @@ In float.
 $result_errors{'simple'} = [];
 
 
-$result_floats{'simple'} = {
-  'Type' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Type',
-        'normalized' => 'Label'
-      }
-    }
-  ]
-};
-$result_floats{'simple'}{'Type'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'simple'}{'Type'}[0];
-
+$result_tree_text{'simple'} = 'Type: 1
+ F1: {Label}
+  C: Caption.
+';
 
 
 $result_converted{'plaintext'}->{'simple'} = 'In float.

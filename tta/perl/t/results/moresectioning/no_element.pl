@@ -240,19 +240,9 @@ $result_errors{'no_element'} = [
 ];
 
 
-$result_floats{'no_element'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'float-anchor'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'no_element'} = ': 1
+ F1: {float-anchor}
+';
 
 $result_indices_sort_strings{'no_element'} = {
   'cp' => [

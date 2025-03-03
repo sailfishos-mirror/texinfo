@@ -1067,26 +1067,12 @@ $result_errors{'test_image'} = [
 ];
 
 
-$result_floats{'test_image'} = {
-  'Image' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Image',
-        'normalized' => 'Image-with-commands'
-      }
-    }
-  ]
-};
-$result_floats{'test_image'}{'Image'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'test_image'}{'Image'}[0];
-
+$result_tree_text{'test_image'} = 'Image: 1
+ F1: {Image-with-commands}
+  C: @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}
+   
+   In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.
+';
 
 
 $result_converted{'html'}->{'test_image'} = '<!DOCTYPE html>

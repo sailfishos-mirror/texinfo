@@ -187,53 +187,14 @@ no label caption
 $result_errors{'empty_listoffloats_with_floats'} = [];
 
 
-$result_floats{'empty_listoffloats_with_floats'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'label1'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '2',
-        'float_type' => '',
-        'normalized' => 'label2'
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_type' => ''
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_type' => ''
-      }
-    }
-  ]
-};
-$result_floats{'empty_listoffloats_with_floats'}{''}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'empty_listoffloats_with_floats'}{''}[1];
-$result_floats{'empty_listoffloats_with_floats'}{''}[3]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'empty_listoffloats_with_floats'}{''}[3];
-
+$result_tree_text{'empty_listoffloats_with_floats'} = ': 4
+ F1: {label1}
+ F2: {label2}
+  C: caption with label
+ F
+ F
+  C: caption no label
+';
 
 
 $result_converted{'plaintext'}->{'empty_listoffloats_with_floats'} = 'Label no caption.

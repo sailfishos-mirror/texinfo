@@ -427,32 +427,10 @@ in nodescription, f1.
 $result_errors{'commands_in_nodedescriptionblock'} = [];
 
 
-$result_floats{'commands_in_nodedescriptionblock'} = {
-  'tfloat' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'tfloat',
-        'normalized' => 'f1'
-      }
-    }
-  ]
-};
-$result_floats{'commands_in_nodedescriptionblock'}{'tfloat'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'commands_in_nodedescriptionblock'}{'tfloat'}[0];
-
+$result_tree_text{'commands_in_nodedescriptionblock'} = 'tfloat: 1
+ F1.1: {f1}
+  C: Cap1
+';
 
 $result_indices_sort_strings{'commands_in_nodedescriptionblock'} = {
   'cp' => [

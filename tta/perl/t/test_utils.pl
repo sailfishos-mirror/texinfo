@@ -182,7 +182,8 @@ sub is_with_diff($$$)
   #if (!$test_differences_loading_error) {
   #  eq_or_diff_text($result, $reference, $test_name);
   #} elsif ($text_diff_loading_error) {
-  if ($text_diff_loading_error or !defined($reference)) {
+  if ($text_diff_loading_error or !defined($reference)
+      or ref($reference) ne '') {
     is($result, $reference, $test_name);
   } else {
     ok($result eq $reference, $test_name)
@@ -1521,6 +1522,20 @@ sub test($$)
     }
   }
 
+  my $float_text;
+  my $floats;
+  if ($document->floats_information()) {
+    $floats = $document->floats_information();
+    if ($floats and scalar(keys(%$floats)) > 0) {
+      if (!$do_perl_tree) {
+        $float_text
+          = Texinfo::ManipulateTree::print_listoffloats_types($floats);
+      }
+    } else {
+      $floats = undef;
+    }
+  }
+
   if ($symbols_before_init_file) {
     foreach my $symbol (keys(%Texinfo::Config::)) {
       if (!$symbols_before_init_file->{$symbol}) {
@@ -1631,11 +1646,15 @@ sub test($$)
                             ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
     }
-    my $floats = $document->floats_information();
-    if ($floats and scalar(keys(%$floats)) > 0) {
-      local $Data::Dumper::Sortkeys = \&filter_floats_keys;
-      $out_result .= Data::Dumper->Dump([$floats],
+    if ($floats) {
+      if ($do_perl_tree) {
+        local $Data::Dumper::Sortkeys = \&filter_floats_keys;
+        $out_result .= Data::Dumper->Dump([$floats],
                             ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
+      } else {
+        $out_result .= '$result_tree_text{\''.$test_name.'\'} = \''
+          . protect_perl_string($float_text)."';\n\n";
+      }
     }
     if ($indices_sorted_sort_strings) {
       local $Data::Dumper::Sortkeys = 1;
@@ -1710,17 +1729,13 @@ sub test($$)
       $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
       cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
                   $test_name.' menus');
-    }
 
-    my $floats;
-    if ($document) {
-      $floats = $document->floats_information();
-      if ($floats and scalar(keys(%$floats)) == 0) {
-        $floats = undef;
-      }
-    }
-    cmp_trimmed($floats, $result_floats{$test_name},
+      cmp_trimmed($floats, $result_floats{$test_name},
                 \@avoided_keys_floats, $test_name.' floats');
+    } else {
+      is_with_diff($float_text, $result_floats{$test_name},
+                   $test_name.' floats');
+    }
 
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');

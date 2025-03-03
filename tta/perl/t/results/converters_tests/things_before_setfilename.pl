@@ -449,36 +449,12 @@ $result_errors{'things_before_setfilename'} = [
 ];
 
 
-$result_floats{'things_before_setfilename'} = {
-  '' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => '',
-        'normalized' => 'float-anchor'
-      }
-    }
-  ],
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '1',
-        'float_type' => 'Text',
-        'normalized' => 'ta'
-      }
-    }
-  ]
-};
-$result_floats{'things_before_setfilename'}{'Text'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'things_before_setfilename'}{'Text'}[0];
-
+$result_tree_text{'things_before_setfilename'} = ': 1
+ F1: {float-anchor}
+Text: 1
+ F1: {ta}
+  C: ta caption
+';
 
 $result_indices_sort_strings{'things_before_setfilename'} = {
   'cp' => [

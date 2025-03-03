@@ -291,25 +291,9 @@ float
 $result_errors{'comment_space_command_on_line'} = [];
 
 
-$result_floats{'comment_space_command_on_line'} = {
-  'Text' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1.1',
-        'float_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'section_number' => '1'
-          }
-        },
-        'float_type' => 'Text',
-        'normalized' => 'label'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'comment_space_command_on_line'} = 'Text: 1
+ F1.1: {label}
+';
 
 $result_indices_sort_strings{'comment_space_command_on_line'} = {
   'cp' => [

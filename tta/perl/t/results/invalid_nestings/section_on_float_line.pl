@@ -82,19 +82,9 @@ $result_errors{'section_on_float_line'} = [
 ];
 
 
-$result_floats{'section_on_float_line'} = {
-  't' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 't',
-        'normalized' => 'l'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'section_on_float_line'} = 't: 1
+ F1: {l}
+';
 
 
 $result_converted{'plaintext'}->{'section_on_float_line'} = 't 1

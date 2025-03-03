@@ -345,47 +345,12 @@ center! After punc
 $result_errors{'punctuation_in_line_commands'} = [];
 
 
-$result_floats{'punctuation_in_line_commands'} = {
-  'float type! After punc' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_section' => {
-          'cmdname' => 'top',
-          'extra' => {}
-        },
-        'float_type' => 'float type! After punc',
-        'normalized' => 'float-label_0021-After-punc',
-        'shortcaption' => {
-          'cmdname' => 'shortcaption',
-          'extra' => {
-            'float' => {}
-          }
-        }
-      }
-    },
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'caption' => {
-          'cmdname' => 'caption',
-          'extra' => {
-            'float' => {}
-          }
-        },
-        'float_number' => '2',
-        'float_section' => {},
-        'float_type' => 'float type! After punc',
-        'normalized' => 'label-with-caption'
-      }
-    }
-  ]
-};
-$result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[0];
-$result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[1];
-$result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[1]{'extra'}{'float_section'} = $result_floats{'punctuation_in_line_commands'}{'float type! After punc'}[0]{'extra'}{'float_section'};
-
+$result_tree_text{'punctuation_in_line_commands'} = 'float type! After punc: 2
+ F1: {float-label_0021-After-punc}
+  S: shortcaption! After punc
+ F2: {label-with-caption}
+  C: caption! After punc
+';
 
 $result_indices_sort_strings{'punctuation_in_line_commands'} = {
   'cp' => [

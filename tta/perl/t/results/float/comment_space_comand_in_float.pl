@@ -119,19 +119,9 @@ $result_errors{'comment_space_comand_in_float'} = [
 ];
 
 
-$result_floats{'comment_space_comand_in_float'} = {
-  'Text  ' => [
-    {
-      'cmdname' => 'float',
-      'extra' => {
-        'float_number' => '1',
-        'float_type' => 'Text  ',
-        'normalized' => 'label-'
-      }
-    }
-  ]
-};
-
+$result_tree_text{'comment_space_comand_in_float'} = 'Text  : 1
+ F1: {label-}
+';
 
 
 $result_converted{'plaintext'}->{'comment_space_comand_in_float'} = 'Float

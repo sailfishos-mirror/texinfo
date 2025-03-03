@@ -16,11 +16,16 @@
 #include <config.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
+#include "text.h"
 #include "tree_types.h"
 #include "tree.h"
 #include "extra.h"
+#include "builtin_commands.h"
 #include "node_name_normalization.h"
+#include "convert_to_texinfo.h"
+#include "floats.h"
 
 char *
 parse_float_type (ELEMENT *current, ELEMENT *element)
@@ -86,6 +91,15 @@ add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
   return result;
 }
 
+static int
+compare_listoffloats_type (const void *a, const void *b)
+{
+  const LISTOFFLOATS_TYPE *loft_a = (const LISTOFFLOATS_TYPE *) a;
+  const LISTOFFLOATS_TYPE *loft_b = (const LISTOFFLOATS_TYPE *) b;
+
+  return strcmp (loft_a->type, loft_b->type);
+}
+
 void
 float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
                                  LISTOFFLOATS_TYPE_LIST *result)
@@ -103,6 +117,10 @@ float_list_to_listoffloats_list (const FLOAT_RECORD_LIST *floats_list,
       add_to_element_list (&listoffloats_type->float_list,
                            float_record->element);
     }
+
+  qsort (result->float_types, result->number,
+         sizeof (LISTOFFLOATS_TYPE), compare_listoffloats_type);
+
 }
 
 void
@@ -119,4 +137,128 @@ free_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
   free (listoffloats_list->float_types);
 }
 
+static void
+print_indented (const char *text, TEXT *result)
+{
+  const char *p = text;
 
+  while (1)
+    {
+      const char *q = strchr (p, '\n');
+      if (q)
+        {
+          text_append_n (result, p, q +1 - p);
+          if (*(q+1))
+            {
+              text_append_n (result, "   ", 3);
+              p = q + 1;
+            }
+          else
+            return;
+        }
+      else
+        {
+          text_append (result, p);
+          text_append_n (result, "\n", 1);
+          return;
+        }
+    }
+}
+
+static void
+print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
+                            const char *caption_type,
+                            const char *type, const char *float_number,
+                            TEXT *result)
+{
+  char *caption_texi = 0;
+  const ELEMENT *caption_float;
+
+  if (element->e.c->contents.number > 0)
+    caption_texi = convert_to_texinfo (element->e.c->contents.list[0]);
+
+  caption_float = lookup_extra_element (element, AI_key_float);
+  if (!caption_float || caption_float != float_e)
+    fprintf (stderr, "BUG: @%s %s; %s: caption_float != float_e: %s\n",
+                     builtin_command_name (element->e.c->cmd),
+                     type, float_number, caption_texi);
+
+  if (caption_texi)
+    {
+      text_printf (result, "  %s: ", caption_type);
+      print_indented (caption_texi, result);
+      free (caption_texi);
+    }
+  else
+    text_printf (result, "  %s(E)\n");
+}
+
+/* this should be mainly to verify listoffloats types, association with
+   floats.  The captions are there mainly to identify floats */
+/* The list should already be sorted in float_list_to_listoffloats_list */
+char *
+print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
+{
+  TEXT result;
+
+  if (listoffloats_list->number == 0)
+    return 0;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  size_t i;
+  for (i = 0; i < listoffloats_list->number; i++)
+    {
+      size_t j;
+      LISTOFFLOATS_TYPE *listoffloats_type
+         = &listoffloats_list->float_types[i];
+      text_printf (&result, "%s: %zu\n", listoffloats_type->type,
+                   listoffloats_type->float_list.number);
+
+      for (j = 0; j < listoffloats_type->float_list.number; j++)
+        {
+          const ELEMENT *float_e = listoffloats_type->float_list.list[j];
+          const ELEMENT *caption
+            = lookup_extra_element (float_e, AI_key_caption);
+          const ELEMENT *shortcaption
+            = lookup_extra_element (float_e, AI_key_shortcaption);
+          const char *float_number
+            = lookup_extra_string (float_e, AI_key_float_number);
+          const char *float_normalized
+            = lookup_extra_string (float_e, AI_key_normalized);
+          const char *float_type
+            = lookup_extra_string (float_e, AI_key_float_type);
+
+          if (!float_type || strcmp (float_type, listoffloats_type->type))
+            {
+              fprintf (stderr,
+                       "BUG: %s: listoffloats != float type '%s' (%s;%s)\n",
+                       listoffloats_type->type, float_type, float_normalized,
+                       float_number);
+              continue;
+            }
+          text_append_n (&result, " F", 2);
+          if (float_number)
+            text_printf (&result, "%s:", float_number);
+          if (float_normalized)
+            text_printf (&result, " {%s}", float_normalized);
+          text_append_n (&result, "\n", 1);
+
+          if (shortcaption)
+            {
+              print_caption_shortcaption (shortcaption, float_e, "S",
+                                          listoffloats_type->type,
+                                          float_number, &result);
+            }
+          if (caption)
+            {
+              print_caption_shortcaption (caption, float_e, "C",
+                                          listoffloats_type->type,
+                                          float_number, &result);
+            }
+        }
+    }
+
+  return result.text;
+}
