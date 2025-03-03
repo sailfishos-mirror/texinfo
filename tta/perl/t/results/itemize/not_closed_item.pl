@@ -46,7 +46,4 @@ $result_errors{'not_closed_item'} = [
 ];
 
 
-$result_floats{'not_closed_item'} = {};
-
-
 1;

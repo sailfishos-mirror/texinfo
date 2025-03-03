@@ -289,7 +289,4 @@ $result_errors{'nodedescription_description'} = [
 ];
 
 
-$result_floats{'nodedescription_description'} = {};
-
-
 1;

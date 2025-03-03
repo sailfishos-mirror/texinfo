@@ -199,9 +199,6 @@ $result_errors{'brace_in_index'} = [
 ];
 
 
-$result_floats{'brace_in_index'} = {};
-
-
 $result_indices_sort_strings{'brace_in_index'} = {
   'cp' => [
     '{',

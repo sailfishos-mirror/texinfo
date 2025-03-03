@@ -969,9 +969,6 @@ id: local-node
 $result_errors{'htmlxref'} = [];
 
 
-$result_floats{'htmlxref'} = {};
-
-
 $result_converted_errors{'file_html'}->{'htmlxref'} = [
   {
     'error_line' => 'warning: unrecognized type: foo

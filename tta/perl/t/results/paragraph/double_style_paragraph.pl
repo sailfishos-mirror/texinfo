@@ -71,7 +71,4 @@ $result_errors{'double_style_paragraph'} = [
 ];
 
 
-$result_floats{'double_style_paragraph'} = {};
-
-
 1;

@@ -40,9 +40,6 @@ $result_texts{'image_not_found'} = 'n_f_image
 $result_errors{'image_not_found'} = [];
 
 
-$result_floats{'image_not_found'} = {};
-
-
 
 $result_converted{'info'}->{'image_not_found'} = 'This is , produced from .
 

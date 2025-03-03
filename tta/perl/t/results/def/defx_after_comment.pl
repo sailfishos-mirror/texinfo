@@ -112,9 +112,6 @@ $result_errors{'defx_after_comment'} = [
 ];
 
 
-$result_floats{'defx_after_comment'} = {};
-
-
 $result_indices_sort_strings{'defx_after_comment'} = {
   'fn' => [
     'bidulr',

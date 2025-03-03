@@ -741,7 +741,4 @@ $result_errors{'quote_node_names'} = [
 ];
 
 
-$result_floats{'quote_node_names'} = {};
-
-
 1;

@@ -32,7 +32,4 @@ $result_errors{'if_not_closed'} = [
 ];
 
 
-$result_floats{'if_not_closed'} = {};
-
-
 1;

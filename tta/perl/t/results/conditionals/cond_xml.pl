@@ -309,9 +309,6 @@ $result_errors{'cond_xml'} = [
 ];
 
 
-$result_floats{'cond_xml'} = {};
-
-
 
 $result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texinfo
 

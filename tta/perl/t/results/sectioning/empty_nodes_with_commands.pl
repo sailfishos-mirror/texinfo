@@ -106,7 +106,4 @@ $result_errors{'empty_nodes_with_commands'} = [
 ];
 
 
-$result_floats{'empty_nodes_with_commands'} = {};
-
-
 1;

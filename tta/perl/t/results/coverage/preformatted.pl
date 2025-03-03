@@ -128,9 +128,6 @@ $result_errors{'preformatted'} = [
 ];
 
 
-$result_floats{'preformatted'} = {};
-
-
 $result_indices_sort_strings{'preformatted'} = {
   'vr' => [
     'item in table in format'

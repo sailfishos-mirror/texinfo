@@ -77,9 +77,6 @@ $result_texts{'empty_leading_menu_comment'} = '
 $result_errors{'empty_leading_menu_comment'} = [];
 
 
-$result_floats{'empty_leading_menu_comment'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_leading_menu_comment'} = '* Menu:
 

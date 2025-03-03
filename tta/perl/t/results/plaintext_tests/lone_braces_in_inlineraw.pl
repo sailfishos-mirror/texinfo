@@ -34,9 +34,6 @@ $result_texts{'lone_braces_in_inlineraw'} = '{truc}.
 $result_errors{'lone_braces_in_inlineraw'} = [];
 
 
-$result_floats{'lone_braces_in_inlineraw'} = {};
-
-
 
 $result_converted{'plaintext'}->{'lone_braces_in_inlineraw'} = '{truc}.
 ';

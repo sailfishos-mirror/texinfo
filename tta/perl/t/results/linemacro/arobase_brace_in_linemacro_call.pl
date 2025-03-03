@@ -97,7 +97,4 @@ second:  { |
 $result_errors{'arobase_brace_in_linemacro_call'} = [];
 
 
-$result_floats{'arobase_brace_in_linemacro_call'} = {};
-
-
 1;

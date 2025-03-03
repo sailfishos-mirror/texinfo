@@ -38,7 +38,4 @@ $result_errors{'not_closed_itemize'} = [
 ];
 
 
-$result_floats{'not_closed_itemize'} = {};
-
-
 1;

@@ -32,7 +32,4 @@ $result_errors{'defindex_too_much_args'} = [
 ];
 
 
-$result_floats{'defindex_too_much_args'} = {};
-
-
 1;

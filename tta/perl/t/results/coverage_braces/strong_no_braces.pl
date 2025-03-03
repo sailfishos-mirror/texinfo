@@ -28,9 +28,6 @@ $result_errors{'strong_no_braces'} = [
 ];
 
 
-$result_floats{'strong_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'strong_no_braces'} = '**
 ';

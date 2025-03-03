@@ -150,9 +150,6 @@ $result_errors{'spaces_after_braced_command'} = [
 ];
 
 
-$result_floats{'spaces_after_braced_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'spaces_after_braced_command'} = '‘b’
 

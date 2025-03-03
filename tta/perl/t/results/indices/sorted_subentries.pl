@@ -763,9 +763,6 @@ $result_errors{'sorted_subentries'} = [
 ];
 
 
-$result_floats{'sorted_subentries'} = {};
-
-
 $result_indices_sort_strings{'sorted_subentries'} = {
   'cp' => [
     'aa, bb',

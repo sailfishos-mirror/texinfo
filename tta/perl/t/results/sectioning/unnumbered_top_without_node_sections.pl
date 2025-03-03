@@ -199,9 +199,6 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
 ];
 
 
-$result_floats{'unnumbered_top_without_node_sections'} = {};
-
-
 
 $result_converted{'info'}->{'unnumbered_top_without_node_sections'} = 'This is , produced from .
 

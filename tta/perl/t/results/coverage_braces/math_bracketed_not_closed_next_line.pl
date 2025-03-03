@@ -45,7 +45,4 @@ $result_errors{'math_bracketed_not_closed_next_line'} = [
 ];
 
 
-$result_floats{'math_bracketed_not_closed_next_line'} = {};
-
-
 1;

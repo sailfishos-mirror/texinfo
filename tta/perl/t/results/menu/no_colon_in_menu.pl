@@ -60,9 +60,6 @@ $result_texts{'no_colon_in_menu'} = '
 $result_errors{'no_colon_in_menu'} = [];
 
 
-$result_floats{'no_colon_in_menu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'no_colon_in_menu'} = '* Menu:
 

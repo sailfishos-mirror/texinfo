@@ -861,9 +861,6 @@ $result_errors{'refs_formatting'} = [
 ];
 
 
-$result_floats{'refs_formatting'} = {};
-
-
 
 $result_converted{'plaintext'}->{'refs_formatting'} = '1 chapter
 *********

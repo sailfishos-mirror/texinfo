@@ -97,9 +97,6 @@ $result_errors{'detailmenu_unknown_node'} = [
 ];
 
 
-$result_floats{'detailmenu_unknown_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'detailmenu_unknown_node'} = '* Menu:
 

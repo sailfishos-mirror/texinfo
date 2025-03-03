@@ -55,9 +55,6 @@ $result_texts{'encoding_us_ascii'} = '
 $result_errors{'encoding_us_ascii'} = [];
 
 
-$result_floats{'encoding_us_ascii'} = {};
-
-
 
 $result_converted{'info'}->{'encoding_us_ascii'} = 'This is , produced from .
 

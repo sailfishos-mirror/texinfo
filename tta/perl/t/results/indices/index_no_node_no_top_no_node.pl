@@ -488,9 +488,6 @@ $result_errors{'index_no_node_no_top_no_node'} = [
 ];
 
 
-$result_floats{'index_no_node_no_top_no_node'} = {};
-
-
 $result_indices_sort_strings{'index_no_node_no_top_no_node'} = {
   'cp' => [
     'chapter',

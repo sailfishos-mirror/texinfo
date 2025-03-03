@@ -86,7 +86,4 @@ $result_errors{'node_in_copying_not_closed'} = [
 ];
 
 
-$result_floats{'node_in_copying_not_closed'} = {};
-
-
 1;

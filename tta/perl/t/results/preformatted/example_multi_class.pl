@@ -116,9 +116,6 @@ $result_texts{'example_multi_class'} = 'void StateManager::deallocate() {
 $result_errors{'example_multi_class'} = [];
 
 
-$result_floats{'example_multi_class'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_multi_class'} = '     void StateManager::deallocate() {
          if(buffer) {

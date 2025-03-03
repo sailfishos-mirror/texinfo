@@ -328,9 +328,6 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 $result_errors{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [];
 
 
-$result_floats{'test_accents_sc_enable_encoding_to_utf8_usascii'} = {};
-
-
 
 $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '
 <div class="top-level-extent" id="Top">

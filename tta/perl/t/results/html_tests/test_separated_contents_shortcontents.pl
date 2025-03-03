@@ -150,7 +150,4 @@ Appendix A appendix
 $result_errors{'test_separated_contents_shortcontents'} = [];
 
 
-$result_floats{'test_separated_contents_shortcontents'} = {};
-
-
 1;

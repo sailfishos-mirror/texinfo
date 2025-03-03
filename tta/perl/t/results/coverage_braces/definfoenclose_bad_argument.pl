@@ -39,7 +39,4 @@ $result_errors{'definfoenclose_bad_argument'} = [
 ];
 
 
-$result_floats{'definfoenclose_bad_argument'} = {};
-
-
 1;

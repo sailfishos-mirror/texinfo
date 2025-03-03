@@ -141,7 +141,4 @@ category: ab cd some arg    b next    last line
 $result_errors{'newline_and_continuation_in_brace'} = [];
 
 
-$result_floats{'newline_and_continuation_in_brace'} = {};
-
-
 1;

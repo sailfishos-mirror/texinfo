@@ -46,9 +46,6 @@ $result_texts{'indent_in_quotation'} = 'indent in quotation
 $result_errors{'indent_in_quotation'} = [];
 
 
-$result_floats{'indent_in_quotation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'indent_in_quotation'} = '     indent in quotation
 ';

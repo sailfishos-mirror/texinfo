@@ -218,9 +218,6 @@ $result_errors{'reference_to_only_special_spaces_node'} = [
 ];
 
 
-$result_floats{'reference_to_only_special_spaces_node'} = {};
-
-
 
 $result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
 

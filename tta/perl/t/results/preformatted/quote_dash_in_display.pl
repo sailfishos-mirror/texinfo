@@ -47,9 +47,6 @@ and now - yes--now and "so".
 $result_errors{'quote_dash_in_display'} = [];
 
 
-$result_floats{'quote_dash_in_display'} = {};
-
-
 
 $result_converted{'plaintext'}->{'quote_dash_in_display'} = '     and now - yes--now and "so".
 

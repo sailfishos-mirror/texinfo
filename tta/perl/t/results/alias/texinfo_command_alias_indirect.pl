@@ -85,9 +85,6 @@ $result_texts{'texinfo_command_alias_indirect'} = '
 $result_errors{'texinfo_command_alias_indirect'} = [];
 
 
-$result_floats{'texinfo_command_alias_indirect'} = {};
-
-
 
 $result_converted{'plaintext'}->{'texinfo_command_alias_indirect'} = '!!aa!!
 ';

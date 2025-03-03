@@ -167,7 +167,4 @@ $result_errors{'value_after_brace_command'} = [
 ];
 
 
-$result_floats{'value_after_brace_command'} = {};
-
-
 1;

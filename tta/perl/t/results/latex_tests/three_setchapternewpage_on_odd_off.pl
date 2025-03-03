@@ -76,9 +76,6 @@ $result_errors{'three_setchapternewpage_on_odd_off'} = [
 ];
 
 
-$result_floats{'three_setchapternewpage_on_odd_off'} = {};
-
-
 
 $result_converted{'latex_text'}->{'three_setchapternewpage_on_odd_off'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}

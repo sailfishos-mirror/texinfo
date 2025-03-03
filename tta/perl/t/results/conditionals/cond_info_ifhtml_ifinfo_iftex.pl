@@ -311,9 +311,6 @@ $result_errors{'cond_info_ifhtml_ifinfo_iftex'} = [
 ];
 
 
-$result_floats{'cond_info_ifhtml_ifinfo_iftex'} = {};
-
-
 
 $result_converted{'info'}->{'cond_info_ifhtml_ifinfo_iftex'} = 'This is , produced from cond.texi.
 

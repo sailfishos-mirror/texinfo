@@ -95,7 +95,4 @@ bidule.
 $result_errors{'simple_imbricated_macro'} = [];
 
 
-$result_floats{'simple_imbricated_macro'} = {};
-
-
 1;

@@ -170,7 +170,4 @@ $result_errors{'double_top_in_menu'} = [
 ];
 
 
-$result_floats{'double_top_in_menu'} = {};
-
-
 1;

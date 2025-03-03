@@ -5208,9 +5208,6 @@ name
 $result_errors{'definition_commands'} = [];
 
 
-$result_floats{'definition_commands'} = {};
-
-
 $result_indices_sort_strings{'definition_commands'} = {
   'fn' => [
     '.ft',

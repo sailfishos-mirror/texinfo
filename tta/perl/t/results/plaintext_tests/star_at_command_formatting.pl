@@ -401,9 +401,6 @@ And end para.
 $result_errors{'star_at_command_formatting'} = [];
 
 
-$result_floats{'star_at_command_formatting'} = {};
-
-
 
 $result_converted{'plaintext'}->{'star_at_command_formatting'} = 'Some text
 more text.   Even more text.

@@ -124,9 +124,6 @@ $result_indices{'empty_added_index_entry'} = {
 };
 
 
-$result_floats{'empty_added_index_entry'} = {};
-
-
 
 $result_converted{'info'}->{'empty_added_index_entry'} = 'This is , produced from .
 

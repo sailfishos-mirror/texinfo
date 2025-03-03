@@ -381,7 +381,4 @@ $result_errors{'rec_nodes'} = [
 ];
 
 
-$result_floats{'rec_nodes'} = {};
-
-
 1;

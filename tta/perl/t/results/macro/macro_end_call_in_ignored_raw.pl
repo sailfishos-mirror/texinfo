@@ -75,7 +75,4 @@ $result_texts{'macro_end_call_in_ignored_raw'} = '
 $result_errors{'macro_end_call_in_ignored_raw'} = [];
 
 
-$result_floats{'macro_end_call_in_ignored_raw'} = {};
-
-
 1;

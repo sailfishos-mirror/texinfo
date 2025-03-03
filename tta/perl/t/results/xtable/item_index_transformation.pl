@@ -511,9 +511,6 @@ HHHHHH
 $result_errors{'item_index_transformation'} = [];
 
 
-$result_floats{'item_index_transformation'} = {};
-
-
 $result_indices_sort_strings{'item_index_transformation'} = {
   'cp' => [
     'After1',

@@ -300,9 +300,6 @@ $result_indices{'empty_last_argument'} = {
 };
 
 
-$result_floats{'empty_last_argument'} = {};
-
-
 $result_indices_sort_strings{'empty_last_argument'} = {
   'BI' => [
     'foo',

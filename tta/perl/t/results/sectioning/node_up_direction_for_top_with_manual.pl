@@ -44,9 +44,6 @@ $result_texts{'node_up_direction_for_top_with_manual'} = '';
 $result_errors{'node_up_direction_for_top_with_manual'} = [];
 
 
-$result_floats{'node_up_direction_for_top_with_manual'} = {};
-
-
 
 $result_converted{'info'}->{'node_up_direction_for_top_with_manual'} = 'This is , produced from .
 

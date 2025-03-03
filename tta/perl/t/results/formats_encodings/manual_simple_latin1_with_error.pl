@@ -161,7 +161,4 @@ $result_errors{'manual_simple_latin1_with_error'} = [
 ];
 
 
-$result_floats{'manual_simple_latin1_with_error'} = {};
-
-
 1;

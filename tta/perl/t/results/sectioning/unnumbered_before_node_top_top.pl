@@ -108,9 +108,6 @@ $result_errors{'unnumbered_before_node_top_top'} = [
 ];
 
 
-$result_floats{'unnumbered_before_node_top_top'} = {};
-
-
 
 $result_converted{'info'}->{'unnumbered_before_node_top_top'} = 'This is , produced from .
 

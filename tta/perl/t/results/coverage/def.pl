@@ -690,9 +690,6 @@ $result_errors{'def'} = [
 ];
 
 
-$result_floats{'def'} = {};
-
-
 $result_indices_sort_strings{'def'} = {
   'fn' => [
     'after',

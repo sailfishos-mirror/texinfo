@@ -38,9 +38,6 @@ $result_texts{'simple'} = 'In included file.
 $result_errors{'simple'} = [];
 
 
-$result_floats{'simple'} = {};
-
-
 
 $result_converted{'info'}->{'simple'} = 'This is , produced from .
 

@@ -101,9 +101,6 @@ Text of chapter
 $result_errors{'top_without_node_nodes'} = [];
 
 
-$result_floats{'top_without_node_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'top_without_node_nodes'} = 'This is , produced from .
 

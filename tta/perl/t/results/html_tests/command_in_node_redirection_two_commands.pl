@@ -75,7 +75,4 @@ $result_texts{'command_in_node_redirection_two_commands'} = 't in r
 $result_errors{'command_in_node_redirection_two_commands'} = [];
 
 
-$result_floats{'command_in_node_redirection_two_commands'} = {};
-
-
 1;

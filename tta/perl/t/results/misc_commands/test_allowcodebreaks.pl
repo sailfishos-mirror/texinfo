@@ -650,9 +650,6 @@ $result_errors{'test_allowcodebreaks'} = [
 ];
 
 
-$result_floats{'test_allowcodebreaks'} = {};
-
-
 
 $result_converted{'plaintext'}->{'test_allowcodebreaks'} = 'Before first allowcodebreaks Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’
 ‘-3bbb’ ‘4aaa-bbb’ ‘ 5aaa-bb’ ‘6aaa-bb ’ ‘ccc 7aaa-bbb’ ‘ccc 8aaa-bbb

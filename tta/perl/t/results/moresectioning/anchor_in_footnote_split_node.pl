@@ -169,7 +169,4 @@ Anchor in footnote.
 $result_errors{'anchor_in_footnote_split_node'} = [];
 
 
-$result_floats{'anchor_in_footnote_split_node'} = {};
-
-
 1;

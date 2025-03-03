@@ -30,9 +30,6 @@ $result_texts{'redefined_need'} = '';
 $result_errors{'redefined_need'} = [];
 
 
-$result_floats{'redefined_need'} = {};
-
-
 
 $result_converted{'html'}->{'redefined_need'} = '<!DOCTYPE html>
 <html>

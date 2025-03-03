@@ -135,9 +135,6 @@ $result_errors{'top_node_no_menu_direction'} = [
 ];
 
 
-$result_floats{'top_node_no_menu_direction'} = {};
-
-
 
 $result_converted{'info'}->{'top_node_no_menu_direction'} = 'This is , produced from .
 

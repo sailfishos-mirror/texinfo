@@ -528,9 +528,6 @@ After table.
 $result_errors{'block_commands_in_table'} = [];
 
 
-$result_floats{'block_commands_in_table'} = {};
-
-
 $result_indices_sort_strings{'block_commands_in_table'} = {
   'vr' => [
     'item',

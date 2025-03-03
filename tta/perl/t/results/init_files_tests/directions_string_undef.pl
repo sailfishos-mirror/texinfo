@@ -246,7 +246,4 @@ $result_texts{'directions_string_undef'} = 'top
 $result_errors{'directions_string_undef'} = [];
 
 
-$result_floats{'directions_string_undef'} = {};
-
-
 1;

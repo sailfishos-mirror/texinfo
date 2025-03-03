@@ -235,9 +235,6 @@ $result_texts{'menu_entry_name'} = '* a: (f)b
 $result_errors{'menu_entry_name'} = [];
 
 
-$result_floats{'menu_entry_name'} = {};
-
-
 
 $result_converted{'plaintext'}->{'menu_entry_name'} = '* Menu:
 

@@ -86,7 +86,4 @@ $result_texts{'macro_in_menu_description'} = '
 $result_errors{'macro_in_menu_description'} = [];
 
 
-$result_floats{'macro_in_menu_description'} = {};
-
-
 1;

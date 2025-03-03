@@ -133,9 +133,6 @@ After paragraphindent.
 $result_errors{'paragraphindent_not_in_preamble'} = [];
 
 
-$result_floats{'paragraphindent_not_in_preamble'} = {};
-
-
 
 $result_converted{'info'}->{'paragraphindent_not_in_preamble'} = 'This is , produced from .
 

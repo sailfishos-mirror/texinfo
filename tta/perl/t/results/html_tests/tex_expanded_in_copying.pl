@@ -59,9 +59,6 @@ $result_texts{'tex_expanded_in_copying'} = '';
 $result_errors{'tex_expanded_in_copying'} = [];
 
 
-$result_floats{'tex_expanded_in_copying'} = {};
-
-
 
 $result_converted{'html'}->{'tex_expanded_in_copying'} = '<!DOCTYPE html>
 <html>

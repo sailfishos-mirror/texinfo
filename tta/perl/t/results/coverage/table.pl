@@ -256,9 +256,6 @@ $result_errors{'table'} = [
 ];
 
 
-$result_floats{'table'} = {};
-
-
 $result_indices_sort_strings{'table'} = {
   'cp' => [
     'index entry'

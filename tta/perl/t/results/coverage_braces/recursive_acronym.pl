@@ -33,9 +33,6 @@ $result_texts{'recursive_acronym'} = 'GNU (GNU\'s Not Unix)
 $result_errors{'recursive_acronym'} = [];
 
 
-$result_floats{'recursive_acronym'} = {};
-
-
 
 $result_converted{'plaintext'}->{'recursive_acronym'} = 'GNU (GNU\'s Not Unix)
 ';

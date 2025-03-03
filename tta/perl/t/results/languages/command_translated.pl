@@ -125,9 +125,6 @@ error-->
 $result_errors{'command_translated'} = [];
 
 
-$result_floats{'command_translated'} = {};
-
-
 
 $result_converted{'plaintext'}->{'command_translated'} = 'top erreur→
 ***********

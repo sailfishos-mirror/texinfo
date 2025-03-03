@@ -272,9 +272,6 @@ $result_errors{'submenu_in_example'} = [
 ];
 
 
-$result_floats{'submenu_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'submenu_in_example'} = '
      in example

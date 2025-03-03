@@ -135,9 +135,6 @@ item three
 $result_errors{'table_in_itemize'} = [];
 
 
-$result_floats{'table_in_itemize'} = {};
-
-
 
 $result_converted{'plaintext'}->{'table_in_itemize'} = '   • item one
    • table one

@@ -42,7 +42,4 @@ $result_errors{'footnote_in_command_not_closed'} = [
 ];
 
 
-$result_floats{'footnote_in_command_not_closed'} = {};
-
-
 1;

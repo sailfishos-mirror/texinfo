@@ -104,7 +104,4 @@ top
 $result_errors{'button_replacement_for_special_unit_direction'} = [];
 
 
-$result_floats{'button_replacement_for_special_unit_direction'} = {};
-
-
 1;

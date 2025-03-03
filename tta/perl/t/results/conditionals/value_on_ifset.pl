@@ -98,7 +98,4 @@ XVAL SET
 $result_errors{'value_on_ifset'} = [];
 
 
-$result_floats{'value_on_ifset'} = {};
-
-
 1;

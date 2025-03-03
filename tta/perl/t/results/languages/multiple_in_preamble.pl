@@ -385,9 +385,6 @@ Instanzvariable of de: FFF GGG
 $result_errors{'multiple_in_preamble'} = [];
 
 
-$result_floats{'multiple_in_preamble'} = {};
-
-
 $result_indices_sort_strings{'multiple_in_preamble'} = {
   'vr' => [
     'a de copying',

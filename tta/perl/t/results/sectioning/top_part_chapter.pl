@@ -96,9 +96,6 @@ part
 $result_errors{'top_part_chapter'} = [];
 
 
-$result_floats{'top_part_chapter'} = {};
-
-
 
 $result_converted{'xml'}->{'top_part_chapter'} = '<top spaces=" "><sectiontitle>top</sectiontitle>
 

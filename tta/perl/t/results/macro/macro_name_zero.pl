@@ -52,7 +52,4 @@ in macro:
 $result_errors{'macro_name_zero'} = [];
 
 
-$result_floats{'macro_name_zero'} = {};
-
-
 1;

@@ -51,7 +51,4 @@ $result_texts{'bad_beginning'} = '*
 $result_errors{'bad_beginning'} = [];
 
 
-$result_floats{'bad_beginning'} = {};
-
-
 1;

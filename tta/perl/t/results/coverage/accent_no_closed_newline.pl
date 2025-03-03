@@ -35,7 +35,4 @@ $result_errors{'accent_no_closed_newline'} = [
 ];
 
 
-$result_floats{'accent_no_closed_newline'} = {};
-
-
 1;

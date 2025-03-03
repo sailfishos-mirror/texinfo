@@ -264,9 +264,6 @@ Appendix A Appendix
 $result_errors{'part_node_part_node_appendix'} = [];
 
 
-$result_floats{'part_node_part_node_appendix'} = {};
-
-
 
 $result_converted{'info'}->{'part_node_part_node_appendix'} = 'This is , produced from .
 

@@ -27,9 +27,6 @@ $result_errors{'caption_no_braces'} = [
 ];
 
 
-$result_floats{'caption_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'caption_no_braces'} = '';
 

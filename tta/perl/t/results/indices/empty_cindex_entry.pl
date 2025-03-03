@@ -72,9 +72,6 @@ $result_errors{'empty_cindex_entry'} = [
 ];
 
 
-$result_floats{'empty_cindex_entry'} = {};
-
-
 
 $result_converted{'info'}->{'empty_cindex_entry'} = 'This is , produced from .
 

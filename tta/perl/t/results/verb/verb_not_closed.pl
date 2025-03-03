@@ -32,7 +32,4 @@ $result_errors{'verb_not_closed'} = [
 ];
 
 
-$result_floats{'verb_not_closed'} = {};
-
-
 1;

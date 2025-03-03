@@ -23,9 +23,6 @@ $result_texts{'w_end_sentence'} = 'a. b';
 $result_errors{'w_end_sentence'} = [];
 
 
-$result_floats{'w_end_sentence'} = {};
-
-
 
 $result_converted{'plaintext'}->{'w_end_sentence'} = 'a.  b
 ';

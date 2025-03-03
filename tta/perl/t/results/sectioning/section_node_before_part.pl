@@ -92,9 +92,6 @@ $result_errors{'section_node_before_part'} = [
 ];
 
 
-$result_floats{'section_node_before_part'} = {};
-
-
 
 $result_converted{'info'}->{'section_node_before_part'} = 'This is , produced from .
 

@@ -221,9 +221,6 @@ $result_errors{'non_automatic_internal_top_node_up'} = [
 ];
 
 
-$result_floats{'non_automatic_internal_top_node_up'} = {};
-
-
 
 $result_converted{'info'}->{'non_automatic_internal_top_node_up'} = 'This is , produced from .
 

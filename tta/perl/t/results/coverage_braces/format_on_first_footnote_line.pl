@@ -100,9 +100,6 @@ $result_errors{'format_on_first_footnote_line'} = [
 ];
 
 
-$result_floats{'format_on_first_footnote_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'format_on_first_footnote_line'} = 'Texte(1).
 

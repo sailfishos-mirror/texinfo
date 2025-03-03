@@ -440,7 +440,4 @@ $result_errors{'insert_nodes_for_sectioning_commands'} = [
 ];
 
 
-$result_floats{'insert_nodes_for_sectioning_commands'} = {};
-
-
 1;

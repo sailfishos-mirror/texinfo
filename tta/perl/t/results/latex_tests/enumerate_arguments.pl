@@ -283,9 +283,6 @@ D. value
 $result_errors{'enumerate_arguments'} = [];
 
 
-$result_floats{'enumerate_arguments'} = {};
-
-
 
 $result_converted{'latex_text'}->{'enumerate_arguments'} = '\\begin{document}
 \\begin{enumerate}[label=\\alph*.]

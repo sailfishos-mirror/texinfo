@@ -43,7 +43,4 @@ $result_errors{'multitable_not_closed'} = [
 ];
 
 
-$result_floats{'multitable_not_closed'} = {};
-
-
 1;

@@ -468,9 +468,6 @@ $result_errors{'missing_detailmenu_on_subnodes'} = [
 ];
 
 
-$result_floats{'missing_detailmenu_on_subnodes'} = {};
-
-
 
 $result_converted{'plaintext'}->{'missing_detailmenu_on_subnodes'} = 'top
 ***

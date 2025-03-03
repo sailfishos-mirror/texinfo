@@ -74,9 +74,6 @@ Out of main text
 $result_errors{'cartouche'} = [];
 
 
-$result_floats{'cartouche'} = {};
-
-
 
 $result_converted{'plaintext'}->{'cartouche'} = 'in cartouche.
 

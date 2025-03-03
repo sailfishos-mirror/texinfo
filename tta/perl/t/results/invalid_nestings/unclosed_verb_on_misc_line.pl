@@ -53,7 +53,4 @@ $result_errors{'unclosed_verb_on_misc_line'} = [
 ];
 
 
-$result_floats{'unclosed_verb_on_misc_line'} = {};
-
-
 1;

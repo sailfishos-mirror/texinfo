@@ -39,7 +39,4 @@ $result_texts{'sections'} = '1 a chapter
 $result_errors{'sections'} = [];
 
 
-$result_floats{'sections'} = {};
-
-
 1;

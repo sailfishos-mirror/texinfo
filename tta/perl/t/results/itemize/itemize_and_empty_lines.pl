@@ -546,9 +546,6 @@ b b bbbbbbbbbbbbbbbbbbbbbbb.
 $result_errors{'itemize_and_empty_lines'} = [];
 
 
-$result_floats{'itemize_and_empty_lines'} = {};
-
-
 
 $result_converted{'plaintext'}->{'itemize_and_empty_lines'} = '   youhou first item
    youhou In example

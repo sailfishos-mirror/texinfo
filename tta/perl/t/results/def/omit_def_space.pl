@@ -164,9 +164,6 @@ $result_errors{'omit_def_space'} = [
 ];
 
 
-$result_floats{'omit_def_space'} = {};
-
-
 $result_indices_sort_strings{'omit_def_space'} = {
   'fn' => [
     'another',

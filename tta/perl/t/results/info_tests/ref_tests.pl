@@ -157,9 +157,6 @@ $result_texts{'ref_tests'} = '
 $result_errors{'ref_tests'} = [];
 
 
-$result_floats{'ref_tests'} = {};
-
-
 
 $result_converted{'info'}->{'ref_tests'} = 'This is , produced from .
 

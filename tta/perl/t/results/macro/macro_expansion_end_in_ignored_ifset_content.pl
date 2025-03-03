@@ -76,7 +76,4 @@ $result_texts{'macro_expansion_end_in_ignored_ifset_content'} = '
 $result_errors{'macro_expansion_end_in_ignored_ifset_content'} = [];
 
 
-$result_floats{'macro_expansion_end_in_ignored_ifset_content'} = {};
-
-
 1;

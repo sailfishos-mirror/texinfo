@@ -178,9 +178,6 @@ Text
 $result_errors{'direntry_dircategory_and_commands'} = [];
 
 
-$result_floats{'direntry_dircategory_and_commands'} = {};
-
-
 
 $result_converted{'info'}->{'direntry_dircategory_and_commands'} = 'This is , produced from .
 

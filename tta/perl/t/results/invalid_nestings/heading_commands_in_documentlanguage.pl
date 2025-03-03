@@ -105,7 +105,4 @@ $result_errors{'heading_commands_in_documentlanguage'} = [
 ];
 
 
-$result_floats{'heading_commands_in_documentlanguage'} = {};
-
-
 1;

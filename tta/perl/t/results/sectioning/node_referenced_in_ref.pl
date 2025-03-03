@@ -126,7 +126,4 @@ $result_errors{'node_referenced_in_ref'} = [
 ];
 
 
-$result_floats{'node_referenced_in_ref'} = {};
-
-
 1;

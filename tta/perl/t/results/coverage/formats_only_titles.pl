@@ -219,7 +219,4 @@ $result_errors{'formats_only_titles'} = [
 ];
 
 
-$result_floats{'formats_only_titles'} = {};
-
-
 1;

@@ -145,9 +145,6 @@ $result_texts{'next_no_prev_to_node'} = '
 $result_errors{'next_no_prev_to_node'} = [];
 
 
-$result_floats{'next_no_prev_to_node'} = {};
-
-
 
 $result_converted{'xml'}->{'next_no_prev_to_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first node</nodenext></node>
 

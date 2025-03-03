@@ -396,7 +396,4 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 $result_errors{'navigation_test_zero_top_buttons'} = [];
 
 
-$result_floats{'navigation_test_zero_top_buttons'} = {};
-
-
 1;

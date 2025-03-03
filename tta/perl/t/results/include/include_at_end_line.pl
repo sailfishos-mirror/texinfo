@@ -48,7 +48,4 @@ $result_errors{'include_at_end_line'} = [
 ];
 
 
-$result_floats{'include_at_end_line'} = {};
-
-
 1;

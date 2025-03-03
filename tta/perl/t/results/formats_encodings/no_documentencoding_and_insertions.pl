@@ -67,9 +67,6 @@ $result_texts{'no_documentencoding_and_insertions'} = '
 $result_errors{'no_documentencoding_and_insertions'} = [];
 
 
-$result_floats{'no_documentencoding_and_insertions'} = {};
-
-
 
 $result_converted{'plaintext'}->{'no_documentencoding_and_insertions'} = '- -- " " \' \' ‘in code’.  ẽ.
 

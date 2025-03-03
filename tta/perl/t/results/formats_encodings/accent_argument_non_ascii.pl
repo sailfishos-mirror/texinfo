@@ -109,9 +109,6 @@ $result_texts{'accent_argument_non_ascii'} = 'top
 $result_errors{'accent_argument_non_ascii'} = [];
 
 
-$result_floats{'accent_argument_non_ascii'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent_argument_non_ascii'} = 'top
 ***

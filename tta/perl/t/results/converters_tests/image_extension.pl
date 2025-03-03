@@ -31,9 +31,6 @@ $result_texts{'image_extension'} = 'f---ile
 $result_errors{'image_extension'} = [];
 
 
-$result_floats{'image_extension'} = {};
-
-
 
 $result_converted{'plaintext'}->{'image_extension'} = '[f---ile]
 ';

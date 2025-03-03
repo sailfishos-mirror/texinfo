@@ -47,9 +47,6 @@ $result_texts{'good'} = '';
 $result_errors{'good'} = [];
 
 
-$result_floats{'good'} = {};
-
-
 
 $result_converted{'html_text'}->{'good'} = '';
 

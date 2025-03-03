@@ -90,9 +90,6 @@ $result_errors{'code_in_def'} = [
 ];
 
 
-$result_floats{'code_in_def'} = {};
-
-
 $result_indices_sort_strings{'code_in_def'} = {
   'fn' => [
     'foo'

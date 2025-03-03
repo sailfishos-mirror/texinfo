@@ -48,9 +48,6 @@ After.
 $result_errors{'paragraph_count_and_example'} = [];
 
 
-$result_floats{'paragraph_count_and_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'paragraph_count_and_example'} = '     in example
 

@@ -52,9 +52,6 @@ This is a very simple texi manual   <>.
 $result_errors{'simplest_no_node_section'} = [];
 
 
-$result_floats{'simplest_no_node_section'} = {};
-
-
 $result_converted_errors{'file_html'}->{'simplest_no_node_section'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

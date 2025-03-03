@@ -120,9 +120,6 @@ $result_errors{'multitable_in_example_extraneous_item_tab'} = [
 ];
 
 
-$result_floats{'multitable_in_example_extraneous_item_tab'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable_in_example_extraneous_item_tab'} = '     ita
      tmp

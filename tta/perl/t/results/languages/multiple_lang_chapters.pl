@@ -731,9 +731,6 @@ In brazilian. chapter ja.
 $result_errors{'multiple_lang_chapters'} = [];
 
 
-$result_floats{'multiple_lang_chapters'} = {};
-
-
 $result_indices_sort_strings{'multiple_lang_chapters'} = {
   'vr' => [
     'BBB de AAA',

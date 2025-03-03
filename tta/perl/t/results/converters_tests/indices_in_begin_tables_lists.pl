@@ -1472,9 +1472,6 @@ $result_errors{'indices_in_begin_tables_lists'} = [
 ];
 
 
-$result_floats{'indices_in_begin_tables_lists'} = {};
-
-
 $result_indices_sort_strings{'indices_in_begin_tables_lists'} = {
   'cp' => [
     'also a cindex in itemize',

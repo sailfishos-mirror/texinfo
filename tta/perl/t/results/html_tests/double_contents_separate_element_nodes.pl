@@ -251,7 +251,4 @@ The chapter
 $result_errors{'double_contents_separate_element_nodes'} = [];
 
 
-$result_floats{'double_contents_separate_element_nodes'} = {};
-
-
 1;

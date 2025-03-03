@@ -158,7 +158,4 @@ The chapter
 $result_errors{'no_content_inline'} = [];
 
 
-$result_floats{'no_content_inline'} = {};
-
-
 1;

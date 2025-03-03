@@ -136,9 +136,6 @@ $result_errors{'section_on_enumerate_line'} = [
 ];
 
 
-$result_floats{'section_on_enumerate_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_on_enumerate_line'} = '1 first
 =======

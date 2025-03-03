@@ -213,9 +213,6 @@ raw $\\frac{a < b tex \\hbox{ code }}{b}$ ``
 $result_errors{'inline'} = [];
 
 
-$result_floats{'inline'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inline'} = ', plaintext ", , ,
 

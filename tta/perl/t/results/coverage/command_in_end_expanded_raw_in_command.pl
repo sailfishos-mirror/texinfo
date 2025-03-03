@@ -63,7 +63,4 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
 ];
 
 
-$result_floats{'command_in_end_expanded_raw_in_command'} = {};
-
-
 1;

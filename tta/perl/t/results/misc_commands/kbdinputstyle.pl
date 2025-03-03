@@ -487,9 +487,6 @@ for nesting in example r in code in example in r in code in example
 $result_errors{'kbdinputstyle'} = [];
 
 
-$result_floats{'kbdinputstyle'} = {};
-
-
 
 $result_converted{'plaintext'}->{'kbdinputstyle'} = '@kbdinputstyle code
 

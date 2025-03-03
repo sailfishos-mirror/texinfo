@@ -114,9 +114,6 @@ $result_errors{'similar_external_and_internal_node'} = [
 ];
 
 
-$result_floats{'similar_external_and_internal_node'} = {};
-
-
 
 $result_converted{'info'}->{'similar_external_and_internal_node'} = 'This is , produced from .
 

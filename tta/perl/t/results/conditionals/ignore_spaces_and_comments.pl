@@ -144,7 +144,4 @@ $result_texts{'ignore_spaces_and_comments'} = '
 $result_errors{'ignore_spaces_and_comments'} = [];
 
 
-$result_floats{'ignore_spaces_and_comments'} = {};
-
-
 1;

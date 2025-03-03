@@ -177,9 +177,6 @@ $result_errors{'definfoenclose_texinfo_commands'} = [
 ];
 
 
-$result_floats{'definfoenclose_texinfo_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'definfoenclose_texinfo_commands'} = 'aaa.
 

@@ -44,9 +44,6 @@ $result_texts{'titlepage_and_headings'} = '
 $result_errors{'titlepage_and_headings'} = [];
 
 
-$result_floats{'titlepage_and_headings'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_and_headings'} = '
 \\begin{document}

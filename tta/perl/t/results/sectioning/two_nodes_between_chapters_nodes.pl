@@ -255,7 +255,4 @@ $result_errors{'two_nodes_between_chapters_nodes'} = [
 ];
 
 
-$result_floats{'two_nodes_between_chapters_nodes'} = {};
-
-
 1;

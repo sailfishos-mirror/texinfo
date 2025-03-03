@@ -73,7 +73,4 @@ $result_texts{'macro_in_empty_table_empty_before_item'} = '
 $result_errors{'macro_in_empty_table_empty_before_item'} = [];
 
 
-$result_floats{'macro_in_empty_table_empty_before_item'} = {};
-
-
 1;

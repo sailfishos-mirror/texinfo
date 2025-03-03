@@ -159,9 +159,6 @@ figure JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 $result_errors{'multiline_image_and_align'} = [];
 
 
-$result_floats{'multiline_image_and_align'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multiline_image_and_align'} = '                               1  A  B  
                                2  C  D

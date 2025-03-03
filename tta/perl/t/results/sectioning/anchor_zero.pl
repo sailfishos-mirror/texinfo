@@ -58,9 +58,6 @@ $result_texts{'anchor_zero'} = '
 $result_errors{'anchor_zero'} = [];
 
 
-$result_floats{'anchor_zero'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_zero'} = 'This is , produced from .
 

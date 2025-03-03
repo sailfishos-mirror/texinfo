@@ -240,9 +240,6 @@ $result_errors{'section_chapter_before_top_nodes'} = [
 ];
 
 
-$result_floats{'section_chapter_before_top_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'section_chapter_before_top_nodes'} = 'This is , produced from section_chapter_before_top_nodes.texi.
 

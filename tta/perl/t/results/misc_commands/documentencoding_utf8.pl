@@ -43,9 +43,6 @@ $result_errors{'documentencoding_utf8'} = [
 ];
 
 
-$result_floats{'documentencoding_utf8'} = {};
-
-
 
 $result_converted{'plaintext'}->{'documentencoding_utf8'} = '';
 

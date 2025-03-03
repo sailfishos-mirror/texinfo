@@ -100,7 +100,4 @@ fc sc
 $result_errors{'macro_in_multitable_empty_before_item'} = [];
 
 
-$result_floats{'macro_in_multitable_empty_before_item'} = {};
-
-
 1;

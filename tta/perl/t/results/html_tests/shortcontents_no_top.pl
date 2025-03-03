@@ -91,9 +91,6 @@ $result_texts{'shortcontents_no_top'} = '1 chap
 $result_errors{'shortcontents_no_top'} = [];
 
 
-$result_floats{'shortcontents_no_top'} = {};
-
-
 
 $result_converted{'html'}->{'shortcontents_no_top'} = '<!DOCTYPE html>
 <html>

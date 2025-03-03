@@ -396,7 +396,4 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 $result_errors{'navigation_test_misc_file_collision'} = [];
 
 
-$result_floats{'navigation_test_misc_file_collision'} = {};
-
-
 1;

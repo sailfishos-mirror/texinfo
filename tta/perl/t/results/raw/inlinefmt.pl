@@ -55,9 +55,6 @@ in <i>HTML</i>.
 $result_errors{'inlinefmt'} = [];
 
 
-$result_floats{'inlinefmt'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlinefmt'} = 'A plaintext " { a.  Now html .
 ';

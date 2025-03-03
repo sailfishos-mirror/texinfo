@@ -131,9 +131,6 @@ $result_errors{'defx_in_example'} = [
 ];
 
 
-$result_floats{'defx_in_example'} = {};
-
-
 $result_indices_sort_strings{'defx_in_example'} = {
   'fn' => [
     'bidulr',

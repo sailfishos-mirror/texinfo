@@ -78,7 +78,4 @@ $result_errors{'headitem_itemx_in_enumerate'} = [
 ];
 
 
-$result_floats{'headitem_itemx_in_enumerate'} = {};
-
-
 1;

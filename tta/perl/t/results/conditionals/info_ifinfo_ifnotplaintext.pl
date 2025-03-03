@@ -63,7 +63,4 @@ $result_texts{'info_ifinfo_ifnotplaintext'} = 'This will be in Info, but not pla
 $result_errors{'info_ifinfo_ifnotplaintext'} = [];
 
 
-$result_floats{'info_ifinfo_ifnotplaintext'} = {};
-
-
 1;

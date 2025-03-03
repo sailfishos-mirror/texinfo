@@ -60,9 +60,6 @@ $result_texts{'verbatim_in_smallformat'} = '... still verbatim, but in a smaller
 $result_errors{'verbatim_in_smallformat'} = [];
 
 
-$result_floats{'verbatim_in_smallformat'} = {};
-
-
 
 $result_converted{'latex_text'}->{'verbatim_in_smallformat'} = '\\begin{document}
 \\begin{verbatim}

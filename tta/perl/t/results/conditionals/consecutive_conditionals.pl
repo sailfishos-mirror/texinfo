@@ -117,7 +117,4 @@ $result_texts{'consecutive_conditionals'} = '
 $result_errors{'consecutive_conditionals'} = [];
 
 
-$result_floats{'consecutive_conditionals'} = {};
-
-
 1;

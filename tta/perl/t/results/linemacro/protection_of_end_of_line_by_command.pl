@@ -76,7 +76,4 @@ $result_errors{'protection_of_end_of_line_by_command'} = [
 ];
 
 
-$result_floats{'protection_of_end_of_line_by_command'} = {};
-
-
 1;

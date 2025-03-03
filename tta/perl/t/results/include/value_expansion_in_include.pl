@@ -315,7 +315,4 @@ $result_errors{'value_expansion_in_include'} = [
 ];
 
 
-$result_floats{'value_expansion_in_include'} = {};
-
-
 1;

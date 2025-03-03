@@ -67,9 +67,6 @@ $result_texts{'lone_braces_in_html'} = '}
 $result_errors{'lone_braces_in_html'} = [];
 
 
-$result_floats{'lone_braces_in_html'} = {};
-
-
 
 $result_converted{'plaintext'}->{'lone_braces_in_html'} = '';
 

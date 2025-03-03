@@ -181,9 +181,6 @@ r`\'=
 $result_errors{'weird_accents'} = [];
 
 
-$result_floats{'weird_accents'} = {};
-
-
 
 $result_converted{'plaintext'}->{'weird_accents'} = 'top
 ***

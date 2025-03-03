@@ -438,9 +438,6 @@ $result_errors{'accent_on_table_line'} = [
 ];
 
 
-$result_floats{'accent_on_table_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent_on_table_line'} = 'first item
 no at-command ‘code’

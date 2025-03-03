@@ -73,9 +73,6 @@ ref to ref ref.
 $result_errors{'one_node_explicit_directions_anchor_no_use_node'} = [];
 
 
-$result_floats{'one_node_explicit_directions_anchor_no_use_node'} = {};
-
-
 
 $result_converted{'info'}->{'one_node_explicit_directions_anchor_no_use_node'} = 'This is , produced from .
 

@@ -278,9 +278,6 @@ item e^[
 $result_errors{'itemize_tieaccent'} = [];
 
 
-$result_floats{'itemize_tieaccent'} = {};
-
-
 $result_converted_errors{'file_html'}->{'itemize_tieaccent'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

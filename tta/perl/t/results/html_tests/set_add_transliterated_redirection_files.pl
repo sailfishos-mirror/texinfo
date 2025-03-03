@@ -152,7 +152,4 @@ $result_texts{'set_add_transliterated_redirection_files'} = 'top
 $result_errors{'set_add_transliterated_redirection_files'} = [];
 
 
-$result_floats{'set_add_transliterated_redirection_files'} = {};
-
-
 1;

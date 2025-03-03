@@ -474,9 +474,6 @@ $result_errors{'in_table'} = [
 ];
 
 
-$result_floats{'in_table'} = {};
-
-
 $result_indices_sort_strings{'in_table'} = {
   'cp' => [
     '2 index',

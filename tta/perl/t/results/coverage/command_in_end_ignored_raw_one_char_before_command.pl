@@ -38,7 +38,4 @@ $result_errors{'command_in_end_ignored_raw_one_char_before_command'} = [
 ];
 
 
-$result_floats{'command_in_end_ignored_raw_one_char_before_command'} = {};
-
-
 1;

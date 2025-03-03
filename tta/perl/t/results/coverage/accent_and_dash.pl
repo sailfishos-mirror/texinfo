@@ -22,9 +22,6 @@ $result_texts{'accent_and_dash'} = 'a-^';
 $result_errors{'accent_and_dash'} = [];
 
 
-$result_floats{'accent_and_dash'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent_and_dash'} = 'a-̂
 ';

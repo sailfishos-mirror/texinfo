@@ -126,9 +126,6 @@ item
 $result_errors{'accent_argument'} = [];
 
 
-$result_floats{'accent_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent_argument'} = '   ẽ item
 

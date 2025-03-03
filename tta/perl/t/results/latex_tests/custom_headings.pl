@@ -311,9 +311,6 @@ after everyheading before chap 3 second page
 $result_errors{'custom_headings'} = [];
 
 
-$result_floats{'custom_headings'} = {};
-
-
 
 $result_converted{'latex_text'}->{'custom_headings'} = '\\newpagestyle{custom}{%
 \\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%

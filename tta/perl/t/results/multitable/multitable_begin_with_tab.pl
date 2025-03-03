@@ -125,7 +125,4 @@ $result_errors{'multitable_begin_with_tab'} = [
 ];
 
 
-$result_floats{'multitable_begin_with_tab'} = {};
-
-
 1;

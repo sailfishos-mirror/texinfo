@@ -164,7 +164,4 @@ $result_errors{'text_before_line_command'} = [
 ];
 
 
-$result_floats{'text_before_line_command'} = {};
-
-
 1;

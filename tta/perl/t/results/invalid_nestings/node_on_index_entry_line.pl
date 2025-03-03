@@ -112,9 +112,6 @@ $result_errors{'node_on_index_entry_line'} = [
 ];
 
 
-$result_floats{'node_on_index_entry_line'} = {};
-
-
 $result_indices_sort_strings{'node_on_index_entry_line'} = {
   'cp' => [
     'entry'

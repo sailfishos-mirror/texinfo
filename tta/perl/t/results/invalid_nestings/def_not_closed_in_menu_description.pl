@@ -109,9 +109,6 @@ $result_errors{'def_not_closed_in_menu_description'} = [
 ];
 
 
-$result_floats{'def_not_closed_in_menu_description'} = {};
-
-
 $result_indices_sort_strings{'def_not_closed_in_menu_description'} = {
   'fn' => [
     'truc'

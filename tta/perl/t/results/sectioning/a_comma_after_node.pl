@@ -69,7 +69,4 @@ $result_errors{'a_comma_after_node'} = [
 ];
 
 
-$result_floats{'a_comma_after_node'} = {};
-
-
 1;

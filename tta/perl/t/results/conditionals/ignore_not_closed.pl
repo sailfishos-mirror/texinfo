@@ -37,7 +37,4 @@ $result_errors{'ignore_not_closed'} = [
 ];
 
 
-$result_floats{'ignore_not_closed'} = {};
-
-
 1;

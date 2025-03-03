@@ -237,9 +237,6 @@ $result_errors{'double_part'} = [
 ];
 
 
-$result_floats{'double_part'} = {};
-
-
 
 $result_converted{'plaintext'}->{'double_part'} = 'top
 ***

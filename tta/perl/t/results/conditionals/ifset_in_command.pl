@@ -81,7 +81,4 @@ xclear
 $result_errors{'ifset_in_command'} = [];
 
 
-$result_floats{'ifset_in_command'} = {};
-
-
 1;

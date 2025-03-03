@@ -40,9 +40,6 @@ $result_texts{'listoffloats_with_commands'} = '';
 $result_errors{'listoffloats_with_commands'} = [];
 
 
-$result_floats{'listoffloats_with_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'listoffloats_with_commands'} = '';
 

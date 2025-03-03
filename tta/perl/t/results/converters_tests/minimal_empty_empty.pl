@@ -24,9 +24,6 @@ $result_texts{'minimal_empty_empty'} = '';
 $result_errors{'minimal_empty_empty'} = [];
 
 
-$result_floats{'minimal_empty_empty'} = {};
-
-
 $result_converted_errors{'file_html'}->{'minimal_empty_empty'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

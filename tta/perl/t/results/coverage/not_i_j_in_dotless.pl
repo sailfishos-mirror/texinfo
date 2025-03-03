@@ -47,7 +47,4 @@ $result_errors{'not_i_j_in_dotless'} = [
 ];
 
 
-$result_floats{'not_i_j_in_dotless'} = {};
-
-
 1;

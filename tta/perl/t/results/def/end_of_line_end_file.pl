@@ -64,9 +64,6 @@ $result_errors{'end_of_line_end_file'} = [
 ];
 
 
-$result_floats{'end_of_line_end_file'} = {};
-
-
 $result_indices_sort_strings{'end_of_line_end_file'} = {
   'fn' => [
     'deffn_name'

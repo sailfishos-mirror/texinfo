@@ -145,9 +145,6 @@ $result_texts{'file_name_conflict_with_user_defined'} = 'top
 $result_errors{'file_name_conflict_with_user_defined'} = [];
 
 
-$result_floats{'file_name_conflict_with_user_defined'} = {};
-
-
 $result_converted_errors{'file_html'}->{'file_name_conflict_with_user_defined'} = [
   {
     'error_line' => 'warning: @anchor `myanchor\' file myanchor.html for redirection exists

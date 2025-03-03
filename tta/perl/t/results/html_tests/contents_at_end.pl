@@ -163,7 +163,4 @@ The chapter
 $result_errors{'contents_at_end'} = [];
 
 
-$result_floats{'contents_at_end'} = {};
-
-
 1;

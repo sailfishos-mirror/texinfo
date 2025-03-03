@@ -40,9 +40,6 @@ A.
 $result_errors{'top_no_argument_and_content'} = [];
 
 
-$result_floats{'top_no_argument_and_content'} = {};
-
-
 
 $result_converted{'plaintext'}->{'top_no_argument_and_content'} = 'A.
 ';

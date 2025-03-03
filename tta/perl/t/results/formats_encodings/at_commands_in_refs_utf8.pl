@@ -3745,9 +3745,6 @@ $result_errors{'at_commands_in_refs_utf8'} = [
 ];
 
 
-$result_floats{'at_commands_in_refs_utf8'} = {};
-
-
 $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'

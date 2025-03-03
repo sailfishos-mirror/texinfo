@@ -52,9 +52,6 @@ F.
 $result_errors{'footnote_no_node'} = [];
 
 
-$result_floats{'footnote_no_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_no_node'} = 'top
 ***

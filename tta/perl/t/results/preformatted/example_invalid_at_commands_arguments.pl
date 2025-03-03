@@ -103,9 +103,6 @@ $result_errors{'example_invalid_at_commands_arguments'} = [
 ];
 
 
-$result_floats{'example_invalid_at_commands_arguments'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_invalid_at_commands_arguments'} = '';
 

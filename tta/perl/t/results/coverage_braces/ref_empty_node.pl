@@ -87,7 +87,4 @@ $result_errors{'ref_empty_node'} = [
 ];
 
 
-$result_floats{'ref_empty_node'} = {};
-
-
 1;

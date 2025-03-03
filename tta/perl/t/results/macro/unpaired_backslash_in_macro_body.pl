@@ -59,7 +59,4 @@ not paired
 $result_errors{'unpaired_backslash_in_macro_body'} = [];
 
 
-$result_floats{'unpaired_backslash_in_macro_body'} = {};
-
-
 1;

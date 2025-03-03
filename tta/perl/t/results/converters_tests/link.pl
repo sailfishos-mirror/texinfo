@@ -227,9 +227,6 @@ $result_errors{'link'} = [
 ];
 
 
-$result_floats{'link'} = {};
-
-
 
 $result_converted{'plaintext'}->{'link'} = '1 ONEX
 ******

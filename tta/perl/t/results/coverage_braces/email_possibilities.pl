@@ -40,9 +40,6 @@ $result_texts{'email_possibilities'} = '-b
 $result_errors{'email_possibilities'} = [];
 
 
-$result_floats{'email_possibilities'} = {};
-
-
 
 $result_converted{'plaintext'}->{'email_possibilities'} = '-b <--a> -b <--a>
 ';

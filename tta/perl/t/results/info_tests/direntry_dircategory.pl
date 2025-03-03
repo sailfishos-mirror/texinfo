@@ -354,7 +354,4 @@ $result_errors{'direntry_dircategory'} = [
 ];
 
 
-$result_floats{'direntry_dircategory'} = {};
-
-
 1;

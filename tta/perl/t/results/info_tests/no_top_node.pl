@@ -32,9 +32,6 @@ $result_texts{'no_top_node'} = '';
 $result_errors{'no_top_node'} = [];
 
 
-$result_floats{'no_top_node'} = {};
-
-
 
 $result_converted{'info'}->{'no_top_node'} = 'This is , produced from .
 

@@ -69,7 +69,4 @@ $result_texts{'filenameconflictwithnonsplit'} = 'top
 $result_errors{'filenameconflictwithnonsplit'} = [];
 
 
-$result_floats{'filenameconflictwithnonsplit'} = {};
-
-
 1;

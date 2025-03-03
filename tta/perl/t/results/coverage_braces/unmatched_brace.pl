@@ -37,7 +37,4 @@ $result_errors{'unmatched_brace'} = [
 ];
 
 
-$result_floats{'unmatched_brace'} = {};
-
-
 1;

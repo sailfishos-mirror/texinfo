@@ -953,9 +953,6 @@ $result_errors{'encoding_index_latin1'} = [
 ];
 
 
-$result_floats{'encoding_index_latin1'} = {};
-
-
 $result_indices_sort_strings{'encoding_index_latin1'} = {
   'cp' => [
     '-',

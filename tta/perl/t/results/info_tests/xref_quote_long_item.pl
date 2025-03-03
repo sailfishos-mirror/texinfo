@@ -94,9 +94,6 @@ Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar, $configuratio
 $result_errors{'xref_quote_long_item'} = [];
 
 
-$result_floats{'xref_quote_long_item'} = {};
-
-
 
 $result_converted{'info'}->{'xref_quote_long_item'} = 'This is , produced from .
 

@@ -522,9 +522,6 @@ accented char in latin1 in refs
 $result_errors{'char_utf8_latin1_in_refs'} = [];
 
 
-$result_floats{'char_utf8_latin1_in_refs'} = {};
-
-
 $result_indices_sort_strings{'char_utf8_latin1_in_refs'} = {
   'cp' => [
     "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}",

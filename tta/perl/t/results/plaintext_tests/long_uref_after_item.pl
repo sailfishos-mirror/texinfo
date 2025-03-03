@@ -54,9 +54,6 @@ $result_texts{'long_uref_after_item'} = 'http://foo.org/some/long/url/which/goes
 $result_errors{'long_uref_after_item'} = [];
 
 
-$result_floats{'long_uref_after_item'} = {};
-
-
 
 $result_converted{'plaintext'}->{'long_uref_after_item'} = '   • 
      <http://foo.org/some/long/url/which/goes/past/eighty/columns/and/has/no/alternative/text.html>

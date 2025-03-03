@@ -73,7 +73,4 @@ $result_texts{'macro_in_empty_text'} = '
 $result_errors{'macro_in_empty_text'} = [];
 
 
-$result_floats{'macro_in_empty_text'} = {};
-
-
 1;

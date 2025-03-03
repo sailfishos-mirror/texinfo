@@ -160,7 +160,4 @@ First chapter.
 $result_errors{'split_nocopying_split'} = [];
 
 
-$result_floats{'split_nocopying_split'} = {};
-
-
 1;

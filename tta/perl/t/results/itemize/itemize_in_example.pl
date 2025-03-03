@@ -228,9 +228,6 @@ $result_errors{'itemize_in_example'} = [
 ];
 
 
-$result_floats{'itemize_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'itemize_in_example'} = '        • first
 

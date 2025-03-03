@@ -86,9 +86,6 @@ $result_texts{'file_name_conflict_with_section'} = 'top
 $result_errors{'file_name_conflict_with_section'} = [];
 
 
-$result_floats{'file_name_conflict_with_section'} = {};
-
-
 $result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = [
   {
     'error_line' => 'warning: @anchor `Chap\' file Chap.html for redirection exists

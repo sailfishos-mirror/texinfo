@@ -40,9 +40,6 @@ $result_texts{'top_node_and_bye'} = '
 $result_errors{'top_node_and_bye'} = [];
 
 
-$result_floats{'top_node_and_bye'} = {};
-
-
 
 $result_converted{'xml'}->{'top_node_and_bye'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 

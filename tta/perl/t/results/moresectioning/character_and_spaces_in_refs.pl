@@ -547,9 +547,6 @@ local   node
 $result_errors{'character_and_spaces_in_refs'} = [];
 
 
-$result_floats{'character_and_spaces_in_refs'} = {};
-
-
 
 $result_converted{'info'}->{'character_and_spaces_in_refs'} = 'This is , produced from character_and_spaces_in_refs_text.texi.
 

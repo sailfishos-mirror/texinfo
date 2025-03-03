@@ -194,9 +194,6 @@ $result_indices{'alias_of_added_index'} = {
 };
 
 
-$result_floats{'alias_of_added_index'} = {};
-
-
 $result_indices_sort_strings{'alias_of_added_index'} = {
   'sli' => [
     'entry'

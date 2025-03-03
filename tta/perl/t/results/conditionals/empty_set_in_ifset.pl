@@ -58,7 +58,4 @@ a is set to:||.
 $result_errors{'empty_set_in_ifset'} = [];
 
 
-$result_floats{'empty_set_in_ifset'} = {};
-
-
 1;

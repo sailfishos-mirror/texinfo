@@ -245,7 +245,4 @@ Foo
 $result_errors{'file_name_case_insensitive_conflict_node_no_redirections'} = [];
 
 
-$result_floats{'file_name_case_insensitive_conflict_node_no_redirections'} = {};
-
-
 1;

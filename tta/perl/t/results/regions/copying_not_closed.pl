@@ -38,7 +38,4 @@ $result_errors{'copying_not_closed'} = [
 ];
 
 
-$result_floats{'copying_not_closed'} = {};
-
-
 1;

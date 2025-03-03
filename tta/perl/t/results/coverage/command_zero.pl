@@ -30,9 +30,6 @@ $result_errors{'command_zero'} = [
 ];
 
 
-$result_floats{'command_zero'} = {};
-
-
 
 $result_converted{'plaintext'}->{'command_zero'} = ':
 ';

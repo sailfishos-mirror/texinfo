@@ -52,9 +52,6 @@ $result_errors{'definfoenclose_no_braces'} = [
 ];
 
 
-$result_floats{'definfoenclose_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'definfoenclose_no_braces'} = ';:
 ';

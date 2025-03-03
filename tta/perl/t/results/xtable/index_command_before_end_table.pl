@@ -99,9 +99,6 @@ $result_errors{'index_command_before_end_table'} = [
 ];
 
 
-$result_floats{'index_command_before_end_table'} = {};
-
-
 $result_indices_sort_strings{'index_command_before_end_table'} = {
   'vr' => [
     'var'

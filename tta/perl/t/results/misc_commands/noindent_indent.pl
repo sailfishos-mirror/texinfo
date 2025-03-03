@@ -67,9 +67,6 @@ unneeded indent
 $result_errors{'noindent_indent'} = [];
 
 
-$result_floats{'noindent_indent'} = {};
-
-
 
 $result_converted{'plaintext'}->{'noindent_indent'} = '   First para
 

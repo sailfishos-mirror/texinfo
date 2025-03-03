@@ -68,9 +68,6 @@ $result_texts{'menu_entry_no_entry'} = '* a1:
 $result_errors{'menu_entry_no_entry'} = [];
 
 
-$result_floats{'menu_entry_no_entry'} = {};
-
-
 
 $result_converted{'plaintext'}->{'menu_entry_no_entry'} = '* Menu:
 

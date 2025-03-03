@@ -238,9 +238,6 @@ not empty tab not empty
 $result_errors{'empty_item_tab'} = [];
 
 
-$result_floats{'empty_item_tab'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_item_tab'} = 'text
 

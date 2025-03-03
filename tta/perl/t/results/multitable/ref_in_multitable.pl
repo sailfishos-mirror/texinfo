@@ -174,9 +174,6 @@ XXX XXX XXX XXX XXX XXX XXX XXX XX.
 $result_errors{'ref_in_multitable'} = [];
 
 
-$result_floats{'ref_in_multitable'} = {};
-
-
 
 $result_converted{'info'}->{'ref_in_multitable'} = 'This is , produced from .
 

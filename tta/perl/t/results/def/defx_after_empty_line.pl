@@ -112,9 +112,6 @@ $result_errors{'defx_after_empty_line'} = [
 ];
 
 
-$result_floats{'defx_after_empty_line'} = {};
-
-
 $result_indices_sort_strings{'defx_after_empty_line'} = {
   'fn' => [
     'bidulr',

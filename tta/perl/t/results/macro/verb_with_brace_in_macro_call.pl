@@ -82,7 +82,4 @@ $result_errors{'verb_with_brace_in_macro_call'} = [
 ];
 
 
-$result_floats{'verb_with_brace_in_macro_call'} = {};
-
-
 1;

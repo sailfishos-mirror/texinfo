@@ -83,7 +83,4 @@ after
 $result_errors{'comment_at_end_of_linemacro_call'} = [];
 
 
-$result_floats{'comment_at_end_of_linemacro_call'} = {};
-
-
 1;

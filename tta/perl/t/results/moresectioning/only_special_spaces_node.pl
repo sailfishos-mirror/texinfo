@@ -310,9 +310,6 @@ $result_errors{'only_special_spaces_node'} = [
 ];
 
 
-$result_floats{'only_special_spaces_node'} = {};
-
-
 
 $result_converted{'info'}->{'only_special_spaces_node'} = 'This is , produced from only_special_spaces_node.texi.
 

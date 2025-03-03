@@ -119,9 +119,6 @@ description2 description2 description2 description2 description2
 $result_errors{'multiple_defline'} = [];
 
 
-$result_floats{'multiple_defline'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multiple_defline'} = ' -- Funoid: foo (bar)
      description1 description1 description1 description1 description1

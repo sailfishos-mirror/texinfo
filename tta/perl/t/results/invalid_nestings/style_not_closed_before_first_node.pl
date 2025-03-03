@@ -53,7 +53,4 @@ $result_errors{'style_not_closed_before_first_node'} = [
 ];
 
 
-$result_floats{'style_not_closed_before_first_node'} = {};
-
-
 1;

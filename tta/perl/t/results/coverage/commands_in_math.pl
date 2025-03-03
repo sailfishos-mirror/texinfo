@@ -475,9 +475,6 @@ $result_errors{'commands_in_math'} = [
 ];
 
 
-$result_floats{'commands_in_math'} = {};
-
-
 
 $result_converted{'plaintext'}->{'commands_in_math'} = '*``simple-double--three---four----\'\'* aa
 ``simple-double--three---four----\'\'

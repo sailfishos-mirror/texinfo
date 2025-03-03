@@ -199,9 +199,6 @@ In c2.
 $result_errors{'sectioning_test_ref'} = [];
 
 
-$result_floats{'sectioning_test_ref'} = {};
-
-
 
 $result_converted{'xml'}->{'sectioning_test_ref'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>

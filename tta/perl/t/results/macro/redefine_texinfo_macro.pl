@@ -66,7 +66,4 @@ $result_errors{'redefine_texinfo_macro'} = [
 ];
 
 
-$result_floats{'redefine_texinfo_macro'} = {};
-
-
 1;

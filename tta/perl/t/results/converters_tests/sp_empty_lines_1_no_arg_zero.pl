@@ -264,9 +264,6 @@ $result_errors{'sp_empty_lines_1_no_arg_zero'} = [
 ];
 
 
-$result_floats{'sp_empty_lines_1_no_arg_zero'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sp_empty_lines_1_no_arg_zero'} = 'A
 

@@ -67,7 +67,4 @@ $result_errors{'no_arg_brace_command_on_table_line'} = [
 ];
 
 
-$result_floats{'no_arg_brace_command_on_table_line'} = {};
-
-
 1;

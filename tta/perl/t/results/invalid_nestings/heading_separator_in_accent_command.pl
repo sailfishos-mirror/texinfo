@@ -68,7 +68,4 @@ $result_errors{'heading_separator_in_accent_command'} = [
 ];
 
 
-$result_floats{'heading_separator_in_accent_command'} = {};
-
-
 1;

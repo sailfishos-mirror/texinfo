@@ -209,9 +209,6 @@ Chapter.
 $result_errors{'no_monolithic_only_toc_out'} = [];
 
 
-$result_floats{'no_monolithic_only_toc_out'} = {};
-
-
 $result_indices_sort_strings{'no_monolithic_only_toc_out'} = {
   'cp' => [
     'top'

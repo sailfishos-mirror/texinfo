@@ -100,7 +100,4 @@ $result_errors{'empty_chapter_in_html_title'} = [
 ];
 
 
-$result_floats{'empty_chapter_in_html_title'} = {};
-
-
 1;

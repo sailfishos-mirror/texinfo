@@ -133,9 +133,6 @@ $result_texts{'automatic_menu_referencing_node'} = 'top
 $result_errors{'automatic_menu_referencing_node'} = [];
 
 
-$result_floats{'automatic_menu_referencing_node'} = {};
-
-
 
 $result_converted{'info'}->{'automatic_menu_referencing_node'} = 'This is , produced from .
 

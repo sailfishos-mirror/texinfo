@@ -114,7 +114,4 @@ After inclusion.
 $result_errors{'test_two_include'} = [];
 
 
-$result_floats{'test_two_include'} = {};
-
-
 1;

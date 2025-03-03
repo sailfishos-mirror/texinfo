@@ -356,7 +356,4 @@ $result_errors{'node_line_arguments'} = [
 ];
 
 
-$result_floats{'node_line_arguments'} = {};
-
-
 1;

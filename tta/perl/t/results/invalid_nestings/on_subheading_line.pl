@@ -102,7 +102,4 @@ $result_errors{'on_subheading_line'} = [
 ];
 
 
-$result_floats{'on_subheading_line'} = {};
-
-
 1;

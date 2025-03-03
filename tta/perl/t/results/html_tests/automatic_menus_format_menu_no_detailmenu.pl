@@ -196,9 +196,6 @@ $result_texts{'automatic_menus_format_menu_no_detailmenu'} = 'top
 $result_errors{'automatic_menus_format_menu_no_detailmenu'} = [];
 
 
-$result_floats{'automatic_menus_format_menu_no_detailmenu'} = {};
-
-
 
 $result_converted{'html'}->{'automatic_menus_format_menu_no_detailmenu'} = '<!DOCTYPE html>
 <html>

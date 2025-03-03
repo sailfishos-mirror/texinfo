@@ -125,9 +125,6 @@ $result_errors{'double_top'} = [
 ];
 
 
-$result_floats{'double_top'} = {};
-
-
 
 $result_converted{'info'}->{'double_top'} = 'This is , produced from .
 

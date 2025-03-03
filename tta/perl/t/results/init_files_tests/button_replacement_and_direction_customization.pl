@@ -104,7 +104,4 @@ top
 $result_errors{'button_replacement_and_direction_customization'} = [];
 
 
-$result_floats{'button_replacement_and_direction_customization'} = {};
-
-
 1;

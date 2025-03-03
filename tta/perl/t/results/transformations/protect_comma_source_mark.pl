@@ -83,7 +83,4 @@ There is some text ,,,,,, and after.
 $result_errors{'protect_comma_source_mark'} = [];
 
 
-$result_floats{'protect_comma_source_mark'} = {};
-
-
 1;

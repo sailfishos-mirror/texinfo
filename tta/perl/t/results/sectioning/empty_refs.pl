@@ -53,7 +53,4 @@ $result_errors{'empty_refs'} = [
 ];
 
 
-$result_floats{'empty_refs'} = {};
-
-
 1;

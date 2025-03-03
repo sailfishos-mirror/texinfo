@@ -105,9 +105,6 @@ $result_errors{'section_in_nested_block_commands'} = [
 ];
 
 
-$result_floats{'section_in_nested_block_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_in_nested_block_commands'} = '*item*
      table line

@@ -71,7 +71,4 @@ $result_errors{'protect_in_body_line_arg'} = [
 ];
 
 
-$result_floats{'protect_in_body_line_arg'} = {};
-
-
 1;

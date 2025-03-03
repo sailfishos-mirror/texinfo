@@ -103,7 +103,4 @@ $result_errors{'blockitem_no_item'} = [
 ];
 
 
-$result_floats{'blockitem_no_item'} = {};
-
-
 1;

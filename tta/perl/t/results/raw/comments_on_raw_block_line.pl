@@ -70,9 +70,6 @@ In TeX
 $result_errors{'comments_on_raw_block_line'} = [];
 
 
-$result_floats{'comments_on_raw_block_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'comments_on_raw_block_line'} = '';
 

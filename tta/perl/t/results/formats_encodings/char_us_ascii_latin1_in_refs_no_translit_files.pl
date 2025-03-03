@@ -522,9 +522,6 @@ accented char in latin1 in refs
 $result_errors{'char_us_ascii_latin1_in_refs_no_translit_files'} = [];
 
 
-$result_floats{'char_us_ascii_latin1_in_refs_no_translit_files'} = {};
-
-
 $result_indices_sort_strings{'char_us_ascii_latin1_in_refs_no_translit_files'} = {
   'cp' => [
     "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}",

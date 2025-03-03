@@ -80,7 +80,4 @@ $result_errors{'brace_command_not_closed'} = [
 ];
 
 
-$result_floats{'brace_command_not_closed'} = {};
-
-
 1;

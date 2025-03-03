@@ -98,7 +98,4 @@ $result_errors{'part_section_part'} = [
 ];
 
 
-$result_floats{'part_section_part'} = {};
-
-
 1;

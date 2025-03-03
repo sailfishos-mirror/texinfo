@@ -75,9 +75,6 @@ $result_errors{'macro_and_args'} = [
 ];
 
 
-$result_floats{'macro_and_args'} = {};
-
-
 
 $result_converted{'xml'}->{'macro_and_args'} = '<macro name="good" line=" good { aaa, 2b-bb}" endspaces=" "><formalarg>aaa</formalarg><formalarg>2b-bb</formalarg>
 </macro>

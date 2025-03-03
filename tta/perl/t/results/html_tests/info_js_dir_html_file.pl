@@ -96,7 +96,4 @@ $result_texts{'info_js_dir_html_file'} = 'top
 $result_errors{'info_js_dir_html_file'} = [];
 
 
-$result_floats{'info_js_dir_html_file'} = {};
-
-
 1;

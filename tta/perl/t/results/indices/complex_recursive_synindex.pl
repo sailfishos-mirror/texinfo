@@ -480,9 +480,6 @@ $result_indices{'complex_recursive_synindex'} = {
 };
 
 
-$result_floats{'complex_recursive_synindex'} = {};
-
-
 $result_indices_sort_strings{'complex_recursive_synindex'} = {
   'bbb' => [
     'a entry',

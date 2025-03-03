@@ -400,9 +400,6 @@ NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
 $result_errors{'special_spaces_in_nodes'} = [];
 
 
-$result_floats{'special_spaces_in_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'special_spaces_in_nodes'} = 'This is , produced from special_spaces_in_nodes.texi.
 

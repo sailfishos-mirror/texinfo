@@ -41,9 +41,6 @@ $result_texts{'raw_html'} = '<i>
 $result_errors{'raw_html'} = [];
 
 
-$result_floats{'raw_html'} = {};
-
-
 
 $result_converted{'html'}->{'raw_html'} = '<!DOCTYPE html>
 <html>

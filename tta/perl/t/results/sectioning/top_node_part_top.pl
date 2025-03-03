@@ -98,9 +98,6 @@ $result_errors{'top_node_part_top'} = [
 ];
 
 
-$result_floats{'top_node_part_top'} = {};
-
-
 
 $result_converted{'info'}->{'top_node_part_top'} = 'This is , produced from top_node_part_top.texi.
 

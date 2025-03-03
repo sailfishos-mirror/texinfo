@@ -586,9 +586,6 @@ in detaildescription
 $result_errors{'menu'} = [];
 
 
-$result_floats{'menu'} = {};
-
-
 
 $result_converted{'info'}->{'menu'} = 'This is , produced from .
 

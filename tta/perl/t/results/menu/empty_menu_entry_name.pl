@@ -127,7 +127,4 @@ $result_errors{'empty_menu_entry_name'} = [
 ];
 
 
-$result_floats{'empty_menu_entry_name'} = {};
-
-
 1;

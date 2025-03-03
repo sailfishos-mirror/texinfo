@@ -157,9 +157,6 @@ Document.
 $result_errors{'commands_in_settitle_with_title'} = [];
 
 
-$result_floats{'commands_in_settitle_with_title'} = {};
-
-
 
 $result_converted{'plaintext'}->{'commands_in_settitle_with_title'} = 'top
 ***

@@ -63,7 +63,4 @@ Para . After.
 $result_errors{'macro_end_call_in_ignored_inlineraw'} = [];
 
 
-$result_floats{'macro_end_call_in_ignored_inlineraw'} = {};
-
-
 1;

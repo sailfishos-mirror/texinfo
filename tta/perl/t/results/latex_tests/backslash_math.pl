@@ -31,9 +31,6 @@ $result_texts{'backslash_math'} = 'a \\ b \\ c.
 $result_errors{'backslash_math'} = [];
 
 
-$result_floats{'backslash_math'} = {};
-
-
 
 $result_converted{'latex_text'}->{'backslash_math'} = '\\begin{document}
 $a \\backslash{} b \\mathtt{\\backslash{}} c$.

@@ -64,9 +64,6 @@ asis in code a. c
 $result_errors{'punctuation_in_command'} = [];
 
 
-$result_floats{'punctuation_in_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_in_command'} = 'Text.  Email a.  b <a. b> dmn 1. 2 and text.  indicateurl ‘i. u’ and
 then kbd ‘k. d’ and math m. a and cite ‘c. e’ and emph _e.  h_ text.

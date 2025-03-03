@@ -289,9 +289,6 @@ Some text.
 $result_errors{'documentlanguage'} = [];
 
 
-$result_floats{'documentlanguage'} = {};
-
-
 $result_indices_sort_strings{'documentlanguage'} = {
   'fn' => [
     'name na class'

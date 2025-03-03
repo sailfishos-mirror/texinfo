@@ -158,7 +158,4 @@ The chapter
 $result_errors{'no_content'} = [];
 
 
-$result_floats{'no_content'} = {};
-
-
 1;

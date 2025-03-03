@@ -20,9 +20,6 @@ $result_texts{'comment_without_line'} = '';
 $result_errors{'comment_without_line'} = [];
 
 
-$result_floats{'comment_without_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'comment_without_line'} = '';
 

@@ -79,9 +79,6 @@ pt error-->.
 $result_errors{'modified_translation'} = [];
 
 
-$result_floats{'modified_translation'} = {};
-
-
 
 $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html>
 <html>

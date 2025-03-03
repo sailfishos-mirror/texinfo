@@ -117,9 +117,6 @@ in -- example/format
 $result_errors{'nested_formats'} = [];
 
 
-$result_floats{'nested_formats'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested_formats'} = '
      in -- format/example

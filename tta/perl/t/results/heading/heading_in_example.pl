@@ -56,9 +56,6 @@ $result_texts{'heading_in_example'} = 'in example @ heading
 $result_errors{'heading_in_example'} = [];
 
 
-$result_floats{'heading_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'heading_in_example'} = '     in example @ _heading_
      ======================

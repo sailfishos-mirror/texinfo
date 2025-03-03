@@ -24,7 +24,4 @@ $result_texts{'clickstyle_no_end_of_line'} = '';
 $result_errors{'clickstyle_no_end_of_line'} = [];
 
 
-$result_floats{'clickstyle_no_end_of_line'} = {};
-
-
 1;

@@ -72,7 +72,4 @@ $result_errors{'empty_deftypeop_name'} = [
 ];
 
 
-$result_floats{'empty_deftypeop_name'} = {};
-
-
 1;

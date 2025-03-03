@@ -100,7 +100,4 @@ $result_errors{'ifclear_in_ifset_set'} = [
 ];
 
 
-$result_floats{'ifclear_in_ifset_set'} = {};
-
-
 1;

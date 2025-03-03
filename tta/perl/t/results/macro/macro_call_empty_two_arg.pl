@@ -287,7 +287,4 @@ second l,
 $result_errors{'macro_call_empty_two_arg'} = [];
 
 
-$result_floats{'macro_call_empty_two_arg'} = {};
-
-
 1;

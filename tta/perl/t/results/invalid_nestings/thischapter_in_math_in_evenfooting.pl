@@ -34,7 +34,4 @@ $result_texts{'thischapter_in_math_in_evenfooting'} = '
 $result_errors{'thischapter_in_math_in_evenfooting'} = [];
 
 
-$result_floats{'thischapter_in_math_in_evenfooting'} = {};
-
-
 1;

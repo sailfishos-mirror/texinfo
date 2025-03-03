@@ -172,9 +172,6 @@ text2
 $result_errors{'index_entry_in_preformatted'} = [];
 
 
-$result_floats{'index_entry_in_preformatted'} = {};
-
-
 $result_indices_sort_strings{'index_entry_in_preformatted'} = {
   'cp' => [
     'first',

@@ -113,7 +113,4 @@ $result_errors{'bad_documentlanguage'} = [
 ];
 
 
-$result_floats{'bad_documentlanguage'} = {};
-
-
 1;

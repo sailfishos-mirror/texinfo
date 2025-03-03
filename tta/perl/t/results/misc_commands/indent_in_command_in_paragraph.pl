@@ -62,9 +62,6 @@ $result_errors{'indent_in_command_in_paragraph'} = [
 ];
 
 
-$result_floats{'indent_in_command_in_paragraph'} = {};
-
-
 
 $result_converted{'plaintext'}->{'indent_in_command_in_paragraph'} = 'In para ‘’.  in double command.
 ';

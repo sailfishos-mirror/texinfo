@@ -99,9 +99,6 @@ $result_texts{'multitable_figure_space'} = '   55 explanation
 $result_errors{'multitable_figure_space'} = [];
 
 
-$result_floats{'multitable_figure_space'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable_figure_space'} = '   55       explanation
   535       explanation

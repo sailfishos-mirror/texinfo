@@ -28,9 +28,6 @@ aaa
 $result_errors{'noindent_empty_para'} = [];
 
 
-$result_floats{'noindent_empty_para'} = {};
-
-
 
 $result_converted{'plaintext'}->{'noindent_empty_para'} = 'aaa
 ';

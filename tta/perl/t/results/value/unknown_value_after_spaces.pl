@@ -31,7 +31,4 @@ $result_errors{'unknown_value_after_spaces'} = [
 ];
 
 
-$result_floats{'unknown_value_after_spaces'} = {};
-
-
 1;

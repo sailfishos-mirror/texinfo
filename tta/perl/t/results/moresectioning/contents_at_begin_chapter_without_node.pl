@@ -85,7 +85,4 @@ contents at document begin
 $result_errors{'contents_at_begin_chapter_without_node'} = [];
 
 
-$result_floats{'contents_at_begin_chapter_without_node'} = {};
-
-
 1;

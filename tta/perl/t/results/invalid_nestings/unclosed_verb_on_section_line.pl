@@ -65,7 +65,4 @@ $result_errors{'unclosed_verb_on_section_line'} = [
 ];
 
 
-$result_floats{'unclosed_verb_on_section_line'} = {};
-
-
 1;

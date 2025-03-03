@@ -41,9 +41,6 @@ AA e^ -- - \'` " "';
 $result_errors{'utf8_enable_encoding_use_numeric_entity'} = [];
 
 
-$result_floats{'utf8_enable_encoding_use_numeric_entity'} = {};
-
-
 
 $result_converted{'html_text'}->{'utf8_enable_encoding_use_numeric_entity'} = '
 <p>AA ê — – ’‘ ” “</p>';

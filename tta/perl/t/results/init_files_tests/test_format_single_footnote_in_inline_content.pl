@@ -225,7 +225,4 @@ d
 $result_errors{'test_format_single_footnote_in_inline_content'} = [];
 
 
-$result_floats{'test_format_single_footnote_in_inline_content'} = {};
-
-
 1;

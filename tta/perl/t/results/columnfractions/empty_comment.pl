@@ -52,9 +52,6 @@ $result_errors{'empty_comment'} = [
 ];
 
 
-$result_floats{'empty_comment'} = {};
-
-
 
 $result_converted{'html_text'}->{'empty_comment'} = '';
 

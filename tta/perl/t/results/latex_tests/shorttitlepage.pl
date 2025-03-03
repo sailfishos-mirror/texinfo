@@ -118,9 +118,6 @@ In chapter
 $result_errors{'shorttitlepage'} = [];
 
 
-$result_floats{'shorttitlepage'} = {};
-
-
 
 $result_converted{'latex_text'}->{'shorttitlepage'} = '
 \\begin{document}

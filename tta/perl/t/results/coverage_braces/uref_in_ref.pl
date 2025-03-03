@@ -71,9 +71,6 @@ $result_texts{'uref_in_ref'} = '(file)node
 $result_errors{'uref_in_ref'} = [];
 
 
-$result_floats{'uref_in_ref'} = {};
-
-
 
 $result_converted{'plaintext'}->{'uref_in_ref'} = 'cross ref with uref uref1 (href://http/myhost.com/index.html): (info
 file with uref3 uref3 (href://http/myhost.com/index3.html))(file)node

@@ -118,7 +118,4 @@ $result_errors{'comment_on_clear_line'} = [
 ];
 
 
-$result_floats{'comment_on_clear_line'} = {};
-
-
 1;

@@ -699,9 +699,6 @@ $result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes'} = [
 ];
 
 
-$result_floats{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {};
-
-
 $result_indices_sort_strings{'index_special_region_no_insertcopying_titlepage_no_nodes'} = {
   'cp' => [
     'Copying appendix',

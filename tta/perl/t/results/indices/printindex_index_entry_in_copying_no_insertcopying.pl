@@ -340,9 +340,6 @@ Top.
 $result_errors{'printindex_index_entry_in_copying_no_insertcopying'} = [];
 
 
-$result_floats{'printindex_index_entry_in_copying_no_insertcopying'} = {};
-
-
 $result_indices_sort_strings{'printindex_index_entry_in_copying_no_insertcopying'} = {
   'fn' => [
     'Copying this document',

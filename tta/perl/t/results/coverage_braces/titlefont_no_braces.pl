@@ -27,9 +27,6 @@ $result_errors{'titlefont_no_braces'} = [
 ];
 
 
-$result_floats{'titlefont_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'titlefont_no_braces'} = '';
 

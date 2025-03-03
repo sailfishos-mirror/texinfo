@@ -171,7 +171,4 @@ $result_errors{'style_not_closed_root_commands'} = [
 ];
 
 
-$result_floats{'style_not_closed_root_commands'} = {};
-
-
 1;

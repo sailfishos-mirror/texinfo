@@ -46,9 +46,6 @@ $result_texts{'prototype_brace_no_brace_comment'} = '';
 $result_errors{'prototype_brace_no_brace_comment'} = [];
 
 
-$result_floats{'prototype_brace_no_brace_comment'} = {};
-
-
 
 $result_converted{'plaintext'}->{'prototype_brace_no_brace_comment'} = '';
 

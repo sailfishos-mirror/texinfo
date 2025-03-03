@@ -661,9 +661,6 @@ $result_errors{'namedanchor'} = [
 ];
 
 
-$result_floats{'namedanchor'} = {};
-
-
 
 $result_converted{'plaintext'}->{'namedanchor'} = 'top
 ***

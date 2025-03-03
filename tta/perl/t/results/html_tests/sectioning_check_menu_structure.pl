@@ -955,9 +955,6 @@ $result_errors{'sectioning_check_menu_structure'} = [
 ];
 
 
-$result_floats{'sectioning_check_menu_structure'} = {};
-
-
 $result_converted_errors{'file_html'}->{'sectioning_check_menu_structure'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

@@ -289,9 +289,6 @@ Some text.
 $result_errors{'documentlanguage_unknown'} = [];
 
 
-$result_floats{'documentlanguage_unknown'} = {};
-
-
 $result_indices_sort_strings{'documentlanguage_unknown'} = {
   'fn' => [
     'name on class'

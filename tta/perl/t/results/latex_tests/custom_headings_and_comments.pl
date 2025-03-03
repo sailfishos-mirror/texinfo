@@ -221,9 +221,6 @@ after ch-ap second page
 $result_errors{'custom_headings_and_comments'} = [];
 
 
-$result_floats{'custom_headings_and_comments'} = {};
-
-
 
 $result_converted{'latex_text'}->{'custom_headings_and_comments'} = '\\newpagestyle{custom}{%
 \\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%

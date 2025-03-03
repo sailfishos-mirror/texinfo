@@ -86,9 +86,6 @@ double AAA.  double E~. double AA.  End.
 $result_errors{'punctuation_and_code_style_commands_utf8'} = [];
 
 
-$result_floats{'punctuation_and_code_style_commands_utf8'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_and_code_style_commands_utf8'} = '‘aaa’.  ‘ẽ’.  ‘å’.  ‘AAA’.  ‘Ẽ’.  ‘Å’.  ‘double AAA’.  ‘double Ẽ’.
 ‘double Å’.  End.

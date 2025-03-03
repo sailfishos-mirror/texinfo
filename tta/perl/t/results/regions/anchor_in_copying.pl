@@ -134,9 +134,6 @@ $result_errors{'anchor_in_copying'} = [
 ];
 
 
-$result_floats{'anchor_in_copying'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_in_copying'} = 'This is , produced from .
 

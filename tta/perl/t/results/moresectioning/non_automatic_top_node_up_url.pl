@@ -174,9 +174,6 @@ $result_texts{'non_automatic_top_node_up_url'} = 'internal top node up
 $result_errors{'non_automatic_top_node_up_url'} = [];
 
 
-$result_floats{'non_automatic_top_node_up_url'} = {};
-
-
 
 $result_converted{'info'}->{'non_automatic_top_node_up_url'} = 'This is , produced from .
 

@@ -32,9 +32,6 @@ $result_errors{'command_in_U'} = [
 ];
 
 
-$result_floats{'command_in_U'} = {};
-
-
 
 $result_converted{'plaintext'}->{'command_in_U'} = '';
 

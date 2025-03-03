@@ -138,9 +138,6 @@ $result_errors{'nodes_no_node_top_explicit_directions'} = [
 ];
 
 
-$result_floats{'nodes_no_node_top_explicit_directions'} = {};
-
-
 
 $result_converted{'info'}->{'nodes_no_node_top_explicit_directions'} = 'This is , produced from .
 

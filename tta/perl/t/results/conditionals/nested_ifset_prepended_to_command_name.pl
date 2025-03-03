@@ -52,7 +52,4 @@ $result_errors{'nested_ifset_prepended_to_command_name'} = [
 ];
 
 
-$result_floats{'nested_ifset_prepended_to_command_name'} = {};
-
-
 1;

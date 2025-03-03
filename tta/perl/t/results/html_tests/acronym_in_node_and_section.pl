@@ -202,9 +202,6 @@ In text GHJ.
 $result_errors{'acronym_in_node_and_section'} = [];
 
 
-$result_floats{'acronym_in_node_and_section'} = {};
-
-
 
 $result_converted{'html'}->{'acronym_in_node_and_section'} = '<!DOCTYPE html>
 <html>

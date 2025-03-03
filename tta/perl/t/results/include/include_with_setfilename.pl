@@ -65,9 +65,6 @@ In included file.
 $result_errors{'include_with_setfilename'} = [];
 
 
-$result_floats{'include_with_setfilename'} = {};
-
-
 
 $result_converted{'info'}->{'include_with_setfilename'} = 'This is include_with_setfilename.info, produced from .
 

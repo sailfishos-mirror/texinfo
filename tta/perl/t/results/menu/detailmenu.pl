@@ -92,9 +92,6 @@ $result_texts{'detailmenu'} = '
 $result_errors{'detailmenu'} = [];
 
 
-$result_floats{'detailmenu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'detailmenu'} = '* Menu:
 

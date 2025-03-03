@@ -218,9 +218,6 @@ quotation after a blank line
 $result_errors{'enumerate_and_empty_lines'} = [];
 
 
-$result_floats{'enumerate_and_empty_lines'} = {};
-
-
 
 $result_converted{'plaintext'}->{'enumerate_and_empty_lines'} = '  1. first item
   2.      In example

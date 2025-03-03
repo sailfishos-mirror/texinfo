@@ -121,9 +121,6 @@ $result_errors{'empty_index_entry'} = [
 ];
 
 
-$result_floats{'empty_index_entry'} = {};
-
-
 
 $result_converted{'info'}->{'empty_index_entry'} = 'This is , produced from .
 

@@ -120,7 +120,4 @@ top
 $result_errors{'undef_split_and_big_rule'} = [];
 
 
-$result_floats{'undef_split_and_big_rule'} = {};
-
-
 1;

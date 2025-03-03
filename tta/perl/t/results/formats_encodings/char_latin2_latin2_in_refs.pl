@@ -211,9 +211,6 @@ char latin2 latin2 in refs
 $result_errors{'char_latin2_latin2_in_refs'} = [];
 
 
-$result_floats{'char_latin2_latin2_in_refs'} = {};
-
-
 $result_indices_sort_strings{'char_latin2_latin2_in_refs'} = {
   'cp' => [
     "\x{104} \x{105} \x{2db} \x{118} \x{119}"

@@ -6459,9 +6459,6 @@ adx. bb
 $result_errors{'enumerate_more_letters'} = [];
 
 
-$result_floats{'enumerate_more_letters'} = {};
-
-
 
 $result_converted{'plaintext'}->{'enumerate_more_letters'} = '  c. bb
   d. bb

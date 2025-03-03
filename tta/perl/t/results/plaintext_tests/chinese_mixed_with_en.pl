@@ -225,7 +225,4 @@ overlap。
 $result_errors{'chinese_mixed_with_en'} = [];
 
 
-$result_floats{'chinese_mixed_with_en'} = {};
-
-
 1;

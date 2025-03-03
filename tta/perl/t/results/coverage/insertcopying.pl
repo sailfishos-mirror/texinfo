@@ -79,9 +79,6 @@ License:
 $result_errors{'insertcopying'} = [];
 
 
-$result_floats{'insertcopying'} = {};
-
-
 
 $result_converted{'plaintext'}->{'insertcopying'} = 'License:
 

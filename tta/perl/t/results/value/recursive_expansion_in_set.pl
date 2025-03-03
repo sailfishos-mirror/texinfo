@@ -536,7 +536,4 @@ $result_errors{'recursive_expansion_in_set'} = [
 ];
 
 
-$result_floats{'recursive_expansion_in_set'} = {};
-
-
 1;

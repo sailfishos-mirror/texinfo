@@ -96,7 +96,4 @@ $result_texts{'access_document_name_in_handler'} = 'top
 $result_errors{'access_document_name_in_handler'} = [];
 
 
-$result_floats{'access_document_name_in_handler'} = {};
-
-
 1;

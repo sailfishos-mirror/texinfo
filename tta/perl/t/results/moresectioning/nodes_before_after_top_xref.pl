@@ -261,9 +261,6 @@ $result_errors{'nodes_before_after_top_xref'} = [
 ];
 
 
-$result_floats{'nodes_before_after_top_xref'} = {};
-
-
 
 $result_converted{'latex_text'}->{'nodes_before_after_top_xref'} = '
 \\begin{document}

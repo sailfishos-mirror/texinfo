@@ -48,9 +48,6 @@ $result_texts{'top_no_argument_and_node'} = '';
 $result_errors{'top_no_argument_and_node'} = [];
 
 
-$result_floats{'top_no_argument_and_node'} = {};
-
-
 
 $result_converted{'info'}->{'top_no_argument_and_node'} = 'This is , produced from .
 

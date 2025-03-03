@@ -158,9 +158,6 @@ End.
 $result_errors{'punctuation_commands'} = [];
 
 
-$result_floats{'punctuation_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_commands'} = 'Dot.  Exclam!  Question?  Dot.  Exclam!  Question?  GAAA.
 

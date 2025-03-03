@@ -41,9 +41,6 @@ $result_errors{'out_of_multitable'} = [
 ];
 
 
-$result_floats{'out_of_multitable'} = {};
-
-
 
 $result_converted{'html_text'}->{'out_of_multitable'} = '';
 

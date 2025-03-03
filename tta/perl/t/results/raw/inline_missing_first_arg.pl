@@ -49,7 +49,4 @@ $result_errors{'inline_missing_first_arg'} = [
 ];
 
 
-$result_floats{'inline_missing_first_arg'} = {};
-
-
 1;

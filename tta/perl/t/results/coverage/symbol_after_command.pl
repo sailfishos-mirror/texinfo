@@ -141,9 +141,6 @@ $result_texts{'symbol_after_command'} = '. dot
 $result_errors{'symbol_after_command'} = [];
 
 
-$result_floats{'symbol_after_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'symbol_after_command'} = '. dot
 , comma

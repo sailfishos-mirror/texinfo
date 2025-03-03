@@ -315,7 +315,4 @@ error-->.
 $result_errors{'customize_translations'} = [];
 
 
-$result_floats{'customize_translations'} = {};
-
-
 1;

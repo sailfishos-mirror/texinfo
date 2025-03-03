@@ -72,7 +72,4 @@ $result_errors{'accents'} = [
 ];
 
 
-$result_floats{'accents'} = {};
-
-
 1;

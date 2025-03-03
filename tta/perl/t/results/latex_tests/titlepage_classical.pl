@@ -232,9 +232,6 @@ In chapter
 $result_errors{'titlepage_classical'} = [];
 
 
-$result_floats{'titlepage_classical'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_classical'} = '
 

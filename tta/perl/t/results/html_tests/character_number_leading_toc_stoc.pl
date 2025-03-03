@@ -111,9 +111,6 @@ _
 $result_errors{'character_number_leading_toc_stoc'} = [];
 
 
-$result_floats{'character_number_leading_toc_stoc'} = {};
-
-
 
 $result_converted{'html'}->{'character_number_leading_toc_stoc'} = '<!DOCTYPE html>
 <html>

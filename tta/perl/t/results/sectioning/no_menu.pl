@@ -165,9 +165,6 @@ $result_texts{'no_menu'} = '
 $result_errors{'no_menu'} = [];
 
 
-$result_floats{'no_menu'} = {};
-
-
 
 $result_converted{'info'}->{'no_menu'} = 'This is , produced from .
 

@@ -36,7 +36,4 @@ $result_errors{'conditional_not_closed'} = [
 ];
 
 
-$result_floats{'conditional_not_closed'} = {};
-
-
 1;

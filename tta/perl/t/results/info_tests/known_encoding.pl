@@ -63,9 +63,6 @@ $result_errors{'known_encoding'} = [
 ];
 
 
-$result_floats{'known_encoding'} = {};
-
-
 
 $result_converted{'info'}->{'known_encoding'} = 'This is , produced from .
 

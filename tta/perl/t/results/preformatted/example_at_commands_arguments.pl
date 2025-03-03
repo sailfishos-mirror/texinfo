@@ -71,9 +71,6 @@ $result_texts{'example_at_commands_arguments'} = 'example with @-commands and ot
 $result_errors{'example_at_commands_arguments'} = [];
 
 
-$result_floats{'example_at_commands_arguments'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_at_commands_arguments'} = '     example with @-commands and other special characters
 ';

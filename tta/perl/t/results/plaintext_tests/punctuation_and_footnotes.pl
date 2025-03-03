@@ -154,9 +154,6 @@ w.   S3.
 $result_errors{'punctuation_and_footnotes'} = [];
 
 
-$result_floats{'punctuation_and_footnotes'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_and_footnotes'} = 'Text.(1)  Sentence end.(2)  S2.(3)  S3.
 

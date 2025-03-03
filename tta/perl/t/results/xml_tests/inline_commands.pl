@@ -113,9 +113,6 @@ else html
 $result_errors{'inline_commands'} = [];
 
 
-$result_floats{'inline_commands'} = {};
-
-
 
 $result_converted{'xml'}->{'inline_commands'} = '<para><sc>xml inlineraw</sc>
 <inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent> &lt;code&gt;html&lt;/code&gt;</inlinerawcontent></inlineraw>

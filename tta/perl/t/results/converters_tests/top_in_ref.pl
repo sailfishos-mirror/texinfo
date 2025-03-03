@@ -864,9 +864,6 @@ $result_errors{'top_in_ref'} = [
 ];
 
 
-$result_floats{'top_in_ref'} = {};
-
-
 
 $result_converted{'plaintext'}->{'top_in_ref'} = '‘@ref{Top,cross ref name}’ cross ref name: Top ‘@ref{Top,,title}’ title:
 Top ‘@ref{Top,,,file name}’ (file name)Top ‘@ref{Top,,,,manual}’ Top in

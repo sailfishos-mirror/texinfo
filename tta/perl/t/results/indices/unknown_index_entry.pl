@@ -31,7 +31,4 @@ $result_errors{'unknown_index_entry'} = [
 ];
 
 
-$result_floats{'unknown_index_entry'} = {};
-
-
 1;

@@ -1632,7 +1632,7 @@ sub test($$)
          if ($indices);
     }
     my $floats = $document->floats_information();
-    if ($floats) {
+    if ($floats and scalar(keys(%$floats)) > 0) {
       local $Data::Dumper::Sortkeys = \&filter_floats_keys;
       $out_result .= Data::Dumper->Dump([$floats],
                             ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
@@ -1715,6 +1715,9 @@ sub test($$)
     my $floats;
     if ($document) {
       $floats = $document->floats_information();
+      if ($floats and scalar(keys(%$floats)) == 0) {
+        $floats = undef;
+      }
     }
     cmp_trimmed($floats, $result_floats{$test_name},
                 \@avoided_keys_floats, $test_name.' floats');

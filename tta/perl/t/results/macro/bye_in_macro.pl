@@ -72,7 +72,4 @@ Text
 $result_errors{'bye_in_macro'} = [];
 
 
-$result_floats{'bye_in_macro'} = {};
-
-
 1;

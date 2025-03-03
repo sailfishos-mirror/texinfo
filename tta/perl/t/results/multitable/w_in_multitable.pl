@@ -73,9 +73,6 @@ gg
 $result_errors{'w_in_multitable'} = [];
 
 
-$result_floats{'w_in_multitable'} = {};
-
-
 
 $result_converted{'plaintext'}->{'w_in_multitable'} = 'aaaaaaaa bbbbbbbbbbgg
 ';

@@ -53,7 +53,4 @@ $result_errors{'bad_ifclear_argument'} = [
 ];
 
 
-$result_floats{'bad_ifclear_argument'} = {};
-
-
 1;

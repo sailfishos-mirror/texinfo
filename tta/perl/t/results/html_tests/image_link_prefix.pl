@@ -23,9 +23,6 @@ $result_texts{'image_link_prefix'} = 'image';
 $result_errors{'image_link_prefix'} = [];
 
 
-$result_floats{'image_link_prefix'} = {};
-
-
 
 $result_converted{'html'}->{'image_link_prefix'} = '<!DOCTYPE html>
 <html>

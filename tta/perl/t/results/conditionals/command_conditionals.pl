@@ -219,7 +219,4 @@ Happily, @mathcode is not defined.
 $result_errors{'command_conditionals'} = [];
 
 
-$result_floats{'command_conditionals'} = {};
-
-
 1;

@@ -582,9 +582,6 @@ Text and then index entries
 $result_errors{'index_nodes'} = [];
 
 
-$result_floats{'index_nodes'} = {};
-
-
 $result_indices_sort_strings{'index_nodes'} = {
   'cp' => [
     '! entry in node',

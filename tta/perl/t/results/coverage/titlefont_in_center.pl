@@ -36,9 +36,6 @@ A manual
 $result_errors{'titlefont_in_center'} = [];
 
 
-$result_floats{'titlefont_in_center'} = {};
-
-
 
 $result_converted{'plaintext'}->{'titlefont_in_center'} = '                               A manual
                                ********

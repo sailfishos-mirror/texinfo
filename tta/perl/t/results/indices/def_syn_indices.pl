@@ -643,9 +643,6 @@ $result_indices{'def_syn_indices'} = {
 };
 
 
-$result_floats{'def_syn_indices'} = {};
-
-
 $result_indices_sort_strings{'def_syn_indices'} = {
   'codeidx' => [
     "a index entry t\x{1ebd} \x{ee}"

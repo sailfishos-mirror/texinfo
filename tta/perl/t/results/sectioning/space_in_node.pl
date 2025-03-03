@@ -159,9 +159,6 @@ $result_texts{'space_in_node'} = '
 $result_errors{'space_in_node'} = [];
 
 
-$result_floats{'space_in_node'} = {};
-
-
 
 $result_converted{'info'}->{'space_in_node'} = 'This is , produced from .
 

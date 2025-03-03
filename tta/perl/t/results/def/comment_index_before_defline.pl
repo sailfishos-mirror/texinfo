@@ -101,9 +101,6 @@ $result_errors{'comment_index_before_defline'} = [
 ];
 
 
-$result_floats{'comment_index_before_defline'} = {};
-
-
 $result_indices_sort_strings{'comment_index_before_defline'} = {
   'cp' => [
     'entry'

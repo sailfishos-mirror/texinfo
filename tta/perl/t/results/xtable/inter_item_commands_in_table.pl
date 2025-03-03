@@ -942,9 +942,6 @@ asamp-bb2
 $result_errors{'inter_item_commands_in_table'} = [];
 
 
-$result_floats{'inter_item_commands_in_table'} = {};
-
-
 $result_indices_sort_strings{'inter_item_commands_in_table'} = {
   'cp' => [
     'cindex after line',

@@ -396,7 +396,4 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 $result_errors{'navigation_section'} = [];
 
 
-$result_floats{'navigation_section'} = {};
-
-
 1;

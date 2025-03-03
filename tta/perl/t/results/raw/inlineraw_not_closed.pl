@@ -61,7 +61,4 @@ $result_errors{'inlineraw_not_closed'} = [
 ];
 
 
-$result_floats{'inlineraw_not_closed'} = {};
-
-
 1;

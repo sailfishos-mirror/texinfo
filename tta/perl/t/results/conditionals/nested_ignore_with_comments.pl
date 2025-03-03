@@ -93,7 +93,4 @@ $result_texts{'nested_ignore_with_comments'} = '';
 $result_errors{'nested_ignore_with_comments'} = [];
 
 
-$result_floats{'nested_ignore_with_comments'} = {};
-
-
 1;

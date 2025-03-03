@@ -131,7 +131,4 @@ $result_errors{'node_nested_parentheses'} = [
 ];
 
 
-$result_floats{'node_nested_parentheses'} = {};
-
-
 1;

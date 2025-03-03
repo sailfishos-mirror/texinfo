@@ -1732,9 +1732,6 @@ $result_errors{'all_commands_printindex'} = [
 ];
 
 
-$result_floats{'all_commands_printindex'} = {};
-
-
 $result_indices_sort_strings{'all_commands_printindex'} = {
   'fn' => [
     'd--efmac_name',

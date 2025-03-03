@@ -82,7 +82,4 @@ result: arg1 , arg2  protected \\ -> \\arg1\\
 $result_errors{'comma_value_in_macro_arg'} = [];
 
 
-$result_floats{'comma_value_in_macro_arg'} = {};
-
-
 1;

@@ -91,7 +91,4 @@ Defined
 $result_errors{'macro_expansion_end_in_conditional_end'} = [];
 
 
-$result_floats{'macro_expansion_end_in_conditional_end'} = {};
-
-
 1;

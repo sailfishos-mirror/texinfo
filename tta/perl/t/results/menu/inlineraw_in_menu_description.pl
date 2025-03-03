@@ -116,9 +116,6 @@ end inlineraw
 $result_errors{'inlineraw_in_menu_description'} = [];
 
 
-$result_floats{'inlineraw_in_menu_description'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlineraw_in_menu_description'} = 'top
 ***

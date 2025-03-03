@@ -117,9 +117,6 @@ $result_errors{'multitable_prototypes'} = [
 ];
 
 
-$result_floats{'multitable_prototypes'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable_prototypes'} = 'cc d   s    k ‘same samp’
             Invalid tab

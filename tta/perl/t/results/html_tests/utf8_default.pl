@@ -41,9 +41,6 @@ AA e^ -- - \'` " "';
 $result_errors{'utf8_default'} = [];
 
 
-$result_floats{'utf8_default'} = {};
-
-
 
 $result_converted{'html_text'}->{'utf8_default'} = '
 <p>AA &ecirc; &mdash; &ndash; &rsquo;&lsquo; &rdquo; &ldquo;</p>';

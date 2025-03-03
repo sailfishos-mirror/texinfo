@@ -94,9 +94,6 @@ $result_errors{'def_in_example'} = [
 ];
 
 
-$result_floats{'def_in_example'} = {};
-
-
 $result_indices_sort_strings{'def_in_example'} = {
   'fn' => [
     'name'

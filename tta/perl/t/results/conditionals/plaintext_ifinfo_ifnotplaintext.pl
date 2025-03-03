@@ -58,7 +58,4 @@ $result_texts{'plaintext_ifinfo_ifnotplaintext'} = '';
 $result_errors{'plaintext_ifinfo_ifnotplaintext'} = [];
 
 
-$result_floats{'plaintext_ifinfo_ifnotplaintext'} = {};
-
-
 1;

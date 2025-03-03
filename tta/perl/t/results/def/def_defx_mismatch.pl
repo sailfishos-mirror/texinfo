@@ -148,9 +148,6 @@ $result_errors{'def_defx_mismatch'} = [
 ];
 
 
-$result_floats{'def_defx_mismatch'} = {};
-
-
 $result_indices_sort_strings{'def_defx_mismatch'} = {
   'fn' => [
     'my def',

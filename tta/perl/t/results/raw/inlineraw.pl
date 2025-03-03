@@ -55,9 +55,6 @@ in <i>HTML</i>.
 $result_errors{'inlineraw'} = [];
 
 
-$result_floats{'inlineraw'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlineraw'} = 'A plaintext `` { a.  Now html .
 ';

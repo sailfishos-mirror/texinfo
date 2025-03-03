@@ -55,9 +55,6 @@ $result_errors{'accent_with_text'} = [
 ];
 
 
-$result_floats{'accent_with_text'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent_with_text'} = '-ă -b î ĵ -â
 ';

@@ -30,9 +30,6 @@ $result_errors{'image_no_braces'} = [
 ];
 
 
-$result_floats{'image_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'image_no_braces'} = '';
 

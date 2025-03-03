@@ -107,9 +107,6 @@ $result_texts{'double_recursive_self_section_reference'} = '1 n2
 $result_errors{'double_recursive_self_section_reference'} = [];
 
 
-$result_floats{'double_recursive_self_section_reference'} = {};
-
-
 
 $result_converted{'plaintext'}->{'double_recursive_self_section_reference'} = '1 n2
 ****

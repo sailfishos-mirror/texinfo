@@ -336,7 +336,4 @@ $result_errors{'japanese_shift_jis'} = [
 ];
 
 
-$result_floats{'japanese_shift_jis'} = {};
-
-
 1;

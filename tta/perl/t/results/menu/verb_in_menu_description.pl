@@ -109,9 +109,6 @@ $result_texts{'verb_in_menu_description'} = 'top
 $result_errors{'verb_in_menu_description'} = [];
 
 
-$result_floats{'verb_in_menu_description'} = {};
-
-
 
 $result_converted{'plaintext'}->{'verb_in_menu_description'} = 'top
 ***

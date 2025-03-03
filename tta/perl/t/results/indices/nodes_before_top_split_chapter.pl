@@ -777,9 +777,6 @@ $result_errors{'nodes_before_top_split_chapter'} = [
 ];
 
 
-$result_floats{'nodes_before_top_split_chapter'} = {};
-
-
 $result_indices_sort_strings{'nodes_before_top_split_chapter'} = {
   'cp' => [
     '! entry in node',

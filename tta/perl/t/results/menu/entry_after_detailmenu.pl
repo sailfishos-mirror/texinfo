@@ -201,9 +201,6 @@ Menu comment
 $result_errors{'entry_after_detailmenu'} = [];
 
 
-$result_floats{'entry_after_detailmenu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'entry_after_detailmenu'} = '* Menu:
 

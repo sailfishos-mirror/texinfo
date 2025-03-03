@@ -95,9 +95,6 @@ top
 $result_errors{'documentdescription'} = [];
 
 
-$result_floats{'documentdescription'} = {};
-
-
 
 $result_converted{'html'}->{'documentdescription'} = '<!DOCTYPE html>
 <html>

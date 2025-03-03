@@ -153,9 +153,6 @@ $result_errors{'ref_in_center'} = [
 ];
 
 
-$result_floats{'ref_in_center'} = {};
-
-
 
 $result_converted{'plaintext'}->{'ref_in_center'} = 'top
 ***

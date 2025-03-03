@@ -71,7 +71,4 @@ $result_texts{'command_in_node_redirection_other_command'} = 't in r
 $result_errors{'command_in_node_redirection_other_command'} = [];
 
 
-$result_floats{'command_in_node_redirection_other_command'} = {};
-
-
 1;

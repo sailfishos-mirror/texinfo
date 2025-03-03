@@ -19,9 +19,6 @@ $result_texts{'empty'} = '';
 $result_errors{'empty'} = [];
 
 
-$result_floats{'empty'} = {};
-
-
 $result_converted_errors{'file_html'}->{'empty'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

@@ -90,9 +90,6 @@ $result_errors{'section_part_epub'} = [
 ];
 
 
-$result_floats{'section_part_epub'} = {};
-
-
 $result_converted_errors{'file_epub'}->{'section_part_epub'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

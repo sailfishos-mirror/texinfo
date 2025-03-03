@@ -65,9 +65,6 @@ in verb
 $result_errors{'nested_in_sc'} = [];
 
 
-$result_floats{'nested_in_sc'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested_in_sc'} = 'AAA Ñ Å TeX Å̃ (1), ABR (EXPL), in verb
 

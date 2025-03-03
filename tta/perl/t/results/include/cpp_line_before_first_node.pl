@@ -52,7 +52,4 @@ $result_errors{'cpp_line_before_first_node'} = [
 ];
 
 
-$result_floats{'cpp_line_before_first_node'} = {};
-
-
 1;

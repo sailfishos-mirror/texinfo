@@ -27,9 +27,6 @@ $result_texts{'nested'} = 'type the characters l o g o u t RET.';
 $result_errors{'nested'} = [];
 
 
-$result_floats{'nested'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested'} = 'type the characters ‘l o g o u t <RET>’.
 ';

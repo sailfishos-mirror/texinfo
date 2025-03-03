@@ -89,7 +89,4 @@ $result_errors{'multitable_in_style_command'} = [
 ];
 
 
-$result_floats{'multitable_in_style_command'} = {};
-
-
 1;

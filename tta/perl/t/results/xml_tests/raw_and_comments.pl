@@ -85,9 +85,6 @@ Para
 $result_errors{'raw_and_comments'} = [];
 
 
-$result_floats{'raw_and_comments'} = {};
-
-
 
 $result_converted{'xml'}->{'raw_and_comments'} = '<tex spaces="  " endspaces=" "><!-- c comment -->
 in &lt;tex&gt;

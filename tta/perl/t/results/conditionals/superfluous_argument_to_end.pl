@@ -52,7 +52,4 @@ $result_errors{'superfluous_argument_to_end'} = [
 ];
 
 
-$result_floats{'superfluous_argument_to_end'} = {};
-
-
 1;

@@ -243,9 +243,6 @@ $result_errors{'loop_nodes'} = [
 ];
 
 
-$result_floats{'loop_nodes'} = {};
-
-
 
 $result_converted{'latex_text'}->{'loop_nodes'} = '\\begin{document}
 \\label{anchor:Top}%

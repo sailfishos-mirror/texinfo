@@ -27,9 +27,6 @@ $result_texts{'indent_with_command_after_without_space'} = 'AA b
 $result_errors{'indent_with_command_after_without_space'} = [];
 
 
-$result_floats{'indent_with_command_after_without_space'} = {};
-
-
 
 $result_converted{'plaintext'}->{'indent_with_command_after_without_space'} = '   Å b
 ';

@@ -63,7 +63,4 @@ after end of line
 $result_errors{'macro_after_paragraph'} = [];
 
 
-$result_floats{'macro_after_paragraph'} = {};
-
-
 1;

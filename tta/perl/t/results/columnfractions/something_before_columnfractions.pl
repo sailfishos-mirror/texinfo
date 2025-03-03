@@ -48,9 +48,6 @@ $result_texts{'something_before_columnfractions'} = '';
 $result_errors{'something_before_columnfractions'} = [];
 
 
-$result_floats{'something_before_columnfractions'} = {};
-
-
 
 $result_converted{'html_text'}->{'something_before_columnfractions'} = '';
 

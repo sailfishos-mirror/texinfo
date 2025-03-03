@@ -104,7 +104,4 @@ $result_errors{'setfilename_no_extension'} = [
 ];
 
 
-$result_floats{'setfilename_no_extension'} = {};
-
-
 1;

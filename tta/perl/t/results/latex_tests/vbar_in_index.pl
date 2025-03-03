@@ -60,9 +60,6 @@ $result_errors{'vbar_in_index'} = [
 ];
 
 
-$result_floats{'vbar_in_index'} = {};
-
-
 $result_indices_sort_strings{'vbar_in_index'} = {
   'cp' => [
     'C|D'

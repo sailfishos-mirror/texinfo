@@ -93,9 +93,6 @@ End.
 $result_errors{'punctuation'} = [];
 
 
-$result_floats{'punctuation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation'} = 'Dot.  Exclam!  Question?  Dot.  Exclam!  Question?  GAAA.
 

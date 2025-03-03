@@ -68,7 +68,4 @@ Toto after done.
 $result_errors{'macro_call_in_inlinefmtifelse_format'} = [];
 
 
-$result_floats{'macro_call_in_inlinefmtifelse_format'} = {};
-
-
 1;

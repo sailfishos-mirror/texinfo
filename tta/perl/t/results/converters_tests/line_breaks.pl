@@ -185,9 +185,6 @@ T
 $result_errors{'line_breaks'} = [];
 
 
-$result_floats{'line_breaks'} = {};
-
-
 
 $result_converted{'plaintext'}->{'line_breaks'} = '                               in center
                               line break

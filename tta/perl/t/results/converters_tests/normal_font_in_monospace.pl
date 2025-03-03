@@ -64,9 +64,6 @@ in command---c in r---r in file---.
 $result_errors{'normal_font_in_monospace'} = [];
 
 
-$result_floats{'normal_font_in_monospace'} = {};
-
-
 
 $result_converted{'plaintext'}->{'normal_font_in_monospace'} = '     in example in r--now ‘in co---de’
 

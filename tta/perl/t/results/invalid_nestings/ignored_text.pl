@@ -72,9 +72,6 @@ $result_errors{'ignored_text'} = [
 ];
 
 
-$result_floats{'ignored_text'} = {};
-
-
 
 $result_converted{'plaintext'}->{'ignored_text'} = 'in ifinfo
 ';

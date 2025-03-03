@@ -102,9 +102,6 @@ $result_errors{'space_before_end'} = [
 ];
 
 
-$result_floats{'space_before_end'} = {};
-
-
 
 $result_converted{'plaintext'}->{'space_before_end'} = 'in verbatim
     

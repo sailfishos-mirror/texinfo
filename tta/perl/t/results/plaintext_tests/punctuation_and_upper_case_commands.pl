@@ -132,9 +132,6 @@ DOUBLE AAA.  DOUBLE E~. DOUBLE AA.  End.
 $result_errors{'punctuation_and_upper_case_commands'} = [];
 
 
-$result_floats{'punctuation_and_upper_case_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_and_upper_case_commands'} = 'AAA.  Ẽ.  Å.  AAA.  Ẽ.  Å.  DOUBLE AAA.  DOUBLE Ẽ.  DOUBLE Å.  End.
 

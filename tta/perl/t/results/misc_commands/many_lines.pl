@@ -792,7 +792,4 @@ $result_errors{'many_lines'} = [
 ];
 
 
-$result_floats{'many_lines'} = {};
-
-
 1;

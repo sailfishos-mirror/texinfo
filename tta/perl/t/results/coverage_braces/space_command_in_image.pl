@@ -37,9 +37,6 @@ $result_texts{'space_command_in_image'} = 'f--ile f--ile';
 $result_errors{'space_command_in_image'} = [];
 
 
-$result_floats{'space_command_in_image'} = {};
-
-
 
 $result_converted{'plaintext'}->{'space_command_in_image'} = 'Image description""\\. Image description""\\.
 ';

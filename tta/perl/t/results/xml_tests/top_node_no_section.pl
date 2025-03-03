@@ -32,9 +32,6 @@ $result_texts{'top_node_no_section'} = '';
 $result_errors{'top_node_no_section'} = [];
 
 
-$result_floats{'top_node_no_section'} = {};
-
-
 
 $result_converted{'xml'}->{'top_node_no_section'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>
 ';

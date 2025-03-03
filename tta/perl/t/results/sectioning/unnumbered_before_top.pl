@@ -68,7 +68,4 @@ $result_errors{'unnumbered_before_top'} = [
 ];
 
 
-$result_floats{'unnumbered_before_top'} = {};
-
-
 1;

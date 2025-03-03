@@ -166,9 +166,6 @@ $result_errors{'indent_before_macro_definition_and_other'} = [
 ];
 
 
-$result_floats{'indent_before_macro_definition_and_other'} = {};
-
-
 $result_indices_sort_strings{'indent_before_macro_definition_and_other'} = {
   'cp' => [
     'ei'

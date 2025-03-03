@@ -238,9 +238,6 @@ $result_errors{'transliterated_split_equivalent_nodes'} = [
 ];
 
 
-$result_floats{'transliterated_split_equivalent_nodes'} = {};
-
-
 $result_converted_errors{'file_html'}->{'transliterated_split_equivalent_nodes'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

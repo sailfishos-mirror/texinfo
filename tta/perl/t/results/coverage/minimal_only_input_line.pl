@@ -22,9 +22,6 @@ $result_texts{'minimal_only_input_line'} = '';
 $result_errors{'minimal_only_input_line'} = [];
 
 
-$result_floats{'minimal_only_input_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'minimal_only_input_line'} = '';
 

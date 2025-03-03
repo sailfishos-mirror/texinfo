@@ -60,9 +60,6 @@ $result_texts{'leading_space_before_menu_star'} = '
 $result_errors{'leading_space_before_menu_star'} = [];
 
 
-$result_floats{'leading_space_before_menu_star'} = {};
-
-
 
 $result_converted{'plaintext'}->{'leading_space_before_menu_star'} = '* Menu:
 

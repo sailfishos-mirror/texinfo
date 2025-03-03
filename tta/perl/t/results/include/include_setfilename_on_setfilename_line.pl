@@ -103,7 +103,4 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
 ];
 
 
-$result_floats{'include_setfilename_on_setfilename_line'} = {};
-
-
 1;

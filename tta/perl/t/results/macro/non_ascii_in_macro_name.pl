@@ -74,7 +74,4 @@ $result_errors{'non_ascii_in_macro_name'} = [
 ];
 
 
-$result_floats{'non_ascii_in_macro_name'} = {};
-
-
 1;

@@ -36,7 +36,4 @@ $result_errors{'false_format_not_closed'} = [
 ];
 
 
-$result_floats{'false_format_not_closed'} = {};
-
-
 1;

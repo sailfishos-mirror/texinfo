@@ -326,9 +326,6 @@ $result_errors{'protected_spaces_on_line'} = [
 ];
 
 
-$result_floats{'protected_spaces_on_line'} = {};
-
-
 $result_indices_sort_strings{'protected_spaces_on_line'} = {
   'fn' => [
     'foo',

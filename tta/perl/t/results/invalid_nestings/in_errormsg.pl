@@ -132,7 +132,4 @@ $result_errors{'in_errormsg'} = [
 ];
 
 
-$result_floats{'in_errormsg'} = {};
-
-
 1;

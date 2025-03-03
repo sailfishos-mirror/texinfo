@@ -510,9 +510,6 @@ Appendix A appendix
 $result_errors{'more_sections_than_nodes'} = [];
 
 
-$result_floats{'more_sections_than_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'more_sections_than_nodes'} = 'This is , produced from .
 

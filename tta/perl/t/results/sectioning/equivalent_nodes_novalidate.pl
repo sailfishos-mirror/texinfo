@@ -128,9 +128,6 @@ $result_errors{'equivalent_nodes_novalidate'} = [
 ];
 
 
-$result_floats{'equivalent_nodes_novalidate'} = {};
-
-
 
 $result_converted{'info'}->{'equivalent_nodes_novalidate'} = 'This is , produced from .
 

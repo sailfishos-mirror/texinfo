@@ -130,9 +130,6 @@ $result_errors{'math'} = [
 ];
 
 
-$result_floats{'math'} = {};
-
-
 
 $result_converted{'plaintext'}->{'math'} = 'Simple math --{x^i}\\over{\\tan y}
 

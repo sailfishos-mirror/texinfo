@@ -79,9 +79,6 @@ $result_texts{'example_class'} = 'foreach my $unclosed_file (keys(%unclosed_file
 $result_errors{'example_class'} = [];
 
 
-$result_floats{'example_class'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_class'} = '     foreach my $unclosed_file (keys(%unclosed_files)) {
        if (!close($unclosed_files{$unclosed_file})) {

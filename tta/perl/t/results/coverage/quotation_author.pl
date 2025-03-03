@@ -84,9 +84,6 @@ quotation continues.
 $result_errors{'quotation_author'} = [];
 
 
-$result_floats{'quotation_author'} = {};
-
-
 
 $result_converted{'plaintext'}->{'quotation_author'} = '     quotation quotation continues.
 

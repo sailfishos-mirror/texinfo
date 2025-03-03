@@ -142,7 +142,4 @@ $result_errors{'set_in_item_missing_line'} = [
 ];
 
 
-$result_floats{'set_in_item_missing_line'} = {};
-
-
 1;

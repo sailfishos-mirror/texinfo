@@ -123,9 +123,6 @@ a before Top
 $result_errors{'anchor_before_top'} = [];
 
 
-$result_floats{'anchor_before_top'} = {};
-
-
 
 $result_converted{'latex_text'}->{'anchor_before_top'} = '\\begin{document}
 \\label{anchor:a-before-Top}%

@@ -388,9 +388,6 @@ $result_texts{'redirection_same_labels'} = 'the top
 $result_errors{'redirection_same_labels'} = [];
 
 
-$result_floats{'redirection_same_labels'} = {};
-
-
 $result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
   {
     'error_line' => 'warning: @node `@~{@dotless{i}}\' file i.html for redirection exists

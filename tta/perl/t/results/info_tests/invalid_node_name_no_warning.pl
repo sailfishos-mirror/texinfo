@@ -222,9 +222,6 @@ bidule:.
 $result_errors{'invalid_node_name_no_warning'} = [];
 
 
-$result_floats{'invalid_node_name_no_warning'} = {};
-
-
 
 $result_converted{'info'}->{'invalid_node_name_no_warning'} = 'This is , produced from .
 

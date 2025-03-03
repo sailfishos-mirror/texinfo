@@ -245,9 +245,6 @@ Foo
 $result_errors{'file_name_case_insensitive_conflict_node'} = [];
 
 
-$result_floats{'file_name_case_insensitive_conflict_node'} = {};
-
-
 $result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_node'} = [
   {
     'error_line' => 'warning: @anchor `fOO\' file Foo.html for redirection exists

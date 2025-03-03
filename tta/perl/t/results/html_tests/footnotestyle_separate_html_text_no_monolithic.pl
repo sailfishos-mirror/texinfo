@@ -124,9 +124,6 @@ In top.
 $result_errors{'footnotestyle_separate_html_text_no_monolithic'} = [];
 
 
-$result_floats{'footnotestyle_separate_html_text_no_monolithic'} = {};
-
-
 
 $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic'} = '
 <div class="top-level-extent" id="Top">

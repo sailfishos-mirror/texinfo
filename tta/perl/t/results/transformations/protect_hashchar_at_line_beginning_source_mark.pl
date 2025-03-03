@@ -193,7 +193,4 @@ $result_errors{'protect_hashchar_at_line_beginning_source_mark'} = [
 ];
 
 
-$result_floats{'protect_hashchar_at_line_beginning_source_mark'} = {};
-
-
 1;

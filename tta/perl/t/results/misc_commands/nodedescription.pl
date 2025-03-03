@@ -167,9 +167,6 @@ $result_errors{'nodedescription'} = [
 ];
 
 
-$result_floats{'nodedescription'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nodedescription'} = 'top
 ***

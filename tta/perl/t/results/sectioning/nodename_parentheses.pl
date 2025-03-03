@@ -336,7 +336,4 @@ $result_errors{'nodename_parentheses'} = [
 ];
 
 
-$result_floats{'nodename_parentheses'} = {};
-
-
 1;

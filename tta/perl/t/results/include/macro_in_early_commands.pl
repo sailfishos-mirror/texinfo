@@ -361,7 +361,4 @@ $result_errors{'macro_in_early_commands'} = [
 ];
 
 
-$result_floats{'macro_in_early_commands'} = {};
-
-
 1;

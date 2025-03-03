@@ -88,7 +88,4 @@ in a new heading
 $result_errors{'text_css_info_in_init'} = [];
 
 
-$result_floats{'text_css_info_in_init'} = {};
-
-
 1;

@@ -144,7 +144,4 @@ $result_errors{'defcondx_Ubar'} = [
 ];
 
 
-$result_floats{'defcondx_Ubar'} = {};
-
-
 1;

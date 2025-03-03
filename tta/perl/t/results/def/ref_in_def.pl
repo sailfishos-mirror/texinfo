@@ -201,9 +201,6 @@ T
 $result_errors{'ref_in_def'} = [];
 
 
-$result_floats{'ref_in_def'} = {};
-
-
 $result_indices_sort_strings{'ref_in_def'} = {
   'fn' => [
     'myanchor',

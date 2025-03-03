@@ -41,7 +41,4 @@ $result_errors{'nested_ignore_comment_no_eol'} = [
 ];
 
 
-$result_floats{'nested_ignore_comment_no_eol'} = {};
-
-
 1;

@@ -48,9 +48,6 @@ $result_errors{'command_not_closed_on_center_line'} = [
 ];
 
 
-$result_floats{'command_not_closed_on_center_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'command_not_closed_on_center_line'} = '                                  c *
                                    *

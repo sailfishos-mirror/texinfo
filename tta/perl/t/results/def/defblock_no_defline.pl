@@ -43,9 +43,6 @@ $result_texts{'defblock_no_defline'} = 'misc text inside
 $result_errors{'defblock_no_defline'} = [];
 
 
-$result_floats{'defblock_no_defline'} = {};
-
-
 
 $result_converted{'plaintext'}->{'defblock_no_defline'} = '     misc text inside
 ';

@@ -59,7 +59,4 @@ $result_texts{'at_commands_in_node'} = '';
 $result_errors{'at_commands_in_node'} = [];
 
 
-$result_floats{'at_commands_in_node'} = {};
-
-
 1;

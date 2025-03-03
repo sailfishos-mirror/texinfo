@@ -28,9 +28,6 @@ $result_texts{'empty_titlefont'} = '
 $result_errors{'empty_titlefont'} = [];
 
 
-$result_floats{'empty_titlefont'} = {};
-
-
 
 $result_converted{'html'}->{'empty_titlefont'} = '<!DOCTYPE html>
 <html>

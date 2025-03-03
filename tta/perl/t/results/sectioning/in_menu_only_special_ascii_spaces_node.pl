@@ -197,9 +197,6 @@ $result_errors{'in_menu_only_special_ascii_spaces_node'} = [
 ];
 
 
-$result_floats{'in_menu_only_special_ascii_spaces_node'} = {};
-
-
 
 $result_converted{'info'}->{'in_menu_only_special_ascii_spaces_node'} = 'This is , produced from in_menu_only_special_ascii_spaces_node.texi.
 

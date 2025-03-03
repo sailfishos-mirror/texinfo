@@ -134,9 +134,6 @@ $result_errors{'on_node_line'} = [
 ];
 
 
-$result_floats{'on_node_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'on_node_line'} = '';
 

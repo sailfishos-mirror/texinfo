@@ -70,9 +70,6 @@ $result_errors{'heading_in_footnote'} = [
 ];
 
 
-$result_floats{'heading_in_footnote'} = {};
-
-
 $result_indices_sort_strings{'heading_in_footnote'} = {
   'cp' => [
     'ind e'

@@ -121,9 +121,6 @@ $result_errors{'definfoenclose_nestings'} = [
 ];
 
 
-$result_floats{'definfoenclose_nestings'} = {};
-
-
 
 $result_converted{'plaintext'}->{'definfoenclose_nestings'} = '‘//in phoo in code\\’.
 

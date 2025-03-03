@@ -116,7 +116,4 @@ category: a bc drest A  B
 $result_errors{'spaces_in_call'} = [];
 
 
-$result_floats{'spaces_in_call'} = {};
-
-
 1;

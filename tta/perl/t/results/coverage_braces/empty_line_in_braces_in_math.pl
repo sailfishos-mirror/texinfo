@@ -31,7 +31,4 @@ c}d';
 $result_errors{'empty_line_in_braces_in_math'} = [];
 
 
-$result_floats{'empty_line_in_braces_in_math'} = {};
-
-
 1;

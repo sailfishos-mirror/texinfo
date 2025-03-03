@@ -728,7 +728,4 @@ This is the guide for an in depth use
 $result_errors{'topic_guide'} = [];
 
 
-$result_floats{'topic_guide'} = {};
-
-
 1;

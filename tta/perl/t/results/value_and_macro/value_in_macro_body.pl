@@ -82,7 +82,4 @@ $result_errors{'value_in_macro_body'} = [
 ];
 
 
-$result_floats{'value_in_macro_body'} = {};
-
-
 1;

@@ -48,7 +48,4 @@ $result_errors{'verbatim_not_closed'} = [
 ];
 
 
-$result_floats{'verbatim_not_closed'} = {};
-
-
 1;

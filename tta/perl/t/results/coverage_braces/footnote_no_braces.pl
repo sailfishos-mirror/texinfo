@@ -28,9 +28,6 @@ $result_errors{'footnote_no_braces'} = [
 ];
 
 
-$result_floats{'footnote_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_no_braces'} = '(1)
 

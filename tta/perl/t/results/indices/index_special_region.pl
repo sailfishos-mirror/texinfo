@@ -705,9 +705,6 @@ $result_errors{'index_special_region'} = [
 ];
 
 
-$result_floats{'index_special_region'} = {};
-
-
 $result_indices_sort_strings{'index_special_region'} = {
   'cp' => [
     'Copying appendix',

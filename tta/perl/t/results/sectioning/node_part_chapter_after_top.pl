@@ -180,9 +180,6 @@ $result_errors{'node_part_chapter_after_top'} = [
 ];
 
 
-$result_floats{'node_part_chapter_after_top'} = {};
-
-
 
 $result_converted{'info'}->{'node_part_chapter_after_top'} = 'This is , produced from .
 

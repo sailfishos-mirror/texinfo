@@ -181,9 +181,6 @@ second node
 $result_errors{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = [];
 
 
-$result_floats{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = 'Top node
 

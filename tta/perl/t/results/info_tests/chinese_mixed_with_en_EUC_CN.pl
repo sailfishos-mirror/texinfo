@@ -234,7 +234,4 @@ $result_errors{'chinese_mixed_with_en_EUC_CN'} = [
 ];
 
 
-$result_floats{'chinese_mixed_with_en_EUC_CN'} = {};
-
-
 1;

@@ -85,9 +85,6 @@ after
 $result_errors{'displaymath'} = [];
 
 
-$result_floats{'displaymath'} = {};
-
-
 
 $result_converted{'html'}->{'displaymath'} = '<!DOCTYPE html>
 <html>

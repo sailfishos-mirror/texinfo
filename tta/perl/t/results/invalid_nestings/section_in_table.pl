@@ -102,7 +102,4 @@ $result_errors{'section_in_table'} = [
 ];
 
 
-$result_floats{'section_in_table'} = {};
-
-
 1;

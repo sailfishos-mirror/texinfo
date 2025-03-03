@@ -251,7 +251,4 @@ The chapter
 $result_errors{'double_contents'} = [];
 
 
-$result_floats{'double_contents'} = {};
-
-
 1;

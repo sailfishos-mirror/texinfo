@@ -622,9 +622,6 @@ $result_errors{'documentation_examples_texi2html'} = [
 ];
 
 
-$result_floats{'documentation_examples_texi2html'} = {};
-
-
 $result_indices_sort_strings{'documentation_examples_texi2html'} = {
   'cp' => [
     'e1',

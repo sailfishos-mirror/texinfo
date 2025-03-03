@@ -60,7 +60,4 @@ NARROW NO-BREAK SPACE: ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 $result_errors{'non_break_spaces'} = [];
 
 
-$result_floats{'non_break_spaces'} = {};
-
-
 1;

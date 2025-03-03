@@ -104,9 +104,6 @@ $result_texts{'note_in_strong'} = '
 $result_errors{'note_in_strong'} = [];
 
 
-$result_floats{'note_in_strong'} = {};
-
-
 
 $result_converted{'info'}->{'note_in_strong'} = 'This is , produced from .
 

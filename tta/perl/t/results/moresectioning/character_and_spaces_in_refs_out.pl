@@ -617,7 +617,4 @@ local   node
 $result_errors{'character_and_spaces_in_refs_out'} = [];
 
 
-$result_floats{'character_and_spaces_in_refs_out'} = {};
-
-
 1;

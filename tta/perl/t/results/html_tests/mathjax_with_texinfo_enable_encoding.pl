@@ -79,9 +79,6 @@ Some a - b >= AA e^.
 $result_errors{'mathjax_with_texinfo_enable_encoding'} = [];
 
 
-$result_floats{'mathjax_with_texinfo_enable_encoding'} = {};
-
-
 
 $result_converted{'latex_text'}->{'mathjax_with_texinfo_enable_encoding'} = '\\begin{document}
 \\[

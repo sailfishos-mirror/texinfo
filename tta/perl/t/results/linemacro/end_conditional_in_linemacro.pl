@@ -121,7 +121,4 @@ $result_errors{'end_conditional_in_linemacro'} = [
 ];
 
 
-$result_floats{'end_conditional_in_linemacro'} = {};
-
-
 1;

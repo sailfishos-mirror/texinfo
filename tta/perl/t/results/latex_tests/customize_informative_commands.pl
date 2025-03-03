@@ -40,9 +40,6 @@ $result_texts{'customize_informative_commands'} = '1 chap
 $result_errors{'customize_informative_commands'} = [];
 
 
-$result_floats{'customize_informative_commands'} = {};
-
-
 
 $result_converted{'latex_text'}->{'customize_informative_commands'} = '\\begin{document}
 \\chapter{{chap}}

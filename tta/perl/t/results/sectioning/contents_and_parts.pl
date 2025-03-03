@@ -300,9 +300,6 @@ part2: part2
 $result_errors{'contents_and_parts'} = [];
 
 
-$result_floats{'contents_and_parts'} = {};
-
-
 
 $result_converted{'plaintext'}->{'contents_and_parts'} = 'top
 ***

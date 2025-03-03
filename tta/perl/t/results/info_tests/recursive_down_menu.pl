@@ -140,9 +140,6 @@ $result_errors{'recursive_down_menu'} = [
 ];
 
 
-$result_floats{'recursive_down_menu'} = {};
-
-
 
 $result_converted{'html'}->{'recursive_down_menu'} = '<!DOCTYPE html>
 <html>

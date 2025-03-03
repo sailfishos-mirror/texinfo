@@ -511,7 +511,4 @@ Appendix A appendix
 $result_errors{'more_sections_than_nodes_texi2html'} = [];
 
 
-$result_floats{'more_sections_than_nodes_texi2html'} = {};
-
-
 1;

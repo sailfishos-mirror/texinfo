@@ -68,7 +68,4 @@ $result_errors{'no_argument_for_table'} = [
 ];
 
 
-$result_floats{'no_argument_for_table'} = {};
-
-
 1;

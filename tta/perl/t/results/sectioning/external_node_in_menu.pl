@@ -201,9 +201,6 @@ $result_texts{'external_node_in_menu'} = 'top
 $result_errors{'external_node_in_menu'} = [];
 
 
-$result_floats{'external_node_in_menu'} = {};
-
-
 
 $result_converted{'info'}->{'external_node_in_menu'} = 'This is , produced from .
 

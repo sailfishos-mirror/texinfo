@@ -93,9 +93,6 @@ $result_texts{'multitable_with_empty_item_tab'} = '1-1 1-2 3-1 3-2
 $result_errors{'multitable_with_empty_item_tab'} = [];
 
 
-$result_floats{'multitable_with_empty_item_tab'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable_with_empty_item_tab'} = '1-1                    1-2
 3-1                    3-2

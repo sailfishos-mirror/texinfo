@@ -75,7 +75,4 @@ Should be verb: verb
 $result_errors{'simple'} = [];
 
 
-$result_floats{'simple'} = {};
-
-
 1;

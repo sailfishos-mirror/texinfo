@@ -69,9 +69,6 @@ $result_errors{'alias_of_definfoenclose'} = [
 ];
 
 
-$result_floats{'alias_of_definfoenclose'} = {};
-
-
 
 $result_converted{'plaintext'}->{'alias_of_definfoenclose'} = ';aa:
 ';

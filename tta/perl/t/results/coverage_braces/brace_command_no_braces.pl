@@ -28,9 +28,6 @@ $result_errors{'brace_command_no_braces'} = [
 ];
 
 
-$result_floats{'brace_command_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'brace_command_no_braces'} = '';
 

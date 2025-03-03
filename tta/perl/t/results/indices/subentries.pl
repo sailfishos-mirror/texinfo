@@ -409,9 +409,6 @@ $result_errors{'subentries'} = [
 ];
 
 
-$result_floats{'subentries'} = {};
-
-
 $result_indices_sort_strings{'subentries'} = {
   'cp' => [
     'a--a',

@@ -167,9 +167,6 @@ w.   S3.
 $result_errors{'punctuation_and_footnotes_frenchspacing'} = [];
 
 
-$result_floats{'punctuation_and_footnotes_frenchspacing'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_and_footnotes_frenchspacing'} = 'Text.(1) Sentence end.(2) S2.(3) S3.
 

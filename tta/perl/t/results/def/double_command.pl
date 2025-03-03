@@ -279,9 +279,6 @@ $result_errors{'double_command'} = [
 ];
 
 
-$result_floats{'double_command'} = {};
-
-
 $result_indices_sort_strings{'double_command'} = {
   'fn' => [
     'aaaa',

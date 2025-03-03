@@ -59,7 +59,4 @@ $result_texts{'zero_argument_comment'} = '
 $result_errors{'zero_argument_comment'} = [];
 
 
-$result_floats{'zero_argument_comment'} = {};
-
-
 1;

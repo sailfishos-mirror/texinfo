@@ -35,7 +35,4 @@ $result_texts{'simple_no_eol'} = 'In included file.
 $result_errors{'simple_no_eol'} = [];
 
 
-$result_floats{'simple_no_eol'} = {};
-
-
 1;

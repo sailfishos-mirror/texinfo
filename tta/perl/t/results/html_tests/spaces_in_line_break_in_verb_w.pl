@@ -43,9 +43,6 @@ ccc
 $result_errors{'spaces_in_line_break_in_verb_w'} = [];
 
 
-$result_floats{'spaces_in_line_break_in_verb_w'} = {};
-
-
 
 $result_converted{'html'}->{'spaces_in_line_break_in_verb_w'} = '<!DOCTYPE html>
 <html>

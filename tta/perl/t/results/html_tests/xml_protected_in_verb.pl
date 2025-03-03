@@ -68,9 +68,6 @@ $result_texts{'xml_protected_in_verb'} = '<a>
 $result_errors{'xml_protected_in_verb'} = [];
 
 
-$result_floats{'xml_protected_in_verb'} = {};
-
-
 
 $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 <html>

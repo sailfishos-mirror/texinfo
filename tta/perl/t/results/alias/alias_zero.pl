@@ -39,7 +39,4 @@ $result_texts{'alias_zero'} = 'g.
 $result_errors{'alias_zero'} = [];
 
 
-$result_floats{'alias_zero'} = {};
-
-
 1;

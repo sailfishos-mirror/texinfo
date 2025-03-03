@@ -237,9 +237,6 @@ Text.
 $result_errors{'block_commands_in_menu_description'} = [];
 
 
-$result_floats{'block_commands_in_menu_description'} = {};
-
-
 
 $result_converted{'plaintext'}->{'block_commands_in_menu_description'} = 'top
 ***

@@ -1408,7 +1408,4 @@ $result_errors{'value_in_misc_commands'} = [
 ];
 
 
-$result_floats{'value_in_misc_commands'} = {};
-
-
 1;

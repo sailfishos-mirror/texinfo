@@ -116,9 +116,6 @@ $result_texts{'contents_in_html_text'} = 'top
 $result_errors{'contents_in_html_text'} = [];
 
 
-$result_floats{'contents_in_html_text'} = {};
-
-
 
 $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

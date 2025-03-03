@@ -246,7 +246,4 @@ $result_texts{'directions_string_undef_texi2html'} = 'top
 $result_errors{'directions_string_undef_texi2html'} = [];
 
 
-$result_floats{'directions_string_undef_texi2html'} = {};
-
-
 1;

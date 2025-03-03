@@ -3716,9 +3716,6 @@ $result_errors{'at_commands_in_refs'} = [
 ];
 
 
-$result_floats{'at_commands_in_refs'} = {};
-
-
 
 $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 ***

@@ -48,9 +48,6 @@ $result_texts{'good_comment'} = '';
 $result_errors{'good_comment'} = [];
 
 
-$result_floats{'good_comment'} = {};
-
-
 
 $result_converted{'html_text'}->{'good_comment'} = '';
 

@@ -141,9 +141,6 @@ $result_texts{'between_node_and_section'} = '
 $result_errors{'between_node_and_section'} = [];
 
 
-$result_floats{'between_node_and_section'} = {};
-
-
 
 $result_converted{'docbook'}->{'between_node_and_section'} = '<chapter label="1" id="chap">
 <title>Chap</title>

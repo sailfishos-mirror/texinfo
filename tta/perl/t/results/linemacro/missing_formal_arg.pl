@@ -63,7 +63,4 @@ $result_errors{'missing_formal_arg'} = [
 ];
 
 
-$result_floats{'missing_formal_arg'} = {};
-
-
 1;

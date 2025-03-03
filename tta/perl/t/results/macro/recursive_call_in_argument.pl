@@ -54,7 +54,4 @@ a
 $result_errors{'recursive_call_in_argument'} = [];
 
 
-$result_floats{'recursive_call_in_argument'} = {};
-
-
 1;

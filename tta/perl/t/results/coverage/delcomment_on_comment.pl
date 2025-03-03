@@ -37,7 +37,4 @@ $result_texts{'delcomment_on_comment'} = 'some text
 $result_errors{'delcomment_on_comment'} = [];
 
 
-$result_floats{'delcomment_on_comment'} = {};
-
-
 1;

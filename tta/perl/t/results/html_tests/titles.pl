@@ -101,9 +101,6 @@ Second paragraph.
 $result_errors{'titles'} = [];
 
 
-$result_floats{'titles'} = {};
-
-
 
 $result_converted{'html'}->{'titles'} = '<!DOCTYPE html>
 <html>

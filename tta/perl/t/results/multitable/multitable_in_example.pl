@@ -114,9 +114,6 @@ new paragraph in tab. example
 $result_errors{'multitable_in_example'} = [];
 
 
-$result_floats{'multitable_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable_in_example'} = '     truc  bidule example
      begin item examplebegin tab example

@@ -238,7 +238,4 @@ $result_errors{'formats_only_title_comments'} = [
 ];
 
 
-$result_floats{'formats_only_title_comments'} = {};
-
-
 1;

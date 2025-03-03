@@ -304,9 +304,6 @@ $result_errors{'all_empty_def'} = [
 ];
 
 
-$result_floats{'all_empty_def'} = {};
-
-
 
 $result_converted{'info'}->{'all_empty_def'} = 'This is , produced from .
 

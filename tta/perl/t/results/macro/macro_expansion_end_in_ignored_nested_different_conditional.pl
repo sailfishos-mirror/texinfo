@@ -87,7 +87,4 @@ $result_errors{'macro_expansion_end_in_ignored_nested_different_conditional'} = 
 ];
 
 
-$result_floats{'macro_expansion_end_in_ignored_nested_different_conditional'} = {};
-
-
 1;

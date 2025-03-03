@@ -918,9 +918,6 @@ $result_errors{'ref_error_formatting'} = [
 ];
 
 
-$result_floats{'ref_error_formatting'} = {};
-
-
 
 $result_converted{'plaintext'}->{'ref_error_formatting'} = '‘@ref{node}’ node
 

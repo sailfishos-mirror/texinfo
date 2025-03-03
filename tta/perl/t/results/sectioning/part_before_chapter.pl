@@ -65,9 +65,6 @@ $result_texts{'part_before_chapter'} = 'part
 $result_errors{'part_before_chapter'} = [];
 
 
-$result_floats{'part_before_chapter'} = {};
-
-
 
 $result_converted{'plaintext'}->{'part_before_chapter'} = '1 chapter
 *********

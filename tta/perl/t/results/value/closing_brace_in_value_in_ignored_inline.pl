@@ -75,7 +75,4 @@ $result_errors{'closing_brace_in_value_in_ignored_inline'} = [
 ];
 
 
-$result_floats{'closing_brace_in_value_in_ignored_inline'} = {};
-
-
 1;

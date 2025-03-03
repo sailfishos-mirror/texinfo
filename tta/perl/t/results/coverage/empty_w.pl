@@ -26,9 +26,6 @@ $result_texts{'empty_w'} = ' a b.';
 $result_errors{'empty_w'} = [];
 
 
-$result_floats{'empty_w'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_w'} = ' a b.
 ';

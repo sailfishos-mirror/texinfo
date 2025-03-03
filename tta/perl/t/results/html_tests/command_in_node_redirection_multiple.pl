@@ -112,7 +112,4 @@ $result_texts{'command_in_node_redirection_multiple'} = 't in r
 $result_errors{'command_in_node_redirection_multiple'} = [];
 
 
-$result_floats{'command_in_node_redirection_multiple'} = {};
-
-
 1;

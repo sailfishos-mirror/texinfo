@@ -59,7 +59,4 @@ $result_errors{'ref_in_ref'} = [
 ];
 
 
-$result_floats{'ref_in_ref'} = {};
-
-
 1;

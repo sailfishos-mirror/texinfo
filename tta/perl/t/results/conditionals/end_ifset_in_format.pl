@@ -172,7 +172,4 @@ text
 $result_errors{'end_ifset_in_format'} = [];
 
 
-$result_floats{'end_ifset_in_format'} = {};
-
-
 1;

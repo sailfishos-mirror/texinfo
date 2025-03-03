@@ -134,9 +134,6 @@ $result_texts{'node_up_external_node'} = '
 $result_errors{'node_up_external_node'} = [];
 
 
-$result_floats{'node_up_external_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'node_up_external_node'} = '';
 

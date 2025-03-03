@@ -248,9 +248,6 @@ do something with input
 $result_errors{'deftypefnnewline_for_copying_before'} = [];
 
 
-$result_floats{'deftypefnnewline_for_copying_before'} = {};
-
-
 $result_indices_sort_strings{'deftypefnnewline_for_copying_before'} = {
   'fn' => [
     'NAME',

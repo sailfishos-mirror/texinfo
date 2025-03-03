@@ -38,7 +38,4 @@ $result_texts{'include_space'} = 'In included file.
 $result_errors{'include_space'} = [];
 
 
-$result_floats{'include_space'} = {};
-
-
 1;

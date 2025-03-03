@@ -372,7 +372,4 @@ $result_errors{'macro_expansion'} = [
 ];
 
 
-$result_floats{'macro_expansion'} = {};
-
-
 1;

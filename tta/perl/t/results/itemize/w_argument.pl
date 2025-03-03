@@ -66,9 +66,6 @@ $result_texts{'w_argument'} = '--build= platform on which the program is compile
 $result_errors{'w_argument'} = [];
 
 
-$result_floats{'w_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'w_argument'} = '     ‘--build=’ platform on which the program is compiled,
      ‘--target=’ target platform on which the program is processed.

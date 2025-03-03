@@ -198,9 +198,6 @@ $result_errors{'at_commands_glued_in_example'} = [
 ];
 
 
-$result_floats{'at_commands_glued_in_example'} = {};
-
-
 $result_indices_sort_strings{'at_commands_glued_in_example'} = {
   'cp' => [
     'index'

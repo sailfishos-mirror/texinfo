@@ -132,7 +132,4 @@ $result_texts{'regenerate_master_menu_no_need_for_master_menu'} = 'top
 $result_errors{'regenerate_master_menu_no_need_for_master_menu'} = [];
 
 
-$result_floats{'regenerate_master_menu_no_need_for_master_menu'} = {};
-
-
 1;

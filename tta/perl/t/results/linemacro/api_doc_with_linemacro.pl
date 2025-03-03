@@ -503,7 +503,4 @@ If axis is not a valid axis of a.
 $result_errors{'api_doc_with_linemacro'} = [];
 
 
-$result_floats{'api_doc_with_linemacro'} = {};
-
-
 1;

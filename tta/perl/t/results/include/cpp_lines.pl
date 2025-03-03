@@ -513,7 +513,4 @@ $result_errors{'cpp_lines'} = [
 ];
 
 
-$result_floats{'cpp_lines'} = {};
-
-
 1;

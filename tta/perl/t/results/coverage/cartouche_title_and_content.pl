@@ -52,9 +52,6 @@ flow of the text.
 $result_errors{'cartouche_title_and_content'} = [];
 
 
-$result_floats{'cartouche_title_and_content'} = {};
-
-
 
 $result_converted{'plaintext'}->{'cartouche_title_and_content'} = '                     Box title on _documentation_
 Text on documentation explaining something important out of the main

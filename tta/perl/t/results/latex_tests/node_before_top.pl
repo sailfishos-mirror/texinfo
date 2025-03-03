@@ -134,9 +134,6 @@ $result_errors{'node_before_top'} = [
 ];
 
 
-$result_floats{'node_before_top'} = {};
-
-
 
 $result_converted{'latex_text'}->{'node_before_top'} = '\\begin{document}
 \\label{anchor:before-Top}%

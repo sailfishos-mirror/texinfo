@@ -95,9 +95,6 @@ $result_texts{'format_menu_undef'} = 'top
 $result_errors{'format_menu_undef'} = [];
 
 
-$result_floats{'format_menu_undef'} = {};
-
-
 
 $result_converted{'plaintext'}->{'format_menu_undef'} = 'top
 ***

@@ -104,7 +104,4 @@ top
 $result_errors{'ref_for_special_unit_direction'} = [];
 
 
-$result_floats{'ref_for_special_unit_direction'} = {};
-
-
 1;

@@ -173,9 +173,6 @@ $result_errors{'empty_ref_arg'} = [
 ];
 
 
-$result_floats{'empty_ref_arg'} = {};
-
-
 
 $result_converted{'xml'}->{'empty_ref_arg'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 

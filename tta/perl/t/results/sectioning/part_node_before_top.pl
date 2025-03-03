@@ -166,9 +166,6 @@ $result_errors{'part_node_before_top'} = [
 ];
 
 
-$result_floats{'part_node_before_top'} = {};
-
-
 
 $result_converted{'info'}->{'part_node_before_top'} = 'This is , produced from .
 

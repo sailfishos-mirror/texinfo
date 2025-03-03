@@ -96,7 +96,4 @@ $result_texts{'set_unit_file_name_filepath'} = 'top
 $result_errors{'set_unit_file_name_filepath'} = [];
 
 
-$result_floats{'set_unit_file_name_filepath'} = {};
-
-
 1;

@@ -38,9 +38,6 @@ in center in code
 $result_errors{'center'} = [];
 
 
-$result_floats{'center'} = {};
-
-
 
 $result_converted{'plaintext'}->{'center'} = '                          in center ‘in code’
 

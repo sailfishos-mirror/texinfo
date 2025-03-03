@@ -235,9 +235,6 @@ $result_errors{'text_block_before_defline'} = [
 ];
 
 
-$result_floats{'text_block_before_defline'} = {};
-
-
 
 $result_converted{'plaintext'}->{'text_block_before_defline'} = 'top
 ***

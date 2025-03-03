@@ -117,9 +117,6 @@ $result_errors{'today_in_copying'} = [
 ];
 
 
-$result_floats{'today_in_copying'} = {};
-
-
 
 $result_converted{'info'}->{'today_in_copying'} = 'This is , produced from .
 

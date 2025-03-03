@@ -256,9 +256,6 @@ $result_errors{'empty_def_arguments'} = [
 ];
 
 
-$result_floats{'empty_def_arguments'} = {};
-
-
 $result_indices_sort_strings{'empty_def_arguments'} = {
   'fn' => [
     'i'

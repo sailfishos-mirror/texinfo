@@ -98,7 +98,4 @@ Text of chapter
 $result_errors{'top_without_node_texi2html_no_use_nodes'} = [];
 
 
-$result_floats{'top_without_node_texi2html_no_use_nodes'} = {};
-
-
 1;

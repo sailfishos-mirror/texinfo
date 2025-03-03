@@ -37,7 +37,4 @@ Say hh.
 $result_errors{'not_only_characters'} = [];
 
 
-$result_floats{'not_only_characters'} = {};
-
-
 1;

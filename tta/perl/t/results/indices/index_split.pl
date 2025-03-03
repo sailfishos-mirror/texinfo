@@ -1165,9 +1165,6 @@ $result_errors{'index_split'} = [
 ];
 
 
-$result_floats{'index_split'} = {};
-
-
 $result_indices_sort_strings{'index_split'} = {
   'cp' => [
     '! entry in node',

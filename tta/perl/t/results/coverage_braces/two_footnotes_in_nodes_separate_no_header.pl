@@ -224,9 +224,6 @@ D
 $result_errors{'two_footnotes_in_nodes_separate_no_header'} = [];
 
 
-$result_floats{'two_footnotes_in_nodes_separate_no_header'} = {};
-
-
 
 $result_converted{'html'}->{'two_footnotes_in_nodes_separate_no_header'} = '<!DOCTYPE html>
 <html>

@@ -307,7 +307,4 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 $result_errors{'punctuation_sc_accents_ascii_glyph'} = [];
 
 
-$result_floats{'punctuation_sc_accents_ascii_glyph'} = {};
-
-
 1;

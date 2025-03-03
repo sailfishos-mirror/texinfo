@@ -189,9 +189,6 @@ $result_errors{'menu_in_example'} = [
 ];
 
 
-$result_floats{'menu_in_example'} = {};
-
-
 
 $result_converted{'info'}->{'menu_in_example'} = 'This is , produced from .
 

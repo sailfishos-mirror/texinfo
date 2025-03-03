@@ -148,7 +148,4 @@ $result_texts{'contents_at_end_document_after_node'} = 'contents at end document
 $result_errors{'contents_at_end_document_after_node'} = [];
 
 
-$result_floats{'contents_at_end_document_after_node'} = {};
-
-
 1;

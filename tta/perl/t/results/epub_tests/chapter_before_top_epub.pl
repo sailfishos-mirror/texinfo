@@ -124,7 +124,4 @@ $result_errors{'chapter_before_top_epub'} = [
 ];
 
 
-$result_floats{'chapter_before_top_epub'} = {};
-
-
 1;

@@ -787,9 +787,6 @@ $result_errors{'center'} = [
 ];
 
 
-$result_floats{'center'} = {};
-
-
 $result_indices_sort_strings{'center'} = {
   'cp' => [
     'cindex'

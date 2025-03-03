@@ -71,9 +71,6 @@ $result_errors{'nodes_no_section_footnote_no_top_node_output'} = [
 ];
 
 
-$result_floats{'nodes_no_section_footnote_no_top_node_output'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nodes_no_section_footnote_no_top_node_output'} = 'a(1)
 

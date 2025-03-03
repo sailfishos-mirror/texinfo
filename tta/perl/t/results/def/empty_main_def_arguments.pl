@@ -55,7 +55,4 @@ $result_errors{'empty_main_def_arguments'} = [
 ];
 
 
-$result_floats{'empty_main_def_arguments'} = {};
-
-
 1;

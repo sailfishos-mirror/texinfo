@@ -20,9 +20,6 @@ $result_texts{'text'} = 'text';
 $result_errors{'text'} = [];
 
 
-$result_floats{'text'} = {};
-
-
 
 $result_converted{'plaintext'}->{'text'} = 'text
 ';

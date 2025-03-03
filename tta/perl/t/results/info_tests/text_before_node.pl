@@ -132,9 +132,6 @@ text.
 $result_errors{'text_before_node'} = [];
 
 
-$result_floats{'text_before_node'} = {};
-
-
 
 $result_converted{'info'}->{'text_before_node'} = 'This is , produced from .
 

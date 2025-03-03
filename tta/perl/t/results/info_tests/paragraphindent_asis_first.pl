@@ -47,9 +47,6 @@ ccc
 $result_errors{'paragraphindent_asis_first'} = [];
 
 
-$result_floats{'paragraphindent_asis_first'} = {};
-
-
 
 $result_converted{'info'}->{'paragraphindent_asis_first'} = 'This is , produced from .
 

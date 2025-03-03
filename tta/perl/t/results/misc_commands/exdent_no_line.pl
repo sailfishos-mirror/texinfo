@@ -29,9 +29,6 @@ $result_errors{'exdent_no_line'} = [
 ];
 
 
-$result_floats{'exdent_no_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'exdent_no_line'} = '';
 

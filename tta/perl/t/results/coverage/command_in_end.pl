@@ -387,7 +387,4 @@ $result_errors{'command_in_end'} = [
 ];
 
 
-$result_floats{'command_in_end'} = {};
-
-
 1;

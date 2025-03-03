@@ -120,9 +120,6 @@ $result_errors{'menu_in_deffn'} = [
 ];
 
 
-$result_floats{'menu_in_deffn'} = {};
-
-
 $result_indices_sort_strings{'menu_in_deffn'} = {
   'fn' => [
     'b'

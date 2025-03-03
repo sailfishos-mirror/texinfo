@@ -43,9 +43,6 @@ $result_texts{'empty_table'} = '';
 $result_errors{'empty_table'} = [];
 
 
-$result_floats{'empty_table'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_table'} = '';
 

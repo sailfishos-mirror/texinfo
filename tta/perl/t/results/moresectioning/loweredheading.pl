@@ -61,7 +61,4 @@ Bar
 $result_errors{'loweredheading'} = [];
 
 
-$result_floats{'loweredheading'} = {};
-
-
 1;

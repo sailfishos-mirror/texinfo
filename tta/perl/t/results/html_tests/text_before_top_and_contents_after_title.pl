@@ -105,9 +105,6 @@ In top.
 $result_errors{'text_before_top_and_contents_after_title'} = [];
 
 
-$result_floats{'text_before_top_and_contents_after_title'} = {};
-
-
 
 $result_converted{'html'}->{'text_before_top_and_contents_after_title'} = '<!DOCTYPE html>
 <html>

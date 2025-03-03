@@ -127,7 +127,4 @@ $result_errors{'section_in_math'} = [
 ];
 
 
-$result_floats{'section_in_math'} = {};
-
-
 1;

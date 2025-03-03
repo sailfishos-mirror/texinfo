@@ -49,7 +49,4 @@ $result_texts{'multitable_empty_bracketed_prototype'} = '
 $result_errors{'multitable_empty_bracketed_prototype'} = [];
 
 
-$result_floats{'multitable_empty_bracketed_prototype'} = {};
-
-
 1;

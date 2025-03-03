@@ -48,9 +48,6 @@ $result_texts{'settitle_and_empty_top'} = '
 $result_errors{'settitle_and_empty_top'} = [];
 
 
-$result_floats{'settitle_and_empty_top'} = {};
-
-
 
 $result_converted{'plaintext'}->{'settitle_and_empty_top'} = 'Title
 *****

@@ -201,9 +201,6 @@ a Warning.
 $result_errors{'standard_quotations'} = [];
 
 
-$result_floats{'standard_quotations'} = {};
-
-
 
 $result_converted{'plaintext'}->{'standard_quotations'} = '     Note: A Note
 

@@ -246,7 +246,4 @@ $result_texts{'directions_string_base'} = 'top
 $result_errors{'directions_string_base'} = [];
 
 
-$result_floats{'directions_string_base'} = {};
-
-
 1;

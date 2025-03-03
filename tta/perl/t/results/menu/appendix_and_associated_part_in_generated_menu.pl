@@ -260,9 +260,6 @@ Appendix A GGG
 $result_errors{'appendix_and_associated_part_in_generated_menu'} = [];
 
 
-$result_floats{'appendix_and_associated_part_in_generated_menu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'appendix_and_associated_part_in_generated_menu'} = 'top
 ***

@@ -95,9 +95,6 @@ $result_texts{'info_js_dir_html'} = 'top
 $result_errors{'info_js_dir_html'} = [];
 
 
-$result_floats{'info_js_dir_html'} = {};
-
-
 
 $result_converted{'html'}->{'info_js_dir_html'} = '<!DOCTYPE html>
 <html>

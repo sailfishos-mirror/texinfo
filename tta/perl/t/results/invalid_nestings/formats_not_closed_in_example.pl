@@ -126,7 +126,4 @@ $result_errors{'formats_not_closed_in_example'} = [
 ];
 
 
-$result_floats{'formats_not_closed_in_example'} = {};
-
-
 1;

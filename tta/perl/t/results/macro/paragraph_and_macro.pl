@@ -167,7 +167,4 @@ text after space.
 $result_errors{'paragraph_and_macro'} = [];
 
 
-$result_floats{'paragraph_and_macro'} = {};
-
-
 1;

@@ -97,9 +97,6 @@ unknown ref.
 $result_errors{'novalidate'} = [];
 
 
-$result_floats{'novalidate'} = {};
-
-
 
 $result_converted{'info'}->{'novalidate'} = 'This is , produced from .
 

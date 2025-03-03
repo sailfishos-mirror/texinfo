@@ -1020,9 +1020,6 @@ fff2
 $result_errors{'test_deftypefnnewline'} = [];
 
 
-$result_floats{'test_deftypefnnewline'} = {};
-
-
 $result_indices_sort_strings{'test_deftypefnnewline'} = {
   'fn' => [
     'arg',

@@ -130,9 +130,6 @@ Need 2 elements for separate footnotes.
 $result_errors{'filenameconflictwithspecialelement'} = [];
 
 
-$result_floats{'filenameconflictwithspecialelement'} = {};
-
-
 $result_converted_errors{'file_html'}->{'filenameconflictwithspecialelement'} = [
   {
     'error_line' => 'warning: @anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists

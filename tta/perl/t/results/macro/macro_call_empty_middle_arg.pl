@@ -131,7 +131,4 @@ third p,
 $result_errors{'macro_call_empty_middle_arg'} = [];
 
 
-$result_floats{'macro_call_empty_middle_arg'} = {};
-
-
 1;

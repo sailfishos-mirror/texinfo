@@ -608,9 +608,6 @@ $result_errors{'various_vtable_command_as_argument'} = [
 ];
 
 
-$result_floats{'various_vtable_command_as_argument'} = {};
-
-
 $result_indices_sort_strings{'various_vtable_command_as_argument'} = {
   'vr' => [
     ':uu:',

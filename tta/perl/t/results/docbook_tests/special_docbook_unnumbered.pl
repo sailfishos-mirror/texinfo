@@ -320,9 +320,6 @@ Ack!
 $result_errors{'special_docbook_unnumbered'} = [];
 
 
-$result_floats{'special_docbook_unnumbered'} = {};
-
-
 
 $result_converted{'docbook'}->{'special_docbook_unnumbered'} = '<dedication id="Dedication">
 <title>a dedication</title>

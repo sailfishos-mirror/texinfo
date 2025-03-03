@@ -107,9 +107,6 @@ $result_errors{'end_of_lines_protected'} = [
 ];
 
 
-$result_floats{'end_of_lines_protected'} = {};
-
-
 $result_indices_sort_strings{'end_of_lines_protected'} = {
   'fn' => [
     'deffn_name'

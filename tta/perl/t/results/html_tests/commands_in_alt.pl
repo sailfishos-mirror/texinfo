@@ -71,9 +71,6 @@ f--ile
 $result_errors{'commands_in_alt'} = [];
 
 
-$result_floats{'commands_in_alt'} = {};
-
-
 
 $result_converted{'html'}->{'commands_in_alt'} = '<!DOCTYPE html>
 <html>

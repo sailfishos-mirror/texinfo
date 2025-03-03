@@ -138,7 +138,4 @@ $result_errors{'multitable_two_columns_too_much_cells'} = [
 ];
 
 
-$result_floats{'multitable_two_columns_too_much_cells'} = {};
-
-
 1;

@@ -622,9 +622,6 @@ $result_errors{'documentation_examples'} = [
 ];
 
 
-$result_floats{'documentation_examples'} = {};
-
-
 $result_indices_sort_strings{'documentation_examples'} = {
   'cp' => [
     'e1',

@@ -42,7 +42,4 @@ $result_errors{'printindex_before_document'} = [
 ];
 
 
-$result_floats{'printindex_before_document'} = {};
-
-
 1;

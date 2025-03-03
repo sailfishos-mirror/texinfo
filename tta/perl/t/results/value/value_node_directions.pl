@@ -263,7 +263,4 @@ $result_errors{'value_node_directions'} = [
 ];
 
 
-$result_floats{'value_node_directions'} = {};
-
-
 1;

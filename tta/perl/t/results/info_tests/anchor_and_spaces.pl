@@ -90,9 +90,6 @@ No space.
 $result_errors{'anchor_and_spaces'} = [];
 
 
-$result_floats{'anchor_and_spaces'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_and_spaces'} = 'This is , produced from .
 

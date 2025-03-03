@@ -108,9 +108,6 @@ $result_errors{'recursive_alias'} = [
 ];
 
 
-$result_floats{'recursive_alias'} = {};
-
-
 
 $result_converted{'plaintext'}->{'recursive_alias'} = '*aa*.
 

@@ -31,9 +31,6 @@ $result_texts{'uref_accented_letter'} = 'http://example.com/acc_a"a;
 $result_errors{'uref_accented_letter'} = [];
 
 
-$result_floats{'uref_accented_letter'} = {};
-
-
 
 $result_converted{'html'}->{'uref_accented_letter'} = '<!DOCTYPE html>
 <html>

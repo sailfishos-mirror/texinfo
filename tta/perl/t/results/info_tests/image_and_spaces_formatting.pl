@@ -225,9 +225,6 @@ Text. words       words.
 $result_errors{'image_and_spaces_formatting'} = [];
 
 
-$result_floats{'image_and_spaces_formatting'} = {};
-
-
 
 $result_converted{'info'}->{'image_and_spaces_formatting'} = 'This is , produced from .
 

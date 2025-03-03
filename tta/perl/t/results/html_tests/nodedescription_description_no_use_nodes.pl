@@ -289,7 +289,4 @@ $result_errors{'nodedescription_description_no_use_nodes'} = [
 ];
 
 
-$result_floats{'nodedescription_description_no_use_nodes'} = {};
-
-
 1;

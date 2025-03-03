@@ -121,9 +121,6 @@ $result_errors{'end_of_lines_protected_in_footnote'} = [
 ];
 
 
-$result_floats{'end_of_lines_protected_in_footnote'} = {};
-
-
 $result_indices_sort_strings{'end_of_lines_protected_in_footnote'} = {
   'fn' => [
     'deffn_name'

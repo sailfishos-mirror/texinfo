@@ -82,7 +82,4 @@ $result_errors{'empty_chapter_in_html_title_no_node_no_use_nodes'} = [
 ];
 
 
-$result_floats{'empty_chapter_in_html_title_no_node_no_use_nodes'} = {};
-
-
 1;

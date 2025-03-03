@@ -70,9 +70,6 @@ A (abbr -- b).
 $result_errors{'commands_in_abbr'} = [];
 
 
-$result_floats{'commands_in_abbr'} = {};
-
-
 
 $result_converted{'html'}->{'commands_in_abbr'} = '<!DOCTYPE html>
 <html>

@@ -53,9 +53,6 @@ AAc, r( e`.
 $result_errors{'accents_in_var_enable_encoding'} = [];
 
 
-$result_floats{'accents_in_var_enable_encoding'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accents_in_var_enable_encoding'} = 'AAÇ R̆ È.
 ';

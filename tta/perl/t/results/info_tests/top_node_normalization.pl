@@ -112,9 +112,6 @@ $result_errors{'top_node_normalization'} = [
 ];
 
 
-$result_floats{'top_node_normalization'} = {};
-
-
 
 $result_converted{'info'}->{'top_node_normalization'} = 'This is , produced from .
 

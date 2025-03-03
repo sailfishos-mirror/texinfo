@@ -100,7 +100,4 @@ $result_errors{'invalid_clickstyle'} = [
 ];
 
 
-$result_floats{'invalid_clickstyle'} = {};
-
-
 1;

@@ -370,7 +370,4 @@ a
 $result_errors{'block_begin_end_in_linemacro_call'} = [];
 
 
-$result_floats{'block_begin_end_in_linemacro_call'} = {};
-
-
 1;

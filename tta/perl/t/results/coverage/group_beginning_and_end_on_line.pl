@@ -55,7 +55,4 @@ $result_errors{'group_beginning_and_end_on_line'} = [
 ];
 
 
-$result_floats{'group_beginning_and_end_on_line'} = {};
-
-
 1;

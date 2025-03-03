@@ -2407,9 +2407,6 @@ $result_errors{'index_table_chapter_no_node'} = [
 ];
 
 
-$result_floats{'index_table_chapter_no_node'} = {};
-
-
 $result_indices_sort_strings{'index_table_chapter_no_node'} = {
   'cp' => [
     ',oncept',

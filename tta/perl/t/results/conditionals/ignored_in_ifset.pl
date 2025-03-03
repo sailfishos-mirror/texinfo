@@ -150,7 +150,4 @@ $result_errors{'ignored_in_ifset'} = [
 ];
 
 
-$result_floats{'ignored_in_ifset'} = {};
-
-
 1;

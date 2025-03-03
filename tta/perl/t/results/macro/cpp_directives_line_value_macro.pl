@@ -171,7 +171,4 @@ $result_errors{'cpp_directives_line_value_macro'} = [
 ];
 
 
-$result_floats{'cpp_directives_line_value_macro'} = {};
-
-
 1;

@@ -125,9 +125,6 @@ $result_texts{'top_node_up_url'} = 'internal top node up
 $result_errors{'top_node_up_url'} = [];
 
 
-$result_floats{'top_node_up_url'} = {};
-
-
 
 $result_converted{'info'}->{'top_node_up_url'} = 'This is , produced from .
 

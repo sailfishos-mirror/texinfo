@@ -39,7 +39,4 @@ $result_texts{'ifnotinfo_exception'} = '';
 $result_errors{'ifnotinfo_exception'} = [];
 
 
-$result_floats{'ifnotinfo_exception'} = {};
-
-
 1;

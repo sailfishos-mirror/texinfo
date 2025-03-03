@@ -78,7 +78,4 @@ b
 $result_errors{'macro_in_value'} = [];
 
 
-$result_floats{'macro_in_value'} = {};
-
-
 1;

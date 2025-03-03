@@ -578,9 +578,6 @@ f--ile.
 $result_errors{'image_formatting'} = [];
 
 
-$result_floats{'image_formatting'} = {};
-
-
 
 $result_converted{'plaintext'}->{'image_formatting'} = 'top
 ***

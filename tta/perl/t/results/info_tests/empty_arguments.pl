@@ -40,9 +40,6 @@ a
 $result_errors{'empty_arguments'} = [];
 
 
-$result_floats{'empty_arguments'} = {};
-
-
 
 $result_converted{'info'}->{'empty_arguments'} = 'This is , produced from .
 

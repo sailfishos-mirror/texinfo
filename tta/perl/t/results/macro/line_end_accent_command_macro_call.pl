@@ -143,7 +143,4 @@ $result_errors{'line_end_accent_command_macro_call'} = [
 ];
 
 
-$result_floats{'line_end_accent_command_macro_call'} = {};
-
-
 1;

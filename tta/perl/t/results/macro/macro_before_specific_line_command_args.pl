@@ -93,7 +93,4 @@ $result_indices{'macro_before_specific_line_command_args'} = {
 };
 
 
-$result_floats{'macro_before_specific_line_command_args'} = {};
-
-
 1;

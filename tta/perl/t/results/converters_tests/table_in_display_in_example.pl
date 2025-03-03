@@ -99,9 +99,6 @@ Line
 $result_errors{'table_in_display_in_example'} = [];
 
 
-$result_floats{'table_in_display_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'table_in_display_in_example'} = '          item
                Line

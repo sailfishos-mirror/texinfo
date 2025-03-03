@@ -1169,7 +1169,4 @@ $result_errors{'complex_split_at_node'} = [
 ];
 
 
-$result_floats{'complex_split_at_node'} = {};
-
-
 1;

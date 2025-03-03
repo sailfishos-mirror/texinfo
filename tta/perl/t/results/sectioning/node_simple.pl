@@ -28,7 +28,4 @@ $result_texts{'node_simple'} = '';
 $result_errors{'node_simple'} = [];
 
 
-$result_floats{'node_simple'} = {};
-
-
 1;

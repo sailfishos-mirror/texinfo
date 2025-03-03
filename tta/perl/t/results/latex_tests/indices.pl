@@ -433,9 +433,6 @@ $result_errors{'indices'} = [
 ];
 
 
-$result_floats{'indices'} = {};
-
-
 $result_indices_sort_strings{'indices'} = {
   'cp' => [
     '\\cmd',

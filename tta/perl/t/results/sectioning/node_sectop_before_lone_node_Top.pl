@@ -135,9 +135,6 @@ in chap
 $result_errors{'node_sectop_before_lone_node_Top'} = [];
 
 
-$result_floats{'node_sectop_before_lone_node_Top'} = {};
-
-
 
 $result_converted{'plaintext'}->{'node_sectop_before_lone_node_Top'} = 'top sectionning
 ***************

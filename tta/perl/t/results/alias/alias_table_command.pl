@@ -73,7 +73,4 @@ table item (code)
 $result_errors{'alias_table_command'} = [];
 
 
-$result_floats{'alias_table_command'} = {};
-
-
 1;

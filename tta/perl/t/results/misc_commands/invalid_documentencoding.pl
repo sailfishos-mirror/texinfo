@@ -260,7 +260,4 @@ $result_errors{'invalid_documentencoding'} = [
 ];
 
 
-$result_floats{'invalid_documentencoding'} = {};
-
-
 1;

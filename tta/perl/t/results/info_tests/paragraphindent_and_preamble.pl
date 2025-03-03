@@ -133,9 +133,6 @@ Second para.
 $result_errors{'paragraphindent_and_preamble'} = [];
 
 
-$result_floats{'paragraphindent_and_preamble'} = {};
-
-
 
 $result_converted{'info'}->{'paragraphindent_and_preamble'} = 'This is , produced from .
 

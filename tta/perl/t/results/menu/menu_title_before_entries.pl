@@ -93,9 +93,6 @@ Horizontal space
 $result_errors{'menu_title_before_entries'} = [];
 
 
-$result_floats{'menu_title_before_entries'} = {};
-
-
 
 $result_converted{'plaintext'}->{'menu_title_before_entries'} = '* Menu:
 

@@ -53,7 +53,4 @@ outside.
 $result_errors{'ignored_value_definition'} = [];
 
 
-$result_floats{'ignored_value_definition'} = {};
-
-
 1;

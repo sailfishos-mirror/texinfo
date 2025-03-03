@@ -103,7 +103,4 @@ $result_errors{'item_in_ref'} = [
 ];
 
 
-$result_floats{'item_in_ref'} = {};
-
-
 1;

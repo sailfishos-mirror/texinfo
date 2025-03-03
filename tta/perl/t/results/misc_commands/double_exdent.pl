@@ -95,7 +95,4 @@ $result_errors{'double_exdent'} = [
 ];
 
 
-$result_floats{'double_exdent'} = {};
-
-
 1;

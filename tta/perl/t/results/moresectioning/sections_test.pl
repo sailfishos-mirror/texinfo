@@ -253,9 +253,6 @@ A.1 appendixsec
 $result_errors{'sections_test'} = [];
 
 
-$result_floats{'sections_test'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sections_test'} = 'top
 ***

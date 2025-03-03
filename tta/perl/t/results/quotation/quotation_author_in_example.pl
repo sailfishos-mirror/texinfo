@@ -76,9 +76,6 @@ A quot---ation
 $result_errors{'quotation_author_in_example'} = [];
 
 
-$result_floats{'quotation_author_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'quotation_author_in_example'} = '          A quot---ation
                              -- _Some One_

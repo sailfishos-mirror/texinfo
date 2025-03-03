@@ -630,9 +630,6 @@ should be dotless j": j"
 $result_errors{'accentenc'} = [];
 
 
-$result_floats{'accentenc'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accentenc'} = 'top
 ***

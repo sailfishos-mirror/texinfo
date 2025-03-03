@@ -66,7 +66,4 @@ $result_errors{'end_bad_end_argument_and_superfluous_arg'} = [
 ];
 
 
-$result_floats{'end_bad_end_argument_and_superfluous_arg'} = {};
-
-
 1;

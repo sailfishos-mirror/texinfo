@@ -324,9 +324,6 @@ AA AA E^ E^ É I~ I .R R\'< N~,=.
 $result_errors{'test_accents_sc_enable_encoding_to_utf8_latin1'} = [];
 
 
-$result_floats{'test_accents_sc_enable_encoding_to_utf8_latin1'} = {};
-
-
 
 $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_to_utf8_latin1'} = '
 <div class="top-level-extent" id="Top">

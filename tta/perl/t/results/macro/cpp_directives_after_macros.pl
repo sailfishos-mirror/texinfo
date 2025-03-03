@@ -128,7 +128,4 @@ $result_errors{'cpp_directives_after_macros'} = [
 ];
 
 
-$result_floats{'cpp_directives_after_macros'} = {};
-
-
 1;

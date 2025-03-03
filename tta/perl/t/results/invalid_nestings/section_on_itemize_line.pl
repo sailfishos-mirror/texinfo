@@ -242,9 +242,6 @@ $result_errors{'section_on_itemize_line'} = [
 ];
 
 
-$result_floats{'section_on_itemize_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_on_itemize_line'} = '1 first
 =======

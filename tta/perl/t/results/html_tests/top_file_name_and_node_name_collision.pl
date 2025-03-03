@@ -128,7 +128,4 @@ $result_errors{'top_file_name_and_node_name_collision'} = [
 ];
 
 
-$result_floats{'top_file_name_and_node_name_collision'} = {};
-
-
 1;

@@ -301,9 +301,6 @@ a
 $result_errors{'check_htmlxref_menu'} = [];
 
 
-$result_floats{'check_htmlxref_menu'} = {};
-
-
 $result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
   {
     'error_line' => 'warning: no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'

@@ -81,9 +81,6 @@ $result_errors{'not_letters_in_prototype'} = [
 ];
 
 
-$result_floats{'not_letters_in_prototype'} = {};
-
-
 
 $result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.3
 5-6

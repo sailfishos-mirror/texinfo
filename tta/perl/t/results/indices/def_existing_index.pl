@@ -36,9 +36,6 @@ $result_errors{'def_existing_index'} = [
 ];
 
 
-$result_floats{'def_existing_index'} = {};
-
-
 
 $result_converted{'info'}->{'def_existing_index'} = 'This is , produced from .
 

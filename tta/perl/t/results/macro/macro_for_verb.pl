@@ -68,7 +68,4 @@ $result_texts{'macro_for_verb'} = '
 $result_errors{'macro_for_verb'} = [];
 
 
-$result_floats{'macro_for_verb'} = {};
-
-
 1;

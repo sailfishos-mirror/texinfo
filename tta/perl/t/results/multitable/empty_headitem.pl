@@ -101,9 +101,6 @@ $result_texts{'empty_headitem'} = 'Index Value
 $result_errors{'empty_headitem'} = [];
 
 
-$result_floats{'empty_headitem'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_headitem'} = '        Index   Value
 ------------------------

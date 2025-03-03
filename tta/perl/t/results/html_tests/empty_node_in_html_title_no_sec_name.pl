@@ -97,7 +97,4 @@ $result_errors{'empty_node_in_html_title_no_sec_name'} = [
 ];
 
 
-$result_floats{'empty_node_in_html_title_no_sec_name'} = {};
-
-
 1;

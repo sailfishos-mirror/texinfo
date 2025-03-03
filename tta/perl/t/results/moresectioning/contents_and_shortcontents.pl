@@ -269,9 +269,6 @@ A.1 appendixsec
 $result_errors{'contents_and_shortcontents'} = [];
 
 
-$result_floats{'contents_and_shortcontents'} = {};
-
-
 
 $result_converted{'plaintext'}->{'contents_and_shortcontents'} = 'top
 ***

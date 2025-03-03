@@ -180,9 +180,6 @@ Anchor in footnote.
 $result_errors{'anchor_in_footnote_separate'} = [];
 
 
-$result_floats{'anchor_in_footnote_separate'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_in_footnote_separate'} = 'This is , produced from .
 

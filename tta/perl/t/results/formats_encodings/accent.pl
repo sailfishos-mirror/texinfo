@@ -613,9 +613,6 @@ should be dotless j": j"
 $result_errors{'accent'} = [];
 
 
-$result_floats{'accent'} = {};
-
-
 
 $result_converted{'plaintext'}->{'accent'} = 'top
 ***

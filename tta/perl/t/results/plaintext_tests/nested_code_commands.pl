@@ -281,9 +281,6 @@ in code in var
 $result_errors{'nested_code_commands'} = [];
 
 
-$result_floats{'nested_code_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested_code_commands'} = '‘aA fg’.  ‘cc gg’.  ‘in command fg’ ‘in code in command’ ‘in samp ‘in
 code’’ ‘in code ‘in samp’’ IN VAR ‘IN CODE’ ‘in code IN VAR’

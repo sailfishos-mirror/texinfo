@@ -44,9 +44,6 @@ $result_texts{'uref_with_commands_characters'} = 'http://my-host.com/~toto%5Cs\'
 $result_errors{'uref_with_commands_characters'} = [];
 
 
-$result_floats{'uref_with_commands_characters'} = {};
-
-
 
 $result_converted{'plaintext'}->{'uref_with_commands_characters'} = 'see that *LaTeX* (http://my-host.com/~*toto*%5Cs\'q"a&e?b}b{ba@s\\s
 p+h#aaa)

@@ -139,9 +139,6 @@ $result_errors{'section_before_after_top_node_last_node'} = [
 ];
 
 
-$result_floats{'section_before_after_top_node_last_node'} = {};
-
-
 
 $result_converted{'info'}->{'section_before_after_top_node_last_node'} = 'This is , produced from section_before_after_top_node_last_node.texi.
 

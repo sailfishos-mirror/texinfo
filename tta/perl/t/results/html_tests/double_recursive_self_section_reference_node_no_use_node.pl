@@ -107,9 +107,6 @@ $result_texts{'double_recursive_self_section_reference_node_no_use_node'} = '1 n
 $result_errors{'double_recursive_self_section_reference_node_no_use_node'} = [];
 
 
-$result_floats{'double_recursive_self_section_reference_node_no_use_node'} = {};
-
-
 $result_converted_errors{'file_html'}->{'double_recursive_self_section_reference_node_no_use_node'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

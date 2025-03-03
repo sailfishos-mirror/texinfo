@@ -182,9 +182,6 @@ $result_errors{'empty_accent_argument'} = [
 ];
 
 
-$result_floats{'empty_accent_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_accent_argument'} = '   ̃  item
 

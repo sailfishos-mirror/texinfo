@@ -246,9 +246,6 @@ in node after chapter 1
 $result_errors{'two_nodes_at_the_end'} = [];
 
 
-$result_floats{'two_nodes_at_the_end'} = {};
-
-
 
 $result_converted{'plaintext'}->{'two_nodes_at_the_end'} = 'top
 ***

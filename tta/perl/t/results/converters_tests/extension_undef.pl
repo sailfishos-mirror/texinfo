@@ -82,9 +82,6 @@ top
 $result_errors{'extension_undef'} = [];
 
 
-$result_floats{'extension_undef'} = {};
-
-
 $result_converted_errors{'file_info'}->{'extension_undef'} = [
   {
     'error_line' => 'warning: document without Top node

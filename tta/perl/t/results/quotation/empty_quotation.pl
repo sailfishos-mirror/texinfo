@@ -117,9 +117,6 @@ Empty
 $result_errors{'empty_quotation'} = [];
 
 
-$result_floats{'empty_quotation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_quotation'} = '     Empty: 
      : 

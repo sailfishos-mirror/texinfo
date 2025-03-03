@@ -86,9 +86,6 @@ $result_texts{'index_and_node_same_name'} = 'top
 $result_errors{'index_and_node_same_name'} = [];
 
 
-$result_floats{'index_and_node_same_name'} = {};
-
-
 $result_indices_sort_strings{'index_and_node_same_name'} = {
   'cp' => [
     'node'

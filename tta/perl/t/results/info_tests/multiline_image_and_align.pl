@@ -415,9 +415,6 @@ figure JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 $result_errors{'multiline_image_and_align'} = [];
 
 
-$result_floats{'multiline_image_and_align'} = {};
-
-
 
 $result_converted{'info'}->{'multiline_image_and_align'} = 'This is , produced from .
 

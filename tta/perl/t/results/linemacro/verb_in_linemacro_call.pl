@@ -144,7 +144,4 @@ Name: other j
 $result_errors{'verb_in_linemacro_call'} = [];
 
 
-$result_floats{'verb_in_linemacro_call'} = {};
-
-
 1;

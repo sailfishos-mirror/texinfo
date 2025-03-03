@@ -107,9 +107,6 @@ $result_errors{'on_index_entry_line'} = [
 ];
 
 
-$result_floats{'on_index_entry_line'} = {};
-
-
 $result_indices_sort_strings{'on_index_entry_line'} = {
   'cp' => [
     'in titlefont  exdent

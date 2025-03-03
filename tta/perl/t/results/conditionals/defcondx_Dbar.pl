@@ -170,7 +170,4 @@ $result_errors{'defcondx_Dbar'} = [
 ];
 
 
-$result_floats{'defcondx_Dbar'} = {};
-
-
 1;

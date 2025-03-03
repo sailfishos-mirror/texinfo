@@ -55,7 +55,4 @@ Toto  done.
 $result_errors{'macro_call_in_ignored_inlinefmtifelse'} = [];
 
 
-$result_floats{'macro_call_in_ignored_inlinefmtifelse'} = {};
-
-
 1;

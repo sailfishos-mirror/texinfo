@@ -119,9 +119,6 @@ $result_errors{'misc_raw_comments'} = [
 ];
 
 
-$result_floats{'misc_raw_comments'} = {};
-
-
 
 $result_converted{'plaintext'}->{'misc_raw_comments'} = 'in verbatim @c in verbatim
 in verbatim2

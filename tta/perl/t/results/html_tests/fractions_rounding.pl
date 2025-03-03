@@ -126,9 +126,6 @@ $result_texts{'fractions_rounding'} = 'In contents            In contents       
 $result_errors{'fractions_rounding'} = [];
 
 
-$result_floats{'fractions_rounding'} = {};
-
-
 
 $result_converted{'html'}->{'fractions_rounding'} = '<!DOCTYPE html>
 <html>

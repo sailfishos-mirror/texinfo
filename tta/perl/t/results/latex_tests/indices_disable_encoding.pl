@@ -433,9 +433,6 @@ $result_errors{'indices_disable_encoding'} = [
 ];
 
 
-$result_floats{'indices_disable_encoding'} = {};
-
-
 $result_indices_sort_strings{'indices_disable_encoding'} = {
   'cp' => [
     '\\cmd',

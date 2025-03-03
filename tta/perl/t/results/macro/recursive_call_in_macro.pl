@@ -61,7 +61,4 @@ $result_errors{'recursive_call_in_macro'} = [
 ];
 
 
-$result_floats{'recursive_call_in_macro'} = {};
-
-
 1;

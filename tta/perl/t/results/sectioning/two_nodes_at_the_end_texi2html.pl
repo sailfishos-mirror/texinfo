@@ -227,7 +227,4 @@ in node after chapter 1
 $result_errors{'two_nodes_at_the_end_texi2html'} = [];
 
 
-$result_floats{'two_nodes_at_the_end_texi2html'} = {};
-
-
 1;

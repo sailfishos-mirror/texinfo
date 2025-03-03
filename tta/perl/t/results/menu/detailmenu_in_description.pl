@@ -87,9 +87,6 @@ $result_texts{'detailmenu_in_description'} = '
 $result_errors{'detailmenu_in_description'} = [];
 
 
-$result_floats{'detailmenu_in_description'} = {};
-
-
 
 $result_converted{'plaintext'}->{'detailmenu_in_description'} = '* Menu:
 

@@ -115,9 +115,6 @@ $result_errors{'end_of_lines_protected_non_ascii'} = [
 ];
 
 
-$result_floats{'end_of_lines_protected_non_ascii'} = {};
-
-
 $result_indices_sort_strings{'end_of_lines_protected_non_ascii'} = {
   'fn' => [
     "deffn_n\x{f9}me"

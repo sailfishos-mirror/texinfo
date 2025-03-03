@@ -445,9 +445,6 @@ $result_errors{'in_menu_only_special_spaces_node_menu'} = [
 ];
 
 
-$result_floats{'in_menu_only_special_spaces_node_menu'} = {};
-
-
 
 $result_converted{'info'}->{'in_menu_only_special_spaces_node_menu'} = 'This is , produced from in_menu_only_special_spaces_node.texi.
 

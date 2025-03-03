@@ -129,7 +129,4 @@ $result_errors{'cpp_line_latin1'} = [
 ];
 
 
-$result_floats{'cpp_line_latin1'} = {};
-
-
 1;

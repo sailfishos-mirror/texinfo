@@ -155,9 +155,6 @@ Z~ s~
 $result_errors{'unknown_accents'} = [];
 
 
-$result_floats{'unknown_accents'} = {};
-
-
 
 $result_converted{'plaintext'}->{'unknown_accents'} = 'Ẍ ẍ Q̈ Ÿ
 

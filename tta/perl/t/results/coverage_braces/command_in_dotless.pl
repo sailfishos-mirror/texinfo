@@ -39,9 +39,6 @@ $result_errors{'command_in_dotless'} = [
 ];
 
 
-$result_floats{'command_in_dotless'} = {};
-
-
 
 $result_converted{'plaintext'}->{'command_in_dotless'} = 'ı
 ';

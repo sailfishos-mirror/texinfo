@@ -683,7 +683,4 @@ $result_errors{'symbol_after_block'} = [
 ];
 
 
-$result_floats{'symbol_after_block'} = {};
-
-
 1;

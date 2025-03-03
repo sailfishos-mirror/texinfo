@@ -534,9 +534,6 @@ In subsection 1
 $result_errors{'split_chapter_index'} = [];
 
 
-$result_floats{'split_chapter_index'} = {};
-
-
 $result_indices_sort_strings{'split_chapter_index'} = {
   'cp' => [
     '! entry in node',

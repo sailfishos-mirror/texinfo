@@ -3936,9 +3936,6 @@ $result_errors{'all_commands_delimiters_printindex'} = [
 ];
 
 
-$result_floats{'all_commands_delimiters_printindex'} = {};
-
-
 $result_indices_sort_strings{'all_commands_delimiters_printindex'} = {
   'fn' => [
     ',expose on ,Window',

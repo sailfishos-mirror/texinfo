@@ -436,9 +436,6 @@ explanation
 $result_errors{'complex_nestings'} = [];
 
 
-$result_floats{'complex_nestings'} = {};
-
-
 $result_indices_sort_strings{'complex_nestings'} = {
   'fn' => [
     'my def',

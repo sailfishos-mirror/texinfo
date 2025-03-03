@@ -33,9 +33,6 @@ $result_texts{'footnote_ending_on_empty_line_spaces'} = 'text';
 $result_errors{'footnote_ending_on_empty_line_spaces'} = [];
 
 
-$result_floats{'footnote_ending_on_empty_line_spaces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_ending_on_empty_line_spaces'} = 'text(1)
 

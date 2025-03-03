@@ -95,9 +95,6 @@ $result_texts{'unknown_custom_variable'} = 'top
 $result_errors{'unknown_custom_variable'} = [];
 
 
-$result_floats{'unknown_custom_variable'} = {};
-
-
 
 $result_converted{'html'}->{'unknown_custom_variable'} = '<!DOCTYPE html>
 <html>

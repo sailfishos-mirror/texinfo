@@ -32,7 +32,4 @@ $result_texts{'node_empty_direction'} = '';
 $result_errors{'node_empty_direction'} = [];
 
 
-$result_floats{'node_empty_direction'} = {};
-
-
 1;

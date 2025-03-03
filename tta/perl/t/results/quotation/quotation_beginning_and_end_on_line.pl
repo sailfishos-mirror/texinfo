@@ -49,9 +49,6 @@ $result_errors{'quotation_beginning_and_end_on_line'} = [
 ];
 
 
-$result_floats{'quotation_beginning_and_end_on_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'quotation_beginning_and_end_on_line'} = '     in quotation: 
 ';

@@ -52,7 +52,4 @@ $result_errors{'not_fraction'} = [
 ];
 
 
-$result_floats{'not_fraction'} = {};
-
-
 1;

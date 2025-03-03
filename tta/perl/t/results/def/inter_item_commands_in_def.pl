@@ -221,9 +221,6 @@ $result_errors{'inter_item_commands_in_def'} = [
 ];
 
 
-$result_floats{'inter_item_commands_in_def'} = {};
-
-
 $result_indices_sort_strings{'inter_item_commands_in_def'} = {
   'cp' => [
     'between deffnx',

@@ -27,9 +27,6 @@ $result_errors{'hyphenation_no_braces'} = [
 ];
 
 
-$result_floats{'hyphenation_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'hyphenation_no_braces'} = '';
 

@@ -556,9 +556,6 @@ $result_indices{'macro_alias_definfoenclose_defindex'} = {
 };
 
 
-$result_floats{'macro_alias_definfoenclose_defindex'} = {};
-
-
 $result_indices_sort_strings{'macro_alias_definfoenclose_defindex'} = {
   'phoo' => [
     'idd',

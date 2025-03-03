@@ -38,7 +38,4 @@ $result_texts{'empty_line_in_braces_in_math_at_begin_line'} = 'a
 $result_errors{'empty_line_in_braces_in_math_at_begin_line'} = [];
 
 
-$result_floats{'empty_line_in_braces_in_math_at_begin_line'} = {};
-
-
 1;

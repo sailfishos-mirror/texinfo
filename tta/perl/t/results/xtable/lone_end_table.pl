@@ -30,7 +30,4 @@ $result_errors{'lone_end_table'} = [
 ];
 
 
-$result_floats{'lone_end_table'} = {};
-
-
 1;

@@ -66,9 +66,6 @@ $result_errors{'space_in_setfilename'} = [
 ];
 
 
-$result_floats{'space_in_setfilename'} = {};
-
-
 
 $result_converted{'info'}->{'space_in_setfilename'} = 'This is , produced from .
 

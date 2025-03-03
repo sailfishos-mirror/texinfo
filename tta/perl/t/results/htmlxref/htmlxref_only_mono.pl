@@ -969,7 +969,4 @@ id: local-node
 $result_errors{'htmlxref_only_mono'} = [];
 
 
-$result_floats{'htmlxref_only_mono'} = {};
-
-
 1;

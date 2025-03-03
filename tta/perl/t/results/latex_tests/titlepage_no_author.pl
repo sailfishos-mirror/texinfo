@@ -135,9 +135,6 @@ In chapter
 $result_errors{'titlepage_no_author'} = [];
 
 
-$result_floats{'titlepage_no_author'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_no_author'} = '
 \\begin{document}

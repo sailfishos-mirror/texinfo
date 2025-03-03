@@ -28,9 +28,6 @@ $result_texts{'commands_in_email'} = 'endots ... in code';
 $result_errors{'commands_in_email'} = [];
 
 
-$result_floats{'commands_in_email'} = {};
-
-
 
 $result_converted{'html_text'}->{'commands_in_email'} = '<p><a class="email" href="mailto:endots%20...%20in%20code">endots ... in code</a></p>';
 

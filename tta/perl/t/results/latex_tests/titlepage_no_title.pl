@@ -147,9 +147,6 @@ In chapter
 $result_errors{'titlepage_no_title'} = [];
 
 
-$result_floats{'titlepage_no_title'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_no_title'} = '
 \\begin{document}

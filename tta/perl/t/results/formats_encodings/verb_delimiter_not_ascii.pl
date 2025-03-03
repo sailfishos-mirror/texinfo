@@ -105,9 +105,6 @@ $result_texts{'verb_delimiter_not_ascii'} = 'top
 $result_errors{'verb_delimiter_not_ascii'} = [];
 
 
-$result_floats{'verb_delimiter_not_ascii'} = {};
-
-
 
 $result_converted{'plaintext'}->{'verb_delimiter_not_ascii'} = 'top
 ***

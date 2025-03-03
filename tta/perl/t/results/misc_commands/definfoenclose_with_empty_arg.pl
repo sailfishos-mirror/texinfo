@@ -60,9 +60,6 @@ $result_errors{'definfoenclose_with_empty_arg'} = [
 ];
 
 
-$result_floats{'definfoenclose_with_empty_arg'} = {};
-
-
 
 $result_converted{'plaintext'}->{'definfoenclose_with_empty_arg'} = 'My something:.
 

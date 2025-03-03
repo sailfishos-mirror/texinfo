@@ -69,7 +69,4 @@ $result_errors{'spaces_unknown_command_after_braced_command'} = [
 ];
 
 
-$result_floats{'spaces_unknown_command_after_braced_command'} = {};
-
-
 1;

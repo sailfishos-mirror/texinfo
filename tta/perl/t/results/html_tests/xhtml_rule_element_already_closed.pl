@@ -95,9 +95,6 @@ $result_texts{'xhtml_rule_element_already_closed'} = 'top
 $result_errors{'xhtml_rule_element_already_closed'} = [];
 
 
-$result_floats{'xhtml_rule_element_already_closed'} = {};
-
-
 
 $result_converted{'html'}->{'xhtml_rule_element_already_closed'} = '<!DOCTYPE html>
 <html>

@@ -86,7 +86,4 @@ $result_errors{'verbatim_in_ref'} = [
 ];
 
 
-$result_floats{'verbatim_in_ref'} = {};
-
-
 1;

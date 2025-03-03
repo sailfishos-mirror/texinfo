@@ -153,9 +153,6 @@ Appendix A Annex
 $result_errors{'chapter_between_nodes_with_appendix_nomenu'} = [];
 
 
-$result_floats{'chapter_between_nodes_with_appendix_nomenu'} = {};
-
-
 
 $result_converted{'info'}->{'chapter_between_nodes_with_appendix_nomenu'} = 'This is , produced from .
 

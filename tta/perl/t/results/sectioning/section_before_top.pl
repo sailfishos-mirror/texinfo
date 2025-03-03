@@ -147,9 +147,6 @@ $result_errors{'section_before_top'} = [
 ];
 
 
-$result_floats{'section_before_top'} = {};
-
-
 
 $result_converted{'info'}->{'section_before_top'} = 'This is , produced from .
 

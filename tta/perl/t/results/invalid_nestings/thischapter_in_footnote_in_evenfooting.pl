@@ -66,7 +66,4 @@ $result_errors{'thischapter_in_footnote_in_evenfooting'} = [
 ];
 
 
-$result_floats{'thischapter_in_footnote_in_evenfooting'} = {};
-
-
 1;

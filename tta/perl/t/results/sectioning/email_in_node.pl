@@ -62,7 +62,4 @@ $result_texts{'email_in_node'} = '';
 $result_errors{'email_in_node'} = [];
 
 
-$result_floats{'email_in_node'} = {};
-
-
 1;

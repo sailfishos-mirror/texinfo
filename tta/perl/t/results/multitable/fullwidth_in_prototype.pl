@@ -126,9 +126,6 @@ aaa aà aaa aa aaa aa
 $result_errors{'fullwidth_in_prototype'} = [];
 
 
-$result_floats{'fullwidth_in_prototype'} = {};
-
-
 
 $result_converted{'plaintext'}->{'fullwidth_in_prototype'} = 'aaa aà aaa aa aaa     aaa aà aaa aa aaa     aaa aà aaa aa aaa
 aa aaa aà aaa aa      aa aaa aà aaa aa      aa aaa aà aaa aa

@@ -37,7 +37,4 @@ $result_texts{'inlinefmtifelse_nesting'} = 'text
 $result_errors{'inlinefmtifelse_nesting'} = [];
 
 
-$result_floats{'inlinefmtifelse_nesting'} = {};
-
-
 1;

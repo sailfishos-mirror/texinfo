@@ -39,7 +39,4 @@ $result_errors{'unknown_synindex'} = [
 ];
 
 
-$result_floats{'unknown_synindex'} = {};
-
-
 1;

@@ -99,9 +99,6 @@ Another page
 $result_errors{'settitle_and_headings'} = [];
 
 
-$result_floats{'settitle_and_headings'} = {};
-
-
 
 $result_converted{'latex_text'}->{'settitle_and_headings'} = '
 \\pagestyle{double}%

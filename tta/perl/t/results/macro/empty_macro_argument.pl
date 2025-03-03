@@ -153,7 +153,4 @@ $result_errors{'empty_macro_argument'} = [
 ];
 
 
-$result_floats{'empty_macro_argument'} = {};
-
-
 1;

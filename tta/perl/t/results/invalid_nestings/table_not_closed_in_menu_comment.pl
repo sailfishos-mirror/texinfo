@@ -98,7 +98,4 @@ $result_errors{'table_not_closed_in_menu_comment'} = [
 ];
 
 
-$result_floats{'table_not_closed_in_menu_comment'} = {};
-
-
 1;

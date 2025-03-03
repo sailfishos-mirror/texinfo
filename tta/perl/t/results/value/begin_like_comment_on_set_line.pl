@@ -67,7 +67,4 @@ $result_errors{'begin_like_comment_on_set_line'} = [
 ];
 
 
-$result_floats{'begin_like_comment_on_set_line'} = {};
-
-
 1;

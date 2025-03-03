@@ -181,9 +181,6 @@ second node
 $result_errors{'nodes_after_top_before_section_texi2html_use_nodes'} = [];
 
 
-$result_floats{'nodes_after_top_before_section_texi2html_use_nodes'} = {};
-
-
 $result_converted_errors{'file_html'}->{'nodes_after_top_before_section_texi2html_use_nodes'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

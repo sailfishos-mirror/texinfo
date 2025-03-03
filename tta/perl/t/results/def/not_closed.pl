@@ -150,9 +150,6 @@ $result_errors{'not_closed'} = [
 ];
 
 
-$result_floats{'not_closed'} = {};
-
-
 $result_indices_sort_strings{'not_closed'} = {
   'fn' => [
     'bidule',

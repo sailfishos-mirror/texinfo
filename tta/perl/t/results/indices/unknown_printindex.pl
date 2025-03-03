@@ -34,7 +34,4 @@ $result_errors{'unknown_printindex'} = [
 ];
 
 
-$result_floats{'unknown_printindex'} = {};
-
-
 1;

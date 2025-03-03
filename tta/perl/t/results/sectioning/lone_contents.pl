@@ -24,9 +24,6 @@ $result_texts{'lone_contents'} = '';
 $result_errors{'lone_contents'} = [];
 
 
-$result_floats{'lone_contents'} = {};
-
-
 
 $result_converted{'plaintext'}->{'lone_contents'} = '';
 

@@ -969,7 +969,4 @@ id: local-node
 $result_errors{'htmlxref_only_split'} = [];
 
 
-$result_floats{'htmlxref_only_split'} = {};
-
-
 1;

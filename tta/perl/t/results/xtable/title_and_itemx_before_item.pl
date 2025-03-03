@@ -69,7 +69,4 @@ $result_errors{'title_and_itemx_before_item'} = [
 ];
 
 
-$result_floats{'title_and_itemx_before_item'} = {};
-
-
 1;

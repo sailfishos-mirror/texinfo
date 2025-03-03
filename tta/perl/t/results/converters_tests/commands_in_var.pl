@@ -237,9 +237,6 @@ c e ab (d)';
 $result_errors{'commands_in_var'} = [];
 
 
-$result_floats{'commands_in_var'} = {};
-
-
 
 $result_converted{'plaintext'}->{'commands_in_var'} = 'commands in var
 ***************

@@ -330,9 +330,6 @@ $result_indices{'printindex_merged_indices_code_style'} = {
 };
 
 
-$result_floats{'printindex_merged_indices_code_style'} = {};
-
-
 $result_indices_sort_strings{'printindex_merged_indices_code_style'} = {
   'fn' => [
     'c"b',

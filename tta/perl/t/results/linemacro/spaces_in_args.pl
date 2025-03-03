@@ -126,7 +126,4 @@ category: a A  d   B    rest
 $result_errors{'spaces_in_args'} = [];
 
 
-$result_floats{'spaces_in_args'} = {};
-
-
 1;

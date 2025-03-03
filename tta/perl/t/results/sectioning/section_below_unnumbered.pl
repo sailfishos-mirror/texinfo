@@ -240,9 +240,6 @@ Should be unnumbered.
 $result_errors{'section_below_unnumbered'} = [];
 
 
-$result_floats{'section_below_unnumbered'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_below_unnumbered'} = 'Top
 Unn

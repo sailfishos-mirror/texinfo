@@ -154,9 +154,6 @@ Appendix A Annex
 $result_errors{'chapter_between_nodes_with_appendix'} = [];
 
 
-$result_floats{'chapter_between_nodes_with_appendix'} = {};
-
-
 
 $result_converted{'info'}->{'chapter_between_nodes_with_appendix'} = 'This is , produced from .
 

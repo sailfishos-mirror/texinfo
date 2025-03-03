@@ -995,9 +995,6 @@ $result_errors{'encoding_index_ascii'} = [
 ];
 
 
-$result_floats{'encoding_index_ascii'} = {};
-
-
 $result_indices_sort_strings{'encoding_index_ascii'} = {
   'cp' => [
     '-',

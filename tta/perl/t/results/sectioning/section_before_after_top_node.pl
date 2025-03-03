@@ -113,9 +113,6 @@ $result_errors{'section_before_after_top_node'} = [
 ];
 
 
-$result_floats{'section_before_after_top_node'} = {};
-
-
 
 $result_converted{'info'}->{'section_before_after_top_node'} = 'This is , produced from section_before_after_top_node.texi.
 

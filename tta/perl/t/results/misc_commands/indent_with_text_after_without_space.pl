@@ -40,9 +40,6 @@ a b
 $result_errors{'indent_with_text_after_without_space'} = [];
 
 
-$result_floats{'indent_with_text_after_without_space'} = {};
-
-
 
 $result_converted{'plaintext'}->{'indent_with_text_after_without_space'} = '   a b
 ';

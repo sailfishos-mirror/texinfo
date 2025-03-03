@@ -101,9 +101,6 @@ Second paragraph.
 $result_errors{'shorttitlepage'} = [];
 
 
-$result_floats{'shorttitlepage'} = {};
-
-
 
 $result_converted{'html'}->{'shorttitlepage'} = '<!DOCTYPE html>
 <html>

@@ -88,7 +88,4 @@ Body.
 $result_errors{'no_arguments'} = [];
 
 
-$result_floats{'no_arguments'} = {};
-
-
 1;

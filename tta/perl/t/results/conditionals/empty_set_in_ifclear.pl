@@ -48,7 +48,4 @@ $result_texts{'empty_set_in_ifclear'} = '
 $result_errors{'empty_set_in_ifclear'} = [];
 
 
-$result_floats{'empty_set_in_ifclear'} = {};
-
-
 1;

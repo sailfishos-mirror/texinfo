@@ -305,7 +305,4 @@ Node 1.
 $result_errors{'value_in_node'} = [];
 
 
-$result_floats{'value_in_node'} = {};
-
-
 1;

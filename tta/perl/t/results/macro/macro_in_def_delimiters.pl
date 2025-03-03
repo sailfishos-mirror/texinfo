@@ -180,9 +180,6 @@ $result_errors{'macro_in_def_delimiters'} = [
 ];
 
 
-$result_floats{'macro_in_def_delimiters'} = {};
-
-
 $result_indices_sort_strings{'macro_in_def_delimiters'} = {
   'fn' => [
     'forward-word'

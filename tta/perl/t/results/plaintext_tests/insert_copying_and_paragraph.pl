@@ -52,9 +52,6 @@ Insertcopying
 $result_errors{'insert_copying_and_paragraph'} = [];
 
 
-$result_floats{'insert_copying_and_paragraph'} = {};
-
-
 
 $result_converted{'plaintext'}->{'insert_copying_and_paragraph'} = 'Insertcopying
    In copying.

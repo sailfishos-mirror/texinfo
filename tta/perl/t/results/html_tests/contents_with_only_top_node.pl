@@ -44,9 +44,6 @@ $result_texts{'contents_with_only_top_node'} = '
 $result_errors{'contents_with_only_top_node'} = [];
 
 
-$result_floats{'contents_with_only_top_node'} = {};
-
-
 
 $result_converted{'html_text'}->{'contents_with_only_top_node'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 

@@ -110,7 +110,4 @@ $result_errors{'on_section_line'} = [
 ];
 
 
-$result_floats{'on_section_line'} = {};
-
-
 1;

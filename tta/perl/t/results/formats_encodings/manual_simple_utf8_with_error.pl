@@ -144,7 +144,4 @@ $result_errors{'manual_simple_utf8_with_error'} = [
 ];
 
 
-$result_floats{'manual_simple_utf8_with_error'} = {};
-
-
 1;

@@ -79,9 +79,6 @@ $result_errors{'setchapternewpage_on_odd_titlepage'} = [
 ];
 
 
-$result_floats{'setchapternewpage_on_odd_titlepage'} = {};
-
-
 
 $result_converted{'latex_text'}->{'setchapternewpage_on_odd_titlepage'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}

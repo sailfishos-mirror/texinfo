@@ -108,9 +108,6 @@ $result_errors{'format_in_titlepage_titlepage'} = [
 ];
 
 
-$result_floats{'format_in_titlepage_titlepage'} = {};
-
-
 
 $result_converted{'info'}->{'format_in_titlepage_titlepage'} = 'This is , produced from .
 

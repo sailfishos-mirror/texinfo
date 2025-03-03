@@ -500,7 +500,4 @@ $result_errors{'menutextorder'} = [
 ];
 
 
-$result_floats{'menutextorder'} = {};
-
-
 1;

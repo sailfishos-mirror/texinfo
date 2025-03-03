@@ -67,7 +67,4 @@ $result_texts{'macro_in_ifset'} = '
 $result_errors{'macro_in_ifset'} = [];
 
 
-$result_floats{'macro_in_ifset'} = {};
-
-
 1;

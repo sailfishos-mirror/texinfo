@@ -172,9 +172,6 @@ $result_texts{'U_in_index'} = 'top
 $result_errors{'U_in_index'} = [];
 
 
-$result_floats{'U_in_index'} = {};
-
-
 $result_indices_sort_strings{'U_in_index'} = {
   'cp' => [
     '0074 letter t',

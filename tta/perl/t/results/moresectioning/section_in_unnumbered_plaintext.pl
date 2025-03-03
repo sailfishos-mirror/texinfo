@@ -1952,9 +1952,6 @@ numbered subsection2 4
 $result_errors{'section_in_unnumbered_plaintext'} = [];
 
 
-$result_floats{'section_in_unnumbered_plaintext'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_in_unnumbered_plaintext'} = 'Test section in unnumbered
 **************************

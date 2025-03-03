@@ -255,7 +255,4 @@ $result_errors{'two_nodes_between_chapters_texi2html'} = [
 ];
 
 
-$result_floats{'two_nodes_between_chapters_texi2html'} = {};
-
-
 1;

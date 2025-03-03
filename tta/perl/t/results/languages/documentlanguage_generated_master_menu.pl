@@ -286,9 +286,6 @@ Appendix A App
 $result_errors{'documentlanguage_generated_master_menu'} = [];
 
 
-$result_floats{'documentlanguage_generated_master_menu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'documentlanguage_generated_master_menu'} = 'top
 ***

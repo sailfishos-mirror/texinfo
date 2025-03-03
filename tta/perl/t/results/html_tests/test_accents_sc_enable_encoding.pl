@@ -307,9 +307,6 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 $result_errors{'test_accents_sc_enable_encoding'} = [];
 
 
-$result_floats{'test_accents_sc_enable_encoding'} = {};
-
-
 
 $result_converted{'html_text'}->{'test_accents_sc_enable_encoding'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> ¶</a></span></h1>

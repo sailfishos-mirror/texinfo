@@ -957,9 +957,6 @@ $result_errors{'multiple_include_encodings'} = [
 ];
 
 
-$result_floats{'multiple_include_encodings'} = {};
-
-
 $result_indices_sort_strings{'multiple_include_encodings'} = {
   'cp' => [
     "\x{104} \x{105} \x{2db} \x{118} \x{119}"

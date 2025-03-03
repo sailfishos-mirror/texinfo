@@ -110,9 +110,6 @@ $result_texts{'empty_top_node_up'} = 'empty top node up
 $result_errors{'empty_top_node_up'} = [];
 
 
-$result_floats{'empty_top_node_up'} = {};
-
-
 
 $result_converted{'info'}->{'empty_top_node_up'} = 'This is , produced from .
 

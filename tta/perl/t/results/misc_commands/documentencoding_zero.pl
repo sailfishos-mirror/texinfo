@@ -46,7 +46,4 @@ $result_errors{'documentencoding_zero'} = [
 ];
 
 
-$result_floats{'documentencoding_zero'} = {};
-
-
 1;

@@ -115,9 +115,6 @@ $result_texts{'comment_on_menu_line'} = '
 $result_errors{'comment_on_menu_line'} = [];
 
 
-$result_floats{'comment_on_menu_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'comment_on_menu_line'} = '* Menu:
 

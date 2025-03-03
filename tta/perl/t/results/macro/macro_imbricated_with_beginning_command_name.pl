@@ -54,7 +54,4 @@ $result_errors{'macro_imbricated_with_beginning_command_name'} = [
 ];
 
 
-$result_floats{'macro_imbricated_with_beginning_command_name'} = {};
-
-
 1;

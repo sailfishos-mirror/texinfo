@@ -28,9 +28,6 @@ $result_texts{'empty_listoffloats'} = '';
 $result_errors{'empty_listoffloats'} = [];
 
 
-$result_floats{'empty_listoffloats'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_listoffloats'} = '';
 

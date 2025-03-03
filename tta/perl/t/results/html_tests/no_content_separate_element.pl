@@ -158,7 +158,4 @@ The chapter
 $result_errors{'no_content_separate_element'} = [];
 
 
-$result_floats{'no_content_separate_element'} = {};
-
-
 1;

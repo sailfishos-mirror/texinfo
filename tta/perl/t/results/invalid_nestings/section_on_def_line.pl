@@ -110,9 +110,6 @@ $result_errors{'section_on_def_line'} = [
 ];
 
 
-$result_floats{'section_on_def_line'} = {};
-
-
 $result_indices_sort_strings{'section_on_def_line'} = {
   'fn' => [
     'b'

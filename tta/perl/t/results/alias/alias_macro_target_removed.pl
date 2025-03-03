@@ -107,7 +107,4 @@ $result_errors{'alias_macro_target_removed'} = [
 ];
 
 
-$result_floats{'alias_macro_target_removed'} = {};
-
-
 1;

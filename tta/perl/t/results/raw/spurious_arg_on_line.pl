@@ -128,9 +128,6 @@ $result_errors{'spurious_arg_on_line'} = [
 ];
 
 
-$result_floats{'spurious_arg_on_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'spurious_arg_on_line'} = 'in verbatim
 

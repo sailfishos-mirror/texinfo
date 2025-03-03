@@ -24,7 +24,4 @@ $result_texts{'simple'} = '  }   .  ';
 $result_errors{'simple'} = [];
 
 
-$result_floats{'simple'} = {};
-
-
 1;

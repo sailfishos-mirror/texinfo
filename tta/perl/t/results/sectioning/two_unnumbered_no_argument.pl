@@ -61,9 +61,6 @@ $result_errors{'two_unnumbered_no_argument'} = [
 ];
 
 
-$result_floats{'two_unnumbered_no_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'two_unnumbered_no_argument'} = '';
 

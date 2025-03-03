@@ -80,7 +80,4 @@ $result_errors{'headitem_in_table'} = [
 ];
 
 
-$result_floats{'headitem_in_table'} = {};
-
-
 1;

@@ -65,7 +65,4 @@ $result_errors{'cartouche_in_style_command'} = [
 ];
 
 
-$result_floats{'cartouche_in_style_command'} = {};
-
-
 1;

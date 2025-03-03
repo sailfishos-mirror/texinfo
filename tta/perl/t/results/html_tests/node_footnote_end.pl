@@ -372,9 +372,6 @@ $result_errors{'node_footnote_end'} = [
 ];
 
 
-$result_floats{'node_footnote_end'} = {};
-
-
 $result_converted_errors{'file_html'}->{'node_footnote_end'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

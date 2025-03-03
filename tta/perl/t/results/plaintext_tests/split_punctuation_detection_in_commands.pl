@@ -37,9 +37,6 @@ $result_texts{'split_punctuation_detection_in_commands'} = 'Before B).]]? AfteR"
 $result_errors{'split_punctuation_detection_in_commands'} = [];
 
 
-$result_floats{'split_punctuation_detection_in_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'split_punctuation_detection_in_commands'} = 'Before B).]]? Afte*R*_"!_\'? Last
 ';

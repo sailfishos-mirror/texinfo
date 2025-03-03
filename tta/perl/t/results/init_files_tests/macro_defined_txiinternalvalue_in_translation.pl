@@ -51,9 +51,6 @@ $result_texts{'macro_defined_txiinternalvalue_in_translation'} = '
 $result_errors{'macro_defined_txiinternalvalue_in_translation'} = [];
 
 
-$result_floats{'macro_defined_txiinternalvalue_in_translation'} = {};
-
-
 
 $result_converted{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = '<!DOCTYPE html>
 <html>

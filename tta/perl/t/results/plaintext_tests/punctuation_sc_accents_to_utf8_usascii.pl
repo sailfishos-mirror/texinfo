@@ -328,7 +328,4 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 $result_errors{'punctuation_sc_accents_to_utf8_usascii'} = [];
 
 
-$result_floats{'punctuation_sc_accents_to_utf8_usascii'} = {};
-
-
 1;

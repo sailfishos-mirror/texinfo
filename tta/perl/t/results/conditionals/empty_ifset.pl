@@ -49,7 +49,4 @@ $result_errors{'empty_ifset'} = [
 ];
 
 
-$result_floats{'empty_ifset'} = {};
-
-
 1;

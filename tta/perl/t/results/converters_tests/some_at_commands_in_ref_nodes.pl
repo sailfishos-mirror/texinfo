@@ -346,9 +346,6 @@ A SC N~ AA TeX node i" i" E=` /l C\', !.
 $result_errors{'some_at_commands_in_ref_nodes'} = [];
 
 
-$result_floats{'some_at_commands_in_ref_nodes'} = {};
-
-
 
 $result_converted{'plaintext'}->{'some_at_commands_in_ref_nodes'} = 'Top
 ***

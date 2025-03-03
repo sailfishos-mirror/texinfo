@@ -58,7 +58,4 @@ $result_errors{'command_in_end_expanded_raw_command_empty_after'} = [
 ];
 
 
-$result_floats{'command_in_end_expanded_raw_command_empty_after'} = {};
-
-
 1;

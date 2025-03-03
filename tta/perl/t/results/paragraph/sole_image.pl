@@ -33,9 +33,6 @@ next para
 $result_errors{'sole_image'} = [];
 
 
-$result_floats{'sole_image'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sole_image'} = 'Text for image out of paragraph.
 

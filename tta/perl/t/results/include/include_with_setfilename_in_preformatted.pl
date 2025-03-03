@@ -71,9 +71,6 @@ after include
 $result_errors{'include_with_setfilename_in_preformatted'} = [];
 
 
-$result_floats{'include_with_setfilename_in_preformatted'} = {};
-
-
 
 $result_converted{'info'}->{'include_with_setfilename_in_preformatted'} = 'This is , produced from .
 

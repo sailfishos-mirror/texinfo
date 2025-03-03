@@ -713,9 +713,6 @@ $result_errors{'ref_in_sectioning'} = [
 ];
 
 
-$result_floats{'ref_in_sectioning'} = {};
-
-
 
 $result_converted{'plaintext'}->{'ref_in_sectioning'} = 'for example node (see node) (see (file)Top)
 1 See title: (file name)node.

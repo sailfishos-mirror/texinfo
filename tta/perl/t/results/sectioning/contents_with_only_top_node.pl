@@ -44,9 +44,6 @@ $result_texts{'contents_with_only_top_node'} = '
 $result_errors{'contents_with_only_top_node'} = [];
 
 
-$result_floats{'contents_with_only_top_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'contents_with_only_top_node'} = '';
 

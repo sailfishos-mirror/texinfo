@@ -717,9 +717,6 @@ In brazilian. chapter ja.
 $result_errors{'multiple_lang_chapters_texi2html'} = [];
 
 
-$result_floats{'multiple_lang_chapters_texi2html'} = {};
-
-
 $result_indices_sort_strings{'multiple_lang_chapters_texi2html'} = {
   'vr' => [
     'BBB de AAA',

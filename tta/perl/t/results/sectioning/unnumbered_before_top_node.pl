@@ -72,9 +72,6 @@ Title titlefont
 $result_errors{'unnumbered_before_top_node'} = [];
 
 
-$result_floats{'unnumbered_before_top_node'} = {};
-
-
 
 $result_converted{'info'}->{'unnumbered_before_top_node'} = 'This is , produced from .
 

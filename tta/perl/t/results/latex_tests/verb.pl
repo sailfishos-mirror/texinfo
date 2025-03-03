@@ -67,9 +67,6 @@ a%|!:@b
 $result_errors{'verb'} = [];
 
 
-$result_floats{'verb'} = {};
-
-
 
 $result_converted{'latex_text'}->{'verb'} = '\\begin{document}
 \\verb!a!

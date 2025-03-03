@@ -52,7 +52,4 @@ user internalvalue
 $result_errors{'user_defined_txiinternalvalue'} = [];
 
 
-$result_floats{'user_defined_txiinternalvalue'} = {};
-
-
 1;

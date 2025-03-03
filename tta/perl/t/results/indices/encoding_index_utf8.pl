@@ -953,9 +953,6 @@ $result_errors{'encoding_index_utf8'} = [
 ];
 
 
-$result_floats{'encoding_index_utf8'} = {};
-
-
 $result_indices_sort_strings{'encoding_index_utf8'} = {
   'cp' => [
     '-',

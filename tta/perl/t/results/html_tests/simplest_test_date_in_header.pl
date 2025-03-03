@@ -53,9 +53,6 @@ This is a very simple texi manual   <>.
 $result_errors{'simplest_test_date_in_header'} = [];
 
 
-$result_floats{'simplest_test_date_in_header'} = {};
-
-
 $result_converted_errors{'file_html'}->{'simplest_test_date_in_header'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

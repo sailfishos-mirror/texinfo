@@ -70,7 +70,4 @@ $result_errors{'protect_first_parenthesis_after_parenthesis_source_mark'} = [
 ];
 
 
-$result_floats{'protect_first_parenthesis_after_parenthesis_source_mark'} = {};
-
-
 1;

@@ -70,7 +70,4 @@ $result_texts{'alias_of_macro_before_macro'} = '
 $result_errors{'alias_of_macro_before_macro'} = [];
 
 
-$result_floats{'alias_of_macro_before_macro'} = {};
-
-
 1;

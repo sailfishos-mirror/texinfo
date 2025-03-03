@@ -68,7 +68,4 @@ $result_errors{'recursive_linemacro_in_body'} = [
 ];
 
 
-$result_floats{'recursive_linemacro_in_body'} = {};
-
-
 1;

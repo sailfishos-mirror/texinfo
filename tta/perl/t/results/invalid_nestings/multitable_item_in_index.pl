@@ -91,9 +91,6 @@ $result_errors{'multitable_item_in_index'} = [
 ];
 
 
-$result_floats{'multitable_item_in_index'} = {};
-
-
 $result_indices_sort_strings{'multitable_item_in_index'} = {
   'vr' => [
     'on item line'

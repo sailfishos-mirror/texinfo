@@ -127,9 +127,6 @@ $result_errors{'dotless_argument_non_ascii'} = [
 ];
 
 
-$result_floats{'dotless_argument_non_ascii'} = {};
-
-
 
 $result_converted{'plaintext'}->{'dotless_argument_non_ascii'} = 'top
 ***

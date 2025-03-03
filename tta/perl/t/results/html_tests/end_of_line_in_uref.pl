@@ -32,9 +32,6 @@ Spelling (terminology and markup) section.';
 $result_errors{'end_of_line_in_uref'} = [];
 
 
-$result_floats{'end_of_line_in_uref'} = {};
-
-
 
 $result_converted{'html'}->{'end_of_line_in_uref'} = '<!DOCTYPE html>
 <html>

@@ -309,9 +309,6 @@ $result_errors{'cond_no-ifhtml_no-ifinfo_no-iftex'} = [
 ];
 
 
-$result_floats{'cond_no-ifhtml_no-ifinfo_no-iftex'} = {};
-
-
 
 $result_converted{'html'}->{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '<!DOCTYPE html>
 <html>

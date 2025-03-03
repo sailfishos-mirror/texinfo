@@ -158,7 +158,4 @@ a*.
 $result_errors{'macro_in_accent'} = [];
 
 
-$result_floats{'macro_in_accent'} = {};
-
-
 1;

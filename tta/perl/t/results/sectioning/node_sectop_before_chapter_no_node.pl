@@ -78,9 +78,6 @@ $result_texts{'node_sectop_before_chapter_no_node'} = 'top section
 $result_errors{'node_sectop_before_chapter_no_node'} = [];
 
 
-$result_floats{'node_sectop_before_chapter_no_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'node_sectop_before_chapter_no_node'} = 'top section
 ***********

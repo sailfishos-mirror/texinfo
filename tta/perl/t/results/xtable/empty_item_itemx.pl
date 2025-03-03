@@ -149,9 +149,6 @@ $result_errors{'empty_item_itemx'} = [
 ];
 
 
-$result_floats{'empty_item_itemx'} = {};
-
-
 $result_indices_sort_strings{'empty_item_itemx'} = {
   'vr' => [
     'after an empty itemx, before an empty item',

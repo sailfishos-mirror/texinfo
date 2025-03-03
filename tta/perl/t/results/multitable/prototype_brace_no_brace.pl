@@ -45,9 +45,6 @@ $result_texts{'prototype_brace_no_brace'} = '';
 $result_errors{'prototype_brace_no_brace'} = [];
 
 
-$result_floats{'prototype_brace_no_brace'} = {};
-
-
 
 $result_converted{'plaintext'}->{'prototype_brace_no_brace'} = '';
 

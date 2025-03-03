@@ -96,7 +96,4 @@ $result_texts{'access_output_unit_in_handler'} = 'top
 $result_errors{'access_output_unit_in_handler'} = [];
 
 
-$result_floats{'access_output_unit_in_handler'} = {};
-
-
 1;

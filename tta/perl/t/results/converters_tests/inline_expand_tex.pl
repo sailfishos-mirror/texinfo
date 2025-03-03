@@ -198,9 +198,6 @@ $result_errors{'inline_expand_tex'} = [
 ];
 
 
-$result_floats{'inline_expand_tex'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inline_expand_tex'} = ', , , , $\\underlinea < b ‘tex \\hbox code ’$ "
 

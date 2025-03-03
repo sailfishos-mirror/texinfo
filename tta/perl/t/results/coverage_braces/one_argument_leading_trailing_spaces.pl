@@ -124,9 +124,6 @@ $result_errors{'one_argument_leading_trailing_spaces'} = [
 ];
 
 
-$result_floats{'one_argument_leading_trailing_spaces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'one_argument_leading_trailing_spaces'} = '‘ in code ’ in slanted VAR _{ sub } ‘ http://example.com ’ ሴ  w   verb .
 e ̂ a ̊ i bb ͡ å ...

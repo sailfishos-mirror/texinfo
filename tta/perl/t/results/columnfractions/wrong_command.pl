@@ -61,9 +61,6 @@ $result_errors{'wrong_command'} = [
 ];
 
 
-$result_floats{'wrong_command'} = {};
-
-
 
 $result_converted{'html_text'}->{'wrong_command'} = '';
 

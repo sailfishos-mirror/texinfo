@@ -1,5 +1,10 @@
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): do not output floats information if
+	there is no float.
+
+2025-03-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/separator.c (handle_comma),
 	tta/perl/Texinfo/ParserNonXS.pm (_handle_comma): do not add format
 	extra infromation for @*inline if the first argument is empty.

@@ -179,7 +179,4 @@ now second arg: jj T
 $result_errors{'call_macro_in_linemacro_call'} = [];
 
 
-$result_floats{'call_macro_in_linemacro_call'} = {};
-
-
 1;

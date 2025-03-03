@@ -125,7 +125,4 @@ $result_texts{'htmlxref_no_urlprefix_first'} = 'top
 $result_errors{'htmlxref_no_urlprefix_first'} = [];
 
 
-$result_floats{'htmlxref_no_urlprefix_first'} = {};
-
-
 1;

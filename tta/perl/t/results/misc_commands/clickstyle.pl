@@ -62,7 +62,4 @@ A == (equiv no space)
 $result_errors{'clickstyle'} = [];
 
 
-$result_floats{'clickstyle'} = {};
-
-
 1;

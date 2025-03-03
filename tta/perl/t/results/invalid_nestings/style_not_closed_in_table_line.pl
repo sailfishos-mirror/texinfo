@@ -86,7 +86,4 @@ $result_errors{'style_not_closed_in_table_line'} = [
 ];
 
 
-$result_floats{'style_not_closed_in_table_line'} = {};
-
-
 1;

@@ -116,7 +116,4 @@ $result_indices{'print_merged_index'} = {
 };
 
 
-$result_floats{'print_merged_index'} = {};
-
-
 1;

@@ -618,7 +618,4 @@ Second chapter
 $result_errors{'raiselowersections'} = [];
 
 
-$result_floats{'raiselowersections'} = {};
-
-
 1;

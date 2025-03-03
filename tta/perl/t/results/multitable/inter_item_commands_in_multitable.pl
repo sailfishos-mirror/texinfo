@@ -296,9 +296,6 @@ $result_errors{'inter_item_commands_in_multitable'} = [
 ];
 
 
-$result_floats{'inter_item_commands_in_multitable'} = {};
-
-
 $result_indices_sort_strings{'inter_item_commands_in_multitable'} = {
   'cp' => [
     'cindex',

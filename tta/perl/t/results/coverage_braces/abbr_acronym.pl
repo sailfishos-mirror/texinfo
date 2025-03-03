@@ -90,9 +90,6 @@ E\'-a. ,A.
 $result_errors{'abbr_acronym'} = [];
 
 
-$result_floats{'abbr_acronym'} = {};
-
-
 
 $result_converted{'plaintext'}->{'abbr_acronym'} = '-a (an accronym) -a -a (an accronym , ...)
 

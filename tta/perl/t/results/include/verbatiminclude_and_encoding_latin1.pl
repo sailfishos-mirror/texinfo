@@ -48,9 +48,6 @@ $result_texts{'verbatiminclude_and_encoding_latin1'} = '
 $result_errors{'verbatiminclude_and_encoding_latin1'} = [];
 
 
-$result_floats{'verbatiminclude_and_encoding_latin1'} = {};
-
-
 
 $result_converted{'plaintext'}->{'verbatiminclude_and_encoding_latin1'} = 'é
 ';

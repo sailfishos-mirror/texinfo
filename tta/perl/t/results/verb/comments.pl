@@ -43,7 +43,4 @@ something  in verb ';
 $result_errors{'comments'} = [];
 
 
-$result_floats{'comments'} = {};
-
-
 1;

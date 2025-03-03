@@ -743,9 +743,6 @@ braced i--tem in example
 $result_errors{'kbdinputstyle_in_table'} = [];
 
 
-$result_floats{'kbdinputstyle_in_table'} = {};
-
-
 
 $result_converted{'plaintext'}->{'kbdinputstyle_in_table'} = '@kbdinputstyle code
 

@@ -80,7 +80,4 @@ $result_errors{'text_between_item_itemx'} = [
 ];
 
 
-$result_floats{'text_between_item_itemx'} = {};
-
-
 1;

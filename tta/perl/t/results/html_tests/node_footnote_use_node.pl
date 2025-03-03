@@ -347,9 +347,6 @@ Footnote 3.
 $result_errors{'node_footnote_use_node'} = [];
 
 
-$result_floats{'node_footnote_use_node'} = {};
-
-
 $result_converted_errors{'file_html'}->{'node_footnote_use_node'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

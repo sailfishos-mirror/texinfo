@@ -50,9 +50,6 @@ Some text.
 $result_errors{'empty_lines_at_beginning_no_setfilename_no_element'} = [];
 
 
-$result_floats{'empty_lines_at_beginning_no_setfilename_no_element'} = {};
-
-
 
 $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename_no_element'} = '<!DOCTYPE html>
 <html>

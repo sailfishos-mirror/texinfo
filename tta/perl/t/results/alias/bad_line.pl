@@ -76,7 +76,4 @@ $result_errors{'bad_line'} = [
 ];
 
 
-$result_floats{'bad_line'} = {};
-
-
 1;

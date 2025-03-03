@@ -57,9 +57,6 @@ a
 $result_errors{'note_in_strong_end_of_line'} = [];
 
 
-$result_floats{'note_in_strong_end_of_line'} = {};
-
-
 
 $result_converted{'info'}->{'note_in_strong_end_of_line'} = 'This is , produced from .
 

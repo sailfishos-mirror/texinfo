@@ -36,7 +36,4 @@ $result_errors{'displaymath_not_closed'} = [
 ];
 
 
-$result_floats{'displaymath_not_closed'} = {};
-
-
 1;

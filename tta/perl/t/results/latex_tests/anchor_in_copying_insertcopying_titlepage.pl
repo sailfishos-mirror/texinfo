@@ -204,9 +204,6 @@ a in titlepage.
 $result_errors{'anchor_in_copying_insertcopying_titlepage'} = [];
 
 
-$result_floats{'anchor_in_copying_insertcopying_titlepage'} = {};
-
-
 
 $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage'} = '
 

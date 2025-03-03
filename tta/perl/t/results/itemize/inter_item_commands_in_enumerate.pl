@@ -420,9 +420,6 @@ Title
 $result_errors{'inter_item_commands_in_enumerate'} = [];
 
 
-$result_floats{'inter_item_commands_in_enumerate'} = {};
-
-
 $result_indices_sort_strings{'inter_item_commands_in_enumerate'} = {
   'cp' => [
     'another',

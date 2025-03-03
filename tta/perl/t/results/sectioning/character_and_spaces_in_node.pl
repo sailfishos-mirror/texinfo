@@ -199,9 +199,6 @@ $result_errors{'character_and_spaces_in_node'} = [
 ];
 
 
-$result_floats{'character_and_spaces_in_node'} = {};
-
-
 
 $result_converted{'info'}->{'character_and_spaces_in_node'} = 'This is , produced from .
 

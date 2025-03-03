@@ -71,9 +71,6 @@ asis in code . text. a dot before a emph open . and in emph.
 $result_errors{'punctuation_at_end_command'} = [];
 
 
-$result_floats{'punctuation_at_end_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_at_end_command'} = 'Text.  Email .  <.> dmn 1. and text.  indicateurl ‘.’ and then kbd ‘.’
 and math . and cite ‘.’ and emph _._  text.  asis in code ‘.’ text.  a

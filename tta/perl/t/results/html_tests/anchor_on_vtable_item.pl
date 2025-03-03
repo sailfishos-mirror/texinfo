@@ -276,9 +276,6 @@ label1.
 $result_errors{'anchor_on_vtable_item'} = [];
 
 
-$result_floats{'anchor_on_vtable_item'} = {};
-
-
 $result_indices_sort_strings{'anchor_on_vtable_item'} = {
   'vr' => [
     'lab3',

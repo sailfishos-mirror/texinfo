@@ -120,7 +120,4 @@ $result_errors{'multiple_menus'} = [
 ];
 
 
-$result_floats{'multiple_menus'} = {};
-
-
 1;

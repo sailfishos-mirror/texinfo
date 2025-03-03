@@ -75,9 +75,6 @@ Text.
 $result_errors{'long_item'} = [];
 
 
-$result_floats{'long_item'} = {};
-
-
 
 $result_converted{'plaintext'}->{'long_item'} = '_first item aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa_
 _second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b_

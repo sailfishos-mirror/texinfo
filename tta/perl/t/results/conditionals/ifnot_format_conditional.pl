@@ -49,7 +49,4 @@ After.';
 $result_errors{'ifnot_format_conditional'} = [];
 
 
-$result_floats{'ifnot_format_conditional'} = {};
-
-
 1;

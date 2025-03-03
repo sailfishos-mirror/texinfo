@@ -72,9 +72,6 @@ $result_errors{'part_before_section'} = [
 ];
 
 
-$result_floats{'part_before_section'} = {};
-
-
 
 $result_converted{'html_text'}->{'part_before_section'} = '<div class="part-level-extent" id="part">
 <h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>

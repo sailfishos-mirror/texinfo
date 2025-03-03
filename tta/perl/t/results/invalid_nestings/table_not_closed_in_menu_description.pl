@@ -95,7 +95,4 @@ $result_errors{'table_not_closed_in_menu_description'} = [
 ];
 
 
-$result_floats{'table_not_closed_in_menu_description'} = {};
-
-
 1;

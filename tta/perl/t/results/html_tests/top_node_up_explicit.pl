@@ -172,9 +172,6 @@ Without the chapter, no up node from top is generated.
 $result_errors{'top_node_up_explicit'} = [];
 
 
-$result_floats{'top_node_up_explicit'} = {};
-
-
 
 $result_converted{'html'}->{'top_node_up_explicit'} = '<!DOCTYPE html>
 <html>

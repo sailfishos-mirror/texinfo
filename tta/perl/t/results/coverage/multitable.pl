@@ -192,9 +192,6 @@ $result_errors{'multitable'} = [
 ];
 
 
-$result_floats{'multitable'} = {};
-
-
 $result_indices_sort_strings{'multitable'} = {
   'cp' => [
     'index entry within multitable'

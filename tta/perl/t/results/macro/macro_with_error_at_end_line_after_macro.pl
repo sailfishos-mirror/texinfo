@@ -67,7 +67,4 @@ $result_errors{'macro_with_error_at_end_line_after_macro'} = [
 ];
 
 
-$result_floats{'macro_with_error_at_end_line_after_macro'} = {};
-
-
 1;

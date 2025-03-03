@@ -164,9 +164,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx no:de
 $result_errors{'del_quote_linebreaking'} = [];
 
 
-$result_floats{'del_quote_linebreaking'} = {};
-
-
 
 $result_converted{'info'}->{'del_quote_linebreaking'} = 'This is , produced from .
 

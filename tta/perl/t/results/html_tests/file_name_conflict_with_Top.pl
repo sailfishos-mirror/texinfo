@@ -107,9 +107,6 @@ $result_texts{'file_name_conflict_with_Top'} = 'top
 $result_errors{'file_name_conflict_with_Top'} = [];
 
 
-$result_floats{'file_name_conflict_with_Top'} = {};
-
-
 $result_converted_errors{'file_html'}->{'file_name_conflict_with_Top'} = [
   {
     'error_line' => 'warning: @anchor `index\' file index.html for redirection exists

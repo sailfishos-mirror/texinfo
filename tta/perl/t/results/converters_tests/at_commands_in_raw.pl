@@ -556,9 +556,6 @@ $result_errors{'at_commands_in_raw'} = [
 ];
 
 
-$result_floats{'at_commands_in_raw'} = {};
-
-
 $result_indices_sort_strings{'at_commands_in_raw'} = {
   'fn' => [
     'fentry2'

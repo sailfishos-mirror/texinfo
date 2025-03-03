@@ -136,9 +136,6 @@ in format in kbd.
 $result_errors{'kbd'} = [];
 
 
-$result_floats{'kbd'} = {};
-
-
 
 $result_converted{'plaintext'}->{'kbd'} = 'kbd: ‘in kbd’.
 

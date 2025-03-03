@@ -251,7 +251,4 @@ The chapter
 $result_errors{'double_contents_after_title_show_title_nodes'} = [];
 
 
-$result_floats{'double_contents_after_title_show_title_nodes'} = {};
-
-
 1;

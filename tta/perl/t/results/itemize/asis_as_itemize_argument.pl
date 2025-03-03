@@ -59,9 +59,6 @@ $result_errors{'asis_as_itemize_argument'} = [
 ];
 
 
-$result_floats{'asis_as_itemize_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'asis_as_itemize_argument'} = '     as is
 ';

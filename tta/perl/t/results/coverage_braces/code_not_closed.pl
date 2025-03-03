@@ -30,7 +30,4 @@ $result_errors{'code_not_closed'} = [
 ];
 
 
-$result_floats{'code_not_closed'} = {};
-
-
 1;

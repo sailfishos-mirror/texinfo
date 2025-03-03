@@ -574,9 +574,6 @@ $result_errors{'wrong_braces_simple'} = [
 ];
 
 
-$result_floats{'wrong_braces_simple'} = {};
-
-
 $result_indices_sort_strings{'wrong_braces_simple'} = {
   'fn' => [
     'b',

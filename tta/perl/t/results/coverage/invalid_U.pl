@@ -122,9 +122,6 @@ $result_errors{'invalid_U'} = [
 ];
 
 
-$result_floats{'invalid_U'} = {};
-
-
 
 $result_converted{'plaintext'}->{'invalid_U'} = 'U+z ઼ U+9999999999999 U+110000 U+10FFFF # � U+wxyz
 ';

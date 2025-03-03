@@ -300,9 +300,6 @@ a
 $result_errors{'check_htmlxref_ignore_ref_top_up'} = [];
 
 
-$result_floats{'check_htmlxref_ignore_ref_top_up'} = {};
-
-
 
 $result_converted{'html'}->{'check_htmlxref_ignore_ref_top_up'} = '<!DOCTYPE html>
 <html>

@@ -78,7 +78,4 @@ $result_indices{'wrong_synindex'} = {
 };
 
 
-$result_floats{'wrong_synindex'} = {};
-
-
 1;

@@ -84,7 +84,4 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
 ];
 
 
-$result_floats{'invalid_command_and_brace_in_table'} = {};
-
-
 1;

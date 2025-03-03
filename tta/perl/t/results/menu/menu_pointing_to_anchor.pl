@@ -110,9 +110,6 @@ Text
 $result_errors{'menu_pointing_to_anchor'} = [];
 
 
-$result_floats{'menu_pointing_to_anchor'} = {};
-
-
 
 $result_converted{'plaintext'}->{'menu_pointing_to_anchor'} = 'top
 ***

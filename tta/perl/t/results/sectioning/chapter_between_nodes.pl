@@ -187,9 +187,6 @@ section.
 $result_errors{'chapter_between_nodes'} = [];
 
 
-$result_floats{'chapter_between_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'chapter_between_nodes'} = 'This is , produced from chapter_between_nodes.texi.
 

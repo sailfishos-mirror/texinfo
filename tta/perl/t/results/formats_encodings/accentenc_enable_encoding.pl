@@ -629,9 +629,6 @@ should be dotless j": j"
 $result_errors{'accentenc_enable_encoding'} = [];
 
 
-$result_floats{'accentenc_enable_encoding'} = {};
-
-
 
 $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
 <div class="top-level-extent" id="first">

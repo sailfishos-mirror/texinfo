@@ -57,7 +57,4 @@ $result_errors{'node_in_copying'} = [
 ];
 
 
-$result_floats{'node_in_copying'} = {};
-
-
 1;

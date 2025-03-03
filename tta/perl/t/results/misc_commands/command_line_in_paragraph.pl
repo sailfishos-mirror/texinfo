@@ -38,7 +38,4 @@ line following documentlanguage
 $result_errors{'command_line_in_paragraph'} = [];
 
 
-$result_floats{'command_line_in_paragraph'} = {};
-
-
 1;

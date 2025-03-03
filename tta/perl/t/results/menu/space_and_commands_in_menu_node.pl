@@ -311,9 +311,6 @@ $result_errors{'space_and_commands_in_menu_node'} = [
 ];
 
 
-$result_floats{'space_and_commands_in_menu_node'} = {};
-
-
 
 $result_converted{'plaintext'}->{'space_and_commands_in_menu_node'} = 'top
 ***

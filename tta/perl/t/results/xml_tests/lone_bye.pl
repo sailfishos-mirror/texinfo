@@ -21,9 +21,6 @@ $result_texts{'lone_bye'} = '';
 $result_errors{'lone_bye'} = [];
 
 
-$result_floats{'lone_bye'} = {};
-
-
 
 $result_converted{'xml'}->{'lone_bye'} = '<bye></bye>
 ';

@@ -172,9 +172,6 @@ Third para after third paragraphindent.
 $result_errors{'two_paragraphindent_in_preamble_and_in_document'} = [];
 
 
-$result_floats{'two_paragraphindent_in_preamble_and_in_document'} = {};
-
-
 
 $result_converted{'info'}->{'two_paragraphindent_in_preamble_and_in_document'} = 'This is , produced from .
 

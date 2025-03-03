@@ -64,9 +64,6 @@ emph emph2 .
 $result_errors{'anchor_in_command'} = [];
 
 
-$result_floats{'anchor_in_command'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_in_command'} = 'This is , produced from .
 

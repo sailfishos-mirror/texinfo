@@ -164,9 +164,6 @@ a in copying
 $result_errors{'anchor_in_copying_insertcopying_chap'} = [];
 
 
-$result_floats{'anchor_in_copying_insertcopying_chap'} = {};
-
-
 
 $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_chap'} = '
 \\begin{document}

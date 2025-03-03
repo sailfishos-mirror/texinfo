@@ -314,9 +314,6 @@ $result_errors{'contain_plain_text_nestings'} = [
 ];
 
 
-$result_floats{'contain_plain_text_nestings'} = {};
-
-
 $result_indices_sort_strings{'contain_plain_text_nestings'} = {
   'cp' => [
     ' text',

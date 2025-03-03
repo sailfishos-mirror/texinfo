@@ -307,9 +307,6 @@ A.1 appendixsec
 $result_errors{'sectioning_part_appendix_no_top'} = [];
 
 
-$result_floats{'sectioning_part_appendix_no_top'} = {};
-
-
 
 $result_converted{'xml'}->{'sectioning_part_appendix_no_top'} = '<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 

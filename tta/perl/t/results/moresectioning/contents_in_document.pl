@@ -85,7 +85,4 @@ $result_texts{'contents_in_document'} = 'contents in document
 $result_errors{'contents_in_document'} = [];
 
 
-$result_floats{'contents_in_document'} = {};
-
-
 1;

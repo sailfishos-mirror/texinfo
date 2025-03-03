@@ -63,9 +63,6 @@ Texinfo modules documentation
 $result_errors{'top_node_top_contents'} = [];
 
 
-$result_floats{'top_node_top_contents'} = {};
-
-
 
 $result_converted{'html_text'}->{'top_node_top_contents'} = '
 <div class="top-level-extent" id="Top">

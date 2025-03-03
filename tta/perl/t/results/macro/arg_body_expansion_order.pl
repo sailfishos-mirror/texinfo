@@ -122,7 +122,4 @@ different
 $result_errors{'arg_body_expansion_order'} = [];
 
 
-$result_floats{'arg_body_expansion_order'} = {};
-
-
 1;

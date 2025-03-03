@@ -45,7 +45,4 @@ $result_texts{'not_set'} = '';
 $result_errors{'not_set'} = [];
 
 
-$result_floats{'not_set'} = {};
-
-
 1;

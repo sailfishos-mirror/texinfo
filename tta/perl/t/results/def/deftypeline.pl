@@ -96,9 +96,6 @@ $result_texts{'deftypeline'} = 'Function: long int foo (int bar, int baz)
 $result_errors{'deftypeline'} = [];
 
 
-$result_floats{'deftypeline'} = {};
-
-
 
 $result_converted{'plaintext'}->{'deftypeline'} = ' -- Function: long int foo (int BAR, int BAZ)
      ...

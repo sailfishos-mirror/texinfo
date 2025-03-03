@@ -347,9 +347,6 @@ Footnote 3.
 $result_errors{'node_footnote_separated'} = [];
 
 
-$result_floats{'node_footnote_separated'} = {};
-
-
 $result_converted_errors{'file_html'}->{'node_footnote_separated'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

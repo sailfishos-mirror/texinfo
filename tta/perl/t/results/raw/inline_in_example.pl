@@ -104,9 +104,6 @@ in <i>HTML</i>.
 $result_errors{'inline_in_example'} = [];
 
 
-$result_floats{'inline_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inline_in_example'} = '     A plaintext
 

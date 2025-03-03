@@ -939,9 +939,6 @@ Now include file
 $result_errors{'custom_heading_with_include_in_command'} = [];
 
 
-$result_floats{'custom_heading_with_include_in_command'} = {};
-
-
 
 $result_converted{'latex_text'}->{'custom_heading_with_include_in_command'} = '\\pagestyle{double}%
 \\newpagestyle{custom}{%

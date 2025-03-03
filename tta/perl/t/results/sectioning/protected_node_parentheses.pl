@@ -148,9 +148,6 @@ top
 $result_errors{'protected_node_parentheses'} = [];
 
 
-$result_floats{'protected_node_parentheses'} = {};
-
-
 
 $result_converted{'info'}->{'protected_node_parentheses'} = 'This is , produced from .
 

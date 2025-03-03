@@ -150,9 +150,6 @@ $result_errors{'unknown_region'} = [
 ];
 
 
-$result_floats{'unknown_region'} = {};
-
-
 $result_indices_sort_strings{'unknown_region'} = {
   'vr' => [
     'BBB de AAA'

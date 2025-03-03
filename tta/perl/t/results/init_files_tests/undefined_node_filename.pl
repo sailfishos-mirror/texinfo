@@ -60,9 +60,6 @@ $result_errors{'undefined_node_filename'} = [
 ];
 
 
-$result_floats{'undefined_node_filename'} = {};
-
-
 $result_converted_errors{'file_html'}->{'undefined_node_filename'} = [
   {
     'error_line' => 'warning: user-defined node file name not set for `chap-Other.html\'

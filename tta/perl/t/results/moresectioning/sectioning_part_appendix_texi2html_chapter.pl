@@ -253,7 +253,4 @@ A.1 appendixsec
 $result_errors{'sectioning_part_appendix_texi2html_chapter'} = [];
 
 
-$result_floats{'sectioning_part_appendix_texi2html_chapter'} = {};
-
-
 1;

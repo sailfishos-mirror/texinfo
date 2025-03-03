@@ -48,9 +48,6 @@ $result_errors{'empty'} = [
 ];
 
 
-$result_floats{'empty'} = {};
-
-
 
 $result_converted{'html_text'}->{'empty'} = '';
 

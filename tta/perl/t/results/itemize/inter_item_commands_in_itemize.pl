@@ -290,9 +290,6 @@ $result_errors{'inter_item_commands_in_itemize'} = [
 ];
 
 
-$result_floats{'inter_item_commands_in_itemize'} = {};
-
-
 $result_indices_sort_strings{'inter_item_commands_in_itemize'} = {
   'cp' => [
     'also a cindex in itemize',

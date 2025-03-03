@@ -101,9 +101,6 @@ $result_texts{'footnote_in_center'} = 'Centered text with a footnote and text af
 $result_errors{'footnote_in_center'} = [];
 
 
-$result_floats{'footnote_in_center'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_in_center'} = '     Centered text with a footnote(1) and text after the footnote.
 

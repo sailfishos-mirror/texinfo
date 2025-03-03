@@ -140,9 +140,6 @@ in first column, verbatim
 $result_errors{'verbatim_in_multitable_in_example'} = [];
 
 
-$result_floats{'verbatim_in_multitable_in_example'} = {};
-
-
 
 $result_converted{'html'}->{'verbatim_in_multitable_in_example'} = '<!DOCTYPE html>
 <html>

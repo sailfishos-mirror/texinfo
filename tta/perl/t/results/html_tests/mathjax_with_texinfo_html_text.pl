@@ -78,9 +78,6 @@ Some a - b >= AA e^.
 $result_errors{'mathjax_with_texinfo_html_text'} = [];
 
 
-$result_floats{'mathjax_with_texinfo_html_text'} = {};
-
-
 
 $result_converted{'html_text'}->{'mathjax_with_texinfo_html_text'} = '<pre class="displaymath tex2jax_process">\\[a^{b - \\frac{\\xi}{phi \\copyright{}}} \\imath{}
 \\]</pre>

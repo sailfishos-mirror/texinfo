@@ -24,9 +24,6 @@ $result_texts{'empty_accent'} = '`
 $result_errors{'empty_accent'} = [];
 
 
-$result_floats{'empty_accent'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_accent'} = '̀
 ';

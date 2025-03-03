@@ -2407,9 +2407,6 @@ $result_errors{'index_table'} = [
 ];
 
 
-$result_floats{'index_table'} = {};
-
-
 $result_indices_sort_strings{'index_table'} = {
   'cp' => [
     ',oncept',

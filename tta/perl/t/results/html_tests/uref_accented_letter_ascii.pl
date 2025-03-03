@@ -48,9 +48,6 @@ http://example.com/acc_a"a;
 $result_errors{'uref_accented_letter_ascii'} = [];
 
 
-$result_floats{'uref_accented_letter_ascii'} = {};
-
-
 
 $result_converted{'html'}->{'uref_accented_letter_ascii'} = '<!DOCTYPE html>
 <html>

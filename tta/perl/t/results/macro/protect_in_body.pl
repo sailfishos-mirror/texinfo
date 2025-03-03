@@ -75,7 +75,4 @@ the result: f\\irst arg protected \\ -> \\arg1\\ second arg  after macro.
 $result_errors{'protect_in_body'} = [];
 
 
-$result_floats{'protect_in_body'} = {};
-
-
 1;

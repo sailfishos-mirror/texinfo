@@ -114,9 +114,6 @@ $result_errors{'setfilename'} = [
 ];
 
 
-$result_floats{'setfilename'} = {};
-
-
 
 $result_converted{'plaintext'}->{'setfilename'} = '';
 

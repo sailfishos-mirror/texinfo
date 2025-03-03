@@ -134,9 +134,6 @@ other item in tab
 $result_errors{'nested_multitable'} = [];
 
 
-$result_floats{'nested_multitable'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested_multitable'} = 'AAAA   machin        bidule
 other item           in tab

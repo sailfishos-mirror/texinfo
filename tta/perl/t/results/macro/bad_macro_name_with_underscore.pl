@@ -39,7 +39,4 @@ $result_texts{'bad_macro_name_with_underscore'} = '';
 $result_errors{'bad_macro_name_with_underscore'} = [];
 
 
-$result_floats{'bad_macro_name_with_underscore'} = {};
-
-
 1;

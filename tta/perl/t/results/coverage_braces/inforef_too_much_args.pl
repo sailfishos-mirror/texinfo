@@ -62,9 +62,6 @@ $result_errors{'inforef_too_much_args'} = [
 ];
 
 
-$result_floats{'inforef_too_much_args'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inforef_too_much_args'} = 'See cross ref name: (file name, spurious arg)chapter
 ';

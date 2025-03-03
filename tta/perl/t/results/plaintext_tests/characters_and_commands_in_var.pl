@@ -99,9 +99,6 @@ AAA
 $result_errors{'characters_and_commands_in_var'} = [];
 
 
-$result_floats{'characters_and_commands_in_var'} = {};
-
-
 
 $result_converted{'plaintext'}->{'characters_and_commands_in_var'} = 'AAA.  DLKSFJF ) .  (FDFDSFSD.  SQDQ,QDSDSQ.
 

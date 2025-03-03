@@ -253,9 +253,6 @@ $result_errors{'empty_string_index_entry'} = [
 ];
 
 
-$result_floats{'empty_string_index_entry'} = {};
-
-
 $result_indices_sort_strings{'empty_string_index_entry'} = {};
 
 

@@ -309,9 +309,6 @@ $result_errors{'cond_info'} = [
 ];
 
 
-$result_floats{'cond_info'} = {};
-
-
 
 $result_converted{'info'}->{'cond_info'} = 'This is , produced from cond.texi.
 

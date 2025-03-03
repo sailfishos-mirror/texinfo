@@ -98,7 +98,4 @@ $result_errors{'cpp_directives_in_macro'} = [
 ];
 
 
-$result_floats{'cpp_directives_in_macro'} = {};
-
-
 1;

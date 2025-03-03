@@ -143,9 +143,6 @@ $result_errors{'simple_documentlanguage'} = [
 ];
 
 
-$result_floats{'simple_documentlanguage'} = {};
-
-
 $result_indices_sort_strings{'simple_documentlanguage'} = {
   'vr' => [
     'BBB de AAA'

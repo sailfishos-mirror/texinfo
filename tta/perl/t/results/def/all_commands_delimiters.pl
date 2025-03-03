@@ -4087,9 +4087,6 @@ $result_errors{'all_commands_delimiters'} = [
 ];
 
 
-$result_floats{'all_commands_delimiters'} = {};
-
-
 $result_indices_sort_strings{'all_commands_delimiters'} = {
   'fn' => [
     ',expose on ,Window',

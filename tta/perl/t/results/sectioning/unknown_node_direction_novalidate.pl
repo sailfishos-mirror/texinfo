@@ -45,7 +45,4 @@ $result_texts{'unknown_node_direction_novalidate'} = '
 $result_errors{'unknown_node_direction_novalidate'} = [];
 
 
-$result_floats{'unknown_node_direction_novalidate'} = {};
-
-
 1;

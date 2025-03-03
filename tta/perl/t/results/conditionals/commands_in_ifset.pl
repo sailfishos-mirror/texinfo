@@ -79,7 +79,4 @@ $result_texts{'commands_in_ifset'} = '
 $result_errors{'commands_in_ifset'} = [];
 
 
-$result_floats{'commands_in_ifset'} = {};
-
-
 1;

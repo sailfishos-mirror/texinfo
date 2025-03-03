@@ -119,9 +119,6 @@ $result_errors{'menu_in_documentdescription'} = [
 ];
 
 
-$result_floats{'menu_in_documentdescription'} = {};
-
-
 
 $result_converted{'html'}->{'menu_in_documentdescription'} = '<!DOCTYPE html>
 <html>

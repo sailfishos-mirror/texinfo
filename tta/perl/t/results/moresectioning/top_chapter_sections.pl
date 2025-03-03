@@ -289,9 +289,6 @@ unnumbered
 $result_errors{'top_chapter_sections'} = [];
 
 
-$result_floats{'top_chapter_sections'} = {};
-
-
 
 $result_converted{'xml'}->{'top_chapter_sections'} = '<top spaces=" "><sectiontitle>top</sectiontitle>
 

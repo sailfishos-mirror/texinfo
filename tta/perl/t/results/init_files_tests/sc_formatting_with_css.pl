@@ -87,7 +87,4 @@ $result_errors{'sc_formatting_with_css'} = [
 ];
 
 
-$result_floats{'sc_formatting_with_css'} = {};
-
-
 1;

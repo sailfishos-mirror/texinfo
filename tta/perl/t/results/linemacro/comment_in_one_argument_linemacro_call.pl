@@ -71,7 +71,4 @@ next
 $result_errors{'comment_in_one_argument_linemacro_call'} = [];
 
 
-$result_floats{'comment_in_one_argument_linemacro_call'} = {};
-
-
 1;

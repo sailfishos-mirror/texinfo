@@ -77,9 +77,6 @@ $result_errors{'macro_replaced_by_definfoenclose'} = [
 ];
 
 
-$result_floats{'macro_replaced_by_definfoenclose'} = {};
-
-
 
 $result_converted{'plaintext'}->{'macro_replaced_by_definfoenclose'} = ';aa:
 ';

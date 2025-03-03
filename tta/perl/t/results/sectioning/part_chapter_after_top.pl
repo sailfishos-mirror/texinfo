@@ -174,9 +174,6 @@ part
 $result_errors{'part_chapter_after_top'} = [];
 
 
-$result_floats{'part_chapter_after_top'} = {};
-
-
 
 $result_converted{'info'}->{'part_chapter_after_top'} = 'This is , produced from .
 

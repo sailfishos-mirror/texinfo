@@ -425,9 +425,6 @@ error-->
 $result_errors{'multiple_documentlanguage'} = [];
 
 
-$result_floats{'multiple_documentlanguage'} = {};
-
-
 $result_indices_sort_strings{'multiple_documentlanguage'} = {
   'vr' => [
     'a de copying',

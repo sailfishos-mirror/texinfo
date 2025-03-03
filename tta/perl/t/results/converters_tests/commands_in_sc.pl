@@ -237,9 +237,6 @@ C E AB (D)';
 $result_errors{'commands_in_sc'} = [];
 
 
-$result_floats{'commands_in_sc'} = {};
-
-
 
 $result_converted{'plaintext'}->{'commands_in_sc'} = 'commands in sc
 **************

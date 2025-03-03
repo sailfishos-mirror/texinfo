@@ -182,9 +182,6 @@ second node
 $result_errors{'explicit_node_directions'} = [];
 
 
-$result_floats{'explicit_node_directions'} = {};
-
-
 
 $result_converted{'info'}->{'explicit_node_directions'} = 'This is , produced from .
 

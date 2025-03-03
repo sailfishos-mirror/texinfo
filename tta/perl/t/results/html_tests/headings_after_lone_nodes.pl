@@ -599,9 +599,6 @@ should not be associated
 $result_errors{'headings_after_lone_nodes'} = [];
 
 
-$result_floats{'headings_after_lone_nodes'} = {};
-
-
 
 $result_converted{'html'}->{'headings_after_lone_nodes'} = '<!DOCTYPE html>
 <html>

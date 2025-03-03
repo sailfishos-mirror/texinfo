@@ -229,7 +229,4 @@ Chapter
 $result_errors{'regenerate_master_menu_with_menu_comment'} = [];
 
 
-$result_floats{'regenerate_master_menu_with_menu_comment'} = {};
-
-
 1;

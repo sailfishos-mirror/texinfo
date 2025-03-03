@@ -74,9 +74,6 @@ for example
 $result_errors{'no_argument_and_contents'} = [];
 
 
-$result_floats{'no_argument_and_contents'} = {};
-
-
 
 $result_converted{'plaintext'}->{'no_argument_and_contents'} = 'for example
 1 

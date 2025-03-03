@@ -95,9 +95,6 @@ Hey ((m) in pxref) and continue ((m) in pxref) and end.
 $result_errors{'pxref_test'} = [];
 
 
-$result_floats{'pxref_test'} = {};
-
-
 
 $result_converted{'info'}->{'pxref_test'} = 'This is , produced from .
 

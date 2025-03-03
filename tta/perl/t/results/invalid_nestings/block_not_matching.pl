@@ -332,9 +332,6 @@ $result_errors{'block_not_matching'} = [
 ];
 
 
-$result_floats{'block_not_matching'} = {};
-
-
 $result_indices_sort_strings{'block_not_matching'} = {
   'fn' => [
     'print_navigation'

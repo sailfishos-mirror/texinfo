@@ -55,9 +55,6 @@ $result_texts{'one_subsection_and_node'} = '1 The subsection
 $result_errors{'one_subsection_and_node'} = [];
 
 
-$result_floats{'one_subsection_and_node'} = {};
-
-
 
 $result_converted{'info'}->{'one_subsection_and_node'} = 'This is , produced from .
 

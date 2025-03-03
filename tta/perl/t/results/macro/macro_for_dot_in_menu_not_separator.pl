@@ -91,7 +91,4 @@ $result_texts{'macro_for_dot_in_menu_not_separator'} = '
 $result_errors{'macro_for_dot_in_menu_not_separator'} = [];
 
 
-$result_floats{'macro_for_dot_in_menu_not_separator'} = {};
-
-
 1;

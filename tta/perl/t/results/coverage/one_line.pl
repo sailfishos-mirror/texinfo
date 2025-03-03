@@ -23,9 +23,6 @@ $result_texts{'one_line'} = 'AB
 $result_errors{'one_line'} = [];
 
 
-$result_floats{'one_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'one_line'} = 'AB
 ';

@@ -26,7 +26,4 @@ $result_errors{'lone_end_itemize'} = [
 ];
 
 
-$result_floats{'lone_end_itemize'} = {};
-
-
 1;

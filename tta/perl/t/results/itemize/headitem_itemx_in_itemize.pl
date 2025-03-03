@@ -81,7 +81,4 @@ $result_errors{'headitem_itemx_in_itemize'} = [
 ];
 
 
-$result_floats{'headitem_itemx_in_itemize'} = {};
-
-
 1;

@@ -95,9 +95,6 @@ $result_texts{'info_js_dir_html_text'} = 'top
 $result_errors{'info_js_dir_html_text'} = [];
 
 
-$result_floats{'info_js_dir_html_text'} = {};
-
-
 
 $result_converted{'html_text'}->{'info_js_dir_html_text'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>

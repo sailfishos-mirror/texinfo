@@ -62,9 +62,6 @@ $result_errors{'prototype_no_brace'} = [
 ];
 
 
-$result_floats{'prototype_no_brace'} = {};
-
-
 
 $result_converted{'plaintext'}->{'prototype_no_brace'} = '';
 

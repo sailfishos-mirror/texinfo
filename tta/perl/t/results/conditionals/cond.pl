@@ -309,9 +309,6 @@ $result_errors{'cond'} = [
 ];
 
 
-$result_floats{'cond'} = {};
-
-
 
 $result_converted{'html'}->{'cond'} = '<!DOCTYPE html>
 <html>

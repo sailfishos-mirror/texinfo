@@ -22,7 +22,4 @@ $result_texts{'clear_no_end_of_line'} = '';
 $result_errors{'clear_no_end_of_line'} = [];
 
 
-$result_floats{'clear_no_end_of_line'} = {};
-
-
 1;

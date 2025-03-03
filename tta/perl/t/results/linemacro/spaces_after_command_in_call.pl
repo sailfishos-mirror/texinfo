@@ -141,7 +141,4 @@ category: d A b* B rest
 $result_errors{'spaces_after_command_in_call'} = [];
 
 
-$result_floats{'spaces_after_command_in_call'} = {};
-
-
 1;

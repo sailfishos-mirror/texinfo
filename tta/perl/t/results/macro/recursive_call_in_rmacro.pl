@@ -661,7 +661,4 @@ $result_errors{'recursive_call_in_rmacro'} = [
 ];
 
 
-$result_floats{'recursive_call_in_rmacro'} = {};
-
-
 1;

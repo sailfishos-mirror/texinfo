@@ -78,9 +78,6 @@ $result_errors{'ref_to_top'} = [
 ];
 
 
-$result_floats{'ref_to_top'} = {};
-
-
 
 $result_converted{'info'}->{'ref_to_top'} = 'This is , produced from .
 

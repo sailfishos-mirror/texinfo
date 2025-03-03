@@ -160,7 +160,4 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
 ];
 
 
-$result_floats{'multitable_one_column_too_much_cells'} = {};
-
-
 1;

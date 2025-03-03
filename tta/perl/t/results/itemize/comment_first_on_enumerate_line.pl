@@ -51,9 +51,6 @@ $result_texts{'comment_first_on_enumerate_line'} = '1. first
 $result_errors{'comment_first_on_enumerate_line'} = [];
 
 
-$result_floats{'comment_first_on_enumerate_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'comment_first_on_enumerate_line'} = '  1. first
 ';

@@ -142,9 +142,6 @@ in chap
 $result_errors{'titlepage_in_top_node'} = [];
 
 
-$result_floats{'titlepage_in_top_node'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
 

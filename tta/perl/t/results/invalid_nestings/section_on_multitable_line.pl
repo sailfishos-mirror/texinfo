@@ -206,9 +206,6 @@ $result_errors{'section_on_multitable_line'} = [
 ];
 
 
-$result_floats{'section_on_multitable_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_on_multitable_line'} = '1 first
 =======

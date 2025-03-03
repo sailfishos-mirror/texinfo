@@ -741,9 +741,6 @@ $result_errors{'quote_node_names_info'} = [
 ];
 
 
-$result_floats{'quote_node_names_info'} = {};
-
-
 $result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
   {
     'error_line' => 'warning: `.\' or `,\' must follow @xref

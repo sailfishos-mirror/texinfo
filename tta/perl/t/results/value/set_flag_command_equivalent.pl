@@ -60,7 +60,4 @@ $result_texts{'set_flag_command_equivalent'} = '
 $result_errors{'set_flag_command_equivalent'} = [];
 
 
-$result_floats{'set_flag_command_equivalent'} = {};
-
-
 1;

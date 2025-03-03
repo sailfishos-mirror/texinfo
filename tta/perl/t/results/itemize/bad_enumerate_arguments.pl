@@ -194,7 +194,4 @@ $result_errors{'bad_enumerate_arguments'} = [
 ];
 
 
-$result_floats{'bad_enumerate_arguments'} = {};
-
-
 1;

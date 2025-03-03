@@ -47,9 +47,6 @@ after empty line
 $result_errors{'empty_line'} = [];
 
 
-$result_floats{'empty_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_line'} = '     example
 

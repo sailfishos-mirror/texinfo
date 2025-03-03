@@ -46,7 +46,4 @@ $result_errors{'menu_no_closed_in_description'} = [
 ];
 
 
-$result_floats{'menu_no_closed_in_description'} = {};
-
-
 1;

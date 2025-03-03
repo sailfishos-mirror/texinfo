@@ -310,9 +310,6 @@ $result_errors{'next_in_menu_is_below'} = [
 ];
 
 
-$result_floats{'next_in_menu_is_below'} = {};
-
-
 
 $result_converted{'info'}->{'next_in_menu_is_below'} = 'This is , produced from .
 

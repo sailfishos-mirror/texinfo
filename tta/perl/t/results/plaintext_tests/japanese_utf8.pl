@@ -327,7 +327,4 @@ GNU LilyPond -- 学習マニュアル
 $result_errors{'japanese_utf8'} = [];
 
 
-$result_floats{'japanese_utf8'} = {};
-
-
 1;

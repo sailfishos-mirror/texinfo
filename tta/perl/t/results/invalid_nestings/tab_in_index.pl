@@ -102,9 +102,6 @@ $result_errors{'tab_in_index'} = [
 ];
 
 
-$result_floats{'tab_in_index'} = {};
-
-
 $result_indices_sort_strings{'tab_in_index'} = {
   'vr' => [
     'in index entry in tab'

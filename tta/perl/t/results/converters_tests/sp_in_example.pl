@@ -140,9 +140,6 @@ sp after para
 $result_errors{'sp_in_example'} = [];
 
 
-$result_floats{'sp_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sp_in_example'} = '     Para
 

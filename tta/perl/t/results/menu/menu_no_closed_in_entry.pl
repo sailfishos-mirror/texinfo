@@ -39,7 +39,4 @@ $result_errors{'menu_no_closed_in_entry'} = [
 ];
 
 
-$result_floats{'menu_no_closed_in_entry'} = {};
-
-
 1;

@@ -120,7 +120,4 @@ $result_errors{'table_on_item_line'} = [
 ];
 
 
-$result_floats{'table_on_item_line'} = {};
-
-
 1;

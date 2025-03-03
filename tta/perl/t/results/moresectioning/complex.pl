@@ -1151,7 +1151,4 @@ $result_errors{'complex'} = [
 ];
 
 
-$result_floats{'complex'} = {};
-
-
 1;

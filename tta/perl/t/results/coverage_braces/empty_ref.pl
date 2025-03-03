@@ -96,7 +96,4 @@ $result_errors{'empty_ref'} = [
 ];
 
 
-$result_floats{'empty_ref'} = {};
-
-
 1;

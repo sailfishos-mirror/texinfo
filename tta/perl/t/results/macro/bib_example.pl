@@ -1396,7 +1396,4 @@ $result_errors{'bib_example'} = [
 ];
 
 
-$result_floats{'bib_example'} = {};
-
-
 1;

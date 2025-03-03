@@ -193,9 +193,6 @@ chap.
 $result_errors{'test_xrefautomaticsectiontitle_off_first'} = [];
 
 
-$result_floats{'test_xrefautomaticsectiontitle_off_first'} = {};
-
-
 
 $result_converted{'html'}->{'test_xrefautomaticsectiontitle_off_first'} = '<!DOCTYPE html>
 <html>

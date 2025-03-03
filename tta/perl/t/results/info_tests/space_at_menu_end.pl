@@ -82,9 +82,6 @@ A para.
 $result_errors{'space_at_menu_end'} = [];
 
 
-$result_floats{'space_at_menu_end'} = {};
-
-
 
 $result_converted{'info'}->{'space_at_menu_end'} = 'This is , produced from .
 

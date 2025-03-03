@@ -136,9 +136,6 @@ $result_errors{'beginning_and_end_on_line'} = [
 ];
 
 
-$result_floats{'beginning_and_end_on_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'beginning_and_end_on_line'} = '';
 

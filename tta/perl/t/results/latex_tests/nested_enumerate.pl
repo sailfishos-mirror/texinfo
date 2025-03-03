@@ -182,9 +182,6 @@ $result_texts{'nested_enumerate'} = '1. First level item
 $result_errors{'nested_enumerate'} = [];
 
 
-$result_floats{'nested_enumerate'} = {};
-
-
 
 $result_converted{'latex_text'}->{'nested_enumerate'} = '\\begin{document}
 \\begin{enumerate}[start=1]

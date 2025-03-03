@@ -54,7 +54,4 @@ $result_errors{'node_too_much_args'} = [
 ];
 
 
-$result_floats{'node_too_much_args'} = {};
-
-
 1;

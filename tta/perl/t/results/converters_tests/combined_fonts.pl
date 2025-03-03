@@ -348,7 +348,4 @@ c--ite in example
 $result_errors{'combined_fonts'} = [];
 
 
-$result_floats{'combined_fonts'} = {};
-
-
 1;

@@ -81,7 +81,4 @@ $result_errors{'double_copying'} = [
 ];
 
 
-$result_floats{'double_copying'} = {};
-
-
 1;

@@ -179,9 +179,6 @@ Appendix A App
 $result_errors{'directions_buttons_buttons'} = [];
 
 
-$result_floats{'directions_buttons_buttons'} = {};
-
-
 $result_indices_sort_strings{'directions_buttons_buttons'} = {
   'cp' => [
     'Here'

@@ -79,7 +79,4 @@ $result_errors{'ignore_in_xref'} = [
 ];
 
 
-$result_floats{'ignore_in_xref'} = {};
-
-
 1;

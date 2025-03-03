@@ -86,7 +86,4 @@ Again with space . After.
 $result_errors{'macro_inlineifcond_end_in_empty_set'} = [];
 
 
-$result_floats{'macro_inlineifcond_end_in_empty_set'} = {};
-
-
 1;

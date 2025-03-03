@@ -28,7 +28,4 @@ $result_texts{'nested'} = 'in b  in verb { }  in b end';
 $result_errors{'nested'} = [];
 
 
-$result_floats{'nested'} = {};
-
-
 1;

@@ -56,9 +56,6 @@ $result_errors{'no_brace'} = [
 ];
 
 
-$result_floats{'no_brace'} = {};
-
-
 
 $result_converted{'html_text'}->{'no_brace'} = '<p>TeXand code and footnote </p>';
 

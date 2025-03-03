@@ -118,7 +118,4 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
 ];
 
 
-$result_floats{'direntry_dircategory_after_first_node'} = {};
-
-
 1;

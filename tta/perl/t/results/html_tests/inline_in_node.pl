@@ -154,7 +154,4 @@ $result_texts{'inline_in_node'} = '
 $result_errors{'inline_in_node'} = [];
 
 
-$result_floats{'inline_in_node'} = {};
-
-
 1;

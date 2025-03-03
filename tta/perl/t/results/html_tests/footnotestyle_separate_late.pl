@@ -208,7 +208,4 @@ $result_texts{'footnotestyle_separate_late'} = 'top
 $result_errors{'footnotestyle_separate_late'} = [];
 
 
-$result_floats{'footnotestyle_separate_late'} = {};
-
-
 1;

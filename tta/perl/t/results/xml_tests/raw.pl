@@ -71,9 +71,6 @@ Para
 $result_errors{'raw'} = [];
 
 
-$result_floats{'raw'} = {};
-
-
 
 $result_converted{'xml'}->{'raw'} = '<tex endspaces=" ">
 in &lt;tex&gt;

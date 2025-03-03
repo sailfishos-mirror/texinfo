@@ -71,9 +71,6 @@ $result_texts{'second_level_lone_braces_in_html_not_expanded'} = '
 $result_errors{'second_level_lone_braces_in_html_not_expanded'} = [];
 
 
-$result_floats{'second_level_lone_braces_in_html_not_expanded'} = {};
-
-
 
 $result_converted{'plaintext'}->{'second_level_lone_braces_in_html_not_expanded'} = '';
 

@@ -90,7 +90,4 @@ $result_errors{'menu_in_style_command'} = [
 ];
 
 
-$result_floats{'menu_in_style_command'} = {};
-
-
 1;

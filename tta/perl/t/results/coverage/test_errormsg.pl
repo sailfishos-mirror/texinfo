@@ -61,9 +61,6 @@ $result_errors{'test_errormsg'} = [
 ];
 
 
-$result_floats{'test_errormsg'} = {};
-
-
 
 $result_converted{'plaintext'}->{'test_errormsg'} = 'Some text
 ';

@@ -105,7 +105,4 @@ $result_errors{'clickstyle_and_comments'} = [
 ];
 
 
-$result_floats{'clickstyle_and_comments'} = {};
-
-
 1;

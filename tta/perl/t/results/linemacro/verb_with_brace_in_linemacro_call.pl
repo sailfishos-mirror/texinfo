@@ -75,7 +75,4 @@ $result_texts{'verb_with_brace_in_linemacro_call'} = '
 $result_errors{'verb_with_brace_in_linemacro_call'} = [];
 
 
-$result_floats{'verb_with_brace_in_linemacro_call'} = {};
-
-
 1;

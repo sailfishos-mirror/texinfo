@@ -104,9 +104,6 @@ $result_texts{'xref_test'} = '
 $result_errors{'xref_test'} = [];
 
 
-$result_floats{'xref_test'} = {};
-
-
 
 $result_converted{'info'}->{'xref_test'} = 'This is , produced from .
 

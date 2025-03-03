@@ -175,9 +175,6 @@ top
 $result_errors{'ref_in_copying'} = [];
 
 
-$result_floats{'ref_in_copying'} = {};
-
-
 
 $result_converted{'info'}->{'ref_in_copying'} = 'This is , produced from .
 

@@ -78,9 +78,6 @@ Some a - b >= AA e^.
 $result_errors{'mathjax_with_texinfo_no_convert_to_latex'} = [];
 
 
-$result_floats{'mathjax_with_texinfo_no_convert_to_latex'} = {};
-
-
 
 $result_converted{'html'}->{'mathjax_with_texinfo_no_convert_to_latex'} = '<!DOCTYPE html>
 <html>

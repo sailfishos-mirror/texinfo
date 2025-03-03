@@ -43,7 +43,4 @@ $result_errors{'end_of_line'} = [
 ];
 
 
-$result_floats{'end_of_line'} = {};
-
-
 1;

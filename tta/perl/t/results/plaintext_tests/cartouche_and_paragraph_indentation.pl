@@ -245,9 +245,6 @@ oo
 $result_errors{'cartouche_and_paragraph_indentation'} = [];
 
 
-$result_floats{'cartouche_and_paragraph_indentation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'cartouche_and_paragraph_indentation'} = 'top
 ***

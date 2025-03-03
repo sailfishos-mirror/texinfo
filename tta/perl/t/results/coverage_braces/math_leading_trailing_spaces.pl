@@ -25,7 +25,4 @@ $result_texts{'math_leading_trailing_spaces'} = 'a = b ';
 $result_errors{'math_leading_trailing_spaces'} = [];
 
 
-$result_floats{'math_leading_trailing_spaces'} = {};
-
-
 1;

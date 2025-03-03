@@ -258,9 +258,6 @@ $result_errors{'node_part_chapter_after_chapter'} = [
 ];
 
 
-$result_floats{'node_part_chapter_after_chapter'} = {};
-
-
 
 $result_converted{'plaintext'}->{'node_part_chapter_after_chapter'} = 'top
 ***

@@ -59,7 +59,4 @@ $result_errors{'alias_non_existing_command'} = [
 ];
 
 
-$result_floats{'alias_non_existing_command'} = {};
-
-
 1;

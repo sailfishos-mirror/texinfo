@@ -125,9 +125,6 @@ example
 $result_errors{'example_in_menu_description'} = [];
 
 
-$result_floats{'example_in_menu_description'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_in_menu_description'} = 'top
 ***

@@ -54,9 +54,6 @@ $result_texts{'nested_args'} = '@ in samp.';
 $result_errors{'nested_args'} = [];
 
 
-$result_floats{'nested_args'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nested_args'} = 'See descr in b: (‘manual’)@ in samp.
 ';

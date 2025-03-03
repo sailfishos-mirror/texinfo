@@ -59,9 +59,6 @@ $result_texts{'titlepage_and_setchapternewpage_odd'} = '
 $result_errors{'titlepage_and_setchapternewpage_odd'} = [];
 
 
-$result_floats{'titlepage_and_setchapternewpage_odd'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_odd'} = '\\pagestyle{double}%
 

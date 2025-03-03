@@ -41,7 +41,4 @@ $result_errors{'brace_opened_no_command'} = [
 ];
 
 
-$result_floats{'brace_opened_no_command'} = {};
-
-
 1;

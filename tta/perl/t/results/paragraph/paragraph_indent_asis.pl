@@ -72,9 +72,6 @@ in quotation
 $result_errors{'paragraph_indent_asis'} = [];
 
 
-$result_floats{'paragraph_indent_asis'} = {};
-
-
 
 $result_converted{'plaintext'}->{'paragraph_indent_asis'} = '  para fff
 

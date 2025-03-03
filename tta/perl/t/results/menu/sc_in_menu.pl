@@ -257,9 +257,6 @@ $result_errors{'sc_in_menu'} = [
 ];
 
 
-$result_floats{'sc_in_menu'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sc_in_menu'} = '* Menu:
 

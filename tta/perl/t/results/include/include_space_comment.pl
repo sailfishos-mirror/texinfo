@@ -41,7 +41,4 @@ $result_texts{'include_space_comment'} = 'In included file.
 $result_errors{'include_space_comment'} = [];
 
 
-$result_floats{'include_space_comment'} = {};
-
-
 1;

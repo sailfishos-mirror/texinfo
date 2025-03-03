@@ -110,7 +110,4 @@ second ||after arg
 $result_errors{'comment_on_linemacro_call_macro_expansion'} = [];
 
 
-$result_floats{'comment_on_linemacro_call_macro_expansion'} = {};
-
-
 1;

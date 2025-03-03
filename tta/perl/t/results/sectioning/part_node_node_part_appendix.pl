@@ -270,9 +270,6 @@ $result_errors{'part_node_node_part_appendix'} = [
 ];
 
 
-$result_floats{'part_node_node_part_appendix'} = {};
-
-
 
 $result_converted{'info'}->{'part_node_node_part_appendix'} = 'This is , produced from .
 

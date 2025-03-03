@@ -113,9 +113,6 @@ a
 $result_errors{'brace_commands_spaces_end_of_lines'} = [];
 
 
-$result_floats{'brace_commands_spaces_end_of_lines'} = {};
-
-
 
 $result_converted{'xml'}->{'brace_commands_spaces_end_of_lines'} = '<image><imagefile spaces="\\n">a</imagefile></image>
 

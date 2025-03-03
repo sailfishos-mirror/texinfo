@@ -561,9 +561,6 @@ Index
 $result_errors{'sample_utf8'} = [];
 
 
-$result_floats{'sample_utf8'} = {};
-
-
 $result_indices_sort_strings{'sample_utf8'} = {
   'cp' => [
     "\x{104}\x{118} ae \x{105}\x{119}",

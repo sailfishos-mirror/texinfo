@@ -988,9 +988,6 @@ $result_errors{'nodes_before_top_and_sections_unsplit_no_nodes'} = [
 ];
 
 
-$result_floats{'nodes_before_top_and_sections_unsplit_no_nodes'} = {};
-
-
 $result_indices_sort_strings{'nodes_before_top_and_sections_unsplit_no_nodes'} = {
   'cp' => [
     '! entry in node',

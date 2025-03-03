@@ -74,9 +74,6 @@ top
 $result_errors{'empty_lines_at_beginning_no_setfilename'} = [];
 
 
-$result_floats{'empty_lines_at_beginning_no_setfilename'} = {};
-
-
 
 $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename'} = '<!DOCTYPE html>
 <html>

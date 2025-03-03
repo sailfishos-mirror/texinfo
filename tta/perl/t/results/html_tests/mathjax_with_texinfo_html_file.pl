@@ -79,9 +79,6 @@ Some a - b >= AA e^.
 $result_errors{'mathjax_with_texinfo_html_file'} = [];
 
 
-$result_floats{'mathjax_with_texinfo_html_file'} = {};
-
-
 $result_converted_errors{'file_html'}->{'mathjax_with_texinfo_html_file'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

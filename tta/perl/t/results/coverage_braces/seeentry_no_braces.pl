@@ -135,9 +135,6 @@ $result_errors{'seeentry_no_braces'} = [
 ];
 
 
-$result_floats{'seeentry_no_braces'} = {};
-
-
 $result_indices_sort_strings{'seeentry_no_braces'} = {
   'cp' => [
     'aa'

@@ -306,9 +306,6 @@ Appendix C Findex
 $result_errors{'printindex_set_direction'} = [];
 
 
-$result_floats{'printindex_set_direction'} = {};
-
-
 $result_indices_sort_strings{'printindex_set_direction'} = {
   'cp' => [
     'CC'

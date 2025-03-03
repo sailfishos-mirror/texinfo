@@ -270,9 +270,6 @@ $result_errors{'section_on_xtable_line'} = [
 ];
 
 
-$result_floats{'section_on_xtable_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_on_xtable_line'} = '1 first
 =======

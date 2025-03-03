@@ -1952,9 +1952,6 @@ numbered subsection2 4
 $result_errors{'section_in_unnumbered_info'} = [];
 
 
-$result_floats{'section_in_unnumbered_info'} = {};
-
-
 
 $result_converted{'info'}->{'section_in_unnumbered_info'} = 'This is , produced from section_in_unnumbered_text.texi.
 

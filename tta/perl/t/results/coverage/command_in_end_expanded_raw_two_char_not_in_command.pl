@@ -73,7 +73,4 @@ $result_errors{'command_in_end_expanded_raw_two_char_not_in_command'} = [
 ];
 
 
-$result_floats{'command_in_end_expanded_raw_two_char_not_in_command'} = {};
-
-
 1;

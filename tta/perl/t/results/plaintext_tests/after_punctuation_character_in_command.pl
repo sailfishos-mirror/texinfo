@@ -29,9 +29,6 @@ follows.
 $result_errors{'after_punctuation_character_in_command'} = [];
 
 
-$result_floats{'after_punctuation_character_in_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'after_punctuation_character_in_command'} = 'Text.)  follows.
 ';

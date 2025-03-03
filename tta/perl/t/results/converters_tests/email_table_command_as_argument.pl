@@ -63,9 +63,6 @@ discussion
 $result_errors{'email_table_command_as_argument'} = [];
 
 
-$result_floats{'email_table_command_as_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'email_table_command_as_argument'} = '<www-discuss@gnu.org>
      discussion

@@ -190,9 +190,6 @@ chap.
 $result_errors{'test_xrefautomaticsectiontitle'} = [];
 
 
-$result_floats{'test_xrefautomaticsectiontitle'} = {};
-
-
 
 $result_converted{'html'}->{'test_xrefautomaticsectiontitle'} = '<!DOCTYPE html>
 <html>

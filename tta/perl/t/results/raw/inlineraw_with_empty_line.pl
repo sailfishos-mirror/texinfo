@@ -66,7 +66,4 @@ in
 $result_errors{'inlineraw_with_empty_line'} = [];
 
 
-$result_floats{'inlineraw_with_empty_line'} = {};
-
-
 1;

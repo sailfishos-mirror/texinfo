@@ -56,7 +56,4 @@ $result_errors{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'}
 ];
 
 
-$result_floats{'multitable_bracketed_prototype_empty_spaces_not_closed_comment'} = {};
-
-
 1;

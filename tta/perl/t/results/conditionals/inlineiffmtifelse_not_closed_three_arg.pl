@@ -42,7 +42,4 @@ $result_errors{'inlineiffmtifelse_not_closed_three_arg'} = [
 ];
 
 
-$result_floats{'inlineiffmtifelse_not_closed_three_arg'} = {};
-
-
 1;

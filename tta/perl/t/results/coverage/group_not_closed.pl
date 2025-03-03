@@ -40,7 +40,4 @@ $result_errors{'group_not_closed'} = [
 ];
 
 
-$result_floats{'group_not_closed'} = {};
-
-
 1;

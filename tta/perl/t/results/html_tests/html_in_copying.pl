@@ -109,9 +109,6 @@ top
 $result_errors{'html_in_copying'} = [];
 
 
-$result_floats{'html_in_copying'} = {};
-
-
 
 $result_converted{'html'}->{'html_in_copying'} = '<!DOCTYPE html>
 <html>

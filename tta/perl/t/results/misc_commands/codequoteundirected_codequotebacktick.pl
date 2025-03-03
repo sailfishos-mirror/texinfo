@@ -1305,9 +1305,6 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
 ];
 
 
-$result_floats{'codequoteundirected_codequotebacktick'} = {};
-
-
 
 $result_converted{'plaintext'}->{'codequoteundirected_codequotebacktick'} = 'test quotes
 ***********

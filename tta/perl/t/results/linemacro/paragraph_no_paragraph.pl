@@ -121,7 +121,4 @@ and after.
 $result_errors{'paragraph_no_paragraph'} = [];
 
 
-$result_floats{'paragraph_no_paragraph'} = {};
-
-
 1;

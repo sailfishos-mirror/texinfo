@@ -194,9 +194,6 @@ Fourth level item
 $result_errors{'nested_itemize'} = [];
 
 
-$result_floats{'nested_itemize'} = {};
-
-
 
 $result_converted{'latex_text'}->{'nested_itemize'} = '\\begin{document}
 \\begin{itemize}

@@ -166,9 +166,6 @@ The chapter
 $result_errors{'contents_at_document_begin_separate_element'} = [];
 
 
-$result_floats{'contents_at_document_begin_separate_element'} = {};
-
-
 
 $result_converted{'plaintext'}->{'contents_at_document_begin_separate_element'} = 'Contents at beginning
 1 Chapter 1

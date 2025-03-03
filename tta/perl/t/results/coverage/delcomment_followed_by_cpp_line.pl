@@ -108,7 +108,4 @@ $result_errors{'delcomment_followed_by_cpp_line'} = [
 ];
 
 
-$result_floats{'delcomment_followed_by_cpp_line'} = {};
-
-
 1;

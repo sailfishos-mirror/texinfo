@@ -112,9 +112,6 @@ $result_errors{'texinfo_command_alias'} = [
 ];
 
 
-$result_floats{'texinfo_command_alias'} = {};
-
-
 
 $result_converted{'plaintext'}->{'texinfo_command_alias'} = '!!aa!!
 

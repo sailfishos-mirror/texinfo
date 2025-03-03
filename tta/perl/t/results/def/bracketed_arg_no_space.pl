@@ -88,9 +88,6 @@ $result_errors{'bracketed_arg_no_space'} = [
 ];
 
 
-$result_floats{'bracketed_arg_no_space'} = {};
-
-
 $result_indices_sort_strings{'bracketed_arg_no_space'} = {
   'fn' => [
     'e gh'

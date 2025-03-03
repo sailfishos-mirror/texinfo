@@ -160,7 +160,4 @@ $result_errors{'on_itemize_line'} = [
 ];
 
 
-$result_floats{'on_itemize_line'} = {};
-
-
 1;

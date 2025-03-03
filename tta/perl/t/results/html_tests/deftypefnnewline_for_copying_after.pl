@@ -261,9 +261,6 @@ do something with input
 $result_errors{'deftypefnnewline_for_copying_after'} = [];
 
 
-$result_floats{'deftypefnnewline_for_copying_after'} = {};
-
-
 $result_indices_sort_strings{'deftypefnnewline_for_copying_after'} = {
   'fn' => [
     'NAME',

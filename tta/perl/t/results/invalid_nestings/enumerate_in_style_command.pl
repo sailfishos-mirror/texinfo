@@ -72,7 +72,4 @@ $result_errors{'enumerate_in_style_command'} = [
 ];
 
 
-$result_floats{'enumerate_in_style_command'} = {};
-
-
 1;

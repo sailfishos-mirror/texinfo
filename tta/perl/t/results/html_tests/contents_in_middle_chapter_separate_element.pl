@@ -245,7 +245,4 @@ Section.
 $result_errors{'contents_in_middle_chapter_separate_element'} = [];
 
 
-$result_floats{'contents_in_middle_chapter_separate_element'} = {};
-
-
 1;

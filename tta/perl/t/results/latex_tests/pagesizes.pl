@@ -191,9 +191,6 @@ $result_errors{'pagesizes'} = [
 ];
 
 
-$result_floats{'pagesizes'} = {};
-
-
 
 $result_converted{'latex_text'}->{'pagesizes'} = '\\newgeometry{textheight=200mm,textwidth=150mm}
 

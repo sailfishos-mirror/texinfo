@@ -306,9 +306,6 @@ $result_errors{'fonttextsize'} = [
 ];
 
 
-$result_floats{'fonttextsize'} = {};
-
-
 
 $result_converted{'latex_text'}->{'fonttextsize'} = '\\changefontsize{10}
 

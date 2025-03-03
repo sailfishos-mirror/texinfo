@@ -84,7 +84,4 @@ $result_errors{'bad_tab_nesting'} = [
 ];
 
 
-$result_floats{'bad_tab_nesting'} = {};
-
-
 1;

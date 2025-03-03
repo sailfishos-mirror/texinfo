@@ -147,9 +147,6 @@ ELSE latex.
 $result_errors{'inlinefmtifelse_with_commands'} = [];
 
 
-$result_floats{'inlinefmtifelse_with_commands'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlinefmtifelse_with_commands'} = 'else ‘html’.
 

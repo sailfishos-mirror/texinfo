@@ -266,9 +266,6 @@ top
 $result_errors{'multiple_documentlanguage'} = [];
 
 
-$result_floats{'multiple_documentlanguage'} = {};
-
-
 
 $result_converted{'docbook'}->{'multiple_documentlanguage'} = '<chapter label="1" id="chap" lang="ja">
 <title>Chap no new language</title>

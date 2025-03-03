@@ -76,7 +76,4 @@ $result_errors{'unknown_node_in_menu'} = [
 ];
 
 
-$result_floats{'unknown_node_in_menu'} = {};
-
-
 1;

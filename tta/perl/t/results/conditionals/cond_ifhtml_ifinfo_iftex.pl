@@ -311,9 +311,6 @@ $result_errors{'cond_ifhtml_ifinfo_iftex'} = [
 ];
 
 
-$result_floats{'cond_ifhtml_ifinfo_iftex'} = {};
-
-
 
 $result_converted{'html'}->{'cond_ifhtml_ifinfo_iftex'} = '<!DOCTYPE html>
 <html>

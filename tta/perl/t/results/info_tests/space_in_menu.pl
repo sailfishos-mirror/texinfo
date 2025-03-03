@@ -146,9 +146,6 @@ in chapter.
 $result_errors{'space_in_menu'} = [];
 
 
-$result_floats{'space_in_menu'} = {};
-
-
 
 $result_converted{'info'}->{'space_in_menu'} = 'This is , produced from .
 

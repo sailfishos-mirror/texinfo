@@ -295,9 +295,6 @@ $result_errors{'titlepage_with_commands_classical'} = [
 ];
 
 
-$result_floats{'titlepage_with_commands_classical'} = {};
-
-
 
 $result_converted{'latex_text'}->{'titlepage_with_commands_classical'} = '
 

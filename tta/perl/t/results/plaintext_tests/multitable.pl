@@ -570,9 +570,6 @@ A B
 $result_errors{'multitable'} = [];
 
 
-$result_floats{'multitable'} = {};
-
-
 
 $result_converted{'plaintext'}->{'multitable'} = 'truc   bidule
 truc2  bidule2

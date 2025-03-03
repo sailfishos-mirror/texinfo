@@ -162,9 +162,6 @@ $result_texts{'invalid_info_menu_entry'} = '
 $result_errors{'invalid_info_menu_entry'} = [];
 
 
-$result_floats{'invalid_info_menu_entry'} = {};
-
-
 
 $result_converted{'plaintext'}->{'invalid_info_menu_entry'} = '* Menu:
 

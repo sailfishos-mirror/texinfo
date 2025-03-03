@@ -41,7 +41,4 @@ $result_errors{'footnote_not_closed'} = [
 ];
 
 
-$result_floats{'footnote_not_closed'} = {};
-
-
 1;

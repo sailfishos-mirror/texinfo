@@ -59,7 +59,4 @@ $result_errors{'invalid'} = [
 ];
 
 
-$result_floats{'invalid'} = {};
-
-
 1;

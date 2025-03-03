@@ -178,9 +178,6 @@ $result_errors{'unknown_language'} = [
 ];
 
 
-$result_floats{'unknown_language'} = {};
-
-
 
 $result_converted{'plaintext'}->{'unknown_language'} = 'unknkown language
 *****************

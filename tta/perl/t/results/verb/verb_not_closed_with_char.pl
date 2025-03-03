@@ -44,7 +44,4 @@ $result_errors{'verb_not_closed_with_char'} = [
 ];
 
 
-$result_floats{'verb_not_closed_with_char'} = {};
-
-
 1;

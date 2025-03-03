@@ -45,9 +45,6 @@ Again with space . After.
 $result_errors{'inlineifset_empty_second_arg'} = [];
 
 
-$result_floats{'inlineifset_empty_second_arg'} = {};
-
-
 
 $result_converted{'xml'}->{'inlineifset_empty_second_arg'} = '<para>Toto <inlineifset><inlineifsetformat>flag</inlineifsetformat><inlineifsetcontent></inlineifsetcontent></inlineifset>. After.
 </para>

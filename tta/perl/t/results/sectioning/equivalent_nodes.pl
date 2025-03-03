@@ -143,9 +143,6 @@ $result_errors{'equivalent_nodes'} = [
 ];
 
 
-$result_floats{'equivalent_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'equivalent_nodes'} = 'This is , produced from .
 

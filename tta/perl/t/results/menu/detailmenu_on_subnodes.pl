@@ -483,9 +483,6 @@ unnumberedsec
 $result_errors{'detailmenu_on_subnodes'} = [];
 
 
-$result_floats{'detailmenu_on_subnodes'} = {};
-
-
 
 $result_converted{'plaintext'}->{'detailmenu_on_subnodes'} = 'top
 ***

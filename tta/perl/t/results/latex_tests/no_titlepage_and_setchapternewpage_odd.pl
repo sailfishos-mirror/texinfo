@@ -31,9 +31,6 @@ $result_texts{'no_titlepage_and_setchapternewpage_odd'} = '';
 $result_errors{'no_titlepage_and_setchapternewpage_odd'} = [];
 
 
-$result_floats{'no_titlepage_and_setchapternewpage_odd'} = {};
-
-
 
 $result_converted{'latex_text'}->{'no_titlepage_and_setchapternewpage_odd'} = '\\pagestyle{double}%
 \\begin{document}

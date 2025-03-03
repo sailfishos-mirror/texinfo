@@ -45,9 +45,6 @@ text
 $result_errors{'page_in_example'} = [];
 
 
-$result_floats{'page_in_example'} = {};
-
-
 
 $result_converted{'plaintext'}->{'page_in_example'} = '     text
 ';

@@ -125,7 +125,4 @@ in ifclear
 $result_errors{'begin_conditional_in_linemacro'} = [];
 
 
-$result_floats{'begin_conditional_in_linemacro'} = {};
-
-
 1;

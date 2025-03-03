@@ -124,9 +124,6 @@ node name
 $result_errors{'ref_in_preformatted'} = [];
 
 
-$result_floats{'ref_in_preformatted'} = {};
-
-
 
 $result_converted{'html_text'}->{'ref_in_preformatted'} = '<h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 

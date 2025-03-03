@@ -1583,9 +1583,6 @@ $result_errors{'itemize_arguments'} = [
 ];
 
 
-$result_floats{'itemize_arguments'} = {};
-
-
 $result_converted_errors{'file_html'}->{'itemize_arguments'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top

@@ -213,9 +213,6 @@ top
 $result_errors{'ref_in_copying_insert_in_chapter'} = [];
 
 
-$result_floats{'ref_in_copying_insert_in_chapter'} = {};
-
-
 
 $result_converted{'info'}->{'ref_in_copying_insert_in_chapter'} = 'This is , produced from .
 

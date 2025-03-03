@@ -102,9 +102,6 @@ Appendix A dernier
 $result_errors{'appendix_translated'} = [];
 
 
-$result_floats{'appendix_translated'} = {};
-
-
 
 $result_converted{'plaintext'}->{'appendix_translated'} = 'top
 ***

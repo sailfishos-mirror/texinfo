@@ -615,9 +615,6 @@ defop n
 $result_errors{'frenchspacing_and_code'} = [];
 
 
-$result_floats{'frenchspacing_and_code'} = {};
-
-
 $result_indices_sort_strings{'frenchspacing_and_code'} = {
   'fn' => [
     'name? n. d on class: MyC. b',

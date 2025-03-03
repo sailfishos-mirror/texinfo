@@ -172,7 +172,4 @@ In chap1.
 $result_errors{'split_test_before_first_node'} = [];
 
 
-$result_floats{'split_test_before_first_node'} = {};
-
-
 1;

@@ -72,9 +72,6 @@ $result_texts{'reference_to_external_manual'} = '
 $result_errors{'reference_to_external_manual'} = [];
 
 
-$result_floats{'reference_to_external_manual'} = {};
-
-
 
 $result_converted{'plaintext'}->{'reference_to_external_manual'} = '* Menu:
 

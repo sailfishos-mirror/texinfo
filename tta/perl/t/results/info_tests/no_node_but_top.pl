@@ -38,9 +38,6 @@ $result_texts{'no_node_but_top'} = 'top
 $result_errors{'no_node_but_top'} = [];
 
 
-$result_floats{'no_node_but_top'} = {};
-
-
 
 $result_converted{'info'}->{'no_node_but_top'} = 'This is , produced from .
 

@@ -67,9 +67,6 @@ Description of truc
 $result_errors{'defline_no_params'} = [];
 
 
-$result_floats{'defline_no_params'} = {};
-
-
 
 $result_converted{'plaintext'}->{'defline_no_params'} = ' -- Builtin: truc
      Description of truc

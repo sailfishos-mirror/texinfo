@@ -28,9 +28,6 @@ $result_errors{'email_no_braces'} = [
 ];
 
 
-$result_floats{'email_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'email_no_braces'} = '';
 

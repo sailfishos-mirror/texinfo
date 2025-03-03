@@ -204,9 +204,6 @@ two single quotes to left- and right-hand doubled.
 $result_errors{'test_w'} = [];
 
 
-$result_floats{'test_w'} = {};
-
-
 
 $result_converted{'plaintext'}->{'test_w'} = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .  ccc dddd.
 

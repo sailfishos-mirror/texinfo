@@ -89,9 +89,6 @@ minus
 $result_errors{'itemize_line_commands_with_brace'} = [];
 
 
-$result_floats{'itemize_line_commands_with_brace'} = {};
-
-
 
 $result_converted{'plaintext'}->{'itemize_line_commands_with_brace'} = '   • bullet
 

@@ -246,7 +246,4 @@ $result_texts{'redefined_buttons_functions'} = 'top
 $result_errors{'redefined_buttons_functions'} = [];
 
 
-$result_floats{'redefined_buttons_functions'} = {};
-
-
 1;

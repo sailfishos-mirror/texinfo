@@ -125,9 +125,6 @@ no itemize argument
 $result_errors{'item_container'} = [];
 
 
-$result_floats{'item_container'} = {};
-
-
 
 $result_converted{'plaintext'}->{'item_container'} = '   + i-tem +
 

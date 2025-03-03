@@ -73,7 +73,4 @@ Z*Y-X
 $result_errors{'text_arguments'} = [];
 
 
-$result_floats{'text_arguments'} = {};
-
-
 1;

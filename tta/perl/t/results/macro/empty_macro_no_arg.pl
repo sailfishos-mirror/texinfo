@@ -62,7 +62,4 @@ $result_texts{'empty_macro_no_arg'} = '
 $result_errors{'empty_macro_no_arg'} = [];
 
 
-$result_floats{'empty_macro_no_arg'} = {};
-
-
 1;

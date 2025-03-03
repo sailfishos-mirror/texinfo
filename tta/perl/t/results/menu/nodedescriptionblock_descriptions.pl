@@ -617,9 +617,6 @@ $result_errors{'nodedescriptionblock_descriptions'} = [
 ];
 
 
-$result_floats{'nodedescriptionblock_descriptions'} = {};
-
-
 
 $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of nodedescriptionblock used in menu
 *****************************************

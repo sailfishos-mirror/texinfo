@@ -487,9 +487,6 @@ $result_errors{'various_itemize_command_as_argument'} = [
 ];
 
 
-$result_floats{'various_itemize_command_as_argument'} = {};
-
-
 
 $result_converted{'plaintext'}->{'various_itemize_command_as_argument'} = 'top
 ***

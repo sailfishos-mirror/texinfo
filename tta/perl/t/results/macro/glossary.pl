@@ -656,7 +656,4 @@ $result_errors{'glossary'} = [
 ];
 
 
-$result_floats{'glossary'} = {};
-
-
 1;

@@ -33,9 +33,6 @@ $result_texts{'transparent_text'} = 'AA). B (C). D.
 $result_errors{'transparent_text'} = [];
 
 
-$result_floats{'transparent_text'} = {};
-
-
 
 $result_converted{'plaintext'}->{'transparent_text'} = 'AA(1)). B (_C_). D.
 

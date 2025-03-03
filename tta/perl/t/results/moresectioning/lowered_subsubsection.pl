@@ -524,7 +524,4 @@ $result_errors{'lowered_subsubsection'} = [
 ];
 
 
-$result_floats{'lowered_subsubsection'} = {};
-
-
 1;

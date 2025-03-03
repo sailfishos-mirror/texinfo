@@ -307,7 +307,4 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 $result_errors{'punctuation_sc_accents_default'} = [];
 
 
-$result_floats{'punctuation_sc_accents_default'} = {};
-
-
 1;

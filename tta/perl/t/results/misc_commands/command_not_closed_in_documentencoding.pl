@@ -48,7 +48,4 @@ $result_errors{'command_not_closed_in_documentencoding'} = [
 ];
 
 
-$result_floats{'command_not_closed_in_documentencoding'} = {};
-
-
 1;

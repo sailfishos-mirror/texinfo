@@ -177,7 +177,4 @@ $result_errors{'simple_only_special_spaces_node'} = [
 ];
 
 
-$result_floats{'simple_only_special_spaces_node'} = {};
-
-
 1;

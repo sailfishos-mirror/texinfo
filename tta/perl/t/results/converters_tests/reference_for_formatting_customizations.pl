@@ -116,9 +116,6 @@ AA == @ (C)
 $result_errors{'reference_for_formatting_customizations'} = [];
 
 
-$result_floats{'reference_for_formatting_customizations'} = {};
-
-
 
 $result_converted{'plaintext'}->{'reference_for_formatting_customizations'} = 'top
 ***

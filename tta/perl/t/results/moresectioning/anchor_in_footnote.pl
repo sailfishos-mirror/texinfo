@@ -168,9 +168,6 @@ Anchor in footnote.
 $result_errors{'anchor_in_footnote'} = [];
 
 
-$result_floats{'anchor_in_footnote'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_in_footnote'} = 'This is , produced from .
 

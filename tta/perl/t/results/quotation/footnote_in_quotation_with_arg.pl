@@ -53,9 +53,6 @@ A b.
 $result_errors{'footnote_in_quotation_with_arg'} = [];
 
 
-$result_floats{'footnote_in_quotation_with_arg'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_in_quotation_with_arg'} = '     lean: A(1) b.
 

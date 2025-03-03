@@ -300,9 +300,6 @@ a
 $result_errors{'check_htmlxref'} = [];
 
 
-$result_floats{'check_htmlxref'} = {};
-
-
 
 $result_converted{'html'}->{'check_htmlxref'} = '<!DOCTYPE html>
 <html>

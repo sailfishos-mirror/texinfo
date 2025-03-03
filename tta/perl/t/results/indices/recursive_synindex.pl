@@ -107,7 +107,4 @@ $result_indices{'recursive_synindex'} = {
 };
 
 
-$result_floats{'recursive_synindex'} = {};
-
-
 1;

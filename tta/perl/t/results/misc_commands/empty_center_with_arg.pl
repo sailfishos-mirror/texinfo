@@ -30,9 +30,6 @@ $result_texts{'empty_center_with_arg'} = '
 $result_errors{'empty_center_with_arg'} = [];
 
 
-$result_floats{'empty_center_with_arg'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_center_with_arg'} = '';
 

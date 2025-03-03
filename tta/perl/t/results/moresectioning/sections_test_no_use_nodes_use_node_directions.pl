@@ -253,9 +253,6 @@ A.1 appendixsec
 $result_errors{'sections_test_no_use_nodes_use_node_directions'} = [];
 
 
-$result_floats{'sections_test_no_use_nodes_use_node_directions'} = {};
-
-
 
 $result_converted{'plaintext'}->{'sections_test_no_use_nodes_use_node_directions'} = 'top
 ***

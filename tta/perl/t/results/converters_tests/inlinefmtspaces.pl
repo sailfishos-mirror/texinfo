@@ -68,9 +68,6 @@ in <i>HTML</i>.
 $result_errors{'inlinefmtspaces'} = [];
 
 
-$result_floats{'inlinefmtspaces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlinefmtspaces'} = 'A plaintext " { a.  Now html .
 ';

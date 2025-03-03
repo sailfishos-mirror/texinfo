@@ -228,7 +228,4 @@ $result_errors{'set_on_item_line'} = [
 ];
 
 
-$result_floats{'set_on_item_line'} = {};
-
-
 1;

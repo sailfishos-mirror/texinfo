@@ -288,9 +288,6 @@ $result_errors{'two_nodes_between_chapters'} = [
 ];
 
 
-$result_floats{'two_nodes_between_chapters'} = {};
-
-
 
 $result_converted{'plaintext'}->{'two_nodes_between_chapters'} = 'top
 ***

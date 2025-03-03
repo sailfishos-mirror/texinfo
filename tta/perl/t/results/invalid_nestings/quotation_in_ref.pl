@@ -86,7 +86,4 @@ $result_errors{'quotation_in_ref'} = [
 ];
 
 
-$result_floats{'quotation_in_ref'} = {};
-
-
 1;

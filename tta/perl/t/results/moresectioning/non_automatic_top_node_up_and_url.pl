@@ -221,9 +221,6 @@ $result_errors{'non_automatic_top_node_up_and_url'} = [
 ];
 
 
-$result_floats{'non_automatic_top_node_up_and_url'} = {};
-
-
 
 $result_converted{'info'}->{'non_automatic_top_node_up_and_url'} = 'This is , produced from .
 

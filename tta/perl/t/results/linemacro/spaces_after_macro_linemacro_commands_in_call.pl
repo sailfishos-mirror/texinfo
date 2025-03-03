@@ -313,7 +313,4 @@ $result_errors{'spaces_after_macro_linemacro_commands_in_call'} = [
 ];
 
 
-$result_floats{'spaces_after_macro_linemacro_commands_in_call'} = {};
-
-
 1;

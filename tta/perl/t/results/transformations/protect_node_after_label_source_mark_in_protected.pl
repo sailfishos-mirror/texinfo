@@ -76,7 +76,4 @@ There is some text .,,,.. and after.
 $result_errors{'protect_node_after_label_source_mark_in_protected'} = [];
 
 
-$result_floats{'protect_node_after_label_source_mark_in_protected'} = {};
-
-
 1;

@@ -47,7 +47,4 @@ $result_errors{'invalid_kbdinputstyle'} = [
 ];
 
 
-$result_floats{'invalid_kbdinputstyle'} = {};
-
-
 1;

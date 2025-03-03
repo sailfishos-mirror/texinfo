@@ -65,7 +65,4 @@ $result_errors{'arg_not_closed'} = [
 ];
 
 
-$result_floats{'arg_not_closed'} = {};
-
-
 1;

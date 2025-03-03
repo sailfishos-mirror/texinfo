@@ -134,7 +134,4 @@ third ||';
 $result_errors{'comment_on_linemacro_call_out_of_braces'} = [];
 
 
-$result_floats{'comment_on_linemacro_call_out_of_braces'} = {};
-
-
 1;

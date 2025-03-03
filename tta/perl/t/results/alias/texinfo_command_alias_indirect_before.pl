@@ -81,9 +81,6 @@ aa
 $result_errors{'texinfo_command_alias_indirect_before'} = [];
 
 
-$result_floats{'texinfo_command_alias_indirect_before'} = {};
-
-
 
 $result_converted{'plaintext'}->{'texinfo_command_alias_indirect_before'} = '*aa*
 ';

@@ -111,9 +111,6 @@ $result_indices{'index_entries'} = {
 };
 
 
-$result_floats{'index_entries'} = {};
-
-
 $result_indices_sort_strings{'index_entries'} = {
   'cp' => [
     'cindex entry'

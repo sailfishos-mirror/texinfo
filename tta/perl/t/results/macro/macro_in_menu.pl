@@ -330,7 +330,4 @@ menu comment
 $result_errors{'macro_in_menu'} = [];
 
 
-$result_floats{'macro_in_menu'} = {};
-
-
 1;

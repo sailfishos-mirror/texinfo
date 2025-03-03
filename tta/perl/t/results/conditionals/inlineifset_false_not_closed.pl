@@ -35,7 +35,4 @@ $result_errors{'inlineifset_false_not_closed'} = [
 ];
 
 
-$result_floats{'inlineifset_false_not_closed'} = {};
-
-
 1;

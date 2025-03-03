@@ -78,7 +78,4 @@ $result_errors{'menu_node_unterminated'} = [
 ];
 
 
-$result_floats{'menu_node_unterminated'} = {};
-
-
 1;

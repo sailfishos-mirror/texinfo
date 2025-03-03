@@ -988,9 +988,6 @@ $result_errors{'nodes_before_top_and_sections_chapter'} = [
 ];
 
 
-$result_floats{'nodes_before_top_and_sections_chapter'} = {};
-
-
 $result_indices_sort_strings{'nodes_before_top_and_sections_chapter'} = {
   'cp' => [
     '! entry in node',

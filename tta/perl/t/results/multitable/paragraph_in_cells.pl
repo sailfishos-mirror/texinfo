@@ -97,9 +97,6 @@ new paragraph in tab.
 $result_errors{'paragraph_in_cells'} = [];
 
 
-$result_floats{'paragraph_in_cells'} = {};
-
-
 
 $result_converted{'plaintext'}->{'paragraph_in_cells'} = 'truc  bidule
 begin begin

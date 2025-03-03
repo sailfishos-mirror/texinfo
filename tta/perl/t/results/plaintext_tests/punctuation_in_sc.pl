@@ -28,9 +28,6 @@ $result_texts{'punctuation_in_sc'} = 'one TWO. three FOUR. five';
 $result_errors{'punctuation_in_sc'} = [];
 
 
-$result_floats{'punctuation_in_sc'} = {};
-
-
 
 $result_converted{'plaintext'}->{'punctuation_in_sc'} = 'one TWO.  three FOUR. five
 ';

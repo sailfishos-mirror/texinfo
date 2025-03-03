@@ -79,9 +79,6 @@ $result_errors{'nested_footnotes_separate'} = [
 ];
 
 
-$result_floats{'nested_footnotes_separate'} = {};
-
-
 
 $result_converted{'info'}->{'nested_footnotes_separate'} = 'This is , produced from .
 

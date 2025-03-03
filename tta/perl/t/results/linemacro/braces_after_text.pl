@@ -112,7 +112,4 @@ textin paren: restin paren
 $result_errors{'braces_after_text'} = [];
 
 
-$result_floats{'braces_after_text'} = {};
-
-
 1;

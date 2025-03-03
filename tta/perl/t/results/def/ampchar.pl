@@ -106,9 +106,6 @@ $result_errors{'ampchar'} = [
 ];
 
 
-$result_floats{'ampchar'} = {};
-
-
 $result_indices_sort_strings{'ampchar'} = {
   'fn' => [
     'b on a'

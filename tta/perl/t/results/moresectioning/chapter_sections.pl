@@ -257,9 +257,6 @@ $result_texts{'chapter_sections'} = 'unnumbered
 $result_errors{'chapter_sections'} = [];
 
 
-$result_floats{'chapter_sections'} = {};
-
-
 
 $result_converted{'xml'}->{'chapter_sections'} = '<unnumbered spaces=" "><sectiontitle>unnumbered</sectiontitle>
 

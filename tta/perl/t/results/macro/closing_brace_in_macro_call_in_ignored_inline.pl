@@ -91,7 +91,4 @@ $result_errors{'closing_brace_in_macro_call_in_ignored_inline'} = [
 ];
 
 
-$result_floats{'closing_brace_in_macro_call_in_ignored_inline'} = {};
-
-
 1;

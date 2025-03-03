@@ -205,9 +205,6 @@ second node
 $result_errors{'nodes_after_top_before_section_nodes'} = [];
 
 
-$result_floats{'nodes_after_top_before_section_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'nodes_after_top_before_section_nodes'} = 'This is , produced from .
 

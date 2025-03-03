@@ -109,7 +109,4 @@ $result_errors{'arobase_brace_in_macro_call'} = [
 ];
 
 
-$result_floats{'arobase_brace_in_macro_call'} = {};
-
-
 1;

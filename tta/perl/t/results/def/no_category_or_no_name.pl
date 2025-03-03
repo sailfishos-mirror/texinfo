@@ -197,9 +197,6 @@ $result_errors{'no_category_or_no_name'} = [
 ];
 
 
-$result_floats{'no_category_or_no_name'} = {};
-
-
 $result_indices_sort_strings{'no_category_or_no_name'} = {
   'fn' => [
     'b'

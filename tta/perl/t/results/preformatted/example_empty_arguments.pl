@@ -127,9 +127,6 @@ example with empty and non empty args mix
 $result_errors{'example_empty_arguments'} = [];
 
 
-$result_floats{'example_empty_arguments'} = {};
-
-
 
 $result_converted{'plaintext'}->{'example_empty_arguments'} = '     example with empty args
 

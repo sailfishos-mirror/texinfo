@@ -56,9 +56,6 @@ S
 $result_errors{'section_below_unnumbered_no_top'} = [];
 
 
-$result_floats{'section_below_unnumbered_no_top'} = {};
-
-
 
 $result_converted{'plaintext'}->{'section_below_unnumbered_no_top'} = 'U
 *

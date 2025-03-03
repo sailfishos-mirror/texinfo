@@ -65,9 +65,6 @@ $result_errors{'empty_section_in_chapter'} = [
 ];
 
 
-$result_floats{'empty_section_in_chapter'} = {};
-
-
 
 $result_converted{'plaintext'}->{'empty_section_in_chapter'} = '1 chap
 ******

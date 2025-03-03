@@ -202,9 +202,6 @@ Appendix A App
 $result_errors{'sections_and_printindex'} = [];
 
 
-$result_floats{'sections_and_printindex'} = {};
-
-
 $result_indices_sort_strings{'sections_and_printindex'} = {
   'cp' => [
     'entry1',

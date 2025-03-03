@@ -71,7 +71,4 @@ $result_errors{'footnote_in_ref'} = [
 ];
 
 
-$result_floats{'footnote_in_ref'} = {};
-
-
 1;

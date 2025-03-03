@@ -539,9 +539,6 @@ $result_errors{'non_empty_part'} = [
 ];
 
 
-$result_floats{'non_empty_part'} = {};
-
-
 
 $result_converted{'plaintext'}->{'non_empty_part'} = 'Content before
 

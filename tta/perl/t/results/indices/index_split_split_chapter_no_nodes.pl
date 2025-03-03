@@ -1165,9 +1165,6 @@ $result_errors{'index_split_split_chapter_no_nodes'} = [
 ];
 
 
-$result_floats{'index_split_split_chapter_no_nodes'} = {};
-
-
 $result_indices_sort_strings{'index_split_split_chapter_no_nodes'} = {
   'cp' => [
     '! entry in node',

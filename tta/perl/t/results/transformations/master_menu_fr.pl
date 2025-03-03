@@ -282,9 +282,6 @@ chap
 $result_errors{'master_menu_fr'} = [];
 
 
-$result_floats{'master_menu_fr'} = {};
-
-
 
 $result_converted{'info'}->{'master_menu_fr'} = 'This is , produced from no_master_menu_fr.texi.
 

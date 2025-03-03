@@ -137,9 +137,6 @@ $result_errors{'inlineifsetifclearspaces'} = [
 ];
 
 
-$result_floats{'inlineifsetifclearspaces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'inlineifsetifclearspaces'} = 'iclear first .
 

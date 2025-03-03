@@ -123,9 +123,6 @@ Para2.
 $result_errors{'footnote_no_number_separate'} = [];
 
 
-$result_floats{'footnote_no_number_separate'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote_no_number_separate'} = 'top
 ***

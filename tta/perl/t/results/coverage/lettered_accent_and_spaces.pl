@@ -165,9 +165,6 @@ $result_errors{'lettered_accent_and_spaces'} = [
 ];
 
 
-$result_floats{'lettered_accent_and_spaces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'lettered_accent_and_spaces'} = 'å
 

@@ -89,7 +89,4 @@ $result_errors{'heading_commands_in_center'} = [
 ];
 
 
-$result_floats{'heading_commands_in_center'} = {};
-
-
 1;

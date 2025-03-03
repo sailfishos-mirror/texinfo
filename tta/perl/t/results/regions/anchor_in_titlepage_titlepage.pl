@@ -149,9 +149,6 @@ $result_errors{'anchor_in_titlepage_titlepage'} = [
 ];
 
 
-$result_floats{'anchor_in_titlepage_titlepage'} = {};
-
-
 
 $result_converted{'info'}->{'anchor_in_titlepage_titlepage'} = 'This is , produced from .
 

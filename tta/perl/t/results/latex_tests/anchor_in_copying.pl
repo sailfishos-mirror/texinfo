@@ -143,9 +143,6 @@ a in copying
 $result_errors{'anchor_in_copying'} = [];
 
 
-$result_floats{'anchor_in_copying'} = {};
-
-
 
 $result_converted{'latex_text'}->{'anchor_in_copying'} = '
 \\begin{document}

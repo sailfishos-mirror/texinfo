@@ -30,9 +30,6 @@ $result_texts{'commands_and_punctuation'} = 'SomthingA.   and now inhibit. Now d
 $result_errors{'commands_and_punctuation'} = [];
 
 
-$result_floats{'commands_and_punctuation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'commands_and_punctuation'} = 'SomthingA.  and now inhibit. Now dots ... and enddots ...  and
 ';

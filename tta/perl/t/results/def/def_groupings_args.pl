@@ -181,9 +181,6 @@ $result_errors{'def_groupings_args'} = [
 ];
 
 
-$result_floats{'def_groupings_args'} = {};
-
-
 $result_indices_sort_strings{'def_groupings_args'} = {
   'fn' => [
     'baac',

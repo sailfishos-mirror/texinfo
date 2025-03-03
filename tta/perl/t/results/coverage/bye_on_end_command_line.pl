@@ -55,9 +55,6 @@ $result_errors{'bye_on_end_command_line'} = [
 ];
 
 
-$result_floats{'bye_on_end_command_line'} = {};
-
-
 
 $result_converted{'plaintext'}->{'bye_on_end_command_line'} = 'in cartouche.
 ';

@@ -28,9 +28,6 @@ $result_errors{'url_no_braces'} = [
 ];
 
 
-$result_floats{'url_no_braces'} = {};
-
-
 
 $result_converted{'plaintext'}->{'url_no_braces'} = '';
 

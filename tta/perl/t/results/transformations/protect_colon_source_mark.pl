@@ -59,7 +59,4 @@ There is some text : nop then more and after.
 $result_errors{'protect_colon_source_mark'} = [];
 
 
-$result_floats{'protect_colon_source_mark'} = {};
-
-
 1;

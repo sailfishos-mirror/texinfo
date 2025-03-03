@@ -301,9 +301,6 @@ a
 $result_errors{'check_htmlxref_no_use_nodes'} = [];
 
 
-$result_floats{'check_htmlxref_no_use_nodes'} = {};
-
-
 $result_converted_errors{'file_html'}->{'check_htmlxref_no_use_nodes'} = [
   {
     'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'

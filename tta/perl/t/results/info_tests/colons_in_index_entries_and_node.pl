@@ -278,9 +278,6 @@ node one
 $result_errors{'colons_in_index_entries_and_node'} = [];
 
 
-$result_floats{'colons_in_index_entries_and_node'} = {};
-
-
 $result_indices_sort_strings{'colons_in_index_entries_and_node'} = {
   'cp' => [
     ':',

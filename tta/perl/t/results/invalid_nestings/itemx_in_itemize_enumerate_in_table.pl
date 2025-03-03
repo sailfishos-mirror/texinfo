@@ -168,9 +168,6 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
 ];
 
 
-$result_floats{'itemx_in_itemize_enumerate_in_table'} = {};
-
-
 
 $result_converted{'plaintext'}->{'itemx_in_itemize_enumerate_in_table'} = '*item*
 

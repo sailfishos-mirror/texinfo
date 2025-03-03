@@ -35,9 +35,6 @@ $result_texts{'footnote'} = 'text after footnote.';
 $result_errors{'footnote'} = [];
 
 
-$result_floats{'footnote'} = {};
-
-
 
 $result_converted{'plaintext'}->{'footnote'} = 'text(1) after footnote.
 

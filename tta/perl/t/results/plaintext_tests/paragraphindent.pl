@@ -102,9 +102,6 @@ aaa b 7
 $result_errors{'paragraphindent'} = [];
 
 
-$result_floats{'paragraphindent'} = {};
-
-
 
 $result_converted{'plaintext'}->{'paragraphindent'} = 'First
 

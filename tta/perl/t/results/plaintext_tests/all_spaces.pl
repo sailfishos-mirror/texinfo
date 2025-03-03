@@ -266,7 +266,4 @@ $result_errors{'all_spaces'} = [
 ];
 
 
-$result_floats{'all_spaces'} = {};
-
-
 1;

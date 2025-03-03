@@ -71,7 +71,4 @@ $result_errors{'verb_with_arobase_in_linemacro_call'} = [
 ];
 
 
-$result_floats{'verb_with_arobase_in_linemacro_call'} = {};
-
-
 1;

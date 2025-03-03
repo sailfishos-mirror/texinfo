@@ -188,7 +188,4 @@ $result_errors{'on_block_command_line'} = [
 ];
 
 
-$result_floats{'on_block_command_line'} = {};
-
-
 1;

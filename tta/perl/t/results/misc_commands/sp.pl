@@ -122,7 +122,4 @@ $result_errors{'sp'} = [
 ];
 
 
-$result_floats{'sp'} = {};
-
-
 1;

@@ -289,7 +289,4 @@ $result_errors{'semi_auto'} = [
 ];
 
 
-$result_floats{'semi_auto'} = {};
-
-
 1;

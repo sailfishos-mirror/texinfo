@@ -97,9 +97,6 @@ $result_indices{'unknown_then_known_index_entry'} = {
 };
 
 
-$result_floats{'unknown_then_known_index_entry'} = {};
-
-
 $result_indices_sort_strings{'unknown_then_known_index_entry'} = {
   'some' => [
     'someindex entry.'

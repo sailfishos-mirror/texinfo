@@ -174,9 +174,6 @@ First chapter.
 $result_errors{'split_no_copying'} = [];
 
 
-$result_floats{'split_no_copying'} = {};
-
-
 
 $result_converted{'info'}->{'split_no_copying'} = 'This is split_no_copying.info, produced from .
 

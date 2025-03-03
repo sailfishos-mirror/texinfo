@@ -51,7 +51,4 @@ $result_errors{'text_on_conditional_line'} = [
 ];
 
 
-$result_floats{'text_on_conditional_line'} = {};
-
-
 1;

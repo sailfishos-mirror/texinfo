@@ -31,9 +31,6 @@ $result_texts{'ref_in_style_command'} = '(manula)other node.';
 $result_errors{'ref_in_style_command'} = [];
 
 
-$result_floats{'ref_in_style_command'} = {};
-
-
 
 $result_converted{'plaintext'}->{'ref_in_style_command'} = '‘(manula)other node’.
 ';

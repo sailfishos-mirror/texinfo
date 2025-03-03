@@ -29,9 +29,6 @@ $result_texts{'code_commands_and_punctuation'} = 'AA. aa. After.
 $result_errors{'code_commands_and_punctuation'} = [];
 
 
-$result_floats{'code_commands_and_punctuation'} = {};
-
-
 
 $result_converted{'plaintext'}->{'code_commands_and_punctuation'} = '‘AA’.  ‘aa’.  After.
 ';

@@ -29,7 +29,4 @@ $result_errors{'txiinternalvalue'} = [
 ];
 
 
-$result_floats{'txiinternalvalue'} = {};
-
-
 1;

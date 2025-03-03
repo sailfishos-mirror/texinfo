@@ -777,9 +777,6 @@ $result_errors{'nodes_before_top'} = [
 ];
 
 
-$result_floats{'nodes_before_top'} = {};
-
-
 $result_indices_sort_strings{'nodes_before_top'} = {
   'cp' => [
     '! entry in node',

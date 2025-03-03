@@ -20,9 +20,6 @@ $result_texts{'no_nodes'} = 'Text.';
 $result_errors{'no_nodes'} = [];
 
 
-$result_floats{'no_nodes'} = {};
-
-
 
 $result_converted{'info'}->{'no_nodes'} = 'This is , produced from .
 

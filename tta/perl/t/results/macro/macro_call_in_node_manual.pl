@@ -389,7 +389,4 @@ $result_texts{'macro_call_in_node_manual'} = '
 $result_errors{'macro_call_in_node_manual'} = [];
 
 
-$result_floats{'macro_call_in_node_manual'} = {};
-
-
 1;

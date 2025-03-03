@@ -177,7 +177,4 @@ Text.
 $result_errors{'customize_special_element'} = [];
 
 
-$result_floats{'customize_special_element'} = {};
-
-
 1;

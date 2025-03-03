@@ -42,7 +42,4 @@ $result_errors{'math_bracketed_not_closed'} = [
 ];
 
 
-$result_floats{'math_bracketed_not_closed'} = {};
-
-
 1;

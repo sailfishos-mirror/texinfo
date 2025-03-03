@@ -56,7 +56,4 @@ $result_errors{'text_before_after'} = [
 ];
 
 
-$result_floats{'text_before_after'} = {};
-
-
 1;

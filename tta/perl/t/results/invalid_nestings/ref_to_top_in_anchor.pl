@@ -52,7 +52,4 @@ $result_errors{'ref_to_top_in_anchor'} = [
 ];
 
 
-$result_floats{'ref_to_top_in_anchor'} = {};
-
-
 1;
