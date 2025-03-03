@@ -2633,6 +2633,8 @@ main (int argc, char *argv[], char *env[])
               else
                 txi_config_document_warn ("could not open %s for writing: %s",
                                           dump_tree_name, strerror (errno));
+
+              free (dump_tree_name);
             }
           else
             {
@@ -2830,6 +2832,8 @@ main (int argc, char *argv[], char *env[])
               else
                 txi_config_document_warn ("could not open %s for writing: %s",
                                       dump_structure_name, strerror (errno));
+
+              free (dump_structure_name);
             }
           else
             {

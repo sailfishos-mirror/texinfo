@@ -1,3 +1,16 @@
+2025-03-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/manipulate_tree.c (print_element_extra): add a local
+	context for extra_misc_args case, which has a variable definition.
+
+	* tta/C/main/manipulate_tree.c (print_element_extra): initialize
+	need_free to 1 as it is what is used in most cases.
+
+	* tta/C/main/manipulate_tree.c (print_element_extra): free memory.
+
+	* tta/C/texi2any.c (main): free dump_structure_name and
+	dump_tree_name.
+
 2025-03-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/test_utils.pl (test): do not output floats information if

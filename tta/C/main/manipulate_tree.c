@@ -1237,7 +1237,7 @@ print_element_extra (ELEMENT *element, int level,
     {
       const KEY_PAIR *k_pair = &a->info[i];
       int need_eol = 0;
-      int need_free;
+      int need_free = 1;
       int is_string = 0;
       char *value;
       switch (k_pair->type)
@@ -1249,14 +1249,12 @@ print_element_extra (ELEMENT *element, int level,
           break;
         case extra_integer:
           xasprintf (&value, "%d", k_pair->k.integer);
-          need_free = 1;
           is_string = 1;
           break;
         case extra_element:
           {
             const ELEMENT *element = k_pair->k.const_element;
             char *element_value = element_number_or_error (element);
-            need_free = 1;
             xasprintf (&value, "[%s]", element_value);
             free (element_value);
             break;
@@ -1274,68 +1272,33 @@ print_element_extra (ELEMENT *element, int level,
                                        fname_encoding, use_filename);
             value = info_e_text.text;
             need_eol = 1;
-            need_free = 1;
             break;
           }
         case extra_misc_args:
-          char *values_string = join_strings_list (k_pair->k.strings_list);
-          xasprintf (&value, "A{%s}", values_string);
-          free (values_string);
-          need_free = 1;
-          break;
-        case extra_index_entry:
-           {
-             const INDEX_ENTRY_LOCATION *entry_loc = k_pair->k.index_entry;
-             xasprintf (&value, "I{%s,%d}",
-                        entry_loc->index_name, entry_loc->number);
-             need_free = 1;
-             break;
-           }
-        case extra_container:
           {
-            /* FIXME this solution is not so good, as it uses a converter
-               in tree output, which is not good.  The converter is quite
-               simple and already used in parser, though.
-             */
+            char *values_string = join_strings_list (k_pair->k.strings_list);
+            xasprintf (&value, "A{%s}", values_string);
+            free (values_string);
+            break;
+          }
+        case extra_index_entry:
+          {
+            const INDEX_ENTRY_LOCATION *entry_loc = k_pair->k.index_entry;
+            xasprintf (&value, "I{%s,%d}",
+                       entry_loc->index_name, entry_loc->number);
+            break;
+          }
+        case extra_container:
+          { /* node_content and node_manual */
+            /* Contains references to elements in tree, but these are
+               text elements that we do not want to number, so instead we
+               present the Texinfo code */
             char *container_value = convert_to_texinfo (k_pair->k.element);
-            /* node_content and node_manual can contain end of line if
-               it corresponds to a @ref first argument */
+            /* can contain end of line if it corresponds to a @ref first
+               argument */
             value = debug_protect_eol (container_value);
             free (container_value);
             is_string = 1;
-            /* this is not good as soon as there is an @-command in the
-               container as it appears twice in the print */
-            /*
-            TEXT info_e_text;
-            text_init (&info_e_text);
-            text_append (&info_e_text, "");
-            current_nr = set_element_tree_numbers (k_pair->k.element, current_nr);
-            current_nr
-              = print_element_add_prepend_info (k_pair->k.element, level+1,
-                                                prepended,
-                                     current_nr, &info_e_text, use_filename);
-            value = info_e_text.text;
-            need_eol = 1;
-            */
-            /* it may have been better to list references to the contents
-               but the contents are text element and we do not want to number
-               text elements */
-            /*
-            const ELEMENT *f = k_pair->k.element;
-            size_t j;
-            char *joined_values;
-            for (j = 0; j < f->e.c->contents.number; j++)
-              {
-                const ELEMENT *e = f->e.c->contents.list[j];
-                char *element_value = element_number_or_error (e);
-                add_string (element_value, &elements_values_list);
-              }
-            joined_values = join_strings_list (&elements_values_list);
-            clear_strings_list (&elements_values_list);
-            xasprintf (&value, "Ec[%s]", joined_values);
-            free (joined_values);
-             */
-            need_free = 1;
             break;
           }
         case extra_contents:
@@ -1348,12 +1311,12 @@ print_element_extra (ELEMENT *element, int level,
                 const ELEMENT *e = l->list[j];
                 char *element_value = element_number_or_error (e);
                 add_string (element_value, &elements_values_list);
+                free (element_value);
               }
             joined_values = join_strings_list (&elements_values_list);
             clear_strings_list (&elements_values_list);
             xasprintf (&value, "EC[%s]", joined_values);
             free (joined_values);
-            need_free = 1;
             break;
           }
         case extra_directions:
@@ -1380,7 +1343,6 @@ print_element_extra (ELEMENT *element, int level,
             clear_strings_list (&elements_values_list);
             xasprintf (&value, "D[%s]", joined_values);
             free (joined_values);
-            need_free = 1;
             break;
           }
         default:
@@ -1399,6 +1361,7 @@ print_element_extra (ELEMENT *element, int level,
       if (need_free)
         free (value);
     }
+  free (elements_values_list.list);
 
   print_info_strings (&info_strings, level, prepended, result, "EXTRA");
   return current_nr;
