@@ -123,7 +123,7 @@ Label2
 $result_errors{'ref_to_float'} = [];
 
 
-$result_tree_text{'ref_to_float'} = ': 1
+$result_floats{'ref_to_float'} = ': 1
  F1: {Label2}
 Text: 1
  F1: {Label1}

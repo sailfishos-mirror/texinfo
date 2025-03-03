@@ -457,7 +457,7 @@ in center
 $result_errors{'commands_in_flushright'} = [];
 
 
-$result_tree_text{'commands_in_flushright'} = 'label: 1
+$result_floats{'commands_in_flushright'} = 'label: 1
  F1: {type}
   C: in caption
 ';

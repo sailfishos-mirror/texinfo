@@ -369,7 +369,7 @@ $result_errors{'things_before_setfilename_no_element'} = [
 ];
 
 
-$result_tree_text{'things_before_setfilename_no_element'} = ': 1
+$result_floats{'things_before_setfilename_no_element'} = ': 1
  F1: {float-anchor}
 Text: 1
  F1: {ta}

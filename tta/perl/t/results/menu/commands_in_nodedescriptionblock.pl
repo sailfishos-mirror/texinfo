@@ -427,7 +427,7 @@ in nodescription, f1.
 $result_errors{'commands_in_nodedescriptionblock'} = [];
 
 
-$result_tree_text{'commands_in_nodedescriptionblock'} = 'tfloat: 1
+$result_floats{'commands_in_nodedescriptionblock'} = 'tfloat: 1
  F1.1: {f1}
   C: Cap1
 ';

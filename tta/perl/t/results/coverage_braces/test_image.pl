@@ -1067,7 +1067,7 @@ $result_errors{'test_image'} = [
 ];
 
 
-$result_tree_text{'test_image'} = 'Image: 1
+$result_floats{'test_image'} = 'Image: 1
  F1: {Image-with-commands}
   C: @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}
    

@@ -97,7 +97,7 @@ aa
 $result_errors{'empty_caption'} = [];
 
 
-$result_tree_text{'empty_caption'} = 'a: 1
+$result_floats{'empty_caption'} = 'a: 1
  F1: {b}
   C(E)
 ';

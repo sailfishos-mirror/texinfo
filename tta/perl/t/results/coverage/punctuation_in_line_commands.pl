@@ -345,7 +345,7 @@ center! After punc
 $result_errors{'punctuation_in_line_commands'} = [];
 
 
-$result_tree_text{'punctuation_in_line_commands'} = 'float type! After punc: 2
+$result_floats{'punctuation_in_line_commands'} = 'float type! After punc: 2
  F1: {float-label_0021-After-punc}
   S: shortcaption! After punc
  F2: {label-with-caption}

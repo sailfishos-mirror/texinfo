@@ -86,7 +86,7 @@ aa
 $result_errors{'float_without_type'} = [];
 
 
-$result_tree_text{'float_without_type'} = 'a: 1
+$result_floats{'float_without_type'} = 'a: 1
  F
 ';
 

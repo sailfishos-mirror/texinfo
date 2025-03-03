@@ -368,7 +368,7 @@ raggedright
 $result_errors{'comments_end_lines'} = [];
 
 
-$result_tree_text{'comments_end_lines'} = 'f: 1
+$result_floats{'comments_end_lines'} = 'f: 1
  F1: {g}
 ';
 

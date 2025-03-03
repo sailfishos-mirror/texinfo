@@ -161,7 +161,7 @@ $result_errors{'error_in_footnote'} = [
 ];
 
 
-$result_tree_text{'error_in_footnote'} = 'Text: 1
+$result_floats{'error_in_footnote'} = 'Text: 1
  F1: {label}
   C: Caption. @TeX. 
    In caption @strong{note caption}.  

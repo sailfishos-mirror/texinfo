@@ -119,7 +119,7 @@ $result_errors{'comment_space_comand_in_float'} = [
 ];
 
 
-$result_tree_text{'comment_space_comand_in_float'} = 'Text  : 1
+$result_floats{'comment_space_comand_in_float'} = 'Text  : 1
  F1: {label-}
 ';
 

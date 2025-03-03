@@ -83,7 +83,7 @@ $result_errors{'caption_not_closed'} = [
 ];
 
 
-$result_tree_text{'caption_not_closed'} = 'Text: 1
+$result_floats{'caption_not_closed'} = 'Text: 1
  F
   C: Not closed caption
    

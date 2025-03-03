@@ -1471,7 +1471,10 @@ sub test($$)
   # Since there is no XS involved in setting up the output_units compared
   # with reference, there are no descriptor (allowing to retrieve output units
   # list and document) associated with the first output unit.
+  # FIXME to test XS, do a function for the next block, that can
+  # be overriden as a whole.
   my $output_units;
+  {
   if ($test_split eq 'node') {
     $output_units = Texinfo::OutputUnits::split_by_node($document);
   } elsif ($test_split eq 'section') {
@@ -1481,14 +1484,18 @@ sub test($$)
     my $identifier_target = $document->labels_information();
     Texinfo::OutputUnits::units_directions($identifier_target,
                                            $output_units, $self->{'DEBUG'});
-    $directions_text = '';
-    foreach my $output_unit (@$output_units) {
-      $directions_text .=
-          Texinfo::OutputUnits::print_output_unit_directions($output_unit);
-    }
   }
   if ($split_pages) {
     Texinfo::OutputUnits::split_pages($output_units, $split_pages);
+  }
+  }
+
+  if ($do_perl_tree and $output_units) {
+    $directions_text = '';
+    foreach my $output_unit (@$output_units) {
+      $directions_text .=
+        Texinfo::OutputUnits::print_output_unit_directions($output_unit);
+    }
   }
 
   # There are no XS overrides, so the changes are in Perl only, no need
@@ -1652,7 +1659,7 @@ sub test($$)
         $out_result .= Data::Dumper->Dump([$floats],
                             ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
       } else {
-        $out_result .= '$result_tree_text{\''.$test_name.'\'} = \''
+        $out_result .= '$result_floats{\''.$test_name.'\'} = \''
           . protect_perl_string($float_text)."';\n\n";
       }
     }

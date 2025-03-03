@@ -47,7 +47,7 @@ $result_texts{'empty_label_with_space'} = 'Type
 $result_errors{'empty_label_with_space'} = [];
 
 
-$result_tree_text{'empty_label_with_space'} = 'Type: 1
+$result_floats{'empty_label_with_space'} = 'Type: 1
  F
 ';
 

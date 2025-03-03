@@ -100,7 +100,7 @@ $result_errors{'caption_in_example'} = [
 ];
 
 
-$result_tree_text{'caption_in_example'} = 'float: 1
+$result_floats{'caption_in_example'} = 'float: 1
  F
   C: caption
 ';

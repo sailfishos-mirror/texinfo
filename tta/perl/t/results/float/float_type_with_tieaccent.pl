@@ -101,7 +101,7 @@ inside
 $result_errors{'float_type_with_tieaccent'} = [];
 
 
-$result_tree_text{'float_type_with_tieaccent'} = 'A 1͡a 第͡H ê͡一 and text: 1
+$result_floats{'float_type_with_tieaccent'} = 'A 1͡a 第͡H ê͡一 and text: 1
  F1: {label}
 ';
 

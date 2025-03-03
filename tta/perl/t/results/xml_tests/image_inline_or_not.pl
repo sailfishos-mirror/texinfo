@@ -529,7 +529,7 @@ in_float
 $result_errors{'image_inline_or_not'} = [];
 
 
-$result_tree_text{'image_inline_or_not'} = 'F: 1
+$result_floats{'image_inline_or_not'} = 'F: 1
  F1.1: {g}
   C: @image{in_caption} PAra @image{in_caption_para}
 ';

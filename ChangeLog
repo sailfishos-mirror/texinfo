@@ -1,5 +1,11 @@
 2025-03-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): fix generation of floats results.
+
+	* tta/perl/t/test_utils.pl (test): reorganize code.
+
+2025-03-03  Patrice Dumas  <pertusus@free.fr>
+
 	Text representation of listoffloats
 
 	* tta/C/main/floats.c (compare_listoffloats_type)

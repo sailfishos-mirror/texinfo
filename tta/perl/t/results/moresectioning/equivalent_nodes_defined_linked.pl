@@ -230,7 +230,7 @@ $result_errors{'equivalent_nodes_defined_linked'} = [
 ];
 
 
-$result_tree_text{'equivalent_nodes_defined_linked'} = 'Figure: 1
+$result_floats{'equivalent_nodes_defined_linked'} = 'Figure: 1
  F1: {chap}
 ';
 

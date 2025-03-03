@@ -129,7 +129,7 @@ $result_errors{'anchor_in_caption'} = [
 ];
 
 
-$result_tree_text{'anchor_in_caption'} = 'fl: 1
+$result_floats{'anchor_in_caption'} = 'fl: 1
  F1: {label}
   C: in caption@anchor{in anchor}
 ';

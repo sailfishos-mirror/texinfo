@@ -136,7 +136,7 @@ In float
 $result_errors{'block_commands'} = [];
 
 
-$result_tree_text{'block_commands'} = 'a float: 1
+$result_floats{'block_commands'} = 'a float: 1
  F1: {b-float}
   C: in caption
    

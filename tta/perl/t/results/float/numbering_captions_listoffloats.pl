@@ -1953,7 +1953,7 @@ A ref to float without type label but no type.
 $result_errors{'numbering_captions_listoffloats'} = [];
 
 
-$result_tree_text{'numbering_captions_listoffloats'} = ': 8
+$result_floats{'numbering_captions_listoffloats'} = ': 8
  F1: {label-but-no-type}
   S: SC No type
   C: C No type

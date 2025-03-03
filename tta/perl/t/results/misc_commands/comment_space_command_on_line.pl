@@ -291,7 +291,7 @@ float
 $result_errors{'comment_space_command_on_line'} = [];
 
 
-$result_tree_text{'comment_space_command_on_line'} = 'Text: 1
+$result_floats{'comment_space_command_on_line'} = 'Text: 1
  F1.1: {label}
 ';
 

@@ -308,7 +308,7 @@ $result_errors{'double_node_anchor_float'} = [
 ];
 
 
-$result_tree_text{'double_node_anchor_float'} = 'Text: 3
+$result_floats{'double_node_anchor_float'} = 'Text: 3
  F1: {node1}
  F2: {anchor1}
  F3: {float1}

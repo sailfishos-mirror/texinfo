@@ -105,7 +105,7 @@ My float.
 $result_errors{'tex_expanded_in_caption_multiple_time'} = [];
 
 
-$result_tree_text{'tex_expanded_in_caption_multiple_time'} = 'A: 1
+$result_floats{'tex_expanded_in_caption_multiple_time'} = 'A: 1
  F1: {B}
   C: @tex
    aa

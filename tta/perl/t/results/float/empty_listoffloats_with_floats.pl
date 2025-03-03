@@ -187,7 +187,7 @@ no label caption
 $result_errors{'empty_listoffloats_with_floats'} = [];
 
 
-$result_tree_text{'empty_listoffloats_with_floats'} = ': 4
+$result_floats{'empty_listoffloats_with_floats'} = ': 4
  F1: {label1}
  F2: {label2}
   C: caption with label

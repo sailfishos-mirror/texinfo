@@ -530,7 +530,7 @@ $result_errors{'form_feeds'} = [
 ];
 
 
-$result_tree_text{'form_feeds'} = ': 1
+$result_floats{'form_feeds'} = ': 1
  F
   S: shc within  shortcaption 
   C: within  cation 

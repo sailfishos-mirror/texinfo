@@ -156,7 +156,7 @@ $result_errors{'equivalent_labels'} = [
 ];
 
 
-$result_tree_text{'equivalent_labels'} = 'truc: 1
+$result_floats{'equivalent_labels'} = 'truc: 1
  F1: {floa}
 ';
 

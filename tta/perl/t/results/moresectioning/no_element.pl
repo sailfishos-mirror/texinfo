@@ -240,7 +240,7 @@ $result_errors{'no_element'} = [
 ];
 
 
-$result_tree_text{'no_element'} = ': 1
+$result_floats{'no_element'} = ': 1
  F1: {float-anchor}
 ';
 

@@ -129,7 +129,7 @@ $result_errors{'footnote_in_caption'} = [
 ];
 
 
-$result_tree_text{'footnote_in_caption'} = 'fl: 1
+$result_floats{'footnote_in_caption'} = 'fl: 1
  F1: {label}
   C: in caption@footnote{in footnote}
 ';

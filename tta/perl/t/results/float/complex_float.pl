@@ -1139,7 +1139,7 @@ $result_errors{'complex_float'} = [
 ];
 
 
-$result_tree_text{'complex_float'} = 'Text: 2
+$result_floats{'complex_float'} = 'Text: 2
  F1: {text-with-a-lot-of-features}
   S: @TeX{} and @emph{@b{t@\'e@^{@dotless{i}}}@url{an_url}} @sc{and} @verb{!it is @verb!} @ a wo@-rd @!@@ @AE{}.
   C: An example of float caption@enddots{}

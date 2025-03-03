@@ -458,7 +458,7 @@ In Main
 $result_errors{'references_to_top_no_top_output'} = [];
 
 
-$result_tree_text{'references_to_top_no_top_output'} = 'list: 2
+$result_floats{'references_to_top_no_top_output'} = 'list: 2
  F1: {My-Flist}
   C: Caption Flist. @anchor{a in caption}
  F1.1: {Main-Flist}

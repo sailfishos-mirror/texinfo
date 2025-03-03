@@ -73,7 +73,7 @@ inside
 $result_errors{'multiple_spaces_in_float_type'} = [];
 
 
-$result_tree_text{'multiple_spaces_in_float_type'} = 'Type of Float: 1
+$result_floats{'multiple_spaces_in_float_type'} = 'Type of Float: 1
  F1: {myfloat}
 ';
 

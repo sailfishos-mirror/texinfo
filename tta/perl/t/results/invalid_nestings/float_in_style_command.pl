@@ -86,7 +86,7 @@ $result_errors{'float_in_style_command'} = [
 ];
 
 
-$result_tree_text{'float_in_style_command'} = 'A: 1
+$result_floats{'float_in_style_command'} = 'A: 1
  F1: {B}
   C: Caption
 ';

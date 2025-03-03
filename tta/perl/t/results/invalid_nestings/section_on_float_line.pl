@@ -82,7 +82,7 @@ $result_errors{'section_on_float_line'} = [
 ];
 
 
-$result_tree_text{'section_on_float_line'} = 't: 1
+$result_floats{'section_on_float_line'} = 't: 1
  F1: {l}
 ';
 

@@ -659,7 +659,7 @@ $result_errors{'commands_and_spaces'} = [
 ];
 
 
-$result_tree_text{'commands_and_spaces'} = 'ff: 1
+$result_floats{'commands_and_spaces'} = 'ff: 1
  F1: {b}
   S: Short
   C: In caption 

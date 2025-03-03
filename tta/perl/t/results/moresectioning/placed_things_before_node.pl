@@ -323,7 +323,7 @@ $result_errors{'placed_things_before_node'} = [
 ];
 
 
-$result_tree_text{'placed_things_before_node'} = ': 1
+$result_floats{'placed_things_before_node'} = ': 1
  F1: {float-anchor}
 ';
 

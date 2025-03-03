@@ -154,7 +154,7 @@ In float
 $result_errors{'empty_caption'} = [];
 
 
-$result_tree_text{'empty_caption'} = ': 2
+$result_floats{'empty_caption'} = ': 2
  F1: {c}
   S(E)
  F

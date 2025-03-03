@@ -140,7 +140,7 @@ Text, text2
 $result_errors{'float_long_captions'} = [];
 
 
-$result_tree_text{'float_long_captions'} = 'Text: 2
+$result_floats{'float_long_captions'} = 'Text: 2
  F1: {text1}
   C: AAAAAAAAAAAAAAAA BBBBB CCCCCCCCCCC
  F2: {text2}

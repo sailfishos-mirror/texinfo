@@ -382,7 +382,7 @@ Appendix A Copying and floats
 $result_errors{'float_copying'} = [];
 
 
-$result_tree_text{'float_copying'} = 'Copyright notice: 1
+$result_floats{'float_copying'} = 'Copyright notice: 1
  F1: {public-domain}
   C: The Public Domain notice@footnote{
    The caption copying footnote

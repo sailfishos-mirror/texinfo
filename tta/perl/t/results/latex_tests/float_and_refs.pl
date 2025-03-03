@@ -649,7 +649,7 @@ my figure.
 $result_errors{'float_and_refs'} = [];
 
 
-$result_tree_text{'float_and_refs'} = ': 1
+$result_floats{'float_and_refs'} = ': 1
  F1.1: {no-type}
   S: short no type float
   C: no type float

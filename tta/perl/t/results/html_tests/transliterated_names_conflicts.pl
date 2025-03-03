@@ -231,7 +231,7 @@ In figure
 $result_errors{'transliterated_names_conflicts'} = [];
 
 
-$result_tree_text{'transliterated_names_conflicts'} = 'Figure: 1
+$result_floats{'transliterated_names_conflicts'} = 'Figure: 1
  F2.1: {Pr_00e8s}
 ';
 

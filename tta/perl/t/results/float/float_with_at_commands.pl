@@ -123,7 +123,7 @@ Ceci est notre premie`re entre\'e.
 $result_errors{'float_with_at_commands'} = [];
 
 
-$result_tree_text{'float_with_at_commands'} = 'entrée: 1
+$result_floats{'float_with_at_commands'} = 'entrée: 1
  F1: {premi_00e8re-entr_00e9e}
   C: La premi@`ere entr@\'ee est importante
 ';
