@@ -1,5 +1,10 @@
 2025-03-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): build the Perl tree especially only
+	if do_perl_tree.
+
+2025-03-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (print_tree_details),
 	tta/perl/Texinfo/ManipulateTree.pm (print_tree_details): rename
 	print_tree as print_tree_details.  Update callers.

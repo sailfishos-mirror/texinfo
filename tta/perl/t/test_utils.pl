@@ -1247,8 +1247,6 @@ sub test($$)
     }
   }
 
-  $tree = $document->tree();
-
   my $indices_information = $document->indices_information();
   # NOTE we do not compare the merged indices since we compare the sorted
   # indices already and the tests are already big.
@@ -1510,6 +1508,11 @@ sub test($$)
   } else {
     $float_text = Texinfo::Document::print_document_listoffloats($document);
   }
+
+  if ($do_perl_tree) {
+    $tree = $document->tree();
+  }
+
 
  COMPARE:
 
