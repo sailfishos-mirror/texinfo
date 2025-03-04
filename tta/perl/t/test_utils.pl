@@ -393,7 +393,7 @@ my @node_keys = ('node_directions',
 # in general, the 'parent' keys adds lot of non legible information,
 # however to punctually test for regressions on this information, the
 # best is to add it in tree tests by removing from @avoided_keys_tree.
-# Output units are shown if test_split is set.
+# Output units are shown if test_split_by_node is not undef.
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'float_number', 'tree_unit_directions', 'directions',
@@ -896,7 +896,7 @@ sub test($$)
     $test_input_file_name = $parser_options->{'test_input_file_name'};
     delete $parser_options->{'test_input_file_name'};
   }
-  # test_split should not interfere with output formats conversion
+  # test_split_by_node should not interfere with output formats conversion
   # as it is applied after the output formats.  Splitting should not interfere
   # with conversion anyway.  Output formats using information added by
   # splitting split themselves and reassociate all the root commands.
@@ -905,10 +905,14 @@ sub test($$)
   # do not split ignore output units and the association of root commands
   # with output units and therefore should not be affected either.
 
-  my $test_split = '';
+  my $test_split_by_node = undef;
   if ($parser_options->{'test_split'}) {
-    $test_split = $parser_options->{'test_split'};
-    if ($test_split ne 'node' and $test_split ne 'section') {
+    my $test_split = $parser_options->{'test_split'};
+    if ($test_split eq 'node') {
+      $test_split_by_node = 1;
+    } elsif ($test_split eq 'section') {
+      $test_split_by_node = 0;
+    } else {
       warn "test_utils.pl: test_split should be node or section: $test_split\n";
     }
     delete $parser_options->{'test_split'};
@@ -1454,8 +1458,8 @@ sub test($$)
   # leads to splitting by the converter, and generally the tests order is
   # first plaintext or info then html, so splitting not having an effect
   # on conversion should be fairly well tested.  See above the comment
-  # near test_split with more explanation on why previous splitting should
-  # not interfere with conversion.
+  # near test_split_by_node with more explanation on why previous splitting
+  # should not interfere with conversion.
   my $unsplit_needed = Texinfo::OutputUnits::unsplit($document);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
@@ -1471,38 +1475,18 @@ sub test($$)
   # Since there is no XS involved in setting up the output_units compared
   # with reference, there are no descriptor (allowing to retrieve output units
   # list and document) associated with the first output unit.
-  # FIXME to test XS, do a function for the next block, that can
-  # be overriden as a whole.
-  my $output_units;
-  {
-  if ($test_split eq 'node') {
-    $output_units = Texinfo::OutputUnits::split_by_node($document);
-  } elsif ($test_split eq 'section') {
-    $output_units = Texinfo::OutputUnits::split_by_section($document);
-  }
-  if ($test_split) {
-    my $identifier_target = $document->labels_information();
-    Texinfo::OutputUnits::units_directions($identifier_target,
-                                           $output_units, $self->{'DEBUG'});
-  }
-  if ($split_pages) {
-    Texinfo::OutputUnits::split_pages($output_units, $split_pages);
-  }
-  }
+  my $output_units
+    = Texinfo::OutputUnits::do_units_directions_pages($document,
+                         $test_split_by_node, $split_pages, $self->{'DEBUG'});
 
   if ($do_perl_tree and $output_units) {
+    #Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
     $directions_text = '';
     foreach my $output_unit (@$output_units) {
       $directions_text .=
         Texinfo::OutputUnits::print_output_unit_directions($output_unit);
     }
   }
-
-  # There are no XS overrides, so the changes are in Perl only, no need
-  # to rebuild Perl from C.
-  #if ($test_split or $split_pages) {
-  #  Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
-  #}
 
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);

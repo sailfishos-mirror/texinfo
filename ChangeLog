@@ -1,3 +1,10 @@
+2025-03-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/OutputUnits.pm (do_units_directions_pages),
+	tta/perl/t/test_utils.pl (test): add do_units_directions_pages based
+	on output units code in test.  Use a 0/1 specification for splitting
+	at node or sections.
+
 2025-03-03  Patrice Dumas  <pertusus@free.fr>
 
 	XS interface for printing list of floats

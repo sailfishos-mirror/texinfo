@@ -626,6 +626,40 @@ sub units_file_directions($)
   }
 }
 
+
+
+# used in tests, not documented on purpose, mainly to allow for overriding
+# with XS.
+# $UNITS_SPLIT_TYPE: 1 if units are split at node, 0 if units are split
+#                    at sectioning commands.  No output units if undef.
+sub do_units_directions_pages($$;$$)
+{
+  my $document = shift;
+  my $units_split_type = shift;
+  my $split_pages = shift;
+  my $debug = shift;
+
+  return undef if (!$document or !defined($units_split_type));
+
+  my $output_units;
+  if ($units_split_type == 1) {
+    $output_units = split_by_node($document);
+  } elsif ($units_split_type == 0) {
+    $output_units = split_by_section($document);
+  }
+  if ($output_units) {
+    my $identifier_target = $document->labels_information();
+    units_directions($identifier_target, $output_units, $debug);
+  }
+  if ($split_pages) {
+    split_pages($output_units, $split_pages);
+  }
+
+  return $output_units;
+}
+
+
+
 # used in debug messages
 sub output_unit_texi($)
 {
