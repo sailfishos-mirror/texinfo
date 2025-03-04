@@ -7,6 +7,12 @@
 #include "tree_types.h"
 #include "document_types.h"
 
+enum units_split_type {
+   UST_none = -1,
+   UST_section,
+   UST_node,
+};
+
 extern const char *relative_unit_direction_name[];
 
 OUTPUT_UNIT_LIST *retrieve_output_units (const DOCUMENT *document,
@@ -31,6 +37,10 @@ void units_directions (const LABEL_LIST *identifiers_target,
                        OUTPUT_UNIT_LIST *external_node_target_units,
                        int print_debug);
 void units_file_directions (OUTPUT_UNIT_LIST *output_units);
+
+size_t * do_units_directions_pages (DOCUMENT *document,
+                           enum units_split_type units_split,
+                           const char *split_pages_string, int debug);
 
 char *print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units,
                                  ELEMENT *tree,

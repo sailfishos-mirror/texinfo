@@ -67,6 +67,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::rebuild_output_units",
   "Texinfo::OutputUnits::_XS_unsplit"
     => "Texinfo::StructTransfXS::unsplit",
+  "Texinfo::OutputUnits::do_units_directions_pages"
+    => "Texinfo::StructTransfXS::do_units_directions_pages",
 );
 
 # used in conversion only, and should only be loaded with XS converters
@@ -651,7 +653,7 @@ sub do_units_directions_pages($$;$$)
     my $identifier_target = $document->labels_information();
     units_directions($identifier_target, $output_units, $debug);
   }
-  if ($split_pages) {
+  if (defined($split_pages)) {
     split_pages($output_units, $split_pages);
   }
 

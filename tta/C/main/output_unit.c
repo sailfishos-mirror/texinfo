@@ -953,6 +953,49 @@ units_file_directions (OUTPUT_UNIT_LIST *output_units)
     }
 }
 
+
+
+/* called for tests.  (From Perl only as tests are in Perl) */
+size_t *
+do_units_directions_pages (DOCUMENT *document,
+                           enum units_split_type units_split,
+                           const char *split_pages_string, int debug)
+{
+  size_t output_units_descriptor = 0;
+  OUTPUT_UNIT_LIST *output_units = 0;
+  size_t *result = (size_t *) malloc (sizeof (size_t)
+                                 * (OUDT_external_nodes_units+1));
+  memset (result, 0, sizeof (size_t) * (OUDT_external_nodes_units+1));
+
+  if (units_split == UST_node)
+    output_units_descriptor = split_by_node (document);
+  else if (units_split == UST_section)
+    output_units_descriptor = split_by_section (document);
+
+  if (output_units_descriptor)
+    {
+      OUTPUT_UNIT_LIST *external_node_target_units;
+      size_t external_nodes_units_descriptor
+        = new_output_units_descriptor (document);
+
+      result[OUDT_units] = output_units_descriptor;
+      result[OUDT_external_nodes_units] = external_nodes_units_descriptor;
+
+      output_units = retrieve_output_units (document, output_units_descriptor);
+      external_node_target_units = retrieve_output_units (document,
+                                           external_nodes_units_descriptor);
+
+      units_directions (&document->identifiers_target, output_units,
+                        external_node_target_units, debug);
+
+      if (split_pages_string)
+        split_pages (output_units, split_pages_string);
+    }
+  return result;
+}
+
+
+
 static char *
 output_unit_name_string (const OUTPUT_UNIT *output_unit)
 {

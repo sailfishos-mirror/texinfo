@@ -2768,6 +2768,9 @@ setup_output_units_handler (const DOCUMENT *document,
   hv_store (dummy_output_unit, "output_units_descriptor",
             strlen ("output_units_descriptor"),
             newSViv (output_units_descriptor), 0);
+  hv_store (dummy_output_unit, "output_units_document_descriptor",
+            strlen ("output_units_document_descriptor"),
+            newSViv ((IV)document->descriptor), 0);
 
   sv = newRV_inc ((SV *) dummy_output_unit);
   av_push (av_output_units, sv);

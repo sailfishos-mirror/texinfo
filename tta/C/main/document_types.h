@@ -314,12 +314,19 @@ typedef struct {
     VALUE *list;
 } VALUE_LIST;
 
-/* enum needed in document and converters codes, but not in this file */
+/* enums needed in document and converters codes, but not in this file */
 enum command_location {
    CL_before,
    CL_last,
    CL_preamble,
    CL_preamble_or_first,
+};
+
+enum output_units_descriptor_type {
+   OUDT_units,
+   OUDT_special_units,
+   OUDT_associated_special_units,
+   OUDT_external_nodes_units,
 };
 
 #endif

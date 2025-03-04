@@ -970,7 +970,7 @@ sub test($$)
     %todos = %{$parser_options->{'todo'}};
     delete $parser_options->{'todo'};
   }
-  my $split_pages = '';
+  my $split_pages;
   if ($parser_options->{'test_split_pages'}) {
     $split_pages = $parser_options->{'test_split_pages'};
     delete $parser_options->{'test_split_pages'};
@@ -1464,20 +1464,13 @@ sub test($$)
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
 
-  # There is no XS overriding for the following codes. rebuild_output_units
-  # does nothing if there is no output unit descriptor, the function may
-  # be called when XS is used but there is nothing setup for output units
-  # in C/XS (as is the case in the code below).  If overriding
-  # of XS is setup, most likely all the functions should have an XS override
-  # (units_directions has not, though there is an implementation in C),
-  # otherwise some information will be missing in the rebuild_output_units
-  # output units.
-  # Since there is no XS involved in setting up the output_units compared
-  # with reference, there are no descriptor (allowing to retrieve output units
-  # list and document) associated with the first output unit.
   my $output_units
     = Texinfo::OutputUnits::do_units_directions_pages($document,
                          $test_split_by_node, $split_pages, $self->{'DEBUG'});
+  # rebuild to Perl to get changes from C, if with XS
+  if ($output_units) {
+    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
+  }
 
   if ($do_perl_tree and $output_units) {
     #Texinfo::OutputUnits::rebuild_output_units($document, $output_units);

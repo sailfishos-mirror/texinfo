@@ -38,9 +38,9 @@
 /* for directions_length new_string_list copy_strings count_multibyte
    whitespace_chars */
 #include "utils.h"
-#include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
 #include "unicode.h"
+#include "manipulate_tree.h"
 
 /* To do the copy, we do two pass.  First with copy_tree_internal, the tree is
    copied and a flag and reference to the copy is put in all the elements,

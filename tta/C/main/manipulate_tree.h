@@ -20,6 +20,7 @@
 #include <stddef.h>
 #include <inttypes.h>
 
+#include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
 

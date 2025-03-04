@@ -331,6 +331,7 @@ protect_first_parenthesis_in_targets_in_document (SV *document_in)
         if (document)
           protect_first_parenthesis_in_targets_in_document (document);
 
+# unused, avoid using
 SV *
 split_by_node (SV *document_in)
     PREINIT:
@@ -350,6 +351,7 @@ split_by_node (SV *document_in)
     OUTPUT:
         RETVAL
 
+# unused, avoid using
 SV *
 split_by_section (SV *document_in)
     PREINIT:
@@ -402,6 +404,7 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
                                       output_units_descriptor);
           }
 
+# unused, avoid using
 void
 split_pages (SV *output_units_in, char *split)
     PREINIT:
@@ -418,3 +421,52 @@ split_pages (SV *output_units_in, char *split)
                                                     output_units_descriptor);
             split_pages (output_units, split);
           }
+
+# for tests only
+SV *
+do_units_directions_pages (SV *document_in, SV *units_split_type_in, SV *split_pages_in=0, SV *debug_in=0)
+    PREINIT:
+        DOCUMENT *document = 0;
+        SV *output_units_list = 0;
+        char *split_pages = 0;
+        int debug = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "do_units_directions_pages");
+        if (split_pages_in && SvOK (split_pages_in))
+          split_pages = (char *)SvPVbyte_nolen(split_pages_in);
+
+        if (debug_in && SvOK (debug_in))
+          debug = SvIV (debug_in);
+
+        if (document)
+          {
+            enum units_split_type units_split = UST_none;
+            if (SvOK (units_split_type_in))
+              units_split = (int) SvIV (units_split_type_in);
+
+            size_t *doc_units_descriptors
+             = do_units_directions_pages (document, units_split,
+                                          split_pages, debug);
+
+            if (doc_units_descriptors)
+              {
+                if (doc_units_descriptors[OUDT_units])
+                  output_units_list = setup_output_units_handler (document,
+                              doc_units_descriptors[OUDT_units]);
+
+                /* We build to Perl directly, as there is no reference
+                   retained in Perl to the external nodes output units list
+                   and it is referred to by the output_units_list */
+                if (doc_units_descriptors[OUDT_external_nodes_units])
+                  pass_output_units_list (document, 0,
+                      doc_units_descriptors[OUDT_external_nodes_units]);
+                free (doc_units_descriptors);
+              }
+          }
+        if (output_units_list)
+          RETVAL = output_units_list;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL

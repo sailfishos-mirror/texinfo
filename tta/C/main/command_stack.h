@@ -21,6 +21,8 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+/* FIXME check what is needed from converter_types, and put in
+   tree_types.h if used in parser */
 #include "converter_types.h"
 
 void reset_command_stack (COMMAND_STACK *stack);

@@ -49,13 +49,6 @@ enum sv_string_type {
    svt_char,
 };
 
-enum output_units_descriptor_type {
-   OUDT_units,
-   OUDT_special_units,
-   OUDT_associated_special_units,
-   OUDT_external_nodes_units,
-};
-
 enum formatting_reference_status {
    FRS_status_none,
    FRS_status_default_set,        /* default is set, no customization (or
