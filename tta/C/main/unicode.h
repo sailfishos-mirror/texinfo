@@ -7,6 +7,8 @@
 
 #include "command_ids.h"
 #include "tree_types.h"
+/* ELEMENT_STACK */
+#include "document_types.h"
 #include "converter_types.h"
 
 typedef struct ENCODING_CODEPOINTS {

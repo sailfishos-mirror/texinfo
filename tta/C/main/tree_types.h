@@ -355,6 +355,12 @@ typedef struct {
     FLOAT_RECORD *list;
 } FLOAT_RECORD_LIST;
 
+typedef struct {
+    enum command_id *stack;
+    size_t top;   /* One above last pushed command. */
+    size_t space;
+} COMMAND_STACK;
+
 enum tree_added_elements_status {
    tree_added_status_none,
    tree_added_status_elements_added,

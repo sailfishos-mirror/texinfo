@@ -17,8 +17,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tree_types.h"
 #include "command_ids.h"
+#include "tree_types.h"
+/* ELEMENT_STACK */
+#include "document_types.h"
+#include "converter_types.h"
 /* fatal */
 #include "base_utils.h"
 #include "command_stack.h"

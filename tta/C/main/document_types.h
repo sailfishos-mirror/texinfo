@@ -329,4 +329,11 @@ enum output_units_descriptor_type {
    OUDT_external_nodes_units,
 };
 
+/* in output units and converter */
+typedef struct ELEMENT_STACK {
+    const ELEMENT **stack;
+    size_t top;
+    size_t space;
+} ELEMENT_STACK;
+
 #endif

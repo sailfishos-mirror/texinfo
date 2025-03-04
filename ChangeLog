@@ -1,5 +1,13 @@
 2025-03-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/converter_types.h, tta/C/main/document_types.h
+	(ELEMENT_STACK), tta/C/main/tree_types.h (COMMAND_STACK): move
+	COMMAND_STACK to tree_types.h and ELEMENT_STACK to document_types.h.
+
+	Update header files includes.
+
+2025-03-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document_types.h (enum output_units_descriptor_type),
 	tta/C/main/converter_types.h: move to output_units_descriptor_type
 	to document_types.h as it is used in output units code.

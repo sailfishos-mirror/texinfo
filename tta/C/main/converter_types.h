@@ -195,12 +195,6 @@ enum html_stage_handler_stage_type {
    #undef html_hsht_type
 };
 
-typedef struct {
-    enum command_id *stack;
-    size_t top;   /* One above last pushed command. */
-    size_t space;
-} COMMAND_STACK;
-
 /* either a type or a command id */
 typedef struct {
     enum command_type_variety variety;
@@ -227,12 +221,6 @@ typedef struct {
     size_t top;   /* One above last pushed. */
     size_t space;
 } INTEGER_STACK;
-
-typedef struct ELEMENT_STACK {
-    const ELEMENT **stack;
-    size_t top;
-    size_t space;
-} ELEMENT_STACK;
 
 /* an element in C, and/or a reference to an external language (perl)
    for stack functions called from outside of the C converter */

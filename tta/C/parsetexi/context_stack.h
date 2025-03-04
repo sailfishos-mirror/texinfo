@@ -16,11 +16,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include <stddef.h>
-
 #include "command_ids.h"
 #include "tree_types.h"
-#include "converter_types.h"
 
 enum context {
    ct_base,
@@ -63,5 +60,7 @@ typedef struct {
 extern NESTING_CONTEXT nesting_context;
 
 
+
 int in_preformatted_context_not_menu (void);
+
 #endif

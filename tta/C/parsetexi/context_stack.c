@@ -128,8 +128,8 @@ is_context_empty (void)
 
 NESTING_CONTEXT nesting_context;
 
-
 
+
 /* used for @kbd */
 int
 in_preformatted_context_not_menu ()
