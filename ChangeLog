@@ -1,5 +1,10 @@
 2025-03-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): rebuild Perl output_units only if
+	Perl data is needed, if do_perl_tree is set.
+
+2025-03-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/OutputUnits.pm (%XS_overrides),
 	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
 	(do_units_directions_pages): add XS override for

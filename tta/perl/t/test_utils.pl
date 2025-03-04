@@ -1467,13 +1467,10 @@ sub test($$)
   my $output_units
     = Texinfo::OutputUnits::do_units_directions_pages($document,
                          $test_split_by_node, $split_pages, $self->{'DEBUG'});
-  # rebuild to Perl to get changes from C, if with XS
-  if ($output_units) {
-    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
-  }
 
   if ($do_perl_tree and $output_units) {
-    #Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
+    # rebuild to Perl to get changes from C, if with XS
+    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
     $directions_text = '';
     foreach my $output_unit (@$output_units) {
       $directions_text .=
