@@ -394,7 +394,7 @@ sub push_top_formatter($$)
   # This is not really meant to be used, as contents should open
   # their own formatters, however it happens that there is some text
   # outside any content that needs to be formatted, as @sp for example.
-  push @{$self->{'formatters'}}, $self->new_formatter('line');
+  push @{$self->{'formatters'}}, new_formatter($self, 'line');
   $self->{'formatters'}->[-1]->{'_top_formatter'} = 1;
 }
 
@@ -995,7 +995,7 @@ sub plaintext_line_error($$$$)
 sub convert_line($$;$)
 {
   my ($self, $converted, $conf) = @_;
-  my $formatter = $self->new_formatter('line', $conf);
+  my $formatter = new_formatter($self, 'line', $conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
@@ -1013,7 +1013,7 @@ sub convert_line_new_context($$;$)
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'encoding_disabled' => 1};
-  my $formatter = $self->new_formatter('line', $conf);
+  my $formatter = new_formatter($self, 'line', $conf);
   push @{$self->{'formatters'}}, $formatter;
   _convert($self, $converted);
   _stream_output($self,
@@ -1306,7 +1306,7 @@ sub process_footnotes($;$)
 {
   my ($self, $element) = @_;
 
-  my $formatter = $self->new_formatter('line'); # may not be used
+  my $formatter = new_formatter($self, 'line'); # may not be used
   push @{$self->{'formatters'}}, $formatter;
 
   if (scalar(@{$self->{'pending_footnotes'}})) {
@@ -1798,7 +1798,7 @@ sub process_printindex($$;$)
 
   # Use the same line formatter for all the index entries.  This is
   # slightly faster than making a new one for each entry.
-  my $formatter = $self->new_formatter('line',
+  my $formatter = new_formatter($self, 'line',
                                  {'indent' => 0, 'suppress_styles' => 1,
                                   'no_added_eol' => 1});
   push @{$self->{'formatters'}}, $formatter;
@@ -2680,7 +2680,7 @@ sub _convert_def_line($$)
       }
     }
 
-    my $def_paragraph = $self->new_formatter('paragraph',
+    my $def_paragraph = new_formatter($self, 'paragraph',
      { 'indent_length' =>
            ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                                                    * $indent_length,
@@ -3453,7 +3453,7 @@ sub _convert($$)
         if ($default_preformatted_context_commands{$cmdname}
             and ! $preformatted_commands{$cmdname}
             and ! $format_raw_commands{$cmdname}) {
-          $preformatted = $self->new_formatter('unfilled');
+          $preformatted = new_formatter($self, 'unfilled');
           push @{$self->{'formatters'}}, $preformatted;
           # displaymath rendered as an image, push a count to capture
           # formatted content
@@ -3607,7 +3607,7 @@ sub _convert($$)
              and $block_commands{$element->{'parent'}->{'cmdname'}}
              and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-      my $line = $self->new_formatter('line',
+      my $line = new_formatter($self, 'line',
           {'indent_length' =>
               ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                 * $indent_length
@@ -3683,7 +3683,7 @@ sub _convert($$)
     } elsif ($cmdname eq 'exdent') {
       if ($element->{'contents'}->[0]->{'contents'}) {
         if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
-          my $formatter = $self->new_formatter('unfilled',
+          my $formatter = new_formatter($self, 'unfilled',
             {'indent_length' =>
                 ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                   * $indent_length});
@@ -3745,7 +3745,7 @@ sub _convert($$)
           my $float_entry = $self->float_type_number($float);
           next if !defined($float_entry);
 
-          my $formatter = $self->new_formatter('paragraph',
+          my $formatter = new_formatter($self, 'paragraph',
             {
               'indent_length' => 0,
               'indent_length_next' => $listoffloat_entry_length,
@@ -3906,7 +3906,7 @@ sub _convert($$)
         $conf->{'indent_length'} = $para_indent;
         $conf->{'indent_length_next'} = 0;
       }
-      $paragraph = $self->new_formatter('paragraph', $conf);
+      $paragraph = new_formatter($self, 'paragraph', $conf);
       push @{$self->{'formatters'}}, $paragraph;
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
       if ($self->{'context'}->[-1] eq 'flushright') {
@@ -3920,7 +3920,7 @@ sub _convert($$)
       if ($type eq 'rawpreformatted'
           or !$element->{'parent'}->{'type'}
           or $element->{'parent'}->{'type'} ne 'menu_entry_description') {
-        $preformatted = $self->new_formatter('unfilled');
+        $preformatted = new_formatter($self, 'unfilled');
         push @{$self->{'formatters'}}, $preformatted;
         if ($self->{'context'}->[-1] eq 'flushright') {
           push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
@@ -4114,7 +4114,7 @@ sub _convert($$)
 
             if ($description_element->{'cmdname'} eq 'nodedescription') {
               # push a paragraph container to format the description.
-              $description_para = $self->new_formatter('paragraph',
+              $description_para = new_formatter($self, 'paragraph',
                   { 'indent_length' => $description_indent_length });
               push @{$self->{'formatters'}}, $description_para;
               $formatted_elt = $description_element->{'contents'}->[0];

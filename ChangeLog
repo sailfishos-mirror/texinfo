@@ -1,3 +1,10 @@
+2025-03-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter):
+	Call throughout without using method call syntax, as this is one
+	of the most frequently called functions and this produces a slight
+	speed-up.
+
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/test_utils.pl (test), tta/perl/Texinfo/Document.pm
