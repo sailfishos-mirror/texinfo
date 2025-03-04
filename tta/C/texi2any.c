@@ -57,7 +57,7 @@
 #include "errors.h"
 #include "customization_options.h"
 #include "txi_config.h"
-/* print_tree */
+/* print_tree_details */
 #include "manipulate_tree.h"
 /* set_document_options */
 #include "document.h"
@@ -2591,7 +2591,7 @@ main (int argc, char *argv[], char *env[])
           const char *input_file_names_encoding
             = input_file_name_encoding (document->options,
                                         &document->global_info, 0);
-          char *debug_tree = print_tree (document->tree,
+          char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
           const char *output_encoding = 0;
           OPTION *out_encoding_option
@@ -2790,7 +2790,7 @@ main (int argc, char *argv[], char *env[])
           const char *input_file_names_encoding
             = input_file_name_encoding (document->options,
                                         &document->global_info, 0);
-          char *debug_tree = print_tree (document->tree,
+          char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
           const char *output_encoding = 0;
           OPTION *out_encoding_option

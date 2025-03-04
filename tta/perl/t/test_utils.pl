@@ -1488,7 +1488,7 @@ sub test($$)
       = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
                                      $tree, $input_file_names_encoding, 1);
   } else {
-    $tree_text = Texinfo::ManipulateTree::print_tree($tree,
+    $tree_text = Texinfo::ManipulateTree::print_tree_details($tree,
                                          $input_file_names_encoding, 1);
   }
 

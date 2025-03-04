@@ -80,6 +80,8 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::protect_comma_in_document",
   "Texinfo::ManipulateTree::protect_node_after_label_in_document"
     => "Texinfo::StructTransfXS::protect_node_after_label_in_document",
+  "Texinfo::ManipulateTree::print_tree_details"
+    => "Texinfo::StructTransfXS::print_tree_details",
 );
 
 our $module_loaded = 0;
@@ -804,7 +806,7 @@ sub remove_element_tree_numbers($)
   }
 }
 
-sub print_tree($;$$)
+sub print_tree_details($;$$)
 {
   my $tree = shift;
   my $fname_encoding = shift;

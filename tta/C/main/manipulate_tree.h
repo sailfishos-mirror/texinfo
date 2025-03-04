@@ -43,7 +43,8 @@ NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 
 
-char *print_tree (ELEMENT *tree, const char *fname_encoding, int use_filename);
+char *print_tree_details (ELEMENT *tree, const char *fname_encoding,
+                          int use_filename);
 char *element_number_or_error (const ELEMENT *element);
 uintptr_t print_element_details (ELEMENT *element, int level,
                   const char *prepended, uintptr_t current_nr,

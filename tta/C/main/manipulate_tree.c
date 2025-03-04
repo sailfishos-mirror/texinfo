@@ -1345,6 +1345,9 @@ print_element_extra (ELEMENT *element, int level,
             free (joined_values);
             break;
           }
+        case extra_deleted:
+          continue;
+          break;
         default:
           need_free = 0;
           value = "TODO";
@@ -1567,7 +1570,8 @@ remove_element_tree_numbers (ELEMENT *element)
 }
 
 char *
-print_tree (ELEMENT *tree, const char *fname_encoding, int use_filename)
+print_tree_details (ELEMENT *tree, const char *fname_encoding,
+                    int use_filename)
 {
   TEXT result;
   uintptr_t current_nr;
