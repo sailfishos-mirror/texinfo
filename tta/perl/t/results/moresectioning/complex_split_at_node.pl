@@ -13,7 +13,6 @@ Forward: [U1]
 FastForward: [U1]
 NodeNext: [U1]
 NodePrev: (dir)
-
 NodeForward: [U1]
  *before_node_section C1
   *preamble_before_content

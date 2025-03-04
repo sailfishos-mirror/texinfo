@@ -1,5 +1,15 @@
 2025-03-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/OutputUnits.pm (%XS_overrides),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(do_units_directions_pages): add XS override for
+	do_units_directions_pages.
+
+	* tta/perl/Texinfo/OutputUnits.pm (_output_unit_name_string): use
+	directly contents to avoid leading and trailing spaces.
+
+2025-03-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/converter_types.h, tta/C/main/document_types.h
 	(ELEMENT_STACK), tta/C/main/tree_types.h (COMMAND_STACK): move
 	COMMAND_STACK to tree_types.h and ELEMENT_STACK to document_types.h.

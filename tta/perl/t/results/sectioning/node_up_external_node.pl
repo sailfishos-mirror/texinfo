@@ -64,11 +64,10 @@ unit_directions:D[prev->[U0]]
 UNIT_DIRECTIONS
 This: [U1]
 Back: [U0]
-NodeNext:  (manual1)
-NodePrev:  (manual2) 
-NodeUp:  (manual3)
-
-NodeForward:  (manual1)
+NodeNext: (manual1)
+NodePrev: (manual2)
+NodeUp: (manual3)
+NodeForward: (manual1)
 NodeBack: [U0]
  *2 @node C1 l7 {chap first}
  |INFO

@@ -42,7 +42,6 @@ Back: [U0]
 FastBack: [U0]
 Up: [U0]
 NodeUp: (dir)
-
  *1 @node C1 l4 {second}
  |INFO
  |spaces_before_argument:

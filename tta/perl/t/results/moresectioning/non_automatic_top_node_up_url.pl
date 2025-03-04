@@ -11,9 +11,8 @@ UNIT_DIRECTIONS
 This: [U0]
 Forward: [U1]
 NodeNext: [U1]
-NodePrev:  (dir)
-NodeUp:  (dir)
-
+NodePrev: (dir)
+NodeUp: (dir)
 NodeForward: [U1]
  *before_node_section
  *0 @node C1 l1 {Top}
@@ -112,8 +111,7 @@ This: [U1]
 Back: [U0]
 FastBack: [U0]
 NodePrev: [U0]
-NodeUp:  (dir)
-
+NodeUp: (dir)
 NodeBack: [U0]
  *3 @node C1 l8 {chap}
  |INFO

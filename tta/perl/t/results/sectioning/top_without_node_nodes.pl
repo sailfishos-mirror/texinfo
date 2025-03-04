@@ -9,7 +9,6 @@ $result_tree_text{'top_without_node_nodes'} = 'U0 unit[E1]
 UNIT_DIRECTIONS
 This: [U0]
 NodeUp: (dir)
-
  *before_node_section
  *0 @top C3 l1 {top section}
  |INFO

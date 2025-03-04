@@ -13,7 +13,6 @@ Forward: [U1]
 FastForward: [U0]
 FastBack: [U0]
 NodeUp: (dir)
-
  *before_node_section
  *0 @node C1 l1 {a node}
  |INFO
@@ -86,7 +85,6 @@ This: [U1]
 Back: [U0]
 Prev: [U0]
 NodeUp: (dir)
-
  *3 @node C1 l9 {second}
  |INFO
  |spaces_before_argument:

@@ -470,3 +470,45 @@ do_units_directions_pages (SV *document_in, SV *units_split_type_in, SV *split_p
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
+
+SV *
+print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
+    PREINIT:
+        const DOCUMENT *document = 0;
+        const char *fname_encoding = 0;
+        int use_filename = 0;
+        SV *result_sv = 0;
+     CODE:
+        document = get_sv_tree_document (tree_in,
+                                         "print_output_units_tree_details");
+        if (fname_encoding_in && SvOK (fname_encoding_in))
+          fname_encoding = (char *)SvPVbyte_nolen(fname_encoding_in);
+
+        if (use_filename_in && SvOK (use_filename_in))
+          use_filename = SvIV (use_filename_in);
+
+        if (document)
+          {
+            OUTPUT_UNIT_LIST *output_units = 0;
+            size_t output_units_descriptor
+             = get_sv_output_units_descriptor (output_units_in, 0, 0);
+            if (output_units_descriptor)
+              {
+                output_units
+                 = retrieve_output_units (document, output_units_descriptor);
+              }
+            if (output_units)
+              {
+                char *result = print_output_units_tree_details (output_units,
+                                document->tree, fname_encoding, use_filename);
+                result_sv = newSVpv_utf8 (result, 0);
+                free (result);
+              }
+          }
+
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL

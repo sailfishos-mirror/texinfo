@@ -69,6 +69,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::unsplit",
   "Texinfo::OutputUnits::do_units_directions_pages"
     => "Texinfo::StructTransfXS::do_units_directions_pages",
+  "Texinfo::OutputUnits::print_output_units_tree_details"
+    => "Texinfo::StructTransfXS::print_output_units_tree_details",
 );
 
 # used in conversion only, and should only be loaded with XS converters
@@ -702,7 +704,7 @@ sub _output_unit_name_string($)
   } elsif ($output_unit->{'unit_type'} eq 'external_node_unit') {
     my $output_unit_name
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
-           {'contents' => [$output_unit->{'unit_command'}]});
+           {'contents' => $output_unit->{'unit_command'}->{'contents'}});
     return $output_unit_name;
   } elsif ($output_unit->{'unit_type'} eq 'special_unit') {
     return "[S:$output_unit->{'special_unit_variety'}]";

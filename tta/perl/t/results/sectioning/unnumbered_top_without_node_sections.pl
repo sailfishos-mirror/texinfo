@@ -13,7 +13,6 @@ Forward: [U1]
 FastForward: [U1]
 Next: [U1]
 NodeUp: (dir)
-
  *before_node_section C1
   *preamble_before_content
  *0 @node C1 l1 {a node}
@@ -98,7 +97,6 @@ Back: [U1]
 FastBack: [U1]
 Prev: [U1]
 NodeUp: (dir)
-
  *3 @node C1 l9 {second}
  |INFO
  |spaces_before_argument:
