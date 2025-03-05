@@ -665,21 +665,13 @@ sub format_ref($$$$)
     my $post_quote = $pre_quote;
 
     if ($pre_quote) {
-      $self->_stream_output(
-               add_text($formatter->{'container'}, $pre_quote),
-               $self->{'formatters'}[-1]{'container'});
+      $self->_stream_output_add_text($pre_quote);
     }
     $self->_convert($name);
     if ($post_quote) {
-      $self->_stream_output(
-               add_text($formatter->{'container'}, $post_quote),
-               $self->{'formatters'}[-1]{'container'}
-      );
+      $self->_stream_output_add_text($post_quote);
     }
-    $self->_stream_output(
-             add_text($formatter->{'container'}, ": "),
-             $self->{'formatters'}[-1]{'container'}
-    );
+    $self->_stream_output_add_text(": ");
   }
 
   if ($file) {

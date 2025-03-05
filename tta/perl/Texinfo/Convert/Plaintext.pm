@@ -1111,6 +1111,29 @@ sub _stream_output($$;$)
   return;
 }
 
+# Call pass $TEXT to add_text and output the resulting text.  Used for
+# concision in calling code.
+sub _stream_output_add_text($$)
+{
+  my ($self, $text) = @_;
+
+  my $formatter = $self->{'formatters'}->[-1];
+  my $container = $formatter->{'container'};
+  my $output = add_text($formatter->{'container'}, $text);
+
+  my $count_context = $self->{'count_context'}->[-1];
+  my $count = Texinfo::Convert::Paragraph::end_line_count($container);
+  $count_context->{'lines'} += $count;
+
+  if (!defined $count_context->{'pending_text'}) {
+    $count_context->{'pending_text'} = '';
+  }
+  $count_context->{'pending_text'} .= $output;
+
+  return;
+}
+
+
 # Add an already-encoded string to the output.
 sub _stream_output_encoded($$)
 {
