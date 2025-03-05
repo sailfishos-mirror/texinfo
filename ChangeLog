@@ -1,5 +1,12 @@
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (print_document_indices_information),
+	tta/perl/t/test_utils.pl (test): add wrapper around
+	Texinfo::Indices::print_indices_information that is called with the
+	document, to be able to do an XS override.  Call it in test.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Indices.pm (print_indices_information): add
 	print_indices_information that returns textual information on the
 	indices, but not on the index entries.

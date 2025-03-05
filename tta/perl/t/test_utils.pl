@@ -1248,17 +1248,17 @@ sub test($$)
     }
   }
 
-  my $indices_information = $document->indices_information();
+  my $indices_info_text = $document->print_document_indices_information();
+  # only print indices information if it differs from the default
+  # indices.  Indices information is not about the entries.
+  $indices = $indices_info_text
+    unless($indices_info_text eq $initial_index_names);
+
+  #$document->indices_information();
+
   # NOTE we do not compare the merged indices since we compare the sorted
   # indices already and the tests are already big.
   my $merged_index_entries = $document->merged_indices();
-
-  # only print indices information if it differs from the default
-  # indices.  Indices information is not about the entries.
-  my $indices_information
-    = Texinfo::Indices::print_indices_information($indices_information);
-  $indices = $indices_information
-    unless($indices_information eq $initial_index_names);
 
   if ($merged_index_entries) {
     my $use_unicode_collation

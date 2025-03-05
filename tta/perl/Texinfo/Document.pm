@@ -408,6 +408,8 @@ sub sorted_indices_by_index($$$$)
 
 
 
+# wrapper on print_listoffloats_types that can be used for XS overriding.
+# Used in tests only.
 sub print_document_listoffloats($)
 {
   my $document = shift;
@@ -423,6 +425,25 @@ sub print_document_listoffloats($)
   }
 
   return $float_text;
+}
+
+# wrapper on print_indices_information that can be used for XS overriding.
+# Used in tests only.
+sub print_document_indices_information($)
+{
+  my $document = shift;
+
+  my $indices_info_text;
+
+  if ($document) {
+    my $indices_information = $document->indices_information();
+    if ($indices_information) {
+      $indices_info_text
+        = Texinfo::Indices::print_indices_information($indices_information);
+    }
+  }
+
+  return $indices_info_text;
 }
 
 
