@@ -2484,6 +2484,7 @@ main (int argc, char *argv[], char *env[])
       char *input_file_name_and_directory[2];
       char *input_file_name;
       char *input_directory;
+      char *canon_input_dir = 0;
       OPTION *trace_includes_option;
       OPTION *macro_expand_option;
       OPTION *dump_texi_option;
@@ -2562,7 +2563,11 @@ main (int argc, char *argv[], char *env[])
         copy_strings (&prepended_include_directories, &prepend_dirs);
 
       add_string (curdir, &prepended_include_directories);
-      if (input_directory && strcmp (curdir, input_directory))
+
+      if (input_directory)
+        canon_input_dir = canonpath (input_directory);
+
+      if (canon_input_dir && strcmp (curdir, canon_input_dir))
         add_string (input_directory, &prepended_include_directories);
 
       /* tune for the input file include directory and prepend to
@@ -2897,12 +2902,11 @@ main (int argc, char *argv[], char *env[])
       clear_strings_list (converter_texinfo_language_config_dirs);
 
       add_string (curdir, converter_texinfo_language_config_dirs);
-      if (input_directory)
+      if (canon_input_dir && strcmp (curdir, canon_input_dir))
         {
-          if (strcmp (curdir, input_directory))
-            add_string (input_directory,
-                        converter_texinfo_language_config_dirs);
-      }
+          add_string (input_directory,
+                      converter_texinfo_language_config_dirs);
+        }
 
       copy_strings (converter_texinfo_language_config_dirs,
                     texinfo_language_config_dirs);
@@ -3208,6 +3212,7 @@ main (int argc, char *argv[], char *env[])
       txi_document_remove (document);
 
       free (input_directory);
+      free (canon_input_dir);
       free (input_file_name);
       free (input_file_path);
 

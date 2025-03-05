@@ -1703,8 +1703,12 @@ while(@input_files) {
   $input_file_name = $input_file_arg if (!defined($input_file_name));
 
   my ($input_filename, $input_directory, $suffix) = fileparse($input_file_name);
+  my $canon_input_dir;
   if (!defined($input_directory) or $input_directory eq '') {
     $input_directory = $curdir;
+    $canon_input_dir = $curdir;
+  } else {
+    $canon_input_dir = File::Spec->canonpath($input_directory);
   }
 
   #my $input_file_base = $input_file_name;
@@ -1717,7 +1721,7 @@ while(@input_files) {
 
   my @prepended_include_directories = ($curdir);
   push @prepended_include_directories, $input_directory
-      if ($input_directory ne $curdir);
+      if ($canon_input_dir ne $curdir);
   @prepended_include_directories =
     (@prepend_dirs, @prepended_include_directories);
 
@@ -2059,7 +2063,7 @@ while(@input_files) {
 
   my @prepended_texinfo_language_directories = ($curdir);
   push @prepended_texinfo_language_directories, $input_directory
-      if ($input_directory ne $curdir);
+      if ($canon_input_dir ne $curdir);
 
   unshift @{$converter_options->{'TEXINFO_LANGUAGE_DIRECTORIES'}},
            @prepended_texinfo_language_directories;

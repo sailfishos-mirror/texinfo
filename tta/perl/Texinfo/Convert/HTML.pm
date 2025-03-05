@@ -8712,7 +8712,6 @@ sub _load_htmlxref_files {
        and scalar(@{$self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')}) > 0) {
       @htmlxref_dirs = @{$self->get_conf('TEXINFO_LANGUAGE_DIRECTORIES')};
     }
-    unshift @htmlxref_dirs, '.';
 
     my $cnf_directory_name;
 

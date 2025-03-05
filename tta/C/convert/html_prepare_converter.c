@@ -1232,8 +1232,6 @@ load_htmlxref_files (CONVERTER *self)
 
       memset (&htmlxref_dirs, 0, sizeof (STRING_LIST));
 
-      add_string (".", &htmlxref_dirs);
-
       if (self->conf->TEST.o.integer > 0)
         {
           /* to have reproducible tests, do not use system or user

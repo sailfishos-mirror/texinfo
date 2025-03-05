@@ -1,5 +1,16 @@
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_prepare_converter.c (load_htmlxref_files),
+	tta/perl/Texinfo/Convert/HTML.pm (_load_htmlxref_files): do not add
+	the current directory, it is already in TEXINFO_LANGUAGE_DIRECTORIES.
+	Report from Gavin.
+
+	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: canonicalize input
+	directory and us the canonical form when comparing to curdir.  Report
+	from Gavin.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree_types.h (FLOAT_RECORD): set type to const.
 
 2025-03-05  Gavin Smith <gavinsmith0123@gmail.com>
