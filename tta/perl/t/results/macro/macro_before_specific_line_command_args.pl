@@ -62,35 +62,12 @@ $result_texts{'macro_before_specific_line_command_args'} = '
 $result_errors{'macro_before_specific_line_command_args'} = [];
 
 
-$result_indices{'macro_before_specific_line_command_args'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 1,
-      'merged_in' => 'fn',
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'macro_before_specific_line_command_args'} = 'cp C ->fn
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

@@ -77,39 +77,14 @@ $result_errors{'index_entries'} = [
 ];
 
 
-$result_indices{'index_entries'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'truc' => {
-      'in_code' => 0,
-      'name' => 'truc'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'index_entries'} = 'cp
+fn C
+ky C
+pg C
+tp C
+truc
+vr C
+';
 
 $result_indices_sort_strings{'index_entries'} = {
   'cp' => [

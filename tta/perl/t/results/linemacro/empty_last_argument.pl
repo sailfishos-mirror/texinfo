@@ -266,39 +266,14 @@ $result_errors{'empty_last_argument'} = [
 ];
 
 
-$result_indices{'empty_last_argument'} = {
-  'index_names' => {
-    'BI' => {
-      'in_code' => 1,
-      'name' => 'BI'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'empty_last_argument'} = 'BI C
+cp
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 $result_indices_sort_strings{'empty_last_argument'} = {
   'BI' => [

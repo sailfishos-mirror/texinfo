@@ -68,43 +68,14 @@ $result_errors{'recursive_synindex'} = [
 ];
 
 
-$result_indices{'recursive_synindex'} = {
-  'index_names' => {
-    'aaa' => {
-      'in_code' => 0,
-      'merged_in' => 'bbb',
-      'name' => 'aaa'
-    },
-    'bbb' => {
-      'in_code' => 0,
-      'name' => 'bbb'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'recursive_synindex'} = 'aaa ->bbb
+bbb
+cp
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

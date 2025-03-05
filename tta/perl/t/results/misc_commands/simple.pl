@@ -26,38 +26,13 @@ $result_texts{'simple'} = '';
 $result_errors{'simple'} = [];
 
 
-$result_indices{'simple'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'idx' => {
-      'in_code' => 0,
-      'name' => 'idx'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'simple'} = 'cp
+fn C
+idx
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

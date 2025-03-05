@@ -426,59 +426,18 @@ $result_errors{'complex_recursive_synindex'} = [
 ];
 
 
-$result_indices{'complex_recursive_synindex'} = {
-  'index_names' => {
-    'aaa' => {
-      'in_code' => 0,
-      'merged_in' => 'bbb',
-      'name' => 'aaa'
-    },
-    'bbb' => {
-      'in_code' => 0,
-      'name' => 'bbb'
-    },
-    'ccc' => {
-      'in_code' => 0,
-      'merged_in' => 'bbb',
-      'name' => 'ccc'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'ddd' => {
-      'in_code' => 0,
-      'merged_in' => 'bbb',
-      'name' => 'ddd'
-    },
-    'eee' => {
-      'in_code' => 0,
-      'merged_in' => 'bbb',
-      'name' => 'eee'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'complex_recursive_synindex'} = 'aaa ->bbb
+bbb
+ccc ->bbb
+cp
+ddd ->bbb
+eee ->bbb
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 $result_indices_sort_strings{'complex_recursive_synindex'} = {
   'bbb' => [

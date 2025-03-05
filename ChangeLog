@@ -1,3 +1,12 @@
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Indices.pm (print_indices_information): add
+	print_indices_information that returns textual information on the
+	indices, but not on the index entries.
+
+	* tta/perl/t/test_utils.pl (test): use print_indices_information
+	as information on indices for tests.
+
 2025-03-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/test_utils.pl (test): build the Perl tree especially only

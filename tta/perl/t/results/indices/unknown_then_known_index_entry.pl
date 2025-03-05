@@ -63,39 +63,14 @@ $result_errors{'unknown_then_known_index_entry'} = [
 ];
 
 
-$result_indices{'unknown_then_known_index_entry'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'some' => {
-      'in_code' => 0,
-      'name' => 'some'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'unknown_then_known_index_entry'} = 'cp
+fn C
+ky C
+pg C
+some
+tp C
+vr C
+';
 
 $result_indices_sort_strings{'unknown_then_known_index_entry'} = {
   'some' => [

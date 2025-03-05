@@ -319,38 +319,13 @@ $result_errors{'command_conditionals_user_defined'} = [
 ];
 
 
-$result_indices{'command_conditionals_user_defined'} = {
-  'index_names' => {
-    'auth' => {
-      'in_code' => 0,
-      'name' => 'auth'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'command_conditionals_user_defined'} = 'auth
+cp
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

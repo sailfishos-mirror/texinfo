@@ -592,56 +592,17 @@ $result_errors{'def_syn_indices'} = [
 ];
 
 
-$result_indices{'def_syn_indices'} = {
-  'index_names' => {
-    'abc' => {
-      'in_code' => 0,
-      'merged_in' => 'pg',
-      'name' => 'abc'
-    },
-    'codeidx' => {
-      'in_code' => 1,
-      'name' => 'codeidx'
-    },
-    'cp' => {
-      'in_code' => 1,
-      'merged_in' => 'fn',
-      'name' => 'cp'
-    },
-    'defg' => {
-      'in_code' => 0,
-      'merged_in' => 'pg',
-      'name' => 'defg'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'merged_in' => 'pg',
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'truc' => {
-      'in_code' => 0,
-      'merged_in' => 'fn',
-      'name' => 'truc'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'def_syn_indices'} = 'abc ->pg
+codeidx C
+cp C ->fn
+defg ->pg
+fn C
+ky C ->pg
+pg C
+tp C
+truc ->fn
+vr C
+';
 
 $result_indices_sort_strings{'def_syn_indices'} = {
   'codeidx' => [

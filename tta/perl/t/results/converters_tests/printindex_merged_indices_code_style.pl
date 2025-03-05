@@ -288,47 +288,15 @@ $result_texts{'printindex_merged_indices_code_style'} = 'top
 $result_errors{'printindex_merged_indices_code_style'} = [];
 
 
-$result_indices{'printindex_merged_indices_code_style'} = {
-  'index_names' => {
-    'cdi' => {
-      'in_code' => 0,
-      'merged_in' => 'fn',
-      'name' => 'cdi'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'merged_in' => 'fn',
-      'name' => 'cp'
-    },
-    'ddi' => {
-      'in_code' => 1,
-      'merged_in' => 'fn',
-      'name' => 'ddi'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 0,
-      'merged_in' => 'fn',
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'printindex_merged_indices_code_style'} = 'cdi ->fn
+cp ->fn
+ddi C ->fn
+fn C
+ky C
+pg C
+tp C
+vr ->fn
+';
 
 $result_indices_sort_strings{'printindex_merged_indices_code_style'} = {
   'fn' => [

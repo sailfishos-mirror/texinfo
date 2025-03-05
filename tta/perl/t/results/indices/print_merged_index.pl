@@ -85,35 +85,12 @@ $result_errors{'print_merged_index'} = [
 ];
 
 
-$result_indices{'print_merged_index'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'merged_in' => 'cp',
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'print_merged_index'} = 'cp
+fn C ->cp
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

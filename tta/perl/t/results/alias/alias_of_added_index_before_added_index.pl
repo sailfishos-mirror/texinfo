@@ -160,39 +160,14 @@ top
 $result_errors{'alias_of_added_index_before_added_index'} = [];
 
 
-$result_indices{'alias_of_added_index_before_added_index'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'sli' => {
-      'in_code' => 0,
-      'name' => 'sli'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'alias_of_added_index_before_added_index'} = 'cp
+fn C
+ky C
+pg C
+sli
+tp C
+vr C
+';
 
 $result_indices_sort_strings{'alias_of_added_index_before_added_index'} = {
   'sli' => [

@@ -496,44 +496,15 @@ $result_errors{'macro_in_index_commands'} = [
 ];
 
 
-$result_indices{'macro_in_index_commands'} = {
-  'index_names' => {
-    'codeidx' => {
-      'in_code' => 1,
-      'name' => 'codeidx'
-    },
-    'cp' => {
-      'in_code' => 1,
-      'merged_in' => 'fn',
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'truc' => {
-      'in_code' => 0,
-      'name' => 'truc'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'macro_in_index_commands'} = 'codeidx C
+cp C ->fn
+fn C
+ky C
+pg C
+tp C
+truc
+vr C
+';
 
 $result_indices_sort_strings{'macro_in_index_commands'} = {
   'codeidx' => [

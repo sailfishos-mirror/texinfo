@@ -44,38 +44,13 @@ $result_errors{'wrong_synindex'} = [
 ];
 
 
-$result_indices{'wrong_synindex'} = {
-  'index_names' => {
-    'aaa' => {
-      'in_code' => 0,
-      'name' => 'aaa'
-    },
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'wrong_synindex'} = 'aaa
+cp
+fn C
+ky C
+pg C
+tp C
+vr C
+';
 
 1;

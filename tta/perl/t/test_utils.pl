@@ -1104,8 +1104,9 @@ sub test($$)
   my $parser = Texinfo::Parser::parser($completed_parser_options);
 
   # take the initial values to record only if there is something new
-  # do a copy to compare the values and not the references
-  my $initial_index_names = dclone(\%Texinfo::Commands::index_names);
+  my $initial_index_names
+    = Texinfo::Indices::print_indices_information(
+                              \%Texinfo::Commands::index_names);
   my $document;
   if (!$test_file) {
     if ($full_document) {
@@ -1253,10 +1254,11 @@ sub test($$)
   my $merged_index_entries = $document->merged_indices();
 
   # only print indices information if it differs from the default
-  # indices.  Indices information here is everything but the entries.
-  my $trimmed_index_names = remove_keys($indices_information, ['index_entries']);
-  $indices = {'index_names' => $trimmed_index_names}
-    unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
+  # indices.  Indices information is not about the entries.
+  my $indices_information
+    = Texinfo::Indices::print_indices_information($indices_information);
+  $indices = $indices_information
+    unless($indices_information eq $initial_index_names);
 
   if ($merged_index_entries) {
     my $use_unicode_collation
@@ -1625,10 +1627,13 @@ sub test($$)
       # results to check are doubly encoded.
       $out_result .= Data::Dumper->Dump([$errors],
                            ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
-      $out_result .= Data::Dumper->Dump([$indices],
-                            ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
-         if ($indices);
     }
+
+    if (defined($indices)) {
+      $out_result .= '$result_indices{\''.$test_name.'\'} = \''
+                     . protect_perl_string($indices)."';\n\n";
+    }
+
     if ($do_perl_tree and $floats) {
       local $Data::Dumper::Sortkeys = \&filter_floats_keys;
       $out_result .= Data::Dumper->Dump([$floats],
@@ -1721,8 +1726,7 @@ sub test($$)
 
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');
-    ok (Data::Compare::Compare($indices, $result_indices{$test_name}),
-        $test_name.' indices');
+    is_with_diff($indices, $result_indices{$test_name}, $test_name.' indices');
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');

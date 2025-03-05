@@ -522,39 +522,14 @@ $result_errors{'macro_alias_definfoenclose_defindex'} = [
 ];
 
 
-$result_indices{'macro_alias_definfoenclose_defindex'} = {
-  'index_names' => {
-    'cp' => {
-      'in_code' => 0,
-      'name' => 'cp'
-    },
-    'fn' => {
-      'in_code' => 1,
-      'name' => 'fn'
-    },
-    'ky' => {
-      'in_code' => 1,
-      'name' => 'ky'
-    },
-    'pg' => {
-      'in_code' => 1,
-      'name' => 'pg'
-    },
-    'phoo' => {
-      'in_code' => 0,
-      'name' => 'phoo'
-    },
-    'tp' => {
-      'in_code' => 1,
-      'name' => 'tp'
-    },
-    'vr' => {
-      'in_code' => 1,
-      'name' => 'vr'
-    }
-  }
-};
-
+$result_indices{'macro_alias_definfoenclose_defindex'} = 'cp
+fn C
+ky C
+pg C
+phoo
+tp C
+vr C
+';
 
 $result_indices_sort_strings{'macro_alias_definfoenclose_defindex'} = {
   'phoo' => [

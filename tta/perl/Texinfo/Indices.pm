@@ -704,6 +704,34 @@ sub merge_indices($)
   return $merged_index_entries;
 }
 
+# textual representation on indices themselves (not on the index entries)
+# used in tests
+sub print_indices_information($)
+{
+  my $indices_information = shift;
+
+  return undef if (!$indices_information);
+
+  my @sorted_indices = sort(keys(%$indices_information));
+
+  return undef if (!scalar(@sorted_indices));
+
+  my $result = '';
+  foreach my $index_name (@sorted_indices) {
+    my $index_info = $indices_information->{$index_name};
+    $result .= $index_name;
+    if ($index_info->{'in_code'}) {
+      $result .= " C";
+    }
+    if (defined($index_info->{'merged_in'})) {
+      $result .= " ->$index_info->{'merged_in'}"
+    }
+    $result .= "\n";
+  }
+
+  return $result;
+}
+
 
 1;
 
