@@ -14,6 +14,11 @@
 
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/OutputUnits.pm (%XS_overrides, unsplit): let
+	unsplit be overriden as a whole.  Remove _XS_unsplit.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document_types.h (DOCUMENT), tta/C/main/output_unit.c
 	(do_units_directions_pages),
 	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs

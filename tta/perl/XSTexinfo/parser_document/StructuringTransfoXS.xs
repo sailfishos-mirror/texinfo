@@ -412,6 +412,7 @@ unsplit (SV *document_in)
         DOCUMENT *document = 0;
      CODE:
         /* this is called even if there is no XS tree, so no error */
+        /* FIXME verify and explain when */
         document = get_sv_document_document (document_in, 0);
         if (document)
           RETVAL = unsplit (document);

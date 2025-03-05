@@ -65,7 +65,7 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 my %XS_overrides = (
   "Texinfo::OutputUnits::rebuild_output_units"
     => "Texinfo::StructTransfXS::rebuild_output_units",
-  "Texinfo::OutputUnits::_XS_unsplit"
+  "Texinfo::OutputUnits::unsplit"
     => "Texinfo::StructTransfXS::unsplit",
   "Texinfo::OutputUnits::do_units_directions_pages"
     => "Texinfo::StructTransfXS::do_units_directions_pages",
@@ -212,31 +212,19 @@ sub split_by_section($)
   return $output_units;
 }
 
-sub _XS_unsplit($)
-{
-  my $document = shift;
-  return -3;
-}
-
 # remove the association with document units
 # NOTE not documented, but is internally used for tests only.
-# In the situation where unsplit is called, in the test suite, it is
-# always better to do it both for XS and perl.
 sub unsplit($)
 {
   my $document = shift;
-
-  my $unsplit_needed = 0;
-  my $XS_unsplit_needed = _XS_unsplit($document);
-  if ($XS_unsplit_needed > 0) {
-    $unsplit_needed = 1;
-  }
 
   my $root = $document->tree();
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
     return 0;
   }
+
+  my $unsplit_needed = 0;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'associated_unit'}) {
       delete $content->{'associated_unit'};
