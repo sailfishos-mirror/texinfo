@@ -1111,7 +1111,7 @@ sub _stream_output($$;$)
   return;
 }
 
-# Call pass $TEXT to add_text and output the resulting text.  Used for
+# Pass $TEXT to add_text and output the resulting text.  Used for
 # concision in calling code.
 sub _stream_output_add_text($$)
 {
@@ -1120,6 +1120,28 @@ sub _stream_output_add_text($$)
   my $formatter = $self->{'formatters'}->[-1];
   my $container = $formatter->{'container'};
   my $output = add_text($formatter->{'container'}, $text);
+
+  my $count_context = $self->{'count_context'}->[-1];
+  my $count = Texinfo::Convert::Paragraph::end_line_count($container);
+  $count_context->{'lines'} += $count;
+
+  if (!defined $count_context->{'pending_text'}) {
+    $count_context->{'pending_text'} = '';
+  }
+  $count_context->{'pending_text'} .= $output;
+
+  return;
+}
+
+# Pass $TEXT to add_next and output the resulting text.  Used for
+# concision in calling code.
+sub _stream_output_add_next($$)
+{
+  my ($self, $text) = @_;
+
+  my $formatter = $self->{'formatters'}->[-1];
+  my $container = $formatter->{'container'};
+  my $output = add_next($formatter->{'container'}, $text);
 
   my $count_context = $self->{'count_context'}->[-1];
   my $count = Texinfo::Convert::Paragraph::end_line_count($container);
@@ -2797,9 +2819,7 @@ sub _convert($$)
     # be done in those formatters.
     if (!$formatter->{'_top_formatter'}) {
       if ($type and $type eq 'raw') {
-        _stream_output($self,
-          add_next($formatter->{'container'}, $element->{'text'}),
-          $formatter->{'container'});
+        _stream_output_add_next($self, $element->{'text'});
       } else {
         # Convert ``, '', `, ', ---, -- in $COMMAND->{'text'} to their
         # output, possibly coverting to upper case as well.
@@ -3108,14 +3128,10 @@ sub _convert($$)
         }
 
         if ($punctuation_no_arg_commands{$cmdname}) {
-          _stream_output($self,
-                         add_next($formatter->{'container'}, $text),
-                         $formatter->{'container'});
+          _stream_output_add_next($self, $text);
           add_end_sentence($formatter->{'container'}, 1);
         } elsif ($cmdname eq 'tie') {
-          _stream_output($self,
-                         add_next($formatter->{'container'}, $text),
-                         $formatter->{'container'});
+          _stream_output_add_next($self, $text);
         } else {
           # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
           # is the case whether we are in @sc or not.
@@ -3411,15 +3427,10 @@ sub _convert($$)
                          $formatter->{'container'});
         }
       } elsif ($cmdname eq '.' or $cmdname eq '?' or $cmdname eq '!') {
-        _stream_output($self,
-                       add_next($formatter->{'container'}, $cmdname),
-                       $formatter->{'container'});
+        _stream_output_add_next($self, $cmdname);
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($cmdname eq ' ' or $cmdname eq "\n" or $cmdname eq "\t") {
-        _stream_output($self,
-                       add_next($formatter->{'container'},
-                                $nobrace_symbol_text{$cmdname}),
-                       $formatter->{'container'});
+        _stream_output_add_next($self, $nobrace_symbol_text{$cmdname});
       } else {
         _stream_output_add_text($self, $nobrace_symbol_text{$cmdname});
       }
@@ -3624,12 +3635,10 @@ sub _convert($$)
                  + $item_indent_format_length{$element->{'parent'}->{'cmdname'}}});
       push @{$self->{'formatters'}}, $line;
       if ($element->{'parent'}->{'cmdname'} eq 'enumerate') {
-        _stream_output($self,
-            add_next($line->{'container'},
-               Texinfo::Common::enumerate_item_representation(
-                 $element->{'parent'}->{'extra'}->{'enumerate_specification'},
-                 $element->{'extra'}->{'item_number'}) . '. '),
-            $line->{'container'});
+        _stream_output_add_next($self,
+             Texinfo::Common::enumerate_item_representation(
+               $element->{'parent'}->{'extra'}->{'enumerate_specification'},
+               $element->{'extra'}->{'item_number'}) . '. ');
       } else {
         # arguments_line type element
         my $arguments_line = $element->{'parent'}->{'contents'}->[0];
@@ -3766,17 +3775,17 @@ sub _convert($$)
 
           # Output in format "* $float_entry_text: $float_label_text.".
 
-          _stream_output($self, add_next($container, '* '), $container);
+          _stream_output_add_next($self, '* ');
 
           $float_entry->{'type'} = 'frenchspacing';
           _convert($self, $float_entry);
 
-          _stream_output($self, add_next($container, ': '), $container);
+          _stream_output_add_next($self, ': ');
 
           _convert($self, {'type' => '_code',
                           'contents' =>
                       [$float->{'contents'}->[0]->{'contents'}->[1]]});
-          _stream_output($self, add_next($container, '.'), $container);
+          _stream_output_add_next($self, '.');
           _stream_output($self,
                    Texinfo::Convert::Paragraph::add_pending_word($container),
                    $container);
@@ -3792,9 +3801,8 @@ sub _convert($$)
                            Texinfo::Convert::Paragraph::end_line($container),
                            $container);
           } else {
-            _stream_output($self, add_next($container,
-                         ' ' x ($listoffloat_entry_length - $line_width)),
-                           $container);
+            _stream_output_add_next($self,
+                         ' ' x ($listoffloat_entry_length - $line_width));
           }
 
           my $caption;
@@ -3946,9 +3954,7 @@ sub _convert($$)
       foreach my $content (@{$element->{'contents'}}) {
         if ($content->{'type'} eq 'menu_entry_leading_text') {
           if (defined($content->{'text'})) {
-            _stream_output($self,
-                   add_next($formatter->{'container'}, $content->{'text'}),
-                   $formatter->{'container'});
+            _stream_output_add_next($self, $content->{'text'});
           }
         } elsif ($content->{'type'} eq 'menu_entry_node') {
           # Flush output so not to include in node text.
