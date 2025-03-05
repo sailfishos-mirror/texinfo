@@ -978,14 +978,19 @@ print_document_indices_sort_strings (DOCUMENT *document)
             }
 
            /* reset indices_entries_sort_string */
-           for (j = 0; j < indices_entries_sort_string.number; j++)
-             {
-               free (indices_entries_sort_string.list[j].sort_strings);
-               indices_entries_sort_string.list[j].index = 0;
-             }
-           indices_entries_sort_string.number = 0;
+          for (j = 0; j < indices_entries_sort_string.number; j++)
+            {
+              free (indices_entries_sort_string.list[j].sort_strings);
+              indices_entries_sort_string.list[j].index = 0;
+            }
+          indices_entries_sort_string.number = 0;
         }
     }
+
+  free (indices_entries_sort_string.list);
+
+  free_name_number_list (&sorted_index_entries_n_nr);
+  free_name_number_list (&indices_sort_strings_n_nr);
 
   return result.text;
 }

@@ -14,6 +14,20 @@
 
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_node_redirections): free
+	redirection_files.
+
+	* tta/C/main/document.c (print_document_indices_sort_strings):
+	reindent.  Free indices_entries_sort_string,
+	sorted_index_entries_n_nr and indices_sort_strings_n_nr.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(print_document_listoffloats, print_document_indices_information)
+	(print_document_indices_sort_strings): free strings after they have
+	been passed to Perl.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test), tta/perl/Texinfo/Document.pm
 	(print_document_indices_sort_strings): move code used to print index
 	sort strings to Document.pm as the print_document_indices_sort_strings

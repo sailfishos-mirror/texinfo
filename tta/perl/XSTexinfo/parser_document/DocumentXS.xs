@@ -405,7 +405,10 @@ print_document_listoffloats (SV *document_in)
           {
             char *listoffloats_str = print_document_listoffloats (document);
             if (listoffloats_str)
-              RETVAL = newSVpv_utf8 (listoffloats_str, 0);
+              {
+                RETVAL = newSVpv_utf8 (listoffloats_str, 0);
+                free (listoffloats_str);
+              }
             else
               RETVAL = newSV (0);
           }
@@ -427,7 +430,10 @@ print_document_indices_information (SV *document_in)
             char *indices_information_str
               = print_document_indices_information (document);
             if (indices_information_str)
-              RETVAL = newSVpv_utf8 (indices_information_str, 0);
+              {
+                RETVAL = newSVpv_utf8 (indices_information_str, 0);
+                free (indices_information_str);
+              }
             else
               RETVAL = newSV (0);
           }
@@ -449,7 +455,10 @@ print_document_indices_sort_strings (SV *document_in)
             char *indices_sort_strings_str
               = print_document_indices_sort_strings (document);
             if (indices_sort_strings_str)
-              RETVAL = newSVpv_utf8 (indices_sort_strings_str, 0);
+              {
+                RETVAL = newSVpv_utf8 (indices_sort_strings_str, 0);
+                free (indices_sort_strings_str);
+              }
             else
               RETVAL = newSV (0);
           }

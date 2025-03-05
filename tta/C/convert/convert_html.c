@@ -3118,6 +3118,7 @@ html_node_redirections (CONVERTER *self,
             }
           clear_strings_list (&redirection_files);
         }
+      free_strings_list (&redirection_files);
     }
 
   return redirection_files_done;
