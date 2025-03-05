@@ -38,7 +38,7 @@ void units_directions (const LABEL_LIST *identifiers_target,
                        int print_debug);
 void units_file_directions (OUTPUT_UNIT_LIST *output_units);
 
-size_t * do_units_directions_pages (DOCUMENT *document,
+void do_units_directions_pages (DOCUMENT *document,
                            enum units_split_type units_split,
                            const char *split_pages_string, int debug);
 

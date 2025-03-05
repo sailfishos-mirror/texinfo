@@ -538,8 +538,8 @@ label_target_unit_element (const ELEMENT *label,
     return 0;
 }
 
-/* Used for debugging and in test suite, but not generally useful. Not
-   documented in pod section and not exportable as it should not, in
+/* Used for debugging and possibly in test suite, but not generally
+   useful. Not documented in pod section as it should not, in
    general, be used. */
 char *
 print_output_unit_directions (const OUTPUT_UNIT *output_unit)
@@ -956,7 +956,7 @@ units_file_directions (OUTPUT_UNIT_LIST *output_units)
 
 
 /* called for tests.  (From Perl only as tests are in Perl) */
-size_t *
+void
 do_units_directions_pages (DOCUMENT *document,
                            enum units_split_type units_split,
                            const char *split_pages_string, int debug)
@@ -978,8 +978,12 @@ do_units_directions_pages (DOCUMENT *document,
       size_t external_nodes_units_descriptor
         = new_output_units_descriptor (document);
 
-      result[OUDT_units] = output_units_descriptor;
-      result[OUDT_external_nodes_units] = external_nodes_units_descriptor;
+      /* Note that we may overwrite previous descriptors.  Since this code
+         is only used from tests and called once per test max, this should
+         not be an issue */
+      document->output_units_descriptors[OUDT_units] = output_units_descriptor;
+      document->output_units_descriptors[OUDT_external_nodes_units]
+       = external_nodes_units_descriptor;
 
       output_units = retrieve_output_units (document, output_units_descriptor);
       external_node_target_units = retrieve_output_units (document,
@@ -991,7 +995,6 @@ do_units_directions_pages (DOCUMENT *document,
       if (split_pages_string)
         split_pages (output_units, split_pages_string);
     }
-  return result;
 }
 
 

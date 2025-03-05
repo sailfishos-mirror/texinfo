@@ -430,10 +430,20 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
                                              "rebuild_output_units");
         if (document)
           {
+    /* need to setup the Perl tree before rebuilding the output units as
+       they refer to Perl root command elements */
+            if (document->tree)
+              store_document_texinfo_tree (document);
+
             /* This may be called in converters that may not have
                XS information set on output units, so no warning */
+            /* FIXME verify, explain in which case */
             output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in, 0, 0);
+
+            if (document->output_units_descriptors[OUDT_external_nodes_units])
+              pass_output_units_list (document, 0,
+               document->output_units_descriptors[OUDT_external_nodes_units]);
             if (output_units_descriptor)
               pass_output_units_list (document, &output_units_in,
                                       output_units_descriptor);
@@ -463,40 +473,31 @@ do_units_directions_pages (SV *document_in, SV *units_split_type_in, SV *split_p
     PREINIT:
         DOCUMENT *document = 0;
         SV *output_units_list = 0;
-        char *split_pages = 0;
-        int debug = 0;
      CODE:
         document = get_sv_document_document (document_in,
                                              "do_units_directions_pages");
-        if (split_pages_in && SvOK (split_pages_in))
-          split_pages = (char *)SvPVbyte_nolen(split_pages_in);
-
-        if (debug_in && SvOK (debug_in))
-          debug = SvIV (debug_in);
-
         if (document)
           {
             enum units_split_type units_split = UST_none;
+            char *split_pages = 0;
+            int debug = 0;
+
+            if (split_pages_in && SvOK (split_pages_in))
+              split_pages = (char *)SvPVbyte_nolen(split_pages_in);
+
+            if (debug_in && SvOK (debug_in))
+              debug = SvIV (debug_in);
+
             if (SvOK (units_split_type_in))
               units_split = (int) SvIV (units_split_type_in);
 
-            size_t *doc_units_descriptors
-             = do_units_directions_pages (document, units_split,
-                                          split_pages, debug);
+            do_units_directions_pages (document, units_split,
+                                       split_pages, debug);
 
-            if (doc_units_descriptors)
+            if (document->output_units_descriptors[OUDT_units])
               {
-                if (doc_units_descriptors[OUDT_units])
-                  output_units_list = setup_output_units_handler (document,
-                              doc_units_descriptors[OUDT_units]);
-
-                /* We build to Perl directly, as there is no reference
-                   retained in Perl to the external nodes output units list
-                   and it is referred to by the output_units_list */
-                if (doc_units_descriptors[OUDT_external_nodes_units])
-                  pass_output_units_list (document, 0,
-                      doc_units_descriptors[OUDT_external_nodes_units]);
-                free (doc_units_descriptors);
+                output_units_list = setup_output_units_handler (document,
+                           document->output_units_descriptors[OUDT_units]);
               }
           }
         if (output_units_list)
@@ -510,23 +511,24 @@ SV *
 print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
     PREINIT:
         const DOCUMENT *document = 0;
-        const char *fname_encoding = 0;
-        int use_filename = 0;
         SV *result_sv = 0;
      CODE:
         document = get_sv_tree_document (tree_in,
                                          "print_output_units_tree_details");
-        if (fname_encoding_in && SvOK (fname_encoding_in))
-          fname_encoding = (char *)SvPVbyte_nolen(fname_encoding_in);
-
-        if (use_filename_in && SvOK (use_filename_in))
-          use_filename = SvIV (use_filename_in);
-
         if (document)
           {
+            const char *fname_encoding = 0;
+            int use_filename = 0;
             OUTPUT_UNIT_LIST *output_units = 0;
             size_t output_units_descriptor
              = get_sv_output_units_descriptor (output_units_in, 0, 0);
+
+            if (fname_encoding_in && SvOK (fname_encoding_in))
+              fname_encoding = (char *)SvPVbyte_nolen(fname_encoding_in);
+
+            if (use_filename_in && SvOK (use_filename_in))
+              use_filename = SvIV (use_filename_in);
+
             if (output_units_descriptor)
               {
                 output_units

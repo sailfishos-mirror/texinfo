@@ -14,6 +14,24 @@
 
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/document_types.h (DOCUMENT), tta/C/main/output_unit.c
+	(do_units_directions_pages),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(rebuild_output_units, do_units_directions_pages): store output units
+	descriptors associated to document in the new output_units_descriptors
+	field.  This allows output units list that are needed when rebuilt to
+	Perl with rebuild_output_units to be found even if they are not
+	associated to a Perl reference passed to the XS function.
+
+	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(print_output_units_tree_details, do_units_directions_pages):
+	rearrange code.
+
+	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash): improve
+	fatal error message.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_node_redirections): free
 	redirection_files.
 

@@ -71,6 +71,13 @@ typedef struct ERROR_MESSAGE_LIST {
     size_t error_nrs;
 } ERROR_MESSAGE_LIST;
 
+enum output_units_descriptor_type {
+   OUDT_units,
+   OUDT_special_units,
+   OUDT_associated_special_units,
+   OUDT_external_nodes_units,
+};
+
 typedef struct KEY_STRING_PAIR {
     char *key;
     char *string;
@@ -286,6 +293,9 @@ typedef struct DOCUMENT {
        outlive converters.
      */
     OUTPUT_UNIT_LISTS output_units_lists;
+    /* this is used if the output units are used outside of converters,
+       as is done in the tests */
+    size_t output_units_descriptors[OUDT_external_nodes_units+1];
 
     /* flags for modified information not already passed to Perl */
     unsigned long modified_information;
@@ -322,13 +332,6 @@ enum command_location {
    CL_last,
    CL_preamble,
    CL_preamble_or_first,
-};
-
-enum output_units_descriptor_type {
-   OUDT_units,
-   OUDT_special_units,
-   OUDT_associated_special_units,
-   OUDT_external_nodes_units,
 };
 
 /* in output units and converter */

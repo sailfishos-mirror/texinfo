@@ -1943,7 +1943,15 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
       if (command)
         {
           if (!command->hv)
-            fatal ("Missing output unit unit_command hv");
+            {
+              char *msg;
+              char *output_unit_text = output_unit_texi (output_unit);
+              xasprintf (&msg, "Missing output unit unit_command hv: %s",
+                         output_unit_text);
+              free (output_unit_text);
+              fatal (msg);
+              free (msg);
+            }
 
           sv = newRV_inc ((SV *) command->hv);
           STORE("unit_command");
