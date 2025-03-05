@@ -296,14 +296,11 @@ $result_errors{'inter_item_commands_in_multitable'} = [
 ];
 
 
-$result_indices_sort_strings{'inter_item_commands_in_multitable'} = {
-  'cp' => [
-    'cindex',
-    'index entry between empty lines',
-    'index entry within multitable'
-  ]
-};
-
+$result_indices_sort_strings{'inter_item_commands_in_multitable'} = 'cp:
+ cindex
+ index entry between empty lines
+ index entry within multitable
+';
 
 
 $result_converted{'plaintext'}->{'inter_item_commands_in_multitable'} = 'truc

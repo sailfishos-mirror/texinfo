@@ -456,12 +456,9 @@ Text: 1
   C: ta caption
 ';
 
-$result_indices_sort_strings{'things_before_setfilename'} = {
-  'cp' => [
-    'index entry'
-  ]
-};
-
+$result_indices_sort_strings{'things_before_setfilename'} = 'cp:
+ index entry
+';
 
 
 $result_converted{'plaintext'}->{'things_before_setfilename'} = 'top section

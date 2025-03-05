@@ -167,14 +167,11 @@ $result_texts{'letter_command_in_index'} = 'top
 $result_errors{'letter_command_in_index'} = [];
 
 
-$result_indices_sort_strings{'letter_command_in_index'} = {
-  'cp' => [
-    "\x{ea}",
-    "\x{142}",
-    "\x{de}"
-  ]
-};
-
+$result_indices_sort_strings{'letter_command_in_index'} = 'cp:
+ ê
+ ł
+ Þ
+';
 
 
 $result_converted{'html'}->{'letter_command_in_index'} = '<!DOCTYPE html>

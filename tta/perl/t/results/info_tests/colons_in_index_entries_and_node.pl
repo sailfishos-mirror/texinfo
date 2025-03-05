@@ -278,16 +278,13 @@ node one
 $result_errors{'colons_in_index_entries_and_node'} = [];
 
 
-$result_indices_sort_strings{'colons_in_index_entries_and_node'} = {
-  'cp' => [
-    ':',
-    ':a',
-    'b:c',
-    'd::e',
-    'f :d',
-    'g: h'
-  ]
-};
-
+$result_indices_sort_strings{'colons_in_index_entries_and_node'} = 'cp:
+ :
+ :a
+ b:c
+ d::e
+ f :d
+ g: h
+';
 
 1;

@@ -152,14 +152,11 @@ $result_errors{'empty_def_command'} = [
 ];
 
 
-$result_indices_sort_strings{'empty_def_command'} = {
-  'fn' => [
-    'deffn',
-    'deffn',
-    'deffnx'
-  ]
-};
-
+$result_indices_sort_strings{'empty_def_command'} = 'fn:
+ deffn
+ deffn
+ deffnx
+';
 
 
 $result_converted{'plaintext'}->{'empty_def_command'} = ' -- empty: deffn

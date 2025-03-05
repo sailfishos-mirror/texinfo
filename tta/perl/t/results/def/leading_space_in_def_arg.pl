@@ -74,12 +74,9 @@ $result_errors{'leading_space_in_def_arg'} = [
 ];
 
 
-$result_indices_sort_strings{'leading_space_in_def_arg'} = {
-  'fn' => [
-    'name'
-  ]
-};
-
+$result_indices_sort_strings{'leading_space_in_def_arg'} = 'fn:
+ name
+';
 
 
 $result_converted{'plaintext'}->{'leading_space_in_def_arg'} = ' -- category: name arg

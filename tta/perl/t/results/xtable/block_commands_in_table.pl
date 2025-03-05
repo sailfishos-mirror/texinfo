@@ -528,16 +528,13 @@ After table.
 $result_errors{'block_commands_in_table'} = [];
 
 
-$result_indices_sort_strings{'block_commands_in_table'} = {
-  'vr' => [
-    'item',
-    'item before ignored lines',
-    'itemx after an empty line',
-    'itemx now',
-    'vindex'
-  ]
-};
-
+$result_indices_sort_strings{'block_commands_in_table'} = 'vr:
+ item
+ item before ignored lines
+ itemx after an empty line
+ itemx now
+ vindex
+';
 
 
 $result_converted{'plaintext'}->{'block_commands_in_table'} = 'Element

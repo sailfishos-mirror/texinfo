@@ -506,20 +506,14 @@ truc
 vr C
 ';
 
-$result_indices_sort_strings{'macro_in_index_commands'} = {
-  'codeidx' => [
-    "a index entry t\x{e9} \x{ee}"
-  ],
-  'ky' => [
-    'truc kindex'
-  ],
-  'pg' => [
-    'pindex codeidx'
-  ],
-  'truc' => [
-    'index truc'
-  ]
-};
-
+$result_indices_sort_strings{'macro_in_index_commands'} = 'codeidx:
+ a index entry té î
+ky:
+ truc kindex
+pg:
+ pindex codeidx
+truc:
+ index truc
+';
 
 1;

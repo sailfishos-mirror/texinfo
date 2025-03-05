@@ -244,12 +244,9 @@ $result_floats{'no_element'} = ': 1
  F1: {float-anchor}
 ';
 
-$result_indices_sort_strings{'no_element'} = {
-  'cp' => [
-    'index entry'
-  ]
-};
-
+$result_indices_sort_strings{'no_element'} = 'cp:
+ index entry
+';
 
 
 $result_converted{'info'}->{'no_element'} = 'This is , produced from .

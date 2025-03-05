@@ -512,24 +512,21 @@ $result_errors{'index_no_node'} = [
 ];
 
 
-$result_indices_sort_strings{'index_no_node'} = {
-  'cp' => [
-    'chapter',
-    'Chapter2',
-    'second',
-    'second',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section1',
-    'truc',
-    'unnumbered',
-    'unnumbered after text'
-  ]
-};
-
+$result_indices_sort_strings{'index_no_node'} = 'cp:
+ chapter
+ Chapter2
+ second
+ second
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section1
+ truc
+ unnumbered
+ unnumbered after text
+';
 
 1;

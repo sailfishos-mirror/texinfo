@@ -340,16 +340,13 @@ Top.
 $result_errors{'printindex_index_entry_in_copying_no_insertcopying'} = [];
 
 
-$result_indices_sort_strings{'printindex_index_entry_in_copying_no_insertcopying'} = {
-  'fn' => [
-    'Copying this document',
-    'ftable item',
-    'fun',
-    'xf',
-    'xftable xitem'
-  ]
-};
-
+$result_indices_sort_strings{'printindex_index_entry_in_copying_no_insertcopying'} = 'fn:
+ Copying this document
+ ftable item
+ fun
+ xf
+ xftable xitem
+';
 
 
 $result_converted{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'} = 'This is , produced from .

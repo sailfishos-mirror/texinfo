@@ -179,11 +179,8 @@ Appendix A App
 $result_errors{'directions_buttons'} = [];
 
 
-$result_indices_sort_strings{'directions_buttons'} = {
-  'cp' => [
-    'Here'
-  ]
-};
-
+$result_indices_sort_strings{'directions_buttons'} = 'cp:
+ Here
+';
 
 1;

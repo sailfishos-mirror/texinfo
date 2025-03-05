@@ -64,12 +64,9 @@ $result_errors{'end_of_line_end_file'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_line_end_file'} = {
-  'fn' => [
-    'deffn_name'
-  ]
-};
-
+$result_indices_sort_strings{'end_of_line_end_file'} = 'fn:
+ deffn_name
+';
 
 
 $result_converted{'xml'}->{'end_of_line_end_file'} = '<deffn spaces=" "><definitionterm><indexterm index="fn" number="1">deffn_name</indexterm><defcategory>category</defcategory> <deffunction>deffn_name</deffunction> <defparam>arguments</defparam> </definitionterm>

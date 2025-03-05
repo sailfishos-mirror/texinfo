@@ -169,12 +169,9 @@ tp C
 vr C
 ';
 
-$result_indices_sort_strings{'alias_of_added_index_before_added_index'} = {
-  'sli' => [
-    'entry'
-  ]
-};
-
+$result_indices_sort_strings{'alias_of_added_index_before_added_index'} = 'sli:
+ entry
+';
 
 
 $result_converted{'plaintext'}->{'alias_of_added_index_before_added_index'} = 'top

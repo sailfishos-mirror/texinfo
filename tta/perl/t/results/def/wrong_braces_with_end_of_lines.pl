@@ -166,12 +166,9 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
 ];
 
 
-$result_indices_sort_strings{'wrong_braces_with_end_of_lines'} = {
-  'fn' => [
-    'name',
-    'name'
-  ]
-};
-
+$result_indices_sort_strings{'wrong_braces_with_end_of_lines'} = 'fn:
+ name
+ name
+';
 
 1;

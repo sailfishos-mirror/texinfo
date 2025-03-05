@@ -1020,27 +1020,23 @@ fff2
 $result_errors{'test_deftypefnnewline'} = [];
 
 
-$result_indices_sort_strings{'test_deftypefnnewline'} = {
-  'fn' => [
-    'arg',
-    'arg2',
-    'd--eftypefn_name',
-    'd--eftypefn_name2',
-    'd--eftypeop_name on c--lass',
-    'd--eftypeop_name on c--lass',
-    'd--eftypeop_name2 on c--lass2',
-    'd--eftypeop_name2 on c--lass2',
-    'name',
-    'name2'
-  ],
-  'vr' => [
-    'd--eftypecv_name of c--lass',
-    'd--eftypecv_name of c--lass',
-    'd--eftypecv_name2 of c--lass2',
-    'd--eftypecv_name2 of c--lass2'
-  ]
-};
-
+$result_indices_sort_strings{'test_deftypefnnewline'} = 'fn:
+ arg
+ arg2
+ d--eftypefn_name
+ d--eftypefn_name2
+ d--eftypeop_name on c--lass
+ d--eftypeop_name on c--lass
+ d--eftypeop_name2 on c--lass2
+ d--eftypeop_name2 on c--lass2
+ name
+ name2
+vr:
+ d--eftypecv_name of c--lass
+ d--eftypecv_name of c--lass
+ d--eftypecv_name2 of c--lass2
+ d--eftypecv_name2 of c--lass2
+';
 
 
 $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top

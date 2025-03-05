@@ -385,14 +385,11 @@ Instanzvariable of de: FFF GGG
 $result_errors{'multiple_in_preamble'} = [];
 
 
-$result_indices_sort_strings{'multiple_in_preamble'} = {
-  'vr' => [
-    'a de copying',
-    'BBB od hr',
-    'FFF von de'
-  ]
-};
-
+$result_indices_sort_strings{'multiple_in_preamble'} = 'vr:
+ a de copying
+ BBB od hr
+ FFF von de
+';
 
 
 $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section

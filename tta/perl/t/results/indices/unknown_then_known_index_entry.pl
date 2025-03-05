@@ -72,11 +72,8 @@ tp C
 vr C
 ';
 
-$result_indices_sort_strings{'unknown_then_known_index_entry'} = {
-  'some' => [
-    'someindex entry.'
-  ]
-};
-
+$result_indices_sort_strings{'unknown_then_known_index_entry'} = 'some:
+ someindex entry.
+';
 
 1;

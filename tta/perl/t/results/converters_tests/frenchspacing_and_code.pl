@@ -615,15 +615,12 @@ defop n
 $result_errors{'frenchspacing_and_code'} = [];
 
 
-$result_indices_sort_strings{'frenchspacing_and_code'} = {
-  'fn' => [
-    'name? n. d on class: MyC. b',
-    'name? n. d on class: MyC. b',
-    'vname? n; d on nvclass: MyC. u',
-    'vname? n; d on vclass: MyC. u'
-  ]
-};
-
+$result_indices_sort_strings{'frenchspacing_and_code'} = 'fn:
+ name? n. d on class: MyC. b
+ name? n. d on class: MyC. b
+ vname? n; d on nvclass: MyC. u
+ vname? n; d on vclass: MyC. u
+';
 
 
 $result_converted{'plaintext'}->{'frenchspacing_and_code'} = 'top

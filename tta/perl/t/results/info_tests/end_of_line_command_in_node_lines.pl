@@ -404,12 +404,9 @@ $result_errors{'end_of_line_command_in_node_lines'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_line_command_in_node_lines'} = {
-  'cp' => [
-    'a 
- b'
-  ]
-};
-
+$result_indices_sort_strings{'end_of_line_command_in_node_lines'} = 'cp:
+ a 
+ b
+';
 
 1;

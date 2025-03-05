@@ -192,12 +192,9 @@ $result_errors{'multitable'} = [
 ];
 
 
-$result_indices_sort_strings{'multitable'} = {
-  'cp' => [
-    'index entry within multitable'
-  ]
-};
-
+$result_indices_sort_strings{'multitable'} = 'cp:
+ index entry within multitable
+';
 
 
 $result_converted{'plaintext'}->{'multitable'} = 'mu-ltitable headitem                        another tab

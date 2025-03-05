@@ -556,12 +556,9 @@ $result_errors{'at_commands_in_raw'} = [
 ];
 
 
-$result_indices_sort_strings{'at_commands_in_raw'} = {
-  'fn' => [
-    'fentry2'
-  ]
-};
-
+$result_indices_sort_strings{'at_commands_in_raw'} = 'fn:
+ fentry2
+';
 
 
 $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top

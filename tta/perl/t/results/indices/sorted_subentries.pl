@@ -763,29 +763,26 @@ $result_errors{'sorted_subentries'} = [
 ];
 
 
-$result_indices_sort_strings{'sorted_subentries'} = {
-  'cp' => [
-    'aa, bb',
-    'aa, dd',
-    'ab, cc',
-    'bb, cc',
-    'hhh',
-    'hhh',
-    'hhh, ',
-    'hhh, jjj',
-    'hhh, jjj',
-    'hhh, jjj, A',
-    'hhh, jjj, lll',
-    'hhh, jjj, lll',
-    'hhh, jjj, lll, ppp',
-    'hhh, JJJ, mymail',
-    'hhh, k',
-    'hhh, k, nnn',
-    'hhh, l, third',
-    'hhh jjj'
-  ]
-};
-
+$result_indices_sort_strings{'sorted_subentries'} = 'cp:
+ aa, bb
+ aa, dd
+ ab, cc
+ bb, cc
+ hhh
+ hhh
+ hhh, 
+ hhh, jjj
+ hhh, jjj
+ hhh, jjj, A
+ hhh, jjj, lll
+ hhh, jjj, lll
+ hhh, jjj, lll, ppp
+ hhh, JJJ, mymail
+ hhh, k
+ hhh, k, nnn
+ hhh, l, third
+ hhh jjj
+';
 
 
 $result_converted{'info'}->{'sorted_subentries'} = 'This is , produced from .

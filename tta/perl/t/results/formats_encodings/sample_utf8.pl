@@ -561,14 +561,11 @@ Index
 $result_errors{'sample_utf8'} = [];
 
 
-$result_indices_sort_strings{'sample_utf8'} = {
-  'cp' => [
-    "\x{104}\x{118} ae \x{105}\x{119}",
-    'chapter, first',
-    "\x{e9} \x{c2}",
-    "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry"
-  ]
-};
-
+$result_indices_sort_strings{'sample_utf8'} = 'cp:
+ ĄĘ ae ąę
+ chapter, first
+ é Â
+ 另一个，index entry
+';
 
 1;

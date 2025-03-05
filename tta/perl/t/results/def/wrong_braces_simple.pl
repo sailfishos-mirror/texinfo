@@ -574,19 +574,16 @@ $result_errors{'wrong_braces_simple'} = [
 ];
 
 
-$result_indices_sort_strings{'wrong_braces_simple'} = {
-  'fn' => [
-    'b',
-    'machin',
-    'machin',
-    'machin',
-    'machin',
-    'machin',
-    'machin',
-    'machin',
-    'machin'
-  ]
-};
-
+$result_indices_sort_strings{'wrong_braces_simple'} = 'fn:
+ b
+ machin
+ machin
+ machin
+ machin
+ machin
+ machin
+ machin
+ machin
+';
 
 1;

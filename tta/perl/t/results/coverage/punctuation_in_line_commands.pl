@@ -352,12 +352,9 @@ $result_floats{'punctuation_in_line_commands'} = 'float type! After punc: 2
   C: caption! After punc
 ';
 
-$result_indices_sort_strings{'punctuation_in_line_commands'} = {
-  'cp' => [
-    'index! After punc'
-  ]
-};
-
+$result_indices_sort_strings{'punctuation_in_line_commands'} = 'cp:
+ index! After punc
+';
 
 
 $result_converted{'plaintext'}->{'punctuation_in_line_commands'} = 'top! After punc

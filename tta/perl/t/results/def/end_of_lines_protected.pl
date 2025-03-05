@@ -107,12 +107,9 @@ $result_errors{'end_of_lines_protected'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_lines_protected'} = {
-  'fn' => [
-    'deffn_name'
-  ]
-};
-
+$result_indices_sort_strings{'end_of_lines_protected'} = 'fn:
+ deffn_name
+';
 
 
 $result_converted{'plaintext'}->{'end_of_lines_protected'} = ' -- category: deffn_name arguments more args with end of line within

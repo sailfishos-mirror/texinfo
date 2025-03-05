@@ -425,14 +425,11 @@ error-->
 $result_errors{'multiple_documentlanguage'} = [];
 
 
-$result_indices_sort_strings{'multiple_documentlanguage'} = {
-  'vr' => [
-    'a de copying',
-    'BBB de fr',
-    'BBB od hr'
-  ]
-};
-
+$result_indices_sort_strings{'multiple_documentlanguage'} = 'vr:
+ a de copying
+ BBB de fr
+ BBB od hr
+';
 
 
 $result_converted{'plaintext'}->{'multiple_documentlanguage'} = 'top

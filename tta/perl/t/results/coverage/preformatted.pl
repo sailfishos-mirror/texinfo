@@ -128,12 +128,9 @@ $result_errors{'preformatted'} = [
 ];
 
 
-$result_indices_sort_strings{'preformatted'} = {
-  'vr' => [
-    'item in table in format'
-  ]
-};
-
+$result_indices_sort_strings{'preformatted'} = 'vr:
+ item in table in format
+';
 
 
 $result_converted{'plaintext'}->{'preformatted'} = '     e--xample  some

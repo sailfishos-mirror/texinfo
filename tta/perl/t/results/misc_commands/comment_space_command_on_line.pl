@@ -295,12 +295,9 @@ $result_floats{'comment_space_command_on_line'} = 'Text: 1
  F1.1: {label}
 ';
 
-$result_indices_sort_strings{'comment_space_command_on_line'} = {
-  'cp' => [
-    'index entry  '
-  ]
-};
-
+$result_indices_sort_strings{'comment_space_command_on_line'} = 'cp:
+ index entry  
+';
 
 
 $result_converted{'plaintext'}->{'comment_space_command_on_line'} = 'top element 

@@ -138,12 +138,9 @@ $result_errors{'heading_in_copying'} = [
 ];
 
 
-$result_indices_sort_strings{'heading_in_copying'} = {
-  'cp' => [
-    'cindex copying'
-  ]
-};
-
+$result_indices_sort_strings{'heading_in_copying'} = 'cp:
+ cindex copying
+';
 
 
 $result_converted{'plaintext'}->{'heading_in_copying'} = 'in copying @ _heading_

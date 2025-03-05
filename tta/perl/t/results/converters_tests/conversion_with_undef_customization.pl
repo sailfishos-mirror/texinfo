@@ -267,14 +267,10 @@ A def.
 $result_errors{'conversion_with_undef_customization'} = [];
 
 
-$result_indices_sort_strings{'conversion_with_undef_customization'} = {
-  'cp' => [
-    'entry'
-  ],
-  'fn' => [
-    'name'
-  ]
-};
-
+$result_indices_sort_strings{'conversion_with_undef_customization'} = 'cp:
+ entry
+fn:
+ name
+';
 
 1;

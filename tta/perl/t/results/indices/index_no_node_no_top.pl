@@ -488,25 +488,22 @@ $result_errors{'index_no_node_no_top'} = [
 ];
 
 
-$result_indices_sort_strings{'index_no_node_no_top'} = {
-  'cp' => [
-    'chapter',
-    'Chapter2',
-    'second',
-    'second',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section',
-    'top section1',
-    'truc',
-    'unnumbered',
-    'unnumbered after text'
-  ]
-};
-
+$result_indices_sort_strings{'index_no_node_no_top'} = 'cp:
+ chapter
+ Chapter2
+ second
+ second
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section
+ top section1
+ truc
+ unnumbered
+ unnumbered after text
+';
 
 
 $result_converted{'info'}->{'index_no_node_no_top'} = 'This is , produced from index_no_node_no_top.texi.

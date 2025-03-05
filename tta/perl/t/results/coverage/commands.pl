@@ -133,12 +133,9 @@ $result_errors{'commands'} = [
 ];
 
 
-$result_indices_sort_strings{'commands'} = {
-  'cp' => [
-    'index entry "in text" LaTeX'
-  ]
-};
-
+$result_indices_sort_strings{'commands'} = 'cp:
+ index entry "in text" LaTeX
+';
 
 
 $result_converted{'plaintext'}->{'commands'} = '@ TeX  ë î ã å

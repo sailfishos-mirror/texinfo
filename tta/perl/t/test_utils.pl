@@ -1280,14 +1280,16 @@ sub test($$)
       = Texinfo::Document::sorted_indices_by_index($document,
                                                    $document,
                                  $use_unicode_collation, $locale_lang);
-    $indices_sorted_sort_strings = {};
-    foreach my $index_name (keys(%$sorted_index_entries)) {
+
+    $indices_sorted_sort_strings = '';
+    foreach my $index_name (sort(keys(%$sorted_index_entries))) {
       # index entries sort strings sorted in the order of the index entries
-      if (scalar(@{$sorted_index_entries->{$index_name}})) {
-        $indices_sorted_sort_strings->{$index_name} = [];
-        foreach my $index_entry (@{$sorted_index_entries->{$index_name}}) {
-          push @{$indices_sorted_sort_strings->{$index_name}},
-            $index_entries_sort_strings->{$index_entry};
+      my $index_entries = $sorted_index_entries->{$index_name};
+      if (scalar(@{$index_entries})) {
+        $indices_sorted_sort_strings .= "${index_name}:\n";
+        foreach my $index_entry (@{$index_entries}) {
+          my $sort_string = $index_entries_sort_strings->{$index_entry};
+          $indices_sorted_sort_strings .= " ${sort_string}\n";
         }
       }
     }
@@ -1645,12 +1647,11 @@ sub test($$)
                     . protect_perl_string($float_text)."';\n\n";
     }
 
-    if ($indices_sorted_sort_strings) {
-      local $Data::Dumper::Sortkeys = 1;
-      $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings],
-                      ['$result_indices_sort_strings{\''.$test_name.'\'}'])
-                     ."\n\n";
+    if (defined($indices_sorted_sort_strings)) {
+      $out_result .= '$result_indices_sort_strings{\''.$test_name.'\'} = \''
+             . protect_perl_string($indices_sorted_sort_strings)."';\n\n";
     }
+
     if ($do_perl_tree and $output_units) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
       $out_result .= Data::Dumper->Dump([$output_units],
@@ -1727,9 +1728,9 @@ sub test($$)
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');
     is_with_diff($indices, $result_indices{$test_name}, $test_name.' indices');
-    ok (Data::Compare::Compare($indices_sorted_sort_strings,
-                               $result_indices_sort_strings{$test_name}),
-        $test_name.' indices sort');
+    is_with_diff($indices_sorted_sort_strings,
+                 $result_indices_sort_strings{$test_name},
+                 $test_name.' indices sort');
     # NOTE either a PlainTexinfo converter or a direct call to
     # convert_to_texinfo can be used to test conversion to raw text,
     # both for pure Perl and XS.  We use convert_to_texinfo as is should

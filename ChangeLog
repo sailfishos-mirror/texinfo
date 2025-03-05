@@ -1,5 +1,10 @@
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): use a textual representation for
+	result_indices_sort_strings.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_prepare_converter.c
 	(html_initialize_output_state), tta/C/main/manipulate_indices.c
 	(compare_index_name, sort_index_names): move code used to sort index

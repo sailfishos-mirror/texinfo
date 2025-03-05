@@ -202,13 +202,10 @@ Appendix A App
 $result_errors{'sections_and_printindex'} = [];
 
 
-$result_indices_sort_strings{'sections_and_printindex'} = {
-  'cp' => [
-    'entry1',
-    'entry2'
-  ]
-};
-
+$result_indices_sort_strings{'sections_and_printindex'} = 'cp:
+ entry1
+ entry2
+';
 
 
 $result_converted{'plaintext'}->{'sections_and_printindex'} = 'for example

@@ -150,13 +150,10 @@ $result_errors{'section_on_defx_line'} = [
 ];
 
 
-$result_indices_sort_strings{'section_on_defx_line'} = {
-  'fn' => [
-    'b',
-    'j'
-  ]
-};
-
+$result_indices_sort_strings{'section_on_defx_line'} = 'fn:
+ b
+ j
+';
 
 
 $result_converted{'plaintext'}->{'section_on_defx_line'} = ' -- h: j k l

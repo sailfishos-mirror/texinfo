@@ -829,23 +829,20 @@ $result_errors{'table_nested'} = [
 ];
 
 
-$result_indices_sort_strings{'table_nested'} = {
-  'vr' => [
-    'first item',
-    'first item',
-    'first item',
-    'last',
-    'last',
-    'last',
-    'second item',
-    'second item',
-    'second item',
-    'second itemx',
-    'second itemx',
-    'second itemx'
-  ]
-};
-
+$result_indices_sort_strings{'table_nested'} = 'vr:
+ first item
+ first item
+ first item
+ last
+ last
+ last
+ second item
+ second item
+ second item
+ second itemx
+ second itemx
+ second itemx
+';
 
 
 $result_converted{'plaintext'}->{'table_nested'} = 'Quotation

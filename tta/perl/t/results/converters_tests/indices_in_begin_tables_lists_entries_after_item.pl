@@ -1478,43 +1478,38 @@ $result_errors{'indices_in_begin_tables_lists_entries_after_item'} = [
 ];
 
 
-$result_indices_sort_strings{'indices_in_begin_tables_lists_entries_after_item'} = {
-  'cp' => [
-    'also a cindex in itemize',
-    'also a cindex in itemize',
-    'another',
-    'cindex',
-    'cindex after line',
-    'cindex before line',
-    'cindex between lines',
-    'cindex first',
-    'cindex in table',
-    'cindex in table',
-    'first idx',
-    'index entry between item and itemx',
-    'index entry right after @item',
-    'index entry within itemize',
-    'index inter in enumerate after line',
-    'index inter in enumerate before line',
-    'index inter in enumerate between lines',
-    'samp cindex in table',
-    'samp cindex in table',
-    'second',
-    'sedond idx',
-    'third'
-  ],
-  'fn' => [
-    'avar--b',
-    'b',
-    'c',
-    'd'
-  ],
-  'vr' => [
-    'aasis--b',
-    'acode--b',
-    'b'
-  ]
-};
-
+$result_indices_sort_strings{'indices_in_begin_tables_lists_entries_after_item'} = 'cp:
+ also a cindex in itemize
+ also a cindex in itemize
+ another
+ cindex
+ cindex after line
+ cindex before line
+ cindex between lines
+ cindex first
+ cindex in table
+ cindex in table
+ first idx
+ index entry between item and itemx
+ index entry right after @item
+ index entry within itemize
+ index inter in enumerate after line
+ index inter in enumerate before line
+ index inter in enumerate between lines
+ samp cindex in table
+ samp cindex in table
+ second
+ sedond idx
+ third
+fn:
+ avar--b
+ b
+ c
+ d
+vr:
+ aasis--b
+ acode--b
+ b
+';
 
 1;

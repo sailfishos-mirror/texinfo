@@ -555,18 +555,14 @@ $result_floats{'float_copying'} = 'Copyright notice: 1
    @findex indexed caption function
 ';
 
-$result_indices_sort_strings{'float_copying'} = {
-  'cp' => [
-    'indexed caption',
-    'indexed caption copying footnote',
-    'listofloats',
-    'Top'
-  ],
-  'fn' => [
-    'indexed caption function',
-    'public domain function'
-  ]
-};
-
+$result_indices_sort_strings{'float_copying'} = 'cp:
+ indexed caption
+ indexed caption copying footnote
+ listofloats
+ Top
+fn:
+ indexed caption function
+ public domain function
+';
 
 1;

@@ -147,12 +147,9 @@ $result_errors{'defx_after_preformatted_with_text'} = [
 ];
 
 
-$result_indices_sort_strings{'defx_after_preformatted_with_text'} = {
-  'fn' => [
-    'bidulr',
-    'i'
-  ]
-};
-
+$result_indices_sort_strings{'defx_after_preformatted_with_text'} = 'fn:
+ bidulr
+ i
+';
 
 1;

@@ -189,11 +189,8 @@ DOC
 $result_errors{'translation_in_parser_in_translation'} = [];
 
 
-$result_indices_sort_strings{'translation_in_parser_in_translation'} = {
-  'fn' => [
-    'dd de db'
-  ]
-};
-
+$result_indices_sort_strings{'translation_in_parser_in_translation'} = 'fn:
+ dd de db
+';
 
 1;

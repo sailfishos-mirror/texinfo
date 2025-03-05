@@ -94,12 +94,9 @@ $result_errors{'def_in_example'} = [
 ];
 
 
-$result_indices_sort_strings{'def_in_example'} = {
-  'fn' => [
-    'name'
-  ]
-};
-
+$result_indices_sort_strings{'def_in_example'} = 'fn:
+ name
+';
 
 
 $result_converted{'plaintext'}->{'def_in_example'} = '      -- Function: name arg

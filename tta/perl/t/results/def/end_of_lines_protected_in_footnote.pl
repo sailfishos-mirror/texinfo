@@ -121,12 +121,9 @@ $result_errors{'end_of_lines_protected_in_footnote'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_lines_protected_in_footnote'} = {
-  'fn' => [
-    'deffn_name'
-  ]
-};
-
+$result_indices_sort_strings{'end_of_lines_protected_in_footnote'} = 'fn:
+ deffn_name
+';
 
 
 $result_converted{'plaintext'}->{'end_of_lines_protected_in_footnote'} = '(1)

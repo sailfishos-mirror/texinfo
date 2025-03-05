@@ -230,12 +230,9 @@ $result_errors{'on_def_line'} = [
 ];
 
 
-$result_indices_sort_strings{'on_def_line'} = {
-  'fn' => [
-    'in titlefont',
-    'in titlefontx'
-  ]
-};
-
+$result_indices_sort_strings{'on_def_line'} = 'fn:
+ in titlefont
+ in titlefontx
+';
 
 1;

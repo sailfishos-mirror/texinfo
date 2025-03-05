@@ -432,12 +432,9 @@ $result_floats{'commands_in_nodedescriptionblock'} = 'tfloat: 1
   C: Cap1
 ';
 
-$result_indices_sort_strings{'commands_in_nodedescriptionblock'} = {
-  'cp' => [
-    'in nodedescriptionblock'
-  ]
-};
-
+$result_indices_sort_strings{'commands_in_nodedescriptionblock'} = 'cp:
+ in nodedescriptionblock
+';
 
 
 $result_converted{'plaintext'}->{'commands_in_nodedescriptionblock'} = 'test commands in nodedescriptionblock

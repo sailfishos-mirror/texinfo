@@ -334,14 +334,11 @@ $result_errors{'empty_deftype'} = [
 ];
 
 
-$result_indices_sort_strings{'empty_deftype'} = {
-  'fn' => [
-    'f',
-    'f',
-    'f on c',
-    'f on c'
-  ]
-};
-
+$result_indices_sort_strings{'empty_deftype'} = 'fn:
+ f
+ f
+ f on c
+ f on c
+';
 
 1;

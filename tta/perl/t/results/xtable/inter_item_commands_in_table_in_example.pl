@@ -150,12 +150,9 @@ $result_errors{'inter_item_commands_in_table_in_example'} = [
 ];
 
 
-$result_indices_sort_strings{'inter_item_commands_in_table_in_example'} = {
-  'cp' => [
-    'index entry between item and itemx'
-  ]
-};
-
+$result_indices_sort_strings{'inter_item_commands_in_table_in_example'} = 'cp:
+ index entry between item and itemx
+';
 
 
 $result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = '     A-B

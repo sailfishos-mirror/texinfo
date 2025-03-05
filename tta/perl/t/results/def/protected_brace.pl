@@ -64,12 +64,9 @@ $result_errors{'protected_brace'} = [
 ];
 
 
-$result_indices_sort_strings{'protected_brace'} = {
-  'fn' => [
-    '{'
-  ]
-};
-
+$result_indices_sort_strings{'protected_brace'} = 'fn:
+ {
+';
 
 
 $result_converted{'plaintext'}->{'protected_brace'} = ' -- c: {

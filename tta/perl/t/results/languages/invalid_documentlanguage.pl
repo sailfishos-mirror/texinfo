@@ -484,12 +484,9 @@ $result_errors{'invalid_documentlanguage'} = [
 ];
 
 
-$result_indices_sort_strings{'invalid_documentlanguage'} = {
-  'vr' => [
-    'Language of Which'
-  ]
-};
-
+$result_indices_sort_strings{'invalid_documentlanguage'} = 'vr:
+ Language of Which
+';
 
 
 $result_converted{'plaintext'}->{'invalid_documentlanguage'} = 'top

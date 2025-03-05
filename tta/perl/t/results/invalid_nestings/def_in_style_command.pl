@@ -95,11 +95,8 @@ $result_errors{'def_in_style_command'} = [
 ];
 
 
-$result_indices_sort_strings{'def_in_style_command'} = {
-  'fn' => [
-    'name'
-  ]
-};
-
+$result_indices_sort_strings{'def_in_style_command'} = 'fn:
+ name
+';
 
 1;

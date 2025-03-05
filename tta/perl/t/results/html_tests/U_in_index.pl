@@ -172,14 +172,11 @@ $result_texts{'U_in_index'} = 'top
 $result_errors{'U_in_index'} = [];
 
 
-$result_indices_sort_strings{'U_in_index'} = {
-  'cp' => [
-    '0074 letter t',
-    '00B5 greek letter mu',
-    '0131 dotless i'
-  ]
-};
-
+$result_indices_sort_strings{'U_in_index'} = 'cp:
+ 0074 letter t
+ 00B5 greek letter mu
+ 0131 dotless i
+';
 
 
 $result_converted{'html'}->{'U_in_index'} = '<!DOCTYPE html>

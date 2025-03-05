@@ -433,24 +433,20 @@ $result_errors{'indices_disable_encoding'} = [
 ];
 
 
-$result_indices_sort_strings{'indices_disable_encoding'} = {
-  'cp' => [
-    '\\cmd',
-    '\\some\\command for file',
-    "\x{e4} \x{f6}",
-    "a!\"\@b \"!\@ \x{e4} \x{f6}, a!\"\@b",
-    'AA',
-    'aa',
-    'cmd',
-    'i',
-    "\x{ee}",
-    'Z'
-  ],
-  'fn' => [
-    'the person index aa'
-  ]
-};
-
+$result_indices_sort_strings{'indices_disable_encoding'} = 'cp:
+ \\cmd
+ \\some\\command for file
+ ä ö
+ a!"@b "!@ ä ö, a!"@b
+ AA
+ aa
+ cmd
+ i
+ î
+ Z
+fn:
+ the person index aa
+';
 
 
 $result_converted{'latex_text'}->{'indices_disable_encoding'} = '

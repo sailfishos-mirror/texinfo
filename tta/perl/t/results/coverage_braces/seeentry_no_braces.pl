@@ -135,12 +135,9 @@ $result_errors{'seeentry_no_braces'} = [
 ];
 
 
-$result_indices_sort_strings{'seeentry_no_braces'} = {
-  'cp' => [
-    'aa'
-  ]
-};
-
+$result_indices_sort_strings{'seeentry_no_braces'} = 'cp:
+ aa
+';
 
 
 $result_converted{'plaintext'}->{'seeentry_no_braces'} = 'top

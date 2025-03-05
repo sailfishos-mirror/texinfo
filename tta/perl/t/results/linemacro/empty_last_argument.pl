@@ -275,13 +275,10 @@ tp C
 vr C
 ';
 
-$result_indices_sort_strings{'empty_last_argument'} = {
-  'BI' => [
-    'foo',
-    'foo',
-    'foo'
-  ]
-};
-
+$result_indices_sort_strings{'empty_last_argument'} = 'BI:
+ foo
+ foo
+ foo
+';
 
 1;

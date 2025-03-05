@@ -242,18 +242,14 @@ $result_errors{'inter_item_commands_in_def_in_example'} = [
 ];
 
 
-$result_indices_sort_strings{'inter_item_commands_in_def_in_example'} = {
-  'cp' => [
-    'between deffnx',
-    'cindex in deff item'
-  ],
-  'fn' => [
-    'i',
-    'id i ule',
-    'log trap1'
-  ]
-};
-
+$result_indices_sort_strings{'inter_item_commands_in_def_in_example'} = 'cp:
+ between deffnx
+ cindex in deff item
+fn:
+ i
+ id i ule
+ log trap1
+';
 
 
 $result_converted{'plaintext'}->{'inter_item_commands_in_def_in_example'} = '      -- fset: I a g

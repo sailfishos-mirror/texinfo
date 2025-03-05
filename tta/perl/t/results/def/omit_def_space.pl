@@ -164,13 +164,10 @@ $result_errors{'omit_def_space'} = [
 ];
 
 
-$result_indices_sort_strings{'omit_def_space'} = {
-  'fn' => [
-    'another',
-    'function'
-  ]
-};
-
+$result_indices_sort_strings{'omit_def_space'} = 'fn:
+ another
+ function
+';
 
 
 $result_converted{'plaintext'}->{'omit_def_space'} = ' -- Function: function(arg1, arg2)

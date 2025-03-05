@@ -436,18 +436,14 @@ explanation
 $result_errors{'complex_nestings'} = [];
 
 
-$result_indices_sort_strings{'complex_nestings'} = {
-  'fn' => [
-    'my def',
-    'name',
-    'other def'
-  ],
-  'vr' => [
-    'variables',
-    'variables too'
-  ]
-};
-
+$result_indices_sort_strings{'complex_nestings'} = 'fn:
+ my def
+ name
+ other def
+vr:
+ variables
+ variables too
+';
 
 
 $result_converted{'plaintext'}->{'complex_nestings'} = 'top

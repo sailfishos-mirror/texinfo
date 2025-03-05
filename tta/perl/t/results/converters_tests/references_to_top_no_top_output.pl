@@ -465,13 +465,10 @@ $result_floats{'references_to_top_no_top_output'} = 'list: 2
   C: Caption Main
 ';
 
-$result_indices_sort_strings{'references_to_top_no_top_output'} = {
-  'cp' => [
-    'chap index',
-    'index in Top'
-  ]
-};
-
+$result_indices_sort_strings{'references_to_top_no_top_output'} = 'cp:
+ chap index
+ index in Top
+';
 
 
 $result_converted{'html_text'}->{'references_to_top_no_top_output'} = '

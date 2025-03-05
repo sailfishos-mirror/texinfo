@@ -608,26 +608,23 @@ $result_errors{'various_vtable_command_as_argument'} = [
 ];
 
 
-$result_indices_sort_strings{'various_vtable_command_as_argument'} = {
-  'vr' => [
-    ':uu:',
-    '?nn?',
-    'a + b',
-    'aa',
-    'ac',
-    'anchor 1',
-    'anchor 2',
-    'bb',
-    'caa',
-    'cbb',
-    'docbook',
-    'first',
-    'html',
-    'second',
-    'titi'
-  ]
-};
-
+$result_indices_sort_strings{'various_vtable_command_as_argument'} = 'vr:
+ :uu:
+ ?nn?
+ a + b
+ aa
+ ac
+ anchor 1
+ anchor 2
+ bb
+ caa
+ cbb
+ docbook
+ first
+ html
+ second
+ titi
+';
 
 
 $result_converted{'plaintext'}->{'various_vtable_command_as_argument'} = 'top

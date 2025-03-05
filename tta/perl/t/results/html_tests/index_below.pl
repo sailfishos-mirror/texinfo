@@ -131,12 +131,9 @@ $result_texts{'index_below'} = 'top
 $result_errors{'index_below'} = [];
 
 
-$result_indices_sort_strings{'index_below'} = {
-  'cp' => [
-    'entry'
-  ]
-};
-
+$result_indices_sort_strings{'index_below'} = 'cp:
+ entry
+';
 
 
 $result_converted{'html'}->{'index_below'} = '<!DOCTYPE html>

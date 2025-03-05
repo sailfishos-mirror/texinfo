@@ -187,12 +187,9 @@ $result_errors{'at_commands_glued_in_paragraph'} = [
 ];
 
 
-$result_indices_sort_strings{'at_commands_glued_in_paragraph'} = {
-  'cp' => [
-    'index'
-  ]
-};
-
+$result_indices_sort_strings{'at_commands_glued_in_paragraph'} = 'cp:
+ index
+';
 
 
 $result_converted{'plaintext'}->{'at_commands_glued_in_paragraph'} = 'at@.  TeXTeXTeX. code‘in code’code.  acronymABC (aaa bb cc)acronym.

@@ -210,11 +210,8 @@ type: a function inside X operator Y ( remaining, type typed )
 $result_errors{'simple_nested_linemacro_calls'} = [];
 
 
-$result_indices_sort_strings{'simple_nested_linemacro_calls'} = {
-  'cp' => [
-    'a function'
-  ]
-};
-
+$result_indices_sort_strings{'simple_nested_linemacro_calls'} = 'cp:
+ a function
+';
 
 1;

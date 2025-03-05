@@ -420,18 +420,15 @@ Title
 $result_errors{'inter_item_commands_in_enumerate'} = [];
 
 
-$result_indices_sort_strings{'inter_item_commands_in_enumerate'} = {
-  'cp' => [
-    'another',
-    'cindex',
-    'first idx',
-    'index inter in enumerate after line',
-    'index inter in enumerate before line',
-    'index inter in enumerate between lines',
-    'sedond idx'
-  ]
-};
-
+$result_indices_sort_strings{'inter_item_commands_in_enumerate'} = 'cp:
+ another
+ cindex
+ first idx
+ index inter in enumerate after line
+ index inter in enumerate before line
+ index inter in enumerate between lines
+ sedond idx
+';
 
 
 $result_converted{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'top

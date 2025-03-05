@@ -5208,91 +5208,87 @@ name
 $result_errors{'definition_commands'} = [];
 
 
-$result_indices_sort_strings{'definition_commands'} = {
-  'fn' => [
-    '.ft',
-    '\\f(fn',
-    '\\f[font]',
-    '\\ff',
-    '\\n[.sty]',
-    'apply',
-    'apply',
-    'fname',
-    'fname',
-    'fname',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'foobar',
-    'name'
-  ],
-  'vr' => [
-    'border-pattern',
-    'border-pattern of Window'
-  ]
-};
-
+$result_indices_sort_strings{'definition_commands'} = 'fn:
+ .ft
+ \\f(fn
+ \\f[font]
+ \\ff
+ \\n[.sty]
+ apply
+ apply
+ fname
+ fname
+ fname
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ foobar
+ name
+vr:
+ border-pattern
+ border-pattern of Window
+';
 
 
 $result_converted{'plaintext'}->{'definition_commands'} = 'top section

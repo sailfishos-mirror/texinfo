@@ -106,12 +106,9 @@ $result_errors{'ampchar'} = [
 ];
 
 
-$result_indices_sort_strings{'ampchar'} = {
-  'fn' => [
-    'b on a'
-  ]
-};
-
+$result_indices_sort_strings{'ampchar'} = 'fn:
+ b on a
+';
 
 
 $result_converted{'plaintext'}->{'ampchar'} = ' -- Constructor on a: b (const std::vector<int>&)

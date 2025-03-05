@@ -256,19 +256,14 @@ $result_errors{'table'} = [
 ];
 
 
-$result_indices_sort_strings{'table'} = {
-  'cp' => [
-    'index entry'
-  ],
-  'ky' => [
-    'key'
-  ],
-  'vr' => [
-    'itemx vtable',
-    'vtable item'
-  ]
-};
-
+$result_indices_sort_strings{'table'} = 'cp:
+ index entry
+ky:
+ key
+vr:
+ itemx vtable
+ vtable item
+';
 
 
 $result_converted{'plaintext'}->{'table'} = 'table item

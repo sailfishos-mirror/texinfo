@@ -1165,31 +1165,27 @@ $result_errors{'index_split'} = [
 ];
 
 
-$result_indices_sort_strings{'index_split'} = {
-  'cp' => [
-    '! entry in node',
-    'a concept in first',
-    'after second printindex node in section 3',
-    'another',
-    'between printindex node in section 3',
-    'entry a',
-    'entry after printindex',
-    'entry in node',
-    'entry in node',
-    'node 2 in section 3',
-    'node 3 in section 3',
-    'node in section 3',
-    'printindex subsection 2',
-    'section 3',
-    'something',
-    'subsection 2'
-  ],
-  'fn' => [
-    'a function',
-    'fun in node',
-    'somewhere'
-  ]
-};
-
+$result_indices_sort_strings{'index_split'} = 'cp:
+ ! entry in node
+ a concept in first
+ after second printindex node in section 3
+ another
+ between printindex node in section 3
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ node 2 in section 3
+ node 3 in section 3
+ node in section 3
+ printindex subsection 2
+ section 3
+ something
+ subsection 2
+fn:
+ a function
+ fun in node
+ somewhere
+';
 
 1;

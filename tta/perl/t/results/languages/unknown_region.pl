@@ -150,12 +150,9 @@ $result_errors{'unknown_region'} = [
 ];
 
 
-$result_indices_sort_strings{'unknown_region'} = {
-  'vr' => [
-    'BBB de AAA'
-  ]
-};
-
+$result_indices_sort_strings{'unknown_region'} = 'vr:
+ BBB de AAA
+';
 
 
 $result_converted{'plaintext'}->{'unknown_region'} = ' -- Variable d\'instance de AAA : BBB CCC

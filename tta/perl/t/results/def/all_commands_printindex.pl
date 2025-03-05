@@ -1732,42 +1732,37 @@ $result_errors{'all_commands_printindex'} = [
 ];
 
 
-$result_indices_sort_strings{'all_commands_printindex'} = {
-  'fn' => [
-    'd--efmac_name',
-    'd--efmethod_name on c--lass',
-    'd--efop_name on c--lass',
-    'd--efop_name on c--lass',
-    'd--efspec_name',
-    'd--eftypefn_name',
-    'd--eftypefn_name',
-    'd--eftypefun_name',
-    'd--eftypemethod_name on c--lass',
-    'd--eftypeop_name on c--lass',
-    'd--eftypeop_name on c--lass',
-    'd--efun_name',
-    'n--ame',
-    'n--ame'
-  ],
-  'tp' => [
-    'd--eftp_name'
-  ],
-  'vr' => [
-    'd--efcv_name',
-    'd--efcv_name',
-    'd--efivar_name of c--lass',
-    'd--efopt_name',
-    'd--eftypecv_name of c--lass',
-    'd--eftypecv_name of c--lass',
-    'd--eftypeivar_name of c--lass',
-    'd--eftypevar_name',
-    'd--eftypevr_name',
-    'd--efvar_name',
-    'd--efvar_name',
-    'd--efvr_name'
-  ]
-};
-
+$result_indices_sort_strings{'all_commands_printindex'} = 'fn:
+ d--efmac_name
+ d--efmethod_name on c--lass
+ d--efop_name on c--lass
+ d--efop_name on c--lass
+ d--efspec_name
+ d--eftypefn_name
+ d--eftypefn_name
+ d--eftypefun_name
+ d--eftypemethod_name on c--lass
+ d--eftypeop_name on c--lass
+ d--eftypeop_name on c--lass
+ d--efun_name
+ n--ame
+ n--ame
+tp:
+ d--eftp_name
+vr:
+ d--efcv_name
+ d--efcv_name
+ d--efivar_name of c--lass
+ d--efopt_name
+ d--eftypecv_name of c--lass
+ d--eftypecv_name of c--lass
+ d--eftypeivar_name of c--lass
+ d--eftypevar_name
+ d--eftypevr_name
+ d--efvar_name
+ d--efvar_name
+ d--efvr_name
+';
 
 
 $result_converted{'info'}->{'all_commands_printindex'} = 'This is , produced from .

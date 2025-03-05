@@ -60,15 +60,11 @@ $result_errors{'vbar_in_index'} = [
 ];
 
 
-$result_indices_sort_strings{'vbar_in_index'} = {
-  'cp' => [
-    'C|D'
-  ],
-  'fn' => [
-    'A|B'
-  ]
-};
-
+$result_indices_sort_strings{'vbar_in_index'} = 'cp:
+ C|D
+fn:
+ A|B
+';
 
 
 $result_converted{'latex_text'}->{'vbar_in_index'} = '\\begin{document}

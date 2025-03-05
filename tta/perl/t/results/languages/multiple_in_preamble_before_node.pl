@@ -322,13 +322,10 @@ error-->
 $result_errors{'multiple_in_preamble_before_node'} = [];
 
 
-$result_indices_sort_strings{'multiple_in_preamble_before_node'} = {
-  'vr' => [
-    'a de copying',
-    'BBB von c'
-  ]
-};
-
+$result_indices_sort_strings{'multiple_in_preamble_before_node'} = 'vr:
+ a de copying
+ BBB von c
+';
 
 
 $result_converted{'plaintext'}->{'multiple_in_preamble_before_node'} = 'Text ending the preamble

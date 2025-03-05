@@ -199,17 +199,13 @@ $result_errors{'brace_in_index'} = [
 ];
 
 
-$result_indices_sort_strings{'brace_in_index'} = {
-  'cp' => [
-    '{',
-    '{',
-    '{'
-  ],
-  'fn' => [
-    'A{A'
-  ]
-};
-
+$result_indices_sort_strings{'brace_in_index'} = 'cp:
+ {
+ {
+ {
+fn:
+ A{A
+';
 
 
 $result_converted{'latex_text'}->{'brace_in_index'} = '\\begin{document}

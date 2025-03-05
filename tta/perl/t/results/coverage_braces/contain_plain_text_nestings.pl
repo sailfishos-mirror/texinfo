@@ -314,13 +314,10 @@ $result_errors{'contain_plain_text_nestings'} = [
 ];
 
 
-$result_indices_sort_strings{'contain_plain_text_nestings'} = {
-  'cp' => [
-    ' text',
-    ' text'
-  ]
-};
-
+$result_indices_sort_strings{'contain_plain_text_nestings'} = 'cp:
+  text
+  text
+';
 
 
 $result_converted{'plaintext'}->{'contain_plain_text_nestings'} = 'top

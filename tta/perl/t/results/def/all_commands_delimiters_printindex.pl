@@ -3936,62 +3936,57 @@ $result_errors{'all_commands_delimiters_printindex'} = [
 ];
 
 
-$result_indices_sort_strings{'all_commands_delimiters_printindex'} = {
-  'fn' => [
-    ',expose on ,Window',
-    ',expose on ,Window',
-    ';expose on ;Window',
-    ';expose on ;Window',
-    ')expose on )Window',
-    ')expose on )Window',
-    'A2',
-    'A2',
-    'A3',
-    'A3',
-    'A3 on A2',
-    'A3 on A2',
-    'A4 on A2',
-    'A4 on A2',
-    'apply',
-    'e,xpose on W,indow',
-    'e,xpose on W,indow',
-    'e;xpose on W;indow',
-    'e;xpose on W;indow',
-    'e)xpose on W)indow',
-    'e)xpose on W)indow',
-    'expose on W,indow',
-    'expose on Window',
-    'expose on windows',
-    'foobar',
-    'foobar',
-    'foobug',
-    'forward--char',
-    'fun_name',
-    'fun_name1',
-    'name on Windowint',
-    'push'
-  ],
-  'tp' => [
-    'A2',
-    'A2',
-    'A2',
-    'pair'
-  ],
-  'vr' => [
-    'A2',
-    'A2',
-    'A3',
-    'A3',
-    'A3',
-    'A4 of A2',
-    'A4 of A2',
-    'border-pattern',
-    'border-pattern of Window',
-    'enable',
-    'fill-column'
-  ]
-};
-
+$result_indices_sort_strings{'all_commands_delimiters_printindex'} = 'fn:
+ ,expose on ,Window
+ ,expose on ,Window
+ ;expose on ;Window
+ ;expose on ;Window
+ )expose on )Window
+ )expose on )Window
+ A2
+ A2
+ A3
+ A3
+ A3 on A2
+ A3 on A2
+ A4 on A2
+ A4 on A2
+ apply
+ e,xpose on W,indow
+ e,xpose on W,indow
+ e;xpose on W;indow
+ e;xpose on W;indow
+ e)xpose on W)indow
+ e)xpose on W)indow
+ expose on W,indow
+ expose on Window
+ expose on windows
+ foobar
+ foobar
+ foobug
+ forward--char
+ fun_name
+ fun_name1
+ name on Windowint
+ push
+tp:
+ A2
+ A2
+ A2
+ pair
+vr:
+ A2
+ A2
+ A3
+ A3
+ A3
+ A4 of A2
+ A4 of A2
+ border-pattern
+ border-pattern of Window
+ enable
+ fill-column
+';
 
 
 $result_converted{'info'}->{'all_commands_delimiters_printindex'} = 'This is , produced from .

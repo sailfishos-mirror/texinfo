@@ -86,14 +86,10 @@ truc
 vr C
 ';
 
-$result_indices_sort_strings{'index_entries'} = {
-  'cp' => [
-    'cindex entry'
-  ],
-  'truc' => [
-    'index truc'
-  ]
-};
-
+$result_indices_sort_strings{'index_entries'} = 'cp:
+ cindex entry
+truc:
+ index truc
+';
 
 1;

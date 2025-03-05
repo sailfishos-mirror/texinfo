@@ -253,11 +253,8 @@ $result_errors{'formats_titles'} = [
 ];
 
 
-$result_indices_sort_strings{'formats_titles'} = {
-  'vr' => [
-    'vtab'
-  ]
-};
-
+$result_indices_sort_strings{'formats_titles'} = 'vr:
+ vtab
+';
 
 1;

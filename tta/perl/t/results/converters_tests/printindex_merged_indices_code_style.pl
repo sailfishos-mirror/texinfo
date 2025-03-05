@@ -298,16 +298,13 @@ tp C
 vr ->fn
 ';
 
-$result_indices_sort_strings{'printindex_merged_indices_code_style'} = {
-  'fn' => [
-    'c"b',
-    'cdi"h',
-    'ddi``g',
-    'f``g',
-    'v"j'
-  ]
-};
-
+$result_indices_sort_strings{'printindex_merged_indices_code_style'} = 'fn:
+ c"b
+ cdi"h
+ ddi``g
+ f``g
+ v"j
+';
 
 
 $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = 'top

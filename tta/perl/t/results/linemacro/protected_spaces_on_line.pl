@@ -326,13 +326,10 @@ $result_errors{'protected_spaces_on_line'} = [
 ];
 
 
-$result_indices_sort_strings{'protected_spaces_on_line'} = {
-  'fn' => [
-    'foo',
-    'foo',
-    'foo b'
-  ]
-};
-
+$result_indices_sort_strings{'protected_spaces_on_line'} = 'fn:
+ foo
+ foo
+ foo b
+';
 
 1;

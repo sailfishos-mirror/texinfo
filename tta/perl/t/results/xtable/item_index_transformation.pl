@@ -511,20 +511,17 @@ HHHHHH
 $result_errors{'item_index_transformation'} = [];
 
 
-$result_indices_sort_strings{'item_index_transformation'} = {
-  'cp' => [
-    'After1',
-    'after1',
-    'After2',
-    'after2',
-    'after6',
-    'after7',
-    'Before1',
-    'before1',
-    'before2'
-  ]
-};
-
+$result_indices_sort_strings{'item_index_transformation'} = 'cp:
+ After1
+ after1
+ After2
+ after2
+ after6
+ after7
+ Before1
+ before1
+ before2
+';
 
 
 $result_converted{'plaintext'}->{'item_index_transformation'} = '1 Chapter

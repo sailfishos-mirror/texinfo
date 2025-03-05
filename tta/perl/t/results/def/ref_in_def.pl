@@ -201,13 +201,10 @@ T
 $result_errors{'ref_in_def'} = [];
 
 
-$result_indices_sort_strings{'ref_in_def'} = {
-  'fn' => [
-    'myanchor',
-    'myanchor'
-  ]
-};
-
+$result_indices_sort_strings{'ref_in_def'} = 'fn:
+ myanchor
+ myanchor
+';
 
 
 $result_converted{'plaintext'}->{'ref_in_def'} = ' -- myanchor: myanchor see myanchor see myanchor see myanchor

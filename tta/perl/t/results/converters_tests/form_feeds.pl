@@ -538,13 +538,10 @@ type: 1
  F1: {fl}
 ';
 
-$result_indices_sort_strings{'form_feeds'} = {
-  'fn' => [
-    'machin',
-    'xmachin'
-  ]
-};
-
+$result_indices_sort_strings{'form_feeds'} = 'fn:
+ machin
+ xmachin
+';
 
 
 $result_converted{'plaintext'}->{'form_feeds'} = ' 

@@ -522,16 +522,13 @@ accented char in latin1 in refs
 $result_errors{'char_latin1_latin1_in_refs'} = [];
 
 
-$result_indices_sort_strings{'char_latin1_latin1_in_refs'} = {
-  'cp' => [
-    "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}",
-    "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}",
-    "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff}",
-    "\x{e7}",
-    "\x{e9}",
-    "\x{e8}"
-  ]
-};
-
+$result_indices_sort_strings{'char_latin1_latin1_in_refs'} = 'cp:
+ Ä Ë Ï Ö Ü
+ â ê î ô û Â Ê Î Ô Û
+ ä ë ï ö ü ÿ
+ ç
+ é
+ è
+';
 
 1;

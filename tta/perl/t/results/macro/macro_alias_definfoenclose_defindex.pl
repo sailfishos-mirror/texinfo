@@ -531,14 +531,11 @@ tp C
 vr C
 ';
 
-$result_indices_sort_strings{'macro_alias_definfoenclose_defindex'} = {
-  'phoo' => [
-    'idd',
-    'igg',
-    'ikk'
-  ]
-};
-
+$result_indices_sort_strings{'macro_alias_definfoenclose_defindex'} = 'phoo:
+ idd
+ igg
+ ikk
+';
 
 
 $result_converted{'plaintext'}->{'macro_alias_definfoenclose_defindex'} = 'top

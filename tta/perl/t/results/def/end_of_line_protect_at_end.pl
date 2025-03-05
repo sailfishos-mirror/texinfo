@@ -72,12 +72,9 @@ $result_errors{'end_of_line_protect_at_end'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_line_protect_at_end'} = {
-  'fn' => [
-    'deffn_name2'
-  ]
-};
-
+$result_indices_sort_strings{'end_of_line_protect_at_end'} = 'fn:
+ deffn_name2
+';
 
 
 $result_converted{'xml'}->{'end_of_line_protect_at_end'} = '

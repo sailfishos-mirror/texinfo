@@ -172,14 +172,11 @@ text2
 $result_errors{'index_entry_in_preformatted'} = [];
 
 
-$result_indices_sort_strings{'index_entry_in_preformatted'} = {
-  'cp' => [
-    'first',
-    'last',
-    'other'
-  ]
-};
-
+$result_indices_sort_strings{'index_entry_in_preformatted'} = 'cp:
+ first
+ last
+ other
+';
 
 
 $result_converted{'plaintext'}->{'index_entry_in_preformatted'} = 'top

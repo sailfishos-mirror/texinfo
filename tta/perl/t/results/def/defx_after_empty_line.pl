@@ -112,13 +112,10 @@ $result_errors{'defx_after_empty_line'} = [
 ];
 
 
-$result_indices_sort_strings{'defx_after_empty_line'} = {
-  'fn' => [
-    'bidulr',
-    'i'
-  ]
-};
-
+$result_indices_sort_strings{'defx_after_empty_line'} = 'fn:
+ bidulr
+ i
+';
 
 
 $result_converted{'plaintext'}->{'defx_after_empty_line'} = ' -- fset: I a g

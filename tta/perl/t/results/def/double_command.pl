@@ -279,16 +279,12 @@ $result_errors{'double_command'} = [
 ];
 
 
-$result_indices_sort_strings{'double_command'} = {
-  'fn' => [
-    'aaaa',
-    'plot',
-    'plot2'
-  ],
-  'vr' => [
-    'd--efvr_name'
-  ]
-};
-
+$result_indices_sort_strings{'double_command'} = 'fn:
+ aaaa
+ plot
+ plot2
+vr:
+ d--efvr_name
+';
 
 1;

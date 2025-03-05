@@ -439,16 +439,13 @@ tp C
 vr C
 ';
 
-$result_indices_sort_strings{'complex_recursive_synindex'} = {
-  'bbb' => [
-    'a entry',
-    'b entry',
-    'c index',
-    'd index',
-    'e before synindex',
-    'e index'
-  ]
-};
-
+$result_indices_sort_strings{'complex_recursive_synindex'} = 'bbb:
+ a entry
+ b entry
+ c index
+ d index
+ e before synindex
+ e index
+';
 
 1;

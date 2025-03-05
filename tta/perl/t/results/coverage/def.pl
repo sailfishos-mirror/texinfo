@@ -690,26 +690,23 @@ $result_errors{'def'} = [
 ];
 
 
-$result_indices_sort_strings{'def'} = {
-  'fn' => [
-    'after',
-    'bidule machin',
-    'd--effn_name',
-    'de--ffn_name',
-    'deffnx',
-    'followed',
-    'i',
-    'id i ule',
-    'id ule',
-    'log trap',
-    'log trap1',
-    'log trap2',
-    'machin',
-    'machin',
-    'truc'
-  ]
-};
-
+$result_indices_sort_strings{'def'} = 'fn:
+ after
+ bidule machin
+ d--effn_name
+ de--ffn_name
+ deffnx
+ followed
+ i
+ id i ule
+ id ule
+ log trap
+ log trap1
+ log trap2
+ machin
+ machin
+ truc
+';
 
 
 $result_converted{'plaintext'}->{'def'} = ' -- c-ategory: d--effn_name a--rguments...

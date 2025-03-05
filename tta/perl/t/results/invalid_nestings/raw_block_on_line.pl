@@ -62,7 +62,6 @@ $result_errors{'raw_block_on_line'} = [
 ];
 
 
-$result_indices_sort_strings{'raw_block_on_line'} = {};
-
+$result_indices_sort_strings{'raw_block_on_line'} = '';
 
 1;

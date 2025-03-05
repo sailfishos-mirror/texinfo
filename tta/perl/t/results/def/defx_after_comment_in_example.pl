@@ -136,13 +136,10 @@ $result_errors{'defx_after_comment_in_example'} = [
 ];
 
 
-$result_indices_sort_strings{'defx_after_comment_in_example'} = {
-  'fn' => [
-    'bidulr',
-    'i'
-  ]
-};
-
+$result_indices_sort_strings{'defx_after_comment_in_example'} = 'fn:
+ bidulr
+ i
+';
 
 
 $result_converted{'plaintext'}->{'defx_after_comment_in_example'} = '      -- fset: I a g

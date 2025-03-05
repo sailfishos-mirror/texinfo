@@ -209,11 +209,8 @@ Chapter.
 $result_errors{'no_monolithic'} = [];
 
 
-$result_indices_sort_strings{'no_monolithic'} = {
-  'cp' => [
-    'top'
-  ]
-};
-
+$result_indices_sort_strings{'no_monolithic'} = 'cp:
+ top
+';
 
 1;

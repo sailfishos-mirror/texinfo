@@ -409,21 +409,17 @@ $result_errors{'subentries'} = [
 ];
 
 
-$result_indices_sort_strings{'subentries'} = {
-  'cp' => [
-    'a--a',
-    'b--b, c--c',
-    'd--dd, e--ee, f--ff',
-    'g--gg, h--hh jjj, k--kk, l--ll'
-  ],
-  'fn' => [
-    'f---aa',
-    'f---bb, f---cc',
-    'f---ddd, f---eee, ffff',
-    'f---ggg, f---hhh fjjj, f---kkk, f---lll'
-  ]
-};
-
+$result_indices_sort_strings{'subentries'} = 'cp:
+ a--a
+ b--b, c--c
+ d--dd, e--ee, f--ff
+ g--gg, h--hh jjj, k--kk, l--ll
+fn:
+ f---aa
+ f---bb, f---cc
+ f---ddd, f---eee, ffff
+ f---ggg, f---hhh fjjj, f---kkk, f---lll
+';
 
 
 $result_converted{'docbook'}->{'subentries'} = '<chapter label="1" id="chapter-index">

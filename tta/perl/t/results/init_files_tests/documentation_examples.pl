@@ -622,12 +622,9 @@ $result_errors{'documentation_examples'} = [
 ];
 
 
-$result_indices_sort_strings{'documentation_examples'} = {
-  'cp' => [
-    'e1',
-    'i2'
-  ]
-};
-
+$result_indices_sort_strings{'documentation_examples'} = 'cp:
+ e1
+ i2
+';
 
 1;

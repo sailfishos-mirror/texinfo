@@ -582,24 +582,20 @@ Text and then index entries
 $result_errors{'index_nodes'} = [];
 
 
-$result_indices_sort_strings{'index_nodes'} = {
-  'cp' => [
-    '! entry in node',
-    'a concept a node',
-    'another',
-    'entry a',
-    'entry after printindex',
-    'entry in node',
-    'entry in node',
-    'something'
-  ],
-  'fn' => [
-    'a function',
-    'fun in node',
-    'somewhere'
-  ]
-};
-
+$result_indices_sort_strings{'index_nodes'} = 'cp:
+ ! entry in node
+ a concept a node
+ another
+ entry a
+ entry after printindex
+ entry in node
+ entry in node
+ something
+fn:
+ a function
+ fun in node
+ somewhere
+';
 
 $result_converted_errors{'file_html'}->{'index_nodes'} = [
   {

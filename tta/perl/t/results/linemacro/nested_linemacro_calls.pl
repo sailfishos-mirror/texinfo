@@ -251,11 +251,8 @@ $result_errors{'nested_linemacro_calls'} = [
 ];
 
 
-$result_indices_sort_strings{'nested_linemacro_calls'} = {
-  'cp' => [
-    'inside X operator Y'
-  ]
-};
-
+$result_indices_sort_strings{'nested_linemacro_calls'} = 'cp:
+ inside X operator Y
+';
 
 1;

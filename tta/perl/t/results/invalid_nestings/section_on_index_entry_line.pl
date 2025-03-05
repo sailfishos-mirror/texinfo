@@ -80,11 +80,8 @@ $result_errors{'section_on_index_entry_line'} = [
 ];
 
 
-$result_indices_sort_strings{'section_on_index_entry_line'} = {
-  'cp' => [
-    'a'
-  ]
-};
-
+$result_indices_sort_strings{'section_on_index_entry_line'} = 'cp:
+ a
+';
 
 1;

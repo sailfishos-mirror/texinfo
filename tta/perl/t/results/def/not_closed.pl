@@ -150,15 +150,11 @@ $result_errors{'not_closed'} = [
 ];
 
 
-$result_indices_sort_strings{'not_closed'} = {
-  'fn' => [
-    'bidule',
-    'chose'
-  ],
-  'vr' => [
-    'type1'
-  ]
-};
-
+$result_indices_sort_strings{'not_closed'} = 'fn:
+ bidule
+ chose
+vr:
+ type1
+';
 
 1;

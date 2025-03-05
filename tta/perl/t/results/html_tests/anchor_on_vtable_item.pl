@@ -276,14 +276,11 @@ label1.
 $result_errors{'anchor_on_vtable_item'} = [];
 
 
-$result_indices_sort_strings{'anchor_on_vtable_item'} = {
-  'vr' => [
-    'lab3',
-    'label1',
-    'label2'
-  ]
-};
-
+$result_indices_sort_strings{'anchor_on_vtable_item'} = 'vr:
+ lab3
+ label1
+ label2
+';
 
 
 $result_converted{'html'}->{'anchor_on_vtable_item'} = '<!DOCTYPE html>

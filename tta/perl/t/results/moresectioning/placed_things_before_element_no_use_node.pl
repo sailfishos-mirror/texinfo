@@ -270,12 +270,9 @@ $result_floats{'placed_things_before_element_no_use_node'} = ': 1
  F1: {float-anchor}
 ';
 
-$result_indices_sort_strings{'placed_things_before_element_no_use_node'} = {
-  'cp' => [
-    'index entry'
-  ]
-};
-
+$result_indices_sort_strings{'placed_things_before_element_no_use_node'} = 'cp:
+ index entry
+';
 
 
 $result_converted{'info'}->{'placed_things_before_element_no_use_node'} = 'This is , produced from .

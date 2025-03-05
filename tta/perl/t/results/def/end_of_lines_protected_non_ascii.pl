@@ -115,12 +115,9 @@ $result_errors{'end_of_lines_protected_non_ascii'} = [
 ];
 
 
-$result_indices_sort_strings{'end_of_lines_protected_non_ascii'} = {
-  'fn' => [
-    "deffn_n\x{f9}me"
-  ]
-};
-
+$result_indices_sort_strings{'end_of_lines_protected_non_ascii'} = 'fn:
+ deffn_nùme
+';
 
 
 $result_converted{'plaintext'}->{'end_of_lines_protected_non_ascii'} = ' -- catégorie: deffn_nùme àrguments more àrgs with end ôf line within

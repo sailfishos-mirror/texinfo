@@ -143,12 +143,9 @@ $result_errors{'simple_documentlanguage'} = [
 ];
 
 
-$result_indices_sort_strings{'simple_documentlanguage'} = {
-  'vr' => [
-    'BBB de AAA'
-  ]
-};
-
+$result_indices_sort_strings{'simple_documentlanguage'} = 'vr:
+ BBB de AAA
+';
 
 
 $result_converted{'plaintext'}->{'simple_documentlanguage'} = ' -- Variable d\'instance de AAA : BBB CCC

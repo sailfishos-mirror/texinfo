@@ -699,20 +699,16 @@ $result_errors{'index_special_region_no_insertcopying'} = [
 ];
 
 
-$result_indices_sort_strings{'index_special_region_no_insertcopying'} = {
-  'cp' => [
-    'Copying appendix',
-    'Copying this document',
-    'Public domain',
-    'Titlepage footnote',
-    'Titlepage index'
-  ],
-  'fn' => [
-    'another fun',
-    'findex entry',
-    'fun'
-  ]
-};
-
+$result_indices_sort_strings{'index_special_region_no_insertcopying'} = 'cp:
+ Copying appendix
+ Copying this document
+ Public domain
+ Titlepage footnote
+ Titlepage index
+fn:
+ another fun
+ findex entry
+ fun
+';
 
 1;

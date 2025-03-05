@@ -953,65 +953,62 @@ $result_errors{'encoding_index_utf8_enable_encoding'} = [
 ];
 
 
-$result_indices_sort_strings{'encoding_index_utf8_enable_encoding'} = {
-  'cp' => [
-    '-',
-    '--',
-    ',',
-    "\x{a1}",
-    '\'',
-    '"',
-    '"',
-    '"',
-    "\x{201c}",
-    '@',
-    '`',
-    "\x{b0}",
-    "\x{2265}",
-    "\x{20ac}",
-    '0',
-    '9',
-    'a',
-    'A',
-    "\x{c6}",
-    'b',
-    'B',
-    'c',
-    'd',
-    "\x{d0}",
-    'e',
-    "\x{e9} \x{e9}",
-    'f',
-    'g',
-    'h',
-    'i',
-    "\x{131} \x{131} (dotless)",
-    "\x{ee} \x{ee} (dotless)",
-    "\x{ef} \x{ef}\x{ef}\x{ef}",
-    "\x{ee} \x{ee}\x{ee}\x{ee}\x{ee}",
-    'j',
-    'k',
-    'l',
-    "\x{142}",
-    "\x{141}",
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    "\x{df}",
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-    "\x{de}"
-  ]
-};
-
+$result_indices_sort_strings{'encoding_index_utf8_enable_encoding'} = 'cp:
+ -
+ --
+ ,
+ ¡
+ \'
+ "
+ "
+ "
+ “
+ @
+ `
+ °
+ ≥
+ €
+ 0
+ 9
+ a
+ A
+ Æ
+ b
+ B
+ c
+ d
+ Ð
+ e
+ é é
+ f
+ g
+ h
+ i
+ ı ı (dotless)
+ î î (dotless)
+ ï ïïï
+ î îîîî
+ j
+ k
+ l
+ ł
+ Ł
+ m
+ n
+ o
+ p
+ q
+ r
+ s
+ ß
+ t
+ u
+ v
+ w
+ x
+ y
+ z
+ Þ
+';
 
 1;

@@ -121,12 +121,9 @@ $result_errors{'defx_after_text'} = [
 ];
 
 
-$result_indices_sort_strings{'defx_after_text'} = {
-  'fn' => [
-    'bidulr',
-    'i'
-  ]
-};
-
+$result_indices_sort_strings{'defx_after_text'} = 'fn:
+ bidulr
+ i
+';
 
 1;

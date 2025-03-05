@@ -665,12 +665,9 @@ $result_floats{'commands_and_spaces'} = 'ff: 1
   C: In caption 
 ';
 
-$result_indices_sort_strings{'commands_and_spaces'} = {
-  'fn' => [
-    'machin'
-  ]
-};
-
+$result_indices_sort_strings{'commands_and_spaces'} = 'fn:
+ machin
+';
 
 
 $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" line="  foo   some @value">some @value</set>

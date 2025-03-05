@@ -248,13 +248,10 @@ do something with input
 $result_errors{'deftypefnnewline_for_copying_before'} = [];
 
 
-$result_indices_sort_strings{'deftypefnnewline_for_copying_before'} = {
-  'fn' => [
-    'NAME',
-    'something'
-  ]
-};
-
+$result_indices_sort_strings{'deftypefnnewline_for_copying_before'} = 'fn:
+ NAME
+ something
+';
 
 
 $result_converted{'html'}->{'deftypefnnewline_for_copying_before'} = '<!DOCTYPE html>

@@ -1213,14 +1213,11 @@ $result_floats{'complex_float'} = 'Text: 2
    @TeX{} and @emph{@b{t@\'e@^{@dotless{i}}}@url{an_url}} @sc{and} @verb{!it is @verb!} @ a wo@-rd @!@@ @AE{}.
 ';
 
-$result_indices_sort_strings{'complex_float'} = {
-  'cp' => [
-    'float example',
-    'float example in caption',
-    'float example in caption 2'
-  ]
-};
-
+$result_indices_sort_strings{'complex_float'} = 'cp:
+ float example
+ float example in caption
+ float example in caption 2
+';
 
 
 $result_converted{'plaintext'}->{'complex_float'} = 'Test floats

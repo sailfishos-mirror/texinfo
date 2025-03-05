@@ -604,22 +604,17 @@ truc ->fn
 vr C
 ';
 
-$result_indices_sort_strings{'def_syn_indices'} = {
-  'codeidx' => [
-    "a index entry t\x{1ebd} \x{ee}"
-  ],
-  'fn' => [
-    'cindex entry',
-    'index truc'
-  ],
-  'pg' => [
-    'abc index entry',
-    'defg index entry',
-    'pindex codeidx',
-    'truc kindex'
-  ]
-};
-
+$result_indices_sort_strings{'def_syn_indices'} = 'codeidx:
+ a index entry tẽ î
+fn:
+ cindex entry
+ index truc
+pg:
+ abc index entry
+ defg index entry
+ pindex codeidx
+ truc kindex
+';
 
 
 $result_converted{'info'}->{'def_syn_indices'} = 'This is , produced from .

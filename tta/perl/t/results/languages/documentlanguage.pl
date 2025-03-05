@@ -289,11 +289,8 @@ Some text.
 $result_errors{'documentlanguage'} = [];
 
 
-$result_indices_sort_strings{'documentlanguage'} = {
-  'fn' => [
-    'name na class'
-  ]
-};
-
+$result_indices_sort_strings{'documentlanguage'} = 'fn:
+ name na class
+';
 
 1;

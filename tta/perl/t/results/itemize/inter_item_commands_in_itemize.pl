@@ -290,15 +290,12 @@ $result_errors{'inter_item_commands_in_itemize'} = [
 ];
 
 
-$result_indices_sort_strings{'inter_item_commands_in_itemize'} = {
-  'cp' => [
-    'also a cindex in itemize',
-    'also a cindex in itemize',
-    'index entry right after @item',
-    'index entry within itemize'
-  ]
-};
-
+$result_indices_sort_strings{'inter_item_commands_in_itemize'} = 'cp:
+ also a cindex in itemize
+ also a cindex in itemize
+ index entry right after @item
+ index entry within itemize
+';
 
 
 $result_converted{'plaintext'}->{'inter_item_commands_in_itemize'} = 'top
