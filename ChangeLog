@@ -1,3 +1,10 @@
+2025-03-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/Info.pm (format_ref):
+	Convert label twice, once for checking for ':', a second time
+	for actually outputting the label.  This leads to much more
+	straightforward code.
+
 2025-03-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter):

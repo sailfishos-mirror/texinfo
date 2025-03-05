@@ -645,14 +645,11 @@ sub format_ref($$$$)
   }
 
   if ($name) {
-    push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    $self->_convert($name);
-    my $name_text = $self->_stream_result();
-    # needed, as last word is added only when : is added below
-    # NB this mixes encoded and unencoded strings but is ok for
-    # checking for : only
-    my $name_text_checked = $name_text
-       .get_pending($self->{'formatters'}->[-1]->{'container'});
+    # Convert line for sole purpose of checking if the output contains
+    # a colon.  Output may differ slightly from the current formatting
+    # context (e.g if inside @sc) but this should not make a difference.
+    my ($name_text_checked, undef) = $self->convert_line_new_context($name);
+
     my $quoting_required = 0;
     if ($name_text_checked =~ /:/m) {
       if ($self->{'info_special_chars_warning'}) {
@@ -667,18 +664,22 @@ sub format_ref($$$$)
     my $pre_quote = $quoting_required ? "\x{7f}" : '';
     my $post_quote = $pre_quote;
 
+    if ($pre_quote) {
+      $self->_stream_output(
+               add_text($formatter->{'container'}, $pre_quote),
+               $self->{'formatters'}[-1]{'container'});
+    }
+    $self->_convert($name);
+    if ($post_quote) {
+      $self->_stream_output(
+               add_text($formatter->{'container'}, $post_quote),
+               $self->{'formatters'}[-1]{'container'}
+      );
+    }
     $self->_stream_output(
-             add_text($formatter->{'container'}, "$post_quote: "),
-             $formatter->{'container'});
-    my $result = $self->_stream_result();
-
-    # Note post_quote has to be added first to flush output
-    $result =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
-
-    my $lines_added = $self->{'count_context'}->[-1]->{'lines'};
-    pop @{$self->{'count_context'}};
-    $self->_stream_output_encoded($result);
-    $self->{'count_context'}->[-1]->{'lines'} += $lines_added;
+             add_text($formatter->{'container'}, ": "),
+             $self->{'formatters'}[-1]{'container'}
+    );
   }
 
   if ($file) {
