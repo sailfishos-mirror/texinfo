@@ -37,7 +37,7 @@ parse_float_type (ELEMENT *current, ELEMENT *element)
 }
 
 void
-add_to_float_record_list (FLOAT_RECORD_LIST *float_records, char *type,
+add_to_float_record_list (FLOAT_RECORD_LIST *float_records, const char *type,
                           ELEMENT *element)
 {
   if (float_records->number == float_records->space)
@@ -70,7 +70,7 @@ static LISTOFFLOATS_TYPE *
 add_to_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats_list,
                           const char *type)
 {
-  LISTOFFLOATS_TYPE * result = find_float_type (listoffloats_list, type);
+  LISTOFFLOATS_TYPE *result = find_float_type (listoffloats_list, type);
 
   if (result)
     return result;

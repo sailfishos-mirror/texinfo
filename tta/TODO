@@ -21,10 +21,6 @@ document command_name in texi2any HTML customization API
 
 document DUMP_STRUCTURE
 
-Try to see if FLOAT_RECORD_LIST LISTOFFLOATS_TYPE_LIST could be list of
-consts elements and type, when they are references to otheer structures
-in particular to the tree.
-
 
 Bugs
 ====

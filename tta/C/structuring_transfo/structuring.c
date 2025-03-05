@@ -1685,7 +1685,7 @@ number_floats (DOCUMENT *document)
             continue;
 
           text_reset (&number);
-          float_index ++;
+          float_index++;
           up = lookup_extra_element (float_elt, AI_key_float_section);
           if (up)
             {

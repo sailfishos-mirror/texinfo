@@ -333,6 +333,8 @@ typedef struct {
     LABEL *list;
 } LABEL_LIST;
 
+/* The float elements are reference to tree elements, but they are not const
+   because in number_floats they are found through the listoffloats list */
 typedef struct {
     char *type;
     ELEMENT_LIST float_list;
@@ -344,8 +346,10 @@ typedef struct {
     LISTOFFLOATS_TYPE *float_types;
 } LISTOFFLOATS_TYPE_LIST;
 
+/* element is a reference to the tree, but it is not const because it is
+   use to set the listoffloats list elements list */
 typedef struct {
-    char *type;
+    const char *type;
     ELEMENT *element;
 } FLOAT_RECORD;
 

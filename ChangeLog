@@ -1,3 +1,7 @@
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/tree_types.h (FLOAT_RECORD): set type to const.
+
 2025-03-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_stream_output_add_next):
