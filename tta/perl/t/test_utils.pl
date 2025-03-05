@@ -49,15 +49,10 @@ use Test::More;
 # result when regenerating
 use I18N::Langinfo qw(langinfo CODESET);
 use Encode ();
-#use File::Basename;
-#use File::Copy;
 use Data::Dumper ();
 use Data::Compare ();
-use Test::Deep ();
+#use Test::Deep ();
 use Storable qw(dclone); # standard in 5.007003
-#use Data::Diff;
-#use Data::Transformer;
-#use Struct::Compare;
 use Getopt::Long qw(GetOptions);
 use Locale::Messages ();
 #use Test::Differences;
@@ -194,11 +189,6 @@ sub is_with_diff($$$)
 # used to check that there are no file overwritten with -o
 my %output_files;
 
-# two possibilities, use comparison of Perl structures (old way)
-# or compare textual representations (the new way).
-my $do_perl_tree = 0;
-#$do_perl_tree = 1;
-
 ok(1);
 
 my %formats = (
@@ -262,11 +252,7 @@ my $arg_debug;
 my $arg_complete;
 my $arg_output;
 my $nr_comparisons;
-if ($do_perl_tree) {
-  $nr_comparisons = 10;
-} else {
-  $nr_comparisons = 7;
-}
+$nr_comparisons = 7;
 
 Getopt::Long::Configure("gnu_getopt");
 # complete: output a complete texinfo file based on the test.  Does not
@@ -292,64 +278,6 @@ sub protect_perl_string($)
   return $string;
 }
 
-
-#my $remove_parent = sub {my $h = shift; delete $h->{'parent'}};
-#my $transformer = Data::Transformer->new('hash'=>$remove_parent);
-sub remove_keys($$;$);
-sub remove_keys($$;$)
-{
-  my $root = shift;
-  my $deleted_keys = shift;
-  my $been_there = shift;
-  return undef if (!defined($root));
-  if (!defined($been_there)) {
-    #print STDERR "First call: $root\n";
-    $root = dclone($root);
-    #print STDERR Data::Dumper->Dump([$root]);
-    $been_there = {};
-  }
-  #print STDERR "remove_keys: $root\n";
-  if (ref($root) eq 'HASH') {
-    foreach my $key (@$deleted_keys) {
-      if (exists($root->{$key})) {
-        delete ($root->{$key});
-        #print STDERR "Deleted $root $key\n";
-      }
-    }
-    $been_there->{$root} = 1;
-    foreach my $key (keys(%$root)) {
-      next if (!defined($root->{$key}) or !ref($root->{$key})
-               or (ref($root->{$key}) ne 'HASH'
-                    and ref($root->{$key}) ne 'ARRAY')
-               or exists($been_there->{$root->{$key}}));
-      #print STDERR "Recurse in $root $key\n";
-      remove_keys($root->{$key}, $deleted_keys, $been_there);
-    }
-  } elsif (ref($root) eq 'ARRAY') {
-    $been_there->{$root} = 1;
-    foreach my $element (@$root) {
-      next if (!defined($element) or !ref($element)
-               or (ref($element) ne 'HASH'
-                    and ref($element) ne 'ARRAY')
-               or exists($been_there->{$element}));
-
-      remove_keys($element, $deleted_keys, $been_there);
-    }
-  }
-  return $root;
-}
-
-sub cmp_trimmed($$$$)
-{
-  my $compared = shift;
-  my $reference = shift;
-  my $deleted_keys = shift;
-  my $test_name = shift;
-  my $trimmed = remove_keys($compared, $deleted_keys);
-no warnings 'recursion';
-  Test::Deep::cmp_deeply($trimmed, $reference, $test_name);
-}
-
 sub new_test($;$$$)
 {
   my $name = shift;
@@ -366,93 +294,6 @@ sub new_test($;$$$)
   bless $test;
   return $test;
 }
-
-# keys under 'info' are not needed here.
-my @contents_keys = ('contents', 'parent', 'source_info',
-  'node_content', 'invalid_nesting', 'info', 'text_arg',
-  'node_description', 'node_long_description', 'is_target',
-  'unit_contents', 'global_command_number',
-  # only set with the XS parser
-  'tree_document_descriptor',
-  # only set with the XS.  Since there is no XS involved for the compared
-  # output units, currently there is no descriptor ending up associated
-  # with output units.
-  #'output_units_descriptor', 'output_units_document_descriptor'
-  );
-my @menus_keys = ('menu_directions', 'menus', 'menu_up_hash');
-# 'section_number' is kept in other results as it may be the only clue
-# to know which section element it is.
-my @sections_keys = ('section_directions',
-  'section_childs', 'associated_node', 'part_associated_section',
-  'part_following_node', 'section_level',
-  'toplevel_directions', 'sectioning_root');
-my @node_keys = ('node_directions',
-  'associated_section', 'node_preceding_part');
-
-# in general, the 'parent' keys adds lot of non legible information,
-# however to punctually test for regressions on this information, the
-# best is to add it in tree tests by removing from @avoided_keys_tree.
-# Output units are shown if test_split_by_node is not undef.
-my %avoided_keys_tree;
-my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
-    'float_number', 'tree_unit_directions', 'directions',
-    'associated_unit', 'global_command_number',
-    'parent',
-    # only set with the XS parser
-    'tree_document_descriptor',
-    # only set with the XS.  Since there is no XS involved for the compared
-    # output units, currently there is no descriptor ending up associated
-    # with output units.
-    #'output_units_descriptor', 'output_units_document_descriptor'
-   );
-foreach my $avoided_key(@avoided_keys_tree) {
-  $avoided_keys_tree{$avoided_key} = 1;
-}
-sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
-
-my %avoided_keys_sectioning;
-my @avoided_keys_sectioning = ('next', @contents_keys, @menus_keys,
-  @node_keys, 'manual_content');
-foreach my $avoided_key(@avoided_keys_sectioning) {
-  $avoided_keys_sectioning{$avoided_key} = 1;
-}
-sub filter_sectioning_keys { [grep {!$avoided_keys_sectioning{$_}}
-   ( sort keys %{$_[0]} )] }
-
-my %avoided_keys_nodes;
-my @avoided_keys_nodes = (@sections_keys, @contents_keys, @menus_keys);
-foreach my $avoided_key(@avoided_keys_nodes) {
-  $avoided_keys_nodes{$avoided_key} = 1;
-}
-sub filter_nodes_keys { [grep {!$avoided_keys_nodes{$_}}
-   ( sort keys %{$_[0]} )] }
-
-my %avoided_keys_menus;
-my @avoided_keys_menus = (@sections_keys, @contents_keys, @node_keys,
-    'cmdname', 'isindex');
-foreach my $avoided_key(@avoided_keys_menus) {
-  $avoided_keys_menus{$avoided_key} = 1;
-}
-sub filter_menus_keys { [grep {!$avoided_keys_menus{$_}}
-   ( sort keys %{$_[0]} )] }
-
-my %avoided_keys_floats;
-my @avoided_keys_floats = (@sections_keys, @contents_keys, @node_keys,
-                           @menus_keys);
-foreach my $avoided_key(@avoided_keys_floats) {
-  $avoided_keys_floats{$avoided_key} = 1;
-}
-sub filter_floats_keys { [grep {!$avoided_keys_floats{$_}}
-   ( sort keys %{$_[0]} )] }
-
-my %avoided_keys_elements;
-my @avoided_keys_elements = (@contents_keys, @sections_keys, @node_keys,
-  'tree_unit_directions', 'menus');
-foreach my $avoided_key(@avoided_keys_elements) {
-  $avoided_keys_elements{$avoided_key} = 1;
-}
-sub filter_elements_keys {[grep {!$avoided_keys_elements{$_}}
-   ( sort keys %{$_[0]} )] }
 
 sub set_converter_option_defaults($$;$)
 {
@@ -1429,16 +1270,6 @@ sub test($$)
     = Texinfo::OutputUnits::do_units_directions_pages($document,
                          $test_split_by_node, $split_pages, $self->{'DEBUG'});
 
-  if ($do_perl_tree and $output_units) {
-    # rebuild to Perl to get changes from C, if with XS
-    Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
-    $directions_text = '';
-    foreach my $output_unit (@$output_units) {
-      $directions_text .=
-        Texinfo::OutputUnits::print_output_unit_directions($output_unit);
-    }
-  }
-
   my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);
 
@@ -1453,29 +1284,7 @@ sub test($$)
                                          $input_file_names_encoding, 1);
   }
 
-  my $floats;
-  my $split_result;
-  if ($do_perl_tree) {
-    if ($output_units) {
-      $split_result = $output_units;
-    } else {
-      $split_result = $tree;
-    }
-
-    if ($document) {
-      $floats = $document->floats_information();
-      if (not ($floats and scalar(keys(%$floats)) > 0)) {
-        $floats = undef;
-      }
-    }
-  } else {
-    $float_text = Texinfo::Document::print_document_listoffloats($document);
-  }
-
-  if ($do_perl_tree) {
-    $tree = $document->tree();
-  }
-
+  $float_text = Texinfo::Document::print_document_listoffloats($document);
 
  COMPARE:
 
@@ -1517,23 +1326,8 @@ sub test($$)
     # used as a file name for the above cases.  Since this is not the case,
     # $test_name should consist of ascii characters only.
     my $out_result;
-    {
-      local $Data::Dumper::Sortkeys = \&filter_tree_keys;
-      if ($do_perl_tree) {
-        $out_result = Data::Dumper->Dump([$split_result],
-                                       ['$result_trees{\''.$test_name.'\'}']);
-        if ($out_result =~ /\r/) {
-          # \r can be mangled upon reading if at end of line, with Useqq it is
-          # protected
-          local $Data::Dumper::Useqq = 1;
-          $out_result = Data::Dumper->Dump([$split_result],
-                                         ['$result_trees{\''.$test_name.'\'}']);
-        }
-      }
-    }
 
     if (defined($tree_text)) {
-      $out_result .= "\n" if ($do_perl_tree);
       $out_result .= '$result_tree_text{\''.$test_name.'\'} = \''
           . protect_perl_string($tree_text)."';\n\n";
     }
@@ -1542,10 +1336,6 @@ sub test($$)
       goto END_OUT_FILE;
     }
 
-    #my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
-    #my $texi_string_result = $converter_to_texinfo->convert($document);
-    #$converter_to_texinfo->reset_converter();
-    #$converter_to_texinfo->destroy();
     my $texi_string_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
@@ -1553,29 +1343,6 @@ sub test($$)
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
           .protect_perl_string($converted_text)."';\n\n";
 
-    if ($do_perl_tree) {
-      my $sections_list = $document->sections_list();
-      if ($sections_list and scalar(@$sections_list)) {
-        local $Data::Dumper::Sortkeys = \&filter_sectioning_keys;
-        my $sectioning_root
-             = $sections_list->[0]->{'extra'}->{'sectioning_root'};
-        $out_result .=  Data::Dumper->Dump([$sectioning_root],
-                           ['$result_sectioning{\''.$test_name.'\'}'])."\n"
-      }
-      my $nodes_list = $document->nodes_list();
-      if ($nodes_list and scalar(@$nodes_list)) {
-        {
-          local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
-          $out_result .= Data::Dumper->Dump([$nodes_list],
-                               ['$result_nodes{\''.$test_name.'\'}'])."\n";
-        }
-        {
-          local $Data::Dumper::Sortkeys = \&filter_menus_keys;
-          $out_result .= Data::Dumper->Dump([$nodes_list],
-                             ['$result_menus{\''.$test_name.'\'}'])."\n";
-        }
-      }
-    }
     {
       local $Data::Dumper::Sortkeys = 1;
       # NOTE file names in error messages are bytes.  Since strings written
@@ -1595,12 +1362,6 @@ sub test($$)
                      . protect_perl_string($indices)."';\n\n";
     }
 
-    if ($do_perl_tree and $floats) {
-      local $Data::Dumper::Sortkeys = \&filter_floats_keys;
-      $out_result .= Data::Dumper->Dump([$floats],
-                          ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
-    }
-
     if (defined($float_text)) {
       $out_result .= '$result_floats{\''.$test_name.'\'} = \''
                     . protect_perl_string($float_text)."';\n\n";
@@ -1611,14 +1372,6 @@ sub test($$)
              . protect_perl_string($indices_sorted_sort_strings)."';\n\n";
     }
 
-    if ($do_perl_tree and $output_units) {
-      local $Data::Dumper::Sortkeys = \&filter_elements_keys;
-      $out_result .= Data::Dumper->Dump([$output_units],
-                       ['$result_elements{\''.$test_name.'\'}'])
-                     ."\n\n";
-      $out_result .= "\n".'$result_directions_text{\''.$test_name.'\'} = \''
-                             .protect_perl_string($directions_text)."';\n\n";
-    }
     foreach my $format (@tested_formats) {
       if (defined($converted{$format})) {
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
@@ -1650,58 +1403,22 @@ sub test($$)
     is_with_diff($tree_text, $result_tree_text{$test_name},
                  $test_name.' tree');
 
-    if ($do_perl_tree) {
-      cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
-                  $test_name.' tree');
-
-      my $sections_list;
-      if ($document) {
-        $sections_list = $document->sections_list();
-      }
-      my $sectioning_root
-          = $sections_list->[0]->{'extra'}->{'sectioning_root'}
-        if ($sections_list and scalar(@$sections_list));
-      cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
-                   \@avoided_keys_sectioning, $test_name.' sectioning' );
-
-      my $nodes_list;
-      if ($document) {
-        $nodes_list = $document->nodes_list();
-      }
-      my $nodes_result;
-      $nodes_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
-      cmp_trimmed($nodes_result, $result_nodes{$test_name}, \@avoided_keys_nodes,
-                  $test_name.' nodes');
-      my $menus_result;
-      $menus_result = $nodes_list if ($nodes_list and scalar(@$nodes_list));
-      cmp_trimmed($menus_result, $result_menus{$test_name}, \@avoided_keys_menus,
-                  $test_name.' menus');
-
-      cmp_trimmed($floats, $result_floats{$test_name},
-                \@avoided_keys_floats, $test_name.' floats');
-    } else {
-      is_with_diff($float_text, $result_floats{$test_name},
-                   $test_name.' floats');
-    }
+    is_with_diff($float_text, $result_floats{$test_name},
+                 $test_name.' floats');
 
     ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');
+
     is_with_diff($indices, $result_indices{$test_name}, $test_name.' indices');
     is_with_diff($indices_sorted_sort_strings,
                  $result_indices_sort_strings{$test_name},
                  $test_name.' indices sort');
+
     # NOTE either a PlainTexinfo converter or a direct call to
     # convert_to_texinfo can be used to test conversion to raw text,
     # both for pure Perl and XS.  We use convert_to_texinfo as is should
     # require less resources as there is no need to create a converter.
     my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-    #my $converter_to_texinfo = Texinfo::Convert::PlainTexinfo->converter();
-    #my $texi_result;
-    #if ($document) {
-    #  $texi_result = $converter_to_texinfo->convert($document);
-    #}
-    #$converter_to_texinfo->reset_converter();
-    #$converter_to_texinfo->destroy();
 
     is($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
@@ -1713,14 +1430,6 @@ sub test($$)
       is($converted_text, $result_texts{$test_name}, $test_name.' text');
     }
     $tests_count = $nr_comparisons;
-    if ($do_perl_tree and defined($result_directions_text{$test_name})) {
-      cmp_trimmed($output_units, $result_elements{$test_name},
-                  \@avoided_keys_elements, $test_name.' elements');
-      $tests_count++;
-      is($directions_text, $result_directions_text{$test_name},
-         $test_name.' directions text');
-      $tests_count++;
-    }
     if (@tested_formats) {
       foreach my $format (@tested_formats) {
         my $reference_exists;
