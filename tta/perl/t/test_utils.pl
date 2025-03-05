@@ -1254,7 +1254,7 @@ sub test($$)
   $indices = $indices_info_text
     unless($indices_info_text eq $initial_index_names);
 
-  #$document->indices_information();
+  $document->indices_information();
 
   # NOTE we do not compare the merged indices since we compare the sorted
   # indices already and the tests are already big.

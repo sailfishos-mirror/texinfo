@@ -80,4 +80,8 @@ INDEX_SORTED_BY_LETTER *sort_indices_by_letter (
 
 INDEX_ENTRY_TEXT_OR_COMMAND *index_entry_first_letter_text_or_command
                                                 (const INDEX_ENTRY *index_entry);
+
+const INDEX **sort_index_names (INDEX_LIST *indices_info);
+char *print_indices_information (INDEX_LIST *indices_info);
+
 #endif

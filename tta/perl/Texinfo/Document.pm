@@ -89,6 +89,8 @@ our %XS_overrides = (
 
   "Texinfo::Document::print_document_listoffloats"
     => "Texinfo::DocumentXS::print_document_listoffloats",
+  "Texinfo::Document::print_document_indices_information"
+    => "Texinfo::DocumentXS::print_document_indices_information",
 );
 
 our $module_loaded = 0;

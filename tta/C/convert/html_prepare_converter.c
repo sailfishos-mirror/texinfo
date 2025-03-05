@@ -2896,15 +2896,6 @@ close_lone_conf_element (OPTION *option)
     }
 }
 
-static int
-compare_index_name (const void *a, const void *b)
-{
-  const INDEX **idx_a = (const INDEX **) a;
-  const INDEX **idx_b = (const INDEX **) b;
-
-  return strcmp ((*idx_a)->name, (*idx_b)->name);
-}
-
 static const enum command_id spaces_cmd[] = {
   CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
 };
@@ -3233,10 +3224,11 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       size_t i;
       size_t j;
       INDEX_LIST *indices_info = &self->document->indices_info;
-      const INDEX **sorted_index_names;
       size_t index_nr = indices_info->number;
       size_t non_empty_index_nr = 0;
       size_t idx_non_empty = 0;
+
+      const INDEX **sorted_index_names = sort_index_names (indices_info);
 
       for (i = 0; i < index_nr; i++)
         {
@@ -3244,13 +3236,6 @@ html_initialize_output_state (CONVERTER *self, const char *context)
           if (idx->entries_number > 0)
             non_empty_index_nr++;
         }
-
-      sorted_index_names = (const INDEX **) malloc (index_nr * sizeof (INDEX *));
-
-      memcpy (sorted_index_names, indices_info->list,
-              index_nr * sizeof (INDEX *));
-      qsort (sorted_index_names, index_nr, sizeof (INDEX *),
-             compare_index_name);
 
       /* store only non empty indices in sorted_index_names */
       self->sorted_index_names.number = non_empty_index_nr;

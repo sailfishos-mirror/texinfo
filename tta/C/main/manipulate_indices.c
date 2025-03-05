@@ -147,6 +147,8 @@ destroy_merged_indices (MERGED_INDICES *merged_indices)
 
 
 
+/* indices entries sorting */
+
 void
 destroy_indices_sorted_by_index (
          INDEX_SORTED_BY_INDEX *indices_entries_by_index)
@@ -1244,6 +1246,8 @@ sort_indices_by_letter (DOCUMENT *document, ERROR_MESSAGE_LIST *error_messages,
 
 
 
+/* representation of index entries letter */
+
 static INDEX_ENTRY_TEXT_OR_COMMAND *
 new_index_entry_text_or_command (const char *text, ELEMENT *command)
 {
@@ -1412,4 +1416,65 @@ index_entry_first_letter_text_or_command (const INDEX_ENTRY *index_entry)
 
       return result;
     }
+}
+
+
+
+/* sorting and information on indices, but not on index entries */
+
+static int
+compare_index_name (const void *a, const void *b)
+{
+  const INDEX **idx_a = (const INDEX **) a;
+  const INDEX **idx_b = (const INDEX **) b;
+
+  return strcmp ((*idx_a)->name, (*idx_b)->name);
+}
+
+/* to be freed by caller */
+const INDEX **
+sort_index_names (INDEX_LIST *indices_info)
+{
+  const INDEX **sorted_index_names;
+  size_t index_nr = indices_info->number;
+
+  sorted_index_names = (const INDEX **) malloc (index_nr * sizeof (INDEX *));
+
+  memcpy (sorted_index_names, indices_info->list, index_nr * sizeof (INDEX *));
+
+  qsort (sorted_index_names, index_nr, sizeof (INDEX *), compare_index_name);
+
+  return sorted_index_names;
+}
+
+/* return value to be freed by caller */
+char *
+print_indices_information (INDEX_LIST *indices_info)
+{
+  size_t i;
+  const INDEX **sorted_index_names;
+  TEXT result;
+
+  if (!indices_info || indices_info->number == 0)
+    return 0;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  sorted_index_names = sort_index_names(indices_info);
+
+  for (i = 0; i < indices_info->number; i++)
+    {
+      const INDEX *idx = sorted_index_names[i];
+      text_append (&result, idx->name);
+      if (idx->in_code)
+        text_append_n (&result, " C", 2);
+      if (idx->merged_in)
+        text_printf (&result, " ->%s", idx->merged_in->name);
+      text_append_n (&result, "\n", 1);
+    }
+
+  free (sorted_index_names);
+
+  return result.text;
 }

@@ -415,4 +415,26 @@ print_document_listoffloats (SV *document_in)
     OUTPUT:
         RETVAL
 
+SV *
+print_document_indices_information (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                       "print_document_indices_information");
+        if (document)
+          {
+            char *indices_information_str
+              = print_document_indices_information (document);
+            if (indices_information_str)
+              RETVAL = newSVpv_utf8 (indices_information_str, 0);
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          RETVAL = newSV (0);
+
+    OUTPUT:
+        RETVAL
+
 

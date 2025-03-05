@@ -1,5 +1,20 @@
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_prepare_converter.c
+	(html_initialize_output_state), tta/C/main/manipulate_indices.c
+	(compare_index_name, sort_index_names): move code used to sort index
+	names from html_prepare_converter.c to manipulate_indices.c.
+
+	* tta/C/main/document.c (print_document_indices_information),
+	tta/C/main/manipulate_indices.c (print_indices_information),
+	tta/perl/Texinfo/Document.pm (%XS_overrides),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(print_document_indices_information), tta/perl/t/test_utils.pl (test):
+	implement print_document_indices_information and
+	print_indices_information in C and add an XS interface.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (print_document_indices_information),
 	tta/perl/t/test_utils.pl (test): add wrapper around
 	Texinfo::Indices::print_indices_information that is called with the

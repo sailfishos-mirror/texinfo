@@ -536,6 +536,15 @@ print_document_listoffloats (DOCUMENT *document)
   return 0;
 }
 
+char *
+print_document_indices_information (DOCUMENT *document)
+{
+  if (document)
+    return print_indices_information (&document->indices_info);
+
+  return 0;
+}
+
 void
 destroy_document_information_except_tree (DOCUMENT *document)
 {
