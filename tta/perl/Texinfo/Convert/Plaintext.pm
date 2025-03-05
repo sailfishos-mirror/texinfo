@@ -2756,8 +2756,7 @@ sub _convert($$)
           _stream_output($self, $result);
         }
         if ($default_preformatted_context_commands{$self->{'context'}->[-1]}) {
-          _stream_output($self, add_text($formatter->{'container'}, "\n"),
-                         $formatter->{'container'});
+          _stream_output_add_text($self, "\n");
         } else {
           # inlined below for efficiency
           #_add_newline_if_needed($self);
@@ -2861,9 +2860,7 @@ sub _convert($$)
         # miscellaneous normal text top-level whitespace, after a no
         # paragraph command with spaces after brace not ignored:
         # @image, @titlefont, @*
-        _stream_output($self,
-                       add_text($formatter->{'container'}, $element->{'text'}),
-                       $formatter->{'container'});
+        _stream_output_add_text($self, $element->{'text'});
       }
       return;
     }
@@ -2924,9 +2921,7 @@ sub _convert($$)
       }
       my $accented_text
          = Texinfo::Convert::Text::text_accents($element, $encoding, $sc);
-      _stream_output($self,
-                     add_text($formatter->{'container'}, $accented_text),
-                     $formatter->{'container'});
+      _stream_output_add_text($self, $accented_text);
 
       my $accented_text_original;
       if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
@@ -3130,9 +3125,7 @@ sub _convert($$)
             $text = uc($text);
           }
 
-          _stream_output($self,
-                         add_text($formatter->{'container'}, $text),
-                         $formatter->{'container'});
+          _stream_output_add_text ($self, $text);
 
           # This is to have @TeX{}, for example, not to prevent end sentences.
           if (!$letter_no_arg_commands{$cmdname}) {
@@ -3382,8 +3375,7 @@ sub _convert($$)
             } else {
               $res = "U+$arg_text";  # not outputting UTF-8
             }
-            _stream_output($self, add_text($formatter->{'container'}, $res),
-                           $formatter->{'container'});
+            _stream_output_add_text ($self, $res);
           }
         }
         return;
@@ -3412,9 +3404,7 @@ sub _convert($$)
         # entry and therefore index entry would lead to end of line on
         # node pointers line, in tag table, or on menu, all being invalid.
         if ($formatter->{'no_added_eol'}) {
-          _stream_output($self,
-                         add_text($formatter->{'container'}, ' '),
-                         $formatter->{'container'});
+          _stream_output_add_text ($self, ' ');
         } else {
           _stream_output($self,
                          end_line($formatter->{'container'}),
@@ -3431,10 +3421,7 @@ sub _convert($$)
                                 $nobrace_symbol_text{$cmdname}),
                        $formatter->{'container'});
       } else {
-        _stream_output($self,
-                       add_text($formatter->{'container'},
-                                $nobrace_symbol_text{$cmdname}),
-                       $formatter->{'container'});
+        _stream_output_add_text($self, $nobrace_symbol_text{$cmdname});
       }
       return;
     # block commands

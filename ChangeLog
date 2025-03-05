@@ -1,3 +1,8 @@
+2025-03-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert):
+	Call _stream_output_add_text throughout.
+
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
 	Remove unused code using Perl data structure for tests
