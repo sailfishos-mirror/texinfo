@@ -579,8 +579,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                     }
                   free (entry_sort_string.sort_string_subentries);
                 }
-              index_sort_strings->entries_number = nr;
             }
+          index_sort_strings->entries_number = nr;
         }
     }
 
@@ -632,7 +632,7 @@ setup_collator (int use_unicode_collation, const char *collation_language,
       if (result->coll.sv == 0)
         /* if not linked against Perl or there is no strxfrm_l, this is
            a likely outcome.  This also happens if called as ctexi2any
-           with --no-embed and XS_STRXFRM_COLLATION_LOCALE=undef */
+           without embedded Perl and XS_STRXFRM_COLLATION_LOCALE=undef */
         result->type = ctn_no_unicode;
       else
         result->type = ctn_unicode;

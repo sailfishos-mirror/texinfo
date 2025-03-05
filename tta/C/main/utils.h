@@ -183,6 +183,13 @@ char *analyze_documentlanguage_argument (const char *text,
                                    int *valid_lang, int *valid_region);
 int is_content_empty (const ELEMENT *tree, int do_not_ignore_index_entries);
 
+void allocate_name_number_list (NAME_NUMBER_LIST *name_number_list,
+                                size_t number);
+size_t find_name_number (const NAME_NUMBER_LIST *name_number,
+                         const char *name);
+void free_name_number_list (NAME_NUMBER_LIST *name_number_list);
+void sort_name_number_list (NAME_NUMBER_LIST *name_number_list);
+
 STRING_LIST *new_string_list (void);
 void clear_strings_list (STRING_LIST *strings);
 void free_strings_list (STRING_LIST *strings);

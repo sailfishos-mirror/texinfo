@@ -5862,15 +5862,6 @@ prepare_special_units_directions (CONVERTER *self,
     }
 }
 
-static int
-compare_name_number (const void *a, const void *b)
-{
-  const NAME_NUMBER *nn_a = (const NAME_NUMBER *) a;
-  const NAME_NUMBER *nn_b = (const NAME_NUMBER *) b;
-
-  return strcmp (nn_a->name, nn_b->name);
-}
-
 /* Return structure to be freed by the caller */
 FILE_SOURCE_INFO_LIST *
 html_prepare_units_directions_files (CONVERTER *self,
@@ -5943,9 +5934,8 @@ html_prepare_units_directions_files (CONVERTER *self,
     {
       /* set elements_in_file_count and prepare page_name_number
          for sorting */
-      self->page_name_number.number = self->output_unit_files.number;
-      self->page_name_number.list = (NAME_NUMBER *)
-        malloc (self->page_name_number.number * sizeof (NAME_NUMBER));
+      allocate_name_number_list (&self->page_name_number,
+                                 self->output_unit_files.number);
 
       for (i = 0; i < self->output_unit_files.number; i++)
         {
@@ -5961,9 +5951,7 @@ html_prepare_units_directions_files (CONVERTER *self,
           page_name_number->name = file_counter->filename;
         }
 
-      qsort (self->page_name_number.list,
-             self->page_name_number.number,
-             sizeof (NAME_NUMBER), compare_name_number);
+      sort_name_number_list (&self->page_name_number);
     }
 
   return files_source_info;

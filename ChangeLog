@@ -1,5 +1,21 @@
 2025-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_conversion_state.c,
+	tta/C/convert/html_converter_finish.c (html_reset_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_prepare_units_directions_files), tta/C/main/utils.c
+	(allocate_name_number_list, compare_name_number, find_name_number)
+	(sort_name_number_list, free_name_number_list): move
+	compare_name_number and find_name_number to utils.c and add
+	allocate_name_number_list, sort_name_number_list and
+	free_name_number_list functions to handle NAME_NUMBER_LIST and use
+	them when relevant.
+
+	* tta/C/main/manipulate_indices.c (setup_index_entries_sort_strings):
+	store number of entries at the end of the loop only.
+
+2025-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): use a textual representation for
 	result_indices_sort_strings.
 

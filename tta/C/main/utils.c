@@ -1245,6 +1245,72 @@ free_indices_info (INDEX_LIST *indices_info)
 }
 
 
+
+/* association of number and name, mainly used to sort according to names
+   and get an associated index in an array */
+
+/* note that there is no initialization, as in general the whole
+   list is set by the caller */
+void
+allocate_name_number_list (NAME_NUMBER_LIST *name_number_list,
+                           size_t number)
+{
+  name_number_list->number = number;
+  free (name_number_list->list);
+  name_number_list->list = (NAME_NUMBER *)
+                    malloc (number * sizeof (NAME_NUMBER));
+}
+
+static int
+compare_name_number (const void *a, const void *b)
+{
+  const NAME_NUMBER *nn_a = (const NAME_NUMBER *) a;
+  const NAME_NUMBER *nn_b = (const NAME_NUMBER *) b;
+
+  return strcmp (nn_a->name, nn_b->name);
+}
+
+size_t
+find_name_number (const NAME_NUMBER_LIST *name_number,
+                  const char *name)
+{
+  NAME_NUMBER *result = 0;
+  static NAME_NUMBER searched_name;
+
+  searched_name.name = name;
+  if (name_number->number == 0)
+    {
+      char *msg;
+      xasprintf (&msg, "no names, searching for '%s'\n", name);
+      fatal (msg);
+      free (msg);
+    }
+
+  result = (NAME_NUMBER *) bsearch (&searched_name,
+                name_number->list,
+                name_number->number, sizeof (NAME_NUMBER),
+                compare_name_number);
+  if (!result)
+    return 0;
+  return result->number;
+}
+
+void
+sort_name_number_list (NAME_NUMBER_LIST *name_number_list)
+{
+  qsort (name_number_list->list, name_number_list->number,
+         sizeof (NAME_NUMBER), compare_name_number);
+}
+
+void
+free_name_number_list (NAME_NUMBER_LIST *name_number_list)
+{
+  free (name_number_list->list);
+  memset (name_number_list, 0, sizeof (NAME_NUMBER_LIST));
+}
+
+
+
 /* string lists */
 
 STRING_LIST *

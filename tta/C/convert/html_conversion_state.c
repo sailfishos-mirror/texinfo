@@ -373,40 +373,6 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
     }
 }
 
-static int
-compare_name_number (const void *a, const void *b)
-{
-  const NAME_NUMBER *nn_a = (const NAME_NUMBER *) a;
-  const NAME_NUMBER *nn_b = (const NAME_NUMBER *) b;
-
-  return strcmp (nn_a->name, nn_b->name);
-}
-
-size_t
-find_name_number (const NAME_NUMBER_LIST *name_number,
-                  const char *name)
-{
-  NAME_NUMBER *result = 0;
-  static NAME_NUMBER searched_name;
-
-  searched_name.name = name;
-  if (name_number->number == 0)
-    {
-      char *msg;
-      xasprintf (&msg, "no names, searching for '%s'\n", name);
-      fatal (msg);
-      free (msg);
-    }
-
-  result = (NAME_NUMBER *) bsearch (&searched_name,
-                name_number->list,
-                name_number->number, sizeof (NAME_NUMBER),
-                compare_name_number);
-  if (!result)
-    return 0;
-  return result->number;
-}
-
 size_t
 count_elements_in_file_number (const CONVERTER *self,
                  enum count_elements_in_filename_type type,
