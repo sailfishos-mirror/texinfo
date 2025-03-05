@@ -125,6 +125,8 @@ typedef struct INDEX_SUBENTRY_SORT_STRING {
 
 typedef struct INDEX_ENTRY_SORT_STRING {
     INDEX_ENTRY *entry;
+    /* original index information can be accessed as entry->index_name
+       and entry->number */
     /* in perl 'index_name' => $index_entry->{'index_name'} */
     /* in perl 'number' => $index_entry->{'entry_number'} */
     size_t subentries_number;

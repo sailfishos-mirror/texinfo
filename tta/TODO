@@ -25,10 +25,6 @@ Try to see if FLOAT_RECORD_LIST LISTOFFLOATS_TYPE_LIST could be list of
 consts elements and type, when they are references to otheer structures
 in particular to the tree.
 
-In t/test_utils.pl, the following triggers building the tree to Perl,
-add XS.
-  $document->indices_information();
-
 
 Bugs
 ====

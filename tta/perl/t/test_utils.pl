@@ -88,7 +88,6 @@ use Texinfo::Convert::PlainTexinfo;
 use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::OutputUnits;
-# for format_index_entries_sort_strings
 use Texinfo::Indices;
 use Texinfo::Translations;
 use Texinfo::Convert::Plaintext;
@@ -1141,8 +1140,6 @@ sub test($$)
 
   my ($errors, $error_nrs) = $document->parser_errors();
 
-  my ($sorted_index_entries, $index_entries_sort_strings);
-  my $indices_sorted_sort_strings;
   my $indices;
 
   if (not defined($tree)) {
@@ -1254,46 +1251,8 @@ sub test($$)
   $indices = $indices_info_text
     unless($indices_info_text eq $initial_index_names);
 
-  $document->indices_information();
-
-  # NOTE we do not compare the merged indices since we compare the sorted
-  # indices already and the tests are already big.
-  my $merged_index_entries = $document->merged_indices();
-
-  if ($merged_index_entries) {
-    my $use_unicode_collation
-      = $document->get_conf('USE_UNICODE_COLLATION');
-    my $locale_lang;
-    if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-      $locale_lang
-       = $document->get_conf('COLLATION_LANGUAGE');
-    }
-
-    my $indices_sort_strings
-      = Texinfo::Document::indices_sort_strings($document, $document);
-
-    $index_entries_sort_strings
-     = Texinfo::Indices::format_index_entries_sort_strings(
-                                                     $indices_sort_strings);
-
-    $sorted_index_entries
-      = Texinfo::Document::sorted_indices_by_index($document,
-                                                   $document,
-                                 $use_unicode_collation, $locale_lang);
-
-    $indices_sorted_sort_strings = '';
-    foreach my $index_name (sort(keys(%$sorted_index_entries))) {
-      # index entries sort strings sorted in the order of the index entries
-      my $index_entries = $sorted_index_entries->{$index_name};
-      if (scalar(@{$index_entries})) {
-        $indices_sorted_sort_strings .= "${index_name}:\n";
-        foreach my $index_entry (@{$index_entries}) {
-          my $sort_string = $index_entries_sort_strings->{$index_entry};
-          $indices_sorted_sort_strings .= " ${sort_string}\n";
-        }
-      }
-    }
-  }
+  my $indices_sorted_sort_strings
+    = $document->print_document_indices_sort_strings();
 
   my ($document_errors, $document_error_nrs) = $document->errors();
   push @$errors, @$document_errors;
