@@ -411,9 +411,7 @@ unsplit (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
      CODE:
-        /* this is called even if there is no XS tree, so no error */
-        /* FIXME verify and explain when */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in, "unsplit");
         if (document)
           RETVAL = unsplit (document);
         else
@@ -421,6 +419,7 @@ unsplit (SV *document_in)
     OUTPUT:
         RETVAL
 
+# not in useful code for now, but could be relevant in the future
 void
 rebuild_output_units (SV *document_in, SV *output_units_in)
     PREINIT:
@@ -436,11 +435,9 @@ rebuild_output_units (SV *document_in, SV *output_units_in)
             if (document->tree)
               store_document_texinfo_tree (document);
 
-            /* This may be called in converters that may not have
-               XS information set on output units, so no warning */
-            /* FIXME verify, explain in which case */
             output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in, 0, 0);
+             = get_sv_output_units_descriptor (output_units_in,
+                                               "rebuild_output_units", 0);
 
             if (document->output_units_descriptors[OUDT_external_nodes_units])
               pass_output_units_list (document, 0,
