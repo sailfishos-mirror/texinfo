@@ -738,9 +738,7 @@ sub format_ref($$$)
   my $post_quote = $pre_quote;
 
   # node name
-  $self->_stream_output(
-    add_next($self->{'formatters'}->[-1]->{'container'}, $pre_quote),
-    $self->{'formatters'}[-1]{'container'})
+  $self->_stream_output_add_next($pre_quote)
          if $pre_quote;
 
   $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
@@ -750,15 +748,11 @@ sub format_ref($$$)
                       'contents' => [$label_element]}]});
   delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
-  $self->_stream_output(
-    add_next($self->{'formatters'}->[-1]->{'container'}, $post_quote),
-    $self->{'formatters'}[-1]{'container'})
-         if $post_quote;
+  $self->_stream_output_add_next($post_quote)
+         if $pre_quote;
 
   if (!$name) {
-    $self->_stream_output(
-      add_next($self->{'formatters'}->[-1]->{'container'}, '::'),
-      $self->{'formatters'}[-1]{'container'});
+    $self->_stream_output_add_next('::');
   }
 
   # Check if punctuation follows the ref command with a label

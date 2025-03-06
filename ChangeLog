@@ -1,5 +1,10 @@
 2025-03-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Info.pm (format_ref):
+	Use _stream_output_add_next for concision.
+
+2025-03-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/Info.pm (format_ref),
 	* tta/perl/Texinfo/Convert/Plaintext.pm (format_ref):
 	Remove formatter parameter as it can always be gotten from the
