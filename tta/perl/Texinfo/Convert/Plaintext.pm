@@ -2053,12 +2053,13 @@ sub process_printindex($$;$)
   _add_lines_count($self, 1);
 }
 
-sub format_ref($$$$)
+sub format_ref($$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $element = shift;
-  my $formatter = shift;
+
+  my $formatter = $self->{'formatters'}->[-1];
 
   my @args;
   for my $arg (@{$element->{'contents'}}) {
@@ -3099,7 +3100,7 @@ sub _convert($$)
         # no args may happen with bogus @-commands without argument, maybe only
         # at the end of a document
         if ($element->{'contents'}) {
-          $self->format_ref($cmdname, $element, $formatter);
+          $self->format_ref($cmdname, $element);
         }
         return;
       } elsif ($cmdname eq 'image') {

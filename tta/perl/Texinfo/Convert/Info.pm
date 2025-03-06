@@ -535,12 +535,13 @@ sub format_error_outside_of_any_node($$)
   }
 }
 
-sub format_ref($$$$)
+sub format_ref($$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $element = shift;
-  my $formatter = shift;
+
+  my $formatter = $self->{'formatters'}->[-1];
 
   my @args;
   for my $arg (@{$element->{'contents'}}) {
