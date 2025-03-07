@@ -3836,13 +3836,14 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0)
             {
-              const ELEMENT *associated_section
-                = lookup_extra_element (command, AI_key_associated_section);
-              if (associated_section)
+              const ELEMENT *associated_title_command
+                = lookup_extra_element (command,
+                                        AI_key_associated_title_command);
+              if (associated_title_command)
                 {
                   /* associated section arguments_line type element */
                   const ELEMENT *arguments_line
-                    = associated_section->e.c->contents.list[0];
+                    = associated_title_command->e.c->contents.list[0];
     /* line_arg type element containing the sectioning command line argument */
                   command_tree = arguments_line->e.c->contents.list[0];
                 }
@@ -7353,13 +7354,13 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
   /* node is used as heading if there is nothing else. */
   if (cmd == CM_node)
     {
-      const ELEMENT *associated_section
-        = lookup_extra_element (element, AI_key_associated_section);
+      const ELEMENT *associated_title_command
+        = lookup_extra_element (element, AI_key_associated_title_command);
       const char *normalized = lookup_extra_string (element, AI_key_normalized);
       /* NOTE: if USE_NODES = 0 and there are no sectioning commands,
-         output_unit->uc.unit_command is NUL (and not equal to elemen). */
+         output_unit->uc.unit_command is NUL (and not equal to element). */
       if (output_unit->uc.unit_command == element
-          && !associated_section
+          && !associated_title_command
           && normalized)
         {
           if (!strcmp (normalized, "Top"))
@@ -7367,6 +7368,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
           else
             {
               int use_next_heading = 0;
+              /* FIXME remove following code, it is always on */
               if (self->conf->USE_NEXT_HEADING_FOR_LONE_NODE.o.integer > 0)
                 {
                   const ELEMENT *next_heading
@@ -7680,6 +7682,8 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
              = html_command_root_element_command (self, target_node);
       const ELEMENT *associated_section = lookup_extra_element (target_node,
                                                    AI_key_associated_section);
+      const ELEMENT *associated_title_command
+        = lookup_extra_element (target_node, AI_key_associated_title_command);
       reference_element = new_text_element (ET__converted);
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
@@ -7694,7 +7698,7 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
         {
           if (self->conf->xrefautomaticsectiontitle.o.string
               && !strcmp (self->conf->xrefautomaticsectiontitle.o.string, "on")
-              && associated_section
+              && associated_title_command
         /* this condition avoids infinite recursions, indeed in that case
            the node will be used and not the section.  There should not be
            @*ref in nodes, and even if there are, it does not seems to be
@@ -7703,13 +7707,14 @@ html_convert_xref_command (CONVERTER *self, const enum command_id cmd,
            target at the same time, which is not possible.
          */
              && !command_is_in_referred_command_stack (
-                   &self->referred_command_stack, associated_section, 0))
+                   &self->referred_command_stack, associated_title_command, 0))
             {
-              target_root = associated_section;
               if (html_in_string (self))
-                name = html_command_text (self, target_root, HTT_string);
+                name = html_command_text (self, associated_title_command,
+                                          HTT_string);
               else
-                name = html_command_text (self, target_root, HTT_text_nonumber);
+                name = html_command_text (self, associated_title_command,
+                                          HTT_text_nonumber);
             }
           else if (target_node->e.c->cmd == CM_float)
             {
@@ -11584,7 +11589,7 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
   const ELEMENT *menu_entry_separators[2];
   const ELEMENT *manual_content;
   const ELEMENT *node_description = 0;
-  const ELEMENT *section = 0;
+  const ELEMENT *associated_title_command = 0;
   size_t i;
   int entry_separators_nr = 0;
   int entry_separators_idx = 0;
@@ -11634,15 +11639,17 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
               node_description
                  = lookup_extra_element (node, AI_key_node_description);
 
-                /* if !NODE_NAME_IN_MENU, we pick the associated section */
+                /* if !NODE_NAME_IN_MENU, we pick the associated title
+                   command element
+                 */
               if (self->conf->NODE_NAME_IN_MENU.o.integer <= 0)
                 {
-                  const ELEMENT *associated_section = lookup_extra_element (node,
-                                                       AI_key_associated_section);
-                  if (associated_section)
+                  associated_title_command
+                   = lookup_extra_element (node, AI_key_associated_title_command);
+                  if (associated_title_command)
                     {
-                      section = associated_section;
-                      href = html_command_href (self, section, 0, element, 0);
+                      href = html_command_href (self, associated_title_command,
+                                                0, element, 0);
                     }
                 }
               if (!href)
@@ -11814,12 +11821,13 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
       open_element_with_class (self, "td",
                                &menu_entry_destination_classes, result);
 
-      if (section && href)
+      if (associated_title_command && href)
         {
-          char *name = html_command_text (self, section, 0);
+          char *name = html_command_text (self, associated_title_command, 0);
           if (name && strlen (name))
             {
-              name_no_number = html_command_text (self, section,
+              name_no_number = html_command_text (self,
+                                                  associated_title_command,
                                                   HTT_text_nonumber);
               menu_entry_a (self, href, isindex, html_menu_entry_index,
                             result);

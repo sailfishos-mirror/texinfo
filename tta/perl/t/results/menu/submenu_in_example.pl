@@ -319,10 +319,8 @@ $result_converted{'html'}->{'submenu_in_example'} = '<!DOCTYPE html>
 <link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
-a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
-span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -330,8 +328,7 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="en">
-<h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
-
+<a class="node" id="first"></a>
 <div class="example">
 <pre class="example-preformatted">
 

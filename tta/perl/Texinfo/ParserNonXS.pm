@@ -4036,12 +4036,10 @@ sub _end_line_misc_line($$$)
     $current = $current->{'contents'}->[-1];
     delete $current->{'remaining_args'};
 
-    # associate section or part with the current node as its title.
-    if ($command ne 'node') {
-      _associate_title_command_anchor($self, $current);
-    }
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
+      # associate section with the current node as its title.
+      _associate_title_command_anchor($self, $current);
       if ($self->{'current_node'}
          and (!$self->{'current_node'}->{'extra'}
               or !$self->{'current_node'}->{'extra'}->{'associated_section'})) {

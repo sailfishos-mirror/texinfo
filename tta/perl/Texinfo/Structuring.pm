@@ -1235,8 +1235,10 @@ sub new_node_menu_entry
   my $menu_entry_name;
   if ($use_sections) {
     my $name_element;
-    if (defined $node->{'extra'}->{'associated_section'}) {
-      my $arguments_line = $node->{'extra'}->{'associated_section'}
+    # use associated_title_command and not associated_section as
+    # it is more logical here.
+    if (defined $node->{'extra'}->{'associated_title_command'}) {
+      my $arguments_line = $node->{'extra'}->{'associated_title_command'}
                ->{'contents'}->[0];
       $name_element = $arguments_line->{'contents'}->[0];
     } else {

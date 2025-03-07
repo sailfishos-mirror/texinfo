@@ -170,7 +170,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E9]
- |associated_title_command:[E8]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E1|up->E1]
@@ -187,7 +187,6 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
  |global_command_number:{4}
  |part_associated_section:[E9]
  |section_childs:EC[E9]
@@ -208,6 +207,7 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |associated_part:[E8]
  |section_directions:D[up->E8]

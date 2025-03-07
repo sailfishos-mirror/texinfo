@@ -3447,8 +3447,9 @@ sub _convert($$)
           my $reference_node_content = $label_element->{'contents'};
 
           my $section_command;
-          if ($reference->{'extra'}->{'associated_section'}) {
-            $section_command = $reference->{'extra'}->{'associated_section'};
+          if ($reference->{'extra'}->{'associated_title_command'}) {
+            $section_command
+             = $reference->{'extra'}->{'associated_title_command'};
           } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
               = $node_arg->{'extra'}->{'normalized'};
@@ -3596,12 +3597,15 @@ sub _convert($$)
             # If an unwanted comma is added, follow the argument with a command such as @:
             if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
                 and $section_command) {
-              if ($section_command->{'extra'}->{'section_level'} > 1) {
+              if (!defined($section_command->{'extra'}->{'section_level'})
+                  or $section_command->{'extra'}->{'section_level'} > 1) {
                 # TODO command that could be used for translation \sectionname
                 # does not exist in the default case.  it is defined in the
                 # pagenote package together with \pagename which is page in
                 # the default case, but it is unclear if this can be used as
                 # a basis for translations.
+                # TODO use something different that for sectioning commands
+                # for @xrefname and @*heading?
                 $reference_result
   .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {

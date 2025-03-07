@@ -4818,11 +4818,12 @@ sub _convert_heading_command($$$$$)
     if ($output_unit->{'unit_command'}
         and $output_unit->{'unit_command'} eq $element
         and $element->{'extra'}
-        and not $element->{'extra'}->{'associated_section'}
+        and not $element->{'extra'}->{'associated_title_command'}
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
+        # FIXME remove following code, it is always on
         my $use_next_heading = 0;
         if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
           my $next_heading
@@ -5993,7 +5994,7 @@ sub _convert_xref_commands($$$$)
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
          and $target_node->{'extra'}
-         and $target_node->{'extra'}->{'associated_section'}
+         and $target_node->{'extra'}->{'associated_title_command'}
          # this condition avoids infinite recursions, indeed in that case
          # the node will be used and not the section.  There should not be
          # @*ref in nodes, and even if there are, it does not seems to be
@@ -6001,12 +6002,14 @@ sub _convert_xref_commands($$$$)
          # as the node must both be a reference target and refer to a specific
          # target at the same time, which is not possible.
          and not _command_is_in_referred_command_stack($self,
-                          $target_node->{'extra'}->{'associated_section'})) {
-        $target_root = $target_node->{'extra'}->{'associated_section'};
+                 $target_node->{'extra'}->{'associated_title_command'})) {
+        my $associated_title_command
+         = $target_node->{'extra'}->{'associated_title_command'};
         if (in_string($self)) {
-          $name = $self->command_text($target_root, 'string');
+          $name = $self->command_text($associated_title_command, 'string');
         } else {
-          $name = $self->command_text($target_root, 'text_nonumber');
+          $name = $self->command_text($associated_title_command,
+                                      'text_nonumber');
         }
       } elsif ($target_node->{'cmdname'} eq 'float') {
         if (!$self->get_conf('XREF_USE_FLOAT_LABEL')) {
@@ -7478,7 +7481,7 @@ sub _convert_menu_entry_type($$$)
 
   my $href;
   my $rel = '';
-  my $section;
+  my $associated_title_command;
 
   my $node_description;
   my $formatted_nodedescription_nr;
@@ -7494,12 +7497,15 @@ sub _convert_menu_entry_type($$$)
            and defined($menu_entry_node->{'extra'}->{'normalized'})) {
     my $node = $self->label_command($menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
-      # if !NODE_NAME_IN_MENU, we pick the associated section
+      # if !NODE_NAME_IN_MENU, we pick the associated title command element
+
       if ($node->{'extra'}
-          and $node->{'extra'}->{'associated_section'}
+          and $node->{'extra'}->{'associated_title_command'}
           and !$self->get_conf('NODE_NAME_IN_MENU')) {
-        $section = $node->{'extra'}->{'associated_section'};
-        $href = $self->command_href($section, undef, $element);
+        $associated_title_command
+         = $node->{'extra'}->{'associated_title_command'};
+        $href = $self->command_href($associated_title_command,
+                                    undef, $element);
       } else {
         $href = $self->command_href($node, undef, $element);
       }
@@ -7615,16 +7621,17 @@ sub _convert_menu_entry_type($$$)
 
   my $name;
   my $name_no_number;
-  if ($section and defined($href)) {
-    $name = $self->command_text($section);
+  if ($associated_title_command and defined($href)) {
+    $name = $self->command_text($associated_title_command);
     if ($name ne '') {
       $name = "<a href=\"$href\"$rel$accesskey>$name</a>";
-      $name_no_number = $self->command_text($section, 'text_nonumber');
+      $name_no_number
+       = $self->command_text($associated_title_command, 'text_nonumber');
     }
   }
   # A leading menu symbol is only inserted if the section name is not
-  # used since the section name comes with a section number (unless
-  # NUMBER_SECTIONS is 0)
+  # used since the section name usually comes with a section number (unless
+  # NUMBER_SECTIONS is 0, or the section is unnumbered/heading/xrefname)
   if (!defined($name) or $name eq '') {
     if ($name_entry) {
       $name = $self->convert_tree($name_entry, 'convert menu_entry_name');
@@ -11469,10 +11476,11 @@ sub _file_header_information($$;$)
       my $element_tree;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
           and $command->{'extra'}
-          and $command->{'extra'}->{'associated_section'}){
+          and $command->{'extra'}->{'associated_title_command'}){
         # associated section arguments_line type element
         my $arguments_line
-          = $command->{'extra'}->{'associated_section'}->{'contents'}->[0];
+          = $command->{'extra'}->{'associated_title_command'}
+                                                 ->{'contents'}->[0];
         # line_arg type element containing the sectioning command line argument
         $element_tree = $arguments_line->{'contents'}->[0];
       } else {

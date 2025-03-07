@@ -1756,12 +1756,12 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
     {
       size_t i;
       ELEMENT *name_element;
-      const ELEMENT *associated_section
-        = lookup_extra_element (node, AI_key_associated_section);
-      if (associated_section)
+      const ELEMENT *associated_title_command
+        = lookup_extra_element (node, AI_key_associated_title_command);
+      if (associated_title_command)
         {
           const ELEMENT *arguments_line
-            = associated_section->e.c->contents.list[0];
+            = associated_title_command->e.c->contents.list[0];
           name_element = arguments_line->e.c->contents.list[0];
         }
       else

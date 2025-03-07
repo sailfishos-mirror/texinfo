@@ -16,7 +16,7 @@ This: [U0]
   |{ }
  |EXTRA
  |associated_section:[E2]
- |associated_title_command:[E1]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -31,7 +31,6 @@ This: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E0]
  |global_command_number:{1}
  |part_associated_section:[E2]
  |section_directions:D[next->E2]
@@ -53,6 +52,7 @@ This: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |associated_part:[E1]
  |section_directions:D[prev->E1]

@@ -1821,13 +1821,11 @@ end_line_misc_line (ELEMENT *current)
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
 
-      /* associate section or part with the current node as its title. */
-      if (cmd != CM_node)
-        associate_title_command_anchor (current_node, current);
-
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
+         /* associate section with the current node as its title. */
+          associate_title_command_anchor (current_node, current);
           if (current_node)
             {
               if (!lookup_extra_element (current_node,

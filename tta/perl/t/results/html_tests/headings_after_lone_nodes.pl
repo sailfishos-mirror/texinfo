@@ -696,22 +696,20 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h4 class="subsubheading" id="Finally_0021"><span>Finally!<a class="copiable-link" href="#Finally_0021"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="Not-associated"></a><div class="nav-panel">
+<a class="node" id="Not-associated"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h4 class="node"><span>Not associated<a class="copiable-link" href="#Not-associated"> &para;</a></span></h4>
 
 <p>Some para
 </p>
 <h3 class="heading" id="should-not-be-associated"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated"> &para;</a></span></h3>
 
 <hr>
-<a class="node-id" id="g_t2-not"></a><div class="nav-panel">
+<a class="node" id="g_t2-not"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h4 class="node"><span>2 not<a class="copiable-link" href="#g_t2-not"> &para;</a></span></h4>
 
 <blockquote class="quotation">
 <p>in quotation
@@ -720,22 +718,20 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h3 class="heading" id="should-not-be-associated-1"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated-1"> &para;</a></span></h3>
 
 <hr>
-<a class="node-id" id="g_t3-not"></a><div class="nav-panel">
+<a class="node" id="g_t3-not"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h4 class="node"><span>3 not<a class="copiable-link" href="#g_t3-not"> &para;</a></span></h4>
 
 in html
 
 <h3 class="heading" id="should-not-be-associated-2"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated-2"> &para;</a></span></h3>
 
 <hr>
-<a class="node-id" id="g_t4-not"></a><div class="nav-panel">
+<a class="node" id="g_t4-not"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h4 class="node"><span>4 not<a class="copiable-link" href="#g_t4-not"> &para;</a></span></h4>
 
 <br>
 <br>
@@ -743,11 +739,10 @@ in html
 <h3 class="heading" id="should-not-be-associated-3"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated-3"> &para;</a></span></h3>
 
 <hr>
-<a class="node-id" id="g_t5-not"></a><div class="nav-panel">
+<a class="node" id="g_t5-not"></a><div class="nav-panel">
 <p>
 [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h4 class="node"><span>5 not<a class="copiable-link" href="#g_t5-not"> &para;</a></span></h4>
 
 
 <h3 class="heading" id="should-not-be-associated-4"><span>should not be associated<a class="copiable-link" href="#should-not-be-associated-4"> &para;</a></span></h3>

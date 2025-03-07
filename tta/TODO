@@ -22,6 +22,10 @@ document command_name in texi2any HTML customization API
 document DUMP_STRUCTURE
 
 
+Add @xrefname chap after, l 685 of 19def.t
+@node chap
+
+
 Bugs
 ====
 
