@@ -40,6 +40,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4]
  |normalized:{Top}
@@ -51,6 +52,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
     {Top}
  *3 @top C2 l4
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E7]
  |section_level:{0}
@@ -72,6 +74,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E2]
  |normalized:{htmlOnehtml}
@@ -102,6 +105,7 @@ $result_tree_text{'inline_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E3]
  |section_level:{1}

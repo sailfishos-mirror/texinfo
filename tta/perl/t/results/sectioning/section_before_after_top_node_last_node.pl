@@ -34,6 +34,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E4]
  |normalized:{Top}
@@ -48,6 +49,7 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_directions:D[next->E3|prev->E0]
  |section_level:{1}

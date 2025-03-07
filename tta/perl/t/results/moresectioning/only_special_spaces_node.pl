@@ -16,6 +16,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -30,6 +31,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E7|E9|E11|E13]
  |section_level:{0}
@@ -52,6 +54,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{_2002_2003_2002}
@@ -66,6 +69,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_level:{1}
@@ -81,6 +85,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *4 @node C1 only_special_spaces_node.texi:l8
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
   *arguments_line C1
    *line_arg
    |INFO
@@ -91,6 +96,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_level:{1}
@@ -106,6 +112,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  *6 @node C1 only_special_spaces_node.texi:l11
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
   *arguments_line C1
    *line_arg
    |INFO
@@ -116,6 +123,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E9|prev->E5|up->E1]
  |section_level:{1}
@@ -134,6 +142,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[next->E10|prev->E6|up->E0]
  |normalized:{_0085_00a0_1680}
@@ -148,6 +157,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[next->E11|prev->E7|up->E1]
  |section_level:{1}
@@ -166,6 +176,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[next->E12|prev->E8|up->E0]
  |normalized:{_180e_2003}
@@ -180,6 +191,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[next->E13|prev->E9|up->E1]
  |section_level:{1}
@@ -198,6 +210,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |node_directions:D[prev->E10|up->E0]
  |normalized:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
@@ -212,6 +225,7 @@ $result_tree_text{'only_special_spaces_node'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[prev->E11|up->E1]
  |section_level:{1}

@@ -18,6 +18,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -30,6 +31,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
     {Top}
  *1 @top C3 l4
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E15]
  |section_level:{0}
@@ -90,6 +92,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E14|up->E0]
  |menus:EC[E5]
@@ -106,6 +109,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[next->E15|up->E1]
@@ -248,6 +252,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |menus:EC[E8]
@@ -264,6 +269,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |level_modifier:{-1}
  |section_childs:EC[E10]
@@ -312,6 +318,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[up->E6]
  |menus:EC[E11]
@@ -328,6 +335,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |level_modifier:{-1}
  |section_childs:EC[E13]
@@ -376,6 +384,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[up->E9]
  |node_directions:D[up->E9]
@@ -391,6 +400,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |level_modifier:{-1}
  |section_directions:D[up->E10]
@@ -485,6 +495,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
@@ -500,6 +511,7 @@ $result_tree_text{'raiselowersections'} = '*document_root C14
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}

@@ -30,6 +30,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -45,6 +46,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E5]
  |section_level:{0}
@@ -135,6 +137,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E6]
@@ -151,6 +154,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E8]
  |section_directions:D[up->E1]
@@ -199,6 +203,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[up->E4]
  |node_directions:D[up->E4]
@@ -214,6 +219,7 @@ $result_tree_text{'master_menu_fr'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[up->E5]
  |section_level:{2}

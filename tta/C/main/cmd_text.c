@@ -392,6 +392,7 @@ const char *nobrace_symbol_text[] = {
 0,
 0,
 0,
+0,
 "{",   /* { */
 "",   /* | */
 "}",   /* } */
@@ -751,6 +752,7 @@ const char *text_brace_no_arg_commands[] = {
 0,
 0,
 " ",   /* tie */
+0,
 0,
 0,
 0,
@@ -1150,6 +1152,7 @@ const char *sort_brace_no_arg_commands[] = {
 0,
 0,
 "t",   /* today */
+0,
 0,
 0,
 0,

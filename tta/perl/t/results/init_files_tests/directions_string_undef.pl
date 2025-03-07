@@ -14,6 +14,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -28,6 +29,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
@@ -50,6 +52,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{chap}
@@ -64,6 +67,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_level:{1}
@@ -82,6 +86,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |normalized:{chap2}
@@ -96,6 +101,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E7|E9|E11]
  |section_directions:D[prev->E3|up->E1]
@@ -115,6 +121,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|up->E4]
  |normalized:{sec1}
@@ -129,6 +136,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E9|up->E5]
  |section_level:{2}
@@ -146,6 +154,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[next->E10|prev->E6|up->E4]
  |normalized:{sec2}
@@ -160,6 +169,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[next->E11|prev->E7|up->E5]
  |section_level:{2}
@@ -177,6 +187,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[prev->E8|up->E4]
  |normalized:{sec3}
@@ -191,6 +202,7 @@ $result_tree_text{'directions_string_undef'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[prev->E9|up->E5]
  |section_level:{2}

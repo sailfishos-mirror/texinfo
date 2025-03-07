@@ -3620,6 +3620,24 @@ sub _text_contents_to_plain_text {
   return ($text, $superfluous_arg);
 }
 
+sub _associate_title_command_anchor($$)
+{
+  my $self = shift;
+  my $current = shift;
+
+  if ($self->{'current_node'}
+      and (!$self->{'current_node'}->{'extra'}
+       or !$self->{'current_node'}->{'extra'}->{'associated_title_command'})) {
+    $self->{'current_node'}->{'extra'} = {}
+      if (!$self->{'current_node'}->{'extra'});
+    $self->{'current_node'}->{'extra'}->{'associated_title_command'}
+                                                           = $current;
+    $current->{'extra'} = {} if (!$current->{'extra'});
+    $current->{'extra'}->{'associated_anchor_command'}
+                                = $self->{'current_node'};
+  }
+}
+
 sub _end_line_misc_line($$$)
 {
   my $self = shift;
@@ -4018,6 +4036,10 @@ sub _end_line_misc_line($$$)
     $current = $current->{'contents'}->[-1];
     delete $current->{'remaining_args'};
 
+    # associate section or part with the current node as its title.
+    if ($command ne 'node') {
+      _associate_title_command_anchor($self, $current);
+    }
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       if ($self->{'current_node'}
@@ -4053,6 +4075,10 @@ sub _end_line_misc_line($$$)
                                   $command), $source_info);
       }
     }
+    # only *heading as sectioning commands are handled just before
+  } elsif ($sectioning_heading_commands{$data_cmdname}
+           or $data_cmdname eq 'xrefname') {
+    _associate_title_command_anchor($self, $current);
   }
   return $current;
 }

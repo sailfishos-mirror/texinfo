@@ -14,6 +14,7 @@ $result_tree_text{'menu'} = '*document_root C3
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->MISSING: (menu_entry_node)[C3]]
@@ -26,6 +27,7 @@ $result_tree_text{'menu'} = '*document_root C3
     {Top}
  *1 @top C3 l3
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

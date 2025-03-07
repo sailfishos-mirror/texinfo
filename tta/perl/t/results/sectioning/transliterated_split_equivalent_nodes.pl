@@ -102,6 +102,7 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |node_directions:D[next->E8|prev->E0|up->E0]
@@ -119,6 +120,7 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_level:{1}
  |sectioning_root:

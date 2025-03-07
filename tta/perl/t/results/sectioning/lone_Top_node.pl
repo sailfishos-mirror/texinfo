@@ -63,6 +63,7 @@ NodeUp: [U0]
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -78,6 +79,7 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_level:{1}
  |section_number:{1}

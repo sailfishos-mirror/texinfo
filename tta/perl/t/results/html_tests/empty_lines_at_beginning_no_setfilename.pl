@@ -21,6 +21,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -34,6 +35,7 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

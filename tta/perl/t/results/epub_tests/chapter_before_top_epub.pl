@@ -28,6 +28,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{chapter}
   *arguments_line C1
@@ -41,6 +42,7 @@ $result_tree_text{'chapter_before_top_epub'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{1}
  |section_number:{1}

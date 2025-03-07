@@ -394,5 +394,6 @@ int const command_structuring_level[] = {
 -1,
 -1,
 -1,
+-1,
 };
 

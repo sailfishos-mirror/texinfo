@@ -131,6 +131,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E5]
@@ -146,6 +147,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E6|E13|E15]
  |section_level:{0}
@@ -239,6 +241,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E12|up->E2]
  |node_directions:D[next->E12|prev->E2|up->E2]
@@ -254,6 +257,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E13|up->E3]
  |section_level:{1}
@@ -366,6 +370,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[next->E14|prev->E5|up->E2]
  |node_directions:D[next->E14|prev->E5|up->E2]
@@ -381,6 +386,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[next->E15|prev->E6|up->E3]
  |section_level:{1}
@@ -402,6 +408,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E12|up->E2]
@@ -418,6 +425,7 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[prev->E13|up->E3]
  |section_level:{1}

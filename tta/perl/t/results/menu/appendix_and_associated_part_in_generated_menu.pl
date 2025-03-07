@@ -13,6 +13,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -27,6 +28,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3]
  |section_directions:D[next->E6]
@@ -50,6 +52,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E7|prev->E0|up->E0]
  |normalized:{chapter}
@@ -64,6 +67,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E5]
  |section_directions:D[up->E1]
@@ -83,6 +87,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[up->E2]
  |normalized:{sec}
@@ -97,6 +102,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E3]
  |section_level:{2}
@@ -132,6 +138,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[next->E10|prev->E2|up->E0]
  |node_preceding_part:[E6]
@@ -147,6 +154,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |associated_part:[E6]
  |section_directions:D[up->E6]
@@ -184,6 +192,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[prev->E7|up->E0]
  |node_preceding_part:[E9]
@@ -199,6 +208,7 @@ $result_tree_text{'appendix_and_associated_part_in_generated_menu'} = '*document
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |associated_part:[E9]
  |section_directions:D[up->E9]

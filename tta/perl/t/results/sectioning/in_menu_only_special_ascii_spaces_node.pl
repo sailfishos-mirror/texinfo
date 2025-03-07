@@ -14,6 +14,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -29,6 +30,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E6]
  |section_level:{0}
@@ -80,6 +82,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *3 @node C1 in_menu_only_special_ascii_spaces_node.texi:l9
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
   *arguments_line C1
    *line_arg
    |INFO
@@ -90,6 +93,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_level:{1}
@@ -105,6 +109,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  *5 @node C1 in_menu_only_special_ascii_spaces_node.texi:l12
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
   *arguments_line C1
    *line_arg
    |INFO
@@ -115,6 +120,7 @@ $result_tree_text{'in_menu_only_special_ascii_spaces_node'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}

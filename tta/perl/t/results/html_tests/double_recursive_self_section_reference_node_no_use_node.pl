@@ -14,6 +14,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
  |normalized:{n1}
@@ -28,6 +29,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E4]
  |section_level:{1}
@@ -56,6 +58,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |normalized:{n2}
@@ -70,6 +73,7 @@ $result_tree_text{'double_recursive_self_section_reference_node_no_use_node'} = 
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[prev->E1]
  |section_level:{1}

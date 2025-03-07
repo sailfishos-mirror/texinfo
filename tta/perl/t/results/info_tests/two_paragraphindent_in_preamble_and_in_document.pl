@@ -66,6 +66,7 @@ $result_tree_text{'two_paragraphindent_in_preamble_and_in_document'} = '*documen
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -79,6 +80,7 @@ $result_tree_text{'two_paragraphindent_in_preamble_and_in_document'} = '*documen
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{0}
  |sectioning_root:

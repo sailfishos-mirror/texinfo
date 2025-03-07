@@ -53,6 +53,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E8]
@@ -68,6 +69,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_childs:EC[E5|E7]
  |section_directions:D[next->E9]
@@ -121,6 +123,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|up->E1]
  |normalized:{onesub1}
@@ -135,6 +138,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[next->E7|up->E2]
  |section_level:{2}
@@ -152,6 +156,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E4|up->E1]
@@ -167,6 +172,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[prev->E5|up->E2]
  |section_level:{2}
@@ -185,6 +191,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menus:EC[E10]
  |node_directions:D[prev->E1]
@@ -200,6 +207,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_childs:EC[E12|E14|E16]
  |section_directions:D[prev->E2]
@@ -270,6 +278,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E15|up->E8]
  |node_directions:D[next->E13|up->E8]
@@ -285,6 +294,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E14|up->E9]
  |section_level:{2}
@@ -302,6 +312,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[prev->E15|up->E8]
  |node_directions:D[next->E15|prev->E11|up->E8]
@@ -317,6 +328,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E16|prev->E12|up->E9]
  |section_level:{2}
@@ -334,6 +346,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E11|up->E8]
  |node_directions:D[next->E13|prev->E13|up->E8]
@@ -349,6 +362,7 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_directions:D[prev->E14|up->E9]
  |section_level:{2}

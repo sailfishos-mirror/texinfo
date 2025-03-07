@@ -163,6 +163,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[next->E7]
  |normalized:{Top}
@@ -177,6 +178,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_level:{0}
  |sectioning_root:

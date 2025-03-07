@@ -31,6 +31,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -42,6 +43,7 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
     {Top}
  *1 @top C2 cpp_line_latin1.texi:l6
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

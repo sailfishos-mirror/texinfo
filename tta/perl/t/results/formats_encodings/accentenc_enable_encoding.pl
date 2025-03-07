@@ -27,6 +27,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{first}
   *arguments_line C1
@@ -40,6 +41,7 @@ $result_tree_text{'accentenc_enable_encoding'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

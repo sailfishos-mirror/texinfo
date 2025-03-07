@@ -418,12 +418,13 @@ CM_w,
 CM_xml,
 CM_xref,
 CM_xrefautomaticsectiontitle,
+CM_xrefname,
 CM_hex_7b,
 CM_hex_7c,
 CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 390
+#define BUILTIN_CMD_NUMBER 391
 
 #endif

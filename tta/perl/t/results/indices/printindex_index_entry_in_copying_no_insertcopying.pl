@@ -186,6 +186,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E8]
@@ -201,6 +202,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_childs:EC[E9]
  |section_level:{0}
@@ -255,6 +257,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[up->E5]
  |node_directions:D[prev->E5|up->E5]
@@ -270,6 +273,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[up->E6]
  |section_level:{1}

@@ -125,6 +125,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E8]
@@ -140,6 +141,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E9]
  |section_level:{0}
@@ -235,6 +237,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[up->E4]
  |node_directions:D[prev->E4|up->E4]
@@ -250,6 +253,7 @@ $result_tree_text{'direntry_dircategory'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[up->E5]
  |section_level:{1}

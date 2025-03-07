@@ -21,6 +21,7 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -36,6 +37,7 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
  |section_level:{0}
@@ -129,6 +131,7 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[next->E6|up->E0]
  |node_directions:D[next->E6|prev->E0|up->E0]
@@ -145,6 +148,7 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |associated_part:[E3]
  |section_directions:D[up->E3]
@@ -174,6 +178,7 @@ NodeBack: [U1]
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[prev->E4|up->E0]
@@ -189,6 +194,7 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[prev->E3]
  |section_level:{1}

@@ -170,6 +170,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
  |menus:EC[E13]
  |node_directions:D[next->E14]
@@ -185,6 +186,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_childs:EC[E15]
  |section_level:{0}
@@ -241,6 +243,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E11]
@@ -257,6 +260,7 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[up->E12]
  |section_level:{1}

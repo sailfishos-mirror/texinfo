@@ -20,6 +20,7 @@ NodeUp: (dir)
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
  |normalized:{a-node}
@@ -42,6 +43,7 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E2]
  |section_level:{1}
@@ -91,6 +93,7 @@ NodeUp: (dir)
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
  |normalized:{second}
@@ -113,6 +116,7 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[prev->E2]
  |section_level:{1}

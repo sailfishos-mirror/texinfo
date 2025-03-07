@@ -13,6 +13,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,6 +29,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E6|E10]
  |section_level:{0}
@@ -105,6 +107,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E5|up->E0]
  |node_directions:D[next->E5|prev->E0|up->E0]
@@ -120,6 +123,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E6|up->E1]
  |section_level:{1}
@@ -141,6 +145,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|prev->E3|up->E0]
  |node_directions:D[next->E9|prev->E3|up->E0]
@@ -156,6 +161,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[next->E10|prev->E4|up->E1]
  |section_level:{1}
@@ -197,6 +203,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |node_directions:D[prev->E5|up->E0]
  |normalized:{_0028manual_0029node}
@@ -211,6 +218,7 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[prev->E6|up->E1]
  |section_level:{1}

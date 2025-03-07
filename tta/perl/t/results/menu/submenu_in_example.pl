@@ -12,6 +12,7 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_title_command:[MISSING: (preformatted)[C1]]
  |is_target:{1}
  |normalized:{first}
   *arguments_line C1
@@ -136,6 +137,8 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
        |{\\n}
        {subheading in menu}
      *preformatted C1
+     |EXTRA
+     |associated_anchor_command:[E0]
       {empty_line:\\n}
      *8 @enumerate C3 l25
      |EXTRA

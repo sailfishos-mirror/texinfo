@@ -154,6 +154,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_directions:D[next->E12]
  |normalized:{Top}
@@ -168,6 +169,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_childs:EC[E13]
  |section_level:{0}
@@ -190,6 +192,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |node_directions:D[prev->E10|up->E10]
  |normalized:{chapter}
@@ -204,6 +207,7 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[up->E11]
  |section_level:{1}

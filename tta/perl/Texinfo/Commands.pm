@@ -306,6 +306,7 @@ our %line_commands = (
   "unnumberedsubsubsec"     => 'line',
   "vindex"                  => 'line',
   "vrindex"                 => 'line',
+  "xrefname"                => 'line',
   "afivepaper"              => 'lineraw',
   "afourlatex"              => 'lineraw',
   "afourpaper"              => 'lineraw',
@@ -684,6 +685,7 @@ our %contain_basic_inline_commands = (
   "vtable"                  => 1,
   "w"                       => 1,
   "xref"                    => 1,
+  "xrefname"                => 1,
 );
 
 our %contain_plain_text_commands = (
@@ -1288,6 +1290,7 @@ our %no_paragraph_commands = (
   "vtable"                  => 1,
   "xml"                     => 1,
   "xrefautomaticsectiontitle" => 1,
+  "xrefname"                => 1,
 );
 
 our %non_formatted_block_commands = (

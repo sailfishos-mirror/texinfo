@@ -38,6 +38,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E7]
  |normalized:{Top}
@@ -52,6 +53,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E8]
  |section_level:{0}
@@ -108,6 +110,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E2]
  |normalized:{chap}
@@ -122,6 +125,7 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[up->E3]
  |section_level:{1}

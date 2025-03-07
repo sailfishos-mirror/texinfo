@@ -85,6 +85,7 @@ $result_tree_text{'cond'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E3]
  |normalized:{Top}
@@ -99,6 +100,7 @@ $result_tree_text{'cond'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{0}
  |sectioning_root:

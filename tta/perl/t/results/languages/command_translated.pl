@@ -27,6 +27,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E4]
  |normalized:{Top}
@@ -41,6 +42,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E6]
  |section_level:{0}
@@ -70,6 +72,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chapter-error_002d_002d_003e}
@@ -86,6 +89,7 @@ $result_tree_text{'command_translated'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E1]
  |section_level:{1}

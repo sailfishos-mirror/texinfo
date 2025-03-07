@@ -57,6 +57,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
     |>*brace_arg
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E43]
  |node_directions:D[next->E44]
@@ -74,6 +75,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E45]
  |section_level:{0}
@@ -1520,6 +1522,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E45]
+ |associated_title_command:[E45]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[prev->E2|up->E2]
@@ -1542,6 +1545,7 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E44]
  |associated_node:[E44]
  |section_directions:D[up->E3]
  |section_level:{1}

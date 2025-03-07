@@ -40,6 +40,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E5]
@@ -55,6 +56,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E6]
  |section_level:{0}
@@ -111,6 +113,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[prev->E2|up->E2]
@@ -126,6 +129,7 @@ $result_tree_text{'ref_in_copying'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[up->E3]
  |section_level:{1}

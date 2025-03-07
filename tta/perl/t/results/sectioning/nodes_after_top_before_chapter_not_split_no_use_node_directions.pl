@@ -108,6 +108,7 @@ $result_tree_text{'nodes_after_top_before_chapter_not_split_no_use_node_directio
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[prev->E2|up->E0]
  |node_directions:D[prev->E2|up->E0]
@@ -134,6 +135,7 @@ $result_tree_text{'nodes_after_top_before_chapter_not_split_no_use_node_directio
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_level:{1}
  |section_number:{1}

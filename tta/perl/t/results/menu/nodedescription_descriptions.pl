@@ -13,6 +13,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,6 +29,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E11|E14|E17|E20|E23|E26]
  |section_level:{0}
@@ -154,6 +156,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E10|up->E0]
  |node_description:[E5]
@@ -170,6 +173,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E11|up->E1]
  |section_level:{1}
@@ -220,6 +224,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[next->E13|prev->E3|up->E0]
  |node_description:[E12]
@@ -236,6 +241,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[next->E14|prev->E4|up->E1]
  |section_level:{1}
@@ -266,6 +272,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E16|prev->E10|up->E0]
  |node_description:[E15]
@@ -282,6 +289,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E17|prev->E11|up->E1]
  |section_level:{1}
@@ -312,6 +320,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E17]
+ |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[next->E19|prev->E13|up->E0]
  |node_description:[E18]
@@ -328,6 +337,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E16]
  |associated_node:[E16]
  |section_directions:D[next->E20|prev->E14|up->E1]
  |section_level:{1}
@@ -358,6 +368,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E20]
+ |associated_title_command:[E20]
  |is_target:{1}
  |menu_directions:D[next->E22|prev->E16|up->E0]
  |node_description:[E21]
@@ -374,6 +385,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E19]
  |associated_node:[E19]
  |section_directions:D[next->E23|prev->E17|up->E1]
  |section_level:{1}
@@ -404,6 +416,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E23]
+ |associated_title_command:[E23]
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E19|up->E0]
  |node_description:[E24]
@@ -420,6 +433,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E22]
  |associated_node:[E22]
  |section_directions:D[next->E26|prev->E20|up->E1]
  |section_level:{1}
@@ -450,6 +464,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
   |{ }
  |EXTRA
  |associated_section:[E26]
+ |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[prev->E22|up->E0]
  |node_description:[E27]
@@ -466,6 +481,7 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E25]
  |associated_node:[E25]
  |section_directions:D[prev->E23|up->E1]
  |section_level:{1}

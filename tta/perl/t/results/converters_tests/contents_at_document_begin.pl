@@ -22,6 +22,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -37,6 +38,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
@@ -91,6 +93,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -106,6 +109,7 @@ $result_tree_text{'contents_at_document_begin'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E1]
  |section_level:{1}

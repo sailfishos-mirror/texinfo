@@ -13,6 +13,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E12]
  |node_directions:D[next->E13]
@@ -28,6 +29,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E14|E21|E28|E29]
  |section_level:{0}
@@ -308,6 +310,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E20|up->E0]
  |node_directions:D[next->E20|prev->E0|up->E0]
@@ -323,6 +326,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E21|up->E1]
  |section_level:{1}
@@ -653,6 +657,7 @@ $result_tree_text{'test_index'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E21]
+ |associated_title_command:[E21]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E13|up->E0]
@@ -669,6 +674,7 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E20]
  |associated_node:[E20]
  |section_childs:EC[E24]
  |section_directions:D[next->E28|prev->E14|up->E1]

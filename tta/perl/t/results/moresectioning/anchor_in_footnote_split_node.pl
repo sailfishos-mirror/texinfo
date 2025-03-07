@@ -14,6 +14,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E5]
@@ -29,6 +30,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E6]
  |section_level:{0}
@@ -97,6 +99,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -112,6 +115,7 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[up->E1]
  |section_level:{1}

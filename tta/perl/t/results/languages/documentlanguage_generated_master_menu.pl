@@ -40,6 +40,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E3]
  |normalized:{Top}
@@ -54,6 +55,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E2]
  |section_level:{0}
@@ -94,6 +96,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E0|up->E0]
  |node_preceding_part:[E2]
@@ -109,6 +112,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |associated_part:[E2]
  |section_directions:D[up->E2]
@@ -159,6 +163,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|prev->E3|up->E0]
  |node_preceding_part:[E5]
@@ -174,6 +179,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |associated_part:[E5]
  |section_directions:D[up->E5]
@@ -206,6 +212,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E0]
  |normalized:{appendix}
@@ -220,6 +227,7 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E5]
  |section_level:{1}

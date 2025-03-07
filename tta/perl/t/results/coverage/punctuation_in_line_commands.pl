@@ -14,6 +14,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |isindex:{1}
  |normalized:{node_0021-After-punc}
@@ -28,6 +29,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

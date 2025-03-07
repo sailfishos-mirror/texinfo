@@ -36,6 +36,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{chap}
   *arguments_line C1
@@ -49,6 +50,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_childs:EC[E4]
  |section_directions:D[up->E0]
@@ -68,6 +70,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[up->E1]
  |normalized:{sec}
@@ -82,6 +85,7 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E2]
  |section_level:{2}

@@ -26,6 +26,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -40,6 +41,7 @@ $result_tree_text{'setfilename_no_extension'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

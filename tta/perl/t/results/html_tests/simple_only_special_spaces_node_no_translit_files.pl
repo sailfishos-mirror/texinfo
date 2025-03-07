@@ -14,6 +14,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -28,6 +29,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E7]
  |section_level:{0}
@@ -50,6 +52,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{_2002_2003}
@@ -64,6 +67,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_level:{1}
@@ -79,6 +83,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  *4 @node C1 simple_only_special_spaces_node.texi:l7
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
   *arguments_line C1
    *line_arg
    |INFO
@@ -89,6 +94,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[next->E7|prev->E3|up->E1]
  |section_level:{1}
@@ -107,6 +113,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[prev->E4|up->E0]
  |normalized:{_2004_2005}
@@ -121,6 +128,7 @@ $result_tree_text{'simple_only_special_spaces_node_no_translit_files'} = '*docum
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[prev->E5|up->E1]
  |section_level:{1}

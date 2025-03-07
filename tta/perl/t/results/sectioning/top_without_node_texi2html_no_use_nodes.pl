@@ -36,6 +36,7 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[up->MISSING: (line_arg)[C3]]
  |normalized:{second}
@@ -58,6 +59,7 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_directions:D[up->E0]
  |section_level:{1}

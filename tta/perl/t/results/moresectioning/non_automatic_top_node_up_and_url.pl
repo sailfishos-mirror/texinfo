@@ -19,6 +19,7 @@ NodeForward: [U1]
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[next->E7]
@@ -79,6 +80,7 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{0}
  |sectioning_root:

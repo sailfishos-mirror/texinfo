@@ -17,6 +17,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E6|prev->MISSING: (line_arg)[C3]]
@@ -40,6 +41,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
     {)}
  *1 @top C3 sectioning.texi:l4
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E7|E29|E31]
  |section_level:{0}
@@ -167,6 +169,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E27|up->E0]
  |menus:EC[E8]
@@ -194,6 +197,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_childs:EC[E10|E21|E26]
  |section_directions:D[next->E29|up->E1]
@@ -269,6 +273,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[next->E20|up->E6]
  |menus:EC[E11]
@@ -285,6 +290,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_childs:EC[E13|E15|E17|E19]
  |section_directions:D[next->E21|up->E7]
@@ -364,6 +370,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[next->E14|up->E9]
  |node_directions:D[next->E14|up->E9]
@@ -379,6 +386,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[next->E15|up->E10]
  |section_level:{3}
@@ -395,6 +403,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |menu_directions:D[next->E16|prev->E12|up->E9]
  |node_directions:D[next->E16|prev->E12|up->E9]
@@ -410,6 +419,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[next->E17|prev->E13|up->E10]
  |section_level:{3}
@@ -426,6 +436,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E17]
+ |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[next->E18|prev->E14|up->E9]
  |node_directions:D[next->E18|prev->E14|up->E9]
@@ -441,6 +452,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E16]
  |associated_node:[E16]
  |section_directions:D[next->E19|prev->E15|up->E10]
  |section_level:{3}
@@ -457,6 +469,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E19]
+ |associated_title_command:[E19]
  |is_target:{1}
  |menu_directions:D[prev->E16|up->E9]
  |node_directions:D[prev->E16|up->E9]
@@ -472,6 +485,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E18]
  |associated_node:[E18]
  |section_directions:D[prev->E17|up->E10]
  |section_level:{3}
@@ -488,6 +502,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E21]
+ |associated_title_command:[E21]
  |is_target:{1}
  |menu_directions:D[next->E25|prev->E9|up->E6]
  |menus:EC[E22]
@@ -504,6 +519,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E20]
  |associated_node:[E20]
  |section_childs:EC[E24]
  |section_directions:D[next->E26|prev->E10|up->E7]
@@ -550,6 +566,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E24]
+ |associated_title_command:[E24]
  |is_target:{1}
  |menu_directions:D[up->E20]
  |node_directions:D[up->E20]
@@ -565,6 +582,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E23]
  |associated_node:[E23]
  |section_directions:D[up->E21]
  |section_level:{3}
@@ -582,6 +600,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E26]
+ |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[prev->E20|up->E6]
  |node_directions:D[prev->E20|up->E6]
@@ -597,6 +616,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{  }
  |EXTRA
+ |associated_anchor_command:[E25]
  |associated_node:[E25]
  |section_directions:D[prev->E21|up->E7]
  |section_level:{2}
@@ -640,6 +660,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E29]
+ |associated_title_command:[E29]
  |is_target:{1}
  |menu_directions:D[next->E30|prev->E27|up->E0]
  |node_directions:D[next->E30|up->E0]
@@ -670,6 +691,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E28]
  |associated_node:[E28]
  |section_directions:D[next->E31|prev->E7|up->E1]
  |section_level:{1}
@@ -691,6 +713,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
   |{ }
  |EXTRA
  |associated_section:[E31]
+ |associated_title_command:[E31]
  |is_target:{1}
  |menu_directions:D[next->E32|prev->E28|up->E0]
  |node_directions:D[next->E32|prev->E28|up->E0]
@@ -706,6 +729,7 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E30]
  |associated_node:[E30]
  |section_directions:D[prev->E29|up->E1]
  |section_level:{1}

@@ -105,6 +105,7 @@ $result_tree_text{'glossary'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menus:EC[E5]
  |node_directions:D[next->E12]
@@ -120,6 +121,7 @@ $result_tree_text{'glossary'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_childs:EC[E13]
  |section_level:{0}
@@ -434,6 +436,7 @@ $result_tree_text{'glossary'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[prev->E3|up->E3]
@@ -449,6 +452,7 @@ $result_tree_text{'glossary'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_directions:D[up->E4]
  |section_level:{1}

@@ -385,6 +385,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E40]
+ |associated_title_command:[E40]
  |is_target:{1}
  |node_directions:D[next->E41]
  |normalized:{Top}
@@ -399,6 +400,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E39]
  |associated_node:[E39]
  |section_childs:EC[E42]
  |section_level:{0}
@@ -421,6 +423,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E42]
+ |associated_title_command:[E42]
  |is_target:{1}
  |node_directions:D[prev->E39|up->E39]
  |normalized:{chap}
@@ -435,6 +438,7 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E41]
  |associated_node:[E41]
  |section_directions:D[up->E40]
  |section_level:{1}

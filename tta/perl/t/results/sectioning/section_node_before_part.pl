@@ -14,6 +14,7 @@ $result_tree_text{'section_node_before_part'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -27,6 +28,7 @@ $result_tree_text{'section_node_before_part'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{2}
  |section_number:{1}

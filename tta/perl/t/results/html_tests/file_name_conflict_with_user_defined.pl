@@ -14,6 +14,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -28,6 +29,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E6]
  |section_level:{0}
@@ -50,6 +52,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{Chapter-1}
@@ -64,6 +67,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E6|up->E1]
  |section_level:{1}
@@ -90,6 +94,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |normalized:{Chapter-2}
@@ -104,6 +109,7 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}

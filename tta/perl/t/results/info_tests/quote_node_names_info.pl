@@ -14,6 +14,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E19]
  |node_directions:D[next->E24]
@@ -26,6 +27,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
     {Top}
  *1 @top C30 nodequote.texi:l2
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E25|E27|E31|E34]
  |section_level:{0}
@@ -394,6 +396,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E25]
+ |associated_title_command:[E25]
  |is_target:{1}
  |menu_directions:D[next->E26|up->E0]
  |node_directions:D[next->E26|prev->E0|up->E0]
@@ -409,6 +412,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E24]
  |associated_node:[E24]
  |section_directions:D[next->E27|up->E1]
  |section_level:{1}
@@ -430,6 +434,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E27]
+ |associated_title_command:[E27]
  |is_target:{1}
  |menu_directions:D[next->E28|prev->E24|up->E0]
  |node_directions:D[next->E28|prev->E24|up->E0]
@@ -445,6 +450,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E26]
  |associated_node:[E26]
  |section_directions:D[next->E31|prev->E25|up->E1]
  |section_level:{1}
@@ -463,6 +469,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E31]
+ |associated_title_command:[E31]
  |is_target:{1}
  |menu_directions:D[next->E32|prev->E26|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C6]|prev->MISSING: (line_arg)[C6]|up->MISSING: (line_arg)[C4]]
@@ -519,6 +526,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E28]
  |associated_node:[E28]
  |section_directions:D[next->E34|prev->E27|up->E1]
  |section_level:{1}
@@ -537,6 +545,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E34]
+ |associated_title_command:[E34]
  |is_target:{1}
  |menu_directions:D[prev->E28|up->E0]
  |node_directions:D[prev->E28|up->E0]
@@ -554,6 +563,7 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E32]
  |associated_node:[E32]
  |section_directions:D[prev->E31|up->E1]
  |section_level:{1}

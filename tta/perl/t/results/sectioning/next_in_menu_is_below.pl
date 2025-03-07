@@ -13,6 +13,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,6 +29,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
@@ -79,6 +81,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |menus:EC[E5]
@@ -95,6 +98,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_childs:EC[E7]
  |section_directions:D[up->E1]
@@ -154,6 +158,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E9|up->E3]
  |menus:EC[E8]
@@ -170,6 +175,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_childs:EC[E10]
  |section_directions:D[up->E4]
@@ -217,6 +223,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E6]
  |node_directions:D[prev->E6|up->E6]
@@ -232,6 +239,7 @@ $result_tree_text{'next_in_menu_is_below'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[up->E7]
  |section_level:{3}

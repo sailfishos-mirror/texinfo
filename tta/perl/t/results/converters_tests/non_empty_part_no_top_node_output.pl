@@ -38,6 +38,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E7]
@@ -54,6 +55,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |associated_part:[E0]
  |section_directions:D[next->E4|prev->E0]
@@ -168,6 +170,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[up->E1]
  |node_directions:D[prev->E1|up->E1]
@@ -184,6 +187,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |global_command_number:{4}
  |part_associated_section:[E9]
  |section_childs:EC[E9]
@@ -299,6 +303,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |node_directions:D[up->E1]
  |node_preceding_part:[E13]
@@ -315,6 +320,7 @@ $result_tree_text{'non_empty_part_no_top_node_output'} = '*document_root C16
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |associated_part:[E13]
  |section_directions:D[up->E13]

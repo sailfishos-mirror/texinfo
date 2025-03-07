@@ -17,6 +17,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E4|up->E0]
@@ -34,6 +35,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E10|E40]
  |section_level:{0}
@@ -162,6 +164,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E39|prev->E0|up->E0]
@@ -275,6 +278,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E16|E27|E29]
  |section_directions:D[next->E40|up->E1]
@@ -417,6 +421,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E26|up->E4]
@@ -434,6 +439,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_childs:EC[E21|E23]
  |section_directions:D[next->E27|up->E10]
@@ -535,6 +541,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E21]
+ |associated_title_command:[E21]
  |is_target:{1}
  |menu_directions:D[next->E22|up->E15]
  |node_directions:D[next->E22|up->E15]
@@ -550,6 +557,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E20]
  |associated_node:[E20]
  |section_directions:D[next->E23|up->E16]
  |section_level:{3}
@@ -570,6 +578,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E23]
+ |associated_title_command:[E23]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E20|up->E15]
@@ -586,6 +595,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E22]
  |associated_node:[E22]
  |section_directions:D[prev->E21|up->E16]
  |section_level:{3}
@@ -647,6 +657,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E27]
+ |associated_title_command:[E27]
  |is_target:{1}
  |menu_directions:D[next->E28|prev->E15|up->E4]
  |node_directions:D[next->E28|prev->E15|up->E4]
@@ -662,6 +673,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E26]
  |associated_node:[E26]
  |section_directions:D[next->E29|prev->E16|up->E10]
  |section_level:{2}
@@ -682,6 +694,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E29]
+ |associated_title_command:[E29]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E31|prev->E26|up->E4]
@@ -698,6 +711,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E28]
  |associated_node:[E28]
  |section_directions:D[prev->E27|up->E10]
  |section_level:{2}
@@ -916,6 +930,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E40]
+ |associated_title_command:[E40]
  |is_target:{1}
  |menu_directions:D[prev->E4|up->E0]
  |node_directions:D[prev->E4|up->E0]
@@ -931,6 +946,7 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E39]
  |associated_node:[E39]
  |section_directions:D[prev->E10|up->E1]
  |section_level:{1}

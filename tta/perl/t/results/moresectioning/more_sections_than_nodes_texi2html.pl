@@ -14,6 +14,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E4]
@@ -29,6 +30,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E8|E14|E19]
  |section_level:{0}
@@ -118,6 +120,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
@@ -133,6 +136,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E6]
  |section_directions:D[next->E8|prev->E3|up->E1]
@@ -167,6 +171,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E17|prev->E4|up->E0]
  |menus:EC[E9]
@@ -206,6 +211,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_childs:EC[E10|E12|E13]
  |section_directions:D[next->E14|prev->E5|up->E1]
@@ -269,6 +275,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[up->E7]
  |node_directions:D[up->E7]
@@ -284,6 +291,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E13|prev->E10|up->E8]
  |section_level:{2}
@@ -364,6 +372,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E18]
+ |associated_title_command:[E18]
  |is_target:{1}
  |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
@@ -390,6 +399,7 @@ $result_tree_text{'more_sections_than_nodes_texi2html'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E17]
  |associated_node:[E17]
  |section_directions:D[prev->E16|up->E15]
  |section_level:{3}

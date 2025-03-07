@@ -14,6 +14,7 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -27,6 +28,7 @@ $result_tree_text{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '*docume
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E2]
  |section_level:{0}

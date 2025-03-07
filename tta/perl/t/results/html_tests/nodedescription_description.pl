@@ -14,6 +14,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -28,6 +29,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E11|E14]
  |section_level:{0}
@@ -50,6 +52,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_description:[E4]
  |node_directions:D[next->E10|prev->E0|up->E0]
@@ -66,6 +69,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E11|up->E1]
  |section_level:{1}
@@ -138,6 +142,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_description:[E12]
  |node_directions:D[next->E13|prev->E2|up->E0]
@@ -154,6 +159,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[next->E14|prev->E3|up->E1]
  |section_level:{1}
@@ -194,6 +200,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |node_description:[E15]
  |node_directions:D[prev->E10|up->E0]
@@ -209,6 +216,7 @@ $result_tree_text{'nodedescription_description'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[prev->E11|up->E1]
  |section_level:{1}

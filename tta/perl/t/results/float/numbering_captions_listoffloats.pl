@@ -14,6 +14,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E24]
  |node_directions:D[next->E25]
@@ -29,6 +30,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E26|E51|E65|E79|E84]
  |section_level:{0}
@@ -476,6 +478,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E26]
+ |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[next->E50|up->E0]
  |menus:EC[E46]
@@ -492,6 +495,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E25]
  |associated_node:[E25]
  |section_childs:EC[E48]
  |section_directions:D[next->E51|up->E1]
@@ -799,6 +803,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E48]
+ |associated_title_command:[E48]
  |is_target:{1}
  |menu_directions:D[up->E25]
  |node_directions:D[up->E25]
@@ -814,6 +819,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E47]
  |associated_node:[E47]
  |section_directions:D[up->E26]
  |section_level:{2}
@@ -868,6 +874,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E51]
+ |associated_title_command:[E51]
  |is_target:{1}
  |menu_directions:D[next->E64|prev->E25|up->E0]
  |menus:EC[E52]
@@ -884,6 +891,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E50]
  |associated_node:[E50]
  |section_childs:EC[E60]
  |section_directions:D[next->E65|prev->E26|up->E1]
@@ -1030,6 +1038,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E60]
+ |associated_title_command:[E60]
  |is_target:{1}
  |menu_directions:D[up->E50]
  |node_directions:D[up->E50]
@@ -1045,6 +1054,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E59]
  |associated_node:[E59]
  |section_directions:D[up->E51]
  |section_level:{2}
@@ -1113,6 +1123,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E65]
+ |associated_title_command:[E65]
  |is_target:{1}
  |menu_directions:D[next->E78|prev->E50|up->E0]
  |menus:EC[E66]
@@ -1129,6 +1140,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E64]
  |associated_node:[E64]
  |section_childs:EC[E71]
  |section_directions:D[next->E79|prev->E51|up->E1]
@@ -1227,6 +1239,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E71]
+ |associated_title_command:[E71]
  |is_target:{1}
  |menu_directions:D[up->E64]
  |node_directions:D[up->E64]
@@ -1242,6 +1255,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E70]
  |associated_node:[E70]
  |section_directions:D[up->E65]
  |section_level:{2}
@@ -1358,6 +1372,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E79]
+ |associated_title_command:[E79]
  |is_target:{1}
  |menu_directions:D[next->E83|prev->E64|up->E0]
  |node_directions:D[next->E83|prev->E64|up->E0]
@@ -1373,6 +1388,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E78]
  |associated_node:[E78]
  |section_directions:D[next->E84|prev->E65|up->E1]
  |section_level:{1}
@@ -1443,6 +1459,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |{ }
  |EXTRA
  |associated_section:[E84]
+ |associated_title_command:[E84]
  |is_target:{1}
  |menu_directions:D[prev->E78|up->E0]
  |node_directions:D[prev->E78|up->E0]
@@ -1458,6 +1475,7 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E83]
  |associated_node:[E83]
  |section_directions:D[prev->E79|up->E1]
  |section_level:{1}

@@ -94,6 +94,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4]
  |normalized:{Top}
@@ -108,6 +109,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E5]
  |section_level:{0}
@@ -130,6 +132,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E2]
  |normalized:{chap}
@@ -144,6 +147,7 @@ $result_tree_text{'deftypefnnewline_for_copying_before'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[up->E3]
  |section_level:{1}

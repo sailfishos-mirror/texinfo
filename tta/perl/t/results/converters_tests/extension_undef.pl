@@ -36,6 +36,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{chapter}
   *arguments_line C1
@@ -49,6 +50,7 @@ $result_tree_text{'extension_undef'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_directions:D[up->E0]
  |section_level:{1}

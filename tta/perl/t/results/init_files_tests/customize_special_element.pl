@@ -25,6 +25,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -39,6 +40,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5]
  |section_level:{0}
@@ -61,6 +63,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{Chapter}
@@ -75,6 +78,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_level:{1}
@@ -105,6 +109,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[prev->E2|up->E0]
  |normalized:{Chapter-fr}
@@ -119,6 +124,7 @@ $result_tree_text{'customize_special_element'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}

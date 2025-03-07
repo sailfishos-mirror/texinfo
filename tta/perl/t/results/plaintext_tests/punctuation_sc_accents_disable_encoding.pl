@@ -17,6 +17,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -31,6 +32,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3]
  |section_level:{0}
@@ -53,6 +55,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{node-chap}
@@ -67,6 +70,7 @@ $result_tree_text{'punctuation_sc_accents_disable_encoding'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}

@@ -26,6 +26,8 @@ $result_tree_text{'all_commands_delimiters_printindex'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0]

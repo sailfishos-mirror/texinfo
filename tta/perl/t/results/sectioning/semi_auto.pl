@@ -13,6 +13,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -28,6 +29,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4]
  |section_level:{0}
@@ -90,6 +92,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E8|up->E0]
  |menus:EC[E5]
@@ -106,6 +109,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_childs:EC[E7|E9]
  |section_directions:D[up->E1]
@@ -154,6 +158,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[up->E3]
  |node_directions:D[next->E8|up->E3]
@@ -169,6 +174,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E9|up->E4]
  |section_level:{2}
@@ -186,6 +192,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
  |node_directions:D[prev->E3|up->E0]
@@ -217,6 +224,7 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[prev->E7|up->E4]
  |section_level:{2}

@@ -113,6 +113,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4]
  |normalized:{Top}
@@ -127,6 +128,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E5|E7|E9|E11|E18|E20]
  |section_level:{0}
@@ -167,6 +169,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6|prev->E2|up->E2]
  |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
@@ -181,6 +184,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_directions:D[next->E7|up->E3]
  |section_level:{1}
@@ -239,6 +243,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8|prev->E4|up->E2]
  |normalized:{Preface}
@@ -253,6 +258,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E9|prev->E5|up->E3]
  |section_level:{1}
@@ -278,6 +284,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[next->E10|prev->E6|up->E2]
  |normalized:{Introduction}
@@ -292,6 +299,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[next->E11|prev->E7|up->E3]
  |section_level:{1}
@@ -343,6 +351,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |isindex:{1}
  |menus:EC[E13]
@@ -359,6 +368,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_childs:EC[E15]
  |section_directions:D[next->E18|prev->E9|up->E3]
@@ -431,6 +441,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |menu_directions:D[up->E10]
  |node_directions:D[up->E10]
@@ -446,6 +457,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[up->E11]
  |section_level:{2}
@@ -507,6 +519,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E18]
+ |associated_title_command:[E18]
  |is_target:{1}
  |node_directions:D[next->E19|prev->E10|up->E2]
  |normalized:{Mixed-english-and-chinese-EUC_002dCN}
@@ -521,6 +534,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E17]
  |associated_node:[E17]
  |section_directions:D[next->E20|prev->E11|up->E3]
  |section_level:{1}
@@ -609,6 +623,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   |{ }
  |EXTRA
  |associated_section:[E20]
+ |associated_title_command:[E20]
  |is_target:{1}
  |node_directions:D[prev->E17|up->E2]
  |normalized:{Mixed-chinese-and-english-utf_002d8}
@@ -623,6 +638,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E19]
  |associated_node:[E19]
  |section_directions:D[prev->E18|up->E3]
  |section_level:{1}

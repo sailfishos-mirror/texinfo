@@ -24,6 +24,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -37,6 +38,7 @@ $result_tree_text{'node_in_copying_not_closed'} = '*document_root C3
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{0}
  |sectioning_root:

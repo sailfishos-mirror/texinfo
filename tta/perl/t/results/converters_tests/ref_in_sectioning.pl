@@ -18,6 +18,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E5]
  |node_directions:D[next->E6]
@@ -33,6 +34,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E7|E10]
  |section_level:{0}
@@ -127,6 +129,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[next->E9|up->E0]
  |node_directions:D[next->E9|prev->E0|up->E0]
@@ -142,6 +145,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E10|up->E1]
  |section_level:{1}
@@ -178,6 +182,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[prev->E6|up->E0]
  |node_directions:D[prev->E6|up->E0]
@@ -193,6 +198,7 @@ $result_tree_text{'ref_in_sectioning'} = '*document_root C20
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_childs:EC[E12|E16|E18|E22|E25|E27|E29|E31|E33|E35|E37|E39|E41]
  |section_directions:D[prev->E7|up->E1]

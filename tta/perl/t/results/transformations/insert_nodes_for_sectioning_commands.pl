@@ -109,6 +109,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[next->E10|up->E3]
  |normalized:{a-node}
@@ -123,6 +124,7 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[next->E11|up->E6]
  |section_level:{2}

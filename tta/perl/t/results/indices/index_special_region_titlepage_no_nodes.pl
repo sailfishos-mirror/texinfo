@@ -186,6 +186,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |menus:EC[E20]
  |node_directions:D[next->E21]
@@ -201,6 +202,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_childs:EC[E14|E22]
  |section_level:{0}
@@ -402,6 +404,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
   |{ }
  |EXTRA
  |associated_section:[E22]
+ |associated_title_command:[E22]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E12]
@@ -418,6 +421,7 @@ $result_tree_text{'index_special_region_titlepage_no_nodes'} = '*document_root C
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E21]
  |associated_node:[E21]
  |section_directions:D[prev->E14|up->E13]
  |section_level:{1}

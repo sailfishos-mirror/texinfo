@@ -50,6 +50,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |node_directions:D[next->E6]
  |normalized:{Top}
@@ -64,6 +65,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E7|E38|E42|E44]
  |section_level:{0}
@@ -86,6 +88,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E37|prev->E4|up->E4]
  |normalized:{chapter}
@@ -100,6 +103,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[next->E38|up->E5]
  |section_level:{1}
@@ -364,6 +368,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_section:[E38]
+ |associated_title_command:[E38]
  |is_target:{1}
  |node_directions:D[next->E41|prev->E6|up->E4]
  |normalized:{my-node}
@@ -378,6 +383,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E37]
  |associated_node:[E37]
  |section_directions:D[next->E42|prev->E7|up->E5]
  |section_level:{1}
@@ -419,6 +425,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_section:[E42]
+ |associated_title_command:[E42]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[next->E43|prev->E37|up->E4]
@@ -434,6 +441,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E41]
  |associated_node:[E41]
  |section_directions:D[next->E44|prev->E38|up->E5]
  |section_level:{1}
@@ -465,6 +473,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |{ }
  |EXTRA
  |associated_section:[E44]
+ |associated_title_command:[E44]
  |is_target:{1}
  |node_directions:D[prev->E41|up->E4]
  |normalized:{Second-appendix}
@@ -479,6 +488,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E43]
  |associated_node:[E43]
  |section_directions:D[prev->E42|up->E5]
  |section_level:{1}

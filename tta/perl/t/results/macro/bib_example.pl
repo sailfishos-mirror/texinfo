@@ -607,6 +607,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menus:EC[E9]
  |node_directions:D[next->E10]
@@ -622,6 +623,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_childs:EC[E11|E14]
  |section_level:{0}
@@ -699,6 +701,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[next->E13|up->E7]
  |node_directions:D[next->E13|prev->E7|up->E7]
@@ -714,6 +717,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[next->E14|up->E8]
  |section_level:{1}
@@ -844,6 +848,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      |>{mybibrefnode}
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[prev->E10|up->E7]
  |node_directions:D[prev->E10|up->E7]
@@ -862,6 +867,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[prev->E11|up->E8]
  |section_level:{1}

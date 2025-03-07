@@ -668,5 +668,6 @@ const char *html_style_commands_element[] = {
 0,
 0,
 0,
+0,
 };
 

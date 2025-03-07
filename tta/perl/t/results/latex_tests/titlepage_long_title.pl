@@ -44,6 +44,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[next->E3]
  |normalized:{Top}
@@ -58,6 +59,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_childs:EC[E4]
  |section_level:{0}
@@ -80,6 +82,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[prev->E1|up->E1]
  |normalized:{chapter}
@@ -94,6 +97,7 @@ $result_tree_text{'titlepage_long_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[up->E2]
  |section_level:{1}

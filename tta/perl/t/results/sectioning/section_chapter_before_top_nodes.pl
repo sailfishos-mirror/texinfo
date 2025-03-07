@@ -14,6 +14,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
@@ -29,6 +30,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_directions:D[next->E3]
  |section_level:{2}
@@ -52,6 +54,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menu_directions:D[up->E5]
  |menus:EC[E4]
@@ -68,6 +71,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E6|prev->E1]
  |section_level:{2}
@@ -115,6 +119,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menus:EC[E7]
  |node_directions:D[next->E2]
@@ -130,6 +135,7 @@ $result_tree_text{'section_chapter_before_top_nodes'} = '*document_root C7
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[prev->E3]
  |section_level:{2}

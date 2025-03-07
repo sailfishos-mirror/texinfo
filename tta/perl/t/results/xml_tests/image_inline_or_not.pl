@@ -29,6 +29,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E18]
  |node_directions:D[next->E24]
@@ -44,6 +45,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E26]
  |section_level:{0}
@@ -284,6 +286,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E26]
+ |associated_title_command:[E26]
  |is_target:{1}
  |menu_directions:D[next->MISSING: (menu_entry_node)[C4]|up->E2]
  |node_directions:D[prev->E2|up->E2]
@@ -303,6 +306,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E24]
  |associated_node:[E24]
  |section_directions:D[up->E3]
  |section_level:{1}

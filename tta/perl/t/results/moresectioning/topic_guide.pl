@@ -17,6 +17,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,6 +33,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E17]
  |section_level:{0}
@@ -98,6 +100,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E16|up->E14]
  |menus:EC[E5]
@@ -114,6 +117,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E17|up->E1]
  |section_level:{1}
@@ -498,6 +502,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E17]
+ |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E14]
  |menus:EC[E18]
@@ -514,6 +519,7 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E16]
  |associated_node:[E16]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}

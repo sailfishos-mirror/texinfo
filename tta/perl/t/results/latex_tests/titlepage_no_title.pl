@@ -51,6 +51,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |node_directions:D[next->E5]
  |normalized:{Top}
@@ -65,6 +66,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_childs:EC[E6]
  |section_level:{0}
@@ -87,6 +89,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |node_directions:D[prev->E3|up->E3]
  |normalized:{chapter}
@@ -101,6 +104,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[up->E4]
  |section_level:{1}

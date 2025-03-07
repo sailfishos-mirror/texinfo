@@ -29,6 +29,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |normalized:{Chapter}
@@ -43,6 +44,7 @@ $result_tree_text{'top_no_sectioning_command'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{1}
  |section_number:{1}

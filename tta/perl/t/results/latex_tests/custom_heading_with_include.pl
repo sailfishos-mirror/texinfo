@@ -43,6 +43,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -57,6 +58,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E5|E12|E15|E18|E21|E25]
  |section_level:{0}
@@ -84,6 +86,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[next->E4|prev->E0|up->E0]
  |normalized:{in-main}
@@ -98,6 +101,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_directions:D[next->E5|up->E1]
  |section_level:{1}
@@ -169,6 +173,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[prev->E2|up->E0]
@@ -184,6 +189,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E8]
  |section_directions:D[next->E12|prev->E3|up->E1]
@@ -232,6 +238,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[up->E4]
  |menus:EC[E9]
@@ -248,6 +255,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_childs:EC[E11]
  |section_directions:D[up->E5]
@@ -295,6 +303,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[up->E7]
  |node_directions:D[up->E7]
@@ -310,6 +319,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_directions:D[up->E8]
  |section_level:{3}
@@ -747,6 +757,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
   |{ }
  |EXTRA
  |associated_section:[E25]
+ |associated_title_command:[E25]
  |is_target:{1}
  |node_directions:D[up->E0]
  |normalized:{last-chap}
@@ -761,6 +772,7 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E24]
  |associated_node:[E24]
  |section_directions:D[prev->E21|up->E1]
  |section_level:{1}

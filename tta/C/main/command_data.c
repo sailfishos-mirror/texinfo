@@ -389,6 +389,7 @@ COMMAND builtin_command_data[] = {
 {"xml", CF_block | CF_no_paragraph | CF_preamble, 0, BLOCK_format_raw, 0},
 {"xref", CF_brace | CF_ref | CF_contain_basic_inline, 0, BRACE_arguments, 5},
 {"xrefautomaticsectiontitle", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_specific, 1},
+{"xrefname", CF_line | CF_no_paragraph | CF_contain_basic_inline, 0, LINE_line, 1},
 {"{", CF_nobrace, CF_formatted_nobrace, NOBRACE_symbol, 0},
 {"|", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_symbol, 0},
 {"}", CF_nobrace, CF_formatted_nobrace, NOBRACE_symbol, 0},

@@ -53,6 +53,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |normalized:{Top}
   *arguments_line C1
@@ -66,6 +67,7 @@ $result_tree_text{'paragraphindent_and_preamble'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E1]
  |associated_node:[E1]
  |section_level:{0}
  |sectioning_root:

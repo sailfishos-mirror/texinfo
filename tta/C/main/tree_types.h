@@ -102,9 +102,11 @@ enum directions {
   ai_key(text_arg) \
   ai_key(translation_context) \
   \
+  ai_key(associated_anchor_command)\
   ai_key(associated_node) \
   ai_key(associated_part) \
   ai_key(associated_section) \
+  ai_key(associated_title_command) \
   ai_key(caption) \
   ai_key(columnfractions) \
   ai_key(command_as_argument) \

@@ -1237,6 +1237,22 @@ end_line_starting_block (ELEMENT *current)
   return current;
 }
 
+static void
+associate_title_command_anchor (ELEMENT *current_node, ELEMENT *current)
+{
+  if (current_node)
+    {
+      if (!lookup_extra_element (current_node,
+                                 AI_key_associated_title_command))
+        {
+          add_extra_element
+            (current_node, AI_key_associated_title_command, current);
+          add_extra_element
+            (current, AI_key_associated_anchor_command, current_node);
+        }
+    }
+}
+
 /* Actions to be taken at the end of an argument to a line command
    not starting a block.  @end is processed in here. */
 ELEMENT *
@@ -1805,6 +1821,10 @@ end_line_misc_line (ELEMENT *current)
       if (cmd == CM_node)
         counter_pop (&count_remaining_args);
 
+      /* associate section or part with the current node as its title. */
+      if (cmd != CM_node)
+        associate_title_command_anchor (current_node, current);
+
       /* Set 'associated_section' extra key for a node. */
       if (cmd != CM_node && cmd != CM_part)
         {
@@ -1847,6 +1867,12 @@ end_line_misc_line (ELEMENT *current)
             }
         }
     }
+  /* only *heading as sectioning commands are handled just before */
+  else if (command_data(data_cmd).flags & CF_sectioning_heading
+           || data_cmd == CM_xrefname)
+   {
+     associate_title_command_anchor (current_node, current);
+   }
 
   return current;
 }

@@ -64,6 +64,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E6]
  |node_directions:D[next->E7]
@@ -79,6 +80,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E8|E10]
  |section_level:{0}
@@ -183,6 +185,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E9|up->E0]
  |node_directions:D[next->E9|prev->E0|up->E0]
@@ -198,6 +201,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[next->E10|up->E1]
  |section_level:{1}
@@ -220,6 +224,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E10]
+ |associated_title_command:[E10]
  |is_target:{1}
  |menu_directions:D[prev->E7|up->E0]
  |node_directions:D[prev->E7|up->E0]
@@ -235,6 +240,7 @@ $result_tree_text{'japanese_utf8'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E9]
  |associated_node:[E9]
  |section_directions:D[prev->E8|up->E1]
  |section_level:{1}

@@ -14,6 +14,7 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->E5|up->MISSING: (line_arg)[C3]]
@@ -54,6 +55,7 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E7]
  |section_level:{0}
@@ -196,6 +198,7 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[prev->MISSING: (menu_entry_node)[C3]|up->E0]
  |node_directions:D[next->MISSING: (line_arg)[C3]|prev->MISSING: (line_arg)[C4]]
@@ -231,6 +234,7 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_directions:D[up->E1]
  |section_level:{1}

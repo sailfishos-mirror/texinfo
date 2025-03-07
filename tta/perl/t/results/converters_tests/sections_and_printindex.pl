@@ -13,6 +13,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |node_directions:D[next->E2]
  |normalized:{Top}
@@ -27,6 +28,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E3|E8]
  |section_level:{0}
@@ -49,6 +51,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0|up->E0]
  |normalized:{node}
@@ -63,6 +66,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |section_childs:EC[E6]
  |section_directions:D[next->E8|up->E1]
@@ -95,6 +99,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[up->E2]
@@ -110,6 +115,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_directions:D[up->E3]
  |section_level:{2}

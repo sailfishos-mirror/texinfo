@@ -162,6 +162,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |node_directions:D[next->E8]
  |normalized:{Top}
@@ -176,6 +177,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E6]
  |associated_node:[E6]
  |section_childs:EC[E9]
  |section_level:{0}
@@ -198,6 +200,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |node_directions:D[prev->E6|up->E6]
  |normalized:{chapter}
@@ -212,6 +215,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[up->E7]
  |section_level:{1}

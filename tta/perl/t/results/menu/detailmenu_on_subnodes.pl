@@ -13,6 +13,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E5]
@@ -28,6 +29,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E6|E11]
  |section_level:{0}
@@ -171,6 +173,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[next->E10|up->E0]
  |menus:EC[E7]
@@ -187,6 +190,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E5]
  |associated_node:[E5]
  |section_childs:EC[E9]
  |section_directions:D[next->E11|up->E1]
@@ -235,6 +239,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |menu_directions:D[up->E5]
  |node_directions:D[up->E5]
@@ -250,6 +255,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E8]
  |associated_node:[E8]
  |section_directions:D[up->E6]
  |section_level:{2}
@@ -267,6 +273,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E11]
+ |associated_title_command:[E11]
  |is_target:{1}
  |menu_directions:D[prev->E5|up->E0]
  |menus:EC[E12]
@@ -283,6 +290,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_childs:EC[E14|E16]
  |section_directions:D[prev->E6|up->E1]
@@ -342,6 +350,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |menu_directions:D[next->E15|up->E10]
  |node_directions:D[next->E15|up->E10]
@@ -357,6 +366,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E16|up->E11]
  |section_level:{2}
@@ -374,6 +384,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[prev->E13|up->E10]
  |node_directions:D[prev->E13|up->E10]
@@ -389,6 +400,7 @@ $result_tree_text{'detailmenu_on_subnodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_directions:D[prev->E14|up->E11]
  |section_level:{2}

@@ -1953,5 +1953,6 @@ COMMAND_OPTION_DEFAULT command_option_default_table[] = {
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},
+{GOT_NONE, -2, 0},
 };
 

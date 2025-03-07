@@ -17,6 +17,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -32,6 +33,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E14|E16]
  |section_level:{0}
@@ -104,6 +106,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E13|up->E0]
  |node_directions:D[next->E13|prev->E0|up->E0]
@@ -119,6 +122,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E14|up->E1]
  |section_level:{1}
@@ -300,6 +304,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[next->E15|prev->E3|up->E0]
@@ -316,6 +321,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_directions:D[next->E16|prev->E4|up->E1]
  |section_level:{1}
@@ -371,6 +377,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E13|up->E0]
@@ -388,6 +395,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_childs:EC[E147]
  |section_directions:D[prev->E14|up->E1]
@@ -2116,6 +2124,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
   |{ }
  |EXTRA
  |associated_section:[E147]
+ |associated_title_command:[E147]
  |is_target:{1}
  |menu_directions:D[up->E15]
  |normalized:{node}
@@ -2133,6 +2142,7 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E146]
  |associated_node:[E146]
  |section_directions:D[up->E16]
  |section_level:{2}

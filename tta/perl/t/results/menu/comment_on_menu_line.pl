@@ -13,6 +13,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
   |{ }
  |EXTRA
  |associated_section:[E2]
+ |associated_title_command:[E2]
  |is_target:{1}
  |menus:EC[E1]
  |node_directions:D[next->E3]
@@ -62,6 +63,7 @@ $result_tree_text{'comment_on_menu_line'} = '*document_root C4
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_level:{1}
  |section_number:{1}

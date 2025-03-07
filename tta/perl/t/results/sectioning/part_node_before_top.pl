@@ -17,6 +17,7 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_title_command:[E1]
  |is_target:{1}
  |menu_directions:D[up->E2]
  |node_directions:D[next->E2|up->E2]
@@ -46,6 +47,7 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |global_command_number:{1}
  |part_associated_section:[E3]
  |part_following_node:[E2]
@@ -69,6 +71,7 @@ NodeBack: [U0]
   |{ }
  |EXTRA
  |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |menus:EC[E4]
  |node_directions:D[next->E0]
@@ -85,6 +88,7 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E2]
  |associated_node:[E2]
  |associated_part:[E1]
  |section_directions:D[prev->E1]

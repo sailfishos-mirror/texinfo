@@ -30,6 +30,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E3]
  |node_directions:D[next->E4]
@@ -45,6 +46,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E5]
  |section_level:{0}
@@ -113,6 +115,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E0]
@@ -130,6 +133,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E4]
  |associated_node:[E4]
  |section_childs:EC[E16]
  |section_directions:D[up->E1]
@@ -300,6 +304,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[up->E4]
  |menus:EC[E17]
@@ -316,6 +321,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_childs:EC[E21]
  |section_directions:D[up->E5]
@@ -391,6 +397,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   |{ }
  |EXTRA
  |associated_section:[E21]
+ |associated_title_command:[E21]
  |is_target:{1}
  |menu_directions:D[up->E15]
  |node_directions:D[up->E15]
@@ -406,6 +413,7 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E20]
  |associated_node:[E20]
  |section_directions:D[up->E16]
  |section_level:{3}

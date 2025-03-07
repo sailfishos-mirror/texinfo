@@ -244,6 +244,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |node_directions:D[next->E14]
  |normalized:{Top}
@@ -258,6 +259,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E12]
  |associated_node:[E12]
  |section_childs:EC[E15]
  |section_level:{0}
@@ -280,6 +282,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |node_directions:D[prev->E12|up->E12]
  |normalized:{chap}
@@ -294,6 +297,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[up->E13]
  |section_level:{1}

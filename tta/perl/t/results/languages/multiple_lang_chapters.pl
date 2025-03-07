@@ -85,6 +85,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E1]
+ |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
  |node_directions:D[next->E3]
@@ -100,6 +101,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E0]
  |associated_node:[E0]
  |section_childs:EC[E4|E8|E12|E15|E17]
  |section_level:{0}
@@ -207,6 +209,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |menu_directions:D[next->E7|up->E0]
  |node_directions:D[next->E7|prev->E0|up->E0]
@@ -222,6 +225,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E3]
  |associated_node:[E3]
  |section_directions:D[next->E8|up->E1]
  |section_level:{1}
@@ -326,6 +330,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
  |menu_directions:D[next->E11|prev->E3|up->E0]
  |node_directions:D[next->E11|prev->E3|up->E0]
@@ -341,6 +346,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E7]
  |associated_node:[E7]
  |section_directions:D[next->E12|prev->E4|up->E1]
  |section_level:{1}
@@ -445,6 +451,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
  |menu_directions:D[next->E14|prev->E7|up->E0]
  |node_directions:D[next->E14|prev->E7|up->E0]
@@ -460,6 +467,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E11]
  |associated_node:[E11]
  |section_directions:D[next->E15|prev->E8|up->E1]
  |section_level:{1}
@@ -555,6 +563,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E15]
+ |associated_title_command:[E15]
  |is_target:{1}
  |menu_directions:D[next->E16|prev->E11|up->E0]
  |node_directions:D[next->E16|prev->E11|up->E0]
@@ -570,6 +579,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E14]
  |associated_node:[E14]
  |section_directions:D[next->E17|prev->E12|up->E1]
  |section_level:{1}
@@ -600,6 +610,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
   |{ }
  |EXTRA
  |associated_section:[E17]
+ |associated_title_command:[E17]
  |is_target:{1}
  |menu_directions:D[prev->E14|up->E0]
  |node_directions:D[prev->E14|up->E0]
@@ -615,6 +626,7 @@ $result_tree_text{'multiple_lang_chapters'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E16]
  |associated_node:[E16]
  |section_directions:D[prev->E15|up->E1]
  |section_level:{1}

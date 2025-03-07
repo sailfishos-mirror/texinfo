@@ -176,6 +176,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |menu_directions:D[next->E19|prev->E10|up->E0]
  |menus:EC[E17]
@@ -192,6 +193,7 @@ $result_tree_text{'node_footnote_use_node_separate'} = '*document_root C8
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_level:{1}
  |section_number:{1}

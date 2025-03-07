@@ -62,6 +62,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
  |node_directions:D[next->E15]
  |normalized:{Top}
@@ -76,6 +77,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E13]
  |associated_node:[E13]
  |section_childs:EC[E16]
  |section_level:{0}
@@ -98,6 +100,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
   |{ }
  |EXTRA
  |associated_section:[E16]
+ |associated_title_command:[E16]
  |is_target:{1}
  |node_directions:D[prev->E13|up->E13]
  |normalized:{chapter}
@@ -112,6 +115,7 @@ $result_tree_text{'commands_in_settitle_with_title'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
+ |associated_anchor_command:[E15]
  |associated_node:[E15]
  |section_directions:D[up->E14]
  |section_level:{1}
