@@ -60,8 +60,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E2]
- |associated_title_command:[E2]
+ |associated_title_command:[E3]
  |is_target:{1}
  |node_directions:D[prev->E0]
  |normalized:{chap}
@@ -79,6 +78,7 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E2]
   |global_command_number:{1}
    *line_arg C1
    |INFO

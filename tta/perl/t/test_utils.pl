@@ -1533,7 +1533,7 @@ sub test($$)
                  $test_name.' converted '.$format);
             }
           } else {
-            is($converted{$format},
+            is_with_diff($converted{$format},
                $result_converted{$format}->{$test_name},
                $test_name.' converted '.$format);
           }

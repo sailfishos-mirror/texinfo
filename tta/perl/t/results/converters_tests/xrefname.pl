@@ -312,10 +312,10 @@ $result_converted{'latex_text'}->{'xrefname'} = '\\label{anchor:Top}%
 \\label{anchor:chip}%
 
 
-See \\hyperref[anchor:ntiti]{Section~\\ref*{anchor:ntiti} [ntiti], page~\\pageref*{anchor:ntiti}}
+See \\hyperref[anchor:ntiti]{[ntiti], page~\\pageref*{anchor:ntiti}}
 
 
-xrefautomaticsectiontitle on \\hyperref[anchor:ntiti]{Section~\\ref*{anchor:ntiti} [titi], page~\\pageref*{anchor:ntiti}}.
+xrefautomaticsectiontitle on \\hyperref[anchor:ntiti]{[titi], page~\\pageref*{anchor:ntiti}}.
 ';
 
 1;

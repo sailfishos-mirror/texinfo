@@ -84,8 +84,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_title_command:[E4]
+ |associated_title_command:[E5]
  |is_target:{1}
  |normalized:{Qt}
   *arguments_line C1
@@ -99,6 +98,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E4]
   |global_command_number:{1}
    *line_arg C1
    |INFO
@@ -114,8 +114,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_title_command:[E6]
+ |associated_title_command:[E11]
  |is_target:{1}
  |node_description:[E8]
  |normalized:{Other}
@@ -232,6 +231,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E6]
   |global_command_number:{1}
    *line_arg C1
    |INFO
@@ -244,8 +244,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
- |associated_title_command:[E12]
+ |associated_title_command:[E13]
  |is_target:{1}
  |normalized:{Not-associated}
   *arguments_line C1
@@ -263,6 +262,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E12]
   |global_command_number:{1}
    *line_arg C1
    |INFO
@@ -275,8 +275,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E14]
- |associated_title_command:[E14]
+ |associated_title_command:[E16]
  |is_target:{1}
  |normalized:{2-not}
   *arguments_line C1
@@ -311,6 +310,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E14]
   |global_command_number:{2}
    *line_arg C1
    |INFO
@@ -323,8 +323,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E17]
- |associated_title_command:[E17]
+ |associated_title_command:[E19]
  |is_target:{1}
  |normalized:{3-not}
   *arguments_line C1
@@ -359,6 +358,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E17]
   |global_command_number:{3}
    *line_arg C1
    |INFO
@@ -371,8 +371,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E20]
- |associated_title_command:[E20]
+ |associated_title_command:[E21]
  |is_target:{1}
  |normalized:{4-not}
   *arguments_line C1
@@ -399,6 +398,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E20]
   |global_command_number:{4}
    *line_arg C1
    |INFO
@@ -411,8 +411,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E22]
- |associated_title_command:[E22]
+ |associated_title_command:[E24]
  |is_target:{1}
  |menus:EC[E23]
  |normalized:{5-not}
@@ -457,6 +456,7 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   |spaces_before_argument:
    |{ }
   |EXTRA
+  |associated_anchor_command:[E22]
   |global_command_number:{5}
    *line_arg C1
    |INFO
