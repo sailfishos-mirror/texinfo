@@ -4835,21 +4835,8 @@ sub _convert_heading_command($$$$$)
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
-        # FIXME remove following code, it is always on
-        my $use_next_heading = 0;
-        if ($self->get_conf('USE_NEXT_HEADING_FOR_LONE_NODE')) {
-          my $next_heading
-            = Texinfo::Convert::Utils::find_root_command_next_heading_command(
-                     $element, $self->get_info('expanded_formats'),
-                     ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'));
-          if ($next_heading) {
-            $use_next_heading = 1;
-          }
-        }
-        if (!$use_next_heading) {
-          # use node
-          $heading_level = 3;
-        }
+        # use node
+        $heading_level = 3;
       }
     }
   } elsif ($element->{'extra'}

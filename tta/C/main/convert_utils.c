@@ -828,6 +828,7 @@ output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
   fprintf (stderr, "BUG: %s not opened\n", file_path);
 }
 
+/* Unused */
 const ELEMENT *
 find_root_command_next_heading_command (const ELEMENT *root,
                                   const EXPANDED_FORMAT *formats,

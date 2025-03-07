@@ -7384,23 +7384,8 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
             heading_level = 0;
           else
             {
-              int use_next_heading = 0;
-              /* FIXME remove following code, it is always on */
-              if (self->conf->USE_NEXT_HEADING_FOR_LONE_NODE.o.integer > 0)
-                {
-                  const ELEMENT *next_heading
-                    = find_root_command_next_heading_command (element,
-                                                        self->expanded_formats,
-                    (self->conf->CONTENTS_OUTPUT_LOCATION.o.string
-                     && !strcmp (
-                        self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "inline")),
-                            0);
-                  if (next_heading)
-                    use_next_heading = 1;
-                }
-              if (!use_next_heading)
-                /* use node */
-                heading_level = 3;
+              /* use node */
+              heading_level = 3;
             }
         }
     }

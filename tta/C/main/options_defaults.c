@@ -211,7 +211,6 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->USE_ACCESSKEY, -1, 0);
   option_set_conf (&options->USE_ISO, -1, 0);
   option_set_conf (&options->USE_LINKS, -1, 0);
-  option_set_conf (&options->USE_NEXT_HEADING_FOR_LONE_NODE, -1, 0);
   option_set_conf (&options->USE_NODES, -1, 0);
   option_set_conf (&options->USE_NODE_DIRECTIONS, -1, 0);
   option_set_conf (&options->USE_NUMERIC_ENTITY, -1, 0);
@@ -358,7 +357,6 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "USE_ACCESSKEY", -1, 0);
   add_option_value (options_list, "USE_ISO", -1, 0);
   add_option_value (options_list, "USE_LINKS", -1, 0);
-  add_option_value (options_list, "USE_NEXT_HEADING_FOR_LONE_NODE", -1, 0);
   add_option_value (options_list, "USE_NODES", -1, 0);
   add_option_value (options_list, "USE_NODE_DIRECTIONS", -1, 0);
   add_option_value (options_list, "USE_NUMERIC_ENTITY", -1, 0);

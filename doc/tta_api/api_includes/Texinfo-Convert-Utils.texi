@@ -134,22 +134,6 @@ containing the accent commands nested in @emph{$element} (including
 @emph{$element}).  If there is no argument at all for the accent command,
 @emph{$contents_element} is @code{undef}.
 
-@item $heading_element = find_root_command_next_heading_command($element, $expanded_format_raw, $do_not_ignore_contents, $do_not_ignore_index_entries)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $heading_element = find_root_command_next_heading_command($element@comma{} $expanded_format_raw@comma{} $do_not_ignore_contents@comma{} $do_not_ignore_index_entries)}
-
-Return an heading element found in the @emph{$element} contents if it
-appears before contents that could be formatted.  @emph{$expanded_format_raw}
-is a hash reference with raw output formats (html, docbook, xml...) as
-keys, associated value should be set for expanded raw output formats.
-@emph{$do_not_ignore_contents} is optional.  If set, @code{@@contents} and
-@code{@@shortcontents} are considered to be formatted.
-@emph{$do_not_ignore_index_entries} is optional.  If set, index entries
-are considered to be formatted.
-
-Only heading elements corresponding to @code{@@heading}, @code{@@subheading} and similar
-@@-commands that are not associated to nodes in general are found, not
-sectioning commands.
-
 @end table
 
 @node Texinfo@asis{::}Convert@asis{::}Utils SEE ALSO

@@ -129,7 +129,6 @@ SPLIT                  node
 TOP_FILE               index.html
 TOP_NODE_FILE_TARGET   index.html
 USE_ACCESSKEY          1
-USE_NEXT_HEADING_FOR_LONE_NODE  1
 USE_ISO                1
 USE_LINKS              1
 USE_NODES              1

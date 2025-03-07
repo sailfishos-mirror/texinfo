@@ -1,5 +1,22 @@
 2025-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	Remove USE_NEXT_HEADING_FOR_LONE_NODE, it is now always on
+
+	* tta/C/convert/format_html.c (html_convert_heading_command),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tta/perl/init/book.pm (book_convert_heading_command): remove code
+	checking if a node is followed by an @*heading command when
+	USE_NEXT_HEADING_FOR_LONE_NODE, as now, if a node is followed by
+	an @*heading command extra associated_title_command is set
+	and the node is not used for the heading anyway.
+
+	* NEWS, doc/texinfo.texi (HTML Output Structure Customization)
+	(HTML Customization Variables List), tta/data/converters_defaults.txt,
+	tta/data/options_data.txt: remove USE_NEXT_HEADING_FOR_LONE_NODE
+	customization option, it is now always on.
+
+2025-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/init/book.pm (book_convert_heading_command): sync with
 	HTML.pm.
 

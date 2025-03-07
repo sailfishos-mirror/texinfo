@@ -508,6 +508,7 @@ sub add_heading_number($$$;$)
 }
 
 # Similar to Texinfo::Common::is_content_empty
+# Unused
 sub find_root_command_next_heading_command($$;$$)
 {
   my $root = shift;
@@ -770,6 +771,8 @@ containing the accent commands nested in I<$element> (including
 I<$element>).  If there is no argument at all for the accent command,
 I<$contents_element> is C<undef>.
 
+=begin comment
+
 =item $heading_element = find_root_command_next_heading_command($element, $expanded_format_raw, $do_not_ignore_contents, $do_not_ignore_index_entries)
 
 Return an heading element found in the I<$element> contents if it
@@ -784,6 +787,8 @@ are considered to be formatted.
 Only heading elements corresponding to C<@heading>, C<@subheading> and similar
 @-commands that are not associated to nodes in general are found, not
 sectioning commands.
+
+=end comment
 
 =back
 

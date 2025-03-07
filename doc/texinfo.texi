@@ -18333,15 +18333,6 @@ contents elements (with @code{CONTENTS_OUTPUT_LOCATION} set to
 separate, set @code{MONOLITHIC} to 0 to output special elements to
 separate files.
 
-@vindex USE_NEXT_HEADING_FOR_LONE_NODE
-In Texinfo code, a @code{@@node} command is usually followed by a
-sectioning command, providing a heading for the node.  By default, a
-node with no following sectioning command, but followed by a command like
-@code{@@heading}, has its heading provided by the heading command.  This
-avoids having both the node name and the heading command as headings.  To
-have the node name used as heading in that case, set
-@code{USE_NEXT_HEADING_FOR_LONE_NODE} to 0.
-
 
 @node File Names and Links Customization for HTML
 @subsection File Names and Links Customization for HTML
@@ -19421,13 +19412,6 @@ Use entities for doubled single-quote characters
 @item USE_LINKS
 Generate @code{<link>} elements in the HTML @code{<head>}
 output; default true.
-
-@item USE_NEXT_HEADING_FOR_LONE_NODE
-If set, a node not associated with a sectioning command but
-followed by a leading command not usually associated with a node,
-such as @code{@@heading}, before other formatted contents
-does not have its name output as a heading, under the assumption
-that the command found provides the heading.  Default true.
 
 @item USE_NODE_DIRECTIONS
 If true, use nodes to determine where next, up and prev

@@ -34,6 +34,8 @@ See the manual for detailed information.
       . the --transliterate-file-names option is now off by default.
         you can set ADD_TRANSLITERATED_REDIRECTION_FILES to create
         redirection files for links to affected nodes.
+      . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
+        is now always on.
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
 

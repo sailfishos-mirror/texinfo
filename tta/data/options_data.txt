@@ -335,7 +335,6 @@ TOP_NODE_UP_URL                    converter_customization undef   char
 USE_ACCESSKEY                      converter_customization undef   integer
 USE_ISO                            converter_customization undef   integer
 USE_LINKS                          converter_customization undef   integer
-USE_NEXT_HEADING_FOR_LONE_NODE     converter_customization undef   integer
 USE_NODES                          converter_customization undef   integer
 USE_NODE_DIRECTIONS                converter_customization undef   integer
 USE_NUMERIC_ENTITY                 converter_customization undef   integer
