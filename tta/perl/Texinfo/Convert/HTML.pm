@@ -1122,9 +1122,21 @@ sub _internal_command_href($$;$$)
     $target = $specified_target;
   } else {
     my $target_command = $command;
-    # for sectioning command prefer the associated node
+    # for sectioning command prefer the associated node.  If there is no
+    # associated node, use the associated_anchor_command.  This order
+    # is important for sectioning commands, it means that in the following
+    # case the @chapter href will be given by the @node, even if there is
+    # an @xrefname in-between.
+    #
+    # @node my node
+    # @xrefname name for my node
+    #
+    # @chapter Chapter without directly associated node
     if ($command->{'extra'} and $command->{'extra'}->{'associated_node'}) {
       $target_command = $command->{'extra'}->{'associated_node'};
+    } elsif ($command->{'extra'}
+             and $command->{'extra'}->{'associated_anchor_command'}) {
+      $target_command = $command->{'extra'}->{'associated_anchor_command'};
     }
     my $target_information = $self->_get_target($target_command);
     $target = $target_information->{'target'} if ($target_information);

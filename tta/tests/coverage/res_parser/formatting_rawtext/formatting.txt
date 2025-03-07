@@ -17,6 +17,7 @@ Top section
 Menu comment
 
 * description:chapter2.   Chapter 2
+* node with empty xrefname:: appendix with xrefname before
 
 
 1 chapter
@@ -1750,6 +1751,12 @@ g--roupe
 
 
 
+node with xrefname.
+node with xrefname.
+
+node with empty xrefname.
+node with empty xrefname.
+
 
 
 
@@ -1816,10 +1823,18 @@ In detailmenu
 1.1.1.1 subsubsection "simple-double-
 .....................................
 
+
+after xrefname
+==============
+
 1.1.1.2 three--four---"
 .......................
 
 chapter 2
 *********
 
+
+
+Appendix A An appendix
+**********************
 

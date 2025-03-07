@@ -5,6 +5,7 @@ subsection.html	unit	1.1.1 subsection
 subsubsection-_0060_0060simple_002ddouble_002d_002d.html	unit	1.1.1.1 subsubsection "simple-double-
 subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html	unit	1.1.1.2 three--four---"
 chapter2.html	unit	chapter 2
+node-with-empty-xrefname.html	unit	Appendix A An appendix
 index.html	section	top Top section
 chapter.html	section	chapter 1 chapter
 s_002d_002dect_002cion.html	section	section 1.1 A section
@@ -12,13 +13,16 @@ subsection.html	section	subsection 1.1.1 subsection
 subsubsection-_0060_0060simple_002ddouble_002d_002d.html	section	subsubsection 1.1.1.1 subsubsection "simple-double-
 subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html	section	subsubsection 1.1.1.2 three--four---"
 chapter2.html	section	centerchap chapter 2
+node-with-empty-xrefname.html	section	appendix Appendix A An appendix
 index.html#Top	node	Top
 chapter.html#chapter	node	chapter
 s_002d_002dect_002cion.html#s_002d_002dect_002cion	node	s-ect,ion
 subsection.html#subsection	node	subsection
 subsubsection-_0060_0060simple_002ddouble_002d_002d.html#subsubsection-_0060_0060simple_002ddouble_002d_002d	node	subsubsection "simple-double-
+subsubsection-_0060_0060simple_002ddouble_002d_002d.html#node-with-xrefname	node	node with xrefname
 subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.html#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027	node	subsubsection three--four---"
 chapter2.html#chapter2	node	chapter2
+node-with-empty-xrefname.html#node-with-empty-xrefname	node	node with empty xrefname
 subsection.html#anchor	anchor	anchor
 chapter.html#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i	codeidx	a index---entry tẽ --- î
 index.html#index-copying-_002d_002doption	cp	-option

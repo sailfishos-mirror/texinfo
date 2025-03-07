@@ -3583,6 +3583,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 Menu comment
 
 </pre></menucomment><menuentry><menuleadingtext>* </menuleadingtext><menutitle>description</menutitle><menuseparator>:</menuseparator><menunode>chapter2</menunode><menuseparator>.   </menuseparator><menudescription><pre xml:space="preserve">Chapter 2
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>node with empty xrefname</menunode><menuseparator>:: </menuseparator><menudescription><pre xml:space="preserve">appendix with xrefname before
 </pre></menudescription></menuentry></menu>
 
 
@@ -5938,6 +5939,12 @@ Various deff lines
 
 <clear name="validinexample" line=" validinexample"></clear>
 
+<para><xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename></xref>.
+<xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename><xrefinfoname spaces=" ">sec for node with xrefname</xrefinfoname></xref>.
+</para>
+<para><xref label="node-with-empty-xrefname"><xrefnodename>node with empty xrefname</xrefnodename></xref>.
+<xref label="node-with-empty-xrefname"><xrefnodename>node with empty xrefname</xrefnodename><xrefinfoname spaces=" ">sec for empty xrefname</xrefinfoname></xref>.
+</para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="29">t&textndash;ruc</indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="30">T&textndash;ruc</indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="31">.</indexterm></cindex>
@@ -6065,6 +6072,11 @@ Menu comment
 <subsubsection spaces=" "><sectiontitle>subsubsection &textldquo;simple-double&textndash;</sectiontitle>
 
 </subsubsection>
+<node identifier="node-with-xrefname" spaces=" "><nodename>node with xrefname</nodename></node>
+<xrefname spaces=" ">xrefname of node</xrefname>
+
+<heading spaces=" ">after xrefname</heading>
+
 <node identifier="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" spaces=" "><nodename>subsubsection three---four----''</nodename><nodeprev automatic="on">subsubsection ``simple-double--</nodeprev><nodeup automatic="on">subsection</nodeup></node>
 <subsubsection spaces=" "><sectiontitle>three&textmdash;four&textmdash;-&textrdquo;</sectiontitle>
 
@@ -6072,14 +6084,20 @@ Menu comment
 </subsection>
 </section>
 </chapter>
-<node identifier="chapter2" spaces=" "><nodename>chapter2</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="chapter2" spaces=" "><nodename>chapter2</nodename><nodenext automatic="on">node with empty xrefname</nodenext><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <centerchap spaces=" "><sectiontitle>chapter 2</sectiontitle>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <printindex spaces=" " value="fn" line="fn"></printindex>
 
+</centerchap>
+<node identifier="node-with-empty-xrefname" spaces=" "><nodename>node with empty xrefname</nodename><nodeprev automatic="on">chapter2</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<xrefname spaces="  "></xrefname><!-- c on xrefname line -->
+
+<appendix spaces=" "><sectiontitle>An appendix</sectiontitle>
+
 <contents></contents>
 <shortcontents></shortcontents>
-</centerchap>
+</appendix>
 <bye></bye>
 </texinfo>

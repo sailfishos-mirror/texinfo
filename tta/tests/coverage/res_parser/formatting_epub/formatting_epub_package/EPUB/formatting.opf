@@ -14,6 +14,7 @@
       <item id="unit1" media-type="application/xhtml+xml" href="xhtml/formatting.xhtml"/>
       <item id="unit2" media-type="application/xhtml+xml" href="xhtml/chapter.xhtml"/>
       <item id="unit3" media-type="application/xhtml+xml" href="xhtml/chapter2.xhtml"/>
+      <item id="unit4" media-type="application/xhtml+xml" href="xhtml/node-with-empty-xrefname.xhtml"/>
       <item id="image1" media-type="e--xt/image" href="images/11-f--ile.e--xt"/>
       <item id="image2" media-type="image/png" href="images/15-f--ile.png"/>
       <item id="image3" media-type="image/png" href="images/16-f--ile.png"/>
@@ -59,5 +60,6 @@
       <itemref idref="unit1"/>
       <itemref idref="unit2"/>
       <itemref idref="unit3"/>
+      <itemref idref="unit4"/>
    </spine>
 </package>

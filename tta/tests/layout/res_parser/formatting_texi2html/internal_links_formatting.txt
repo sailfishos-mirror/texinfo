@@ -5,6 +5,7 @@ formatting.html#subsection	unit	1.1.1 subsection
 formatting.html#subsubsection-_0060_0060simple_002ddouble_002d_002d	unit	1.1.1.1 subsubsection "simple-double-
 formatting.html#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027	unit	1.1.1.2 three--four---"
 formatting.html#chapter2	unit	chapter 2
+formatting.html#node-with-empty-xrefname	unit	Appendix A An appendix
 formatting.html#Top	section	top Top section
 formatting.html#chapter	section	chapter 1 chapter
 formatting.html#s_002d_002dect_002cion	section	section 1.1 A section
@@ -12,13 +13,16 @@ formatting.html#subsection	section	subsection 1.1.1 subsection
 formatting.html#subsubsection-_0060_0060simple_002ddouble_002d_002d	section	subsubsection 1.1.1.1 subsubsection "simple-double-
 formatting.html#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027	section	subsubsection 1.1.1.2 three--four---"
 formatting.html#chapter2	section	centerchap chapter 2
+formatting.html#node-with-empty-xrefname	section	appendix Appendix A An appendix
 formatting.html#Top	node	Top
 formatting.html#chapter	node	chapter
 formatting.html#s_002d_002dect_002cion	node	s-ect,ion
 formatting.html#subsection	node	subsection
 formatting.html#subsubsection-_0060_0060simple_002ddouble_002d_002d	node	subsubsection "simple-double-
+formatting.html#node-with-xrefname	node	node with xrefname
 formatting.html#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027	node	subsubsection three--four---"
 formatting.html#chapter2	node	chapter2
+formatting.html#node-with-empty-xrefname	node	node with empty xrefname
 formatting.html#anchor	anchor	anchor
 formatting.html#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i	codeidx	a index---entry tẽ --- î
 formatting.html#index-copying-_002d_002doption	cp	-option

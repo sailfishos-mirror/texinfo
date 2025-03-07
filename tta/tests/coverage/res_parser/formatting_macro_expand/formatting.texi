@@ -3597,6 +3597,7 @@ Insercopying in titlepage
 Menu comment
 
 * description:chapter2.   Chapter 2
+* node with empty xrefname:: appendix with xrefname before
 @end menu
 
 
@@ -5969,6 +5970,12 @@ g--roupe
 
 @clear validinexample
 
+@xref{node with xrefname}.
+@xref{node with xrefname, sec for node with xrefname}.
+
+@xref{node with empty xrefname}.
+@xref{node with empty xrefname, sec for empty xrefname}.
+
 @cindex t--ruc
 @cindex T--ruc
 @cindex .
@@ -6095,6 +6102,11 @@ In detailmenu
 @node subsubsection ``simple-double--
 @subsubsection subsubsection ``simple-double--
 
+@node node with xrefname
+@xrefname xrefname of node
+
+@heading after xrefname
+
 @node subsubsection three---four----''
 @subsubsection three---four----''
 
@@ -6103,6 +6115,11 @@ In detailmenu
 
 @printindex cp
 @printindex fn
+
+@node node with empty xrefname
+@xrefname  @c on xrefname line
+
+@appendix An appendix
 
 @contents
 @shortcontents

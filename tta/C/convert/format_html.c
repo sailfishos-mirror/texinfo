@@ -1298,11 +1298,28 @@ html_internal_command_href (CONVERTER *self, const ELEMENT *command,
   else
     {
       const ELEMENT *target_command = command;
-      /* for sectioning command prefer the associated node */
+      /* for sectioning command prefer the associated node.  If there is no
+         associated node, use the associated_anchor_command.  This order
+         is important for sectioning commands, it means that in the following
+         case the @chapter href will be given by the @node, even if there is
+         an @xrefname in-between.
+
+         @node my node
+         @xrefname name for my node
+
+         @chapter Chapter without directly associated node
+       */
       const ELEMENT *associated_node = lookup_extra_element (command,
                                                  AI_key_associated_node);
       if (associated_node)
         target_command = associated_node;
+      else
+        {
+          const ELEMENT *associated_anchor_command
+            = lookup_extra_element (command, AI_key_associated_anchor_command);
+          if (associated_anchor_command)
+            target_command = associated_anchor_command;
+        }
       target_info = html_get_target (self, target_command);
       if (target_info)
         target = target_info->target;
@@ -11646,13 +11663,11 @@ html_convert_menu_entry_type (CONVERTER *self, const enum element_type type,
                 {
                   associated_title_command
                    = lookup_extra_element (node, AI_key_associated_title_command);
-                  if (associated_title_command)
-                    {
-                      href = html_command_href (self, associated_title_command,
-                                                0, element, 0);
-                    }
                 }
-              if (!href)
+              if (associated_title_command)
+                href = html_command_href (self, associated_title_command,
+                                                0, element, 0);
+              else
                 href = html_command_href (self, node, 0, element, 0);
 
           /* will mark the target as an index with rel index.  See

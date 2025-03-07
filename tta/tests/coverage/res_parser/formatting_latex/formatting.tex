@@ -9051,6 +9051,12 @@ b
 \end{Texinfoindented}
 
 
+See \hyperref[anchor:node-with-xrefname]{[node with xrefname], page~\pageref*{anchor:node-with-xrefname}}.
+See \hyperref[anchor:node-with-xrefname]{[node with xrefname], page~\pageref*{anchor:node-with-xrefname}}.
+
+See \hyperref[anchor:node-with-empty-xrefname]{[node with empty xrefname], page~\pageref*{anchor:node-with-empty-xrefname}}.
+See \hyperref[anchor:node-with-empty-xrefname]{[node with empty xrefname], page~\pageref*{anchor:node-with-empty-xrefname}}.
+
 \index[cp]{t-ruc@t--ruc}%
 \index[cp]{T-ruc@T--ruc}%
 \index[cp]{.@.}%
@@ -9146,6 +9152,10 @@ tp
 \subsubsection{{subsubsection ``simple-double--}}
 \label{anchor:subsubsection-_0060_0060simple_002ddouble_002d_002d}%
 
+\label{anchor:node-with-xrefname}%
+
+\section*{{after xrefname}}
+
 \subsubsection{{three---four----''}}
 \label{anchor:subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027}%
 
@@ -9154,5 +9164,10 @@ tp
 
 \printindex[cp]
 \printindex[fn]
+
+
+\appendix
+\chapter{{An appendix}}
+\label{anchor:node-with-empty-xrefname}%
 
 \end{document}

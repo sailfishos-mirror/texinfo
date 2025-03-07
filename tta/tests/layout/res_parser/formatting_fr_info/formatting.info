@@ -724,6 +724,7 @@ Top section
 Menu comment
 
 * description:chapter2.   Chapter 2
+* node with empty xrefname:: appendix with xrefname before
 
 
 File: formatting.info,  Node: chapter,  Next: chapter2,  Prev: Top,  Up: Top
@@ -3006,6 +3007,12 @@ aaa" ]
      @inforef{} *note ::
 
 
+   *Note node with xrefname::.  *Note sec for node with xrefname: node
+with xrefname.
+
+   *Note node with empty xrefname::.  *Note sec for empty xrefname: node
+with empty xrefname.
+
    Text(7)
 
    truc
@@ -3013,14 +3020,14 @@ aaa" ]
  [index ]
 * Menu:
 
-* truc:                                  chapter.            (line 2281)
+* truc:                                  chapter.            (line 2287)
 
    codeidx
 
  [index ]
 * Menu:
 
-* a INDEX---ENTRY tẽ --- î:              chapter.            (line 2281)
+* a INDEX---ENTRY tẽ --- î:              chapter.            (line 2287)
 
    cp
 
@@ -3030,14 +3037,14 @@ aaa" ]
 * -option:                               chapter.            (line   28)
 * -option <1>:                           chapter.            (line  725)
 * -option <2>:                           chapter.            (line 1433)
-* ?:                                     chapter.            (line 2281)
-* .:                                     chapter.            (line 2281)
+* ?:                                     chapter.            (line 2287)
+* .:                                     chapter.            (line 2287)
 * ":                                     chapter.            (line   28)
 * " <1>:                                 chapter.            (line  725)
 * " <2>:                                 chapter.            (line 1433)
-* a:                                     chapter.            (line 2281)
-* aaa, bbb:                              chapter.            (line 2281)
-* a--a:                                  chapter.            (line 2281)
+* a:                                     chapter.            (line 2287)
+* aaa, bbb:                              chapter.            (line 2287)
+* a--a:                                  chapter.            (line 2287)
 * a--asis:                               chapter.            (line  525)
 * a--asis <1>:                           chapter.            (line 1222)
 * a--asis <2>:                           chapter.            (line 2055)
@@ -3045,9 +3052,9 @@ aaa" ]
 * b:                                     chapter.            (line  526)
 * b <1>:                                 chapter.            (line 1223)
 * b <2>:                                 chapter.            (line 2056)
-* b--b, c--c:                            chapter.            (line 2281)
+* b--b, c--c:                            chapter.            (line 2287)
 * counting entry:                        chapter.            (line    4)
-* d--dd, e--ee, f--ff:                   chapter.            (line 2281)
+* d--dd, e--ee, f--ff:                   chapter.            (line 2287)
 * d--efcv_name:                          chapter.            (line  366)
 * d--efcv_name <1>:                      chapter.            (line  369)
 * d--efcv_name <2>:                      chapter.            (line 1063)
@@ -3092,7 +3099,7 @@ aaa" ]
 * d--efvr_name <2>:                      chapter.            (line 1872)
   ddd:                                   Voir aussi ccc.
   ddd:                                   Voir aussi ccc.
-* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2281)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2287)
 * index entry between item and itemx:    chapter.            (line  530)
 * index entry between item and itemx <1>: chapter.           (line  660)
 * index entry between item and itemx <2>: chapter.           (line 1227)
@@ -3109,8 +3116,8 @@ aaa" ]
 * index entry within multitable:         chapter.            (line  250)
 * index entry within multitable <1>:     chapter.            (line  947)
 * index entry within multitable <2>:     chapter.            (line 1779)
-* t-ruc:                                 chapter.            (line 2281)
-* T-ruc:                                 chapter.            (line 2281)
+* t-ruc:                                 chapter.            (line 2287)
+* T-ruc:                                 chapter.            (line 2287)
 * vtable i--tem code kbdinputstyle:      chapter.            (line  152)
 * vtable i--tem code kbdinputstyle <1>:  chapter.            (line  849)
 * vtable i--tem code kbdinputstyle <2>:  chapter.            (line 1679)
@@ -3150,8 +3157,8 @@ aaa" ]
 * --foption:                             chapter.            (line   28)
 * --foption <1>:                         chapter.            (line  725)
 * --foption <2>:                         chapter.            (line 1433)
-* ?:                                     chapter.            (line 2281)
-* .:                                     chapter.            (line 2281)
+* ?:                                     chapter.            (line 2287)
+* .:                                     chapter.            (line 2287)
 * ``:                                    chapter.            (line   28)
 * `` <1>:                                chapter.            (line  725)
 * `` <2>:                                chapter.            (line 1433)
@@ -3164,7 +3171,7 @@ aaa" ]
 * a <6>:                                 chapter.            (line 1858)
 * a <7>:                                 chapter.            (line 2059)
 * a <8>:                                 chapter.            (line 2222)
-* a <9>:                                 chapter.            (line 2281)
+* a <9>:                                 chapter.            (line 2287)
 * after:                                 chapter.            (line  670)
 * after <1>:                             chapter.            (line 1367)
 * after <2>:                             chapter.            (line 2233)
@@ -3243,13 +3250,13 @@ aaa" ]
 * deffnx <3>:                            chapter.            (line 1033)
 * deffnx <4>:                            chapter.            (line 1859)
 * deffnx <5>:                            chapter.            (line 1865)
-* f---aa:                                chapter.            (line 2281)
+* f---aa:                                chapter.            (line 2287)
   f---aaa, voir : f---bbb.
-* f---bb, f---cc:                        chapter.            (line 2281)
+* f---bb, f---cc:                        chapter.            (line 2287)
   f---ddd:                               Voir aussi f---ccc.
   f---ddd:                               Voir aussi f---ccc.
-* f---ddd, f---eee, ffff:                chapter.            (line 2281)
-* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2281)
+* f---ddd, f---eee, ffff:                chapter.            (line 2287)
+* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2287)
 * followed:                              chapter.            (line  328)
 * followed <1>:                          chapter.            (line  668)
 * followed <2>:                          chapter.            (line 1025)
@@ -3307,15 +3314,15 @@ aaa" ]
 * name2:                                 chapter.            (line  423)
 * name2 <1>:                             chapter.            (line 1120)
 * name2 <2>:                             chapter.            (line 1954)
-* t--ruc:                                chapter.            (line 2281)
-* T--ruc:                                chapter.            (line 2281)
+* t--ruc:                                chapter.            (line 2287)
+* T--ruc:                                chapter.            (line 2287)
 * truc:                                  chapter.            (line  317)
 * truc <1>:                              chapter.            (line  339)
 * truc <2>:                              chapter.            (line 1014)
 * truc <3>:                              chapter.            (line 1036)
 * truc <4>:                              chapter.            (line 1845)
 * truc <5>:                              chapter.            (line 1868)
-* xxx, zzz:                              chapter.            (line 2281)
+* xxx, zzz:                              chapter.            (line 2287)
 
    vr
 
@@ -3397,13 +3404,19 @@ File: formatting.info,  Node: subsubsection ``simple-double--,  Next: subsubsect
 .....................................
 
 
+File: formatting.info,  Node: node with xrefname
+
+after xrefname
+==============
+
+
 File: formatting.info,  Node: subsubsection three---four----'',  Prev: subsubsection ``simple-double--,  Up: subsection
 
 1.1.1.2 three--four---"
 .......................
 
 
-File: formatting.info,  Node: chapter2,  Prev: chapter,  Up: Top
+File: formatting.info,  Node: chapter2,  Next: node with empty xrefname,  Prev: chapter,  Up: Top
 
 chapter 2
 *********
@@ -3414,14 +3427,14 @@ chapter 2
 * -option:                               chapter.            (line   28)
 * -option <1>:                           chapter.            (line  725)
 * -option <2>:                           chapter.            (line 1433)
-* ?:                                     chapter.            (line 2281)
-* .:                                     chapter.            (line 2281)
+* ?:                                     chapter.            (line 2287)
+* .:                                     chapter.            (line 2287)
 * ":                                     chapter.            (line   28)
 * " <1>:                                 chapter.            (line  725)
 * " <2>:                                 chapter.            (line 1433)
-* a:                                     chapter.            (line 2281)
-* aaa, bbb:                              chapter.            (line 2281)
-* a--a:                                  chapter.            (line 2281)
+* a:                                     chapter.            (line 2287)
+* aaa, bbb:                              chapter.            (line 2287)
+* a--a:                                  chapter.            (line 2287)
 * a--asis:                               chapter.            (line  525)
 * a--asis <1>:                           chapter.            (line 1222)
 * a--asis <2>:                           chapter.            (line 2055)
@@ -3429,9 +3442,9 @@ chapter 2
 * b:                                     chapter.            (line  526)
 * b <1>:                                 chapter.            (line 1223)
 * b <2>:                                 chapter.            (line 2056)
-* b--b, c--c:                            chapter.            (line 2281)
-* counting entry:                        chapter.            (line 2637)
-* d--dd, e--ee, f--ff:                   chapter.            (line 2281)
+* b--b, c--c:                            chapter.            (line 2287)
+* counting entry:                        chapter.            (line 2643)
+* d--dd, e--ee, f--ff:                   chapter.            (line 2287)
 * d--efcv_name:                          chapter.            (line  366)
 * d--efcv_name <1>:                      chapter.            (line  369)
 * d--efcv_name <2>:                      chapter.            (line 1063)
@@ -3476,14 +3489,14 @@ chapter 2
 * d--efvr_name <2>:                      chapter.            (line 1872)
   ddd:                                   Voir aussi ccc.
   ddd:                                   Voir aussi ccc.
-* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2281)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 2287)
 * index entry between item and itemx:    chapter.            (line  530)
 * index entry between item and itemx <1>: chapter.           (line  660)
 * index entry between item and itemx <2>: chapter.           (line 1227)
 * index entry between item and itemx <3>: chapter.           (line 1357)
 * index entry between item and itemx <4>: chapter.           (line 2060)
 * index entry between item and itemx <5>: chapter.           (line 2223)
-* index entry in footnote:               chapter.            (line 2631)
+* index entry in footnote:               chapter.            (line 2637)
 * index entry within deffn:              chapter.            (line  317)
 * index entry within deffn <1>:          chapter.            (line 1014)
 * index entry within deffn <2>:          chapter.            (line 1845)
@@ -3493,8 +3506,8 @@ chapter 2
 * index entry within multitable:         chapter.            (line  250)
 * index entry within multitable <1>:     chapter.            (line  947)
 * index entry within multitable <2>:     chapter.            (line 1779)
-* t-ruc:                                 chapter.            (line 2281)
-* T-ruc:                                 chapter.            (line 2281)
+* t-ruc:                                 chapter.            (line 2287)
+* T-ruc:                                 chapter.            (line 2287)
 * vtable i--tem code kbdinputstyle:      chapter.            (line  152)
 * vtable i--tem code kbdinputstyle <1>:  chapter.            (line  849)
 * vtable i--tem code kbdinputstyle <2>:  chapter.            (line 1679)
@@ -3532,8 +3545,8 @@ chapter 2
 * --foption:                             chapter.            (line   28)
 * --foption <1>:                         chapter.            (line  725)
 * --foption <2>:                         chapter.            (line 1433)
-* ?:                                     chapter.            (line 2281)
-* .:                                     chapter.            (line 2281)
+* ?:                                     chapter.            (line 2287)
+* .:                                     chapter.            (line 2287)
 * ``:                                    chapter.            (line   28)
 * `` <1>:                                chapter.            (line  725)
 * `` <2>:                                chapter.            (line 1433)
@@ -3546,7 +3559,7 @@ chapter 2
 * a <6>:                                 chapter.            (line 1858)
 * a <7>:                                 chapter.            (line 2059)
 * a <8>:                                 chapter.            (line 2222)
-* a <9>:                                 chapter.            (line 2281)
+* a <9>:                                 chapter.            (line 2287)
 * after:                                 chapter.            (line  670)
 * after <1>:                             chapter.            (line 1367)
 * after <2>:                             chapter.            (line 2233)
@@ -3625,13 +3638,13 @@ chapter 2
 * deffnx <3>:                            chapter.            (line 1033)
 * deffnx <4>:                            chapter.            (line 1859)
 * deffnx <5>:                            chapter.            (line 1865)
-* f---aa:                                chapter.            (line 2281)
+* f---aa:                                chapter.            (line 2287)
   f---aaa, voir : f---bbb.
-* f---bb, f---cc:                        chapter.            (line 2281)
+* f---bb, f---cc:                        chapter.            (line 2287)
   f---ddd:                               Voir aussi f---ccc.
   f---ddd:                               Voir aussi f---ccc.
-* f---ddd, f---eee, ffff:                chapter.            (line 2281)
-* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2281)
+* f---ddd, f---eee, ffff:                chapter.            (line 2287)
+* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 2287)
 * followed:                              chapter.            (line  328)
 * followed <1>:                          chapter.            (line  668)
 * followed <2>:                          chapter.            (line 1025)
@@ -3689,34 +3702,42 @@ chapter 2
 * name2:                                 chapter.            (line  423)
 * name2 <1>:                             chapter.            (line 1120)
 * name2 <2>:                             chapter.            (line 1954)
-* t--ruc:                                chapter.            (line 2281)
-* T--ruc:                                chapter.            (line 2281)
+* t--ruc:                                chapter.            (line 2287)
+* T--ruc:                                chapter.            (line 2287)
 * truc:                                  chapter.            (line  317)
 * truc <1>:                              chapter.            (line  339)
 * truc <2>:                              chapter.            (line 1014)
 * truc <3>:                              chapter.            (line 1036)
 * truc <4>:                              chapter.            (line 1845)
 * truc <5>:                              chapter.            (line 1868)
-* xxx, zzz:                              chapter.            (line 2281)
+* xxx, zzz:                              chapter.            (line 2287)
+
+
+File: formatting.info,  Node: node with empty xrefname,  Prev: chapter2,  Up: Top
+
+Annexe A An appendix
+********************
 
 
 Tag Table:
 Node: Top20203
-Node: chapter20388
-Ref: chapter-Footnote-1103144
-Ref: chapter-Footnote-2103164
-Ref: chapter-Footnote-3103185
-Ref: chapter-Footnote-4103205
-Ref: chapter-Footnote-5103226
-Ref: chapter-Footnote-6103246
-Ref: chapter-Footnote-7103267
-Ref: chapter-Footnote-8103305
-Node: s--ect,ion103325
-Node: subsection103528
-Ref: anchor103709
-Node: subsubsection ``simple-double--103709
-Node: subsubsection three---four----''103909
-Node: chapter2104081
+Node: chapter20447
+Ref: chapter-Footnote-1103385
+Ref: chapter-Footnote-2103405
+Ref: chapter-Footnote-3103426
+Ref: chapter-Footnote-4103446
+Ref: chapter-Footnote-5103467
+Ref: chapter-Footnote-6103487
+Ref: chapter-Footnote-7103508
+Ref: chapter-Footnote-8103546
+Node: s--ect,ion103566
+Node: subsection103769
+Ref: anchor103950
+Node: subsubsection ``simple-double--103950
+Node: node with xrefname104150
+Node: subsubsection three---four----''104233
+Node: chapter2104405
+Node: node with empty xrefname125016
 
 End Tag Table
 

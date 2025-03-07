@@ -3737,6 +3737,12 @@ Various deff lines
 
 </screen>
 
+<para>See <link linkend="node-with-xrefname">node with xrefname</link>.
+See <link linkend="node-with-xrefname">sec for node with xrefname</link>.
+</para>
+<para>See <link linkend="node-with-empty-xrefname">node with empty xrefname</link>.
+See <link linkend="node-with-empty-xrefname">sec for empty xrefname</link>.
+</para>
 <indexterm role="cp"><primary>t&#8211;ruc</primary></indexterm>
 <indexterm role="cp"><primary>T&#8211;ruc</primary></indexterm>
 <indexterm role="cp"><primary>.</primary></indexterm>
@@ -3830,6 +3836,10 @@ Various deff lines
 <title>subsubsection &#8220;simple-double&#8211;</title>
 
 </sect3>
+<anchor id="node-with-xrefname"/>
+
+<bridgehead renderas="sect1">after xrefname</bridgehead>
+
 <sect3 label="1.1.1.2" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <title>three&#8212;four&#8212;-&#8221;</title>
 
@@ -3844,4 +3854,9 @@ Various deff lines
 <index role="fn"></index>
 
 </chapter>
+<appendix label="A" id="node-with-empty-xrefname">
+<title>An appendix</title>
+
+
+</appendix>
 </book>
