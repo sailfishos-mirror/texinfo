@@ -339,7 +339,7 @@ sub book_convert_heading_command($$$$$)
     if ($output_unit->{'unit_command'}
         and $output_unit->{'unit_command'} eq $element
         and $element->{'extra'}
-        and not $element->{'extra'}->{'associated_section'}
+        and not $element->{'extra'}->{'associated_title_command'}
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
