@@ -197,6 +197,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/empty/res_latex \
   t/results/converters_tests/empty/res_xml \
   t/results/converters_tests/empty_accent.pl \
+  t/results/converters_tests/empty_xrefname.pl \
   t/results/converters_tests/enumerate_above_ten.pl \
   t/results/converters_tests/extension_undef.pl \
   t/results/converters_tests/extension_undef/res_docbook \
@@ -303,6 +304,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/unknown_value.pl \
   t/results/converters_tests/various_itemize_command_as_argument.pl \
   t/results/converters_tests/various_vtable_command_as_argument.pl \
+  t/results/converters_tests/xrefname.pl \
   t/results/coverage/accent_and_dash.pl \
   t/results/coverage/accent_no_closed.pl \
   t/results/coverage/accent_no_closed_comment.pl \

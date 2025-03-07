@@ -1664,9 +1664,10 @@ end_line_misc_line (ELEMENT *current)
             = strdup (command_name(current->e.c->cmd));
         }
       /* All the other "line" commands. Check they have an argument. Empty
-         @top is allowed. */
+         @top and @xrefname are allowed. */
       if (line_arg->e.c->contents.number == 0
-          && current->e.c->cmd != CM_top)
+          && current->e.c->cmd != CM_top
+          && current->e.c->cmd != CM_xrefname)
         {
           command_warn (current, "@%s missing argument",
                         command_name(current->e.c->cmd));

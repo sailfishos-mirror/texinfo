@@ -3914,8 +3914,9 @@ sub _end_line_misc_line($$$)
       $current->{'info'}->{'command_name'} = $current->{'cmdname'};
     }
     # Handle all the other 'line' commands.  Here just check that they
-    # have an argument.  Empty @top is allowed
-    if (!$line_arg->{'contents'} and $command ne 'top') {
+    # have an argument.  Empty @top and @xrefname are allowed
+    if (!$line_arg->{'contents'} and $command ne 'top'
+        and $command ne 'xrefname') {
       $self->_command_warn($current,
              __("\@%s missing argument"), $command);
     } else {

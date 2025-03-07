@@ -1407,6 +1407,54 @@ undef, {'test_file' => 'contents_at_document_begin.texi'},
 undef, {'test_file' => 'contents_at_document_begin.texi',},
        {'CONTENTS_OUTPUT_LOCATION' => 'separate_element',
         'SPLIT' => '', 'BIG_RULE' => '<hr style="height: 6px;">'}],
+['xrefname',
+'@node Top
+@top top
+
+
+@node ntiti
+@xrefname titi
+
+@chapter chap
+
+@node chip
+@appendix app
+
+@xrefautomaticsectiontitle off
+
+@xref{ntiti}
+
+@xrefautomaticsectiontitle on
+
+xrefautomaticsectiontitle on @ref{ntiti}.
+'],
+['empty_xrefname',
+'@node Top
+@top top
+
+@node Chap
+@chapter Chapter
+
+@menu
+* entiti::
+@end menu
+
+@node entiti
+@xrefname
+
+@heading after empty
+
+@node chip
+@chapter Chip
+
+@xrefautomaticsectiontitle off
+
+@xref{entiti}
+
+@xrefautomaticsectiontitle on
+
+xrefautomaticsectiontitle on @ref{entiti}.
+'],
 );
 
 my @html_text_cases = (

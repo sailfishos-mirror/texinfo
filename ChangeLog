@@ -1,5 +1,14 @@
 2025-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): no message for
+	empty @xrefname.
+
+	* tta/perl/Makefile.tres, tta/perl/t/converters_tests.t (xrefname)
+	(empty_xrefname): add tests for @xrefname and empty @xrefname.
+
+2025-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/end_line.c (end_line_misc_line), : associate
 	correctly the line command to the node, not the container.
 
