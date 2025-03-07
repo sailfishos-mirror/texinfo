@@ -1784,8 +1784,8 @@ while(@input_files) {
     my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);
     my $printed_tree
-      = Texinfo::ManipulateTree::print_tree_details($tree, get_conf('TEST'),
-                                                $input_file_names_encoding);
+      = Texinfo::ManipulateTree::print_tree_details($tree,
+                     $input_file_names_encoding, get_conf('TEST'));
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
       $printed_tree = Encode::encode($output_encoding, $printed_tree);
@@ -1998,8 +1998,8 @@ while(@input_files) {
     my $input_file_names_encoding
       = Texinfo::Common::input_file_name_encoding($document, $document);
     my $printed_tree
-      = Texinfo::ManipulateTree::print_tree_details($tree, get_conf('TEST'),
-                                                $input_file_names_encoding);
+      = Texinfo::ManipulateTree::print_tree_details($tree,
+                         $input_file_names_encoding, get_conf('TEST'));
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
       $printed_tree = Encode::encode($output_encoding, $printed_tree);

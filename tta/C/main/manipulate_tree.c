@@ -841,6 +841,7 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
        || element->type == ET_index_entry_command
        || data_cmd == CM_columnfractions
        || (builtin_command_data[data_cmd].other_flags & CF_in_index)
+       || data_cmd == CM_xrefname
        || data_cmd == CM_author)
   /* no reason for this to happen, but if it does, avoid clobbering
      elt_info_nr + 1 */

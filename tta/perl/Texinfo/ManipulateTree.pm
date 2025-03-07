@@ -374,6 +374,7 @@ sub set_element_tree_numbers($$)
                 or $builtin_cmdname eq 'nodedescription'
                 or $builtin_cmdname eq 'columnfractions'
                 or $Texinfo::Commands::in_index_commands{$builtin_cmdname}
+                or $builtin_cmdname eq 'xrefname'
                 or $builtin_cmdname eq 'author')))
     # no reason for this to happen, but if it does, avoid clobbering
       and not exists($element->{'_number'})) {

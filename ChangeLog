@@ -1,5 +1,13 @@
 2025-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl: fix print_tree_details call arguments order.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers),
+	tta/C/main/manipulate_tree.c (set_element_tree_numbers): number
+	@xrefname.
+
+2025-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/end_line.c (end_line_misc_line),
 	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): do not
 	associate node to part as associated_title_command.
