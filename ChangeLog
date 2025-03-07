@@ -1,5 +1,17 @@
 2025-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_misc_line), : associate
+	correctly the line command to the node, not the container.
+
+	* tta/data/command_data.txt (xrefname): add close_paragraph and global
+	flags.
+
+	* tta/C/convert/html_prepare_converter.c (heading_commands_list),
+	tta/perl/Texinfo/Convert/HTML.pm (_set_heading_commands_targets):
+	handle @xrefname as a target command, like @*heading commands.
+
+2025-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: fix print_tree_details call arguments order.
 
 	* tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers),

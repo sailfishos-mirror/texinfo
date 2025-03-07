@@ -34,3 +34,4 @@ GLOBAL_CASE(summarycontents);
 GLOBAL_CASE(titlefont);
 GLOBAL_CASE(urefbreakstyle);
 GLOBAL_CASE(xrefautomaticsectiontitle);
+GLOBAL_CASE(xrefname);

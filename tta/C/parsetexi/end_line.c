@@ -1869,7 +1869,7 @@ end_line_misc_line (ELEMENT *current)
   else if (command_data(data_cmd).flags & CF_sectioning_heading
            || data_cmd == CM_xrefname)
    {
-     associate_title_command_anchor (current_node, current);
+     associate_title_command_anchor (current_node, command_element);
    }
 
   return current;

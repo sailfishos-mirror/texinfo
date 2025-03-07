@@ -77,6 +77,7 @@ typedef struct GLOBAL_COMMANDS {
    ELEMENT_LIST titlefont;
    ELEMENT_LIST urefbreakstyle;
    ELEMENT_LIST xrefautomaticsectiontitle;
+   ELEMENT_LIST xrefname;
 
 } GLOBAL_COMMANDS;
 

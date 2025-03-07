@@ -9934,7 +9934,8 @@ sub _set_heading_commands_targets($)
     $global_commands = $self->{'document'}->global_commands_information();
   }
   if ($global_commands) {
-    foreach my $cmdname (sort(keys(%sectioning_heading_commands))) {
+    foreach my $cmdname (sort(keys(%sectioning_heading_commands)),
+                         'xrefname') {
       if (!$root_commands{$cmdname} and $global_commands->{$cmdname}) {
         foreach my $command (@{$global_commands->{$cmdname}}) {
           $self->_new_sectioning_command_target($command);

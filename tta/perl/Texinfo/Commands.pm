@@ -562,6 +562,7 @@ our %close_paragraph_commands = (
   "verbatim"                => 1,
   "verbatiminclude"         => 1,
   "vtable"                  => 1,
+  "xrefname"                => 1,
 );
 
 our %contain_basic_inline_commands = (
@@ -933,6 +934,7 @@ our %global_commands = (
   "titlefont"               => 1,
   "urefbreakstyle"          => 1,
   "xrefautomaticsectiontitle" => 1,
+  "xrefname"                => 1,
 );
 
 our %global_unique_commands = (

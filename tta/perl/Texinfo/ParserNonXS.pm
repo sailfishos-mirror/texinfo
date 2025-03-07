@@ -4076,7 +4076,7 @@ sub _end_line_misc_line($$$)
     # only *heading as sectioning commands are handled just before
   } elsif ($sectioning_heading_commands{$data_cmdname}
            or $data_cmdname eq 'xrefname') {
-    _associate_title_command_anchor($self, $current);
+    _associate_title_command_anchor($self, $command_element);
   }
   return $current;
 }

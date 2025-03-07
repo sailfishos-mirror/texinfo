@@ -143,7 +143,7 @@ majorheading            line,formatted_line,contain_basic_inline,sectioning_head
 centerchap              line,formatted_line,root,contain_basic_inline,sectioning_heading,unnumbered,deprecated    LINE_line
 
 # used as section title name for @node, but not formatted
-xrefname                line,contain_basic_inline           LINE_line
+xrefname                line,contain_basic_inline,close_paragraph,global   LINE_line
 
 # end of document, end of block
 bye                     line,preamble                       LINE_lineraw

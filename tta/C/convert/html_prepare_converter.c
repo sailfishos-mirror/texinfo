@@ -4387,6 +4387,8 @@ prepare_associated_special_units_targets (CONVERTER *self)
 }
 
 /* calls customization function requiring elements */
+/* also used for xrefname, although there is no reason to use the associated
+   target, as for xrefname only the text is of interest */
 static void
 new_sectioning_command_target (CONVERTER *self, const ELEMENT *command)
 {
@@ -4789,9 +4791,11 @@ prepare_footnotes_targets (CONVERTER *self)
     }
 }
 
-/* keep the command names sorted alphabetically to match order in perl */
+/* keep the heading command names sorted alphabetically followed by
+   xrefname to match order in perl */
 static const enum command_id heading_commands_list[] = {
-  CM_chapheading, CM_heading, CM_majorheading, CM_subheading, CM_subsubheading,
+  CM_chapheading, CM_heading, CM_majorheading, CM_subheading,
+  CM_subsubheading, CM_xrefname,
   0,
 };
 
