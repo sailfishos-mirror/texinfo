@@ -1741,38 +1741,45 @@ sub _cache_node_names($$)
 {
   my ($self, $output_units) = @_;
 
+  my $node_names_hash;
+  if (!$self->{'node_names_text'}) {
+    $self->{'node_names_text'} = {};
+  }
+  $node_names_hash = $self->{'node_names_text'};
+
+  my $formatter = new_formatter($self, 'line',
+                    {'suppress_styles' => 1, 'no_added_eol' => 1,});
+  push @{$self->{'formatters'}}, $formatter;
+
   for my $output_unit (@{$output_units}) {
     my $node = $output_unit->{'unit_command'};
     next if !defined($node);
 
-    $self->{'node_names_text'} = {} if (!$self->{'node_names_text'});
-    if (!$self->{'node_names_text'}->{$node}) {
+    if (!$node_names_hash->{$node}) {
       my $label_element;
       #$label_element = Texinfo::Common::get_label_element($node);
       $label_element = $node->{'contents'}->[0]->{'contents'}->[0];
       my $node_text = {'type' => '_code',
                        'contents' => [$label_element]};
 
-      my $formatter = new_formatter($self, 'line',
-                        {'suppress_styles' => 1, 'no_added_eol' => 1,});
-      push @{$self->{'formatters'}}, $formatter;
-
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       _convert($self, $node_text);
       _stream_output($self,
-                     Texinfo::Convert::Paragraph::end($formatter->{'container'}),
-                     $formatter->{'container'});
+        Texinfo::Convert::Paragraph::add_pending_word($formatter->{'container'}),
+        $formatter->{'container'});
       my $result = _stream_result($self);
       my $width = Texinfo::Convert::Paragraph::counter($formatter->{'container'});
 
-      pop @{$self->{'formatters'}};
       pop @{$self->{'count_context'}};
 
-      $self->{'node_names_text'}->{$node}
+      $node_names_hash->{$node}
         = {'text' => _normalize_top_node($result),
            'width' => $width };
     }
+    # reset line counter
+    Texinfo::Convert::Paragraph::end_line($formatter->{'container'});
   }
+  pop @{$self->{'formatters'}};
 }
 
 my $index_length_to_node = 41;

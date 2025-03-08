@@ -1,5 +1,10 @@
 2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names):
+	Reuse the same paragraph formatter for all node names.
+
+2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Bulk conversion of node names.
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names):
