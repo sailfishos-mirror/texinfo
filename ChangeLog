@@ -1,5 +1,16 @@
 2025-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/30sectioning.t
+	(automatic_menu_with_heading), tta/perl/t/html_tests.t
+	(heading_node_after_chap, headings_nodes_before_chapter)
+	(node_heading_between, heading_between): tests of @*heading and 
+	splitting and automatic menus.  Mainly from Gavin.
+
+	* tta/perl/t/test_utils.pl (test): use is_diff instead of is for
+	result_texts.
+
+2025-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (use vars, test): remove unused %result_*
 	variables use var.
 

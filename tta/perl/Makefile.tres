@@ -719,7 +719,13 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/footnotestyle_separate_late.pl \
   t/results/html_tests/footnotestyle_separate_late/res_html \
   t/results/html_tests/fractions_rounding.pl \
+  t/results/html_tests/heading_between.pl \
+  t/results/html_tests/heading_between/res_html \
+  t/results/html_tests/heading_node_after_chap.pl \
+  t/results/html_tests/heading_node_after_chap/res_html \
   t/results/html_tests/headings_after_lone_nodes.pl \
+  t/results/html_tests/headings_nodes_before_chapter.pl \
+  t/results/html_tests/headings_nodes_before_chapter/res_html \
   t/results/html_tests/html_in_copying.pl \
   t/results/html_tests/image_link_prefix.pl \
   t/results/html_tests/index_and_node_same_name.pl \
@@ -770,6 +776,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/node_footnote_use_node/res_html \
   t/results/html_tests/node_footnote_use_node_separate.pl \
   t/results/html_tests/node_footnote_use_node_separate/res_html \
+  t/results/html_tests/node_heading_between.pl \
+  t/results/html_tests/node_heading_between/res_html \
   t/results/html_tests/nodedescription_description.pl \
   t/results/html_tests/nodedescription_description/res_html \
   t/results/html_tests/nodedescription_description_no_use_nodes.pl \
@@ -1978,6 +1986,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/anchor_zero.pl \
   t/results/sectioning/at_commands_in_node.pl \
   t/results/sectioning/automatic_menu_referencing_node.pl \
+  t/results/sectioning/automatic_menu_with_heading.pl \
   t/results/sectioning/chapter_before_and_after_part.pl \
   t/results/sectioning/chapter_before_part.pl \
   t/results/sectioning/chapter_between_nodes.pl \

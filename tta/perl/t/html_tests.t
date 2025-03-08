@@ -661,6 +661,9 @@ Text2
 
 @xref{label1}.
 '],
+# This test now tests that the heading is associated to the node even if there
+# is formatted content in-between, previously it tested the reverse, ie that
+# the heading was only associated if there was no content in-between.
 ['headings_after_lone_nodes',
 '@node Top
 @top top
@@ -1086,6 +1089,72 @@ my @file_tests = (
 
 @chapter
 ', {}, {'SPLIT' => 'chapter', 'USE_NODES' => 0}],
+['heading_node_after_chap',
+'@settitle heading node after chap
+@node Cap 1
+@chapter Chapter One
+
+@c needed to have Node 1 referenced
+@xref{Node 1}
+
+@node Cap 2
+@chapter Chapter Two
+
+@node Node 1
+@heading Topic
+', {'CHECK_NORMAL_MENU_STRUCTURE' => 0},
+   {'SPLIT' => 'chapter', 'USE_NODES' => 1}
+],
+['headings_nodes_before_chapter',
+'@settitle headings nodes before chapter
+
+@node Node 1
+@heading Topic One
+
+@node Node 2
+@heading Topic Two
+
+@node Cap 1
+@chapter Chapter One
+
+@menu
+* Node 1::
+* Node 2::
+@end menu
+
+@node Cap 2
+@chapter Chapter Two
+', {'FORMAT_MENU' => 'menu'},
+   {'SPLIT' => 'chapter', 'USE_NODES' => 1, 'FORMAT_MENU' => 'menu'}
+],
+['node_heading_between',
+'@settitle node heading between
+@node Chapter
+@chapter Chapter
+
+@node Topic
+@subsubheading Topic
+
+@node Section
+@section Section
+
+@xref{Topic}
+', {'CHECK_NORMAL_MENU_STRUCTURE' => 0},
+   {'SPLIT' => 'section', 'USE_NODES' => 1}
+],
+# same as just above, but without node associated to the heading
+['heading_between',
+'@settitle heading between
+@node Chapter
+@chapter Chapter
+
+@subsubheading Topic
+
+@node Section
+@section Section
+
+', {}, {'SPLIT' => 'section', 'USE_NODES' => 1}
+],
 # test that the node name that goes in the redirection file with
 # TRANSLITERATE_FILE_NAMES is reproducible.
 ['redirection_same_labels',

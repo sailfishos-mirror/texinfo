@@ -955,6 +955,21 @@ $unnumbered_top_without_node_text,
 
 @xref{unknown ref}.
 '],
+['automatic_menu_with_heading',
+'@node Top
+@top top
+
+@xrefautomaticsectiontitle on
+
+@xref{heading or chapter}.
+
+@node heading or chapter
+@heading Heading
+
+@chapter Chapter
+
+', {'FORMAT_MENU' => 'menu', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
+   {'FORMAT_MENU' => 'menu'}],
 );
 
 

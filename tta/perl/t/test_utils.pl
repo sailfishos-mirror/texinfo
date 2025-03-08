@@ -1423,7 +1423,7 @@ sub test($$)
         is($converted_text, $result_texts{$test_name}, $test_name.' text');
       }
     } else {
-      is($converted_text, $result_texts{$test_name}, $test_name.' text');
+      is_diff($converted_text, $result_texts{$test_name}, $test_name.' text');
     }
     $tests_count = $nr_comparisons;
     if (@tested_formats) {
