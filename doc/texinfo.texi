@@ -15752,6 +15752,11 @@ directive for language-specific tailoring of index sorting.
 See also the @code{COLLATION_LANGUAGE} variable, described above.
 (@xref{@code{@@documentlanguage}}.)
 
+@item DUMP_STRUCTURE
+For debugging.  If set, the tree constructed upon parsing a Texinfo
+document and determining the document structure is output to the file;
+if set to @samp{-} output to standard error.  Default false.
+
 @item DUMP_TEXI
 For debugging.  If set, no conversion is done, only parsing and macro
 expansion.  If the option @option{--macro-expand} is set, the Texinfo
