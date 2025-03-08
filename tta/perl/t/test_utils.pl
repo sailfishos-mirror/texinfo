@@ -94,10 +94,9 @@ use Texinfo::Convert::DocBook;
 
 # the tests reference perl results file is loaded through a require
 # of a file containing code setting those variables.
-use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_errors
-   %result_indices %result_sectioning %result_nodes %result_menus
-   %result_floats %result_converted %result_converted_errors
-   %result_elements %result_directions_text %result_indices_sort_strings);
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_converted %result_converted_errors
+   %result_indices_sort_strings);
 
 Locale::Messages->select_package('gettext_pp');
 
@@ -309,7 +308,8 @@ sub set_converter_option_defaults($$;$)
 
   # NOTE not the same as in texi2any if the format and the output
   # format name do not match, the case of xml, which output format
-  # name is texinfoxml.
+  # name is texinfoxml.  No consequence as it is only used for output
+  # directory name, which is overriden in tests anyway.
   $converter_options->{'TEXINFO_OUTPUT_FORMAT'} = $format;
 
   if (!defined($converter_options->{'DEBUG'})) {
@@ -1312,15 +1312,13 @@ sub test($$)
     open(OUT, ">$out_file") or die "Open $out_file: $!\n";
     binmode (OUT, ":encoding(utf8)");
     print OUT
-     'use vars qw(%result_texis %result_texts %result_tree_text %result_trees %result_errors'."\n".
-     '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
-     '   %result_floats %result_converted %result_converted_errors'."\n".
-     '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
+     'use vars qw(%result_texis %result_texts %result_tree_text %result_errors'."\n".
+     '   %result_indices %result_floats %result_converted %result_converted_errors'."\n".
+     '   %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
-    #print STDERR "Generate: ".Data::Dumper->Dump([$tree], ['$res']);
     # NOTE $test_name is in general used for directories, file names,
-    # and in messages.  Here it is used as a text string.  If non ascii, it
+    # and messages.  Here it is used as a text string.  If non ascii, it
     # should be a character string in internal perl codepoints as OUT
     # is encoded as utf8.  In that case, it should be encoded to be
     # used as a file name for the above cases.  Since this is not the case,

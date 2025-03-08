@@ -1,5 +1,10 @@
 2025-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (use vars, test): remove unused %result_*
+	variables use var.
+
+2025-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (is_diff): rename is_with_diff as is_diff.
 
 	* tta/perl/t/test_utils.pl: change in spacing.
