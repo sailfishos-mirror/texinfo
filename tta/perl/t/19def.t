@@ -683,6 +683,7 @@ foreach my $test (@test_cases) {
     push @test_printindex, [$test->[0] . '_printindex',
                             '@node Top
 @node chap
+@xrefname chap
 
 '. $test->[1] . '
 @heading Functions

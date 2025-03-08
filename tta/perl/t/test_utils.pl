@@ -1420,7 +1420,7 @@ sub test($$)
     # require less resources as there is no need to create a converter.
     my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
-    is($texi_result, $result_texis{$test_name}, $test_name.' texi');
+    is_with_diff($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
         skip $todos{'text'}, 1;

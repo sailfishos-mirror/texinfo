@@ -21,12 +21,12 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *1 @node C64 l2 {chap}
+ *1 @node C65 l2 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_title_command:[E29]
+ |associated_title_command:[E2]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0]
@@ -37,12 +37,24 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {chap}
-  {empty_line:\\n}
-  *2 @defvr C3 l4
+  *2 @xrefname C1 l3
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l4
+  |EXTRA
+  |associated_anchor_command:[E1]
+  |global_command_number:{1}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{\\n}
+    {chap}
+  {empty_line:\\n}
+  *3 @defvr C3 l5
+  |INFO
+  |spaces_before_argument:
+   |{ }
+   *def_line C1 l5
    |EXTRA
    |def_command:{defvr}
    |def_index_element:
@@ -66,7 +78,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efvr\\n}
-   *@end C1 l6
+   *@end C1 l7
    |INFO
    |spaces_before_argument:
     |{ }
@@ -78,11 +90,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defvr}
   {empty_line:\\n}
-  *3 @deffn C3 l8
+  *4 @deffn C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l8
+   *def_line C1 l9
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -110,7 +122,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--effn\\n}
-   *@end C1 l10
+   *@end C1 l11
    |INFO
    |spaces_before_argument:
     |{ }
@@ -122,11 +134,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *4 @deffn C3 l12
+  *5 @deffn C3 l13
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l12
+   *def_line C1 l13
    |EXTRA
    |def_command:{deffn}
    |def_index_element:
@@ -150,7 +162,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--effn no arg\\n}
-   *@end C1 l14
+   *@end C1 l15
    |INFO
    |spaces_before_argument:
     |{ }
@@ -162,11 +174,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deffn}
   {empty_line:\\n}
-  *5 @deftypefn C3 l16
+  *6 @deftypefn C3 l17
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l16
+   *def_line C1 l17
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -198,7 +210,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypefn\\n}
-   *@end C1 l18
+   *@end C1 l19
    |INFO
    |spaces_before_argument:
     |{ }
@@ -210,11 +222,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *6 @deftypefn C3 l20
+  *7 @deftypefn C3 l21
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l20
+   *def_line C1 l21
    |EXTRA
    |def_command:{deftypefn}
    |def_index_element:
@@ -242,7 +254,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypefn no arg\\n}
-   *@end C1 l22
+   *@end C1 l23
    |INFO
    |spaces_before_argument:
     |{ }
@@ -254,11 +266,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypefn}
   {empty_line:\\n}
-  *7 @deftypeop C3 l24
+  *8 @deftypeop C3 l25
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l24
+   *def_line C1 l25
    |EXTRA
    |def_command:{deftypeop}
    |def_index_element:
@@ -308,7 +320,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypeop\\n}
-   *@end C1 l26
+   *@end C1 l27
    |INFO
    |spaces_before_argument:
     |{ }
@@ -320,11 +332,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *8 @deftypeop C3 l28
+  *9 @deftypeop C3 l29
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l28
+   *def_line C1 l29
    |EXTRA
    |def_command:{deftypeop}
    |def_index_element:
@@ -370,7 +382,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypeop no arg\\n}
-   *@end C1 l30
+   *@end C1 l31
    |INFO
    |spaces_before_argument:
     |{ }
@@ -382,11 +394,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypeop}
   {empty_line:\\n}
-  *9 @deftypevr C3 l32
+  *10 @deftypevr C3 l33
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l32
+   *def_line C1 l33
    |EXTRA
    |def_command:{deftypevr}
    |def_index_element:
@@ -414,7 +426,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypevr\\n}
-   *@end C1 l34
+   *@end C1 l35
    |INFO
    |spaces_before_argument:
     |{ }
@@ -426,11 +438,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypevr}
   {empty_line:\\n}
-  *10 @defcv C3 l36
+  *11 @defcv C3 l37
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l36
+   *def_line C1 l37
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
@@ -458,7 +470,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efcv\\n}
-   *@end C1 l38
+   *@end C1 l39
    |INFO
    |spaces_before_argument:
     |{ }
@@ -470,11 +482,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defcv}
   {empty_line:\\n}
-  *11 @defcv C3 l40
+  *12 @defcv C3 l41
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l40
+   *def_line C1 l41
    |EXTRA
    |def_command:{defcv}
    |def_index_element:
@@ -506,7 +518,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efcv with arguments\\n}
-   *@end C1 l42
+   *@end C1 l43
    |INFO
    |spaces_before_argument:
     |{ }
@@ -518,11 +530,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defcv}
   {empty_line:\\n}
-  *12 @deftypecv C3 l44
+  *13 @deftypecv C3 l45
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l44
+   *def_line C1 l45
    |EXTRA
    |def_command:{deftypecv}
    |def_index_element:
@@ -568,7 +580,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypecv\\n}
-   *@end C1 l46
+   *@end C1 l47
    |INFO
    |spaces_before_argument:
     |{ }
@@ -580,11 +592,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *13 @deftypecv C3 l48
+  *14 @deftypecv C3 l49
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l48
+   *def_line C1 l49
    |EXTRA
    |def_command:{deftypecv}
    |def_index_element:
@@ -634,7 +646,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypecv with arguments\\n}
-   *@end C1 l50
+   *@end C1 l51
    |INFO
    |spaces_before_argument:
     |{ }
@@ -646,11 +658,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypecv}
   {empty_line:\\n}
-  *14 @defop C3 l52
+  *15 @defop C3 l53
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l52
+   *def_line C1 l53
    |EXTRA
    |def_command:{defop}
    |def_index_element:
@@ -696,7 +708,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efop\\n}
-   *@end C1 l54
+   *@end C1 l55
    |INFO
    |spaces_before_argument:
     |{ }
@@ -708,11 +720,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defop}
   {empty_line:\\n}
-  *15 @defop C3 l56
+  *16 @defop C3 l57
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l56
+   *def_line C1 l57
    |EXTRA
    |def_command:{defop}
    |def_index_element:
@@ -754,7 +766,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efop no arg\\n}
-   *@end C1 l58
+   *@end C1 l59
    |INFO
    |spaces_before_argument:
     |{ }
@@ -766,11 +778,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defop}
   {empty_line:\\n}
-  *16 @deftp C3 l60
+  *17 @deftp C3 l61
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l60
+   *def_line C1 l61
    |EXTRA
    |def_command:{deftp}
    |def_index_element:
@@ -798,7 +810,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftp\\n}
-   *@end C1 l62
+   *@end C1 l63
    |INFO
    |spaces_before_argument:
     |{ }
@@ -810,11 +822,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftp}
   {empty_line:\\n}
-  *17 @defun C3 l64
+  *18 @defun C3 l65
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l64
+   *def_line C1 l65
    |EXTRA
    |def_command:{defun}
    |def_index_element:
@@ -844,7 +856,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efun\\n}
-   *@end C1 l66
+   *@end C1 l67
    |INFO
    |spaces_before_argument:
     |{ }
@@ -856,11 +868,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defun}
   {empty_line:\\n}
-  *18 @defmac C3 l68
+  *19 @defmac C3 l69
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l68
+   *def_line C1 l69
    |EXTRA
    |def_command:{defmac}
    |def_index_element:
@@ -890,7 +902,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efmac\\n}
-   *@end C1 l70
+   *@end C1 l71
    |INFO
    |spaces_before_argument:
     |{ }
@@ -902,11 +914,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defmac}
   {empty_line:\\n}
-  *19 @defspec C3 l72
+  *20 @defspec C3 l73
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l72
+   *def_line C1 l73
    |EXTRA
    |def_command:{defspec}
    |def_index_element:
@@ -936,7 +948,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efspec\\n}
-   *@end C1 l74
+   *@end C1 l75
    |INFO
    |spaces_before_argument:
     |{ }
@@ -948,11 +960,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defspec}
   {empty_line:\\n}
-  *20 @defvar C3 l76
+  *21 @defvar C3 l77
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l76
+   *def_line C1 l77
    |EXTRA
    |def_command:{defvar}
    |def_index_element:
@@ -978,7 +990,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efvar\\n}
-   *@end C1 l78
+   *@end C1 l79
    |INFO
    |spaces_before_argument:
     |{ }
@@ -990,11 +1002,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defvar}
   {empty_line:\\n}
-  *21 @defvar C3 l80
+  *22 @defvar C3 l81
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l80
+   *def_line C1 l81
    |EXTRA
    |def_command:{defvar}
    |def_index_element:
@@ -1028,7 +1040,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efvar with args\\n}
-   *@end C1 l82
+   *@end C1 l83
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1040,11 +1052,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defvar}
   {empty_line:\\n}
-  *22 @defopt C3 l84
+  *23 @defopt C3 l85
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l84
+   *def_line C1 l85
    |EXTRA
    |def_command:{defopt}
    |def_index_element:
@@ -1070,7 +1082,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efopt\\n}
-   *@end C1 l86
+   *@end C1 l87
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1082,11 +1094,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defopt}
   {empty_line:\\n}
-  *23 @deftypefun C3 l88
+  *24 @deftypefun C3 l89
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l88
+   *def_line C1 l89
    |EXTRA
    |def_command:{deftypefun}
    |def_index_element:
@@ -1120,7 +1132,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypefun\\n}
-   *@end C1 l90
+   *@end C1 l91
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1132,11 +1144,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypefun}
   {empty_line:\\n}
-  *24 @deftypevar C3 l92
+  *25 @deftypevar C3 l93
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l92
+   *def_line C1 l93
    |EXTRA
    |def_command:{deftypevar}
    |def_index_element:
@@ -1166,7 +1178,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypevar\\n}
-   *@end C1 l94
+   *@end C1 l95
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1178,11 +1190,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypevar}
   {empty_line:\\n}
-  *25 @defivar C3 l96
+  *26 @defivar C3 l97
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l96
+   *def_line C1 l97
    |EXTRA
    |def_command:{defivar}
    |def_index_element:
@@ -1226,7 +1238,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efivar\\n}
-   *@end C1 l98
+   *@end C1 l99
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1238,11 +1250,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defivar}
   {empty_line:\\n}
-  *26 @deftypeivar C3 l100
+  *27 @deftypeivar C3 l101
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l100
+   *def_line C1 l101
    |EXTRA
    |def_command:{deftypeivar}
    |def_index_element:
@@ -1290,7 +1302,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypeivar\\n}
-   *@end C1 l102
+   *@end C1 l103
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1302,11 +1314,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypeivar}
   {empty_line:\\n}
-  *27 @defmethod C3 l104
+  *28 @defmethod C3 l105
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l104
+   *def_line C1 l105
    |EXTRA
    |def_command:{defmethod}
    |def_index_element:
@@ -1354,7 +1366,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--efmethod\\n}
-   *@end C1 l106
+   *@end C1 l107
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1366,11 +1378,11 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {defmethod}
   {empty_line:\\n}
-  *28 @deftypemethod C3 l108
+  *29 @deftypemethod C3 l109
   |INFO
   |spaces_before_argument:
    |{ }
-   *def_line C1 l108
+   *def_line C1 l109
    |EXTRA
    |def_command:{deftypemethod}
    |def_index_element:
@@ -1422,7 +1434,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    *def_item C1
     *paragraph C1
      {d--eftypemethod\\n}
-   *@end C1 l110
+   *@end C1 l111
    |INFO
    |spaces_before_argument:
     |{ }
@@ -1434,19 +1446,18 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
      |{\\n}
      {deftypemethod}
   {empty_line:\\n}
-  *29 @heading C1 l112
+  *30 @heading C1 l113
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |associated_anchor_command:[E1]
   |global_command_number:{1}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {Functions}
-  *@printindex C1 l113
+  *@printindex C1 l114
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1459,7 +1470,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |{\\n}
     {fn}
   {empty_line:\\n}
-  *30 @heading C1 l115
+  *31 @heading C1 l116
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1470,7 +1481,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Types}
-  *@printindex C1 l116
+  *@printindex C1 l117
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1483,7 +1494,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
     |{\\n}
     {tp}
   {empty_line:\\n}
-  *31 @heading C1 l118
+  *32 @heading C1 l119
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1494,7 +1505,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Variables}
-  *@printindex C1 l119
+  *@printindex C1 l120
   |INFO
   |spaces_before_argument:
    |{ }
@@ -1511,6 +1522,7 @@ $result_tree_text{'all_commands_printindex'} = '*document_root C3
 
 $result_texis{'all_commands_printindex'} = '@node Top
 @node chap
+@xrefname chap
 
 @defvr c--ategory d--efvr_name
 d--efvr

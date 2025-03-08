@@ -1,3 +1,12 @@
+2025-03-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/19def.t (all_commands_printindex)
+	(all_commands_delimiters_printindex): add an @xrefname to avoid
+	association of the node with the @heading appearing later on.
+
+	* tta/perl/t/test_utils.pl (test): use is_with_diff instead of is for
+	texinfo output.
+
 2025-03-06  Patrice Dumas  <pertusus@free.fr>
 
 	Remove USE_NEXT_HEADING_FOR_LONE_NODE, it is now always on
