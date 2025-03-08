@@ -367,6 +367,10 @@ remove_element_copy_info (ELEMENT *current)
     }
 }
 
+/* FIXME the extra elements references can be out of the children of
+   the copied tree if the copied tree is not a tree root.  In that case,
+   destroying the copied tree won't destroy the extra elements copied
+   that are not among the children of the copied element */
 ELEMENT *
 copy_tree (ELEMENT *current)
 {

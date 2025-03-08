@@ -187,10 +187,11 @@ print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
     {
       text_printf (result, "  %s: ", caption_type);
       print_indented (caption_texi, result);
-      free (caption_texi);
     }
   else
     text_printf (result, "  %s(E)\n", caption_type);
+
+  free (caption_texi);
 }
 
 /* this should be mainly to verify listoffloats types, association with

@@ -3061,6 +3061,7 @@ html_node_redirections (CONVERTER *self,
                                   &redirection_files);
                     }
                 }
+              free (translit_filename);
             }
 
           for (j = 0; j < redirection_files.number; j++)

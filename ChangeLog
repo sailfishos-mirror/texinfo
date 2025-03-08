@@ -1,5 +1,24 @@
 2025-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/output_unit.c (do_units_directions_pages): remove useless
+	code allocating unused variable.
+
+	* tta/C/main/output_unit.c (print_output_units_details): free
+	ou_directions strings list.
+
+	* tta/C/convert/convert_html.c (html_node_redirections): free
+	translit_filename.
+
+	* tta/C/main/floats.c (print_caption_shortcaption): always free
+	caption_texi, even if an empty string.
+
+	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
+	(anchor_in_menu_on_sectioning_command_line): add a minimal example
+	demonstrating a memory leak difficult to fix, when a tree copy copies
+	elements out of the main copied tree.
+
+2025-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/30sectioning.t
 	(automatic_menu_with_heading), tta/perl/t/html_tests.t
 	(heading_node_after_chap, headings_nodes_before_chapter)

@@ -963,9 +963,6 @@ do_units_directions_pages (DOCUMENT *document,
 {
   size_t output_units_descriptor = 0;
   OUTPUT_UNIT_LIST *output_units = 0;
-  size_t *result = (size_t *) malloc (sizeof (size_t)
-                                 * (OUDT_external_nodes_units+1));
-  memset (result, 0, sizeof (size_t) * (OUDT_external_nodes_units+1));
 
   if (units_split == UST_node)
     output_units_descriptor = split_by_node (document);
@@ -1157,6 +1154,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
         }
     }
 
+  free_strings_list (&ou_directions);
   free (directions_text.text);
 
   return current_nr;
