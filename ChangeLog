@@ -1,5 +1,11 @@
 2025-03-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (is_diff): rename is_with_diff as is_diff.
+
+	* tta/perl/t/test_utils.pl: change in spacing.
+
+2025-03-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/19def.t (all_commands_printindex)
 	(all_commands_delimiters_printindex): add an @xrefname to avoid
 	association of the node with the @heading appearing later on.

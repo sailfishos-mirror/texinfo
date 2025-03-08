@@ -167,7 +167,7 @@ if (defined($locale_encoding)) {
   binmode $builder->todo_output,    ":encoding($locale_encoding)";
 }
 
-sub is_with_diff($$$)
+sub is_diff($$$)
 {
   my $result = shift;
   my $reference = shift;
@@ -797,7 +797,7 @@ sub test($$)
     if (!$self->{'generate'}) {
       SKIP: {
         skip "$test_name: $parser_options->{'skip'}", 1;
-        ok 1, $test_name;
+        ok(1, $test_name);
       }
     }
     return 1;
@@ -1400,19 +1400,17 @@ sub test($$)
     %result_converted = ();
     require "$srcdir/$file";
 
-    is_with_diff($tree_text, $result_tree_text{$test_name},
-                 $test_name.' tree');
+    is_diff($tree_text, $result_tree_text{$test_name}, $test_name.' tree');
 
-    is_with_diff($float_text, $result_floats{$test_name},
-                 $test_name.' floats');
+    is_diff($float_text, $result_floats{$test_name}, $test_name.' floats');
 
-    ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
-        $test_name.' errors');
+    ok(Data::Compare::Compare($errors, $result_errors{$test_name}),
+       $test_name.' errors');
 
-    is_with_diff($indices, $result_indices{$test_name}, $test_name.' indices');
-    is_with_diff($indices_sorted_sort_strings,
-                 $result_indices_sort_strings{$test_name},
-                 $test_name.' indices sort');
+    is_diff($indices, $result_indices{$test_name}, $test_name.' indices');
+    is_diff($indices_sorted_sort_strings,
+            $result_indices_sort_strings{$test_name},
+            $test_name.' indices sort');
 
     # NOTE either a PlainTexinfo converter or a direct call to
     # convert_to_texinfo can be used to test conversion to raw text,
@@ -1420,7 +1418,7 @@ sub test($$)
     # require less resources as there is no need to create a converter.
     my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
-    is_with_diff($texi_result, $result_texis{$test_name}, $test_name.' texi');
+    is_diff($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
         skip $todos{'text'}, 1;
@@ -1504,12 +1502,12 @@ sub test($$)
             if ($todos{$format}) {
               SKIP: {
                 skip $todos{$format}, 1;
-                ok (!defined($errors), $test_name.' converted '.$format)
-                  or diag (join("\n", @$errors));
+                ok(!defined($errors), $test_name.' converted '.$format)
+                  or diag(join("\n", @$errors));
               }
             } else {
-              ok (!defined($errors), $test_name.' converted '.$format)
-                or diag (join("\n", @$errors));
+              ok(!defined($errors), $test_name.' converted '.$format)
+                or diag(join("\n", @$errors));
             }
           } else {
             print STDERR "\n$format $test_name: \n$results_dir\n";
@@ -1533,19 +1531,19 @@ sub test($$)
                  $test_name.' converted '.$format);
             }
           } else {
-            is_with_diff($converted{$format},
-               $result_converted{$format}->{$test_name},
-               $test_name.' converted '.$format);
+            is_diff($converted{$format},
+                    $result_converted{$format}->{$test_name},
+                    $test_name.' converted '.$format);
           }
         }
         if ($reference_exists) {
           $tests_count += 1;
-          ok (((not defined($converted_errors{$format})
+          ok(((not defined($converted_errors{$format})
                and (not $result_converted_errors{$format}
                     or not $result_converted_errors{$format}->{$test_name}))
-               or Data::Compare::Compare($converted_errors{$format},
+              or Data::Compare::Compare($converted_errors{$format},
                               $result_converted_errors{$format}->{$test_name})),
-              $test_name.' errors '.$format);
+             $test_name.' errors '.$format);
         }
       }
     }
