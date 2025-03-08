@@ -1,3 +1,10 @@
+2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Disable clean-up at end of program
+
+	* tta/perl/texi2any.pl:
+	Comment out call to Texinfo::Document::remove_document.
+
 2025-03-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Info.pm (format_ref):
