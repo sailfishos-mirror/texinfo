@@ -1,5 +1,13 @@
 2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Bulk conversion of node names.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names):
+	New function to bulk convert node names in one go.
+	* tta/perl/Texinfo/Convert/Info.pm (output): Call it.
+
+2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Disable clean-up at end of program
 
 	* tta/perl/texi2any.pl:

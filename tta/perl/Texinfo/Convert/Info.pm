@@ -124,6 +124,8 @@ sub output($$)
   my $complete_header_bytes = $header_bytes;
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
 
+  $self->_cache_node_names($output_units);
+
   my $elements_images;
   if ($self->get_conf('INFO_MATH_IMAGES')) {
     require Texinfo::Convert::LaTeX;

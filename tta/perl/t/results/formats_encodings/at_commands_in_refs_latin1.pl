@@ -3850,6 +3850,13 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_latin1'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
+    'line_nr' => 93,
+    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
+',
     'line_nr' => 26,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -3880,13 +3887,6 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_latin1'} = [
 ',
     'line_nr' => 73,
     'text' => '@node name should not contain `,\': " " ` \' ,, ,',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 93,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
   },
   {

@@ -3850,6 +3850,13 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
   {
     'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
+    'line_nr' => 93,
+    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
+',
     'line_nr' => 26,
     'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
@@ -3866,13 +3873,6 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
 ",
     'line_nr' => 46,
     'text' => "\@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 93,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
     'type' => 'warning'
   },
   {
