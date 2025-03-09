@@ -207,9 +207,6 @@ const char *input_file_name_encoding (const OPTIONS *options,
 void wipe_index (INDEX *idx);
 void free_indices_info (INDEX_LIST *indices_info);
 
-/* in options_init_free.c */
-OPTION *get_command_option (OPTIONS *options, enum command_id cmd);
-
 void add_include_directory (const char *filename,
                             STRING_LIST *include_dirs_list);
 char *locate_include_file (const char *filename,

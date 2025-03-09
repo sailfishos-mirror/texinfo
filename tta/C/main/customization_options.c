@@ -34,7 +34,8 @@
 OPTIONS txi_base_options;
 OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
 COMMAND_OPTION_NUMBER_CMD txi_options_command_map[TXI_COMMAND_OPTIONS_NR];
-size_t txi_cmd_option_number[BUILTIN_CMD_NUMBER];
+
+static size_t txi_cmd_option_number[BUILTIN_CMD_NUMBER];
 
 
 /* functions to setup and use sorted options */

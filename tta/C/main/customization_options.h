@@ -30,9 +30,6 @@ extern OPTIONS txi_base_options;
 extern OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
 extern COMMAND_OPTION_NUMBER_CMD
          txi_options_command_map[TXI_COMMAND_OPTIONS_NR];
-/*
-extern size_t txi_cmd_option_number[BUILTIN_CMD_NUMBER];
- */
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);

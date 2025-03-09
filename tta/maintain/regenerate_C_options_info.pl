@@ -320,37 +320,6 @@ foreach my $command_name (@commands_order) {
 }
 print CODE "}\n\n";
 
-# associate commands to options
-#print CODE "#include \"command_ids.h\"\n\n";
-print CODE 'OPTION *
-get_command_option (OPTIONS *options,
-                    enum command_id cmd)
-{
-  switch (cmd)
-    {
-';
-
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if ($commands_options{$command}) {
-    my ($category, $value, $type) = @{$commands_options{$command}};
-    print CODE "    case CM_${command}:
-    {
-      return &options->${command};
-      break;
-    }\n";
-  }
-}
-
-print CODE "
-    default:
-      return 0;
-    }
-}\n\n";
-
 # table of defaults for options corresponding to commands
 print CODE "COMMAND_OPTION_VALUE command_option_default_table[] = {\n";
 
