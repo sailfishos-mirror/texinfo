@@ -1,3 +1,8 @@
+2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/texi2any.pl: Call Texinfo::Document::remove_document
+	only if TEST is set.  From Patrice.
+
 2025-03-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/converter.c (set_commands_options_value): add the

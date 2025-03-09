@@ -2260,8 +2260,13 @@ while(@input_files) {
 
   $converter->destroy();
  NEXT:
-  # This takes a lot of time and is unnecessary.
-  #Texinfo::Document::remove_document($document) if defined($document);
+  if (get_conf('TEST')) {
+    # This takes a lot of time and is unnecessary when there is
+    # only one input file as the program is about to exit.  Note that
+    # this cleanup is only possible while we still have the value of
+    # $document.
+    Texinfo::Document::remove_document($document) if defined($document);
+  }
 }
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {
