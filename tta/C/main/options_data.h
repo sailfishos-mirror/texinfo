@@ -16,6 +16,8 @@
 
 #define TXI_OPTIONS_NR 235
 
+#define TXI_COMMAND_OPTIONS_NR 44
+
 typedef struct OPTIONS {
     size_t BIT_user_function_number;
 

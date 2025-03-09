@@ -6,6 +6,7 @@
 
 #include "text.h"
 #include "command_ids.h"
+#include "option_types.h"
 #include "tree_types.h"
 #include "converter_types.h"
 
@@ -125,6 +126,9 @@ size_t new_converter (enum converter_format format);
 void set_converter_init_information (CONVERTER *converter,
                         const CONVERTER_INITIALIZATION_INFO *format_defaults,
                         const CONVERTER_INITIALIZATION_INFO *user_conf);
+
+void set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
+                                 OPTION **sorted_options);
 
 CONVERTER_INITIALIZATION_INFO *converter_defaults (
                     enum converter_format converter_format,

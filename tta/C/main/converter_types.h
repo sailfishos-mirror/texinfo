@@ -783,7 +783,7 @@ typedef struct CONVERTER {
     OPTIONS *conf;
     /* an array containing the fields of conf ordered by name */
     OPTION **sorted_options;
-    OPTIONS *init_conf;
+    COMMAND_OPTION_VALUE commands_init_conf[BUILTIN_CMD_NUMBER];
     OPTIONS *format_defaults_conf;
     EXPANDED_FORMAT *expanded_formats;
     TRANSLATED_COMMAND_LIST translated_commands;

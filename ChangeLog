@@ -1,3 +1,30 @@
+2025-03-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Converter.pm (_generic_converter_init)
+	(set_global_document_commands), tta/perl/Texinfo/Convert/HTML.pm
+	(_setup_output): rename output_init_conf converter key as
+	commands_init_conf and put commands only in it.  Remove
+	output_init_conf, reset commands_init_conf in HTML converter
+	_setup_output instead.
+
+	* tta/C/main/option_types.h (COMMAND_OPTION_VALUE),
+	tta/C/main/utils.h: rename COMMAND_OPTION_DEFAULT as
+	COMMAND_OPTION_VALUE and move to option_types.h.
+
+	* tta/maintain/regenerate_C_options_info.pl
+	(setup_options_command_map), tta/C/main/customization_options.c
+	(txi_options_command_map), tta/C/main/option_types.h
+	(COMMAND_OPTION_NUMBER_CMD): setup a mapping between options numbers
+	and associated commands id.
+
+	* tta/C/convert/converter.c (set_commands_options_value)
+	(get_command_option_value_option, command_init)
+	(free_generic_converter), tta/C/main/converter_types.h
+	(commands_init_conf): add commands_init_conf list mapping commands to
+	option values to CONVERTER.  Add set_commands_options_value to set
+	from options, also using txi_options_command_map.  Use in
+	command_init.  Remove init_conf field from CONVERTER.
+
 2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Cache result of parsing translated tree

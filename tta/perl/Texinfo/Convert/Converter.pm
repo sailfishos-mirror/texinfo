@@ -287,10 +287,15 @@ sub _generic_converter_init($$;$)
   }
 
   $converter->{'configured'} = {};
+  # customization options obtained from command-line for @-commands.
+  $converter->{'commands_init_conf'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
+        if (exists($Texinfo::Common::document_settable_at_commands{$key})) {
+          $converter->{'commands_init_conf'}->{$key} = $conf->{$key};
+        }
       } elsif (!exists($defaults{$key})) {
         my $class = ref($converter);
         warn "$class: $key not a possible configuration\n";
@@ -303,18 +308,6 @@ sub _generic_converter_init($$;$)
       $converter->{'configured'}->{$key} = 1;
     }
   }
-  # set $converter->{'converter_init_conf'} to the customization
-  # options obtained after setting the defaults and applying
-  # the customization passed as argument.
-  # FIXME no equivalent in C for HTML, as there is only an
-  # init_conf, which is overwritten in output, such that it corresponds
-  # better to output_init_conf.
-  # FIXME in C there is a full copy, except for Perl objects.
-  # It cannot be completly equivalent, but here a good equivalent
-  # would be deep copy of data and shallow copy of code references.
-  # The Clone module does that, but it is not a core module.
-  $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
-
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
   $converter->{'output_files'}
@@ -1238,13 +1231,7 @@ sub set_global_document_commands($$$)
   my $commands_location = shift;
   my $selected_commands = shift;
 
-  my $init_conf;
-  if (defined($self->{'output_init_conf'})) {
-    # use in priority the initial customization per output
-    $init_conf = $self->{'output_init_conf'};
-  } else {
-    $init_conf = $self->{'converter_init_conf'};
-  }
+  my $init_conf = $self->{'commands_init_conf'};
 
   if (not defined($selected_commands)) {
     die "set_global_document_commands: requires selected commands";

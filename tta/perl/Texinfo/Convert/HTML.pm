@@ -8838,7 +8838,7 @@ sub _load_htmlxref_files {
 #  all_directions          # determined parallelly in C
 #  deprecated_config_directories
 #
-#  output_init_conf
+#  commands_init_conf
 #
 #     API exists
 #  shared_conversion_state
@@ -13560,6 +13560,18 @@ sub _setup_output($)
     return undef;
   }
 
+  # the settable commands configuration has potentially been modified for
+  # this output file especially.  Update the corresponding initial
+  # configuration.
+  my $conf = $self->{'conf'};
+  foreach my $settable_command (
+         keys(%Texinfo::Common::document_settable_at_commands)) {
+    if (exists($conf->{$settable_command})) {
+      $self->{'commands_init_conf'}->{$settable_command}
+        = $conf->{$settable_command};
+    }
+  }
+
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $structure_preamble_document_language = $self->get_conf('documentlanguage');
@@ -13571,15 +13583,6 @@ sub _setup_output($)
   $self->set_global_document_commands('before', ['documentlanguage']);
 
   _init_conversion_after_setup_handler($self);
-
-  # the configuration has potentially been modified for
-  # this output file especially.  Set a corresponding initial
-  # configuration.
-  # FIXME in C there is a full copy, except for Perl objects.
-  # It cannot be completly equivalent, but here a good equivalent
-  # would be deep copy of data and shallow copy of code references.
-  # The Clone module does that, but it is not a core module.
-  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
   my $jslicenses = {};
   if ($self->get_conf('HTML_MATH')

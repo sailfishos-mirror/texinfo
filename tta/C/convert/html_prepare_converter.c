@@ -3824,7 +3824,8 @@ html_setup_output (CONVERTER *self, char **paths)
 
   init_conversion_after_setup_handler (self);
 
-  copy_options (self->init_conf, self->conf);
+  set_commands_options_value (self->commands_init_conf,
+                              self->sorted_options);
 
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))

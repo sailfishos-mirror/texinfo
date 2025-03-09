@@ -194,4 +194,16 @@ typedef struct OPTIONS_LIST {
     OPTION **sorted_options;
 } OPTIONS_LIST;
 
+typedef struct COMMAND_OPTION_NUMBER_CMD {
+    size_t option_number;
+    enum command_id cmd;
+} COMMAND_OPTION_NUMBER_CMD;
+
+/* definitions for table of defaults for options corresponding to commands */
+typedef struct COMMAND_OPTION_VALUE {
+    enum global_option_type type;
+    int value;
+    char *string;
+} COMMAND_OPTION_VALUE;
+
 #endif

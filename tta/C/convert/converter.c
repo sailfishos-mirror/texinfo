@@ -43,7 +43,7 @@
 #include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
-/* for COMMAND_OPTION_DEFAULT ACCENTS_STACK
+/* for ACCENTS_STACK
    fatal xasprintf get_command_option texinfo_input_file_basename ... */
 #include "utils.h"
 #include "customization_options.h"
@@ -200,6 +200,40 @@ set_generic_converter_options (OPTIONS *options)
   set_converter_common_regular_options_defaults (options);
 }
 
+/* FIXME set if undef too? */
+void
+set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
+                            OPTION **sorted_options)
+{
+  size_t i;
+
+  for (i = 0; i < TXI_COMMAND_OPTIONS_NR; i++)
+    {
+      const COMMAND_OPTION_NUMBER_CMD *option_nr_cmd
+        = &txi_options_command_map[i];
+      const OPTION *option = sorted_options[option_nr_cmd->option_number -1];
+      if (option->type == GOT_integer)
+        {
+          if (option->o.integer >= 0)
+            {
+              commands_init_conf[option_nr_cmd->cmd].type = option->type;
+              commands_init_conf[option_nr_cmd->cmd].value
+               = option->o.integer;
+            }
+        }
+      else if (option->type == GOT_char)
+        {
+          if (option->o.string)
+            {
+              commands_init_conf[option_nr_cmd->cmd].type = option->type;
+              free (commands_init_conf[option_nr_cmd->cmd].string);
+              commands_init_conf[option_nr_cmd->cmd].string
+                = strdup (option->o.string);
+            }
+        }
+    }
+}
+
 /* initialize the converter */
 /* corresponds to setting %all_converters_defaults in Perl */
 static void
@@ -209,8 +243,6 @@ init_generic_converter (CONVERTER *self)
   self->sorted_options = new_sorted_options (self->conf);
 
   set_generic_converter_options (self->conf);
-
-  self->init_conf = new_options ();
 
   self->expanded_formats = new_expanded_formats ();
 
@@ -337,12 +369,8 @@ set_converter_init_information (CONVERTER *converter,
   if (user_conf)
     apply_converter_info (converter, user_conf, 1);
 
-  /* in Perl sets converter_init_conf, but in C we use only one
-     structure for converter_init_conf and output_init_conf, which
-     is overwritten to set the similar values as output_init_conf
-     in specific converters.
-   */
-  copy_options (converter->init_conf, converter->conf);
+  set_commands_options_value (converter->commands_init_conf,
+                              converter->sorted_options);
 
   set_expanded_formats_from_options (converter->expanded_formats,
                                      converter->conf);
@@ -1010,36 +1038,41 @@ new_option_value (enum global_option_type type, int int_value, char *char_value)
   return result;
 }
 
+static OPTION *
+get_command_option_value_option (COMMAND_OPTION_VALUE *cmd_option_value)
+{
+  OPTION *option_value = 0;
+  if (cmd_option_value->type == GOT_integer)
+    {
+      if (cmd_option_value->value >= 0)
+        option_value = new_option_value (GOT_integer,
+                                         cmd_option_value->value, 0);
+    }
+  else if (cmd_option_value->type == GOT_char)
+    {
+      if (cmd_option_value->string)
+        option_value = new_option_value (GOT_char, -1,
+                                         cmd_option_value->string);
+    }
+  return option_value;
+}
+
 /* freed by caller.  Information in structure refers to other data, so
    should not be freed */
 static OPTION *
-command_init (enum command_id cmd, OPTIONS *init_conf)
+command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
 {
-  OPTION *init_conf_ref;
-  COMMAND_OPTION_DEFAULT *option_default;
   OPTION *option_value = 0;
-  if (init_conf)
+  if (commands_init_conf)
     {
-      init_conf_ref = get_command_option (init_conf, cmd);
-      if (init_conf_ref)
-        {
-          option_value = (OPTION *) malloc (sizeof (OPTION));
-          memcpy (option_value, init_conf_ref, sizeof (OPTION));
-          return option_value;
-        }
+      option_value
+        = get_command_option_value_option (&commands_init_conf[cmd]);
+      if (option_value)
+        return option_value;
     }
-  option_default = &command_option_default_table[cmd];
-  if (option_default->type == GOT_integer)
-    {
-      if (option_default->value >= 0)
-        option_value = new_option_value (GOT_integer, option_default->value, 0);
-    }
-  else if (option_default->type == GOT_char)
-    {
-      if (option_default->string)
-        option_value = new_option_value (GOT_char, -1, option_default->string);
-    }
-  return 0;
+  option_value
+    = get_command_option_value_option (&command_option_default_table[cmd]);
+  return option_value;
 }
 
 void
@@ -1054,7 +1087,7 @@ set_global_document_commands (CONVERTER *converter,
         {
           enum command_id cmd = cmd_list[i];
           OPTION *option_value = command_init (cmd,
-                                               converter->init_conf);
+                                               converter->commands_init_conf);
           if (option_value)
             {
               OPTION *option_ref
@@ -1089,7 +1122,7 @@ set_global_document_commands (CONVERTER *converter,
           if (!element)
             {
               OPTION *option_value = command_init (cmd,
-                                                   converter->init_conf);
+                                       converter->commands_init_conf);
               if (option_value)
                 {
                   OPTION *option_ref
@@ -1938,10 +1971,16 @@ free_generic_converter (CONVERTER *self)
 
   free (self->expanded_formats);
 
-  if (self->init_conf)
+  for (i = 0; i < TXI_COMMAND_OPTIONS_NR; i++)
     {
-      free_options (self->init_conf);
-      free (self->init_conf);
+      const COMMAND_OPTION_NUMBER_CMD *option_nr_cmd
+        = &txi_options_command_map[i];
+      const OPTION *option
+        = self->sorted_options[option_nr_cmd->option_number -1];
+      if (option->type == GOT_char)
+        {
+          free (self->commands_init_conf[option_nr_cmd->cmd].string);
+        }
     }
 
   if (self->sorted_options)

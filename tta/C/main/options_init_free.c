@@ -8,8 +8,6 @@
 #include "option_types.h"
 #include "options_data.h"
 #include "converter_types.h"
-/* for COMMAND_OPTION_DEFAULT */
-#include "utils.h"
 #include "customization_options.h"
 void
 initialize_options (OPTIONS *options)
@@ -1325,6 +1323,100 @@ setup_sortable_options (OPTION **to_sort, OPTIONS *options)
 
 #include "command_ids.h"
 
+void
+setup_options_command_map (COMMAND_OPTION_NUMBER_CMD *options_command_map,
+                           const OPTIONS *options)
+{
+  options_command_map[0].option_number = options->afivepaper.number;
+  options_command_map[0].cmd = CM_afivepaper;    /* (unique_at_command) */
+  options_command_map[1].option_number = options->afourlatex.number;
+  options_command_map[1].cmd = CM_afourlatex;    /* (unique_at_command) */
+  options_command_map[2].option_number = options->afourpaper.number;
+  options_command_map[2].cmd = CM_afourpaper;    /* (unique_at_command) */
+  options_command_map[3].option_number = options->afourwide.number;
+  options_command_map[3].cmd = CM_afourwide;    /* (unique_at_command) */
+  options_command_map[4].option_number = options->allowcodebreaks.number;
+  options_command_map[4].cmd = CM_allowcodebreaks;    /* (multiple_at_command) */
+  options_command_map[5].option_number = options->bsixpaper.number;
+  options_command_map[5].cmd = CM_bsixpaper;    /* (unique_at_command) */
+  options_command_map[6].option_number = options->clickstyle.number;
+  options_command_map[6].cmd = CM_clickstyle;    /* (multiple_at_command) */
+  options_command_map[7].option_number = options->codequotebacktick.number;
+  options_command_map[7].cmd = CM_codequotebacktick;    /* (multiple_at_command) */
+  options_command_map[8].option_number = options->codequoteundirected.number;
+  options_command_map[8].cmd = CM_codequoteundirected;    /* (multiple_at_command) */
+  options_command_map[9].option_number = options->contents.number;
+  options_command_map[9].cmd = CM_contents;    /* (multiple_at_command) */
+  options_command_map[10].option_number = options->deftypefnnewline.number;
+  options_command_map[10].cmd = CM_deftypefnnewline;    /* (multiple_at_command) */
+  options_command_map[11].option_number = options->documentdescription.number;
+  options_command_map[11].cmd = CM_documentdescription;    /* (unique_at_command) */
+  options_command_map[12].option_number = options->documentencoding.number;
+  options_command_map[12].cmd = CM_documentencoding;    /* (multiple_at_command) */
+  options_command_map[13].option_number = options->documentlanguage.number;
+  options_command_map[13].cmd = CM_documentlanguage;    /* (multiple_at_command) */
+  options_command_map[14].option_number = options->evenfooting.number;
+  options_command_map[14].cmd = CM_evenfooting;    /* (multiple_at_command) */
+  options_command_map[15].option_number = options->evenfootingmarks.number;
+  options_command_map[15].cmd = CM_evenfootingmarks;    /* (unique_at_command) */
+  options_command_map[16].option_number = options->evenheading.number;
+  options_command_map[16].cmd = CM_evenheading;    /* (multiple_at_command) */
+  options_command_map[17].option_number = options->evenheadingmarks.number;
+  options_command_map[17].cmd = CM_evenheadingmarks;    /* (unique_at_command) */
+  options_command_map[18].option_number = options->everyfooting.number;
+  options_command_map[18].cmd = CM_everyfooting;    /* (multiple_at_command) */
+  options_command_map[19].option_number = options->everyfootingmarks.number;
+  options_command_map[19].cmd = CM_everyfootingmarks;    /* (unique_at_command) */
+  options_command_map[20].option_number = options->everyheading.number;
+  options_command_map[20].cmd = CM_everyheading;    /* (multiple_at_command) */
+  options_command_map[21].option_number = options->everyheadingmarks.number;
+  options_command_map[21].cmd = CM_everyheadingmarks;    /* (unique_at_command) */
+  options_command_map[22].option_number = options->exampleindent.number;
+  options_command_map[22].cmd = CM_exampleindent;    /* (multiple_at_command) */
+  options_command_map[23].option_number = options->firstparagraphindent.number;
+  options_command_map[23].cmd = CM_firstparagraphindent;    /* (multiple_at_command) */
+  options_command_map[24].option_number = options->fonttextsize.number;
+  options_command_map[24].cmd = CM_fonttextsize;    /* (unique_at_command) */
+  options_command_map[25].option_number = options->footnotestyle.number;
+  options_command_map[25].cmd = CM_footnotestyle;    /* (unique_at_command) */
+  options_command_map[26].option_number = options->frenchspacing.number;
+  options_command_map[26].cmd = CM_frenchspacing;    /* (multiple_at_command) */
+  options_command_map[27].option_number = options->headings.number;
+  options_command_map[27].cmd = CM_headings;    /* (multiple_at_command) */
+  options_command_map[28].option_number = options->kbdinputstyle.number;
+  options_command_map[28].cmd = CM_kbdinputstyle;    /* (multiple_at_command) */
+  options_command_map[29].option_number = options->microtype.number;
+  options_command_map[29].cmd = CM_microtype;    /* (multiple_at_command) */
+  options_command_map[30].option_number = options->novalidate.number;
+  options_command_map[30].cmd = CM_novalidate;    /* (unique_at_command) */
+  options_command_map[31].option_number = options->oddfooting.number;
+  options_command_map[31].cmd = CM_oddfooting;    /* (multiple_at_command) */
+  options_command_map[32].option_number = options->oddfootingmarks.number;
+  options_command_map[32].cmd = CM_oddfootingmarks;    /* (unique_at_command) */
+  options_command_map[33].option_number = options->oddheading.number;
+  options_command_map[33].cmd = CM_oddheading;    /* (multiple_at_command) */
+  options_command_map[34].option_number = options->oddheadingmarks.number;
+  options_command_map[34].cmd = CM_oddheadingmarks;    /* (unique_at_command) */
+  options_command_map[35].option_number = options->pagesizes.number;
+  options_command_map[35].cmd = CM_pagesizes;    /* (unique_at_command) */
+  options_command_map[36].option_number = options->paragraphindent.number;
+  options_command_map[36].cmd = CM_paragraphindent;    /* (multiple_at_command) */
+  options_command_map[37].option_number = options->setchapternewpage.number;
+  options_command_map[37].cmd = CM_setchapternewpage;    /* (unique_at_command) */
+  options_command_map[38].option_number = options->setfilename.number;
+  options_command_map[38].cmd = CM_setfilename;    /* (unique_at_command) */
+  options_command_map[39].option_number = options->shortcontents.number;
+  options_command_map[39].cmd = CM_shortcontents;    /* (multiple_at_command) */
+  options_command_map[40].option_number = options->smallbook.number;
+  options_command_map[40].cmd = CM_smallbook;    /* (unique_at_command) */
+  options_command_map[41].option_number = options->summarycontents.number;
+  options_command_map[41].cmd = CM_summarycontents;    /* (multiple_at_command) */
+  options_command_map[42].option_number = options->urefbreakstyle.number;
+  options_command_map[42].cmd = CM_urefbreakstyle;    /* (multiple_at_command) */
+  options_command_map[43].option_number = options->xrefautomaticsectiontitle.number;
+  options_command_map[43].cmd = CM_xrefautomaticsectiontitle;    /* (multiple_at_command) */
+}
+
 OPTION *
 get_command_option (OPTIONS *options,
                     enum command_id cmd)
@@ -1557,7 +1649,7 @@ get_command_option (OPTIONS *options,
     }
 }
 
-COMMAND_OPTION_DEFAULT command_option_default_table[] = {
+COMMAND_OPTION_VALUE command_option_default_table[] = {
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},
 {GOT_NONE, -2, 0},

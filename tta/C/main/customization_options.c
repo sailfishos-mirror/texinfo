@@ -20,6 +20,7 @@
 
 #include "option_types.h"
 #include "options_data.h"
+#include "command_ids.h"
 #include "converter_types.h"
 #include "options_defaults.h"
 #include "api_to_perl.h"
@@ -31,6 +32,8 @@
 
 OPTIONS txi_base_options;
 OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
+COMMAND_OPTION_NUMBER_CMD txi_options_command_map[TXI_COMMAND_OPTIONS_NR];
+
 
 /* functions to setup and use sorted options */
 
@@ -94,6 +97,7 @@ txi_initialise_base_options (void)
   initialize_options (&txi_base_options);
   set_all_options_defaults (&txi_base_options);
   setup_sorted_options (txi_base_sorted_options, &txi_base_options);
+  setup_options_command_map (txi_options_command_map, &txi_base_options);
 }
 
 

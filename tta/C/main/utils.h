@@ -104,14 +104,7 @@ typedef struct DEF_ALIAS {
 
 extern DEF_ALIAS def_aliases[];
 
-/* definitions for table of defaults for options corresponding to commands */
-typedef struct COMMAND_OPTION_DEFAULT {
-    enum global_option_type type;
-    int value;
-    char *string;
-} COMMAND_OPTION_DEFAULT;
-
-extern COMMAND_OPTION_DEFAULT command_option_default_table[];
+extern COMMAND_OPTION_VALUE command_option_default_table[];
 
 #define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\

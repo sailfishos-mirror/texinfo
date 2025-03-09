@@ -192,6 +192,8 @@ print HEADER "#undef PACKAGE_URL\n";
 print HEADER "#undef PACKAGE_VERSION\n\n";
 
 print HEADER "#define TXI_OPTIONS_NR $options_nr\n\n";
+print HEADER "#define TXI_COMMAND_OPTIONS_NR "
+               .scalar(keys(%commands_options))."\n\n";
 
 print HEADER "typedef struct OPTIONS {\n";
 print HEADER "    size_t BIT_user_function_number;\n";
@@ -221,8 +223,6 @@ print CODE '#include <string.h>'."\n\n";
 print CODE '#include "option_types.h"'."\n";
 print CODE '#include "options_data.h"'."\n";
 print CODE '#include "converter_types.h"'."\n";
-print CODE '/* for COMMAND_OPTION_DEFAULT */'."\n";
-print CODE '#include "utils.h"'."\n";
 print CODE '#include "customization_options.h"'."\n";
 
 print CODE "void\ninitialize_options (OPTIONS *options)\n{\n";
@@ -295,8 +295,32 @@ foreach my $option (@sorted_options) {
 print CODE "}\n\n\n";
 
 
-# associate commands to options
+# associate options to commands
 print CODE "#include \"command_ids.h\"\n\n";
+
+# options_command_map is TXI_OPTIONS_NR in main/options_data.h
+print CODE 'void
+setup_options_command_map (COMMAND_OPTION_NUMBER_CMD *options_command_map,
+                           const OPTIONS *options)
+{
+';
+my $option_cmd_index = 0;
+foreach my $command_name (@commands_order) {
+  my $command = $command_name;
+  if (exists($name_commands{$command_name})) {
+    $command = $name_commands{$command_name};
+  }
+  if ($commands_options{$command}) {
+    my ($category, $value, $type) = @{$commands_options{$command}};
+    print CODE "  options_command_map[${option_cmd_index}].option_number = options->${command}.number;\n";
+    print CODE "  options_command_map[${option_cmd_index}].cmd = CM_${command};    /* ($category) */\n";
+    $option_cmd_index++;
+  }
+}
+print CODE "}\n\n";
+
+# associate commands to options
+#print CODE "#include \"command_ids.h\"\n\n";
 print CODE 'OPTION *
 get_command_option (OPTIONS *options,
                     enum command_id cmd)
@@ -327,7 +351,7 @@ print CODE "
 }\n\n";
 
 # table of defaults for options corresponding to commands
-print CODE "COMMAND_OPTION_DEFAULT command_option_default_table[] = {\n";
+print CODE "COMMAND_OPTION_VALUE command_option_default_table[] = {\n";
 
 sub get_value($$)
 {
