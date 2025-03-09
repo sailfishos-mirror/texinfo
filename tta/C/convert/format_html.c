@@ -5557,7 +5557,7 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
           int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
           const OPTION *contents_option_ref
-                           = get_command_option (self->conf, cmd);
+            = get_converter_command_option (self->sorted_options, cmd);
           if (contents_option_ref->o.integer > 0)
             contents_set = 1;
           if (contents_set)
@@ -7226,7 +7226,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
           int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
           const OPTION *contents_option_ref
-                 = get_command_option (self->conf, cmd);
+            = get_converter_command_option (self->sorted_options, cmd);
           if (contents_option_ref->o.integer > 0)
             contents_set = 1;
           if (contents_set)
@@ -10810,7 +10810,7 @@ html_convert_informative_command (CONVERTER *self, const enum command_id cmd,
   if (html_in_string (self))
     return;
 
-  set_informative_command_value (self->conf, element);
+  set_informative_command_value (self->sorted_options, element);
 }
 
 void
@@ -10829,7 +10829,7 @@ html_convert_contents_command (CONVERTER *self, const enum command_id cmd,
   else
     used_cmd = cmd;
 
-  set_informative_command_value (self->conf, element);
+  set_informative_command_value (self->sorted_options, element);
 
   if (self->conf->CONTENTS_OUTPUT_LOCATION.o.string
       && !strcmp (self->conf->CONTENTS_OUTPUT_LOCATION.o.string, "inline")

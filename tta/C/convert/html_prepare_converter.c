@@ -3959,7 +3959,8 @@ prepare_special_units (CONVERTER *self, size_t output_units_descriptor)
         {
           int contents_set = 0;
           enum command_id cmd = contents_cmds[i];
-          OPTION *contents_option_ref = get_command_option (self->conf, cmd);
+          const OPTION *contents_option_ref
+            = get_converter_command_option (self->sorted_options, cmd);
           if (contents_option_ref->o.integer > 0)
             contents_set = 1;
           if (contents_set)

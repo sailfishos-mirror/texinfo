@@ -17,6 +17,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 #include "option_types.h"
 #include "options_data.h"
@@ -33,6 +34,7 @@
 OPTIONS txi_base_options;
 OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
 COMMAND_OPTION_NUMBER_CMD txi_options_command_map[TXI_COMMAND_OPTIONS_NR];
+size_t txi_cmd_option_number[BUILTIN_CMD_NUMBER];
 
 
 /* functions to setup and use sorted options */
@@ -94,10 +96,16 @@ find_option_string (OPTION **sorted_options, const char *name)
 void
 txi_initialise_base_options (void)
 {
+  size_t i;
+
   initialize_options (&txi_base_options);
   set_all_options_defaults (&txi_base_options);
   setup_sorted_options (txi_base_sorted_options, &txi_base_options);
   setup_options_command_map (txi_options_command_map, &txi_base_options);
+
+  for (i = 0; i < TXI_COMMAND_OPTIONS_NR; i++)
+    txi_cmd_option_number[txi_options_command_map[i].cmd]
+      = txi_options_command_map[i].option_number;
 }
 
 
@@ -655,8 +663,23 @@ show_options_list_options_set (OPTIONS_LIST *options_list)
 
 /* misc other functions */
 
+OPTION *
+get_converter_command_option (OPTION **sorted_options, enum command_id cmd)
+{
+  OPTION *result = 0;
+  size_t option_number = txi_cmd_option_number[cmd];
+
+  if (option_number)
+    {
+      result = sorted_options[option_number -1];
+    }
+
+  return result;
+}
+
 void
-set_informative_command_value (OPTIONS *options, const ELEMENT *element)
+set_informative_command_value (OPTION **sorted_options,
+                               const ELEMENT *element)
 {
   const char *value = 0;
 
@@ -669,7 +692,7 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
       if (cmd == CM_summarycontents)
         cmd = CM_shortcontents;
 
-      option = get_command_option (options, cmd);
+      option = get_converter_command_option (sorted_options, cmd);
       if (option)
         {
           int int_value = -1;
@@ -686,7 +709,8 @@ set_informative_command_value (OPTIONS *options, const ELEMENT *element)
   and associated customization variables are not set/reset either.
  */
 const ELEMENT *
-set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
+set_global_document_command (GLOBAL_COMMANDS *global_commands,
+                             OPTION **sorted_options,
                              enum command_id cmd,
                              enum command_location command_location)
 {
@@ -694,7 +718,7 @@ set_global_document_command (GLOBAL_COMMANDS *global_commands, OPTIONS *options,
      = get_global_document_command (global_commands, cmd,
                                     command_location);
   if (element)
-    set_informative_command_value (options, element);
+    set_informative_command_value (sorted_options, element);
   return element;
 }
 

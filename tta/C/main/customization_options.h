@@ -17,6 +17,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include <stddef.h>
+
 #include "option_types.h"
 #include "options_data.h"
 #include "command_ids.h"
@@ -28,6 +30,9 @@ extern OPTIONS txi_base_options;
 extern OPTION *txi_base_sorted_options[TXI_OPTIONS_NR];
 extern COMMAND_OPTION_NUMBER_CMD
          txi_options_command_map[TXI_COMMAND_OPTIONS_NR];
+/*
+extern size_t txi_cmd_option_number[BUILTIN_CMD_NUMBER];
+ */
 
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);
@@ -88,9 +93,12 @@ char *show_options_list_options_set (OPTIONS_LIST *options_list);
 
 
 
-void set_informative_command_value (OPTIONS *options, const ELEMENT *element);
+OPTION *get_converter_command_option (OPTION **sorted_options,
+                                      enum command_id cmd);
+void set_informative_command_value (OPTION **sorted_options,
+                                    const ELEMENT *element);
 const ELEMENT *set_global_document_command (GLOBAL_COMMANDS *global_commands,
-                             OPTIONS *options, enum command_id cmd,
+                             OPTION **sorted_options, enum command_id cmd,
                              enum command_location command_location);
 
 

@@ -44,7 +44,7 @@
 #include "tree.h"
 #include "extra.h"
 /* for ACCENTS_STACK
-   fatal xasprintf get_command_option texinfo_input_file_basename ... */
+   fatal xasprintf texinfo_input_file_basename ... */
 #include "utils.h"
 #include "customization_options.h"
 #include "errors.h"
@@ -1098,7 +1098,7 @@ set_global_document_commands (CONVERTER *converter,
           if (option_value)
             {
               OPTION *option_ref
-               = get_command_option (converter->conf, cmd);
+               = get_converter_command_option (converter->sorted_options, cmd);
               if (!(option_ref->flags & OF_configured))
                 copy_option (option_ref, option_value);
               free (option_value);
@@ -1123,7 +1123,7 @@ set_global_document_commands (CONVERTER *converter,
               element
                 = set_global_document_command (
                                      &converter->document->global_commands,
-                                         converter->conf,
+                                         converter->sorted_options,
                                          cmd, location);
             }
           if (!element)
@@ -1133,7 +1133,8 @@ set_global_document_commands (CONVERTER *converter,
               if (option_value)
                 {
                   OPTION *option_ref
-                    = get_command_option (converter->conf, cmd);
+                    = get_converter_command_option (converter->sorted_options,
+                                                    cmd);
                   if (!(option_ref->flags & OF_configured))
                     copy_option (option_ref, option_value);
                   free (option_value);

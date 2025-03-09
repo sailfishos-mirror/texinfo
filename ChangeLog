@@ -1,5 +1,22 @@
 2025-03-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/customization_options.c (txi_cmd_option_number)
+	(txi_initialise_base_options): add txi_cmd_option_number array that
+	associate command ids to option numbers.
+
+	* tta/C/main/customization_options.c (get_converter_command_option)
+	(set_informative_command_value, set_global_document_command),
+	tta/C/convert/converter.c (set_global_document_commands),
+	tta/C/convert/format_html.c (contents_shortcontents_in_title)
+	(html_convert_heading_command, html_convert_informative_command)
+	(html_convert_contents_command), tta/C/convert/html_prepare_converter.c
+	(prepare_special_units): add get_converter_command_option that uses
+	txi_cmd_option_number to locate an option.  Replace get_command_option
+	calls by get_converter_command_option calls.  Pass sorted options to
+	set_global_document_command and set_informative_command_value.
+
+2025-03-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_init_options.c
 	(html_default_options_setup, html_default_options)
 	(html_converter_defaults), tta/C/convert/html_prepare_converter.c
