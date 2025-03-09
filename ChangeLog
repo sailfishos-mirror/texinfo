@@ -1,5 +1,14 @@
 2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Cache result of parsing translated tree
+
+	* tta/perl/Texinfo/Translations.pm (_replace_convert_substrings):
+	Save result of parsing translated string in a hash and reuse with
+	dclone whenever needed.  This dramatically reduces the amount
+	of times we need to parse translated strings.
+
+2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Cache translation results
 
 	* tta/perl/Texinfo/Translations.pm (translate_string):

@@ -37,6 +37,8 @@ use Locale::Messages;
 # for __()
 use Texinfo::Common;
 
+use Storable qw(dclone);
+
 # note that there is a circular dependency with the parser module, as
 # the parser uses complete_indices() from this modules, while this module
 # uses a parser.  This is not problematic, however, as the
@@ -335,6 +337,8 @@ sub _replace_substrings($;$)
   return $translation_result;
 }
 
+our %cached_translation_trees;
+
 sub _replace_convert_substrings($;$$)
 {
   my $translated_string = shift;
@@ -342,6 +346,14 @@ sub _replace_convert_substrings($;$$)
   my $debug_level = shift;
 
   my $texinfo_line = $translated_string;
+
+  my $tree;
+  if (defined($cached_translation_trees{$translated_string})) {
+    # No need to convert this more than once as we should get the same
+    # every time.
+    $tree = dclone($cached_translation_trees{$translated_string});
+    goto have_tree;
+  }
 
   # we change the substituted brace-enclosed strings to internal
   # values marked by @txiinternalvalue such that their location
@@ -376,7 +388,7 @@ sub _replace_convert_substrings($;$$)
     print STDERR "IN TR PARSER '$texinfo_line'\n";
   }
 
-  my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
+  $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
   my ($errors, $errors_count) = $parser->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
@@ -386,6 +398,9 @@ sub _replace_convert_substrings($;$$)
       warn $error_message->{'error_line'};
     }
   }
+ $cached_translation_trees{$translated_string} = dclone($tree);
+
+ have_tree:
   $tree = _substitute($tree, $replaced_substrings);
   if ($debug_level) {
     print STDERR "RESULT GDT: '".
