@@ -3646,18 +3646,20 @@ on a line of its own.
 @nodedescription Nodes outside the main document structure.
 @section Unstructured Nodes
 
-@cindex unstructured nodes
+@cindex Unstructured nodes
 All the examples of nodes in this chapter so far have used a @code{@@node}
 line followed by a structuring command (such as @code{@@chapter}).
 
-@cindex topic-oriented documentation
+@c @cindex Topic-oriented documentation
 However, you can also create nodes without using a structuring command.
 You may find this useful if you do not want your manual (or parts of
 a manual) to have a hierarchical structure, with chapters superior to
-sections, sections superior to sub-sections and so on.  This unstructured
-style of documentation is known as @dfn{topic-oriented documentation}.
+sections, sections superior to sub-sections and so on.
+
 @c comment this out until we know if we properly support this style
 @c of documentation in Texinfo.
+@c This unstructured
+@c style of documentation is known as @dfn{topic-oriented documentation},
 @c notably used by the DITA and Mallard systems.
 
 To do this, follow the @code{@@node} line with one of the heading commands.

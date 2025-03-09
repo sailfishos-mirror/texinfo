@@ -1,5 +1,10 @@
 2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Unstructured Nodes): Comment out discussion
+	of topic-oriented documentation.  From Patrice.
+
+2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Unstructured Nodes): New node.
 	(Command List): Add @xrefname.
 	* NEWS: Update.
