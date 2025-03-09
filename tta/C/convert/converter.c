@@ -367,15 +367,6 @@ set_converter_init_information (CONVERTER *converter,
   if (format_defaults)
     {
       apply_converter_info (converter, format_defaults, 0);
-
-      /* Also keep format_defaults options as an OPTIONS structure */
-      /* TODO not done in Perl.  Used in later codes, so probably done
-         differently, to be checked, maybe linked with the comment
-         just below on converter_init_conf.
-        */
-      converter->format_defaults_conf = new_options ();
-      copy_options (converter->format_defaults_conf,
-                    format_defaults->conf.options);
     }
 
   if (user_conf)
@@ -2006,12 +1997,6 @@ free_generic_converter (CONVERTER *self)
     {
       free_options (self->conf);
       free (self->conf);
-    }
-
-  if (self->format_defaults_conf)
-    {
-      free_options (self->format_defaults_conf);
-      free (self->format_defaults_conf);
     }
 
   if (self->convert_index_text_options)

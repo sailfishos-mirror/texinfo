@@ -15,6 +15,7 @@
 
 #include <config.h>
 
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -185,6 +186,22 @@ add_texi2html_default_buttons_specifications (OPTIONS_LIST *options,
       new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 }
 
+/* equivalent of Texinfo::Convert::HTML %defaults */
+OPTIONS_LIST *html_default_options;
+
+/* Should be called once */
+void
+html_default_options_setup (void)
+{
+  if (!html_default_options)
+    {
+      html_default_options = (OPTIONS_LIST *) malloc (sizeof (OPTIONS_LIST));
+      initialize_options_list (html_default_options);
+      add_html_converter_regular_options_defaults (html_default_options);
+      add_html_default_buttons_specifications (html_default_options, 0);
+    }
+}
+
 CONVERTER_INITIALIZATION_INFO *
 html_converter_defaults (enum converter_format format,
                          const CONVERTER_INITIALIZATION_INFO *conf)
@@ -192,9 +209,7 @@ html_converter_defaults (enum converter_format format,
   CONVERTER_INITIALIZATION_INFO *format_defaults
     = new_converter_initialization_info ();
 
-  add_html_converter_regular_options_defaults (&format_defaults->conf);
-
-  add_html_default_buttons_specifications (&format_defaults->conf, 0);
+  copy_options_list (&format_defaults->conf, html_default_options);
 
   if (conf)
     {

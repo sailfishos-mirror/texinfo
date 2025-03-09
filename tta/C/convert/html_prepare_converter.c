@@ -289,6 +289,8 @@ html_format_setup (void)
   CSS_SELECTOR_STYLE *css_selector_style;
   TEXT css_string_text;
 
+  html_default_options_setup ();
+
   const enum command_id indented_format[] = {
     CM_example, CM_display, CM_lisp, 0
   };
@@ -1492,7 +1494,7 @@ html_converter_initialize_beginning (CONVERTER *self)
 
   if (max_header_level < 0)
     option_force_conf (&self->conf->MAX_HEADER_LEVEL,
-                  self->format_defaults_conf->MAX_HEADER_LEVEL.o.integer, 0);
+                 html_default_options->options->MAX_HEADER_LEVEL.o.integer, 0);
   else if (max_header_level < 1)
     option_force_conf (&self->conf->MAX_HEADER_LEVEL, 1, 0);
 

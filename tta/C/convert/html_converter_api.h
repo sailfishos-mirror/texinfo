@@ -21,6 +21,7 @@
 
 #include "document_types.h"
 #include "converter_types.h"
+#include "option_types.h"
 
 /* in html_prepare_converter.c */
 void html_format_setup (void);

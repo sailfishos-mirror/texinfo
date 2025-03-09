@@ -19,8 +19,21 @@ and in texinfo.texi
 
 document command_name in texi2any HTML customization API
 
-convert/converter.c
-TODO not done in Perl.  Used in later codes, so probably done
+Check if the following commits should also be relevant/needed for C
+
+https://git.savannah.gnu.org/cgit/texinfo.git/commit/?id=b2e2744c1ec3a5824f7948fafeb6aa9705730798
+Cache translation results
+* tta/perl/Texinfo/Translations.pm (translate_string):
+Store results of conversions in a hash rather than calling
+gettext every time (and all the messing about with locales
+that we do before and after).
+
+https://git.savannah.gnu.org/cgit/texinfo.git/commit/?id=8b7305b5067974317dfd5e102f648c1213f566bd
+Cache result of parsing translated tree
+* tta/perl/Texinfo/Translations.pm (_replace_convert_substrings):
+Save result of parsing translated string in a hash and reuse with
+dclone whenever needed.  This dramatically reduces the amount
+of times we need to parse translated strings.
 
 
 Bugs

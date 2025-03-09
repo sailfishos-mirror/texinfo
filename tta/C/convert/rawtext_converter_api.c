@@ -29,7 +29,7 @@
 #include "convert_to_text.h"
 /* set_output_encoding */
 #include "document.h"
-/* set_converter_init_information */
+/* apply_converter_info create_destination_directory write_or_return */
 #include "converter.h"
 /* encoded_output_file_name */
 #include "convert_utils.h"

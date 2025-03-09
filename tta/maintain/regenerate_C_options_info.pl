@@ -269,6 +269,7 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "}\n\n";
 
+# NOTE the generated function is not used for now
 print CODE "void\ncopy_options (OPTIONS *destination, const OPTIONS *source)\n{\n";
 print CODE "  destination->BIT_user_function_number = source->BIT_user_function_number;\n";
 foreach my $category (sort(keys(%option_categories))) {

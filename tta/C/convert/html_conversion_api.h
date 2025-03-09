@@ -25,11 +25,17 @@
 #include "document_types.h"
 #include "converter_types.h"
 
+/* in html_converter_init_options.c */
+extern OPTIONS_LIST *html_default_options;
+
 /* in html_prepare_converter.c */
 void html_converter_initialize_beginning (CONVERTER *self);
 void html_converter_init_special_unit (CONVERTER *self);
 int html_set_main_units_direction_names (CONVERTER *self);
 void html_converter_customize (CONVERTER *self);
+
+/* in html_converter_init_options.c */
+void html_default_options_setup (void);
 
 /* in options_init_free.c */
 void html_fill_options_directions (OPTIONS *options, const CONVERTER *converter);
