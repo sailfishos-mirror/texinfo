@@ -1,5 +1,11 @@
 2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Unstructured Nodes): New node.
+	(Command List): Add @xrefname.
+	* NEWS: Update.
+
+2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/texi2any.pl: Call Texinfo::Document::remove_document
 	only if TEST is set.  From Patrice.
 

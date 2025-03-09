@@ -3642,6 +3642,61 @@ Write each @code{@@raisesections} and @code{@@lowersections} command
 on a line of its own.
 
 
+@node Unstructured Nodes
+@nodedescription Nodes outside the main document structure.
+@section Unstructured Nodes
+
+@cindex unstructured nodes
+All the examples of nodes in this chapter so far have used a @code{@@node}
+line followed by a structuring command (such as @code{@@chapter}).
+
+@cindex topic-oriented documentation
+However, you can also create nodes without using a structuring command.
+You may find this useful if you do not want your manual (or parts of
+a manual) to have a hierarchical structure, with chapters superior to
+sections, sections superior to sub-sections and so on.  This unstructured
+style of documentation is known as @dfn{topic-oriented documentation}.
+@c comment this out until we know if we properly support this style
+@c of documentation in Texinfo.
+@c notably used by the DITA and Mallard systems.
+
+To do this, follow the @code{@@node} line with one of the heading commands.
+For example:
+
+@example
+@@node Topic
+@@heading All about the Topic
+@dots{}
+@end example
+
+The argument to the heading command will be printed as usual.  When
+the @code{xrefautomaticsectiontitle} flag is on
+(@pxref{@code{xrefautomaticsectiontitle}}), this argument will also be
+used as the text for any cross-references to the node.
+
+Such nodes are not part of a hierarchical document structure.  This means
+that they are not listed in any table of contents, and automatic
+node direction pointers (@samp{Next}, @samp{Prev} or @samp{Up};
+@pxref{Writing a Node}) do not link to or from these nodes.
+
+@findex xrefname
+If you wish to create an unstructured node @emph{without} printing
+a heading at the start, you can use the @code{@@xrefname} command in
+place of the heading command.  For example:
+
+@example
+@@node Topic
+@@xrefname All about the Topic
+@dots{}
+@end example
+
+The @code{@@xrefname} command provides the text for cross-references to
+the node when the @code{xrefautomaticsectiontitle} flag is on, so
+@samp{@@xref@{Topic@}} would produce output like ``See `All about the
+Topic@w{'}''.
+
+
+
 @node Cross References
 @nodedescription Writing cross-references.
 @chapter Cross-references
@@ -3974,6 +4029,7 @@ same (or nearly so), and with the first and third arguments only if the
 node name and title are different.
 
 @findex xrefautomaticsectiontitle
+@anchor{@code{xrefautomaticsectiontitle}}
 Texinfo offers a setting to use the section title instead of node
 names by default in cross-references (an explicitly specified third
 argument still takes precedence):
@@ -20879,6 +20935,11 @@ required arguments.  @xref{@code{@@xref}}.
 @item @@xrefautomaticsectiontitle @var{on-off}
 By default, use the section title instead of the node name in cross
 references, including in node headers in HTML.  @xref{Three Arguments}.
+
+@item @@xrefname @var{xref-name}
+Use immediately after a @code{@@node} line to provide text for linking
+to that node when @code{xrefautomaticsectiontitle} is on, without
+printing a heading.  @xref{Unstructured Nodes}.
 
 @end table
 
