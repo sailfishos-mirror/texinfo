@@ -1,3 +1,12 @@
+2025-03-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Cache translation results
+
+	* tta/perl/Texinfo/Translations.pm (translate_string):
+	Store results of conversions in a hash rather than calling
+	gettext every time (and all the messing about with locales
+	that we do before and after).
+
 2025-03-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_cache_node_names):

@@ -155,6 +155,11 @@ sub _switch_messages_locale
   }
 }
 
+# Cache translations in a hash to avoid having to go through the locale
+# system rigmarole every time.
+our %translation_cache;
+our %translation_cache_context;
+
 # Return a translated string.
 # $LANG set the language if set.  If undef, the $DEFAULT_LANGUAGE variable
 # is used.
@@ -173,6 +178,22 @@ sub translate_string($$;$)
   # language is not checked if set as a customization variable, in that
   # case it could be the empty string or any other string.
   $lang = $DEFAULT_LANGUAGE if (!defined($lang) or $lang eq '');
+
+  my $translated_string;
+  if (!defined($translation_context)) {
+    if (defined($translation_cache{$string})
+        and defined($translation_cache{$string}->{$lang})) {
+      $translated_string = $translation_cache{$string}->{$lang};
+      return $translated_string;
+    }
+  } else {
+    if (defined($translation_cache_context{$string})
+        and defined($translation_cache_context{$string}->{$translation_context})
+        and defined($translation_cache_context{$string}->{$translation_context}->{$lang})) {
+      $translated_string = $translation_cache_context{$string}->{$translation_context}->{$lang};
+      return $translated_string;
+    }
+  }
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -215,8 +236,6 @@ sub translate_string($$;$)
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
-  my $translated_string;
-
   if (defined($translation_context)) {
     $translated_string = Locale::Messages::pgettext($translation_context,
                                                      $string);
@@ -238,6 +257,17 @@ sub translate_string($$;$)
     } else {
       POSIX::setlocale(LC_MESSAGES, '');
     }
+  }
+  if (!defined($translation_context)) {
+    $translation_cache{$string} = {}
+      if !defined($translation_cache{$string});
+    $translation_cache{$string}->{$lang} = $translated_string;
+  } else {
+    $translation_cache_context{$string} = {}
+      if !defined($translation_cache_context{$string});
+    $translation_cache_context{$string}->{$translation_context} = {}
+      if !defined($translation_cache{$string}->{$translation_context});
+    $translation_cache{$string}->{$translation_context}->{$lang} = $translated_string;
   }
   #print STDERR "_GDT '$string' '$translated_string'\n";
   return $translated_string;
