@@ -200,10 +200,20 @@ set_generic_converter_options (OPTIONS *options)
   set_converter_common_regular_options_defaults (options);
 }
 
-/* FIXME set if undef too? */
+/* to do as in Perl, if IF_SET_IN_LIST, only set options that have
+   OF_set_in_list set.  Otherwise set all the options.
+   The case with IF_SET_IN_LIST set corresponds to the converter,
+   where only user-defined command options are set, the other case
+   corresponds to the HTML converter case, where all the options are
+   set. */
+/* NOTE the values set here are actually used only if set in
+   command_init, which is th eonly function that use these values,
+   so it could also have been possible to set the values only if
+   set.  However, it is better to do as in Perl to avoid surprises.
+ */
 void
 set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
-                            OPTION **sorted_options)
+                            OPTION **sorted_options, int if_set_in_list)
 {
   size_t i;
 
@@ -212,24 +222,26 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
       const COMMAND_OPTION_NUMBER_CMD *option_nr_cmd
         = &txi_options_command_map[i];
       const OPTION *option = sorted_options[option_nr_cmd->option_number -1];
+      if (if_set_in_list && !(option->flags & OF_set_in_list))
+        continue;
       if (option->type == GOT_integer)
         {
-          if (option->o.integer >= 0)
-            {
-              commands_init_conf[option_nr_cmd->cmd].type = option->type;
-              commands_init_conf[option_nr_cmd->cmd].value
-               = option->o.integer;
-            }
+          commands_init_conf[option_nr_cmd->cmd].type = option->type;
+          commands_init_conf[option_nr_cmd->cmd].value
+            = option->o.integer;
         }
       else if (option->type == GOT_char)
         {
+          commands_init_conf[option_nr_cmd->cmd].type = option->type;
+          free (commands_init_conf[option_nr_cmd->cmd].string);
+
           if (option->o.string)
             {
-              commands_init_conf[option_nr_cmd->cmd].type = option->type;
-              free (commands_init_conf[option_nr_cmd->cmd].string);
               commands_init_conf[option_nr_cmd->cmd].string
                 = strdup (option->o.string);
             }
+          else
+            commands_init_conf[option_nr_cmd->cmd].string = 0;
         }
     }
 }
@@ -367,10 +379,12 @@ set_converter_init_information (CONVERTER *converter,
     }
 
   if (user_conf)
-    apply_converter_info (converter, user_conf, 1);
+    {
+      apply_converter_info (converter, user_conf, 1);
 
-  set_commands_options_value (converter->commands_init_conf,
-                              converter->sorted_options);
+      set_commands_options_value (converter->commands_init_conf,
+                                  user_conf->conf.sorted_options, 1);
+    }
 
   set_expanded_formats_from_options (converter->expanded_formats,
                                      converter->conf);
@@ -1063,6 +1077,8 @@ static OPTION *
 command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
 {
   OPTION *option_value = 0;
+  /* always true currently, as it always comes from the converter and is
+     part of the converter */
   if (commands_init_conf)
     {
       option_value

@@ -1,5 +1,17 @@
 2025-03-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (set_commands_options_value): add the
+	if_set_in_list argument to distinguish the call from the converter,
+	where only options with OF_set_in_list set are set, and the call from
+	the HTML converter where all the options are set.  When an input
+	option is set, and is undefined, set it to the undefined value.
+
+	* tta/C/convert/html_prepare_converter.c (html_setup_output): move
+	call to set_commands_options_value to do it at the same place as in
+	Perl.
+
+2025-03-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (_generic_converter_init)
 	(set_global_document_commands), tta/perl/Texinfo/Convert/HTML.pm
 	(_setup_output): rename output_init_conf converter key as

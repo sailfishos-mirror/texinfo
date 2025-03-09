@@ -147,7 +147,7 @@ clear_option (OPTION *option)
     }
   /* need to reset the flags too, otherwise the options will not be readded
      to the list.  Note that we do that for all the options, while we could
-     have selected the options in thelist only, but this allows to clear
+     have selected the options in the list only, but this allows to clear
      an option individually */
   option->flags &= ~OF_set_in_list;
 }

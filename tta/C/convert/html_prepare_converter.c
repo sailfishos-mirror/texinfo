@@ -3805,6 +3805,9 @@ html_setup_output (CONVERTER *self, char **paths)
   else
     return 0;
 
+  set_commands_options_value (self->commands_init_conf,
+                              self->sorted_options, 0);
+
   set_global_document_commands (self, CL_preamble, conf_for_documentlanguage);
 
   structure_preamble_document_language
@@ -3823,9 +3826,6 @@ html_setup_output (CONVERTER *self, char **paths)
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 
   init_conversion_after_setup_handler (self);
-
-  set_commands_options_value (self->commands_init_conf,
-                              self->sorted_options);
 
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax"))

@@ -128,7 +128,7 @@ void set_converter_init_information (CONVERTER *converter,
                         const CONVERTER_INITIALIZATION_INFO *user_conf);
 
 void set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
-                                 OPTION **sorted_options);
+                                 OPTION **sorted_options, int if_set_in_list);
 
 CONVERTER_INITIALIZATION_INFO *converter_defaults (
                     enum converter_format converter_format,
