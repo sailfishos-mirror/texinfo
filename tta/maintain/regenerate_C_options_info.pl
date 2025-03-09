@@ -320,9 +320,6 @@ foreach my $command_name (@commands_order) {
 }
 print CODE "}\n\n";
 
-# table of defaults for options corresponding to commands
-print CODE "COMMAND_OPTION_VALUE command_option_default_table[] = {\n";
-
 sub get_value($$)
 {
   my $type = shift;
@@ -345,23 +342,6 @@ sub get_value($$)
 
   return $int_value, $char_value;
 }
-
-foreach my $command_name (@commands_order) {
-  my $command = $command_name;
-  if (exists($name_commands{$command_name})) {
-    $command = $name_commands{$command_name};
-  }
-  if ($commands_options{$command}) {
-    my ($category, $value, $type) = @{$commands_options{$command}};
-    #print STDERR "$command $category, $value, $type\n";
-    my ($int_value, $char_value) = get_value($type, $value);
-    print CODE "{GOT_$type, $int_value, $char_value},   /* $command ($category) */\n";
-  } else {
-    print CODE "{GOT_NONE, -2, 0},\n";
-  }
-}
-
-print CODE "};\n\n";
 
 close(CODE);
 

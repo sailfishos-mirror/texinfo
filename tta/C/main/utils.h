@@ -104,8 +104,6 @@ typedef struct DEF_ALIAS {
 
 extern DEF_ALIAS def_aliases[];
 
-extern COMMAND_OPTION_VALUE command_option_default_table[];
-
 #define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\
     smbc_command_name(display) \
