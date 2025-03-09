@@ -1068,6 +1068,7 @@ static OPTION *
 command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
 {
   OPTION *option_value = 0;
+  const OPTION *default_option;
   /* always true currently, as it always comes from the converter and is
      part of the converter */
   if (commands_init_conf)
@@ -1077,8 +1078,15 @@ command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
       if (option_value)
         return option_value;
     }
-  option_value
-    = get_command_option_value_option (&command_option_default_table[cmd]);
+  default_option = get_converter_command_option (txi_base_sorted_options, cmd);
+  if (default_option)
+    {
+      option_value = (OPTION *) malloc (sizeof (OPTION));
+      memset (option_value, 0, sizeof (OPTION));
+      option_value->type = default_option->type;
+
+      copy_option (option_value, default_option);
+    }
   return option_value;
 }
 

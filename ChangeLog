@@ -1,5 +1,11 @@
 2025-03-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (command_init): find default option for a
+	command by calling get_converter_command_option and copying the
+	option instead of using get_command_option_value_option.
+
+2025-03-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/regenerate_C_options_info.pl: do not generate
 	get_command_option anymore.
 
