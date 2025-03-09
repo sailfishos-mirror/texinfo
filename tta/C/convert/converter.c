@@ -227,21 +227,21 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
       if (option->type == GOT_integer)
         {
           commands_init_conf[option_nr_cmd->cmd].type = option->type;
-          commands_init_conf[option_nr_cmd->cmd].value
+          commands_init_conf[option_nr_cmd->cmd].v.value
             = option->o.integer;
         }
       else if (option->type == GOT_char)
         {
           commands_init_conf[option_nr_cmd->cmd].type = option->type;
-          free (commands_init_conf[option_nr_cmd->cmd].string);
+          free (commands_init_conf[option_nr_cmd->cmd].v.string);
 
           if (option->o.string)
             {
-              commands_init_conf[option_nr_cmd->cmd].string
+              commands_init_conf[option_nr_cmd->cmd].v.string
                 = strdup (option->o.string);
             }
           else
-            commands_init_conf[option_nr_cmd->cmd].string = 0;
+            commands_init_conf[option_nr_cmd->cmd].v.string = 0;
         }
     }
 }
@@ -1049,15 +1049,15 @@ get_command_option_value_option (COMMAND_OPTION_VALUE *cmd_option_value)
   OPTION *option_value = 0;
   if (cmd_option_value->type == GOT_integer)
     {
-      if (cmd_option_value->value >= 0)
+      if (cmd_option_value->v.value >= 0)
         option_value = new_option_value (GOT_integer,
-                                         cmd_option_value->value, 0);
+                                         cmd_option_value->v.value, 0);
     }
   else if (cmd_option_value->type == GOT_char)
     {
-      if (cmd_option_value->string)
+      if (cmd_option_value->v.string)
         option_value = new_option_value (GOT_char, -1,
-                                         cmd_option_value->string);
+                                         cmd_option_value->v.string);
     }
   return option_value;
 }
@@ -1995,7 +1995,7 @@ free_generic_converter (CONVERTER *self)
         = self->sorted_options[option_nr_cmd->option_number -1];
       if (option->type == GOT_char)
         {
-          free (self->commands_init_conf[option_nr_cmd->cmd].string);
+          free (self->commands_init_conf[option_nr_cmd->cmd].v.string);
         }
     }
 

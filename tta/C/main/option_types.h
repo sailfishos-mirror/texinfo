@@ -199,11 +199,13 @@ typedef struct COMMAND_OPTION_NUMBER_CMD {
     enum command_id cmd;
 } COMMAND_OPTION_NUMBER_CMD;
 
-/* definitions for table of defaults for options corresponding to commands */
+/* definitions for table of options corresponding to commands */
 typedef struct COMMAND_OPTION_VALUE {
     enum global_option_type type;
-    int value;
-    char *string;
+    union {
+      int value;
+      char *string;
+    } v;
 } COMMAND_OPTION_VALUE;
 
 #endif

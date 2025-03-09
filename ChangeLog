@@ -1,5 +1,10 @@
 2025-03-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/option_types.h (COMMAND_OPTION_VALUE): turn
+	COMMAND_OPTION_VALUE to a union.
+
+2025-03-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/regenerate_C_options_info.pl: do not generate
 	command_option_default_table anymore.
 
