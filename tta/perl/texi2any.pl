@@ -1869,8 +1869,9 @@ while(@input_files) {
     # in this files_information is not checked as this cannot happen.
     my ($macro_expand_fh, $error_message)
           = Texinfo::Convert::Utils::output_files_open_out(
-                          $macro_expand_files_information, $document,
-                          $encoded_macro_expand_file_name);
+                          $macro_expand_files_information,
+                          $encoded_macro_expand_file_name, undef,
+                      $document->get_conf('OUTPUT_PERL_ENCODING'));
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
@@ -2139,8 +2140,9 @@ while(@input_files) {
     # in this files_information is not checked as this cannot happen.
     my ($internal_links_fh, $error_message)
             = Texinfo::Convert::Utils::output_files_open_out(
-                              $internal_links_files_information, $converter,
-                              $encoded_internal_links_file_name);
+                              $internal_links_files_information,
+                              $encoded_internal_links_file_name, undef,
+                              $converter->get_conf('OUTPUT_PERL_ENCODING'));
     my $error_internal_links_file;
     if (defined($internal_links_fh)) {
       print $internal_links_fh $internal_links_text;
@@ -2221,8 +2223,9 @@ while(@input_files) {
     # in this files_information is not checked as this cannot happen.
     my ($sort_element_count_fh, $error_message)
                 = Texinfo::Convert::Utils::output_files_open_out(
-                       $sort_elem_files_information, $converter_element_count,
-                                        $encoded_sort_element_count_file_name);
+                                        $sort_elem_files_information,
+                               $encoded_sort_element_count_file_name, undef,
+                   $converter_element_count->get_conf('OUTPUT_PERL_ENCODING'));
     my $error_sort_element_count_file;
     if (defined($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;

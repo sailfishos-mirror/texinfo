@@ -1,5 +1,31 @@
 2025-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (translated_command_tree)
+	(expand_today), tta/perl/Texinfo/Convert/Utils.pm: move
+	translated_command_tree and expand_today to
+	Texinfo::Convert::Converter.  Update callers.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (output_files_open_out): get
+	customization variable value as argument.  Update callers.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree)
+	(add_heading_number): put converter argument as last argument, rename
+	$self as $converter.  Update callers.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (add_heading_number):
+	add wrapper to get customization variables from converter to call
+	function.  Update callers in converters.
+
+	* tta/perl/Texinfo/Convert/Text.pm (_text_heading): remove code
+	related to indentation, it is not an argument of the function.
+
+	* tta/perl/Texinfo/Convert/Text.pm: rename variables.
+
+	* tta/perl/Texinfo/Convert/Text.pm (_convert): abides to reproducible
+	builds.
+
+2025-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (input_file_name_encoding),
 	tta/perl/Texinfo/Convert/Utils.pm (expand_verbatiminclude)
 	(encoded_output_file_name, encoded_input_file_name): get

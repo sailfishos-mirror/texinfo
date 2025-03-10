@@ -2847,8 +2847,7 @@ sub _translate_names($)
                           ->{$command}->{$context}->{'translated_to_convert'});
         } else {
           # default translated commands
-          $translated_tree
-            = Texinfo::Convert::Utils::translated_command_tree($self, $command);
+          $translated_tree = $self->translated_command_tree($command);
         }
         if (defined($translated_tree)) {
           $self->{'no_arg_commands_formatting'}->{$command}
@@ -3072,7 +3071,7 @@ $default_no_arg_commands_formatting{'normal'}->{"\n"} = {'text' => '&nbsp;'};
 
 # possible example of use, right now not used, as
 # the generic Converter customization is directly used through
-# the call to Texinfo::Convert::Utils::translated_command_tree().
+# the call to translated_command_tree().
 #$default_no_arg_commands_formatting{'normal'}->{'error'}->{'translated_converted'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {
@@ -3279,7 +3278,7 @@ sub _convert_today_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $tree = $self->Texinfo::Convert::Utils::expand_today();
+  my $tree = $self->expand_today();
   return $self->convert_tree($tree, 'convert today');
 }
 
@@ -7857,7 +7856,7 @@ sub _convert_def_line_type($$$$)
   if ($self->get_conf('DEF_TABLE')) {
     my $category_result = '';
     my $definition_category_tree
-      = Texinfo::Convert::Utils::definition_category_tree($self, $element);
+      = Texinfo::Convert::Utils::definition_category_tree($element, $self);
     $category_result
       = $self->convert_tree($definition_category_tree)
         if (defined($definition_category_tree));
@@ -12169,8 +12168,9 @@ sub _do_jslicenses_file {
      = $self->encoded_output_file_name($license_file);
   my ($fh, $error_message_licence_file, $overwritten_file)
          = Texinfo::Convert::Utils::output_files_open_out(
-                         $self->output_files_information(), $self,
-                         $licence_file_path);
+                         $self->output_files_information(),
+                         $licence_file_path, undef,
+                         $self->get_conf('OUTPUT_PERL_ENCODING'));
   if ($overwritten_file) {
     $self->converter_document_warn(
      sprintf(__("overwriting output file with js licences: %s"),
@@ -13225,8 +13225,9 @@ sub _html_convert_output($$$$$$$$)
         # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
                 = Texinfo::Convert::Utils::output_files_open_out(
-                         $self->output_files_information(), $self,
-                         $encoded_out_filepath);
+                         $self->output_files_information(),
+                         $encoded_out_filepath, undef,
+                         $self->get_conf('OUTPUT_PERL_ENCODING'));
         if (!$file_fh) {
           $self->converter_document_error(
                sprintf(__("could not open %s for writing: %s"),
@@ -13475,8 +13476,9 @@ sub _node_redirections($$$$)
         # in this files_information is not checked as this cannot happen.
         my ($file_fh, $error_message)
                = Texinfo::Convert::Utils::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $encoded_out_filepath);
+                             $self->output_files_information(),
+                             $encoded_out_filepath, undef,
+                             $self->get_conf('OUTPUT_PERL_ENCODING'));
         if (!$file_fh) {
           $self->converter_document_error(sprintf(__(
                                     "could not open %s for writing: %s"),

@@ -1102,8 +1102,9 @@ sub output($$)
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $encoded_output_file);
+                             $self->output_files_information(),
+                             $encoded_output_file, undef,
+                             $self->get_conf('OUTPUT_PERL_ENCODING'));
     if (!$fh) {
       $self->converter_document_error(
              sprintf(__("could not open %s for writing: %s"),
@@ -2669,7 +2670,7 @@ sub _convert_def_line($$)
 
     my $converted_category;
     my $category
-      = Texinfo::Convert::Utils::definition_category_tree($self, $element);
+      = Texinfo::Convert::Utils::definition_category_tree($element, $self);
     if (defined($category)) {
       # category is converted in normal text context
       my $converted = _convert($self, $category);

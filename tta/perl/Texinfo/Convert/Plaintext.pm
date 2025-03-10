@@ -741,8 +741,9 @@ sub output($$)
       # the third return information, set if the file has already been used
       # in this files_information is not checked as this cannot happen.
       ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                    $self->output_files_information(), $self,
-                    $encoded_outfile_name);
+                    $self->output_files_information(),
+                    $encoded_outfile_name, undef,
+                    $self->get_conf('OUTPUT_PERL_ENCODING'));
       if (!$fh) {
         $self->converter_document_error(
                  sprintf(__("could not open %s for writing: %s"),
@@ -795,8 +796,9 @@ sub output($$)
       if (!exists($files_filehandle{$output_unit_filename})) {
         my $error_message;
         ($file_fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $out_filepath);
+                             $self->output_files_information(),
+                             $out_filepath, undef,
+                             $self->get_conf('OUTPUT_PERL_ENCODING'));
         if (!$file_fh) {
           $self->converter_document_error(
                 sprintf(__("could not open %s for writing: %s"),
@@ -3159,7 +3161,7 @@ sub _convert($$)
         _stream_output($self, $image);
         return;
       } elsif ($cmdname eq 'today') {
-        my $today = $self->Texinfo::Convert::Utils::expand_today();
+        my $today = $self->expand_today();
         _convert($self, $today);
         return;
       } elsif (exists($brace_no_arg_commands{$cmdname})) {

@@ -855,15 +855,14 @@ sub _convert($$;$)
       } else {
         $command_name = $cmdname;
       }
-      my $translated_tree
-       = Texinfo::Convert::Utils::translated_command_tree($self, $command_name);
+      my $translated_tree = $self->translated_command_tree($command_name);
       if ($translated_tree) {
         return _convert($self, $translated_tree);
       } else {
         return $docbook_no_arg_commands_formatting{$command_name};
       }
     } elsif ($cmdname eq 'today') {
-      return _convert($self, Texinfo::Convert::Utils::expand_today($self));
+      return _convert($self, $self->expand_today());
     } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
       return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);

@@ -407,8 +407,9 @@ sub output_tree($$)
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                              $self->output_files_information(), $self,
-                              $encoded_output_file);
+                              $self->output_files_information(),
+                              $encoded_output_file, undef,
+                              $self->get_conf('OUTPUT_PERL_ENCODING'));
     if (!$fh) {
       $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),
@@ -1233,6 +1234,19 @@ sub encoded_output_file_name($$)
                  $self->{'document'});
 }
 
+# hides from the caller the 'translated_commands' converter key
+# that is set by Texinfo::Convert::Converter.
+sub translated_command_tree($$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  if ($self->{'translated_commands'}
+      and $self->{'translated_commands'}->{$cmdname}) {
+    return $self->cdt($self->{'translated_commands'}->{$cmdname});
+  }
+  return undef;
+}
+
 # wrapper around Texinfo::Utils::expand_verbatiminclude.
 sub expand_verbatiminclude($$)
 {
@@ -1254,6 +1268,38 @@ sub expand_verbatiminclude($$)
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
               $include_directories, $document, $converter);
+}
+
+# wrapper around Texinfo::Utils::add_heading_number
+# Document?
+sub add_heading_number($$$)
+{
+  my $converter = shift;
+  my $element = shift;
+  my $text = shift;
+
+  return Texinfo::Convert::Utils::add_heading_number($element, $text,
+              $converter->get_conf('NUMBER_SECTIONS'), $converter);
+}
+
+sub expand_today($)
+{
+  my $converter = shift;
+
+  if ($converter->get_conf('TEST')) {
+    return {'text' => 'a sunny day'};
+  }
+
+  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
+    = ($ENV{SOURCE_DATE_EPOCH}
+        ? gmtime($ENV{SOURCE_DATE_EPOCH})
+        : localtime(time));
+  # See https://reproducible-builds.org/specs/source-date-epoch/.
+
+  return $converter->cdt('{month} {day}, {year}',
+          { 'month' => $converter->cdt(
+                          $Texinfo::Convert::Utils::month_name[$mon]),
+            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
 }
 
 # determine the default, with $INIT_CONF if set, or the default common
@@ -2613,6 +2659,10 @@ on the input file encoding where the file name appeared.
 
 Note that these functions are wrappers around functions from
 L<Texinfo::Convert::Utils> with the same names.
+
+=item $tree = $converter->expand_today()
+
+Expand today's date, as a Texinfo tree with translations.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>

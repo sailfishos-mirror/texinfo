@@ -413,8 +413,9 @@ sub _open_info_file($$)
   # the third return information, set if the file has already been used
   # in this files_information is not checked as this cannot happen.
   my ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                               $self->output_files_information(), $self,
-                               $encoded_filename, 'use_binmode');
+                               $self->output_files_information(),
+                               $encoded_filename, 'use_binmode',
+                               $self->get_conf('OUTPUT_PERL_ENCODING'));
 
   if (!$fh) {
     $self->converter_document_error(sprintf(

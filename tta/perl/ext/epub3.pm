@@ -616,7 +616,7 @@ sub epub_finish($$)
     = $self->encoded_output_file_name($container_file_path_name);
   my ($container_fh, $error_message_container)
             = Texinfo::Convert::Utils::output_files_open_out(
-                          $self->output_files_information(), $self,
+                          $self->output_files_information(),
                           $encoded_container_file_path_name, undef, 'utf-8');
   if (!defined($container_fh)) {
     $self->converter_document_error(
@@ -657,7 +657,7 @@ EOT
     = $self->encoded_output_file_name($mimetype_file_path_name);
   my ($mimetype_fh, $error_message_mimetype)
                = Texinfo::Convert::Utils::output_files_open_out(
-                        $self->output_files_information(), $self,
+                        $self->output_files_information(),
                         $encoded_mimetype_file_path_name, undef, 'utf-8');
   if (!defined($mimetype_fh)) {
     $self->converter_document_error(
@@ -693,7 +693,7 @@ EOT
       = $self->encoded_output_file_name($nav_file_path_name);
     my ($nav_fh, $error_message_nav)
            = Texinfo::Convert::Utils::output_files_open_out(
-                       $self->output_files_information(), $self,
+                       $self->output_files_information(),
                        $encoded_nav_file_path_name, undef, 'utf-8');
     if (!defined($nav_fh)) {
       $self->converter_document_error(
@@ -760,9 +760,7 @@ EOT
       }
       my $line_arg = $section->{'contents'}->[0]->{'contents'}->[0];
       my $text = _epub_convert_tree_to_text($self, $line_arg);
-      $text
-        = Texinfo::Convert::Utils::add_heading_number($self, $section, $text,
-                                          $self->get_conf('NUMBER_SECTIONS'));
+      $text = $self->add_heading_number($section, $text);
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');
@@ -826,7 +824,7 @@ EOT
     = $self->encoded_output_file_name($opf_file_path_name);
   my ($opf_fh, $error_message_opf)
             = Texinfo::Convert::Utils::output_files_open_out(
-                   $self->output_files_information(), $self,
+                   $self->output_files_information(),
                    $encoded_opf_file_path_name, undef, 'utf-8');
   if (!defined($opf_fh)) {
     $self->converter_document_error(

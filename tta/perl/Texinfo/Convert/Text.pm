@@ -156,13 +156,13 @@ sub _initialize_text_options_encoding($$)
 # for a converter inheriting Texinfo::Convert::Converter
 sub _initialize_converter_text_options_encoding($$)
 {
-  my $self = shift;
+  my $converter = shift;
   my $text_options = shift;
 
-  if ($self->get_conf('ENABLE_ENCODING')
-       and defined($self->get_conf('OUTPUT_ENCODING_NAME'))) {
+  if ($converter->get_conf('ENABLE_ENCODING')
+       and defined($converter->get_conf('OUTPUT_ENCODING_NAME'))) {
     $text_options->{'enabled_encoding'}
-       = $self->get_conf('OUTPUT_ENCODING_NAME');
+       = $converter->get_conf('OUTPUT_ENCODING_NAME');
   }
 }
 
@@ -170,35 +170,36 @@ sub _initialize_converter_text_options_encoding($$)
 # function, as it the function is already called in Texinfo::Convert::Converter
 # to setup options that can be reused.
 #
-# $SELF is an object implementing get_conf, in general a converter.
+# $CONVERTER is an object implementing get_conf and other methods for
+# translation, in general a converter.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
 # This is relevant for file names, for instance.
 # $OPTIONS_IN can be used to pass additional options, for now 'sort_string'.
 sub copy_options_for_convert_text($;$)
 {
-  my $self = shift;
+  my $converter = shift;
   my $options_in = shift;
   my %options;
 
-  _initialize_converter_text_options_encoding($self, \%options);
+  _initialize_converter_text_options_encoding($converter, \%options);
 
   foreach my $option (@text_indicator_converter_options) {
-    my $conf = $self->get_conf($option);
+    my $conf = $converter->get_conf($option);
     if ($conf) {
       $options{$option} = 1;
     } elsif (defined($conf)) {
       $options{$option} = 0;
     }
   }
-  my $expanded_formats = $self->get_conf('EXPANDED_FORMATS');
+  my $expanded_formats = $converter->get_conf('EXPANDED_FORMATS');
   if ($expanded_formats) {
     $options{'expanded_formats'} = {};
     foreach my $expanded_format(@$expanded_formats) {
       $options{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
-  $options{'converter'} = $self;
+  $options{'converter'} = $converter;
 
   if ($options_in) {
     foreach my $option (keys(%$options_in)) {
@@ -220,14 +221,14 @@ sub reset_options_code($)
   $options->{'_code_state'}--;
 }
 
-# $SELF is an object implementing get_conf, in general a converter.
+# $CONVERTER is an object implementing get_conf, in general a converter.
 # set enabled_encoding unless the encoding is ascii, even if
 # ENABLE_ENCODING is not set.
 sub set_options_encoding_if_not_ascii($$)
 {
-  my $self = shift;
+  my $converter = shift;
   my $options = shift;
-  my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+  my $output_encoding_name = $converter->get_conf('OUTPUT_ENCODING_NAME');
   if (defined($output_encoding_name) and $output_encoding_name ne 'us-ascii') {
     if (defined($options->{'_saved_enabled_encoding'})) {
        print STDERR "BUG: if_not_ascii _saved_enabled_encoding set: "
@@ -366,9 +367,7 @@ sub brace_no_arg_command($;$)
                                                         $encoding);
   }
   if (!defined($result) and $options and $options->{'converter'}) {
-    my $tree
-     = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
-                                                        $command_name);
+    my $tree = $options->{'converter'}->translated_command_tree($command_name);
     if ($tree) {
       $result = _convert($options, $tree);
     }
@@ -403,31 +402,25 @@ my %underline_symbol = (
   4 => '.'
 );
 
-# Return the text of an underlined heading, possibly indented.
-sub _text_heading($$$;$$)
+# Return the text of an underlined heading
+sub _text_heading($$$;$)
 {
   my $current = shift;
   my $text = shift;
-  my $converter = shift;
   my $numbered = shift;
-  my $indent_length = shift;
+  my $converter = shift;
 
   # end of lines spaces are ignored in conversion.  However in
   # rare cases, invalid nestings leave an end of line, so we chomp.
   chomp($text);
-  $text = Texinfo::Convert::Utils::add_heading_number($converter, $current,
-                                                      $text, $numbered);
+
+  my $number;
+
+  $text = Texinfo::Convert::Utils::add_heading_number($current,
+                                      $text, $numbered, $converter);
   # What about non-ascii spaces?
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
-  if (defined($indent_length)) {
-    if ($indent_length < 0) {
-      $indent_length = 0;
-    }
-    $result .= (' ' x $indent_length);
-  } else {
-    $indent_length = 0;
-  }
   my $section_level;
   if (!defined($current->{'extra'})
       or !defined($current->{'extra'}->{'section_level'})) {
@@ -435,10 +428,8 @@ sub _text_heading($$$;$$)
   } else {
     $section_level = $current->{'extra'}->{'section_level'};
   }
-  # $text is indented if indent_length is set, so $indent_length need to
-  # be subtracted to have the width of the heading only.
   $result .= ($underline_symbol{$section_level}
-     x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
+     x (Texinfo::Convert::Unicode::string_width($text)))."\n";
   return $result;
 }
 
@@ -455,8 +446,8 @@ sub _convert_def_line($$)
        = Texinfo::Convert::Utils::definition_arguments_content($element);
 
   my $parsed_definition_category
-    = Texinfo::Convert::Utils::definition_category_tree(
-                                        $options->{'converter'}, $element);
+    = Texinfo::Convert::Utils::definition_category_tree($element,
+                                             $options->{'converter'});
   if (defined($parsed_definition_category)) {
     my $converted_element = {'contents' =>
                     [$parsed_definition_category, {'text' => ': '}]};
@@ -580,15 +571,18 @@ sub _convert($$)
           and $Texinfo::CommandsValues::sort_brace_no_arg_commands{$cmdname}) {
         return $Texinfo::CommandsValues::sort_brace_no_arg_commands{$cmdname};
       } elsif ($options->{'converter'}) {
-        return _convert($options,
-                        Texinfo::Convert::Utils::expand_today(
-                                         $options->{'converter'}));
+        return _convert($options, $options->{'converter'}->expand_today());
       } elsif ($options->{'TEST'}) {
         return 'a sunny day';
       } else {
-        my($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
-          = localtime(time);
+        my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
+         = ($ENV{SOURCE_DATE_EPOCH}
+             ? gmtime($ENV{SOURCE_DATE_EPOCH})
+             : localtime(time));
+        # See https://reproducible-builds.org/specs/source-date-epoch/.
+
         $year += ($year < 70) ? 2000 : 1900;
+
         return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
       }
     } elsif (defined($Texinfo::CommandsValues::text_brace_no_arg_commands{$cmdname})) {
@@ -719,8 +713,9 @@ sub _convert($$)
         $line_arg = $element->{'contents'}->[0];
       }
       my $heading_text = _convert($options, $line_arg);
-      $result = _text_heading($element, $heading_text, $options->{'converter'},
-                               $options->{'NUMBER_SECTIONS'});
+      $result = _text_heading($element, $heading_text,
+                              $options->{'NUMBER_SECTIONS'},
+                              $options->{'converter'});
       unless ($Texinfo::Commands::root_commands{$cmdname}) {
         return $result;
       }
@@ -970,8 +965,6 @@ sub output($$)
   Texinfo::Common::set_output_perl_encoding($self);
 
   # Text options and converter are of different nature.
-  # It could have been possible to set up the options by calling
-  # copy_options_for_convert_text on $self.
   # However, since the option keys are very similar between the converter
   # and text options and expanded_formats is already set in the converter,
   # we use the converter object as text options and we call
@@ -1072,8 +1065,9 @@ sub output($$)
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
-                             $self->{'output_files'}, $self,
-                             $encoded_outfile);
+                             $self->{'output_files'},
+                             $encoded_outfile, undef,
+                             $self->{'OUTPUT_PERL_ENCODING'});
     if (!$fh) {
       warn sprintf(__("could not open %s for writing: %s"),
                    $outfile, $error_message)."\n";

@@ -662,6 +662,11 @@ on the input file encoding where the file name appeared.
 Note that these functions are wrappers around functions from
 @ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils} with the same names.
 
+@item $tree = $converter->expand_today()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $tree = $converter->expand_today()}
+
+Expand today's date, as a Texinfo tree with translations.
+
 @item ($caption, $prepended) = $converter->float_name_caption($float)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter ($caption@comma{} $prepended) = $converter->float_name_caption($float)}
 @cindex @code{float_name_caption}

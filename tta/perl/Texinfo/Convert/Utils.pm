@@ -52,7 +52,6 @@ our @ISA = qw(Exporter);
 # other functions of the module.  It could be possible not to
 # export any function.
 our @EXPORT_OK = qw(
-expand_today
 expand_verbatiminclude
 add_heading_number
 );
@@ -86,15 +85,14 @@ sub output_files_disable_output_encoding($$)
 #
 # $FILE_PATH is the file path, it should be a binary string.
 # If $USE_BINMODE is set, call binmode() to set binary mode.
-# $OUTPUT_ENCODING argument overrides the output encoding.
+# $OUTPUT_ENCODING argument sets the output encoding.
 # Returns
 #  - the opened filehandle, or undef if opening failed,
 #  - the $! error message or undef if opening succeeded.
 #  - 1 if the $FILE_PATH was already opened, which means overwriting.
-sub output_files_open_out($$$;$$)
+sub output_files_open_out($$;$$)
 {
   my $self = shift;
-  my $customization_information = shift;
   my $file_path = shift;
   my $use_binmode = shift;
   my $output_encoding = shift;
@@ -108,9 +106,6 @@ sub output_files_open_out($$$;$$)
    # leave $encoding undefined
   } elsif (defined($output_encoding)) {
     $encoding = $output_encoding;
-  } elsif (defined(
-             $customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
   }
 
   if ($file_path eq '-') {
@@ -209,26 +204,6 @@ our @month_name =
      Texinfo::Common::gdt('December')
     );
 
-# this method requires a converter.
-sub expand_today($)
-{
-  my $self = shift;
-  if ($self->get_conf('TEST')) {
-    return {'text' => 'a sunny day'};
-  }
-
-  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
-    = ($ENV{SOURCE_DATE_EPOCH}
-        ? gmtime($ENV{SOURCE_DATE_EPOCH})
-        : localtime(time));
-  # See https://reproducible-builds.org/specs/source-date-epoch/.
-
-  $year += ($year < 70) ? 2000 : 1900;
-  return $self->cdt('{month} {day}, {year}',
-          { 'month' => $self->cdt($month_name[$mon]),
-            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
-}
-
 sub definition_arguments_content($)
 {
   my $element = shift;
@@ -260,11 +235,11 @@ sub definition_arguments_content($)
   return ($category, $class, $type, $name, $args);
 }
 
-# $SELF converter argument is optional
-sub definition_category_tree($$)
+# $CONVERTER argument is optional
+sub definition_category_tree($;$)
 {
-  my $self = shift;
   my $current = shift;
+  my $converter = shift;
 
   return undef if (!$current->{'contents'}->[0]->{'contents'});
 
@@ -290,7 +265,7 @@ sub definition_category_tree($$)
     if (!defined($arg_class));
 
   my $arg_class_code;
-  if (! $self) {
+  if (! $converter) {
     $arg_class_code = {'cmdname' => 'code'};
     my $brace_arg
       = {'type' => 'brace_container', 'contents' => [$arg_class],
@@ -304,10 +279,10 @@ sub definition_category_tree($$)
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($self) {
+    if ($converter) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
-      return $self->cdt('{category} on @code{{class}}', $substrings);
+      return $converter->cdt('{category} on @code{{class}}', $substrings);
     } else {
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
@@ -319,11 +294,11 @@ sub definition_category_tree($$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($self) {
+    if ($converter) {
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
-      return $self->cdt('{category} of @code{{class}}', $substrings);
+      return $converter->cdt('{category} of @code{{class}}', $substrings);
     } else {
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
@@ -467,12 +442,12 @@ sub expand_verbatiminclude($$$$$;$$)
 # $TEXT can be indented, however this can only happen for
 # *heading headings, which are not numbered.  If it was not the case,
 # the code would need to be changed.
-sub add_heading_number($$$;$)
+sub add_heading_number($$;$$)
 {
-  my $self = shift;
   my $current = shift;
   my $text = shift;
   my $numbered = shift;
+  my $converter = shift;
 
   my $number;
   if ($current->{'extra'}
@@ -482,7 +457,7 @@ sub add_heading_number($$$;$)
   }
 
   my $result;
-  if ($self) {
+  if ($converter) {
     # NOTE we reach here when called from Texinfo::Convert::Text
     # only if associated with a converter.  This should not happen
     # for sectioning commands, so in practice this code is not reached
@@ -492,10 +467,10 @@ sub add_heading_number($$$;$)
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'extra'}->{'section_level'} == 1) {
-        $result = $self->cdt_string('Appendix {number} {section_title}',
+        $result = $converter->cdt_string('Appendix {number} {section_title}',
                    {'number' => $number, 'section_title' => $text});
       } else {
-        $result = $self->cdt_string('{number} {section_title}',
+        $result = $converter->cdt_string('{number} {section_title}',
                    {'number' => $number, 'section_title' => $text});
       }
     } else {
@@ -601,7 +576,6 @@ sub encoded_output_file_name($$$$;$)
   my $locale_encoding = shift;
   my $document = shift;
 
-
   my $encoding;
   if ($output_file_name_encoding) {
     $encoding = $output_file_name_encoding;
@@ -643,23 +617,6 @@ sub encoded_input_file_name($$$$;$$)
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
-# this requires a converter argument.  It is defined here, in order
-# to hide from the caller the 'translated_commands' converter key
-# that is set by Texinfo::Convert::Converter.  This is especially
-# relevant for converters that do not inherit Texinfo::Convert::Converter
-# and call the method on a converter object they got (case of
-# Texinfo::Convert::Text).
-sub translated_command_tree($$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  if ($self->{'translated_commands'}
-      and $self->{'translated_commands'}->{$cmdname}) {
-    return $self->cdt($self->{'translated_commands'}->{$cmdname});
-  }
-  return undef;
-}
-
 1;
 
 __END__
@@ -671,8 +628,6 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
 =head1 SYNOPSIS
 
   use Texinfo::Convert::Utils;
-
-  my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
 
 =head1 NOTES
 
@@ -689,29 +644,24 @@ which do not inherit from L<Texinfo::Convert::Converter>.
 
 No method is exported in the default case.
 
-Most methods takes a I<$converter> as argument, in some cases optionally,
-to get some information, see
-L<Texinfo::Convert::Converter/Getting and setting customization variables>
-and use methods for error reporting, see L<Texinfo::Convert::Converter>
-and L<Texinfo::Report>, and for
-strings translations, see L<Texinfo::Translations>.
-
-Even when the caller does not inherit from L<Texinfo::Convert::Converter>, it
-could implement the required interfaces and could also have a converter
-available in some cases, to call the functions which require a converter.
+Some methods takes an optional I<$converter> argument for strings
+translations, see L<Texinfo::Convert::Converter/Translations in
+output documents>.  Even when the caller does not inherit from
+L<Texinfo::Convert::Converter>, it could implement the required interfaces and
+could also have a converter available in some cases, to call the functions
+with the converter argument set.
 
 =over
 
-=item $result = add_heading_number($converter, $heading_element, $heading_text, $do_number)
+=item $result = add_heading_number($heading_element, $heading_text, $do_number, $converter)
 X<C<add_heading_number>>
 
-The I<$converter> argument may be undef.  I<$heading_element> is
-a heading command tree element.  I<$heading_text> is the already
-formatted heading text.  if the I<$do_number> optional argument is
-defined and false, no number is used and the text is returned as is.
-This function returns the heading with a number and the appendix
-part if needed.  If I<$converter> is not defined, the resulting
-string won't be translated.
+I<$heading_element> is a heading command tree element.  I<$heading_text> is the
+already formatted heading text.  if the I<$do_number> optional argument is
+defined and false, no number is used and the text is returned as is.  if the
+I<$converter> optional argument is set, the resulting string is translated.
+This function returns the heading with a number and the appendix part if
+needed.
 
 =item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>
@@ -725,15 +675,13 @@ Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category_tree($converter, $def_line)
+=item $tree = definition_category_tree($def_line, $converter)
 X<C<definition_category_tree>>
 
-The I<$converter> argument may be undef.  I<$def_line> is a
-C<def_line> Texinfo tree container.  This function
-returns a Texinfo tree corresponding to the category of the
-I<$def_line> taking the class into account, if there is one.
-If I<$converter> is not defined, the resulting string won't be
-translated.
+I<$def_line> is a C<def_line> Texinfo tree container.  This function returns a
+Texinfo tree corresponding to the category of the I<$def_line> taking the class
+into account, if there is one.  If the I<$converter> optional argument is set,
+the resulting string is translated.
 
 =item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 
@@ -753,13 +701,6 @@ The I<$input_file_encoding> argument is optional and only available for
 C<encoded_input_file_name>.  If set, it is used for the input file encoding.
 It is useful if there is more precise information on the input file encoding
 where the file name appeared.
-
-=item $tree = expand_today($converter)
-X<C<expand_today>>
-
-Expand today's date, as a Texinfo tree with translations.  The I<$converter>
-argument is not optional and is used both to retrieve customization information
-and to translate strings.
 
 =item $tree = expand_verbatiminclude($verbatiminclude, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $include_directories, $document, $converter)
 X<C<expand_verbatiminclude>>

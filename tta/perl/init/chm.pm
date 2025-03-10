@@ -219,8 +219,9 @@ sub chm_init($)
     = $self->encoded_output_file_name($hhk_file_path_name);
   my ($hhk_fh, $hhk_error_message)
      = Texinfo::Convert::Utils::output_files_open_out(
-                      $self->output_files_information(), $self,
-                      $encoded_hhk_file_path_name);
+                      $self->output_files_information(),
+                      $encoded_hhk_file_path_name, undef,
+                      $self->get_conf('OUTPUT_PERL_ENCODING'));
   if (!defined($hhk_fh)) {
     $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
@@ -301,8 +302,9 @@ sub chm_init($)
     = $self->encoded_output_file_name($hhc_file_path_name);
   my ($hhc_fh, $hhc_error_message)
        = Texinfo::Convert::Utils::output_files_open_out(
-                      $self->output_files_information(), $self,
-                      $encoded_hhc_file_path_name);
+                      $self->output_files_information(),
+                      $encoded_hhc_file_path_name, undef,
+                      $self->get_conf('OUTPUT_PERL_ENCODING'));
   if (!defined($hhc_fh)) {
     $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
@@ -355,9 +357,7 @@ sub chm_init($)
       # should not be needed as end of lines are not converted, end of line
       # can be added with invalid nestings.
       chomp($text);
-      $text
-        = Texinfo::Convert::Utils::add_heading_number($self,$section, $text,
-                                         $self->get_conf('NUMBER_SECTIONS'));
+      $text = $self->add_heading_number($section, $text);
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');
@@ -384,8 +384,9 @@ sub chm_init($)
     = $self->encoded_output_file_name($hhp_file_path_name);
   my ($hhp_fh, $hhp_error_message)
        = Texinfo::Convert::Utils::output_files_open_out(
-                      $self->output_files_information(), $self,
-                      $encoded_hhp_file_path_name);
+                      $self->output_files_information(),
+                      $encoded_hhp_file_path_name, undef,
+                      $self->get_conf('OUTPUT_PERL_ENCODING'));
   if (!defined($hhp_fh)) {
     $self->converter_document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"),
