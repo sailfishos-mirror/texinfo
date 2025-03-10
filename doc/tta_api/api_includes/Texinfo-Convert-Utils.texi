@@ -13,9 +13,6 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
   use Texinfo::Convert::Utils;
 
   my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
-  my $verbatiminclude_tree
-     = Texinfo::Convert::Utils::expand_verbatiminclude($converter,
-                                                       $verbatiminclude);
 @end verbatim
 
 @node Texinfo@asis{::}Convert@asis{::}Utils NOTES
@@ -84,26 +81,28 @@ returns a Texinfo tree corresponding to the category of the
 If @emph{$converter} is not defined, the resulting string won't be
 translated.
 
-@item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding)}
+@item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = encoded_input_file_name($character_string_name@comma{} $input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}
 
-@item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name)}
+@item ($encoded_name, $encoding) = encoded_output_file_name($character_string_name, $output_file_name_encoding, $doc_encoding_for_output_file_name, $locale_encoding, $document)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = encoded_output_file_name($character_string_name@comma{} $output_file_name_encoding@comma{} $doc_encoding_for_output_file_name@comma{} $locale_encoding@comma{} $document)}
+
 @cindex @code{encoded_input_file_name}
 @cindex @code{encoded_output_file_name}
 
-Encode @emph{$character_string_name} in the same way as other file names are
-encoded in converters, based on customization variables, and possibly
-on the input file encoding.  Return the encoded name and the encoding
-used to encode the name.  The @code{encoded_input_file_name} and
-@code{encoded_output_file_name} functions use different customization variables to
-determine the encoding.  The @emph{$converter} argument is not optional
-and is used both to access to customization variables and to access to parsed
-document information.
 
-The @emph{$input_file_encoding} argument is optional.  If set, it is used for
-the input file encoding.  It is useful if there is more precise information
-on the input file encoding where the file name appeared.
+@code{encoded_input_file_name} encodes @emph{$character_string_name} as an input file
+name.  If @emph{$doc_encoding_for_input_file_name} is set, the encoding is based on
+the input file content encoding, otherwise @emph{$locale_encoding} is used.  The
+@emph{$document} argument is an optional Texinfo parsed document used to get the
+input document content encoding.  @code{encoded_output_file_name} encodes
+@emph{$character_string_name} as an output file name and takes similar arguments.
+Return the encoded name and the encoding used to encode the name.
+
+The @emph{$input_file_encoding} argument is optional and only available for
+@code{encoded_input_file_name}.  If set, it is used for the input file encoding.
+It is useful if there is more precise information on the input file encoding
+where the file name appeared.
 
 @item $tree = expand_today($converter)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = expand_today($converter)}
@@ -113,15 +112,20 @@ Expand today's date, as a Texinfo tree with translations.  The @emph{$converter}
 argument is not optional and is used both to retrieve customization information
 and to translate strings.
 
-@item $tree = expand_verbatiminclude($converter, $verbatiminclude)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = expand_verbatiminclude($converter@comma{} $verbatiminclude)}
+@item $tree = expand_verbatiminclude($verbatiminclude, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $include_directories, $document, $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = expand_verbatiminclude($verbatiminclude@comma{} $name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $include_directories@comma{} $document@comma{} $converter)}
 @cindex @code{expand_verbatiminclude}
 
-The @emph{$converter} argument is required and is used to output error messages and
-retrieve customization information @ref{Texinfo@asis{::}Convert@asis{::}Converter Getting and
-setting customization variables}.  @emph{$verbatiminclude} is a @code{@@verbatiminclude}
-tree element.  This function returns a @code{@@verbatim} tree elements after finding
-the included file and reading it.
+@emph{$verbatiminclude} is a @code{@@verbatiminclude} tree element.
+@emph{$name_encoding}, @emph{$doc_encoding_for_input_file_name}, and
+@emph{$locale_encoding} are @ref{Texinfo@asis{::}Common $encoding =
+input_file_name_encoding($name_encoding@comma{} $doc_encoding_for_input_file_name@comma{}
+$locale_encoding@comma{} $document@comma{} $input_file_encoding),, Texinfo::Encoding
+@code{input_file_name_encoding} arguments}.  @emph{$include_directories}
+is an array reference with include directories where the file specified as
+@code{@@verbatiminclude} argument is searched for. The @emph{$converter} argument is
+used to output error messages.  This function returns a @code{@@verbatim} tree
+elements after finding the included file and reading it.
 
 @item ($contents_element, \@@accent_commands) = find_innermost_accent_contents($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($contents_element@comma{} \@@accent_commands) = find_innermost_accent_contents($element)}

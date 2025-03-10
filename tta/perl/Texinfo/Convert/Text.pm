@@ -140,7 +140,21 @@ foreach my $type ('ignorable_spaces_after_command',
 my @text_indicator_converter_options
       = ('ASCII_GLYPH', 'NUMBER_SECTIONS', 'TEST');
 
+# for this module converter
 sub _initialize_text_options_encoding($$)
+{
+  my $self = shift;
+  my $text_options = shift;
+
+  if ($self->{'ENABLE_ENCODING'}
+       and defined($self->{'OUTPUT_ENCODING_NAME'})) {
+    $text_options->{'enabled_encoding'}
+       = $self->{'OUTPUT_ENCODING_NAME'};
+  }
+}
+
+# for a converter inheriting Texinfo::Convert::Converter
+sub _initialize_converter_text_options_encoding($$)
 {
   my $self = shift;
   my $text_options = shift;
@@ -167,7 +181,7 @@ sub copy_options_for_convert_text($;$)
   my $options_in = shift;
   my %options;
 
-  _initialize_text_options_encoding($self, \%options);
+  _initialize_converter_text_options_encoding($self, \%options);
 
   foreach my $option (@text_indicator_converter_options) {
     my $conf = $self->get_conf($option);
@@ -184,9 +198,6 @@ sub copy_options_for_convert_text($;$)
       $options{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
-  # for expand_verbatiminclude
-  $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
-
   $options{'converter'} = $self;
 
   if ($options_in) {
@@ -738,15 +749,26 @@ sub _convert($$)
       } elsif ($cmdname eq 'verbatiminclude') {
         my $verbatim_include_verbatim;
         if ($options->{'converter'}) {
-          # NOTE we use $options->{'converter'} both for error registration
-          # and for other uses of customization information, to get the same
-          # output as for the main $options->{'converter'}.
+          # NOTE we use the Texinfo::Convert::Converter method.
           $verbatim_include_verbatim
-            = Texinfo::Convert::Utils::expand_verbatiminclude(
-                                          $options->{'converter'}, $element);
+            = $options->{'converter'}->expand_verbatiminclude($element);
         } else {
-          $verbatim_include_verbatim
-            = Texinfo::Convert::Utils::expand_verbatiminclude($options, $element);
+          my $input_file_name_encoding
+           = $options->{'INPUT_FILE_NAME_ENCODING'};
+          my $doc_encoding_for_input_file_name
+           = $options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'};
+          my $locale_encoding = $options->{'LOCALE_ENCODING'};
+
+          my $include_directories
+           = $options->{'INCLUDE_DIRECTORIES'};
+
+         my $document = $options->{'document'};
+
+         $verbatim_include_verbatim
+            = Texinfo::Convert::Utils::expand_verbatiminclude($element,
+                 $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $options);
         }
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($options, $verbatim_include_verbatim);
@@ -849,9 +871,7 @@ sub convert_to_text($;$)
   } elsif (!ref($options)) {
     confess("convert_to_text options not a ref\n");
   }
-  # this is needed for expand_verbatiminclude which uses
-  # $configurations_information->get_conf() and thus requires a blessed
-  # reference.
+  # FIXME remove?  Should not be useful at some point
   bless $options, "Texinfo::Convert::Text";
 
   # Interface with XS converter.
@@ -917,6 +937,8 @@ sub convert($$)
   # Cf comment in output() on using $self for options.
   _initialize_text_options_encoding($self, $self);
 
+  $self->{'document'} = $document;
+
   my $root = $document->tree();
 
   my $result;
@@ -959,6 +981,9 @@ sub output($$)
   # using the converter brings that too.
   _initialize_text_options_encoding($self, $self);
 
+  # for expand_verbatiminclude call.
+  $self->{'document'} = $document;
+
   my $root = $document->tree();
 
   #print STDERR "OUTPUT\n";
@@ -998,8 +1023,10 @@ sub output($$)
       if (defined($self->{'SUBDIR'})) {
         my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
         my ($encoded_destination_directory, $destination_directory_encoding)
-          = Texinfo::Convert::Utils::encoded_output_file_name($self,
-                                                     $destination_directory);
+          = Texinfo::Convert::Utils::encoded_output_file_name(
+             $destination_directory, $self->{'OUTPUT_FILE_NAME_ENCODING'},
+             $self->{'DOC_ENCODING_FOR_OUTPUT_FILE_NAME'},
+             $self->{'LOCALE_ENCODING'}, $document);
         if (! -d $encoded_destination_directory) {
           if (!mkdir($encoded_destination_directory, oct(755))) {
             warn sprintf(__(
@@ -1018,8 +1045,10 @@ sub output($$)
     if (defined($output_directories) and $output_directories ne './'
         and $output_directories ne '.' and $output_directories ne '') {
       my ($encoded_output_directories, $output_directories_encoding)
-        = Texinfo::Convert::Utils::encoded_output_file_name($self,
-                                                       $output_directories);
+        = Texinfo::Convert::Utils::encoded_output_file_name(
+             $output_directories, $self->{'OUTPUT_FILE_NAME_ENCODING'},
+             $self->{'DOC_ENCODING_FOR_OUTPUT_FILE_NAME'},
+             $self->{'LOCALE_ENCODING'}, $document);
       if (! -d $encoded_output_directories) {
         if (!mkdir($encoded_output_directories, oct(755))) {
           warn sprintf(__(
@@ -1034,7 +1063,11 @@ sub output($$)
   my ($encoded_outfile, $outfile_encoding);
   if (defined($outfile)) {
     ($encoded_outfile, $outfile_encoding)
-      = Texinfo::Convert::Utils::encoded_output_file_name($self, $outfile);
+      = Texinfo::Convert::Utils::encoded_output_file_name($outfile,
+                       $self->{'OUTPUT_FILE_NAME_ENCODING'},
+                       $self->{'DOC_ENCODING_FOR_OUTPUT_FILE_NAME'},
+                       $self->{'LOCALE_ENCODING'}, $document);
+
     my $error_message;
     # the third return information, set if the file has already been used
     # in this files_information is not checked as this cannot happen.
@@ -1083,6 +1116,7 @@ sub destroy($)
 {
 }
 
+# used in Texinfo::Common::set_output_perl_encoding
 sub get_conf($$)
 {
   my $self = shift;
@@ -1113,7 +1147,7 @@ sub converter_line_error($$$;$)
 
   my $message = Texinfo::Report::format_line_message('error', $text,
                                  $error_location_info, $continuation,
-                                            $self->get_conf('DEBUG'));
+                                            $self->{'DEBUG'});
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
@@ -1126,8 +1160,8 @@ sub converter_document_warn($$;$)
 
   my $program_name;
 
-  if ($self->get_conf('PROGRAM') && $self->get_conf('PROGRAM') ne '') {
-    $program_name = $self->get_conf('PROGRAM');
+  if ($self->{'PROGRAM'} && $self->{'PROGRAM'} ne '') {
+    $program_name = $self->{'PROGRAM'};
   }
 
   my $message

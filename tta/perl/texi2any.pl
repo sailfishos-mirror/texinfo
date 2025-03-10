@@ -1782,7 +1782,10 @@ while(@input_files) {
            or (get_conf('DEBUG') and get_conf('DEBUG') >= 10))) {
     my $tree = $document->tree();
     my $input_file_names_encoding
-      = Texinfo::Common::input_file_name_encoding($document, $document);
+      = Texinfo::Common::input_file_name_encoding(
+                 get_conf('INPUT_FILE_NAME_ENCODING'),
+                 get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
+                 get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
       = Texinfo::ManipulateTree::print_tree_details($tree,
                      $input_file_names_encoding, get_conf('TEST'));
@@ -1996,7 +1999,10 @@ while(@input_files) {
       or (get_conf('DEBUG') and get_conf('DEBUG') >= 20)) {
     my $tree = $document->tree();
     my $input_file_names_encoding
-      = Texinfo::Common::input_file_name_encoding($document, $document);
+      = Texinfo::Common::input_file_name_encoding(
+                 get_conf('INPUT_FILE_NAME_ENCODING'),
+                 get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
+                 get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
       = Texinfo::ManipulateTree::print_tree_details($tree,
                          $input_file_names_encoding, get_conf('TEST'));

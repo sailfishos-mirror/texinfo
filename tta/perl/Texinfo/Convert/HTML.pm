@@ -5190,7 +5190,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $args = shift;
 
   my $verbatim_include_verbatim
-    = Texinfo::Convert::Utils::expand_verbatiminclude($self, $command);
+    = $self->expand_verbatiminclude($command);
   if (defined($verbatim_include_verbatim)) {
     return $self->convert_tree($verbatim_include_verbatim,
                                'convert verbatiminclude');

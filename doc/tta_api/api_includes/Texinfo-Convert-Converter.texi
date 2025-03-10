@@ -659,10 +659,8 @@ The @emph{$input_file_encoding} argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
-Note that @code{encoded_output_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_output_file_name($character_string_name),, @code{Texinfo::Convert::Utils::encoded_output_file_name}},
-and @code{encoded_input_file_name} is a wrapper around the
-function with the same name in @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = $converter->encoded_input_file_name($character_string_name@comma{} $input_file_encoding),, @code{Texinfo::Convert::Utils::encoded_input_file_name}}.
+Note that these functions are wrappers around functions from
+@ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils} with the same names.
 
 @item ($caption, $prepended) = $converter->float_name_caption($float)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter ($caption@comma{} $prepended) = $converter->float_name_caption($float)}
@@ -771,6 +769,14 @@ or @code{undef}.
 
 Returns a file name for the Top node file using either @code{TOP_FILE}
 customization value, or @code{EXTENSION} customization value and @emph{$document_name}.
+
+@item $tree = $converter->expand_verbatiminclude($verbatiminclude)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $tree = $converter->expand_verbatiminclude($verbatiminclude)}
+@cindex @code{expand_verbatiminclude}
+
+@emph{$verbatiminclude} is a @code{@@verbatiminclude} tree element.  This function
+returns a @code{@@verbatim} tree elements after finding the included file and
+reading it.
 
 @end table
 

@@ -1271,7 +1271,10 @@ sub test($$)
                          $test_split_by_node, $split_pages, $self->{'DEBUG'});
 
   my $input_file_names_encoding
-      = Texinfo::Common::input_file_name_encoding($document, $document);
+      = Texinfo::Common::input_file_name_encoding(
+                 $document->get_conf('INPUT_FILE_NAME_ENCODING'),
+                 $document->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
+                 $document->get_conf('LOCALE_ENCODING'), $document);
 
   my $float_text;
   my $tree_text;

@@ -391,21 +391,28 @@ sub find_innermost_accent_contents($)
 # argument and the 'INCLUDE_DIRECTORIES' available through
 # get_conf(), the included file can only be found in specific
 # circumstances.
-sub expand_verbatiminclude($$)
+sub expand_verbatiminclude($$$$$;$$)
 {
-  my $converter = shift;
   my $current = shift;
+  my $input_file_name_encoding = shift;
+  my $doc_encoding_for_input_file_name = shift;
+  my $locale_encoding = shift;
+  my $include_directories = shift;
+  my $document = shift;
+  my $converter = shift;
 
   return undef unless ($current->{'extra'}
                        and defined($current->{'extra'}->{'text_arg'}));
+
   my $file_name_text = $current->{'extra'}->{'text_arg'};
 
   my $input_encoding
     = Texinfo::Common::element_associated_processing_encoding($current);
 
   my ($file_name, $file_name_encoding)
-    = encoded_input_file_name($converter,
-                              $file_name_text, $input_encoding);
+    = encoded_input_file_name($file_name_text, $input_file_name_encoding,
+                  $doc_encoding_for_input_file_name, $locale_encoding,
+                                          $document, $input_encoding);
 
   my $file = Texinfo::Common::locate_include_file($file_name,
                           $converter->get_conf('INCLUDE_DIRECTORIES'));
@@ -586,48 +593,52 @@ sub find_root_command_next_heading_command($$;$$)
   return undef;
 }
 
-# this requires a converter argument
-sub encoded_output_file_name($$)
+sub encoded_output_file_name($$$$;$)
 {
-  my $self = shift;
   my $file_name = shift;
+  my $output_file_name_encoding = shift;
+  my $doc_encoding_for_output_file_name = shift;
+  my $locale_encoding = shift;
+  my $document = shift;
+
 
   my $encoding;
-  my $output_file_name_encoding = $self->get_conf('OUTPUT_FILE_NAME_ENCODING');
   if ($output_file_name_encoding) {
     $encoding = $output_file_name_encoding;
-  } elsif ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
+  } elsif ($doc_encoding_for_output_file_name) {
     my $document_info;
 
-    if ($self->{'document'}) {
-      $document_info = $self->{'document'}->global_information();
+    if ($document) {
+      $document_info = $document->global_information();
     }
 
     $encoding = $document_info->{'input_encoding_name'}
       if ($document_info
           and defined($document_info->{'input_encoding_name'}));
   } else {
-    $encoding = $self->get_conf('LOCALE_ENCODING');
+    $encoding = $locale_encoding;
   }
 
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
-# this requires a converter argument as customization is read
-# and document is found with the converter.
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
-# argument, it will be used if DOC_ENCODING_FOR_INPUT_FILE_NAME is
+# argument, it will be used if $DOC_ENCODING_FOR_INPUT_FILE_NAME is
 # undef or set.
 # Reverse the decoding of the file name from the input encoding.
-sub encoded_input_file_name($$;$)
+sub encoded_input_file_name($$$$;$$)
 {
-  my $self = shift;
   my $file_name = shift;
+  my $input_file_name_encoding = shift;
+  my $doc_encoding_for_input_file_name = shift;
+  my $locale_encoding = shift;
+  my $document = shift;
   my $input_file_encoding = shift;
 
   my $encoding
-    = Texinfo::Common::input_file_name_encoding($self, $self->{'document'},
-                                           $input_file_encoding);
+    = Texinfo::Common::input_file_name_encoding($input_file_name_encoding,
+                 $doc_encoding_for_input_file_name, $locale_encoding,
+                           $document, $input_file_encoding);
 
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
@@ -662,9 +673,6 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
   use Texinfo::Convert::Utils;
 
   my $today_tree = Texinfo::Convert::Utils::expand_today($converter);
-  my $verbatiminclude_tree
-     = Texinfo::Convert::Utils::expand_verbatiminclude($converter,
-                                                       $verbatiminclude);
 
 =head1 NOTES
 
@@ -727,23 +735,24 @@ I<$def_line> taking the class into account, if there is one.
 If I<$converter> is not defined, the resulting string won't be
 translated.
 
-=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding)
+=item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 
-=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
+=item ($encoded_name, $encoding) = encoded_output_file_name($character_string_name, $output_file_name_encoding, $doc_encoding_for_output_file_name, $locale_encoding, $document)
+
 X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
 
-Encode I<$character_string_name> in the same way as other file names are
-encoded in converters, based on customization variables, and possibly
-on the input file encoding.  Return the encoded name and the encoding
-used to encode the name.  The C<encoded_input_file_name> and
-C<encoded_output_file_name> functions use different customization variables to
-determine the encoding.  The I<$converter> argument is not optional
-and is used both to access to customization variables and to access to parsed
-document information.
+C<encoded_input_file_name> encodes I<$character_string_name> as an input file
+name.  If I<$doc_encoding_for_input_file_name> is set, the encoding is based on
+the input file content encoding, otherwise I<$locale_encoding> is used.  The
+I<$document> argument is an optional Texinfo parsed document used to get the
+input document content encoding.  C<encoded_output_file_name> encodes
+I<$character_string_name> as an output file name and takes similar arguments.
+Return the encoded name and the encoding used to encode the name.
 
-The I<$input_file_encoding> argument is optional.  If set, it is used for
-the input file encoding.  It is useful if there is more precise information
-on the input file encoding where the file name appeared.
+The I<$input_file_encoding> argument is optional and only available for
+C<encoded_input_file_name>.  If set, it is used for the input file encoding.
+It is useful if there is more precise information on the input file encoding
+where the file name appeared.
 
 =item $tree = expand_today($converter)
 X<C<expand_today>>
@@ -752,14 +761,19 @@ Expand today's date, as a Texinfo tree with translations.  The I<$converter>
 argument is not optional and is used both to retrieve customization information
 and to translate strings.
 
-=item $tree = expand_verbatiminclude($converter, $verbatiminclude)
+=item $tree = expand_verbatiminclude($verbatiminclude, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $include_directories, $document, $converter)
 X<C<expand_verbatiminclude>>
 
-The I<$converter> argument is required and is used to output error messages and
-retrieve customization information L<Texinfo::Convert::Converter/Getting and
-setting customization variables>.  I<$verbatiminclude> is a C<@verbatiminclude>
-tree element.  This function returns a C<@verbatim> tree elements after finding
-the included file and reading it.
+I<$verbatiminclude> is a C<@verbatiminclude> tree element.
+I<$name_encoding>, I<$doc_encoding_for_input_file_name>, and
+I<$locale_encoding> are L<< Texinfo::Encoding
+C<input_file_name_encoding> arguments|Texinfo::Common/$encoding =
+input_file_name_encoding($name_encoding, $doc_encoding_for_input_file_name,
+$locale_encoding, $document, $input_file_encoding) >>.  I<$include_directories>
+is an array reference with include directories where the file specified as
+C<@verbatiminclude> argument is searched for. The I<$converter> argument is
+used to output error messages.  This function returns a C<@verbatim> tree
+elements after finding the included file and reading it.
 
 =item ($contents_element, \@accent_commands) = find_innermost_accent_contents($element)
 X<C<find_innermost_accent_contents>>

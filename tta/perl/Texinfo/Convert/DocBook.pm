@@ -1097,10 +1097,9 @@ sub _convert($$;$)
 
         return '';
       } elsif ($cmdname eq 'verbatiminclude') {
-        my $verbatim_include_verbatim
-          = Texinfo::Convert::Utils::expand_verbatiminclude($self, $element);
-        if (defined($verbatim_include_verbatim)) {
-          $result .= _convert($self, $verbatim_include_verbatim);
+        my $expansion = $self->expand_verbatiminclude($element);
+        if (defined($expansion)) {
+          $result .= _convert($self, $expansion);
           return $result;
         } else {
           return '';

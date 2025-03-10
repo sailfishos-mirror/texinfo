@@ -3769,8 +3769,7 @@ sub _convert($$)
       _ensure_end_of_line($self);
       return;
     } elsif ($cmdname eq 'verbatiminclude') {
-      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
-                                                               $self, $element);
+      my $expansion = $self->expand_verbatiminclude($element);
       _convert($self, $expansion) if (defined($expansion));
       return;
     } elsif ($cmdname eq 'insertcopying') {

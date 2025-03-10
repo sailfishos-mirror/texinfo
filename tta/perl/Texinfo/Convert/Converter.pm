@@ -1197,6 +1197,65 @@ sub determine_files_and_directory($$)
           $document_name, $input_basefile);
 }
 
+# Reverse the decoding of the file name from the input encoding.
+# A wrapper around Texinfo::Utils::encoded_input_file_name().
+sub encoded_input_file_name($$;$)
+{
+  my $self = shift;
+  my $file_name = shift;
+  my $input_file_encoding = shift;
+
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+  my $locale_encoding = $self->get_conf('LOCALE_ENCODING');
+
+  return Texinfo::Convert::Utils::encoded_input_file_name($file_name,
+                 $input_file_name_encoding,
+                 $doc_encoding_for_input_file_name, $locale_encoding,
+                 $self->{'document'}, $input_file_encoding);
+}
+
+# A wrapper around Texinfo::Utils::encoded_output_file_name().
+sub encoded_output_file_name($$)
+{
+  my $self = shift;
+  my $file_name = shift;
+
+  my $output_file_name_encoding = $self->get_conf('OUTPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_output_file_name
+    = $self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME');
+  my $locale_encoding = $self->get_conf('LOCALE_ENCODING');
+
+  return Texinfo::Convert::Utils::encoded_output_file_name($file_name,
+                 $output_file_name_encoding,
+                 $doc_encoding_for_output_file_name, $locale_encoding,
+                 $self->{'document'});
+}
+
+# wrapper around Texinfo::Utils::expand_verbatiminclude.
+sub expand_verbatiminclude($$)
+{
+  my $converter = shift;
+  my $current = shift;
+
+  my $input_file_name_encoding
+    = $converter->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $doc_encoding_for_input_file_name
+    = $converter->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME');
+  my $locale_encoding = $converter->get_conf('LOCALE_ENCODING');
+
+  my $include_directories
+    = $converter->get_conf('INCLUDE_DIRECTORIES');
+
+  my $document = $converter->{'document'};
+
+  return Texinfo::Convert::Utils::expand_verbatiminclude($current,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $converter);
+}
+
 # determine the default, with $INIT_CONF if set, or the default common
 # to all the converters
 sub _command_init($$)
@@ -1306,28 +1365,6 @@ sub present_bug_message($$;$)
        $line_message.$current_element_message."\n";
   }
   warn "You found a bug: $message\n\n".$additional_information;
-}
-
-# Reverse the decoding of the file name from the input encoding.
-# A wrapper around Texinfo::Utils::encoded_input_file_name() that
-# can be called in converters through an objet oriented syntax.
-sub encoded_input_file_name($$;$)
-{
-  my $self = shift;
-  my $file_name = shift;
-  my $input_file_encoding = shift;
-
-  return Texinfo::Convert::Utils::encoded_input_file_name($self, $file_name,
-                                                          $input_file_encoding);
-}
-
-# A wrapper around Texinfo::Utils::encoded_output_file_name() that
-# can be called in converters through an objet oriented syntax.
-sub encoded_output_file_name($$)
-{
-  my $self = shift;
-  my $file_name = shift;
-  return Texinfo::Convert::Utils::encoded_output_file_name($self, $file_name);
 }
 
 # This is used when the formatted text has no comment nor new line, but
@@ -2574,10 +2611,8 @@ The I<$input_file_encoding> argument is optional.  If set, it is used for
 the input file encoding.  It is useful if there is more precise information
 on the input file encoding where the file name appeared.
 
-Note that C<encoded_output_file_name> is a wrapper around the
-function with the same name in L<<< C<Texinfo::Convert::Utils::encoded_output_file_name>|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name) >>>,
-and C<encoded_input_file_name> is a wrapper around the
-function with the same name in L<<< C<Texinfo::Convert::Utils::encoded_input_file_name>|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name, $input_file_encoding) >>>.
+Note that these functions are wrappers around functions from
+L<Texinfo::Convert::Utils> with the same names.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>
@@ -2674,6 +2709,13 @@ X<C<top_node_filename>>
 
 Returns a file name for the Top node file using either C<TOP_FILE>
 customization value, or C<EXTENSION> customization value and I<$document_name>.
+
+=item $tree = $converter->expand_verbatiminclude($verbatiminclude)
+X<C<expand_verbatiminclude>>
+
+I<$verbatiminclude> is a C<@verbatiminclude> tree element.  This function
+returns a C<@verbatim> tree elements after finding the included file and
+reading it.
 
 =back
 

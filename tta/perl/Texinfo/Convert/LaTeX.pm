@@ -4135,8 +4135,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'verbatiminclude') {
-      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude(
-                                                              $self, $element);
+      my $expansion = $self->expand_verbatiminclude($element);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return $result;
