@@ -1203,14 +1203,13 @@ sub _command_init($$)
 {
   my $global_command = shift;
   my $init_conf = shift;
-  if (exists($Texinfo::Common::document_settable_at_commands{$global_command})) {
-    if (defined($init_conf->{$global_command})) {
-      return $init_conf->{$global_command};
-    } elsif (defined($Texinfo::Common::document_settable_at_commands{$global_command})) {
-      return $Texinfo::Common::document_settable_at_commands{$global_command};
-    }
+
+  # the setters should make sure that there are only
+  # Texinfo::Common::document_settable_at_commands in init_conf.
+  if (defined($init_conf->{$global_command})) {
+    return $init_conf->{$global_command};
   }
-  return undef;
+  return $Texinfo::Common::document_settable_at_commands{$global_command};
 }
 
 # $COMMANDS_LOCATION is 'before', 'last', 'preamble' or 'preamble_or_first'

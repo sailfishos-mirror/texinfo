@@ -207,7 +207,7 @@ set_generic_converter_options (OPTIONS *options)
    corresponds to the HTML converter case, where all the options are
    set. */
 /* NOTE the values set here are actually used only if set in
-   command_init, which is th eonly function that use these values,
+   command_init, which is the only function that use these values,
    so it could also have been possible to set the values only if
    set.  However, it is better to do as in Perl to avoid surprises.
  */
@@ -1029,65 +1029,51 @@ create_destination_directory (CONVERTER *self,
 
 
 
-/* freed by caller */
-static OPTION *
-new_option_value (enum global_option_type type, int int_value, char *char_value)
+/* OF_configured is taken into account in option_set_conf */
+static void
+copy_command_option_value_option (OPTION *option,
+                                  const COMMAND_OPTION_VALUE *cmd_option_value)
 {
-  OPTION *result = (OPTION *) malloc (sizeof (OPTION));
-  memset (result, 0, sizeof (OPTION));
-  result->type = type;
-  if (type == GOT_integer)
-    result->o.integer = int_value;
-  else
-    result->o.string = char_value;
-  return result;
-}
-
-static OPTION *
-get_command_option_value_option (COMMAND_OPTION_VALUE *cmd_option_value)
-{
-  OPTION *option_value = 0;
   if (cmd_option_value->type == GOT_integer)
-    {
-      if (cmd_option_value->v.value >= 0)
-        option_value = new_option_value (GOT_integer,
-                                         cmd_option_value->v.value, 0);
-    }
-  else if (cmd_option_value->type == GOT_char)
-    {
-      if (cmd_option_value->v.string)
-        option_value = new_option_value (GOT_char, -1,
-                                         cmd_option_value->v.string);
-    }
-  return option_value;
+    option_set_conf (option, cmd_option_value->v.value, 0);
+  else
+    option_set_conf (option, -1, cmd_option_value->v.string);
 }
 
 /* freed by caller.  Information in structure refers to other data, so
    should not be freed */
-static OPTION *
+static COMMAND_OPTION_VALUE *
 command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
 {
-  OPTION *option_value = 0;
+  COMMAND_OPTION_VALUE *result = 0;
   const OPTION *default_option;
-  /* always true currently, as it always comes from the converter and is
+  /* always true currently, as it always comes from a converter and is
      part of the converter */
   if (commands_init_conf)
     {
-      option_value
-        = get_command_option_value_option (&commands_init_conf[cmd]);
-      if (option_value)
-        return option_value;
+      const COMMAND_OPTION_VALUE *cmd_init_conf = &commands_init_conf[cmd];
+      if (cmd_init_conf->type == GOT_integer && cmd_init_conf->v.value >= 0
+          || cmd_init_conf->type == GOT_char && cmd_init_conf->v.string)
+        {
+          result = (COMMAND_OPTION_VALUE *)
+                          malloc (sizeof (COMMAND_OPTION_VALUE));
+          memcpy (result, &commands_init_conf[cmd],
+                  sizeof (COMMAND_OPTION_VALUE));
+          return result;
+        }
     }
   default_option = get_converter_command_option (txi_base_sorted_options, cmd);
   if (default_option)
     {
-      option_value = (OPTION *) malloc (sizeof (OPTION));
-      memset (option_value, 0, sizeof (OPTION));
-      option_value->type = default_option->type;
-
-      copy_option (option_value, default_option);
+      result = (COMMAND_OPTION_VALUE *)
+                          malloc (sizeof (COMMAND_OPTION_VALUE));
+      result->type = default_option->type;
+      if (default_option->type == GOT_integer)
+        result->v.value = default_option->o.integer;
+      else
+        result->v.string = default_option->o.string;
     }
-  return option_value;
+  return result;
 }
 
 void
@@ -1101,14 +1087,13 @@ set_global_document_commands (CONVERTER *converter,
       for (i = 0; cmd_list[i] > 0; i++)
         {
           enum command_id cmd = cmd_list[i];
-          OPTION *option_value = command_init (cmd,
+          COMMAND_OPTION_VALUE *option_value = command_init (cmd,
                                                converter->commands_init_conf);
           if (option_value)
             {
               OPTION *option_ref
                = get_converter_command_option (converter->sorted_options, cmd);
-              if (!(option_ref->flags & OF_configured))
-                copy_option (option_ref, option_value);
+              copy_command_option_value_option (option_ref, option_value);
               free (option_value);
             }
         }
@@ -1136,15 +1121,14 @@ set_global_document_commands (CONVERTER *converter,
             }
           if (!element)
             {
-              OPTION *option_value = command_init (cmd,
+              COMMAND_OPTION_VALUE *option_value = command_init (cmd,
                                        converter->commands_init_conf);
               if (option_value)
                 {
                   OPTION *option_ref
                     = get_converter_command_option (converter->sorted_options,
                                                     cmd);
-                  if (!(option_ref->flags & OF_configured))
-                    copy_option (option_ref, option_value);
+                  copy_command_option_value_option (option_ref, option_value);
                   free (option_value);
                 }
             }
