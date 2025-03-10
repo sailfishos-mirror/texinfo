@@ -1204,8 +1204,10 @@ sub _command_init($$)
   my $global_command = shift;
   my $init_conf = shift;
 
-  # the setters should make sure that there are only
-  # Texinfo::Common::document_settable_at_commands in init_conf.
+  # Where init_conf values are set, It should be made sure that there are only
+  # Texinfo::Common::document_settable_at_commands, we do not check here.
+  # If it is not the case, it should not make a difference anyway, as this
+  # function should only be called with those commands in argument.
   if (defined($init_conf->{$global_command})) {
     return $init_conf->{$global_command};
   }

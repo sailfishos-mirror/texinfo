@@ -445,8 +445,14 @@ free_options_list (OPTIONS_LIST *options_list)
 void
 clear_options_list (OPTIONS_LIST *options_list)
 {
+  size_t i;
+  OPTION **sorted_options = options_list->sorted_options;
+
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
+    clear_option (sorted_options[i]);
+
   options_list->number = 0;
-  clear_options (options_list->options);
+  options_list->options->BIT_user_function_number = 0;
 }
 
 int

@@ -1,5 +1,14 @@
 2025-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/customization_options.c (clear_options_list): iterate
+	over sorted options calling clear_option instead of calling
+	clear_options.
+
+	* tta/maintain/regenerate_C_options_info.pl: remove generation of
+	clear_options and copy_options that are not used anymore.
+
+2025-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (copy_command_option_value_option)
 	(command_init, set_global_document_commands): use COMMAND_OPTION_VALUE
 	as return value of command_init.  Add

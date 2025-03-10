@@ -40,7 +40,7 @@
 #include "builtin_commands.h"
 #include "command_stack.h"
 #include "utils.h"
-/* option_force_conf option_set_conf copy_options */
+/* option_force_conf option_set_conf */
 #include "customization_options.h"
 #include "extra.h"
 #include "targets.h"

@@ -258,29 +258,6 @@ foreach my $category (sort(keys(%option_categories))) {
 }
 print CODE "}\n\n";
 
-print CODE "void\nclear_options (OPTIONS *options)\n{\n";
-print CODE "  options->BIT_user_function_number = 0;\n";
-foreach my $category (sort(keys(%option_categories))) {
-  print CODE "\n/* ${category} */\n\n";
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print CODE "  clear_option (&options->$option);\n";
-  }
-}
-print CODE "}\n\n";
-
-# NOTE the generated function is not used for now
-print CODE "void\ncopy_options (OPTIONS *destination, const OPTIONS *source)\n{\n";
-print CODE "  destination->BIT_user_function_number = source->BIT_user_function_number;\n";
-foreach my $category (sort(keys(%option_categories))) {
-  print CODE "\n/* ${category} */\n\n";
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print CODE "  copy_option (&destination->$option, &source->$option);\n";
-  }
-}
-print CODE "}\n\n";
-
 my @sorted_options = sort(keys(%options));
 
 # returns an array of options ready to be sorted (and already sorted).

@@ -34,8 +34,6 @@ extern COMMAND_OPTION_NUMBER_CMD
 /* in options_init_free.c */
 void initialize_options (OPTIONS *options);
 void free_options (OPTIONS *options);
-void clear_options (OPTIONS *options);
-void copy_options (OPTIONS *destination, const OPTIONS *source);
 void setup_sortable_options (OPTION **to_sort, OPTIONS *options);
 void setup_options_command_map (COMMAND_OPTION_NUMBER_CMD *options_command_map,
                                 const OPTIONS *options);

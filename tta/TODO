@@ -39,6 +39,10 @@ of times we need to parse translated strings.
 Bugs
 ====
 
+See comment of anchor_in_menu_on_sectioning_command_line test in
+t/html_tests.t explaining a memory leak.  (also present in
+namedanchor t/converters_tests.t test).
+
 
 HTML API
 ========
