@@ -37,16 +37,23 @@ ELEMENT *expand_today (OPTIONS *options);
 
 struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
-char *add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
-                          int numbered);
+char *add_heading_number (const ELEMENT *current, char *text,
+                          int numbered, OPTIONS *options);
 
-ELEMENT *expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+ELEMENT *expand_verbatiminclude (const char *input_file_name_encoding,
+                        int doc_encoding_for_input_file_name,
+                        const char *locale_encoding,
+                        const STRING_LIST *include_directories,
+                        ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,
                         const ELEMENT *current);
+ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+                         OPTIONS *options, GLOBAL_INFO *global_information,
+                         const ELEMENT *current);
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (OPTIONS *options, const ELEMENT *current);
+ELEMENT *definition_category_tree (const ELEMENT *current, OPTIONS *options);
 
 ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -54,16 +61,28 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
 
 ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
 
-char *encoded_input_file_name (const OPTIONS *options,
+char *encoded_input_file_name (const char *input_file_name_encoding,
+                         int doc_encoding_for_input_file_name,
+                         const char *locale_encoding,
                          const GLOBAL_INFO *global_information,
                          char *file_name, const char *input_file_encoding,
                          char **file_name_encoding,
                          const SOURCE_INFO *source_info);
-char *encoded_output_file_name (const OPTIONS *options,
-                                const GLOBAL_INFO *global_information,
-                                char *file_name,
-                                char **file_name_encoding,
-                                const SOURCE_INFO *source_info);
+char *converter_encoded_input_file_name (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
+                          char *file_name, const char *input_file_encoding,
+                          char **file_name_encoding,
+                          const SOURCE_INFO *source_info);
+char *encoded_output_file_name (const char *output_file_name_encoding,
+                          int doc_encoding_for_output_file_name,
+                          const char *locale_encoding,
+                          const GLOBAL_INFO *global_information,
+                          char *file_name, char **file_name_encoding,
+                          const SOURCE_INFO *source_info);
+char *converter_encoded_output_file_name (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
+                          char *file_name, char **file_name_encoding,
+                          const SOURCE_INFO *source_info);
 
 FILE *output_files_open_out (OUTPUT_FILES_INFORMATION *self,
                              const char *file_path,

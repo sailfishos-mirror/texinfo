@@ -1,3 +1,28 @@
+2025-03-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/utils.c (input_file_name_encoding),
+	tta/C/main/convert_utils.c (encoded_input_file_name)
+	(converter_encoded_input_file_name, encoded_output_file_name)
+	(converter_encoded_output_file_name, expand_verbatiminclude)
+	(converter_expand_verbatiminclude), tta/C/convert/format_html.c,
+	tta/C/convert/convert_html.c, tta/C/convert/converter.c,
+	tta/C/convert/html_prepare_converter.c,
+	tta/C/convert/rawtext_converter_api.c, tta/C/main/convert_to_text.c
+	(convert_to_text_internal), tta/C/texi2any.c (main): get customization
+	variables values as arguments, add wrappers getting information from
+	OPTIONS.  Update callers to call the wrappers or get customization
+	variables values.
+
+	* tta/C/main/convert_to_text.c (text_heading),
+	tta/C/main/convert_utils.c (add_heading_number): change order of
+	arguments, put options last.  Update callers.
+
+	* tta/C/main/convert_to_text.c (text_heading): remove code related to
+	indentation.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal): handle
+	reproducible builds for @today.
+
 2025-03-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Converter.pm (translated_command_tree)

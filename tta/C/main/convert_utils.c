@@ -203,8 +203,8 @@ find_innermost_accent_contents (const ELEMENT *element)
 */
 /* caller should free return */
 char *
-add_heading_number (OPTIONS *options, const ELEMENT *current, char *text,
-                    int numbered)
+add_heading_number (const ELEMENT *current, char *text,
+                    int numbered, OPTIONS *options)
 {
   TEXT result;
   char *number = 0;
@@ -289,14 +289,17 @@ convert_to_utf8_verbatiminclude (char *s, ENCODING_CONVERSION *conversion,
   The caller should free the return value and FILE_NAME_ENCODING.
 */
 char *
-encoded_input_file_name (const OPTIONS *options,
+encoded_input_file_name (const char *in_input_file_name_encoding,
+                         int doc_encoding_for_input_file_name,
+                         const char *locale_encoding,
                          const GLOBAL_INFO *global_information,
                          char *file_name, const char *input_file_encoding,
                          char **file_name_encoding,
                          const SOURCE_INFO *source_info)
 {
   char *result;
-  const char *encoding = input_file_name_encoding (options,
+  const char *encoding = input_file_name_encoding (in_input_file_name_encoding,
+                     doc_encoding_for_input_file_name, locale_encoding,
                               global_information, input_file_encoding);
   int status;
 
@@ -309,10 +312,39 @@ encoded_input_file_name (const OPTIONS *options,
   return result;
 }
 
+char *
+converter_encoded_input_file_name (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
+                          char *file_name, const char *input_file_encoding,
+                          char **file_name_encoding,
+                          const SOURCE_INFO *source_info)
+{
+
+  const char *input_file_name_encoding = 0;
+  int doc_encoding_for_input_file_name = -1;
+  const char *locale_encoding = 0;
+
+  if (options)
+    {
+      input_file_name_encoding
+        = options->INPUT_FILE_NAME_ENCODING.o.string;
+      doc_encoding_for_input_file_name
+        = options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer;
+      locale_encoding = options->LOCALE_ENCODING.o.string;
+    }
+
+  return encoded_input_file_name (input_file_name_encoding,
+                            doc_encoding_for_input_file_name,
+                             locale_encoding, global_information,
+                             file_name, input_file_encoding, file_name_encoding,
+                             source_info);
+}
 /* NOTE it would have been better to have FILE_NAME const, but iconv
    argument may not be const, so no const here either */
 char *
-encoded_output_file_name (const OPTIONS *options,
+encoded_output_file_name (const char *output_file_name_encoding,
+                          int doc_encoding_for_output_file_name,
+                          const char *locale_encoding,
                           const GLOBAL_INFO *global_information,
                           char *file_name, char **file_name_encoding,
                           const SOURCE_INFO *source_info)
@@ -321,16 +353,15 @@ encoded_output_file_name (const OPTIONS *options,
   const char *encoding = 0;
   int status;
 
-  if (options && options->OUTPUT_FILE_NAME_ENCODING.o.string)
-    encoding = options->OUTPUT_FILE_NAME_ENCODING.o.string;
-  else if (options
-           && options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer > 0)
+  if (output_file_name_encoding)
+    encoding = output_file_name_encoding;
+  else if (doc_encoding_for_output_file_name != 0)
     {
       if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;
     }
-  else if (options)
-    encoding = options->LOCALE_ENCODING.o.string;
+  else if (locale_encoding)
+    encoding = locale_encoding;
 
   result = encode_string (file_name, encoding, &status, source_info);
 
@@ -341,8 +372,39 @@ encoded_output_file_name (const OPTIONS *options,
   return result;
 }
 
+char *
+converter_encoded_output_file_name (const OPTIONS *options,
+                          const GLOBAL_INFO *global_information,
+                          char *file_name, char **file_name_encoding,
+                          const SOURCE_INFO *source_info)
+{
+
+  const char *output_file_name_encoding = 0;
+  int doc_encoding_for_output_file_name = -1;
+  const char *locale_encoding = 0;
+
+  if (options)
+    {
+      output_file_name_encoding
+        = options->OUTPUT_FILE_NAME_ENCODING.o.string;
+      doc_encoding_for_output_file_name
+        = options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.o.integer;
+      locale_encoding = options->LOCALE_ENCODING.o.string;
+    }
+
+  return encoded_output_file_name (output_file_name_encoding,
+                            doc_encoding_for_output_file_name,
+                             locale_encoding, global_information,
+                             file_name, file_name_encoding,
+                             source_info);
+}
+
 ELEMENT *
-expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+expand_verbatiminclude (const char *input_file_name_encoding,
+                        int doc_encoding_for_input_file_name,
+                        const char *locale_encoding,
+                        const STRING_LIST *include_directories,
+                        ERROR_MESSAGE_LIST *error_messages,
                         OPTIONS *options, GLOBAL_INFO *global_information,
                         const ELEMENT *current)
 {
@@ -351,20 +413,18 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
   char *file_name_text = lookup_extra_string (current, AI_key_text_arg);
   char *file_name;
   char *file;
-  STRING_LIST *include_directories = 0;
 
   if (!file_name_text)
     return 0;
 
   char *input_encoding = element_associated_processing_encoding (current);
 
-  file_name = encoded_input_file_name (options, global_information,
+  file_name = encoded_input_file_name (input_file_name_encoding,
+                     doc_encoding_for_input_file_name, locale_encoding,
+                                       global_information,
                                        file_name_text, input_encoding,
                                        &file_name_encoding,
                                        &current->e.c->source_info);
-
-  if (options)
-    include_directories = options->INCLUDE_DIRECTORIES.o.strlist;
 
   file = locate_include_file (file_name, include_directories);
 
@@ -453,6 +513,33 @@ expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
   return verbatiminclude;
 }
 
+ELEMENT *
+converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+                         OPTIONS *options, GLOBAL_INFO *global_information,
+                         const ELEMENT *current)
+{
+  const char *input_file_name_encoding = 0;
+  int doc_encoding_for_input_file_name = -1;
+  const char *locale_encoding = 0;
+  const STRING_LIST *include_directories = 0;
+
+  if (options)
+    {
+      input_file_name_encoding
+        = options->INPUT_FILE_NAME_ENCODING.o.string;
+      doc_encoding_for_input_file_name
+        = options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer;
+      locale_encoding = options->LOCALE_ENCODING.o.string;
+
+      include_directories = options->INCLUDE_DIRECTORIES.o.strlist;
+    }
+
+  return expand_verbatiminclude (input_file_name_encoding,
+            doc_encoding_for_input_file_name, locale_encoding,
+            include_directories, error_messages, options,
+            global_information, current);
+}
+
 PARSED_DEF *
 definition_arguments_content (const ELEMENT *element)
 {
@@ -504,7 +591,7 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 }
 
 ELEMENT *
-definition_category_tree (OPTIONS * options, const ELEMENT *current)
+definition_category_tree (const ELEMENT *current, OPTIONS * options)
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;

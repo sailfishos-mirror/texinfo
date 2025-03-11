@@ -53,7 +53,8 @@
 #include "convert_to_text.h"
 /* normalize_transliterate_texinfo_contents */
 #include "node_name_normalization.h"
-/* translated_command_tree encoded_output_file_name output_files_open_out
+/* translated_command_tree converter_encoded_output_file_name
+   output_files_open_out
    output_files_register_closed */
 #include "convert_utils.h"
 /* call_latex_convert_to_latex_math */
@@ -2005,9 +2006,10 @@ convert_output_output_unit_internal (CONVERTER *self,
       char *open_error_message;
       int overwritten_file;
 
-  /* cast to remove const since the encoded_output_file_name argument cannot
+  /* cast to remove const since the argument cannot
      be const even though the string is not modified */
-      char *encoded_out_filepath = encoded_output_file_name (self->conf,
+      char *encoded_out_filepath
+            = converter_encoded_output_file_name (self->conf,
                                            &self->document->global_info,
                                    (char *)out_filepath, &path_encoding, 0);
       /* overwritten_file being set cannot happen */
@@ -2110,9 +2112,10 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   char *dir_encoding;
   int succeeded;
 
-  /* cast to remove const since the encoded_output_file_name argument cannot
+  /* cast to remove const since the argument cannot
      be const even though the string is not modified */
-  encoded_destination_directory = encoded_output_file_name (self->conf,
+  encoded_destination_directory
+         = converter_encoded_output_file_name (self->conf,
                                             &self->document->global_info,
                                            (char *)destination_directory,
                                                        &dir_encoding, 0);
@@ -2477,7 +2480,8 @@ do_jslicenses_file (CONVERTER *self)
   else
     license_file = strdup (path);
 
-  encoded_out_filepath = encoded_output_file_name (self->conf,
+  encoded_out_filepath
+      = converter_encoded_output_file_name (self->conf,
                             &self->document->global_info, license_file,
                                                        &path_encoding, 0);
   file_fh = output_files_open_out (&self->output_files_information,
@@ -2626,7 +2630,7 @@ html_do_js_files (CONVERTER *self)
       else
         jsdir = strdup (info_js_dir);
 
-      encoded_jsdir = encoded_output_file_name (self->conf,
+      encoded_jsdir = converter_encoded_output_file_name (self->conf,
                                             &self->document->global_info,
                                                 jsdir, &dir_encoding, 0);
 
@@ -3090,7 +3094,7 @@ html_node_redirections (CONVERTER *self,
                 out_filepath = strdup (redirection_filename);
 
               char *encoded_out_filepath
-                 = encoded_output_file_name (self->conf,
+                 = converter_encoded_output_file_name (self->conf,
                                &self->document->global_info, out_filepath,
                                                        &path_encoding, 0);
               /* overwritten_file being set cannot happen */

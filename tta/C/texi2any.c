@@ -2491,6 +2491,9 @@ main (int argc, char *argv[], char *env[])
       OPTION *converter_include_dirs_option;
       OPTION *converter_texinfo_language_directories_option;
       OPTION *dump_tree_option;
+      OPTION *input_file_name_encoding_option;
+      OPTION *doc_encoding_for_input_file_name_option;
+      OPTION *locale_encoding_option;
       OPTION *dump_structure_option;
       STRING_LIST *cmdline_include_dirs
         = cmdline_options.options->INCLUDE_DIRECTORIES.o.strlist;
@@ -2589,12 +2592,23 @@ main (int argc, char *argv[], char *env[])
 
       dump_tree_option
         = GNUT_get_conf (program_options.options->DUMP_TREE.number);
+      input_file_name_encoding_option
+        = GNUT_get_conf (
+         program_options.options->INPUT_FILE_NAME_ENCODING.number);
+      doc_encoding_for_input_file_name_option
+        = GNUT_get_conf (
+         program_options.options->DOC_ENCODING_FOR_INPUT_FILE_NAME.number);
+      locale_encoding_option
+        = GNUT_get_conf (program_options.options->LOCALE_ENCODING.number);
 
       if (!status && ((dump_tree_option && dump_tree_option->o.string)
                       || debug >= 10))
         {
           const char *input_file_names_encoding
-            = input_file_name_encoding (document->options,
+            = input_file_name_encoding (
+                           input_file_name_encoding_option->o.string,
+                        doc_encoding_for_input_file_name_option->o.integer,
+                                 locale_encoding_option->o.string,
                                         &document->global_info, 0);
           char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
@@ -2793,7 +2807,10 @@ main (int argc, char *argv[], char *env[])
           || debug >= 20)
         {
           const char *input_file_names_encoding
-            = input_file_name_encoding (document->options,
+            = input_file_name_encoding (
+                           input_file_name_encoding_option->o.string,
+                        doc_encoding_for_input_file_name_option->o.integer,
+                                 locale_encoding_option->o.string,
                                         &document->global_info, 0);
           char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
@@ -3100,6 +3117,12 @@ main (int argc, char *argv[], char *env[])
               OPTION *sort_element_count_words_option
                 = GNUT_get_conf (
                     program_options.options->SORT_ELEMENT_COUNT_WORDS.number);
+              OPTION *output_file_name_encoding_option
+                = GNUT_get_conf (
+                 program_options.options->OUTPUT_FILE_NAME_ENCODING.number);
+              OPTION *doc_encoding_for_output_file_name_option
+                = GNUT_get_conf (
+               program_options.options->DOC_ENCODING_FOR_OUTPUT_FILE_NAME.number);
 
               FILE *file_fh;
               OUTPUT_FILES_INFORMATION output_files_information;
@@ -3138,7 +3161,9 @@ main (int argc, char *argv[], char *env[])
 
               encoded_sort_element_count_file_name
                   = encoded_output_file_name (
-                                   sort_element_count_info->converter->conf,
+                                  output_file_name_encoding_option->o.string,
+                                  doc_encoding_for_output_file_name_option->o.integer,
+                                  locale_encoding_option->o.string,
                                               &document->global_info,
                      (char *)sort_element_count_file_name, &path_encoding, 0);
               free (path_encoding);

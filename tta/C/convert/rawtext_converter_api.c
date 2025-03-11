@@ -31,7 +31,7 @@
 #include "document.h"
 /* apply_converter_info create_destination_directory write_or_return */
 #include "converter.h"
-/* encoded_output_file_name */
+/* converter_encoded_output_file_name */
 #include "convert_utils.h"
 #include "rawtext_converter_api.h"
 
@@ -146,7 +146,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
               char *dir_encoding;
               int succeeded;
               char *encoded_destination_directory
-                   = encoded_output_file_name (converter->conf,
+                   = converter_encoded_output_file_name (converter->conf,
                                                document_info,
                                                (char *)destination_directory,
                                                        &dir_encoding, 0);
@@ -190,7 +190,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
           && strcmp (destination_directory, "."))
         {
           encoded_destination_directory
-           = encoded_output_file_name (converter->conf,
+           = converter_encoded_output_file_name (converter->conf,
                                        document_info,
                                        (char *)destination_directory,
                                                    &dir_encoding, 0);
@@ -211,7 +211,8 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
       int overwritten_file;
       char *open_error_message;
 
-      encoded_out_filepath = encoded_output_file_name (converter->conf,
+      encoded_out_filepath
+              = converter_encoded_output_file_name (converter->conf,
                                                        document_info,
                                   (char *)outfile, &path_encoding, 0);
       /* overwritten_file being set cannot happen */

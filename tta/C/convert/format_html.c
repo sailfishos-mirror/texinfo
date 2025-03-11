@@ -6431,8 +6431,10 @@ find_image_extension_file (CONVERTER *self, const ELEMENT *element,
   char *located_image_path;
 
   xasprintf (&image_file, "%s%s", image_basefile, extension);
-  file_name = encoded_input_file_name (self->conf, &self->document->global_info,
-                   image_file, 0, &input_file_encoding, &element->e.c->source_info);
+  file_name = converter_encoded_input_file_name (self->conf,
+                    &self->document->global_info,
+                    image_file, 0, &input_file_encoding,
+                    &element->e.c->source_info);
 
   located_image_path = locate_include_file (file_name,
                                    self->conf->INCLUDE_DIRECTORIES.o.strlist);
@@ -9033,7 +9035,7 @@ html_convert_verbatiminclude_command (CONVERTER *self,
                                   const char *content, TEXT *result)
 {
   ELEMENT *verbatim_include_verbatim
-    = expand_verbatiminclude (&self->error_messages, self->conf,
+    = converter_expand_verbatiminclude (&self->error_messages, self->conf,
                               &self->document->global_info, element);
 
   if (verbatim_include_verbatim)
@@ -12301,7 +12303,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   if (self->conf->DEF_TABLE.o.integer > 0)
     {
       ELEMENT *category_tree
-         = definition_category_tree (self->conf, element);
+         = definition_category_tree (element, self->conf);
 
       attribute_class = html_attribute_class (self, "tr", classes);
       destroy_strings_list (classes);

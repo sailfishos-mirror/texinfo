@@ -660,9 +660,10 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
   destination_directory = paths[1];
   output_filename = paths[2];
 
-  /* cast to remove const since the encoded_output_file_name argument cannot
+  /* cast to remove const since the argument cannot
      be const even though the string is not modified */
-  encoded_destination_directory = encoded_output_file_name (converter->conf,
+  encoded_destination_directory
+             = converter_encoded_output_file_name (converter->conf,
                                             &converter->document->global_info,
                                            (char *)destination_directory,
                                                        &dir_encoding, 0);
@@ -688,7 +689,8 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
       int overwritten_file;
       char *open_error_message;
 
-      encoded_out_filepath = encoded_output_file_name (converter->conf,
+      encoded_out_filepath
+          = converter_encoded_output_file_name (converter->conf,
                                        &converter->document->global_info,
                                   (char *)output_file, &path_encoding, 0);
       /* overwritten_file being set cannot happen */

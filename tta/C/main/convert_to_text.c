@@ -380,8 +380,8 @@ static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 /* Return the text of an underlined heading, possibly indented. */
 /* return to be freed by caller */
 static char *
-text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
-              int numbered, int indent_length)
+text_heading (const ELEMENT *current, const char *text,
+              int numbered, OPTIONS *options)
 {
   int i;
   TEXT result;
@@ -400,8 +400,8 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
     if (heading[strlen (heading) - 1] == '\n')
       heading[strlen (heading) - 1] = '\0';
 
-  heading_with_number = add_heading_number (options, current, heading,
-                                            numbered);
+  heading_with_number = add_heading_number (current, heading,
+                                            numbered, options);
 
   free (heading);
 
@@ -417,14 +417,6 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
 
   text_append (&result, "\n");
 
-  if (indent_length > 0)
-    {
-      for (i = 0; i < indent_length; i++)
-        text_append_n (&result, " ", 1);
-    }
-  else
-   indent_length = 0;
-
   level = lookup_extra_integer (current, AI_key_section_level, &status);
   /* could also be status < 0 */
   if (status != 0)
@@ -434,9 +426,7 @@ text_heading (const ELEMENT *current, const char *text, OPTIONS *options,
 
   free (heading_with_number);
 
-  /* result is indented if indent_length is set, so indent_length needs to
-     be substracted to have the width of heading only. */
-  for (i = 0; i < text_width - indent_length; i++)
+  for (i = 0; i < text_width; i++)
     text_append (&result, underline_symbol[level]);
 
   text_append (&result, "\n");
@@ -454,8 +444,8 @@ convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
 {
   PARSED_DEF *parsed_def = definition_arguments_content (element);
   ELEMENT *parsed_definition_category
-     = definition_category_tree (text_options->other_converter_options,
-                                 element);
+     = definition_category_tree (element,
+                                 text_options->other_converter_options);
   if (parsed_definition_category)
     {
       ELEMENT *converted_element = new_element (ET_NONE);
@@ -690,8 +680,21 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               time_t tloc;
               struct tm *time_tm;
               int year;
-              tloc = time (NULL);
-              time_tm = localtime (&tloc);
+              /* See https://reproducible-builds.org/specs/source-date-epoch/ */
+              char *source_date_epoch = getenv ("SOURCE_DATE_EPOCH");
+
+              if (source_date_epoch)
+                {
+   /* This assumes that the SOURCE_DATE_EPOCH environment variable will contain
+      a correct, positive integer in the time_t range */
+                  tloc = (time_t)strtoll (source_date_epoch, NULL, 10);
+                  time_tm = gmtime (&tloc);
+                }
+              else
+                {
+                  tloc = time (NULL);
+                  time_tm = localtime (&tloc);
+                }
               year = time_tm->tm_year + 1900;
               text_printf (result, "%s %d, %d",
                            convert_utils_month_name[time_tm->tm_mon],
@@ -937,8 +940,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           convert_to_text_internal (line_arg, text_options, &text);
           heading
              = text_heading (element, text.text,
-                                    text_options->other_converter_options,
-                                    text_options->NUMBER_SECTIONS, 0);
+                             text_options->NUMBER_SECTIONS,
+                             text_options->other_converter_options);
           ADD(heading);
           free (heading);
           free (text.text);
@@ -992,10 +995,14 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
 
               if (text_options->other_converter_options) {
                 verbatim_include_verbatim
-                 = expand_verbatiminclude (error_messages,
+                 = converter_expand_verbatiminclude (error_messages,
                                        text_options->other_converter_options,
                                        0, element);
               } else {
+                const char *input_file_name_encoding = 0;
+                int doc_encoding_for_input_file_name = -1;
+                const char *locale_encoding = 0;
+                const STRING_LIST *include_directories = 0;
                 GLOBAL_INFO *global_information = 0;
                 error_messages = &text_options->error_messages;
                 if (text_options->document_descriptor) {
@@ -1004,9 +1011,23 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                   if (document)
                     global_information = &document->global_info;
                 }
+                input_file_name_encoding
+                 = text_options->self_converter_options
+                                          ->INPUT_FILE_NAME_ENCODING.o.string;
+                doc_encoding_for_input_file_name
+                 = text_options->self_converter_options
+                                       ->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer;
+
+                locale_encoding
+                  = text_options->self_converter_options->LOCALE_ENCODING.o.string;
+                include_directories
+                  = text_options->self_converter_options->INCLUDE_DIRECTORIES.o.strlist;
+
                 verbatim_include_verbatim
-                  = expand_verbatiminclude (error_messages,
-                                text_options->self_converter_options,
+                  = expand_verbatiminclude (input_file_name_encoding,
+                           doc_encoding_for_input_file_name, locale_encoding,
+                              include_directories, error_messages,
+                              text_options->self_converter_options,
                                         global_information, element);
               }
               if (verbatim_include_verbatim)

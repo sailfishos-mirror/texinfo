@@ -53,7 +53,7 @@
 #include "convert_to_text.h"
 #include "output_unit.h"
 #include "html_conversion_state.h"
-/* encoded_output_file_name */
+/* converter_encoded_output_file_name */
 #include "convert_utils.h"
 /* no_brace_command_accent_upper_case
    xml_text_entity_no_arg_commands_formatting */
@@ -1212,7 +1212,8 @@ load_htmlxref_files (CONVERTER *self)
 
       /* cast to remove const */
       encoded_htmlxref_file_name
-         = encoded_output_file_name (self->conf, &self->document->global_info,
+         = converter_encoded_output_file_name (self->conf,
+                                     &self->document->global_info,
                                      (char *)htmlxref_file_name,
                                      &path_encoding, 0);
       free (path_encoding);
@@ -1274,7 +1275,7 @@ load_htmlxref_files (CONVERTER *self)
         {
           /* cast to remove const */
           encoded_htmlxref_file_name
-            = encoded_output_file_name (self->conf,
+            = converter_encoded_output_file_name (self->conf,
                                         &self->document->global_info,
                                         (char *)htmlxref_file_name,
                                         &path_encoding, 0);
@@ -1331,7 +1332,7 @@ load_htmlxref_files (CONVERTER *self)
             {
               /* cast to remove const */
               encoded_cnf_directory_name
-                = encoded_output_file_name (self->conf,
+                = converter_encoded_output_file_name (self->conf,
                                         &self->document->global_info,
                                         (char *)cnf_directory_name,
                                         &path_encoding, 0);

@@ -2067,24 +2067,26 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
 
 
 const char *
-input_file_name_encoding (const OPTIONS *options,
+input_file_name_encoding (const char *name_encoding,
+                          int doc_encoding_for_input_file_name,
+                          const char *locale_encoding,
                           const GLOBAL_INFO *global_information,
                           const char *input_file_encoding)
 {
   const char *encoding = 0;
 
-  if (options && options->INPUT_FILE_NAME_ENCODING.o.string)
-    encoding = options->INPUT_FILE_NAME_ENCODING.o.string;
-  else if (!options
-           || options->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer != 0)
+  if (name_encoding)
+    encoding = name_encoding;
+  /* could be -1, meaning undef */
+  else if (doc_encoding_for_input_file_name != 0)
     {
       if (input_file_encoding)
         encoding = input_file_encoding;
       else if (global_information && global_information->input_encoding_name)
         encoding = global_information->input_encoding_name;
     }
-  else if (options)
-    encoding = options->LOCALE_ENCODING.o.string;
+  else if (locale_encoding)
+    encoding = locale_encoding;
 
   return encoding;
 }

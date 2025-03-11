@@ -198,9 +198,11 @@ char *join_strings_list (STRING_LIST *strings);
 
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
-const char *input_file_name_encoding (const OPTIONS *options,
-                                 const GLOBAL_INFO *global_information,
-                                 const char *input_file_encoding);
+const char *input_file_name_encoding (const char *name_encoding,
+                          int doc_encoding_for_input_file_name,
+                          const char *locale_encoding,
+                          const GLOBAL_INFO *global_information,
+                          const char *input_file_encoding);
 
 void wipe_index (INDEX *idx);
 void free_indices_info (INDEX_LIST *indices_info);
