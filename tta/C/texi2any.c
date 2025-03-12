@@ -2502,6 +2502,8 @@ main (int argc, char *argv[], char *env[])
       STRING_LIST *converter_include_dirs;
       STRING_LIST *converter_texinfo_language_config_dirs;
       char *input_file_path = 0;
+      char *locale_encoding = 0;
+      char *input_name_encoding_val = 0;
       size_t file_path_len;
       size_t j;
       OPTIONS_LIST *file_cmdline_options;
@@ -2601,15 +2603,20 @@ main (int argc, char *argv[], char *env[])
       locale_encoding_option
         = GNUT_get_conf (program_options.options->LOCALE_ENCODING.number);
 
+      if (locale_encoding_option)
+        locale_encoding = locale_encoding_option->o.string;
+
+      if (input_file_name_encoding_option)
+        input_name_encoding_val = input_file_name_encoding_option->o.string;
+
       if (!status && ((dump_tree_option && dump_tree_option->o.string)
                       || debug >= 10))
         {
           const char *input_file_names_encoding
-            = input_file_name_encoding (
-                           input_file_name_encoding_option->o.string,
-                        doc_encoding_for_input_file_name_option->o.integer,
-                                 locale_encoding_option->o.string,
-                                        &document->global_info, 0);
+            = input_file_name_encoding (input_name_encoding_val,
+               (!(doc_encoding_for_input_file_name_option
+                  && doc_encoding_for_input_file_name_option->o.integer == 0)),
+                    locale_encoding, &document->global_info, 0);
           char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
           const char *output_encoding = 0;
@@ -2807,11 +2814,10 @@ main (int argc, char *argv[], char *env[])
           || debug >= 20)
         {
           const char *input_file_names_encoding
-            = input_file_name_encoding (
-                           input_file_name_encoding_option->o.string,
-                        doc_encoding_for_input_file_name_option->o.integer,
-                                 locale_encoding_option->o.string,
-                                        &document->global_info, 0);
+            = input_file_name_encoding (input_name_encoding_val,
+               (!(doc_encoding_for_input_file_name_option
+                  && doc_encoding_for_input_file_name_option->o.integer == 0)),
+                    locale_encoding, &document->global_info, 0);
           char *debug_tree = print_tree_details (document->tree,
                                input_file_names_encoding, test_mode_set);
           const char *output_encoding = 0;
@@ -3131,6 +3137,7 @@ main (int argc, char *argv[], char *env[])
               char *path_encoding;
               char *encoded_sort_element_count_file_name;
               int error_element_count_file = 0;
+              char *output_file_name_encoding = 0;
 
               /* reuse converter options list memory */
               clear_options_list (&convert_options);
@@ -3159,12 +3166,14 @@ main (int argc, char *argv[], char *env[])
               if (!sort_element_count_text)
                 sort_element_count_text = strdup ("");
 
+              if (output_file_name_encoding_option)
+                output_file_name_encoding
+                  = output_file_name_encoding_option->o.string;
               encoded_sort_element_count_file_name
-                  = encoded_output_file_name (
-                                  output_file_name_encoding_option->o.string,
-                                  doc_encoding_for_output_file_name_option->o.integer,
-                                  locale_encoding_option->o.string,
-                                              &document->global_info,
+                  = encoded_output_file_name (output_file_name_encoding,
+         (!(doc_encoding_for_output_file_name_option
+          && doc_encoding_for_output_file_name_option->o.integer == 0)),
+                       locale_encoding, &document->global_info,
                      (char *)sort_element_count_file_name, &path_encoding, 0);
               free (path_encoding);
 

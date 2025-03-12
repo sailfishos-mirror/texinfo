@@ -1,5 +1,10 @@
 2025-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main): fix reading of options to handle options
+	not set at all.
+
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl ($XS_conversion, test): get tree before
 	conversion to Texinfo and raw text or only a handler if conversion is
 	with XS.
