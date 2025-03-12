@@ -139,6 +139,7 @@ Texinfo::Translations::configure($locales_dir);
 Locale::Messages::bindtextdomain('texinfo', $locales_dir);
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
+my $XS_conversion = Texinfo::XSLoader::XS_convert_enabled();
 
 my $generated_texis_dir = 't_texis';
 
@@ -1097,6 +1098,8 @@ sub test($$)
 
   my ($document_errors, $document_error_nrs) = $document->errors();
   push @$errors, @$document_errors;
+
+  $tree = $document->tree($XS_conversion);
 
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands
