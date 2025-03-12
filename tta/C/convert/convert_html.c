@@ -558,6 +558,9 @@ html_translate_names (CONVERTER *self)
   size_t j;
   const STRING_LIST *special_unit_varieties = &self->special_unit_varieties;
 
+  text_set_language (self->convert_text_options,
+                     self->conf->documentlanguage.o.string);
+
   if (self->conf->DEBUG.o.integer > 0)
     {
       fprintf (stderr, "\nC|TRANSLATE_NAMES encoding_name: %s"
@@ -1139,6 +1142,10 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       && (!default_document_language || !preamble_document_language
           || strcmp (default_document_language, preamble_document_language)))
     html_translate_names (self);
+
+  destroy_text_options (self->convert_text_options);
+  self->convert_text_options
+    = copy_converter_options_for_convert_text (self);
 
   free (default_document_language);
   free (preamble_document_language);

@@ -39,16 +39,16 @@ could also have a converter available in some cases, to call the functions
 with the converter argument set.
 
 @table @asis
-@item $result = add_heading_number($heading_element, $heading_text, $do_number, $converter)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $converter)}
+@item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $result = add_heading_number($heading_element@comma{} $heading_text@comma{} $do_number@comma{} $lang)}
 @cindex @code{add_heading_number}
 
 @emph{$heading_element} is a heading command tree element.  @emph{$heading_text} is the
 already formatted heading text.  if the @emph{$do_number} optional argument is
 defined and false, no number is used and the text is returned as is.  if the
-@emph{$converter} optional argument is set, the resulting string is translated.
-This function returns the heading with a number and the appendix part if
-needed.
+@emph{$lang} optional argument is set, the resulting string is translated to
+@emph{$lang}.  This function returns the heading with a number and the appendix
+part if needed.
 
 @item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($category@comma{} $class@comma{} $type@comma{} $name@comma{} $arguments) = definition_arguments_content($element)}

@@ -236,10 +236,11 @@ sub definition_arguments_content($)
 }
 
 # $CONVERTER argument is optional
-sub definition_category_tree($;$)
+sub definition_category_tree($;$$)
 {
   my $current = shift;
-  my $converter = shift;
+  my $lang = shift;
+  my $debug = shift;
 
   return undef if (!$current->{'contents'}->[0]->{'contents'});
 
@@ -264,25 +265,17 @@ sub definition_category_tree($;$)
   return $arg_category
     if (!defined($arg_class));
 
-  my $arg_class_code;
-  if (! $converter) {
-    $arg_class_code = {'cmdname' => 'code'};
-    my $brace_arg
-      = {'type' => 'brace_container', 'contents' => [$arg_class],
-         'parent' => $arg_class_code};
-    $arg_class_code->{'contents'} = [$brace_arg];
-  }
-
   my $def_command = $current->{'extra'}->{'def_command'};
   if ($def_command eq 'defop'
       or $def_command eq 'deftypeop'
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($converter) {
+    if (defined($lang)) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
-      return $converter->cdt('{category} on @code{{class}}', $substrings);
+      my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
+                                            $lang, $substrings, $debug);
     } else {
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
@@ -294,20 +287,16 @@ sub definition_category_tree($;$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($converter) {
+    if (defined($lang)) {
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
-      return $converter->cdt('{category} of @code{{class}}', $substrings);
+      return Texinfo::Translations::gdt('{category} of @code{{class}}',
+                                        $lang, $substrings, $debug);
     } else {
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
                                  $current->{'extra'}->{'documentlanguage'},
                                  $substrings);
-      #my $result = {};
-      #$result->{'contents'}
-      #  = [$arg_category, {'text' => ' of ', 'parent' => $result},
-      #     $arg_class_code];
-      #return $result;
     }
   }
 }
@@ -439,15 +428,12 @@ sub expand_verbatiminclude($$$$$;$$)
   return $verbatiminclude;
 }
 
-# $TEXT can be indented, however this can only happen for
-# *heading headings, which are not numbered.  If it was not the case,
-# the code would need to be changed.
 sub add_heading_number($$;$$)
 {
   my $current = shift;
   my $text = shift;
   my $numbered = shift;
-  my $converter = shift;
+  my $lang = shift;
 
   my $number;
   if ($current->{'extra'}
@@ -457,7 +443,7 @@ sub add_heading_number($$;$$)
   }
 
   my $result;
-  if ($converter) {
+  if (defined($lang)) {
     # NOTE we reach here when called from Texinfo::Convert::Text
     # only if associated with a converter.  This should not happen
     # for sectioning commands, so in practice this code is not reached
@@ -467,11 +453,13 @@ sub add_heading_number($$;$$)
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
           and $current->{'extra'}->{'section_level'} == 1) {
-        $result = $converter->cdt_string('Appendix {number} {section_title}',
-                   {'number' => $number, 'section_title' => $text});
+        $result = Texinfo::Translations::gdt_string(
+                      'Appendix {number} {section_title}', $lang,
+                      {'number' => $number, 'section_title' => $text});
       } else {
-        $result = $converter->cdt_string('{number} {section_title}',
-                   {'number' => $number, 'section_title' => $text});
+        $result = Texinfo::Translations::gdt_string(
+                                 '{number} {section_title}', $lang,
+                       {'number' => $number, 'section_title' => $text});
       }
     } else {
       $result = $text;
@@ -653,15 +641,15 @@ with the converter argument set.
 
 =over
 
-=item $result = add_heading_number($heading_element, $heading_text, $do_number, $converter)
+=item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang)
 X<C<add_heading_number>>
 
 I<$heading_element> is a heading command tree element.  I<$heading_text> is the
 already formatted heading text.  if the I<$do_number> optional argument is
 defined and false, no number is used and the text is returned as is.  if the
-I<$converter> optional argument is set, the resulting string is translated.
-This function returns the heading with a number and the appendix part if
-needed.
+I<$lang> optional argument is set, the resulting string is translated to
+I<$lang>.  This function returns the heading with a number and the appendix
+part if needed.
 
 =item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>

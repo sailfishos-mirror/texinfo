@@ -760,7 +760,9 @@ EOT
       }
       my $line_arg = $section->{'contents'}->[0]->{'contents'}->[0];
       my $text = _epub_convert_tree_to_text($self, $line_arg);
-      $text = $self->add_heading_number($section, $text);
+      $text = Texinfo::Convert::Utils::add_heading_number($section,
+                           $text, $self->get_conf('NUMBER_SECTIONS'),
+                           $self->get_conf('documentlanguage'));
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');

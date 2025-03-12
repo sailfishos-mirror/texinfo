@@ -2670,7 +2670,9 @@ sub _convert_def_line($$)
 
     my $converted_category;
     my $category
-      = Texinfo::Convert::Utils::definition_category_tree($element, $self);
+      = Texinfo::Convert::Utils::definition_category_tree($element,
+                                     $self->get_conf('documentlanguage'),
+                                             $self->get_conf('DEBUG'));
     if (defined($category)) {
       # category is converted in normal text context
       my $converted = _convert($self, $category);

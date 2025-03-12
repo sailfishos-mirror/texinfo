@@ -19,9 +19,11 @@ typedef struct TEXT_OPTIONS {
     int ASCII_GLYPH;
     int TEST;
     int NUMBER_SECTIONS;
+    int DEBUG;
     int other_options;
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
+    char *documentlanguage;
     CONVERTER *converter;
     /* other_converter_options is used if set.  If not set and in some cases
        self_converter_options, if set, is used. */
@@ -53,6 +55,7 @@ void text_set_options_encoding_if_not_ascii (CONVERTER *self,
                                         TEXT_OPTIONS *text_options);
 void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
 void text_reset_options_encoding (TEXT_OPTIONS *text_options);
+void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
 
 /* used in converters in Perl */
 char *text_accents (const ELEMENT *accent, char *encoding, int set_case);

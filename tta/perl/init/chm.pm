@@ -357,7 +357,9 @@ sub chm_init($)
       # should not be needed as end of lines are not converted, end of line
       # can be added with invalid nestings.
       chomp($text);
-      $text = $self->add_heading_number($section, $text);
+      $text = Texinfo::Convert::Utils::add_heading_number($section,
+                           $text, $self->get_conf('NUMBER_SECTIONS'),
+                           $self->get_conf('documentlanguage'));
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');

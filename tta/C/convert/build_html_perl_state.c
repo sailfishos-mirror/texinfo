@@ -58,6 +58,7 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
   HV *special_unit_info_hv;
   SV **no_arg_commands_formatting_sv;
   HV *direction_string_hv;
+  SV **convert_text_options_sv;
 
   dTHX;
 
@@ -71,6 +72,22 @@ build_html_translated_names (HV *hv, CONVERTER *converter)
                newRV_noinc ((SV *) direction_string_hv), 0);
    TDS_TRANSLATED_TYPES_LIST
 #undef tds_type
+
+  FETCH(convert_text_options);
+  if (convert_text_options_sv)
+    {
+      const char *documentlanguage
+        = converter->conf->documentlanguage.o.string;
+      SV *documentlanguage_sv;
+      HV *text_options_hv = (HV *) SvRV (*convert_text_options_sv);
+
+      if (documentlanguage)
+        documentlanguage_sv = newSVpv_utf8 (documentlanguage, 0);
+      else
+        documentlanguage_sv = newSV (0);
+      hv_store (text_options_hv, "documentlanguage",
+                strlen ("documentlanguage"), documentlanguage_sv, 0);
+    }
 
   FETCH(special_unit_info);
   special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);

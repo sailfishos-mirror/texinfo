@@ -2788,6 +2788,8 @@ sub _translate_names($)
 {
   my $self = shift;
 
+  Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
+                                       $self->get_conf('documentlanguage'));
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
     $output_encoding_name = 'UNDEF' if (!defined($output_encoding_name));
@@ -7856,7 +7858,9 @@ sub _convert_def_line_type($$$$)
   if ($self->get_conf('DEF_TABLE')) {
     my $category_result = '';
     my $definition_category_tree
-      = Texinfo::Convert::Utils::definition_category_tree($element, $self);
+      = Texinfo::Convert::Utils::definition_category_tree($element,
+                                     $self->get_conf('documentlanguage'),
+                                             $self->get_conf('DEBUG'));
     $category_result
       = $self->convert_tree($definition_category_tree)
         if (defined($definition_category_tree));
@@ -13119,6 +13123,10 @@ sub _prepare_converted_output_info($$$$)
            or $default_document_language ne $preamble_document_language)) {
     $self->_translate_names();
   }
+
+  # reset in case the user changed customization variables in handlers
+  $self->{'convert_text_options'}
+     = Texinfo::Convert::Text::copy_options_for_convert_text($self);
 
   return 1;
 }

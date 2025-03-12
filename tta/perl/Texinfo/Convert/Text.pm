@@ -199,6 +199,12 @@ sub copy_options_for_convert_text($;$)
       $options{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
+  $options{'documentlanguage'} = $converter->get_conf('documentlanguage');
+
+  if ($converter->get_conf('DEBUG')) {
+    $options{'DEBUG'} = 1;
+  }
+
   $options{'converter'} = $converter;
 
   if ($options_in) {
@@ -261,6 +267,14 @@ sub reset_options_encoding($)
     $options->{'enabled_encoding'} = $options->{'_saved_enabled_encoding'};
     delete $options->{'_saved_enabled_encoding'};
   }
+}
+
+sub set_language($$)
+{
+  my $options = shift;
+  my $lang = shift;
+
+  $options->{'documentlanguage'} = $lang;
 }
 
 
@@ -408,7 +422,7 @@ sub _text_heading($$$;$)
   my $current = shift;
   my $text = shift;
   my $numbered = shift;
-  my $converter = shift;
+  my $lang = shift;
 
   # end of lines spaces are ignored in conversion.  However in
   # rare cases, invalid nestings leave an end of line, so we chomp.
@@ -417,7 +431,7 @@ sub _text_heading($$$;$)
   my $number;
 
   $text = Texinfo::Convert::Utils::add_heading_number($current,
-                                      $text, $numbered, $converter);
+                                      $text, $numbered, $lang);
   # What about non-ascii spaces?
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
@@ -447,7 +461,8 @@ sub _convert_def_line($$)
 
   my $parsed_definition_category
     = Texinfo::Convert::Utils::definition_category_tree($element,
-                                             $options->{'converter'});
+                                   $options->{'documentlanguage'},
+                                   $options->{'DEBUG'});
   if (defined($parsed_definition_category)) {
     my $converted_element = {'contents' =>
                     [$parsed_definition_category, {'text' => ': '}]};
@@ -715,7 +730,7 @@ sub _convert($$)
       my $heading_text = _convert($options, $line_arg);
       $result = _text_heading($element, $heading_text,
                               $options->{'NUMBER_SECTIONS'},
-                              $options->{'converter'});
+                              $options->{'documentlanguage'});
       unless ($Texinfo::Commands::root_commands{$cmdname}) {
         return $result;
       }
@@ -791,20 +806,17 @@ sub _convert($$)
         $translation_context = $element->{'extra'}->{'translation_context'};
       }
 
-      if ($options and $options->{'converter'}) {
+      if ($options and defined($options->{'documentlanguage'})) {
         # the tree documentlanguage corresponds to the documentlanguage
-        # at the place of the tree, but the converter may want to use
+        # at the place of the tree, but the caller may want to use
         # another documentlanguage, for instance the documentlanguage at
-        # the end of the preamble, so we let the converter set it.
-        if ($translation_context) {
-          $tree = $options->{'converter'}->pcdt($translation_context,
-                                                $category_text);
-        } else {
-          $tree = $options->{'converter'}->cdt($category_text);
-        }
+        # the end of the preamble, so we let the caller set it.
+        $tree = Texinfo::Translations::gdt($category_text,
+                               $options->{'documentlanguage'}, undef,
+                               $options->{'DEBUG'}, $translation_context);
       } else {
-        # if there is no converter, we use the documentlanguage available
-        # in the tree.
+        # if there is no documentlanguage information, we use the
+        # documentlanguage available in the tree.
         $tree = Texinfo::Translations::gdt($category_text,
                              $element->{'extra'}->{'documentlanguage'},
                              undef, undef, $translation_context);

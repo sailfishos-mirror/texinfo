@@ -1270,18 +1270,6 @@ sub expand_verbatiminclude($$)
               $include_directories, $document, $converter);
 }
 
-# wrapper around Texinfo::Utils::add_heading_number
-# Document?
-sub add_heading_number($$$)
-{
-  my $converter = shift;
-  my $element = shift;
-  my $text = shift;
-
-  return Texinfo::Convert::Utils::add_heading_number($element, $text,
-              $converter->get_conf('NUMBER_SECTIONS'), $converter);
-}
-
 sub expand_today($)
 {
   my $converter = shift;

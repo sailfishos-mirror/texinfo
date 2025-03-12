@@ -12303,7 +12303,9 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   if (self->conf->DEF_TABLE.o.integer > 0)
     {
       ELEMENT *category_tree
-         = definition_category_tree (element, self->conf);
+         = definition_category_tree (element,
+                            self->conf->documentlanguage.o.string,
+                             self->conf->DEBUG.o.integer);
 
       attribute_class = html_attribute_class (self, "tr", classes);
       destroy_strings_list (classes);

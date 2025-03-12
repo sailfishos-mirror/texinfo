@@ -53,7 +53,7 @@
 TEXT_OPTIONS *
 new_text_options (void)
 {
-  TEXT_OPTIONS *options = malloc (sizeof (TEXT_OPTIONS));
+  TEXT_OPTIONS *options = (TEXT_OPTIONS *) malloc (sizeof (TEXT_OPTIONS));
   memset (options, 0, sizeof (TEXT_OPTIONS));
   options->expanded_formats = new_expanded_formats ();
   options->NUMBER_SECTIONS = -1;
@@ -66,6 +66,7 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 {
   free (text_options->encoding);
   free (text_options->expanded_formats);
+  free (text_options->documentlanguage);
   free_strings_list (&text_options->include_directories);
   /* if the customization options come from a converter or are another
      structure options, in practice a document, options should not be
@@ -120,6 +121,13 @@ copy_options_for_convert_text (OPTIONS *options)
 
   copy_strings (&text_options->include_directories,
                 options->INCLUDE_DIRECTORIES.o.strlist);
+
+  if (options->documentlanguage.o.string)
+    text_options->documentlanguage
+      = strdup (options->documentlanguage.o.string);
+
+  if (options->DEBUG.o.integer > 0)
+    text_options->DEBUG = 1;
 
   /* not a copy but a reference to the options */
   text_options->other_converter_options = options;
@@ -212,6 +220,16 @@ text_reset_options_encoding (TEXT_OPTIONS *text_options)
 {
   text_options->encoding = text_options->_saved_enabled_encoding;
   text_options->_saved_enabled_encoding = 0;
+}
+
+void
+text_set_language (TEXT_OPTIONS *text_options, const char *lang)
+{
+  free (text_options->documentlanguage);
+  if (lang)
+    text_options->documentlanguage = strdup (lang);
+  else
+    text_options->documentlanguage = 0;
 }
 
 
@@ -377,11 +395,11 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
 
 static const char *underline_symbol[5] = {"*", "*", "=", "-", "."};
 
-/* Return the text of an underlined heading, possibly indented. */
+/* Return the text of an underlined heading. */
 /* return to be freed by caller */
 static char *
 text_heading (const ELEMENT *current, const char *text,
-              int numbered, OPTIONS *options)
+              int numbered, const char *lang)
 {
   int i;
   TEXT result;
@@ -401,7 +419,7 @@ text_heading (const ELEMENT *current, const char *text,
       heading[strlen (heading) - 1] = '\0';
 
   heading_with_number = add_heading_number (current, heading,
-                                            numbered, options);
+                                            numbered, lang);
 
   free (heading);
 
@@ -444,8 +462,8 @@ convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
 {
   PARSED_DEF *parsed_def = definition_arguments_content (element);
   ELEMENT *parsed_definition_category
-     = definition_category_tree (element,
-                                 text_options->other_converter_options);
+     = definition_category_tree (element, text_options->documentlanguage,
+                                 text_options->DEBUG);
   if (parsed_definition_category)
     {
       ELEMENT *converted_element = new_element (ET_NONE);
@@ -941,7 +959,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           heading
              = text_heading (element, text.text,
                              text_options->NUMBER_SECTIONS,
-                             text_options->other_converter_options);
+                             text_options->documentlanguage);
           ADD(heading);
           free (heading);
           free (text.text);
@@ -1066,16 +1084,16 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       const char *translation_context
         = lookup_extra_string (element, AI_key_translation_context);
 
-      if (text_options->converter)
+      if (text_options->documentlanguage)
         {
        /*
        the tree documentlanguage corresponds to the documentlanguage
-       at the place of the tree, but the converter may want to use
+       at the place of the tree, but a converter may want to use
        another documentlanguage, for instance the documentlanguage at
-       the end of the preamble, so we let the converter set it.
+       the end of the preamble, so we let the caller set it.
         */
-          tree = cdt_tree (category_text, text_options->converter,
-                           0, translation_context);
+          tree = gdt_tree (category_text, 0, text_options->documentlanguage,
+                           0, text_options->DEBUG, translation_context);
         }
       else
         {

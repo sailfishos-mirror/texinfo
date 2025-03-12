@@ -176,6 +176,8 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **enabled_encoding_sv;
   SV **sort_string_sv;
   SV **set_case_sv;
+  SV **documentlanguage_sv;
+  SV **DEBUG_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
@@ -217,6 +219,15 @@ copy_sv_options_for_convert_text (SV *sv_in)
                              &text_options->include_directories, svt_dir);
 
   get_expanded_formats (hv_in, &text_options->expanded_formats);
+
+  FETCH(documentlanguage)
+  if (documentlanguage_sv)
+    text_options->documentlanguage
+      = non_perl_strdup (SvPVutf8_nolen (*documentlanguage_sv));
+
+  FETCH(DEBUG)
+  if (DEBUG_sv && SvOK (*DEBUG_sv))
+    text_options->DEBUG = SvIV (*DEBUG_sv);
 
   FETCH(converter)
   if (converter_sv)

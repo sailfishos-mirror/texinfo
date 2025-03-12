@@ -1,5 +1,43 @@
 2025-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text), tta/C/main/convert_to_text.c
+	(destroy_text_options, copy_options_for_convert_text),
+	tta/C/main/convert_to_text.h (TEXT_OPTIONS),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text):
+	store documentlanguage and DEBUG in text options.
+
+	* tta/C/convert/format_html.c (html_convert_def_line_type),
+	tta/C/main/convert_to_text.c (text_heading, convert_def_line)
+	(convert_to_text_internal), tta/C/main/convert_utils.c
+	(add_heading_number), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_def_line_type), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_convert_def_line), , tta/perl/Texinfo/Convert/Text.pm
+	(_text_heading, _convert_def_line, _convert),
+	tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree)
+	(add_heading_number), tta/perl/ext/epub3.pm, tta/perl/init/chm.pm: get
+	customization variables values as arguments for translation related
+	customization variables for definition_category_tree and
+	add_heading_number.  call gdt instead of cdt for untranslated test
+	type element in Text converter.  Call gdt_string or gdt instead of
+	cdt_string or cdt in definition_category_tree and add_heading_number.
+
+	* tta/C/convert/build_html_perl_state.c (build_html_translated_names),
+	tta/C/convert/convert_html.c (html_translate_names),
+	tta/C/main/convert_to_text.c (text_set_language),
+	tta/perl/Texinfo/Convert/HTML.pm (_translate_names),
+	tta/perl/Texinfo/Convert/Text.pm (set_language): reset
+	documentlanguage in text options in translate_names.
+
+	* tta/C/convert/convert_html.c (html_prepare_converted_output_info),
+	tta/perl/Texinfo/Convert/HTML.pm (_prepare_converted_output_info):
+	reset text options at the end of prepare_converted_output_info.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: remove add_heading_number
+	wrapper.
+
+2025-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (input_file_name_encoding),
 	tta/C/main/convert_utils.c (encoded_input_file_name)
 	(converter_encoded_input_file_name, encoded_output_file_name)

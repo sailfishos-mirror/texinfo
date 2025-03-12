@@ -196,15 +196,10 @@ find_innermost_accent_contents (const ELEMENT *element)
   return accent_stack;
 }
 
-/*
- TEXT can be indented, however this can only happen for
- *heading headings, which are not numbered.  If it was not the case,
- the code would need to be changed.
-*/
-/* caller should free return */
+/* return value to be freed by caller */
 char *
 add_heading_number (const ELEMENT *current, char *text,
-                    int numbered, OPTIONS *options)
+                    int numbered, const char *lang)
 {
   TEXT result;
   char *number = 0;
@@ -213,7 +208,7 @@ add_heading_number (const ELEMENT *current, char *text,
 
   text_init (&result);
 
-  if (options)
+  if (lang)
     {
       if (number)
         {
@@ -234,14 +229,13 @@ add_heading_number (const ELEMENT *current, char *text,
                 {
                   numbered_heading
                    = gdt_string ("Appendix {number} {section_title}",
-                                 options->documentlanguage.o.string,
-                                 substrings, 0);
+                                 lang, substrings, 0);
                 }
             }
           if (!numbered_heading)
             numbered_heading
               = gdt_string ("{number} {section_title}",
-                            options->documentlanguage.o.string, substrings, 0);
+                            lang, substrings, 0);
 
           destroy_named_string_element_list (substrings);
 
@@ -591,7 +585,8 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 }
 
 ELEMENT *
-definition_category_tree (const ELEMENT *current, OPTIONS * options)
+definition_category_tree (const ELEMENT *current, const char *lang,
+                          int debug)
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
@@ -634,16 +629,6 @@ definition_category_tree (const ELEMENT *current, OPTIONS * options)
 
   class_copy = copy_tree (arg_class);
 
-  /*
-  if (!options)
-    {
-      ELEMENT *brace_container = new_element (ET_brace_container);
-      arg_class_code = new_command_element (ET_brace_command, CM_code);
-      add_to_element_contents (brace_container, class_copy);
-      add_to_element_contents (arg_class_code, brace_container);
-    }
-   */
-
   def_command = lookup_extra_string (current, AI_key_def_command);
 
   /* do something more efficient */
@@ -659,14 +644,13 @@ definition_category_tree (const ELEMENT *current, OPTIONS * options)
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
-      if (options)
+      if (lang)
         {
     /*
      TRANSLATORS: association of a method or operation name with a class
      in descriptions of object-oriented programming methods or operations. */
           result = gdt_tree ("{category} on @code{{class}}", 0,
-                             options->documentlanguage.o.string, substrings,
-                             options->DEBUG.o.integer, 0);
+                             lang, substrings, debug, 0);
         }
       else
         {
@@ -674,14 +658,6 @@ definition_category_tree (const ELEMENT *current, OPTIONS * options)
                 = lookup_extra_string (current, AI_key_documentlanguage);
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              documentlanguage, substrings, 0, 0);
-          /*
-          result = new_element (ET_NONE);
-          ELEMENT *text_element = new_text_element (ET_normal_text);
-          add_to_element_contents (result, category_copy);
-          text_append (text_element->e.text, " on ");
-          add_to_element_contents (result, text_element);
-          add_to_element_contents (result, arg_class_code);
-           */
         }
       destroy_named_string_element_list (substrings);
     } else if (!strcmp (def_command, "defivar")
@@ -696,15 +672,14 @@ definition_category_tree (const ELEMENT *current, OPTIONS * options)
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
-      if (options)
+      if (lang)
         {
     /*
       TRANSLATORS: association of a variable or instance variable with
       a class in descriptions of object-oriented programming variables
       or instance variable. */
           result = gdt_tree ("{category} of @code{{class}}", 0,
-                             options->documentlanguage.o.string, substrings,
-                             options->DEBUG.o.integer, 0);
+                             lang, substrings, debug, 0);
         }
       else
         {
@@ -712,14 +687,6 @@ definition_category_tree (const ELEMENT *current, OPTIONS * options)
                 = lookup_extra_string (current, AI_key_documentlanguage);
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              documentlanguage, substrings, 0, 0);
-          /*
-          result = new_element (ET_NONE);
-          ELEMENT *text_element = new_text_element (ET_normal_text);
-          add_to_element_contents (result, category_copy);
-          text_append (text_element->e.text, " of ");
-          add_to_element_contents (result, text_element);
-          add_to_element_contents (result, arg_class_code);
-           */
         }
       destroy_named_string_element_list (substrings);
     }

@@ -38,7 +38,7 @@ ELEMENT *expand_today (OPTIONS *options);
 struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (const ELEMENT *current, char *text,
-                          int numbered, OPTIONS *options);
+                          int numbered, const char *lang);
 
 ELEMENT *expand_verbatiminclude (const char *input_file_name_encoding,
                         int doc_encoding_for_input_file_name,
@@ -53,7 +53,8 @@ ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (const ELEMENT *current, OPTIONS *options);
+ELEMENT *definition_category_tree (const ELEMENT *current, const char *lang,
+                                   int debug);
 
 ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
