@@ -178,6 +178,9 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **set_case_sv;
   SV **documentlanguage_sv;
   SV **DEBUG_sv;
+  SV **DOC_ENCODING_FOR_INPUT_FILE_NAME_sv;
+  SV **INPUT_FILE_NAME_ENCODING_sv;
+  SV **LOCALE_ENCODING_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
@@ -228,6 +231,22 @@ copy_sv_options_for_convert_text (SV *sv_in)
   FETCH(DEBUG)
   if (DEBUG_sv && SvOK (*DEBUG_sv))
     text_options->DEBUG = SvIV (*DEBUG_sv);
+
+  FETCH(DOC_ENCODING_FOR_INPUT_FILE_NAME)
+  if (DOC_ENCODING_FOR_INPUT_FILE_NAME_sv
+      && SvOK (*DOC_ENCODING_FOR_INPUT_FILE_NAME_sv))
+    text_options->DOC_ENCODING_FOR_INPUT_FILE_NAME
+      = SvIV (*DOC_ENCODING_FOR_INPUT_FILE_NAME_sv);
+
+  FETCH(INPUT_FILE_NAME_ENCODING)
+  if (INPUT_FILE_NAME_ENCODING_sv)
+    text_options->INPUT_FILE_NAME_ENCODING
+      = non_perl_strdup (SvPVutf8_nolen (*INPUT_FILE_NAME_ENCODING_sv));
+
+  FETCH(LOCALE_ENCODING)
+  if (LOCALE_ENCODING_sv)
+    text_options->LOCALE_ENCODING
+      = non_perl_strdup (SvPVutf8_nolen (*LOCALE_ENCODING_sv));
 
   FETCH(converter)
   if (converter_sv)

@@ -20,10 +20,13 @@ typedef struct TEXT_OPTIONS {
     int TEST;
     int NUMBER_SECTIONS;
     int DEBUG;
+    int DOC_ENCODING_FOR_INPUT_FILE_NAME;
     int other_options;
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
     char *documentlanguage;
+    char *INPUT_FILE_NAME_ENCODING;
+    char *LOCALE_ENCODING;
     CONVERTER *converter;
     /* other_converter_options is used if set.  If not set and in some cases
        self_converter_options, if set, is used. */

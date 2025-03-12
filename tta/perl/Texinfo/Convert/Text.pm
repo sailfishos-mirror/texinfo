@@ -138,18 +138,18 @@ foreach my $type ('ignorable_spaces_after_command',
 }
 
 my @text_indicator_converter_options
-      = ('ASCII_GLYPH', 'NUMBER_SECTIONS', 'TEST');
+      = ('ASCII_GLYPH', 'DEBUG', 'DOC_ENCODING_FOR_INPUT_FILE_NAME',
+         'NUMBER_SECTIONS', 'TEST');
 
 # for this module converter
-sub _initialize_text_options_encoding($$)
+sub _initialize_text_options_encoding($)
 {
-  my $self = shift;
   my $text_options = shift;
 
-  if ($self->{'ENABLE_ENCODING'}
-       and defined($self->{'OUTPUT_ENCODING_NAME'})) {
+  if ($text_options->{'ENABLE_ENCODING'}
+       and defined($text_options->{'OUTPUT_ENCODING_NAME'})) {
     $text_options->{'enabled_encoding'}
-       = $self->{'OUTPUT_ENCODING_NAME'};
+       = $text_options->{'OUTPUT_ENCODING_NAME'};
   }
 }
 
@@ -199,10 +199,15 @@ sub copy_options_for_convert_text($;$)
       $options{'expanded_formats'}->{$expanded_format} = 1;
     }
   }
-  $options{'documentlanguage'} = $converter->get_conf('documentlanguage');
 
-  if ($converter->get_conf('DEBUG')) {
-    $options{'DEBUG'} = 1;
+  foreach my $string_option ('documentlanguage', 'INPUT_FILE_NAME_ENCODING',
+                             'LOCALE_ENCODING') {
+    $options{$string_option} = $converter->get_conf($string_option);
+  }
+
+  my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
+  if ($include_directories and scalar(@{$include_directories})) {
+    $options{'INCLUDE_DIRECTORIES'} = [@{$include_directories}];
   }
 
   $options{'converter'} = $converter;
@@ -772,13 +777,13 @@ sub _convert($$)
           my $include_directories
            = $options->{'INCLUDE_DIRECTORIES'};
 
-         my $document = $options->{'document'};
+          my $document = $options->{'document'};
 
-         $verbatim_include_verbatim
+          $verbatim_include_verbatim
             = Texinfo::Convert::Utils::expand_verbatiminclude($element,
                  $input_file_name_encoding,
-              $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $options);
+                 $doc_encoding_for_input_file_name, $locale_encoding,
+                 $include_directories, $document, $options);
         }
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($options, $verbatim_include_verbatim);
@@ -878,16 +883,24 @@ sub convert_to_text($;$)
   } elsif (!ref($options)) {
     confess("convert_to_text options not a ref\n");
   }
-  # FIXME remove?  Should not be useful at some point
-  bless $options, "Texinfo::Convert::Text";
-
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})
       and $Texinfo::Convert::ConvertXS::XS_package) {
     return _convert_tree_with_XS($options, $root);
   }
 
-  return _convert($options, $root);
+  # needed for converter_document_warn call for verbatiminclude, when
+  # called without a converter, for t/*.t TESTS.
+  bless $options, "Texinfo::Convert::Text";
+
+  my $result = _convert($options, $root);
+
+  # TODO it could be possible here to pass 'error_warning_messages'
+  # back to $options->{'converter'} instead of dropping them.
+  # in this case, there also would not be a need for calling
+  # expand_verbatiminclude on the converter anymore
+
+  return $result;
 }
 
 
@@ -940,9 +953,17 @@ sub convert($$)
   my $self = shift;
   my $document = shift;
 
-  Texinfo::Common::set_output_encoding($self, $document);
+  my $document_info;
+  if ($document) {
+    $document_info = $document->global_information();
+
+    # same as Texinfo::Common::set_output_encoding
+    $self->{'OUTPUT_ENCODING_NAME'} = $document_info->{'input_encoding_name'}
+      if ($document_info and $document_info->{'input_encoding_name'});
+  }
+
   # Cf comment in output() on using $self for options.
-  _initialize_text_options_encoding($self, $self);
+  _initialize_text_options_encoding($self);
 
   $self->{'document'} = $document;
 
@@ -970,9 +991,11 @@ sub output($$)
   my $document_info;
   if ($document) {
     $document_info = $document->global_information();
-  }
 
-  Texinfo::Common::set_output_encoding($self, $document);
+    # same as Texinfo::Common::set_output_encoding
+    $self->{'OUTPUT_ENCODING_NAME'} = $document_info->{'input_encoding_name'}
+      if ($document_info and $document_info->{'input_encoding_name'});
+  }
 
   # Text options and converter are of different nature.
   # However, since the option keys are very similar between the converter
@@ -980,9 +1003,10 @@ sub output($$)
   # we use the converter object as text options and we call
   # _initialize_text_options_encoding for the only option that is set up
   # based on other customization options.
-  # Also, we need a blessed reference as get_conf can be called on the options,
-  # using the converter brings that too.
-  _initialize_text_options_encoding($self, $self);
+  # Also, we need a blessed reference as converter_line_error
+  # and other methods can be called on the options, using the converter
+  # brings that too.
+  _initialize_text_options_encoding($self);
 
   # for expand_verbatiminclude call.
   $self->{'document'} = $document;
@@ -1120,26 +1144,25 @@ sub destroy($)
 {
 }
 
-# FIXME used where?
-sub get_conf($$)
-{
-  my $self = shift;
-  my $key = shift;
+# Following not used anywhere.  Would not be an issue if they were.
+#sub get_conf($$)
+#{
+#  my $self = shift;
+#  my $key = shift;
+#
+#  return $self->{$key};
+#}
 
-  return $self->{$key};
-}
-
-# used in Texinfo::Common::set_output_encoding
-sub set_conf($$$)
-{
-  my $self = shift;
-  my $conf = shift;
-  my $value = shift;
-
-  $self->{$conf} = $value;
-
-  return 1;
-}
+#sub set_conf($$$)
+#{
+#  my $self = shift;
+#  my $conf = shift;
+#  my $value = shift;
+#
+#  $self->{$conf} = $value;
+#
+#  return 1;
+#}
 
 # used in Texinfo::Convert::Utils::expand_verbatiminclude
 sub converter_line_error($$$;$)

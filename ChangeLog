@@ -1,5 +1,32 @@
 2025-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text), tta/C/main/build_perl_info.c
+	(build_convert_text_options), tta/C/main/convert_to_text.c
+	(new_text_options, destroy_text_options)
+	(TEXT_INDICATOR_CONVERTER_OPTIONS, copy_options_for_convert_text),
+	tta/C/main/convert_to_text.h (TEXT_OPTIONS),
+	tta/perl/Texinfo/Convert/Text.pm (@text_indicator_converter_option)
+	(copy_options_for_convert_text): get and set
+	DOC_ENCODING_FOR_INPUT_FILE_NAME, INPUT_FILE_NAME_ENCODING,
+	LOCALE_ENCODING and INCLUDE_DIRECTORIES in text options.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal): use
+	information directly in text_options for the call to
+	expand_verbatiminclude.
+
+	* tta/perl/Texinfo/Convert/Text.pm (convert, output): set
+	OUTPUT_ENCODING_NAME directly.
+
+	* tta/perl/Texinfo/Convert/Text.pm
+	(_initialize_text_options_encoding, convert, output): use only one
+	argument.
+
+	* tta/perl/Texinfo/Convert/Text.pm: comment out get_conf and set_conf
+	now that thy are not used anymore.
+
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	Remove OUTPUT_PERL_ENCODING and set_output_perl_encoding
 
 	* tta/perl/Texinfo/Common.pm (count_bytes): do not set encoding to

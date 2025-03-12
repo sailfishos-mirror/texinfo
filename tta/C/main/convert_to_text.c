@@ -57,6 +57,7 @@ new_text_options (void)
   memset (options, 0, sizeof (TEXT_OPTIONS));
   options->expanded_formats = new_expanded_formats ();
   options->NUMBER_SECTIONS = -1;
+  options->DOC_ENCODING_FOR_INPUT_FILE_NAME = -1;
   memset (&options->include_directories, 0, sizeof (STRING_LIST));
   return options;
 }
@@ -67,6 +68,8 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->encoding);
   free (text_options->expanded_formats);
   free (text_options->documentlanguage);
+  free (text_options->LOCALE_ENCODING);
+  free (text_options->INPUT_FILE_NAME_ENCODING);
   free_strings_list (&text_options->include_directories);
   /* if the customization options come from a converter or are another
      structure options, in practice a document, options should not be
@@ -92,8 +95,10 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 }
 
 #define TEXT_INDICATOR_CONVERTER_OPTIONS \
-  tico_option_name(NUMBER_SECTIONS) \
   tico_option_name(ASCII_GLYPH) \
+  tico_option_name(DEBUG) \
+  tico_option_name(DOC_ENCODING_FOR_INPUT_FILE_NAME) \
+  tico_option_name(NUMBER_SECTIONS) \
   tico_option_name(TEST)
 
 /* the string and strlist options need to be copied, in case they are
@@ -126,8 +131,13 @@ copy_options_for_convert_text (OPTIONS *options)
     text_options->documentlanguage
       = strdup (options->documentlanguage.o.string);
 
-  if (options->DEBUG.o.integer > 0)
-    text_options->DEBUG = 1;
+  if (options->INPUT_FILE_NAME_ENCODING.o.string)
+    text_options->INPUT_FILE_NAME_ENCODING
+      = strdup (options->INPUT_FILE_NAME_ENCODING.o.string);
+
+  if (options->LOCALE_ENCODING.o.string)
+    text_options->LOCALE_ENCODING
+      = strdup (options->LOCALE_ENCODING.o.string);
 
   /* not a copy but a reference to the options */
   text_options->other_converter_options = options;
@@ -1017,29 +1027,22 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                                        text_options->other_converter_options,
                                        0, element);
               } else {
-                const char *input_file_name_encoding = 0;
-                int doc_encoding_for_input_file_name = -1;
-                const char *locale_encoding = 0;
-                const STRING_LIST *include_directories = 0;
+                const char *input_file_name_encoding
+                  = text_options->INPUT_FILE_NAME_ENCODING;
+                int doc_encoding_for_input_file_name
+                  = text_options->DOC_ENCODING_FOR_INPUT_FILE_NAME;
+                const char *locale_encoding = text_options->LOCALE_ENCODING;
+                const STRING_LIST *include_directories
+                  = &text_options->include_directories;
                 GLOBAL_INFO *global_information = 0;
                 error_messages = &text_options->error_messages;
+
                 if (text_options->document_descriptor) {
                   DOCUMENT *document
                     = retrieve_document (text_options->document_descriptor);
                   if (document)
                     global_information = &document->global_info;
                 }
-                input_file_name_encoding
-                 = text_options->self_converter_options
-                                          ->INPUT_FILE_NAME_ENCODING.o.string;
-                doc_encoding_for_input_file_name
-                 = text_options->self_converter_options
-                                       ->DOC_ENCODING_FOR_INPUT_FILE_NAME.o.integer;
-
-                locale_encoding
-                  = text_options->self_converter_options->LOCALE_ENCODING.o.string;
-                include_directories
-                  = text_options->self_converter_options->INCLUDE_DIRECTORIES.o.strlist;
 
                 verbatim_include_verbatim
                   = expand_verbatiminclude (input_file_name_encoding,

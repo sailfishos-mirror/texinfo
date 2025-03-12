@@ -2883,6 +2883,12 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
   if (text_options->ASCII_GLYPH)
     STORE("ASCII_GLYPH", newSViv (1));
 
+  if (text_options->DEBUG)
+    STORE("DEBUG", newSViv (1));
+
+  if (text_options->DOC_ENCODING_FOR_INPUT_FILE_NAME)
+    STORE("DOC_ENCODING_FOR_INPUT_FILE_NAME", newSViv (1));
+
   if (text_options->NUMBER_SECTIONS)
     STORE("NUMBER_SECTIONS", newSViv (1));
 
@@ -2900,6 +2906,18 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
 
   if (text_options->code_state)
     STORE("_code_state", newSViv (text_options->code_state));
+
+  if (text_options->documentlanguage)
+    STORE("documentlanguage",
+           newSVpv_utf8 (text_options->documentlanguage, 0));
+
+  if (text_options->INPUT_FILE_NAME_ENCODING)
+    STORE("INPUT_FILE_NAME_ENCODING",
+           newSVpv_utf8 (text_options->INPUT_FILE_NAME_ENCODING, 0));
+
+  if (text_options->LOCALE_ENCODING)
+    STORE("LOCALE_ENCODING",
+           newSVpv_utf8 (text_options->LOCALE_ENCODING, 0));
 
   expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
   STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
