@@ -31,12 +31,11 @@ which do not inherit from @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, 
 
 No method is exported in the default case.
 
-Some methods takes an optional @emph{$converter} argument for strings
-translations, see @ref{Texinfo@asis{::}Convert@asis{::}Converter Translations in
-output documents}.  Even when the caller does not inherit from
-@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, it could implement the required interfaces and
-could also have a converter available in some cases, to call the functions
-with the converter argument set.
+Some methods take an optional @emph{$converter} argument for error reporting, see
+@ref{Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning messages}.  Even
+when the caller does not inherit from @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter}, it could
+implement the required interfaces and could also have a converter available in
+some cases, to call the functions with the converter argument set.
 
 @table @asis
 @item $result = add_heading_number($heading_element, $heading_text, $do_number, $lang)
@@ -45,7 +44,7 @@ with the converter argument set.
 
 @emph{$heading_element} is a heading command tree element.  @emph{$heading_text} is the
 already formatted heading text.  if the @emph{$do_number} optional argument is
-defined and false, no number is used and the text is returned as is.  if the
+defined and false, no number is used and the text is returned as is.  If the
 @emph{$lang} optional argument is set, the resulting string is translated to
 @emph{$lang}.  This function returns the heading with a number and the appendix
 part if needed.
@@ -63,14 +62,15 @@ Arguments correspond to text following the other elements
 on the @@-command line.  If there is no argument, @emph{$arguments}
 will be @code{undef}.
 
-@item $tree = definition_category_tree($def_line, $converter)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $converter)}
+@item $tree = definition_category_tree($def_line, $lang, $debug)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang@comma{} $debug)}
 @cindex @code{definition_category_tree}
 
 @emph{$def_line} is a @code{def_line} Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the @emph{$def_line} taking the class
-into account, if there is one.  If the @emph{$converter} optional argument is set,
-the resulting string is translated.
+into account, if there is one.  If the @emph{$lang} optional argument is set,
+the resulting string is translated to @emph{$lang}.  In that case, the optional
+@emph{$debug} argument is passed to the translation function.
 
 @item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = encoded_input_file_name($character_string_name@comma{} $input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}
@@ -100,15 +100,15 @@ where the file name appeared.
 @cindex @code{expand_verbatiminclude}
 
 @emph{$verbatiminclude} is a @code{@@verbatiminclude} tree element.
-@emph{$name_encoding}, @emph{$doc_encoding_for_input_file_name}, and
-@emph{$locale_encoding} are @ref{Texinfo@asis{::}Common $encoding =
-input_file_name_encoding($name_encoding@comma{} $doc_encoding_for_input_file_name@comma{}
-$locale_encoding@comma{} $document@comma{} $input_file_encoding),, Texinfo::Encoding
-@code{input_file_name_encoding} arguments}.  @emph{$include_directories}
-is an array reference with include directories where the file specified as
-@code{@@verbatiminclude} argument is searched for. The @emph{$converter} argument is
-used to output error messages.  This function returns a @code{@@verbatim} tree
-elements after finding the included file and reading it.
+@emph{$name_encoding}, @emph{$doc_encoding_for_input_file_name}, @emph{$locale_encoding}
+and @emph{$document} are @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{}
+$encoding) = encoded_input_file_name($character_string_name@comma{}
+$input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{}
+$document@comma{} $input_file_encoding),, @code{encoded_input_file_name} arguments}.  @emph{$include_directories} is an array
+reference with include directories where the file specified as
+@code{@@verbatiminclude} argument is searched for. The optional @emph{$converter}
+argument is used to output error messages.  This function returns a
+@code{@@verbatim} tree elements after finding the included file and reading it.
 
 @item ($contents_element, \@@accent_commands) = find_innermost_accent_contents($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($contents_element@comma{} \@@accent_commands) = find_innermost_accent_contents($element)}
@@ -126,7 +126,7 @@ containing the accent commands nested in @emph{$element} (including
 @node Texinfo@asis{::}Convert@asis{::}Utils SEE ALSO
 @section Texinfo::Convert::Utils SEE ALSO
 
-@ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} and @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations}.
+@ref{Texinfo@asis{::}Common NAME,, Texinfo::Common}, @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} and @ref{Texinfo@asis{::}Translations NAME,, Texinfo::Translations}.
 
 @node Texinfo@asis{::}Convert@asis{::}Utils AUTHOR
 @section Texinfo::Convert::Utils AUTHOR

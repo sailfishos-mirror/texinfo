@@ -7857,13 +7857,13 @@ sub _convert_def_line_type($$$$)
 
   if ($self->get_conf('DEF_TABLE')) {
     my $category_result = '';
-    my $definition_category_tree
+    my $def_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->get_conf('documentlanguage'),
                                              $self->get_conf('DEBUG'));
     $category_result
-      = $self->convert_tree($definition_category_tree)
-        if (defined($definition_category_tree));
+      = $self->convert_tree($def_category_tree)
+        if (defined($def_category_tree));
 
     return $self->html_attribute_class('tr', \@classes)
       . "$index_label>".$self->html_attribute_class('td', ['call-def']).'>'
@@ -7874,7 +7874,7 @@ sub _convert_def_line_type($$$$)
   my $result = $self->html_attribute_class('dt', \@classes) . "$index_label>";
 
   if ($category_element) {
-    my $category_tree;
+    my $e_category_tree;
     if ($class_element) {
       my $substrings = {'category' => $category_element,
                         'class' => $class_element};
@@ -7882,16 +7882,16 @@ sub _convert_def_line_type($$$$)
           and $type_element
           and $self->get_conf('deftypefnnewline')
           and $self->get_conf('deftypefnnewline') eq 'on') {
-        $category_tree = $self->cdt('{category} on @code{{class}}:@* ',
-                                    $substrings);
+        $e_category_tree = $self->cdt('{category} on @code{{class}}:@* ',
+                                      $substrings);
       } elsif ($base_command_name eq 'defop'
                or $base_command_name eq 'deftypeop') {
-        $category_tree = $self->cdt('{category} on @code{{class}}: ',
-                                    $substrings);
+        $e_category_tree = $self->cdt('{category} on @code{{class}}: ',
+                                      $substrings);
       } elsif ($base_command_name eq 'defcv'
                or $base_command_name eq 'deftypecv') {
-        $category_tree = $self->cdt('{category} of @code{{class}}: ',
-                                    $substrings);
+        $e_category_tree = $self->cdt('{category} of @code{{class}}: ',
+                                      $substrings);
       }
     } else {
       my $substrings = {'category' => $category_element};
@@ -7907,18 +7907,18 @@ sub _convert_def_line_type($$$$)
         # an explicit <br> in that case.  Probably requires changing
         # the conversion of @* in a @def* line in preformatted, nothing
         # really specific of @deftypefnnewline on.
-        $category_tree = $self->cdt('{category}:@* ', $substrings);
+        $e_category_tree = $self->cdt('{category}:@* ', $substrings);
       } else {
-        $category_tree = $self->cdt('{category}: ', $substrings);
+        $e_category_tree = $self->cdt('{category}: ', $substrings);
       }
     }
-    if ($category_tree) {
+    if ($e_category_tree) {
       my $open = $self->html_attribute_class('span', ['category-def']);
       if ($open ne '') {
         $result .= $open.'>';
       }
       my $explanation = "DEF_CATEGORY $def_command";
-      $result .= $self->convert_tree($category_tree, $explanation);
+      $result .= $self->convert_tree($e_category_tree, $explanation);
       if ($open ne '') {
         $result .= '</span>';
       }

@@ -1,3 +1,11 @@
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/format_html.c (html_convert_def_line_type),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_def_line_type): change
+	variable names.
+
+	* tta/perl/Texinfo/Convert/Utils.pm: update POD documentation.
+
 2025-03-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/get_converter_perl_info.c

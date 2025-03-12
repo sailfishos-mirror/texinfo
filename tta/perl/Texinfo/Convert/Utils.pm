@@ -20,11 +20,7 @@
 # This module contains the methods that can be used in converters
 # even if they do not inherit Texinfo::Convert::Converter.  In practice
 # it means that the converter argument will not be defined and
-# there will be no error reporting nor string translation in that case.
-# Some methods still require a converter, it means that they are used
-# conditionally in some converters that do not inherit
-# Texinfo::Convert::Converter but can have gotten a converter object
-# (case of Texinfo::Convert::Text).
+# there will be no error reporting in that case.
 
 
 package Texinfo::Convert::Utils;
@@ -351,10 +347,8 @@ sub find_innermost_accent_contents($)
   }
 }
 
-# $CONVERTER is optional, but without this
-# argument and the 'INCLUDE_DIRECTORIES' available through
-# get_conf(), the included file can only be found in specific
-# circumstances.
+# $CONVERTER is optional, but without this argument there is no error
+# reporting.
 sub expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
@@ -379,7 +373,7 @@ sub expand_verbatiminclude($$$$$;$$)
                                           $document, $input_encoding);
 
   my $file = Texinfo::Common::locate_include_file($file_name,
-                          $converter->get_conf('INCLUDE_DIRECTORIES'));
+                                                  $include_directories);
 
   my $verbatiminclude;
 
@@ -632,12 +626,11 @@ which do not inherit from L<Texinfo::Convert::Converter>.
 
 No method is exported in the default case.
 
-Some methods takes an optional I<$converter> argument for strings
-translations, see L<Texinfo::Convert::Converter/Translations in
-output documents>.  Even when the caller does not inherit from
-L<Texinfo::Convert::Converter>, it could implement the required interfaces and
-could also have a converter available in some cases, to call the functions
-with the converter argument set.
+Some methods take an optional I<$converter> argument for error reporting, see
+L<Texinfo::Convert::Converter/Registering error and warning messages>.  Even
+when the caller does not inherit from L<Texinfo::Convert::Converter>, it could
+implement the required interfaces and could also have a converter available in
+some cases, to call the functions with the converter argument set.
 
 =over
 
@@ -646,7 +639,7 @@ X<C<add_heading_number>>
 
 I<$heading_element> is a heading command tree element.  I<$heading_text> is the
 already formatted heading text.  if the I<$do_number> optional argument is
-defined and false, no number is used and the text is returned as is.  if the
+defined and false, no number is used and the text is returned as is.  If the
 I<$lang> optional argument is set, the resulting string is translated to
 I<$lang>.  This function returns the heading with a number and the appendix
 part if needed.
@@ -663,13 +656,14 @@ Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category_tree($def_line, $converter)
+=item $tree = definition_category_tree($def_line, $lang, $debug)
 X<C<definition_category_tree>>
 
 I<$def_line> is a C<def_line> Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the I<$def_line> taking the class
-into account, if there is one.  If the I<$converter> optional argument is set,
-the resulting string is translated.
+into account, if there is one.  If the I<$lang> optional argument is set,
+the resulting string is translated to I<$lang>.  In that case, the optional
+I<$debug> argument is passed to the translation function.
 
 =item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 
@@ -694,15 +688,15 @@ where the file name appeared.
 X<C<expand_verbatiminclude>>
 
 I<$verbatiminclude> is a C<@verbatiminclude> tree element.
-I<$name_encoding>, I<$doc_encoding_for_input_file_name>, and
-I<$locale_encoding> are L<< Texinfo::Encoding
-C<input_file_name_encoding> arguments|Texinfo::Common/$encoding =
-input_file_name_encoding($name_encoding, $doc_encoding_for_input_file_name,
-$locale_encoding, $document, $input_file_encoding) >>.  I<$include_directories>
-is an array reference with include directories where the file specified as
-C<@verbatiminclude> argument is searched for. The I<$converter> argument is
-used to output error messages.  This function returns a C<@verbatim> tree
-elements after finding the included file and reading it.
+I<$name_encoding>, I<$doc_encoding_for_input_file_name>, I<$locale_encoding>
+and I<$document> are L<< C<encoded_input_file_name> arguments|/($encoded_name,
+$encoding) = encoded_input_file_name($character_string_name,
+$input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding,
+$document, $input_file_encoding) >>.  I<$include_directories> is an array
+reference with include directories where the file specified as
+C<@verbatiminclude> argument is searched for. The optional I<$converter>
+argument is used to output error messages.  This function returns a
+C<@verbatim> tree elements after finding the included file and reading it.
 
 =item ($contents_element, \@accent_commands) = find_innermost_accent_contents($element)
 X<C<find_innermost_accent_contents>>
@@ -737,7 +731,7 @@ sectioning commands.
 
 =head1 SEE ALSO
 
-L<Texinfo::Convert::Converter> and L<Texinfo::Translations>.
+L<Texinfo::Common>, L<Texinfo::Convert::Converter> and L<Texinfo::Translations>.
 
 =head1 AUTHOR
 

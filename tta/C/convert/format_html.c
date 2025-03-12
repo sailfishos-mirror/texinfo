@@ -12302,7 +12302,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   if (self->conf->DEF_TABLE.o.integer > 0)
     {
-      ELEMENT *category_tree
+      ELEMENT *def_category_tree
          = definition_category_tree (element,
                             self->conf->documentlanguage.o.string,
                              self->conf->DEBUG.o.integer);
@@ -12330,12 +12330,12 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       free (attribute_class);
       text_append_n (result, ">[", 2);
 
-      if (category_tree)
+      if (def_category_tree)
         {
-          add_tree_to_build (self, category_tree);
-          html_convert_tree_append (self, category_tree, result, 0);
-          remove_tree_to_build (self, category_tree);
-          destroy_element_and_children (category_tree);
+          add_tree_to_build (self, def_category_tree);
+          html_convert_tree_append (self, def_category_tree, result, 0);
+          remove_tree_to_build (self, def_category_tree);
+          destroy_element_and_children (def_category_tree);
         }
       text_append_n (result, "]</td></tr>\n", 12);
 
@@ -12353,7 +12353,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
 
   if (parsed_def->category)
     {
-      ELEMENT *category_tree = 0;
+      ELEMENT *e_category_tree = 0;
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
       ELEMENT *category_copy = copy_tree (parsed_def->category);
@@ -12370,19 +12370,19 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
               && self->conf->deftypefnnewline.o.string
               && !strcmp (self->conf->deftypefnnewline.o.string, "on"))
             {
-               category_tree
+               e_category_tree
                   = html_cdt_tree ("{category} on @code{{class}}:@* ",
                                    self, substrings, 0);
             }
           else if (base_cmd == CM_defop || base_cmd == CM_deftypeop)
             {
-               category_tree
+               e_category_tree
                   = html_cdt_tree ("{category} on @code{{class}}: ",
                                    self, substrings, 0);
             }
           else if (base_cmd == CM_defcv || base_cmd == CM_deftypecv)
             {
-               category_tree
+               e_category_tree
                   = html_cdt_tree ("{category} of @code{{class}}: ",
                                    self, substrings, 0);
             }
@@ -12394,20 +12394,20 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
               && self->conf->deftypefnnewline.o.string
               && !strcmp (self->conf->deftypefnnewline.o.string, "on"))
             {
-              category_tree
+              e_category_tree
                   = html_cdt_tree ("{category}:@* ",
                                    self, substrings, 0);
             }
           else
             {
-              category_tree
+              e_category_tree
                   = html_cdt_tree ("{category}: ",
                                    self, substrings, 0);
             }
         }
       destroy_named_string_element_list (substrings);
 
-      if (category_tree)
+      if (e_category_tree)
         {
           char *attribute_open = html_attribute_class (self, "span",
                                              &category_def_classes);
@@ -12423,10 +12423,10 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
               text_append_n (result, ">", 1);
             }
           free (attribute_open);
-          add_tree_to_build (self, category_tree);
-          html_convert_tree_append (self, category_tree, result, explanation);
-          remove_tree_to_build (self, category_tree);
-          destroy_element_and_children (category_tree);
+          add_tree_to_build (self, e_category_tree);
+          html_convert_tree_append (self, e_category_tree, result, explanation);
+          remove_tree_to_build (self, e_category_tree);
+          destroy_element_and_children (e_category_tree);
           if (open_len)
             text_append_n (result, "</span>", 7);
           free (explanation);
