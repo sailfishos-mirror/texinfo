@@ -1741,9 +1741,7 @@ while(@input_files) {
   # information.
   #
   # OUTPUT_ENCODING_NAME is set in set_output_encoding and accessed
-  # in set_output_perl_encoding.
-  # OUTPUT_PERL_ENCODING is set in set_output_perl_encoding and
-  # accessed in output_files_open_out for the MACRO_EXPAND file name.
+  # in output_files_open_out.
   # The following variables are used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
   # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
@@ -1871,7 +1869,7 @@ while(@input_files) {
           = Texinfo::Convert::Utils::output_files_open_out(
                           $macro_expand_files_information,
                           $encoded_macro_expand_file_name, undef,
-                      $document->get_conf('OUTPUT_PERL_ENCODING'));
+                      $document->get_conf('OUTPUT_ENCODING_NAME'));
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
@@ -2142,7 +2140,7 @@ while(@input_files) {
             = Texinfo::Convert::Utils::output_files_open_out(
                               $internal_links_files_information,
                               $encoded_internal_links_file_name, undef,
-                              $converter->get_conf('OUTPUT_PERL_ENCODING'));
+                              $converter->get_conf('OUTPUT_ENCODING_NAME'));
     my $error_internal_links_file;
     if (defined($internal_links_fh)) {
       print $internal_links_fh $internal_links_text;
@@ -2225,7 +2223,7 @@ while(@input_files) {
                 = Texinfo::Convert::Utils::output_files_open_out(
                                         $sort_elem_files_information,
                                $encoded_sort_element_count_file_name, undef,
-                   $converter_element_count->get_conf('OUTPUT_PERL_ENCODING'));
+                   $converter_element_count->get_conf('OUTPUT_ENCODING_NAME'));
     my $error_sort_element_count_file;
     if (defined($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;

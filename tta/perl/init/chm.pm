@@ -221,7 +221,7 @@ sub chm_init($)
      = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(),
                       $encoded_hhk_file_path_name, undef,
-                      $self->get_conf('OUTPUT_PERL_ENCODING'));
+                      $self->get_conf('OUTPUT_ENCODING_NAME'));
   if (!defined($hhk_fh)) {
     $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
@@ -304,7 +304,7 @@ sub chm_init($)
        = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(),
                       $encoded_hhc_file_path_name, undef,
-                      $self->get_conf('OUTPUT_PERL_ENCODING'));
+                      $self->get_conf('OUTPUT_ENCODING_NAME'));
   if (!defined($hhc_fh)) {
     $self->converter_document_error(
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
@@ -388,7 +388,7 @@ sub chm_init($)
        = Texinfo::Convert::Utils::output_files_open_out(
                       $self->output_files_information(),
                       $encoded_hhp_file_path_name, undef,
-                      $self->get_conf('OUTPUT_PERL_ENCODING'));
+                      $self->get_conf('OUTPUT_ENCODING_NAME'));
   if (!defined($hhp_fh)) {
     $self->converter_document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"),

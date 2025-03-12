@@ -490,11 +490,6 @@ sub conversion_initialization($;$)
   }
 
   # some caching to avoid calling get_conf
-  if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $self->{'output_perl_encoding'} = $self->get_conf('OUTPUT_PERL_ENCODING');
-  } else {
-    $self->{'output_perl_encoding'} = '';
-  }
   $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
@@ -743,7 +738,7 @@ sub output($$)
       ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                     $self->output_files_information(),
                     $encoded_outfile_name, undef,
-                    $self->get_conf('OUTPUT_PERL_ENCODING'));
+                    $self->get_conf('OUTPUT_ENCODING_NAME'));
       if (!$fh) {
         $self->converter_document_error(
                  sprintf(__("could not open %s for writing: %s"),
@@ -798,7 +793,7 @@ sub output($$)
         ($file_fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(),
                              $out_filepath, undef,
-                             $self->get_conf('OUTPUT_PERL_ENCODING'));
+                             $self->get_conf('OUTPUT_ENCODING_NAME'));
         if (!$file_fh) {
           $self->converter_document_error(
                 sprintf(__("could not open %s for writing: %s"),
@@ -1194,7 +1189,15 @@ sub _stream_encode($$)
   }
 
   if (!defined($self->{'encoding_object'})) {
-    my $encoding = $self->{'output_perl_encoding'};
+    my $encoding
+      = Texinfo::Common::processing_output_encoding(
+                               $self->{'output_encoding_name'});
+    # TODO currently encoding cannot be ascii unless directly
+    # specified as OUTPUT_ENCODING_NAME customization variable as
+    # ascii documentencoding is mapped to us-ascii as input encoding
+    # (either explicitely in C or through Encode mime_name in Perl)
+    # and then us-ascii is mapped to iso-8859-1 output perl encoding
+    # through Texinfo::Common::encoding_name_conversion_map.
     if (!$encoding or $encoding eq 'ascii') {
       $self->{'encoding_disabled'} = 1;
       return $string;

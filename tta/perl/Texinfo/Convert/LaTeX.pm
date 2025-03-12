@@ -1104,7 +1104,7 @@ sub output($$)
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(),
                              $encoded_output_file, undef,
-                             $self->get_conf('OUTPUT_PERL_ENCODING'));
+                             $self->get_conf('OUTPUT_ENCODING_NAME'));
     if (!$fh) {
       $self->converter_document_error(
              sprintf(__("could not open %s for writing: %s"),
@@ -4690,8 +4690,10 @@ sub convert_math_to_images($$$;$)
       }
       $fh = *MATH2IMG_TEXFILE;
 
+      # TODO why not use Texinfo::Convert::Utils::output_files_open_out?
+      my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
       my $output_perl_encoding
-        = $self->get_conf('OUTPUT_PERL_ENCODING');
+        = Texinfo::Common::processing_output_encoding($output_encoding);
       if (defined($output_perl_encoding)) {
         binmode($fh, ":encoding($output_perl_encoding)");
       }

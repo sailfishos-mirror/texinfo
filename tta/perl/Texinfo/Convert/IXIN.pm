@@ -351,7 +351,7 @@ sub output_ixin($$)
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(),
                              $encoded_output_file,
-                             undef, $self->get_conf('OUTPUT_PERL_ENCODING'));
+                             undef, $self->get_conf('OUTPUT_ENCODING_NAME'));
     if (!$fh) {
       $self->converter_document_error(
                 sprintf(__("could not open %s for writing: %s"),

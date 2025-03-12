@@ -1183,22 +1183,13 @@ sub test($$)
           if (!open(OUTFILE, ">$outfile")) {
             warn "ERROR: open $outfile: $!\n";
           } else {
-            # output() or convert() called in convert_to_* calls set_document,
-            # which calls Texinfo::Common::set_output_perl_encoding, so
-            # OUTPUT_PERL_ENCODING should be set in all the formats converters
-            # in pure Perl.  For HTML with XS, set_output_perl_encodings is only
-            # called if there is user-defined Perl code called through the
-            # customization API.  Since this is not the case here, we call
-            # explicitely set_output_perl_encodings.
+            my $output_encoding
+              = $converter->get_conf('OUTPUT_ENCODING_NAME');
             my $output_file_encoding
-                      = $converter->get_conf('OUTPUT_PERL_ENCODING');
-            if (!defined($output_file_encoding) and $format =~ /^html/) {
-              Texinfo::Common::set_output_perl_encoding($converter);
-              $output_file_encoding
-                      = $converter->get_conf('OUTPUT_PERL_ENCODING');
-            }
+              = Texinfo::Common::processing_output_encoding($output_encoding);
+
             if (defined($output_file_encoding)
-                   and $output_file_encoding ne '') {
+                and $output_file_encoding ne '') {
               binmode(OUTFILE, ":encoding($output_file_encoding)");
             } else {
               warn "WARNING: $self->{'name'}: $test_name: $format: no encoding\n";

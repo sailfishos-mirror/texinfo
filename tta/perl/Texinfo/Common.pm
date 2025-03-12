@@ -887,7 +887,7 @@ sub locate_file_in_dirs($$$;$)
   return undef, undef;
 }
 
-sub perl_encoding_name($)
+sub processing_output_encoding($)
 {
   my $encoding = shift;
 
@@ -914,7 +914,7 @@ sub element_associated_processing_encoding($)
   my $encoding = $element->{'extra'}->{'input_encoding_name'}
     if ($element->{'extra'});
 
-  return perl_encoding_name($encoding);
+  return processing_output_encoding($encoding);
 }
 
 # Reverse the decoding of the file name from the input encoding.  When
@@ -1184,11 +1184,14 @@ sub set_output_perl_encoding($)
 
   if (not defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))
       and defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))) {
-    my $conversion_encoding
+    my $conversion_encoding;
+    my $encoding_name
        = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
-    if (defined($encoding_name_conversion_map{$conversion_encoding})) {
+    if (defined($encoding_name_conversion_map{$encoding_name})) {
       $conversion_encoding
-        = $encoding_name_conversion_map{$conversion_encoding};
+        = $encoding_name_conversion_map{$encoding_name};
+    } else {
+      $conversion_encoding = $encoding_name;
     }
     $customization_information->set_conf('OUTPUT_PERL_ENCODING',
                                          $conversion_encoding);

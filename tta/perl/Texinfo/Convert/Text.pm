@@ -973,8 +973,6 @@ sub output($$)
   }
 
   Texinfo::Common::set_output_encoding($self, $document);
-  # sets OUTPUT_PERL_ENCODING needed for output_files_open_out below
-  Texinfo::Common::set_output_perl_encoding($self);
 
   # Text options and converter are of different nature.
   # However, since the option keys are very similar between the converter
@@ -1079,7 +1077,7 @@ sub output($$)
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                              $self->{'output_files'},
                              $encoded_outfile, undef,
-                             $self->{'OUTPUT_PERL_ENCODING'});
+                             $self->{'OUTPUT_ENCODING_NAME'});
     if (!$fh) {
       warn sprintf(__("could not open %s for writing: %s"),
                    $outfile, $error_message)."\n";

@@ -12174,7 +12174,7 @@ sub _do_jslicenses_file {
          = Texinfo::Convert::Utils::output_files_open_out(
                          $self->output_files_information(),
                          $licence_file_path, undef,
-                         $self->get_conf('OUTPUT_PERL_ENCODING'));
+                         $self->get_conf('OUTPUT_ENCODING_NAME'));
   if ($overwritten_file) {
     $self->converter_document_warn(
      sprintf(__("overwriting output file with js licences: %s"),
@@ -13235,7 +13235,7 @@ sub _html_convert_output($$$$$$$$)
                 = Texinfo::Convert::Utils::output_files_open_out(
                          $self->output_files_information(),
                          $encoded_out_filepath, undef,
-                         $self->get_conf('OUTPUT_PERL_ENCODING'));
+                         $self->get_conf('OUTPUT_ENCODING_NAME'));
         if (!$file_fh) {
           $self->converter_document_error(
                sprintf(__("could not open %s for writing: %s"),
@@ -13486,7 +13486,7 @@ sub _node_redirections($$$$)
                = Texinfo::Convert::Utils::output_files_open_out(
                              $self->output_files_information(),
                              $encoded_out_filepath, undef,
-                             $self->get_conf('OUTPUT_PERL_ENCODING'));
+                             $self->get_conf('OUTPUT_ENCODING_NAME'));
         if (!$file_fh) {
           $self->converter_document_error(sprintf(__(
                                     "could not open %s for writing: %s"),

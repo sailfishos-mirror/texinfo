@@ -440,8 +440,10 @@ sub highlight_process($$)
       return 1;
     }
     my $output_encoding;
-    if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-      $output_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+    if (defined($self->get_conf('OUTPUT_ENCODING_NAME'))) {
+      my $encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+      $output_encoding
+        = Texinfo::Common::processing_output_encoding($output_encoding);
       binmode(HIGHLIGHT_LANG_IN, ":encoding($output_encoding)");
     }
 

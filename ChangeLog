@@ -1,5 +1,32 @@
 2025-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (processing_output_encoding): rename
+	perl_encoding_name as processing_output_encoding.  Update caller.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (output_files_open_out),
+	tta/perl/Texinfo/Convert/HTML.pm, tta/perl/Texinfo/Convert/IXIN.pm,
+	tta/perl/Texinfo/Convert/Info.pm, tta/perl/Texinfo/Convert/LaTeX.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm,
+	tta/perl/Texinfo/Convert/Text.pm, tta/perl/texi2any.pl: call
+	Texinfo::Common::processing_output_encoding on output encoding to get
+	the encoding name used for encoding.  Update callers to pass
+	OUTPUT_ENCODING_NAME instead of OUTPUT_PERL_ENCODING, now that
+	the encoding is especially in output_files_open_out.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images),
+	tta/perl/Texinfo/Convert/Plaintext.pm (conversion_initialization)
+	(_stream_encode), tta/perl/t/test_utils.pl (test): determine encoding
+	used for output files by calling
+	Texinfo::Common::processing_output_encoding.
+
+	* tta/perl/Texinfo/Convert/Text.pm (output), tta/perl/t/test_utils.pl
+	(test): do not call set_output_perl_encoding anymore.
+
+	* tta/perl/Texinfo/Common.pm (set_output_perl_encoding): minor change
+	for more legible code.
+
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (set_output_perl_encoding): do not
 	call Encode::resolve_alias explicitly, let Perl do the aliasing
 	of encoding names automatically.

@@ -415,7 +415,7 @@ sub _open_info_file($$)
   my ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                                $self->output_files_information(),
                                $encoded_filename, 'use_binmode',
-                               $self->get_conf('OUTPUT_PERL_ENCODING'));
+                               $self->get_conf('OUTPUT_ENCODING_NAME'));
 
   if (!$fh) {
     $self->converter_document_error(sprintf(

@@ -3815,11 +3815,17 @@ sub _end_line_misc_line($$$)
           my $Encode_encoding_object = find_encoding($conversion_encoding);
           if (defined($Encode_encoding_object)) {
             $perl_encoding = $Encode_encoding_object->name();
+
+            my $Encode_input_encoding_object;
             if ($normalized_text ne $conversion_encoding) {
-              $Encode_encoding_object = find_encoding($normalized_text);
+              # prefer the input encoding associated to the encoding as
+              # specified by the user, not the encoding used for decoding
+              $Encode_input_encoding_object = find_encoding($normalized_text);
+            } else {
+              $Encode_input_encoding_object = $Encode_encoding_object;
             }
             # mime_name() is upper-case, our keys are lower case, set to lower case
-            $input_encoding = lc($Encode_encoding_object->mime_name());
+            $input_encoding = lc($Encode_input_encoding_object->mime_name());
           }
 
           if (!defined($perl_encoding)) {

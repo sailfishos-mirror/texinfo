@@ -101,7 +101,7 @@ sub output_files_open_out($$;$$)
   if ($self->{'output_encoding_disabled'}) {
    # leave $encoding undefined
   } elsif (defined($output_encoding)) {
-    $encoding = $output_encoding;
+    $encoding = Texinfo::Common::processing_output_encoding($output_encoding);
   }
 
   if ($file_path eq '-') {
