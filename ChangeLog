@@ -1,5 +1,19 @@
 2025-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(merge_converter_error_messages_lists): add.
+
+	* tta/C/main/convert_to_text.c (convert_to_text),
+	tta/perl/Texinfo/Convert/Text.pm (convert_to_text): merge Text
+	converter error messages with calling converter error messages.
+
+	* tta/C/main/convert_to_text.c (convert_to_text_internal),
+	tta/perl/Texinfo/Convert/Text.pm (_convert): only use the Text
+	converter code to expand verbatiminclude now that error messages are
+	transmitted to converters.
+
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (main): fix reading of options to handle options
 	not set at all.
 

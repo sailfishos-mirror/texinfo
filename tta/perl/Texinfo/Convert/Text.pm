@@ -763,28 +763,23 @@ sub _convert($$)
         }
       } elsif ($cmdname eq 'verbatiminclude') {
         my $verbatim_include_verbatim;
-        if ($options->{'converter'}) {
-          # NOTE we use the Texinfo::Convert::Converter method.
-          $verbatim_include_verbatim
-            = $options->{'converter'}->expand_verbatiminclude($element);
-        } else {
-          my $input_file_name_encoding
-           = $options->{'INPUT_FILE_NAME_ENCODING'};
-          my $doc_encoding_for_input_file_name
-           = $options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'};
-          my $locale_encoding = $options->{'LOCALE_ENCODING'};
+        my $input_file_name_encoding
+         = $options->{'INPUT_FILE_NAME_ENCODING'};
+        my $doc_encoding_for_input_file_name
+         = $options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'};
+        my $locale_encoding = $options->{'LOCALE_ENCODING'};
 
-          my $include_directories
-           = $options->{'INCLUDE_DIRECTORIES'};
+        my $include_directories
+         = $options->{'INCLUDE_DIRECTORIES'};
 
-          my $document = $options->{'document'};
+        my $document = $options->{'document'};
 
-          $verbatim_include_verbatim
-            = Texinfo::Convert::Utils::expand_verbatiminclude($element,
-                 $input_file_name_encoding,
-                 $doc_encoding_for_input_file_name, $locale_encoding,
-                 $include_directories, $document, $options);
-        }
+        $verbatim_include_verbatim
+          = Texinfo::Convert::Utils::expand_verbatiminclude($element,
+              $input_file_name_encoding,
+              $doc_encoding_for_input_file_name, $locale_encoding,
+              $include_directories, $document, $options);
+
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($options, $verbatim_include_verbatim);
         }
@@ -895,10 +890,9 @@ sub convert_to_text($;$)
 
   my $result = _convert($options, $root);
 
-  # TODO it could be possible here to pass 'error_warning_messages'
-  # back to $options->{'converter'} instead of dropping them.
-  # in this case, there also would not be a need for calling
-  # expand_verbatiminclude on the converter anymore
+  if ($options->{'converter'}) {
+    $options->{'converter'}->merge_converter_error_messages_lists($options);
+  }
 
   return $result;
 }

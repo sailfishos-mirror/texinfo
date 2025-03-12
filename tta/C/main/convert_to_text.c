@@ -1017,40 +1017,31 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           else if (data_cmd == CM_verbatiminclude)
             {
               ELEMENT *verbatim_include_verbatim = 0;
-              ERROR_MESSAGE_LIST *error_messages = 0;
-              if (text_options->converter)
-                error_messages = &text_options->converter->error_messages;
 
-              if (text_options->other_converter_options) {
-                verbatim_include_verbatim
-                 = converter_expand_verbatiminclude (error_messages,
-                                       text_options->other_converter_options,
-                                       0, element);
-              } else {
-                const char *input_file_name_encoding
-                  = text_options->INPUT_FILE_NAME_ENCODING;
-                int doc_encoding_for_input_file_name
-                  = text_options->DOC_ENCODING_FOR_INPUT_FILE_NAME;
-                const char *locale_encoding = text_options->LOCALE_ENCODING;
-                const STRING_LIST *include_directories
-                  = &text_options->include_directories;
-                GLOBAL_INFO *global_information = 0;
-                error_messages = &text_options->error_messages;
+              ERROR_MESSAGE_LIST *error_messages
+                = &text_options->error_messages;
+              const char *input_file_name_encoding
+                = text_options->INPUT_FILE_NAME_ENCODING;
+              int doc_encoding_for_input_file_name
+                = text_options->DOC_ENCODING_FOR_INPUT_FILE_NAME;
+              const char *locale_encoding = text_options->LOCALE_ENCODING;
+              const STRING_LIST *include_directories
+                = &text_options->include_directories;
+              GLOBAL_INFO *global_information = 0;
 
-                if (text_options->document_descriptor) {
-                  DOCUMENT *document
-                    = retrieve_document (text_options->document_descriptor);
-                  if (document)
-                    global_information = &document->global_info;
-                }
-
-                verbatim_include_verbatim
-                  = expand_verbatiminclude (input_file_name_encoding,
-                           doc_encoding_for_input_file_name, locale_encoding,
-                              include_directories, error_messages,
-                              text_options->self_converter_options,
-                                        global_information, element);
+              if (text_options->document_descriptor) {
+                DOCUMENT *document
+                  = retrieve_document (text_options->document_descriptor);
+                if (document)
+                  global_information = &document->global_info;
               }
+
+              verbatim_include_verbatim
+                = expand_verbatiminclude (input_file_name_encoding,
+                         doc_encoding_for_input_file_name, locale_encoding,
+                            include_directories, error_messages,
+                            text_options->self_converter_options,
+                                      global_information, element);
               if (verbatim_include_verbatim)
                 {
                   convert_to_text_internal (verbatim_include_verbatim,
@@ -1177,5 +1168,10 @@ convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options)
   text_append (&result, "");
 
   convert_to_text_internal (root, text_options, &result);
+
+  if (text_options->converter && text_options->error_messages.number)
+    merge_error_messages_lists (&text_options->converter->error_messages,
+                                &text_options->error_messages);
+
   return result.text;
 }

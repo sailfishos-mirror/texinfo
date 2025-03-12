@@ -565,6 +565,20 @@ sub get_converter_errors($)
   return $self->{'error_warning_messages'};
 }
 
+sub merge_converter_error_messages_lists($$)
+{
+  my $dst = shift;
+  my $src = shift;
+
+  if (!defined($src) or !$src->{'error_warning_messages'}) {
+    return;
+  }
+
+  push @{$dst->{'error_warning_messages'}},
+       @{$src->{'error_warning_messages'}};
+  @{$src->{'error_warning_messages'}} = ();
+}
+
 
 
 ###############################################################
