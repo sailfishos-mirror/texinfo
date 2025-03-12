@@ -1188,13 +1188,10 @@ sub set_output_perl_encoding($)
        = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($encoding_name_conversion_map{$conversion_encoding})) {
       $conversion_encoding
-         = $encoding_name_conversion_map{$conversion_encoding};
+        = $encoding_name_conversion_map{$conversion_encoding};
     }
-    my $perl_encoding = Encode::resolve_alias($conversion_encoding);
-    if (defined($perl_encoding) and $perl_encoding ne '') {
-      $customization_information->set_conf('OUTPUT_PERL_ENCODING',
-                                           $perl_encoding);
-    }
+    $customization_information->set_conf('OUTPUT_PERL_ENCODING',
+                                         $conversion_encoding);
   }
 }
 
