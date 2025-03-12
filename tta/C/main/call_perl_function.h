@@ -6,8 +6,6 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-void call_common_set_output_perl_encoding (const CONVERTER *self);
-
 char *call_nodenamenormalization_unicode_to_transliterate (const char *text,
                                               int in_test, int no_unidecode);
 

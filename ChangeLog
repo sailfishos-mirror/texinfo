@@ -1,5 +1,29 @@
 2025-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	Remove OUTPUT_PERL_ENCODING and set_output_perl_encoding
+
+	* tta/perl/Texinfo/Common.pm (count_bytes): do not set encoding to
+	OUTPUT_PERL_ENCODING if not set.  Remove converter argument.
+	Update caller.
+
+	* tta/perl/texi2any.pl, tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(converter_set_document), tta/C/convert/build_html_perl_info.c
+	(html_pass_conversion_initialization),
+	tta/C/main/call_perl_function.c, tta/perl/Texinfo/Common.pm,
+	tta/perl/Texinfo/Convert/Converter.pm (set_document),
+	tta/perl/texi2any.pl: do not call set_output_perl_encoding anymore.
+	Remove set_output_perl_encoding and
+	call_common_set_output_perl_encoding.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: pass OUTPUT_ENCODING_NAME
+	instead of OUTPUT_PERL_ENCODING, now that the encoding is especially
+	in output_files_open_out.
+
+	* tta/data/options_data.txt: remove OUTPUT_PERL_ENCODING customization
+	variable.
+
+2025-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (processing_output_encoding): rename
 	perl_encoding_name as processing_output_encoding.  Update caller.
 

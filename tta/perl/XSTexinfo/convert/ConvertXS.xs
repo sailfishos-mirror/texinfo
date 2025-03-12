@@ -44,8 +44,6 @@
 #include "utils.h"
 #include "command_stack.h"
 #include "customization_options.h"
-/* for call_common_set_output_perl_encoding */
-#include "call_perl_function.h"
 #include "document.h"
 #include "converter.h"
 #include "get_perl_info.h"
@@ -228,8 +226,6 @@ converter_set_document (SV *converter_in, SV *document_in)
         self = converter_set_document_from_sv (converter_in, document_in);
 
         pass_converter_text_options (self, converter_in);
-
-        call_common_set_output_perl_encoding (self);
 
 int
 set_conf (SV *converter_in, option_name, SV *value)

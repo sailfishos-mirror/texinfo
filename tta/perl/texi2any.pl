@@ -1753,7 +1753,6 @@ while(@input_files) {
   # encoding is needed for output files
   # documentlanguage is needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encoding($main_configuration, $document);
-  Texinfo::Common::set_output_perl_encoding($main_configuration);
   if (not defined($main_configuration->get_conf('documentlanguage'))
       and defined ($document_information->{'documentlanguage'})) {
     $main_configuration->set_conf('documentlanguage',

@@ -307,7 +307,6 @@ OPEN_QUOTE_SYMBOL                  converter_customization undef   char
 OUTPUT_CHARACTERS                  converter_customization undef   integer
 OUTPUT_ENCODING_NAME               converter_customization undef   char
 OUTPUT_FILE_NAME_ENCODING          converter_customization undef   char
-OUTPUT_PERL_ENCODING               converter_customization undef   char
 PACKAGE                            converter_customization undef   char
 PACKAGE_AND_VERSION                converter_customization undef   char
 PACKAGE_NAME                       converter_customization undef   char

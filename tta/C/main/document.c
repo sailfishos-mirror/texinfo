@@ -187,8 +187,6 @@ register_document_options (DOCUMENT *document, OPTIONS *options,
   document->sorted_options = sorted_options;
 }
 
-/* In perl, OUTPUT_PERL_ENCODING is set too.  Note that if the perl
-   version is called later on, the OUTPUT_ENCODING_NAME value will be re-set */
 void
 set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 {

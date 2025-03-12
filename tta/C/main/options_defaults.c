@@ -184,7 +184,6 @@ set_converter_customization_options_defaults (OPTIONS *options)
   option_set_conf (&options->OUTPUT_CHARACTERS, -1, 0);
   option_set_conf (&options->OUTPUT_ENCODING_NAME, -2, 0);
   option_set_conf (&options->OUTPUT_FILE_NAME_ENCODING, -2, 0);
-  option_set_conf (&options->OUTPUT_PERL_ENCODING, -2, 0);
   option_set_conf (&options->PACKAGE, -2, 0);
   option_set_conf (&options->PACKAGE_AND_VERSION, -2, 0);
   option_set_conf (&options->PACKAGE_NAME, -2, 0);
@@ -330,7 +329,6 @@ add_converter_customization_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "OUTPUT_CHARACTERS", -1, 0);
   add_option_value (options_list, "OUTPUT_ENCODING_NAME", -2, 0);
   add_option_value (options_list, "OUTPUT_FILE_NAME_ENCODING", -2, 0);
-  add_option_value (options_list, "OUTPUT_PERL_ENCODING", -2, 0);
   add_option_value (options_list, "PACKAGE", -2, 0);
   add_option_value (options_list, "PACKAGE_AND_VERSION", -2, 0);
   add_option_value (options_list, "PACKAGE_NAME", -2, 0);

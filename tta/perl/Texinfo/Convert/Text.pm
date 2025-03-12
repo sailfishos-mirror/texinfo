@@ -1120,7 +1120,7 @@ sub destroy($)
 {
 }
 
-# used in Texinfo::Common::set_output_perl_encoding
+# FIXME used where?
 sub get_conf($$)
 {
   my $self = shift;

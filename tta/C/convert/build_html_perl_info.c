@@ -44,8 +44,6 @@
  */
 #include "output_unit.h"
 #include "command_stack.h"
-/* for call_common_set_output_perl_encoding */
-#include "call_perl_function.h"
 /* also for perl_only_* wrappers */
 #include "build_perl_info.h"
 /* for NAMED_STRING_ELEMENT_LIST */
@@ -328,13 +326,6 @@ html_pass_conversion_initialization (CONVERTER *converter,
                     strlen ("options_latex_math"),
                     newRV_noinc ((SV *)options_latex_math_hv), 0);
         }
-
-      /* if INTERNAL_LINKS is set, the Perl converter encoding must be set as
-         it is used from the main program in Perl in a call to
-          Texinfo::Convert::Utils::output_files_open_out
-         So we set it even if there is no conversion happening in Perl.
-       */
-      call_common_set_output_perl_encoding (converter);
 
       if (converter->external_references_number > 0)
         {

@@ -254,13 +254,6 @@ sub set_document($$)
 
   $converter->{'convert_text_options'}
      = Texinfo::Convert::Text::copy_options_for_convert_text($converter);
-
-  # In general, OUTPUT_PERL_ENCODING set below is needed for the output()
-  # entry point through Texinfo::Convert::Utils::output_files_open_out.  It is
-  # also sometime needed for the converter itself.  If not, in general it
-  # is not needed for the convert() entry point, so the call could also be
-  # done more finely in converters, but it is not really important.
-  Texinfo::Common::set_output_perl_encoding($converter);
 }
 
 # initialization either in generic XS converter or in Perl
@@ -409,7 +402,7 @@ sub output_tree($$)
     ($fh, $error_message) = Texinfo::Convert::Utils::output_files_open_out(
                               $self->output_files_information(),
                               $encoded_output_file, undef,
-                              $self->get_conf('OUTPUT_PERL_ENCODING'));
+                              $self->get_conf('OUTPUT_ENCODING_NAME'));
     if (!$fh) {
       $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),

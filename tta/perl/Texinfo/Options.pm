@@ -125,7 +125,6 @@ our %converter_customization_options = (
   'OUTPUT_CHARACTERS'                => undef,
   'OUTPUT_ENCODING_NAME'             => undef,
   'OUTPUT_FILE_NAME_ENCODING'        => undef,
-  'OUTPUT_PERL_ENCODING'             => undef,
   'PACKAGE'                          => undef,
   'PACKAGE_AND_VERSION'              => undef,
   'PACKAGE_NAME'                     => undef,

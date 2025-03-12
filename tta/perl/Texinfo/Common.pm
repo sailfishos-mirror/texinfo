@@ -1178,26 +1178,6 @@ sub set_output_encoding($$)
          and $document_information->{'input_encoding_name'});
 }
 
-sub set_output_perl_encoding($)
-{
-  my $customization_information = shift;
-
-  if (not defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))
-      and defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))) {
-    my $conversion_encoding;
-    my $encoding_name
-       = $customization_information->get_conf('OUTPUT_ENCODING_NAME');
-    if (defined($encoding_name_conversion_map{$encoding_name})) {
-      $conversion_encoding
-        = $encoding_name_conversion_map{$encoding_name};
-    } else {
-      $conversion_encoding = $encoding_name;
-    }
-    $customization_information->set_conf('OUTPUT_PERL_ENCODING',
-                                         $conversion_encoding);
-  }
-}
-
 # $DOCUMENT is the parsed Texinfo document.  It is optional, but it
 # is recommended to pass it to get the input encoding name.
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
@@ -1423,19 +1403,17 @@ my $Encode_encoding_object;
 my $last_encoding;
 
 # Only used in the unmaintained IXIN converter, but could be useful in
-# other converters, so it is better to keep it to get an idea of the type of
-# code that needs the output perl encoding information.
-sub count_bytes($$;$)
+# other converters, so it is better to keep it.
+sub count_bytes($;$)
 {
-  my $self = shift;
   my $string = shift;
   my $encoding = shift;
 
-  if (!defined($encoding) and $self and $self->get_conf('OUTPUT_PERL_ENCODING')) {
-    $encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
-  }
-
-  if ($encoding and $encoding ne 'ascii') {
+  # TODO encoding is unlikely to be ascii, as documentencoding ascii
+  # is mapped to output encoding name us-ascii, also it may have been
+  # better to call Texinfo::Common::processing_output_encoding, in 
+  # which case us-ascii would be mapped to iso-8859-1.
+  if (defined($encoding) and $encoding ne 'ascii') {
     if (!defined($last_encoding) or $last_encoding ne $encoding) {
       # Look up and save encoding object for next time.  This is
       # slightly faster than calling Encode::encode.
@@ -2210,13 +2188,6 @@ X<C<set_output_encoding>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
 encoding.
-
-=item set_output_perl_encoding($customization_information)
-X<C<set_output_perl_encoding>>
-
-Set C<OUTPUT_PERL_ENCODING> based on C<OUTPUT_ENCODING_NAME>.  In general,
-C<OUTPUT_PERL_ENCODING> should not be set directly by user-defined code such
-that it corresponds to C<OUTPUT_ENCODING_NAME>.
 
 =item $split_contents = split_custom_heading_command_contents($element)
 X<C<split_custom_heading_command_contents>>

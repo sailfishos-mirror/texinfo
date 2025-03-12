@@ -58,35 +58,6 @@ newSVpv_byte (const char *str, STRLEN len)
   return sv;
 }
 
-void
-call_common_set_output_perl_encoding (const CONVERTER *self)
-{
-  int count;
-
-  dTHX;
-
-  dSP;
-
-  ENTER;
-  SAVETMPS;
-
-  PUSHMARK(SP);
-  EXTEND(SP, 1);
-
-  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUTBACK;
-
-  count = call_pv (
-    "Texinfo::Common::set_output_perl_encoding",
-    G_DISCARD);
-
-  if (count != 0)
-    croak ("set_output_perl_encoding should return 0 item\n");
-
-  FREETMPS;
-  LEAVE;
-}
-
 char *
 call_nodenamenormalization_unicode_to_transliterate (const char *text,
                                         int in_test, int no_unidecode)

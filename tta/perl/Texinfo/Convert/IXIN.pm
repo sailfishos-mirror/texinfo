@@ -268,7 +268,8 @@ sub _count_bytes($$)
   my $self = shift;
   my $string = shift;
 
-  return Texinfo::Common::count_bytes($self, $string);
+  return Texinfo::Common::count_bytes($string,
+                               $self->get_conf('OUTPUT_ENCODING_NAME'));
 }
 
 sub _associated_node_id($$$;$)
