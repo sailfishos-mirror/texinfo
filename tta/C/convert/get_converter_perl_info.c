@@ -253,24 +253,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
     {
       CONVERTER *converter = get_sv_converter (*converter_sv, 0);
       if (converter)
-        {
-          text_options->other_converter_options
-            = converter->conf;
-          text_options->converter = converter;
-        }
-      else
-        {
-          HV *converter_hv = (HV *) SvRV (*converter_sv);
-          SV **conf_sv = hv_fetch (converter_hv, "conf", strlen ("conf"), 0);
-          if (conf_sv)
-            text_options->other_converter_options
-              = init_copy_sv_options (*conf_sv, 0, 1, 0);
-        }
-    }
-  else
-    {
-      text_options->self_converter_options
-       = init_copy_sv_options (sv_in, 0, 1, 0);
+        text_options->converter = converter;
     }
 
   return text_options;

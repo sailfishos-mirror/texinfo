@@ -338,15 +338,14 @@ vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e, const char *format, ...)
+                            int warn, const ELEMENT *e,
+                            const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
-  vmessage_list_line_error (error_messages, MSG_error, 0,
-                           (conf && conf->DEBUG.o.integer > 0),
-                           &e->e.c->source_info, 0, format, v);
+  vmessage_list_line_error (error_messages, MSG_error, 0, warn,
+                            &e->e.c->source_info, 0, format, v);
   va_end (v);
 }
 

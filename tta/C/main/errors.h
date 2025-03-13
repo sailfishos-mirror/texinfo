@@ -26,8 +26,8 @@ void message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
                              enum error_type type, int continuation,
                 const SOURCE_INFO *cmd_source_info, const char *format, ...);
 void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e, const char *format, ...);
+                            int debug, const ELEMENT *e,
+                            const char *format, ...);
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
                            const OPTIONS *conf,
                            const ELEMENT *e, int continuation,

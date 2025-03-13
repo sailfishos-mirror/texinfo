@@ -160,7 +160,7 @@ add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
    target element with the same normalized identifier.
    */
 static void
-existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
+existing_label_error (DOCUMENT *document, ELEMENT *element, char *normalized,
                       ERROR_MESSAGE_LIST *error_messages)
 {
   if (normalized && error_messages)
@@ -169,7 +169,8 @@ existing_label_error (DOCUMENT* document, ELEMENT *element, char *normalized,
         = find_identifier_target (&document->identifiers_target, normalized);
       const ELEMENT *label_element = get_label_element (element);
       char *label_element_texi = convert_contents_to_texinfo (label_element);
-      message_list_command_error (error_messages, document->options,
+      message_list_command_error (error_messages,
+            (document->options && document->options->DEBUG.o.integer > 0),
                      element, "@%s `%s' previously defined",
                      builtin_command_name (element->e.c->cmd),
                      label_element_texi);

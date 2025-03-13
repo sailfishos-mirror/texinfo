@@ -431,8 +431,8 @@ expand_verbatiminclude (const char *input_file_name_encoding,
                         int doc_encoding_for_input_file_name,
                         const char *locale_encoding,
                         const STRING_LIST *include_directories,
-                        ERROR_MESSAGE_LIST *error_messages,
-                        OPTIONS *options, GLOBAL_INFO *global_information,
+                        int debug, ERROR_MESSAGE_LIST *error_messages,
+                        GLOBAL_INFO *global_information,
                         const ELEMENT *current)
 {
   ELEMENT *verbatiminclude = 0;
@@ -440,11 +440,14 @@ expand_verbatiminclude (const char *input_file_name_encoding,
   char *file_name_text = lookup_extra_string (current, AI_key_text_arg);
   char *file_name;
   char *file;
+  char *input_encoding;
+  int warn;
 
   if (!file_name_text)
     return 0;
 
-  char *input_encoding = element_associated_processing_encoding (current);
+  warn = (debug > 0);
+  input_encoding = element_associated_processing_encoding (current);
 
   file_name = encoded_input_file_name (input_file_name_encoding,
                      doc_encoding_for_input_file_name, locale_encoding,
@@ -472,7 +475,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
                                          &status, &current->e.c->source_info);
               else
                 decoded_file = file;
-              message_list_command_error (error_messages, options, current,
+              message_list_command_error (error_messages, warn, current,
                                           "could not read %s: %s",
                                           decoded_file, strerror (errno));
               if (file_name_encoding)
@@ -518,7 +521,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
                                                   &current->e.c->source_info);
                   else
                     decoded_file = file;
-                  message_list_command_error (error_messages, options, current,
+                  message_list_command_error (error_messages, warn, current,
                              "error on closing @verbatiminclude file %s: %s",
                                  decoded_file, strerror (errno));
                   if (file_name_encoding)
@@ -530,7 +533,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
     }
   else if (error_messages)
     {
-      message_list_command_error (error_messages, options, current,
+      message_list_command_error (error_messages, warn, current,
                                   "@%s: could not find %s",
                                   builtin_command_name (current->e.c->cmd),
                                   file_name_text);
@@ -549,6 +552,7 @@ converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
   int doc_encoding_for_input_file_name = -1;
   const char *locale_encoding = 0;
   const STRING_LIST *include_directories = 0;
+  int debug = 0;
 
   if (options)
     {
@@ -559,11 +563,13 @@ converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
       locale_encoding = options->LOCALE_ENCODING.o.string;
 
       include_directories = options->INCLUDE_DIRECTORIES.o.strlist;
+
+      debug = options->DEBUG.o.integer;
     }
 
   return expand_verbatiminclude (input_file_name_encoding,
             doc_encoding_for_input_file_name, locale_encoding,
-            include_directories, error_messages, options,
+            include_directories, debug, error_messages,
             global_information, current);
 }
 

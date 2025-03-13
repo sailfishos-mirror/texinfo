@@ -148,7 +148,8 @@ sectioning_structure (DOCUMENT *document)
                                       AI_key_section_childs, 1);
               if (level - prev_section_level > 1)
                 {
-                  message_list_command_error (error_messages, options, content,
+                  message_list_command_error (error_messages,
+                        (options && options->DEBUG.o.integer > 0), content,
                         "raising the section level of @%s which is too low",
                                  builtin_command_name (content->e.c->cmd));
                   level = prev_section_level + 1;
@@ -440,7 +441,8 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
       if (!menu_node)
         {
           char *entry_node_texi = link_element_to_texi (menu_entry_node);
-          message_list_command_error (error_messages, options, menu_content,
+          message_list_command_error (error_messages,
+                        (options && options->DEBUG.o.integer > 0), menu_content,
                          "@%s reference to nonexistent node `%s'",
                          builtin_command_name (cmd), entry_node_texi);
           free (entry_node_texi);
@@ -1534,7 +1536,8 @@ construct_nodes_tree (DOCUMENT *document)
                               char *direction_texi
                                  = link_element_to_texi (direction_element);
                               message_list_command_error (
-                                     error_messages, options, node,
+                                     error_messages,
+                        (options && options->DEBUG.o.integer > 0), node,
                                      "%s reference to nonexistent `%s'",
                                      direction_texts[direction],
                                      direction_texi);
@@ -1618,7 +1621,8 @@ associate_internal_references (DOCUMENT *document)
                   || options->novalidate.o.integer <= 0)
                 {
                   char *label_texi = link_element_to_texi (label_element);
-                  message_list_command_error (error_messages, options,
+                  message_list_command_error (error_messages,
+                        (options && options->DEBUG.o.integer > 0),
                              ref, "@%s reference to nonexistent node `%s'",
                              builtin_command_name (ref->e.c->cmd), label_texi);
                   free (label_texi);

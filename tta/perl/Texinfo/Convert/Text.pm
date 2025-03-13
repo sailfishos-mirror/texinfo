@@ -1232,8 +1232,6 @@ Texinfo to other formats.  There is no promise of API stability.
 
 C<Texinfo::Convert::Text> is a simple backend that converts a Texinfo tree
 to simple text.  It is used in converters, especially for file names.
-The conversion is very simple, and, in the default case, cannot handle
-error handling nor some output strings translation.
 
 Converters derived from L<Texinfo::Convert::Converter> should have conversion
 text options preset associated to the C<convert_text_options> key.
@@ -1250,19 +1248,25 @@ and reset afterwards with the corresponding C<reset_*> functions.
 X<C<convert_to_text>>
 
 Convert a Texinfo tree to simple text.  I<$text_options> is a hash reference of
-options.  The converter is very simple, and has almost no internal state
-besides the options.  It cannot handle as is output strings translation or
-error storing.
+options.
 
-If the I<converter> option is set in I<$text_options>, some additional features
-may be available for the conversion of some @-commands, like output strings
-translation or error reporting.
+If the I<converter> option is set in I<$text_options> error messages
+are merged with the converter error messages.
 
-The C<NUMBER_SECTIONS>, C<ASCII_GLYPH> and C<TEST> options corresponding to
-customization variables may be set in I<$text_options>.  The following options
-may also be set:
+The C<ASCII_GLYPH>, C<DEBUG>, C<DOC_ENCODING_FOR_INPUT_FILE_NAME>,
+C<NUMBER_SECTIONS>, C<TEST>, C<documentlanguage>, C<INPUT_FILE_NAME_ENCODING>,
+C<LOCALE_ENCODING> and C<INCLUDE_DIRECTORIES> options corresponding to
+customization variables may be set in I<$text_options>.
+
+The following options may also be set:
 
 =over
+
+=item converter
+
+If a converter object is passed to the function, generated error
+messages are passed back to the converter.  See also
+L<Texinfo::Convert::Converter>.
 
 =item enabled_encoding
 
@@ -1273,6 +1277,11 @@ variable for Info and Plaintext and for some conversion to text in other
 formats.  For file names in HTML and LaTeX, and for DocBook or Texinfo XML,
 this variable should in general be set unless the output encoding is US-ASCII.
 
+=item expanded_formats
+
+A reference on a hash.  The keys should be format names (like C<html>,
+C<tex>), and if the corresponding value is set, the format is expanded.
+
 =item set_case
 
 If positive, the text is upper-cased, if negative, the text is lower-cased.
@@ -1281,17 +1290,6 @@ If positive, the text is upper-cased, if negative, the text is lower-cased.
 
 A somehow internal option to convert to text more suitable for alphabetical
 sorting rather than presentation.
-
-=item converter
-
-If this converter object is passed to the function, some features of this
-object may be used during conversion.  Mostly error reporting and strings
-translation.  See also L<Texinfo::Convert::Converter>.
-
-=item expanded_formats
-
-A reference on a hash.  The keys should be format names (like C<html>,
-C<tex>), and if the corresponding value is set, the format is expanded.
 
 =back
 

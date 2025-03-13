@@ -71,21 +71,6 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->LOCALE_ENCODING);
   free (text_options->INPUT_FILE_NAME_ENCODING);
   free_strings_list (&text_options->include_directories);
-  /* if the customization options come from a converter or are another
-     structure options, in practice a document, options should not be
-     freed here, but by their respective structures */
-  if (text_options->other_converter_options
-      && !text_options->converter
-      && !text_options->other_options)
-    {
-      free_options (text_options->other_converter_options);
-      free (text_options->other_converter_options);
-    }
-  if (text_options->self_converter_options)
-    {
-      free_options (text_options->self_converter_options);
-      free (text_options->self_converter_options);
-    }
   if (text_options->error_messages.number)
     fprintf (stderr,
              "WARNING: destroy_text_options error messages ignored: %zu\n",
@@ -139,9 +124,6 @@ copy_options_for_convert_text (OPTIONS *options)
     text_options->LOCALE_ENCODING
       = strdup (options->LOCALE_ENCODING.o.string);
 
-  /* not a copy but a reference to the options */
-  text_options->other_converter_options = options;
-
   return text_options;
 }
 
@@ -173,7 +155,6 @@ TEXT_OPTIONS *
 setup_index_entry_keys_formatting (OPTIONS *options)
 {
   TEXT_OPTIONS *text_options = copy_options_for_convert_text (options);
-  text_options->other_options = 1;
   set_additional_index_entry_keys_options (options, text_options);
   return text_options;
 }
@@ -998,6 +979,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               const char *locale_encoding = text_options->LOCALE_ENCODING;
               const STRING_LIST *include_directories
                 = &text_options->include_directories;
+              int debug = text_options->DEBUG;
               GLOBAL_INFO *global_information = 0;
 
               if (text_options->document_descriptor) {
@@ -1010,8 +992,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               verbatim_include_verbatim
                 = expand_verbatiminclude (input_file_name_encoding,
                          doc_encoding_for_input_file_name, locale_encoding,
-                            include_directories, error_messages,
-                            text_options->self_converter_options,
+                            include_directories, debug, error_messages,
                                       global_information, element);
               if (verbatim_include_verbatim)
                 {
@@ -1062,8 +1043,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else
         {
-        /* if there is no converter, we use the documentlanguage available
-           in the tree. */
+        /* if there is no current documentlanguage, we use the
+           documentlanguage available in the tree. */
 
           const char *documentlanguage
             = lookup_extra_string (element, AI_key_documentlanguage);

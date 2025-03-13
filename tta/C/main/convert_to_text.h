@@ -21,20 +21,12 @@ typedef struct TEXT_OPTIONS {
     int NUMBER_SECTIONS;
     int DEBUG;
     int DOC_ENCODING_FOR_INPUT_FILE_NAME;
-    int other_options;
     EXPANDED_FORMAT *expanded_formats;
     STRING_LIST include_directories;
     char *documentlanguage;
     char *INPUT_FILE_NAME_ENCODING;
     char *LOCALE_ENCODING;
     CONVERTER *converter;
-    /* other_converter_options is used if set.  If not set and in some cases
-       self_converter_options, if set, is used. */
-    OPTIONS *other_converter_options; /* same than converter if converter
-      is set, but can be set directly from perl or from another source,
-      in which case other_options is set */
-    OPTIONS *self_converter_options; /* text converter options available
-                                        as the OPTIONS structure */
     ERROR_MESSAGE_LIST error_messages; /* used if there is a Perl text
                               converter, XS is used and there is no C
                               converter */
