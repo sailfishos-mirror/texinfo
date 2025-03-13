@@ -231,12 +231,17 @@ sub definition_arguments_content($)
   return ($category, $class, $type, $name, $args);
 }
 
-# $CONVERTER argument is optional
-sub definition_category_tree($;$$)
+# $CONVERTER argument is optional.  It is not needed for translations,
+# but it is needed to translate with a call to cdt, in case one want to
+# use the cdt method of the specific converter and not the generic cdt,
+# which is equivalent with the use of gdt in the function.  This should
+# only be relevant for the HTML converter which redefines cdt.
+sub definition_category_tree($;$$$)
 {
   my $current = shift;
   my $lang = shift;
   my $debug = shift;
+  my $converter = shift;
 
   return undef if (!$current->{'contents'}->[0]->{'contents'});
 
@@ -267,7 +272,9 @@ sub definition_category_tree($;$$)
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if (defined($lang)) {
+    if (defined($converter)) {
+      return $converter->cdt('{category} on @code{{class}}', $substrings);
+    } elsif (defined($lang)) {
       # TRANSLATORS: association of a method or operation name with a class
       # in descriptions of object-oriented programming methods or operations.
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
@@ -283,7 +290,9 @@ sub definition_category_tree($;$$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if (defined($lang)) {
+    if (defined($converter)) {
+      return $converter->cdt('{category} of @code{{class}}', $substrings);
+    } elsif (defined($lang)) {
       # TRANSLATORS: association of a variable or instance variable with
       # a class in descriptions of object-oriented programming variables
       # or instance variable.
@@ -439,9 +448,7 @@ sub add_heading_number($$;$$)
   my $result;
   if (defined($lang)) {
     # NOTE we reach here when called from Texinfo::Convert::Text
-    # only if associated with a converter.  This should not happen
-    # for sectioning commands, so in practice this code is not reached
-    # from Texinfo::Convert::Text when called from texi2any.pl.
+    # only if associated with a converter.
     # There is a test especially crafted to reach that point in
     # convert_to_text.t
     if (defined($number)) {
@@ -656,14 +663,17 @@ Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category_tree($def_line, $lang, $debug)
+=item $tree = definition_category_tree($def_line, $lang, $debug, $converter)
 X<C<definition_category_tree>>
 
 I<$def_line> is a C<def_line> Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the I<$def_line> taking the class
 into account, if there is one.  If the I<$lang> optional argument is set,
 the resulting string is translated to I<$lang>.  In that case, the optional
-I<$debug> argument is passed to the translation function.
+I<$debug> argument is passed to the translation function.  If the optional
+I<$converter> argument is set, the translation is done by a converter method.
+In that case, I<$lang> and I<$debug> are ignored, the converter method
+uses corresponding converter customization variables.
 
 =item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 

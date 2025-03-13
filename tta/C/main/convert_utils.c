@@ -584,16 +584,19 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
   free (parsed_def);
 }
 
+/* the CONVERTER and CDT_TREE_FN arguments allow to use the HTML converter
+   specific translation function */
 ELEMENT *
 definition_category_tree (const ELEMENT *current, const char *lang,
-                          int debug)
+                          int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                         )
 {
   ELEMENT *result = 0;
   ELEMENT *arg_category = 0;
   ELEMENT *arg_class = 0;
-  /*
-  ELEMENT *arg_class_code;
-   */
   ELEMENT *class_copy;
   char *def_command;
 
@@ -644,7 +647,12 @@ definition_category_tree (const ELEMENT *current, const char *lang,
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
-      if (lang)
+      if (converter && cdt_tree_fn)
+        {
+          result = cdt_tree_fn ("{category} on @code{{class}}", converter,
+                                substrings, 0);
+        }
+      else if (lang)
         {
     /*
      TRANSLATORS: association of a method or operation name with a class
@@ -672,7 +680,12 @@ definition_category_tree (const ELEMENT *current, const char *lang,
                                                 "category", category_copy);
       add_element_to_named_string_element_list (substrings,
                                                 "class", class_copy);
-      if (lang)
+      if (converter && cdt_tree_fn)
+        {
+          result = cdt_tree_fn ("{category} of @code{{class}}", converter,
+                                substrings, 0);
+        }
+      else if (lang)
         {
     /*
       TRANSLATORS: association of a variable or instance variable with

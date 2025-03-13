@@ -62,15 +62,18 @@ Arguments correspond to text following the other elements
 on the @@-command line.  If there is no argument, @emph{$arguments}
 will be @code{undef}.
 
-@item $tree = definition_category_tree($def_line, $lang, $debug)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang@comma{} $debug)}
+@item $tree = definition_category_tree($def_line, $lang, $debug, $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang@comma{} $debug@comma{} $converter)}
 @cindex @code{definition_category_tree}
 
 @emph{$def_line} is a @code{def_line} Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the @emph{$def_line} taking the class
 into account, if there is one.  If the @emph{$lang} optional argument is set,
 the resulting string is translated to @emph{$lang}.  In that case, the optional
-@emph{$debug} argument is passed to the translation function.
+@emph{$debug} argument is passed to the translation function.  If the optional
+@emph{$converter} argument is set, the translation is done by a converter method.
+In that case, @emph{$lang} and @emph{$debug} are ignored, the converter method
+uses corresponding converter customization variables.
 
 @item ($encoded_name, $encoding) = encoded_input_file_name($character_string_name, $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $input_file_encoding)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{} $encoding) = encoded_input_file_name($character_string_name@comma{} $input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $input_file_encoding)}

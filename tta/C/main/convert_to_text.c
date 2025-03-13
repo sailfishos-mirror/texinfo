@@ -473,7 +473,7 @@ convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
   PARSED_DEF *parsed_def = definition_arguments_content (element);
   ELEMENT *parsed_definition_category
      = definition_category_tree (element, text_options->documentlanguage,
-                                 text_options->DEBUG);
+                                 text_options->DEBUG, 0, 0);
   if (parsed_definition_category)
     {
       ELEMENT *converted_element = new_element (ET_NONE);

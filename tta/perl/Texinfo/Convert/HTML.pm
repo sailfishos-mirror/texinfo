@@ -7860,7 +7860,7 @@ sub _convert_def_line_type($$$$)
     my $def_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->get_conf('documentlanguage'),
-                                             $self->get_conf('DEBUG'));
+                                     $self->get_conf('DEBUG'), $self);
     $category_result
       = $self->convert_tree($def_category_tree)
         if (defined($def_category_tree));

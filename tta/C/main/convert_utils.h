@@ -10,9 +10,7 @@
 #include "document_types.h"
 #include "converter_types.h"
 /* for NAMED_STRING_ELEMENT_LIST */
-/*
 #include "translations.h"
- */
 /* for ACCENTS_STACK */
 /*
 #include "utils.h"
@@ -54,7 +52,11 @@ ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (const ELEMENT *current, const char *lang,
-                                   int debug);
+                          int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                          );
 
 ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
