@@ -59,19 +59,20 @@ element_associated_processing_encoding (const ELEMENT *element)
 }
 
 ELEMENT *
-expand_today (OPTIONS *options)
+expand_today (int test, const char *lang,
+              int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+             )
 {
   time_t tloc;
   struct tm *time_tm;
   int year;
   char *source_date_epoch;
-  NAMED_STRING_ELEMENT_LIST *substrings;
-  ELEMENT *month_tree;
-  ELEMENT *day_element;
-  ELEMENT *year_element;
   ELEMENT *result;
 
-  if (options->TEST.o.integer > 0)
+  if (test > 0)
     {
       result = new_text_element (ET_normal_text);
       text_append (result->e.text, "a sunny day");
@@ -96,24 +97,56 @@ expand_today (OPTIONS *options)
 
   year = time_tm->tm_year + 1900;
 
-  month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon], 0,
-                         options->documentlanguage.o.string, 0,
-                         options->DEBUG.o.integer, 0);
-  day_element = new_text_element (ET_normal_text);
-  year_element = new_text_element (ET_normal_text);
-  text_printf (day_element->e.text, "%d", time_tm->tm_mday);
-  text_printf (year_element->e.text, "%d", year);
+  if ((converter && cdt_tree_fn) || lang)
+    {
+      NAMED_STRING_ELEMENT_LIST *substrings;
+      ELEMENT *month_tree;
+      ELEMENT *day_element;
+      ELEMENT *year_element;
 
-  substrings = new_named_string_element_list ();
-  add_element_to_named_string_element_list (substrings, "month", month_tree);
-  add_element_to_named_string_element_list (substrings, "day", day_element);
-  add_element_to_named_string_element_list (substrings, "year", year_element);
+      day_element = new_text_element (ET_normal_text);
+      year_element = new_text_element (ET_normal_text);
+      text_printf (day_element->e.text, "%d", time_tm->tm_mday);
+      text_printf (year_element->e.text, "%d", year);
 
-  result = gdt_tree ("{month} {day}, {year}", 0,
-                     options->documentlanguage.o.string, substrings,
-                     options->DEBUG.o.integer, 0);
-  destroy_named_string_element_list (substrings);
+      if (converter && cdt_tree_fn)
+        {
+          month_tree
+          = cdt_tree_fn (convert_utils_month_name[time_tm->tm_mon],
+                         converter, 0, 0);
+        }
+      else
+        {
+          month_tree = gdt_tree (convert_utils_month_name[time_tm->tm_mon],
+                                 0, lang, 0, debug, 0);
+        }
+      substrings = new_named_string_element_list ();
+      add_element_to_named_string_element_list (substrings,
+                                                "month", month_tree);
+      add_element_to_named_string_element_list (substrings,
+                                                "day", day_element);
+      add_element_to_named_string_element_list (substrings,
+                                                "year", year_element);
 
+      if (converter && cdt_tree_fn)
+        {
+          result = cdt_tree_fn ("{month} {day}, {year}", converter,
+                                substrings, 0);
+        }
+      else
+        {
+          result = gdt_tree ("{month} {day}, {year}", 0, lang,
+                             substrings, debug, 0);
+        }
+      destroy_named_string_element_list (substrings);
+    }
+  else
+    {
+      result = new_text_element (ET_normal_text);
+      text_printf (result->e.text, "%s %d, %d",
+                   convert_utils_month_name[time_tm->tm_mon],
+                   time_tm->tm_mday, year);
+    }
   return result;
 }
 

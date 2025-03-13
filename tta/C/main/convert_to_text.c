@@ -688,47 +688,18 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               && sort_brace_no_arg_commands[data_cmd])
             {
               ADD(sort_brace_no_arg_commands[data_cmd]);
-              return;
             }
-          else if (text_options->other_converter_options)
+          else
             {
               ELEMENT *today_element
-                = expand_today (text_options->other_converter_options);
+                = expand_today (text_options->TEST,
+                                text_options->documentlanguage,
+                                text_options->DEBUG, 0,0);
               convert_to_text_internal (today_element,
                                         text_options, result);
               destroy_element_and_children (today_element);
             }
-          else if (text_options->TEST)
-            {
-              ADD("a sunny day");
-              return;
-            }
-          else
-            {
-              time_t tloc;
-              struct tm *time_tm;
-              int year;
-              /* See https://reproducible-builds.org/specs/source-date-epoch/ */
-              char *source_date_epoch = getenv ("SOURCE_DATE_EPOCH");
-
-              if (source_date_epoch)
-                {
-   /* This assumes that the SOURCE_DATE_EPOCH environment variable will contain
-      a correct, positive integer in the time_t range */
-                  tloc = (time_t)strtoll (source_date_epoch, NULL, 10);
-                  time_tm = gmtime (&tloc);
-                }
-              else
-                {
-                  tloc = time (NULL);
-                  time_tm = localtime (&tloc);
-                }
-              year = time_tm->tm_year + 1900;
-              text_printf (result, "%s %d, %d",
-                           convert_utils_month_name[time_tm->tm_mon],
-                           time_tm->tm_mday, year);
-              return;
-            }
+          return;
         }
       else if (text_brace_no_arg_commands[data_cmd])
         {

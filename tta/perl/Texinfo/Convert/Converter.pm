@@ -1281,20 +1281,9 @@ sub expand_today($)
 {
   my $converter = shift;
 
-  if ($converter->get_conf('TEST')) {
-    return {'text' => 'a sunny day'};
-  }
-
-  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
-    = ($ENV{SOURCE_DATE_EPOCH}
-        ? gmtime($ENV{SOURCE_DATE_EPOCH})
-        : localtime(time));
-  # See https://reproducible-builds.org/specs/source-date-epoch/.
-
-  return $converter->cdt('{month} {day}, {year}',
-          { 'month' => $converter->cdt(
-                          $Texinfo::Convert::Utils::month_name[$mon]),
-            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
+  my $test = $converter->get_conf('TEST');
+  return Texinfo::Convert::Utils::expand_today($test, undef, undef,
+                                               $converter);
 }
 
 # determine the default, with $INIT_CONF if set, or the default common

@@ -8,6 +8,8 @@
 #include "command_ids.h"
 #include "option_types.h"
 #include "tree_types.h"
+/* NAMED_STRING_ELEMENT_LIST */
+#include "translations.h"
 #include "converter_types.h"
 
 /* piece of code that can be inlined in text parsing codes */
@@ -167,6 +169,12 @@ void determine_files_and_directory (CONVERTER *self, const char *output_format,
 int create_destination_directory (CONVERTER *self,
                                   const char *destination_directory_path,
                                   const char *destination_directory_name);
+
+ELEMENT *converter_expand_today (CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        );
 
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,

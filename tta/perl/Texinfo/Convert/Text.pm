@@ -590,20 +590,11 @@ sub _convert($$)
       if ($options->{'sort_string'}
           and $Texinfo::CommandsValues::sort_brace_no_arg_commands{$cmdname}) {
         return $Texinfo::CommandsValues::sort_brace_no_arg_commands{$cmdname};
-      } elsif ($options->{'converter'}) {
-        return _convert($options, $options->{'converter'}->expand_today());
-      } elsif ($options->{'TEST'}) {
-        return 'a sunny day';
       } else {
-        my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
-         = ($ENV{SOURCE_DATE_EPOCH}
-             ? gmtime($ENV{SOURCE_DATE_EPOCH})
-             : localtime(time));
-        # See https://reproducible-builds.org/specs/source-date-epoch/.
-
-        $year += ($year < 70) ? 2000 : 1900;
-
-        return "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year";
+        my $expanded_tree
+          = Texinfo::Convert::Utils::expand_today($options->{'TEST'},
+                        $options->{'documentlanguage'}, $options->{'DEBUG'});
+        return _convert($options, $expanded_tree);
       }
     } elsif (defined($Texinfo::CommandsValues::text_brace_no_arg_commands{$cmdname})) {
       return brace_no_arg_command($element, $options);

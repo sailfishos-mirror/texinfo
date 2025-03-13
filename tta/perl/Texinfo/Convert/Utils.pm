@@ -272,7 +272,7 @@ sub definition_category_tree($;$$$)
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if (defined($converter)) {
+    if ($converter) {
       return $converter->cdt('{category} on @code{{class}}', $substrings);
     } elsif (defined($lang)) {
       # TRANSLATORS: association of a method or operation name with a class
@@ -290,7 +290,7 @@ sub definition_category_tree($;$$$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if (defined($converter)) {
+    if ($converter) {
       return $converter->cdt('{category} of @code{{class}}', $substrings);
     } elsif (defined($lang)) {
       # TRANSLATORS: association of a variable or instance variable with
@@ -304,6 +304,46 @@ sub definition_category_tree($;$$$)
                                  $substrings);
     }
   }
+}
+
+sub expand_today($;$$$)
+{
+  my $test = shift;
+  my $lang = shift;
+  my $debug = shift;
+  my $converter = shift;
+
+  if ($test) {
+    return {'text' => 'a sunny day'};
+  }
+
+  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
+    = ($ENV{SOURCE_DATE_EPOCH}
+        ? gmtime($ENV{SOURCE_DATE_EPOCH})
+        : localtime(time));
+  # See https://reproducible-builds.org/specs/source-date-epoch/.
+
+  $year += ($year < 70) ? 2000 : 1900;
+
+  my $tree;
+
+  if ($converter) {
+    $tree = $converter->cdt('{month} {day}, {year}',
+          { 'month' => $converter->cdt(
+                          $Texinfo::Convert::Utils::month_name[$mon]),
+            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
+  } elsif (defined($lang)) {
+    my $month_tree
+      = Texinfo::Translations::gdt($Texinfo::Convert::Utils::month_name[$mon],
+                                   $lang, 0, $debug);
+    $tree = Texinfo::Translations::gdt('{month} {day}, {year}',
+          { 'month' => $month_tree,
+            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
+  } else {
+    $tree = {'text' =>
+             "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year"};
+  }
+  return $tree;
 }
 
 # find the accent commands stack and the innermost text contents

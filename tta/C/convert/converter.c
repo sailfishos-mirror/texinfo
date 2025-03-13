@@ -52,7 +52,7 @@
 /* also for cmd_text data */
 #include "convert_to_text.h"
 #include "node_name_normalization.h"
-/* cdt_tree ... */
+/* cdt_tree expand_today... */
 #include "convert_utils.h"
 /* for NAMED_STRING_ELEMENT_LIST new_named_string_element_list ... */
 #include "translations.h"
@@ -1027,6 +1027,20 @@ create_destination_directory (CONVERTER *self,
         }
     }
   return 1;
+}
+
+
+
+ELEMENT *
+converter_expand_today (CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        )
+{
+  int test = converter->conf->TEST.o.integer;
+
+  return expand_today (test, 0, 0, converter, cdt_tree_fn);
 }
 
 

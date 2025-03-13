@@ -31,7 +31,12 @@ typedef struct PARSED_DEF {
     ELEMENT *args;
 } PARSED_DEF;
 
-ELEMENT *expand_today (OPTIONS *options);
+ELEMENT *expand_today (int test, const char *lang,
+              int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+             );
 
 struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
