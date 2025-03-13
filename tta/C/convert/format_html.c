@@ -796,7 +796,8 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
 
       if (p)
         {
-          message_list_command_warn (&self->error_messages, self->conf,
+          message_list_command_warn (&self->error_messages,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
                                      source_command, 0,
                 "do not set %s suffix in reference for manual `%s'",
                                      p, manual_name);
@@ -845,7 +846,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                             manual_name, &source_command->e.c->source_info))
                         {
                           message_list_command_warn (&self->error_messages,
-                                                     self->conf,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
                                                      source_command, 0,
                              "no HTML cross-references entry found for `%s'",
                                                      manual_name);
@@ -6593,7 +6594,8 @@ html_convert_image_command (CONVERTER *self, const enum command_id cmd,
          output, especially without line information. */
           if (element->e.c->source_info.line_nr)
             {
-              message_list_command_warn (&self->error_messages, self->conf,
+              message_list_command_warn (&self->error_messages,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
                 element, 0, "@image file `%s' (for HTML) not found, using `%s'",
                      image_basefile, image_file);
             }
@@ -8136,7 +8138,8 @@ html_convert_raw_command (CONVERTER *self, const enum command_id cmd,
 
   if (!self->multiple_conversions)
     {
-      message_list_command_warn (&self->error_messages, self->conf,
+      message_list_command_warn (&self->error_messages,
+                     (self->conf && self->conf->DEBUG.o.integer > 0),
                    element, 0, "raw format %s is not converted",
                      element_command_name (element));
     }
@@ -10440,7 +10443,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
         should not happen in multiple tree conversion, but the error message
         is printed for the first entry formatting only. */
                               message_list_command_warn (&self->error_messages,
-                                      self->conf,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
                                       main_entry_element, 0,
                 "entry for index `%s' for @printindex %s outside of any node",
                                   entry_index->name, index_name);
@@ -10480,7 +10483,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
          is printed for the first entry formatting only.
          NOTE the index entry may be associated to a node in that case. */
                               message_list_command_warn (&self->error_messages,
-                                      self->conf,
+                               (self->conf && self->conf->DEBUG.o.integer > 0),
                                       main_entry_element, 0,
              "entry for index `%s' for @printindex %s outside of any section",
                                   entry_index->name, index_name);

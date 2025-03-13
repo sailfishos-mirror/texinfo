@@ -214,13 +214,15 @@ sectioning_structure (DOCUMENT *document)
                 /* level is 0 for part and section level -1 for sec root. The
                    condition means section level > 1, ie below chapter-level.
                  */
-                            message_list_command_warn (error_messages, options,
+                            message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
                               content, 0, "no chapter-level command before @%s",
                                    builtin_command_name (content->e.c->cmd));
                         }
                       else
                         {
-                          message_list_command_warn (error_messages, options,
+                          message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
                                  content, 0,
           "lowering the section level of @%s appearing after a lower element",
                                  builtin_command_name (content->e.c->cmd));
@@ -386,7 +388,9 @@ sectioning_structure (DOCUMENT *document)
             = lookup_extra_element (content, AI_key_part_associated_section);
           if (!part_associated_section)
             {
-              message_list_command_warn (error_messages, options, content,
+              message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+                             content,
                             0, "no sectioning command associated with @%s",
                                    builtin_command_name (content->e.c->cmd));
             }
@@ -419,8 +423,9 @@ warn_non_empty_parts (DOCUMENT *document)
     {
       const ELEMENT *part = global_commands->part.list[i];
       if (!is_content_empty (part, 0))
-        message_list_command_warn (error_messages, options, part, 0,
-                      "@%s not empty", builtin_command_name (part->e.c->cmd));
+        message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+              part, 0, "@%s not empty", builtin_command_name (part->e.c->cmd));
     }
 }
 
@@ -455,7 +460,8 @@ check_menu_entry (DOCUMENT *document, enum command_id cmd,
             {
               char *entry_node_texi = link_element_to_texi (menu_entry_node);
               char *menu_node_texi = target_element_to_texi_label (menu_node);
-              message_list_command_warn (error_messages, options,
+              message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
                   menu_content, 0,
                   "@%s entry node name `%s' different from %s name `%s'",
                   builtin_command_name (cmd), entry_node_texi,
@@ -815,8 +821,9 @@ check_nodes_are_referenced (DOCUMENT *document)
                 {
                   char *node_texi = target_element_to_texi_label (node);
                   nr_not_found++;
-                  message_list_command_warn (error_messages, options, node, 0,
-                                             "node `%s' unreferenced",
+                  message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+                                   node, 0, "node `%s' unreferenced",
                                               node_texi);
                   free (node_texi);
                   /* do not check if in menu if not referenced */
@@ -838,8 +845,9 @@ check_nodes_are_referenced (DOCUMENT *document)
                      || (menu_directions && menu_directions[D_up])))
                 {
                   char *node_texi = target_element_to_texi_label (node);
-                  message_list_command_warn (error_messages, options, node, 0,
-                                             "node `%s' not in menu",
+                  message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+                                  node, 0, "node `%s' not in menu",
                                              node_texi);
                   free (node_texi);
                 }
@@ -901,7 +909,8 @@ set_menus_node_directions (DOCUMENT *document)
           for (j = 1; j < menus->number; j++)
             {
                const ELEMENT *menu = menus->list[j];
-               message_list_command_warn (error_messages, options,
+               message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
                              menu, 0, "multiple @%s",
                              builtin_command_name (menu->e.c->cmd));
             }
@@ -1159,7 +1168,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                = target_element_to_texi_label
                                                (direction_associated_node);
                               message_list_command_warn (error_messages,
-                                       options, node, 0,
+                             (options && options->DEBUG.o.integer > 0),
+                                       node, 0,
                       "node %s for `%s' is `%s' in sectioning but not in menu",
                                        direction_names[d], node_texi,
                                        direction_texi);
@@ -1194,8 +1204,9 @@ complete_node_tree_with_menus (DOCUMENT *document)
                               char *entry_texi
                                 = target_element_to_texi_label
                                                  (elt_menu_direction);
-                              message_list_command_warn (
-                                error_messages, options, node, 0,
+                              message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                             node, 0,
                "node `%s' is %s for `%s' in menu but not in sectioning",
                                 entry_texi, direction_names[d], node_texi);
                               free (node_texi);
@@ -1283,7 +1294,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                                             (node_directions[d]);
                           char *menu_dir_texi
                              = target_element_to_texi_label (menu_direction);
-                          message_list_command_warn (error_messages, options,
+                          message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
                                            node, 0,
                     "node %s pointer for `%s' is `%s' but %s is `%s' in menu",
                                            direction_names[d], node_texi,
@@ -1350,7 +1362,8 @@ complete_node_tree_with_menus (DOCUMENT *document)
                     {
                       char *up_texi = target_element_to_texi_label (up_node);
                       char *node_texi = target_element_to_texi_label (node);
-                      message_list_command_warn (error_messages, options,
+                      message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
                                   up_node, 0,
            "node `%s' lacks menu item for `%s' despite being its Up target",
                                   up_texi, node_texi);
@@ -1514,8 +1527,9 @@ construct_nodes_tree (DOCUMENT *document)
                                     = target_element_to_texi_label (node);
                                    char *node_target_texi
                                     = target_element_to_texi_label (node_target);
-                                   message_list_command_warn (
-                                       error_messages, options, node, 0,
+                                   message_list_command_warn (error_messages,
+                             (options && options->DEBUG.o.integer > 0),
+                                       node, 0,
                 "%s pointer `%s' (for node `%s') different from %s name `%s'",
                                        direction_texts[direction],
                                        direction_texi, node_texi,
@@ -1641,8 +1655,9 @@ associate_internal_references (DOCUMENT *document)
                       char *label_texi = link_element_to_texi (label_element);
                       char *target_texi
                          = target_element_to_texi_label (node_target);
-                      message_list_command_warn (error_messages,
-                                options, ref, 0,
+                       message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+                                ref, 0,
                                 "@%s to `%s', different from %s name `%s'",
                                 builtin_command_name (ref->e.c->cmd), label_texi,
                                 builtin_command_name (node_target->e.c->cmd),
@@ -2122,7 +2137,8 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                 {
                   char *up_node_texi
                     = target_element_to_texi_label (up_node);
-                  message_list_command_warn (error_messages, options,
+                  message_list_command_warn (error_messages,
+                                (options && options->DEBUG.o.integer > 0),
                                              up_node, 0,
                                    "node `%s' appears in its own menus",
                                    up_node_texi);

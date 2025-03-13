@@ -1,5 +1,14 @@
 2025-03-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/errors.c (message_list_line_error_ext)
+	(vmessage_list_line_error, message_list_command_warn)
+	(pmessage_list_command_warn): pass directly a warn integer indicator
+	instead of an OPTIONS.  Update callers.
+
+	* tta/C/main/errors.c: remove vmessage_list_command_warn.
+
+2025-03-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/errors.c (message_list_command_error): pass directly a
 	warn integer indicator instead of an OPTIONS.  Update callers.
 

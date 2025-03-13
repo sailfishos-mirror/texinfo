@@ -473,7 +473,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                                                   AI_key_original_def_cmdname);
                     }
 
-                  message_list_command_warn (error_messages, options,
+                  message_list_command_warn (error_messages,
+                                      (options && options->DEBUG.o.integer > 0),
                                              main_entry_element, 0,
                                       "empty index key in @%s", entry_cmdname);
                 }
@@ -527,7 +528,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                                                  AI_key_original_def_cmdname);
                         }
 
-                      message_list_command_warn (error_messages, options,
+                      message_list_command_warn (error_messages,
+                                      (options && options->DEBUG.o.integer > 0),
                                              main_entry_element, 0,
                                "empty index sub entry %zu key in @%s",
                                entry_sort_string.subentries_number -1,

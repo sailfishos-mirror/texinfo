@@ -279,38 +279,34 @@ message_list_document_error_internal (ERROR_MESSAGE_LIST *error_messages,
 
 void
 message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
-                             const OPTIONS *conf,
-                             enum error_type type, int continuation,
+                             int warn, enum error_type type,
+                             int continuation,
               const SOURCE_INFO *cmd_source_info, const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
-  vmessage_list_line_error (error_messages, type, continuation,
-                            (conf && conf->DEBUG.o.integer > 0),
+  vmessage_list_line_error (error_messages, type, continuation, warn,
                             cmd_source_info, 0, format, v);
   va_end (v);
 }
 
 void
 message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                           const OPTIONS *conf,
-                           const ELEMENT *e, int continuation,
+                           int warn, const ELEMENT *e, int continuation,
                            const char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
-                            (conf && conf->DEBUG.o.integer > 0),
-                             &e->e.c->source_info, 0, format, v);
+                            warn, &e->e.c->source_info, 0, format, v);
   va_end (v);
 }
 
 void
 pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e,
+                            int warn, const ELEMENT *e,
                             int continuation,
                             const char *translation_context,
                             const char *format, ...)
@@ -319,21 +315,9 @@ pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
 
   va_start (v, format);
   vmessage_list_line_error (error_messages, MSG_warning, continuation,
-                            (conf && conf->DEBUG.o.integer > 0),
-                            &e->e.c->source_info, translation_context, format, v);
+                            warn, &e->e.c->source_info,
+                            translation_context, format, v);
   va_end (v);
-}
-
-/* similar as message_list_command_warn, to be used only when the calling
-   function already has a variable argument */
-void
-vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e, const char *format, va_list v)
-{
-  vmessage_list_line_error (error_messages, MSG_warning, 0,
-                            (conf && conf->DEBUG.o.integer > 0),
-                            &e->e.c->source_info, 0, format, v);
 }
 
 void

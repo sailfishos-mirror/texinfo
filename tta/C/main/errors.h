@@ -22,19 +22,17 @@ void vmessage_list_line_error (ERROR_MESSAGE_LIST *error_messages,
                           const char *translation_context,
                           const char *format, va_list v);
 void message_list_line_error_ext (ERROR_MESSAGE_LIST *error_messages,
-                             const OPTIONS *conf,
-                             enum error_type type, int continuation,
+                             int warn, enum error_type type,
+                             int continuation,
                 const SOURCE_INFO *cmd_source_info, const char *format, ...);
 void message_list_command_error (ERROR_MESSAGE_LIST *error_messages,
                             int debug, const ELEMENT *e,
                             const char *format, ...);
 void message_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                           const OPTIONS *conf,
-                           const ELEMENT *e, int continuation,
+                           int warn, const ELEMENT *e, int continuation,
                            const char *format, ...);
 void pmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e,
+                            int warn, const ELEMENT *e,
                             int continuation,
                             const char *translation_context,
                             const char *format, ...);
@@ -49,9 +47,6 @@ void message_list_document_error (ERROR_MESSAGE_LIST *error_messages,
 void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                  const OPTIONS *conf, int continuation,
                                  const char *format, ...);
-void vmessage_list_command_warn (ERROR_MESSAGE_LIST *error_messages,
-                            const OPTIONS *conf,
-                            const ELEMENT *e, const char *format, va_list v);
 
 size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               int no_warn, int use_filename,

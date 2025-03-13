@@ -1056,9 +1056,8 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
           memset (&cmd_source_info, 0, sizeof (SOURCE_INFO));
           cmd_source_info.file_name
            = self->document->global_info.input_file_name;
-          /* this is more in line with the Perl function used, as DEBUG is
-             checked in the called function */
-          message_list_line_error_ext (&self->error_messages, self->conf,
+          message_list_line_error_ext (&self->error_messages,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
                                   MSG_warning, 0, &cmd_source_info,
                       "must specify a title with a title command or @top");
         }
@@ -2921,7 +2920,8 @@ html_node_redirections (CONVERTER *self,
                   char *label_texi
                     = convert_contents_to_texinfo (label_element);
                   message_list_command_warn (&self->error_messages,
-                                    self->conf, target_element, 0,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                              target_element, 0,
                              "@%s `%s' file %s for redirection exists",
                                element_command_name (target_element),
                                label_texi, node_redirection_filename);
@@ -2961,7 +2961,8 @@ html_node_redirections (CONVERTER *self,
                       char *node_texi
                         = convert_contents_to_texinfo (label_element);
                       pmessage_list_command_warn (&self->error_messages,
-                                        self->conf, conflicting_node, 1,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                             conflicting_node, 1,
                 "conflict of redirection file with file based on node name",
                              "conflict with @%s `%s' file",
                                element_command_name (conflicting_node),
@@ -2977,7 +2978,8 @@ html_node_redirections (CONVERTER *self,
                       char *node_texi
                         = convert_contents_to_texinfo (label_element);
                       message_list_command_warn (&self->error_messages,
-                                        self->conf, conflicting_node, 1,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                                        conflicting_node, 1,
                              "conflict with @%s `%s' redirection file",
                                element_command_name (conflicting_node),
                                node_texi);
@@ -2995,7 +2997,8 @@ html_node_redirections (CONVERTER *self,
                       char *section_texi
                         = convert_contents_to_texinfo (line_arg);
                      pmessage_list_command_warn (&self->error_messages,
-                                    self->conf, conflicting_section, 1,
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                                    conflicting_section, 1,
            "conflict of redirection file with file based on section name",
                              "conflict with @%s `%s' file",
                              element_command_name (conflicting_section),

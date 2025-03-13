@@ -1414,7 +1414,8 @@ protect_hashchar_at_line_beginning_internal (const char *type,
 
                                   message_list_command_warn (
                                     &document->error_messages,
-                                    options, parent_for_warn, 0,
+                             (options && options->DEBUG.o.integer > 0),
+                                    parent_for_warn, 0,
                                     "could not protect hash character in @%s",
                                 builtin_command_name (parent_for_warn->e.c->cmd));
                                   break;

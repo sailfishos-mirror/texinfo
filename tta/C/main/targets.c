@@ -174,7 +174,8 @@ existing_label_error (DOCUMENT *document, ELEMENT *element, char *normalized,
                      element, "@%s `%s' previously defined",
                      builtin_command_name (element->e.c->cmd),
                      label_element_texi);
-      message_list_line_error_ext (error_messages, document->options,
+      message_list_line_error_ext (error_messages,
+            (document->options && document->options->DEBUG.o.integer > 0),
                       MSG_error, 1, &existing_target->e.c->source_info,
                       "here is the previous definition as @%s",
                       builtin_command_name (existing_target->e.c->cmd));

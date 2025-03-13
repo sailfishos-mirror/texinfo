@@ -1073,7 +1073,8 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
               fill_source_info_file (&source_info, self, line_nr, file);
 
               message_list_line_error_ext (&self->error_messages,
-                self->conf, MSG_warning, 0, &source_info, "missing type");
+                             (self->conf && self->conf->DEBUG.o.integer > 0),
+                             MSG_warning, 0, &source_info, "missing type");
               goto next_line;
             }
           else if (htmlxref_type == htmlxref_split_type_none)
@@ -1082,8 +1083,9 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
               fill_source_info_file (&source_info, self, line_nr, file);
 
               message_list_line_error_ext (&self->error_messages,
-                self->conf, MSG_warning, 0, &source_info,
-                "unrecognized type: %s", split_or_mono);
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                       MSG_warning, 0, &source_info,
+                       "unrecognized type: %s", split_or_mono);
               free (split_or_mono);
               goto next_line;
             }
@@ -1109,8 +1111,9 @@ parse_htmlxref_files (CONVERTER *self, HTMLXREF_MANUAL_LIST *htmlxref_list,
               fill_source_info_file (&source_info, self, line_nr, file);
 
               message_list_line_error_ext (&self->error_messages,
-                self->conf, MSG_warning, 0, &source_info,
-                "missing %s URL prefix for `%s'", split_or_mono, manual);
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                      MSG_warning, 0, &source_info,
+                      "missing %s URL prefix for `%s'", split_or_mono, manual);
               free (split_or_mono);
               free (manual);
               goto next_line;
@@ -3546,21 +3549,24 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
       if (in_string)
         {
           message_list_line_error_ext (&self->error_messages,
-                                     self->conf, MSG_warning, 0,
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                                     MSG_warning, 0,
                                      &source_info,
                                 "string not closed in css file");
         }
       if (in_comment)
         {
           message_list_line_error_ext (&self->error_messages,
-                                     self->conf, MSG_warning, 0,
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                                     MSG_warning, 0,
                                      &source_info,
                                 "--css-include ended in comment");
         }
       if (in_import && !in_comment && !in_string)
         {
           message_list_line_error_ext (&self->error_messages,
-                                     self->conf, MSG_warning, 0,
+                      (self->conf && self->conf->DEBUG.o.integer > 0),
+                                     MSG_warning, 0,
                                      &source_info,
                                 "@import not finished in css file");
         }
