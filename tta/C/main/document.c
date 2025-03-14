@@ -542,13 +542,15 @@ destroy_document_information_except_tree (DOCUMENT *document)
     destroy_const_element_list (document->nodes_list);
   if (document->sections_list)
     destroy_const_element_list (document->sections_list);
-  if (document->options)
+  if (document->sorted_options)
     {
-      free_options (document->options);
+      size_t i;
+      for (i = 0; i < TXI_OPTIONS_NR; i++)
+        free_option (document->sorted_options[i]);
+
+      free (document->sorted_options);
       free (document->options);
     }
-  if (document->sorted_options)
-    free (document->sorted_options);
   if (document->convert_index_text_options)
     destroy_text_options (document->convert_index_text_options);
 
