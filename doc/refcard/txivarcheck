@@ -176,8 +176,7 @@ sub read_vars {
 
     my $var = $_;
     # not for users
-    next if ($var eq "OUTPUT_PERL_ENCODING"
-             or $var =~ /^XS_/
+    next if ($var =~ /^XS_/
              # internal customization variables
              or $var =~ /^_/
              # not interesting to document/classify
