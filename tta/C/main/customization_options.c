@@ -436,9 +436,14 @@ initialize_options_list (OPTIONS_LIST *options_list)
 void
 free_options_list (OPTIONS_LIST *options_list)
 {
+  size_t i;
+
   free (options_list->list);
+
+  for (i = 0; i < TXI_OPTIONS_NR; i++)
+    free_option (options_list->sorted_options[i]);
+
   free (options_list->sorted_options);
-  free_options (options_list->options);
   free (options_list->options);
 }
 

@@ -1,5 +1,11 @@
 2025-03-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (free_generic_converter),
+	tta/C/main/customization_options.c (free_options_list): free options
+	by iterating over sorted_options.
+
+2025-03-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (destroy_document_information_except_tree):
 	free document options by iterating over sorted_options.
 

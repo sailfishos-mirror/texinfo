@@ -1990,11 +1990,12 @@ free_generic_converter (CONVERTER *self)
     }
 
   if (self->sorted_options)
-    free (self->sorted_options);
-
-  if (self->conf)
     {
-      free_options (self->conf);
+      size_t i;
+      for (i = 0; i < TXI_OPTIONS_NR; i++)
+        free_option (self->sorted_options[i]);
+
+      free (self->sorted_options);
       free (self->conf);
     }
 
