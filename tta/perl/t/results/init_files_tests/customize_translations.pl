@@ -303,12 +303,12 @@ top
 1 chap
 ******
 
-error-->.
+error->.
 
 2 chap fr
 *********
 
-error-->.
+error->.
 
 2.1 sec fr
 ==========
@@ -316,7 +316,7 @@ error-->.
 3 chap de
 *********
 
-error-->.
+error->.
 
 4 Last Chapter
 **************

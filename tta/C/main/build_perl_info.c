@@ -2868,11 +2868,32 @@ build_expanded_formats (const EXPANDED_FORMAT *expanded_formats)
   return expanded_hv;
 }
 
+static HV *
+build_translated_commands (const TRANSLATED_COMMAND_LIST *translated_commands)
+{
+  size_t i;
+  HV *translated_hv;
+
+  dTHX;
+
+  translated_hv = newHV ();
+  for (i = 0; i < translated_commands->number; i++)
+    {
+      enum command_id cmd = translated_commands->list[i].cmd;
+      const char *translation = translated_commands->list[i].translation;
+      const char *command_name = builtin_command_name (cmd);
+      hv_store (translated_hv, command_name, strlen (command_name),
+                newSVpv_utf8 (translation, 0), 0);
+    }
+  return translated_hv;
+}
+
 SV *
 build_convert_text_options (TEXT_OPTIONS *text_options)
 {
   HV *text_options_hv;
   HV *expanded_formats_hv;
+  HV *translated_commands_hv;
 
   dTHX;
 
@@ -2927,6 +2948,10 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
       AV *av = build_string_list (&text_options->include_directories, svt_byte);
       STORE("INCLUDE_DIRECTORIES", newRV_noinc ((SV *) av));
     }
+
+  translated_commands_hv
+    = build_translated_commands (&text_options->translated_commands);
+  STORE("translated_commands", newRV_noinc ((SV *) translated_commands_hv));
 
   if (text_options->converter && text_options->converter->sv)
     {
@@ -3234,26 +3259,6 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
 
 
 /* pass generic converter information to Perl */
-
-static HV *
-build_translated_commands (const TRANSLATED_COMMAND_LIST *translated_commands)
-{
-  size_t i;
-  HV *translated_hv;
-
-  dTHX;
-
-  translated_hv = newHV ();
-  for (i = 0; i < translated_commands->number; i++)
-    {
-      enum command_id cmd = translated_commands->list[i].cmd;
-      const char *translation = translated_commands->list[i].translation;
-      const char *command_name = builtin_command_name (cmd);
-      hv_store (translated_hv, command_name, strlen (command_name),
-                newSVpv_utf8 (translation, 0), 0);
-    }
-  return translated_hv;
-}
 
 static HV *
 build_deprecated_directories (

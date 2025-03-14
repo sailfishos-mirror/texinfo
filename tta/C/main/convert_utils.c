@@ -758,18 +758,29 @@ cdt_tree (const char * string, CONVERTER *self,
 }
 
 ELEMENT *
-translated_command_tree (CONVERTER *self, enum command_id cmd)
+translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
+                         enum command_id cmd, const char *lang,
+                         int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        )
 {
   size_t i;
-  for (i = 0; i < self->translated_commands.number; i++)
+  for (i = 0; i < translated_commands->number; i++)
     {
       TRANSLATED_COMMAND *translated_command
-        = &self->translated_commands.list[i];
+        = &translated_commands->list[i];
       if (translated_command->cmd == cmd
           && translated_command->translation)
         {
-          ELEMENT *result = cdt_tree (translated_command->translation,
-                                      self, 0, 0);
+          ELEMENT *result;
+          if (converter && cdt_tree_fn)
+            result = cdt_tree_fn (translated_command->translation,
+                                  converter, 0, 0);
+          else
+            result = gdt_tree (translated_command->translation,
+                               0, lang, 0, debug, 0);
           return result;
         }
     }

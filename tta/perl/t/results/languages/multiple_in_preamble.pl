@@ -379,7 +379,7 @@ top section
 ******
 
 Primjerak varijable od hr: BBB CCC
-error-->
+error->
 
 
 Instanzvariable of de: FFF GGG

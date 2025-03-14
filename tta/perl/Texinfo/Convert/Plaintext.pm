@@ -449,18 +449,22 @@ sub conversion_initialization($;$)
   Texinfo::Convert::Utils::output_files_disable_output_encoding
     ($self->{'output_files'}, 1);
 
-  if ($self->get_conf('ENABLE_ENCODING')
-      and $self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
-    # cache this to avoid redoing calls to get_conf
-    $self->{'to_utf8'} = 1;
-    foreach my $quoted_command (@quoted_commands) {
-      # Directed single quotes
-      $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
-    }
-    foreach my $quoted_command (@double_quoted_commands) {
-      # Directed double quotes
-      $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
+  if ($self->get_conf('ENABLE_ENCODING')) {
+    my $enabled_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+    if (defined($enabled_encoding)) {
+      $self->{'enabled_encoding'} = $enabled_encoding;
+      if ($enabled_encoding eq 'utf-8') {
+        # cache this to avoid redoing calls to get_conf
+        $self->{'to_utf8'} = 1;
+        foreach my $quoted_command (@quoted_commands) {
+          # Directed single quotes
+          $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
+        }
+        foreach my $quoted_command (@double_quoted_commands) {
+          # Directed double quotes
+          $self->{'style_map'}->{$quoted_command} = ["\x{201C}", "\x{201D}"];
+        }
+      }
     }
   }
   if (defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
@@ -490,7 +494,7 @@ sub conversion_initialization($;$)
   }
 
   # some caching to avoid calling get_conf
-  $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
+  $self->{'ascii_glyph'} = $self->get_conf('ASCII_GLYPH');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
 
@@ -2982,10 +2986,7 @@ sub _convert($$)
   if ($cmdname) {
     my $unknown_command;
     if ($accent_commands{$cmdname}) {
-      my $encoding;
-      if ($self->{'enable_encoding'}) {
-        $encoding = $self->{'output_encoding_name'};
-      }
+      my $encoding = $self->{'enabled_encoding'};
       my $sc;
       if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}) {
         $sc = 1;
@@ -3168,44 +3169,54 @@ sub _convert($$)
         _convert($self, $today);
         return;
       } elsif (exists($brace_no_arg_commands{$cmdname})) {
-        my $text;
+        my $tree = $self->translated_command_tree($cmdname);
 
-        if ($cmdname eq 'dots' or $cmdname eq 'enddots') {
-          # Don't use Unicode ellipsis character.
-          $text = '...';
+        if ($tree) {
+          _convert($self, $tree);
         } else {
-          $text = Texinfo::Convert::Text::brace_no_arg_command($element,
-                                             $self->{'convert_text_options'});
-        }
+          my $text;
 
-        if ($punctuation_no_arg_commands{$cmdname}) {
-          _stream_output_add_next($self, $text);
-          add_end_sentence($formatter->{'container'}, 1);
-        } elsif ($cmdname eq 'tie') {
-          _stream_output_add_next($self, $text);
-        } else {
-          # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
-          # is the case whether we are in @sc or not.
-          if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
-              and $letter_no_arg_commands{$cmdname}) {
-            $text = _protect_sentence_ends($text);
-            $text = uc($text);
+          if ($cmdname eq 'dots' or $cmdname eq 'enddots') {
+            # Don't use Unicode ellipsis character.
+            $text = '...';
+          } else {
+            # Note that we set set_case to 0 irrespective of upper case
+            # context, as we want the call to _protect_sentence_ends
+            # to be on a text not already upper cased
+            $text = Texinfo::Convert::Text::brace_no_arg_command($element,
+                                          $self->{'enabled_encoding'},
+                                          $self->{'ascii_glyph'}, 0, 0);
           }
 
-          _stream_output_add_text ($self, $text);
+          if ($punctuation_no_arg_commands{$cmdname}) {
+            _stream_output_add_next($self, $text);
+            add_end_sentence($formatter->{'container'}, 1);
+          } elsif ($cmdname eq 'tie') {
+            _stream_output_add_next($self, $text);
+          } else {
+            # @AA{} should suppress an end sentence, @aa{} shouldn't.  This
+            # is the case whether we are in @sc or not.
+            if ($formatter->{'upper_case_stack'}->[-1]->{'upper_case'}
+                and $letter_no_arg_commands{$cmdname}) {
+              $text = _protect_sentence_ends($text);
+              $text = uc($text);
+            }
 
-          # This is to have @TeX{}, for example, not to prevent end sentences.
-          if (!$letter_no_arg_commands{$cmdname}) {
+            _stream_output_add_text ($self, $text);
+
+            # This is to have @TeX{}, for example, not to prevent end sentences.
+            if (!$letter_no_arg_commands{$cmdname}) {
+              allow_end_sentence($formatter->{'container'});
+            }
+
+            if ($cmdname eq 'dots') {
+              remove_end_sentence($formatter->{'container'});
+            }
+          }
+          if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
+              or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             allow_end_sentence($formatter->{'container'});
           }
-
-          if ($cmdname eq 'dots') {
-            remove_end_sentence($formatter->{'container'});
-          }
-        }
-        if ($formatter->{'upper_case_stack'}->[-1]->{'var'}
-            or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-          allow_end_sentence($formatter->{'container'});
         }
         return;
       } elsif ($cmdname eq 'email') {

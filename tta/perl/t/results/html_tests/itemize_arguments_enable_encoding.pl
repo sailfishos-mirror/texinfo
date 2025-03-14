@@ -1561,13 +1561,13 @@ item result click =>
 
 item result click =>
 
-item error error-->
+item error error->
 
-item error error--> a
+item error error-> a
 
-item fr error error-->
+item fr error error->
 
-item fr error error--> a
+item fr error error-> a
 
 ';
 

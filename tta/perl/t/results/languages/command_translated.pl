@@ -116,10 +116,10 @@ $result_texis{'command_translated'} = '@documentlanguage fr
 
 
 $result_texts{'command_translated'} = '
-top error-->
-************
+top error->
+***********
 
-error-->
+error->
 
 1 Chapter
 *********

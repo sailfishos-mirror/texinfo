@@ -414,13 +414,13 @@ top
 ******
 
 Variable d\'instance de fr: BBB CCC
-error-->
+error->
 
 
 
 
 Primjerak varijable od hr: BBB CCC
-error-->
+error->
 
 
 ';

@@ -294,7 +294,7 @@ $result_texts{'test_accents_sc_use_numeric_entity'} = 'top section
 
 e\', -- def - in code. in samp aé. , !. ...
 
->= ... AA e\' A. /l. (C). error-->.
+>= ... AA e\' A. /l. (C). error->.
 " in quotes ". ==>
 - (R)
 

@@ -63,6 +63,9 @@ SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 OUTPUT_FILES_INFORMATION *get_output_files_information (SV *output_files_sv);
 
+void set_translated_commands (SV *translated_commands_sv,
+                         TRANSLATED_COMMAND_LIST *translated_commands);
+
 CONVERTER_INITIALIZATION_INFO * get_converter_info_from_sv (SV *conf_sv,
                                  const char *class, CONVERTER *converter);
 #endif

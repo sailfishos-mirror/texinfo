@@ -310,30 +310,6 @@ new_converter (enum converter_format format)
   return converter_index +1;
 }
 
-void
-copy_translated_commands (TRANSLATED_COMMAND_LIST *dst_translated_commands,
-                    const TRANSLATED_COMMAND_LIST *translated_commands)
-{
-  size_t i;
-
-  for (i = 0; i < translated_commands->number; i++)
-    {
-      const TRANSLATED_COMMAND *reference_translated_command
-            = &translated_commands->list[i];
-
-      add_translated_command (dst_translated_commands,
-                              reference_translated_command->cmd,
-                              reference_translated_command->translation);
-    }
-}
-
-void
-free_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
-{
-  clear_translated_commands (translated_commands);
-  free (translated_commands->list);
-}
-
 /* apply initialization information from one source */
 void
 apply_converter_info (CONVERTER *converter,
@@ -1040,7 +1016,21 @@ converter_expand_today (CONVERTER *converter,
 {
   int test = converter->conf->TEST.o.integer;
 
-  return expand_today (test, 0, 0, converter, cdt_tree_fn);
+  return expand_today (test, converter->conf->documentlanguage.o.string,
+                       converter->conf->DEBUG.o.integer, converter, cdt_tree_fn);
+}
+
+ELEMENT *
+converter_translated_command_tree (CONVERTER *self, enum command_id cmd,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        )
+{
+  return translated_command_tree (&self->translated_commands, cmd,
+                                  self->conf->documentlanguage.o.string,
+                                  self->conf->DEBUG.o.integer,
+                                  self, cdt_tree_fn);
 }
 
 

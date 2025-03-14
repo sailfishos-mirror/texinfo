@@ -59,6 +59,8 @@ new_text_options (void)
   options->NUMBER_SECTIONS = -1;
   options->DOC_ENCODING_FOR_INPUT_FILE_NAME = -1;
   memset (&options->include_directories, 0, sizeof (STRING_LIST));
+  add_translated_command (&options->translated_commands, CM_error,
+                          "error@arrow{}");
   return options;
 }
 
@@ -71,6 +73,7 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->LOCALE_ENCODING);
   free (text_options->INPUT_FILE_NAME_ENCODING);
   free_strings_list (&text_options->include_directories);
+  free_translated_commands (&text_options->translated_commands);
   if (text_options->error_messages.number)
     fprintf (stderr,
              "WARNING: destroy_text_options error messages ignored: %zu\n",
@@ -131,6 +134,9 @@ TEXT_OPTIONS *
 copy_converter_options_for_convert_text (CONVERTER *self)
 {
   TEXT_OPTIONS *text_options = copy_options_for_convert_text (self->conf);
+  copy_translated_commands (&text_options->translated_commands,
+                            &self->translated_commands);
+
   text_options->converter = self;
   return text_options;
 }
@@ -322,14 +328,11 @@ text_accents (const ELEMENT *accent, char *encoding, int set_case)
 
 /* result to be freed by caller */
 char *
-text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
+text_brace_no_arg_command (const ELEMENT *e, const char *encoding,
+                           int ascii_glyph, int sort_string, int set_case)
 {
   char *result = 0;
   enum command_id cmd = e->e.c->cmd;
-  const char *encoding = 0;
-
-  if (options->encoding)
-    encoding = options->encoding;
 
   if (cmd == CM_click)
     {
@@ -345,7 +348,7 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
     }
 
   if (encoding
-      && (!(options->ASCII_GLYPH)
+      && (!ascii_glyph
           || !(unicode_character_brace_no_arg_commands[cmd].is_extra > 0)))
     {
       const char *brace_no_arg_unicode
@@ -354,18 +357,9 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (brace_no_arg_unicode);
     }
 
-  if (!result && options->converter)
-    {
-      ELEMENT *tree = translated_command_tree (options->converter, cmd);
-      if (tree)
-        {
-          result = convert_to_text (tree, options);
-          destroy_element_and_children (tree);
-        }
-    }
   if (!result)
     {
-      if (options->sort_string
+      if (sort_string
           && sort_brace_no_arg_commands[cmd]
           && strlen (sort_brace_no_arg_commands[cmd]))
         result = strdup (sort_brace_no_arg_commands[cmd]);
@@ -373,10 +367,10 @@ text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options)
         result = strdup (text_brace_no_arg_commands[cmd]);
     }
 
-  if (options->set_case
+  if (set_case
       && (command_other_flags (e) & CF_letter_no_arg))
     {
-      char *cased = to_upper_or_lower_multibyte (result, options->set_case);
+      char *cased = to_upper_or_lower_multibyte (result, set_case);
       free (result);
       result = cased;
     }
@@ -675,7 +669,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               ELEMENT *today_element
                 = expand_today (text_options->TEST,
                                 text_options->documentlanguage,
-                                text_options->DEBUG, 0,0);
+                                text_options->DEBUG, 0, 0);
               convert_to_text_internal (today_element,
                                         text_options, result);
               destroy_element_and_children (today_element);
@@ -684,8 +678,23 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         }
       else if (text_brace_no_arg_commands[data_cmd])
         {
-          char *brace_no_args_text
-            = text_brace_no_arg_command (element, text_options);
+          char *brace_no_args_text;
+          ELEMENT *tree
+            = translated_command_tree (&text_options->translated_commands,
+               data_cmd, text_options->documentlanguage, text_options->DEBUG,
+               0, 0);
+
+          if (tree)
+            {
+              brace_no_args_text = convert_to_text (tree, text_options);
+              destroy_element_and_children (tree);
+            }
+          else
+            brace_no_args_text
+              = text_brace_no_arg_command (element,
+                    text_options->encoding, text_options->ASCII_GLYPH,
+                    text_options->sort_string, text_options->set_case);
+
           ADD(brace_no_args_text);
           free (brace_no_args_text);
           return;

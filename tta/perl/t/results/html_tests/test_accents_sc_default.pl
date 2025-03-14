@@ -294,7 +294,7 @@ $result_texts{'test_accents_sc_default'} = 'top section
 
 e\', -- def - in code. in samp aé. , !. ...
 
->= ... AA e\' A. /l. (C). error-->.
+>= ... AA e\' A. /l. (C). error->.
 " in quotes ". ==>
 - (R)
 

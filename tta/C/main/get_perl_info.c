@@ -1454,7 +1454,7 @@ get_output_files_information (SV *output_files_sv)
 
 /* the following is only needed in converters, but we still define here
    such that it is available for functions called from C */
-static void
+void
 set_translated_commands (SV *translated_commands_sv,
                          TRANSLATED_COMMAND_LIST *translated_commands)
 {
@@ -1472,7 +1472,7 @@ set_translated_commands (SV *translated_commands_sv,
         hv_number = 0;
       else
         {
-          HV *translated_commands_hv
+          translated_commands_hv
             = (HV *)SvRV (translated_commands_sv);
 
           hv_number = hv_iterinit (translated_commands_hv);

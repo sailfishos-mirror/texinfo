@@ -67,7 +67,13 @@ ELEMENT *cdt_tree (const char * string, CONVERTER *self,
                    struct NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                    const char *translation_context);
 
-ELEMENT *translated_command_tree (CONVERTER *self, enum command_id cmd);
+ELEMENT *translated_command_tree (TRANSLATED_COMMAND_LIST *translated_commands,
+                         enum command_id cmd, const char *lang,
+                         int debug, CONVERTER *converter,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        );
 
 char *encoded_input_file_name (const char *input_file_name_encoding,
                          int doc_encoding_for_input_file_name,

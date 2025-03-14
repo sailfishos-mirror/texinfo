@@ -27,6 +27,8 @@ use strict;
 
 use File::Basename;
 
+use Storable qw(dclone);
+
 #use Data::Dumper;
 use Carp qw(cluck carp confess);
 
@@ -151,6 +153,11 @@ sub _initialize_text_options_encoding($)
     $text_options->{'enabled_encoding'}
        = $text_options->{'OUTPUT_ENCODING_NAME'};
   }
+
+  if (!exists($text_options->{'translated_commands'})) {
+    $text_options->{'translated_commands'} = {'error' => 'error@arrow{}',};
+  }
+
 }
 
 # for a converter inheriting Texinfo::Convert::Converter
@@ -180,6 +187,7 @@ sub copy_options_for_convert_text($;$)
 {
   my $converter = shift;
   my $options_in = shift;
+  # same as Converter.pm common_converters_non_options_defaults
   my %options;
 
   _initialize_converter_text_options_encoding($converter, \%options);
@@ -208,6 +216,11 @@ sub copy_options_for_convert_text($;$)
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
   if ($include_directories and scalar(@{$include_directories})) {
     $options{'INCLUDE_DIRECTORIES'} = [@{$include_directories}];
+  }
+
+  if (exists($converter->{'translated_commands'})) {
+    $options{'translated_commands'}
+      = dclone($converter->{'translated_commands'});
   }
 
   $options{'converter'} = $converter;
@@ -334,6 +347,8 @@ sub ascii_accent_fallback($$$)
   return _ascii_accent($text, $command);
 }
 
+sub _convert($$);
+
 # format an accent command and nested accents within as Text.
 sub text_accents($;$$)
 {
@@ -348,7 +363,12 @@ sub text_accents($;$$)
   $options->{'set_case'} = $set_case if (defined($set_case));
   my $text = '';
   if (defined($contents_element)) {
-    $text = convert_to_text($contents_element, $options);
+    # FIXME there is nothing really relevant for conversion of
+    # text in accent command in convert_to_text as opposed to _convert,
+    # but text_accents may be called from outside of convert_to_text,
+    # it may be considered cleaner to go through convert_to_text.
+    #$text = convert_to_text($contents_element, $options);
+    $text = _convert($options, $contents_element);
   }
 
   my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
@@ -360,54 +380,44 @@ sub text_accents($;$$)
   }
 }
 
-sub _convert($$);
-
-# TODO document?  Used in other converters.
-sub brace_no_arg_command($;$)
+# TODO move to Convert::Utils (and document?)
+sub brace_no_arg_command($;$$$$)
 {
   my $element = shift;
-  my $options = shift;
-  my $encoding;
-  $encoding = $options->{'enabled_encoding'}
-    if ($options and defined($options->{'enabled_encoding'}));
+  my $encoding = shift;
+  my $ascii_glyph = shift;
+  my $sort_string = shift;
+  my $set_case = shift;
 
   my $command_name = $element->{'cmdname'};
   $command_name = $element->{'extra'}->{'clickstyle'}
-     if ($element->{'extra'}
+    if ($element->{'extra'}
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($Texinfo::CommandsValues::text_brace_no_arg_commands{
                                   $element->{'extra'}->{'clickstyle'}}));
   my $result;
   if (defined($encoding) and
-      (!($options and $options->{'ASCII_GLYPH'})
+      (!$ascii_glyph
        or !exists($Texinfo::CommandsValues::extra_unicode_map{$command_name}))) {
     $result
       = Texinfo::Convert::Unicode::brace_no_arg_command($command_name,
                                                         $encoding);
   }
-  if (!defined($result) and $options and $options->{'converter'}) {
-    my $tree = $options->{'converter'}->translated_command_tree($command_name);
-    if ($tree) {
-      $result = _convert($options, $tree);
-    }
-  }
   if (!defined($result)) {
-    if ($options and $options->{'sort_string'}
+    if ($sort_string
         and $Texinfo::CommandsValues::sort_brace_no_arg_commands{$command_name}) {
       $result = $Texinfo::CommandsValues::sort_brace_no_arg_commands{$command_name};
     } else {
       $result = $Texinfo::CommandsValues::text_brace_no_arg_commands{$command_name};
     }
   }
-  if ($options and $Texinfo::Commands::letter_no_arg_commands{$command_name}) {
-    if ($options->{'set_case'}) {
-      if ($options->{'set_case'} > 0) {
-        $result = uc($result);
-      # NOTE does not seems to be decreased/set to negative anywhere, but
-      # should work ok if it is.
-      } else {
-        $result = lc($result);
-      }
+  if ($set_case and $Texinfo::Commands::letter_no_arg_commands{$command_name}) {
+    if ($set_case > 0) {
+      $result = uc($result);
+    # NOTE does not seems to be decreased/set to negative anywhere, but
+    # should work ok if it is.
+    } else {
+      $result = lc($result);
     }
   }
   return $result;
@@ -597,7 +607,16 @@ sub _convert($$)
         return _convert($options, $expanded_tree);
       }
     } elsif (defined($Texinfo::CommandsValues::text_brace_no_arg_commands{$cmdname})) {
-      return brace_no_arg_command($element, $options);
+      my $tree
+        = Texinfo::Convert::Utils::translated_command_tree(
+                         $options->{'translated_commands'}, $cmdname,
+                         $options->{'documentlanguage'}, $options->{'DEBUG'});
+      if ($tree) {
+        return _convert($options, $tree);
+      }
+      return brace_no_arg_command($element,
+                $options->{'enabled_encoding'}, $options->{'ASCII_GLYPH'},
+                $options->{'sort_string'}, $options->{'set_case'});
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
       my $result = text_accents($element, $options->{'enabled_encoding'},
@@ -866,9 +885,14 @@ sub convert_to_text($;$)
   #print STDERR "CONVERT\n";
   if (!defined($options)) {
     $options = {};
-  } elsif (!ref($options)) {
-    confess("convert_to_text options not a ref\n");
+  } elsif (ref($options) eq '' and ref($options) ne 'HASH') {
+    confess("convert_to_text options not a hash ref\n");
   }
+
+  if (!exists($options->{'translated_commands'})) {
+    $options->{'translated_commands'} = {'error' => 'error@arrow{}',};
+  }
+
   # Interface with XS converter.
   if ($XS_convert and defined($root->{'tree_document_descriptor'})
       and $Texinfo::Convert::ConvertXS::XS_package) {
@@ -950,6 +974,7 @@ sub convert($$)
   # Cf comment in output() on using $self for options.
   _initialize_text_options_encoding($self);
 
+  # for expand_verbatiminclude call.
   $self->{'document'} = $document;
 
   my $root = $document->tree();

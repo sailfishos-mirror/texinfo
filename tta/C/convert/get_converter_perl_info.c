@@ -181,6 +181,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **DOC_ENCODING_FOR_INPUT_FILE_NAME_sv;
   SV **INPUT_FILE_NAME_ENCODING_sv;
   SV **LOCALE_ENCODING_sv;
+  SV **translated_commands_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
 
   dTHX;
@@ -247,6 +248,11 @@ copy_sv_options_for_convert_text (SV *sv_in)
   if (LOCALE_ENCODING_sv)
     text_options->LOCALE_ENCODING
       = non_perl_strdup (SvPVutf8_nolen (*LOCALE_ENCODING_sv));
+
+  FETCH(translated_commands)
+  if (translated_commands_sv)
+    set_translated_commands (*translated_commands_sv,
+                             &text_options->translated_commands);
 
   FETCH(converter)
   if (converter_sv)

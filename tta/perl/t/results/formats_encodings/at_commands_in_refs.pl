@@ -3583,7 +3583,7 @@ $result_texts{'at_commands_in_refs'} = 'Top
  .  . ? @::
 * @ { } \\ #::
 * LaTeX TeX * , (C) ... ...::
-* == error--> Euro ! ==> -::
+* == error-> Euro ! ==> -::
 * >= <= ->::
 * a o -!- # -| ? (R)::
 * => o a b a sunny day aa::
@@ -3620,8 +3620,8 @@ $result_texts{'at_commands_in_refs'} = 'Top
 4 LaTeX TeX * , (C) ... ...
 ***************************
 
-5 == error--> Euro ! ==> -
-**************************
+5 == error-> Euro ! ==> -
+*************************
 
 6 >= <= ->
 **********
@@ -3698,7 +3698,7 @@ $result_texts{'at_commands_in_refs'} = 'Top
 
 LaTeX TeX * , (C) ... ...
 
-== error--> Euro ! ==> -
+== error-> Euro ! ==> -
 
 >= <= ->
 

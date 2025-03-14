@@ -1,3 +1,52 @@
+2025-03-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (html_translate_names): set
+	translated_cmds->number dynamically, as Perl code could be called for
+	translations, this allows to have a consistency between number of
+	commands in translated_cmds and translated_cmds->number to pass to
+	Perl.
+
+	* tta/C/main/get_perl_info.c (set_translated_commands): fix scoping of
+	translated_commands_hv.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (expand_today): fix call of gdt.
+
+	* tta/C/main/convert_utils.c (translated_command_tree),
+	tta/C/convert/convert_html.c (html_translate_names),
+	tta/perl/Texinfo/Convert/Converter.pm (translated_command_tree),
+	tta/perl/Texinfo/Convert/Utils.pm (translated_command_tree): move
+	translated_command_tree implementation back to
+	Texinfo::Convert::Utils, keep a wrapper in Converter.pm.  Get
+	TRANSLATED_COMMAND_LIST and option values as arguments.  Keep
+	converter argument and add cdt_tree_fn argument for overriding of
+	gdt_tree.  Call gdt_tree instead of cdt_tree if not overriden.
+
+	* tta/C/main/convert_to_text.c (text_brace_no_arg_command)
+	(convert_to_text_internal), tta/perl/Texinfo/Convert/Plaintext.pm
+	(conversion_initialization, _convert),
+	tta/perl/Texinfo/Convert/Text.pm (brace_no_arg_command, _convert):
+	split translated_command_tree call out of text_brace_no_arg_command,
+	do it in the caller instead.  Get text option values as arguments.
+
+	* tta/C/convert/converter.c, tta/C/main/utils.c
+	(free_translated_commands, copy_translated_commands): move
+	copy_translated_commands and free_translated_commands to utils.c.
+
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text), tta/C/main/build_perl_info.c
+	(build_convert_text_options), tta/C/main/convert_to_text.c
+	(new_text_options, destroy_text_options)
+	(copy_converter_options_for_convert_text),
+	tta/perl/Texinfo/Convert/Text.pm (_initialize_text_options_encoding)
+	(convert_to_text), tta/C/main/convert_to_text.h (TEXT_OPTIONS): add
+	translated_commands to text options.  Set in the default case and pass
+	from converters.
+
+	* tta/perl/Texinfo/Convert/Text.pm (text_accents): call _convert
+	instead of convert_to_text.
+
+	* tta/C/convert/convert_html.c (html_translate_names), 
+
 2025-03-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/errors.c (message_list_line_error_ext)

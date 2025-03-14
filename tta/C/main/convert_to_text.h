@@ -26,6 +26,7 @@ typedef struct TEXT_OPTIONS {
     char *documentlanguage;
     char *INPUT_FILE_NAME_ENCODING;
     char *LOCALE_ENCODING;
+    TRANSLATED_COMMAND_LIST translated_commands;
     CONVERTER *converter;
     ERROR_MESSAGE_LIST error_messages; /* used if there is a Perl text
                               converter, XS is used and there is no C
@@ -54,6 +55,7 @@ void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
 
 /* used in converters in Perl */
 char *text_accents (const ELEMENT *accent, char *encoding, int set_case);
-char *text_brace_no_arg_command (const ELEMENT *e, TEXT_OPTIONS *options);
+char *text_brace_no_arg_command (const ELEMENT *e, const char *encoding,
+                          int ascii_glyph, int sort_string, int set_case);
 
 #endif

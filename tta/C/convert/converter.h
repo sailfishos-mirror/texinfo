@@ -175,6 +175,12 @@ ELEMENT *converter_expand_today (CONVERTER *converter,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
                         );
+ELEMENT *converter_translated_command_tree (CONVERTER *self,
+                             enum command_id cmd,
+   ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
+                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
+                             const char *translation_context)
+                        );
 
 void set_global_document_commands (CONVERTER *converter,
                                   const enum command_location location,

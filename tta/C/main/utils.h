@@ -252,6 +252,9 @@ void add_translated_command (TRANSLATED_COMMAND_LIST *translated_commands,
                         enum command_id cmd,
                         const char *translation);
 void clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands);
+void free_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands);
+void copy_translated_commands (TRANSLATED_COMMAND_LIST *dst_translated_commands,
+                    const TRANSLATED_COMMAND_LIST *translated_commands);
 
 OUTPUT_FILES_INFORMATION *new_output_files_information (void);
 FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self,

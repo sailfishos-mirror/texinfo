@@ -65,13 +65,13 @@ pt @error{}.
 ';
 
 
-$result_texts{'modified_translation'} = 'error-->.
+$result_texts{'modified_translation'} = 'error->.
 
 
-fr error-->.
+fr error->.
 
 
-pt error-->.
+pt error->.
 
 ';
 

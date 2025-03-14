@@ -126,10 +126,10 @@ $result_texts{'error_in_sectioning_command'} = '
 top section
 ***********
 
-1 @error{} (error-->): Indicating an Error Message
-**************************************************
+1 @error{} (error->): Indicating an Error Message
+*************************************************
 
-Describe error-->.
+Describe error->.
 ';
 
 $result_errors{'error_in_sectioning_command'} = [];

@@ -452,7 +452,7 @@ a sunny day
 ->
 0075
 TeX LaTeX * (C) ... ... ==
-error--> ==> - -!- -| =>
+error-> ==> - -!- -| =>
 aa AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
 (R) a o , 

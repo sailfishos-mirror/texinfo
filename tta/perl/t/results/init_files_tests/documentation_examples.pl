@@ -579,16 +579,16 @@ top
 1 Chapter
 *********
 
-in-text  p-n. error--> ==
+in-text  p-n. error-> ==
 my node.
 in titlefont
 someone
 IN SC
 in var
 
-in--math  a=b error--> ==
+in--math  a=b error-> ==
 
-in--example  c. error--> ==
+in--example  c. error-> ==
 a@example
 
 a@display
@@ -598,7 +598,7 @@ a@display
 
 
 
-error-->.
+error->.
 
 ==
 
@@ -607,7 +607,7 @@ error-->.
 **********
 
 
-error-->.
+error->.
 
 ==
 

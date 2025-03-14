@@ -336,9 +336,10 @@ sub expand_today($;$$$)
     my $month_tree
       = Texinfo::Translations::gdt($Texinfo::Convert::Utils::month_name[$mon],
                                    $lang, 0, $debug);
-    $tree = Texinfo::Translations::gdt('{month} {day}, {year}',
+    $tree = Texinfo::Translations::gdt('{month} {day}, {year}', $lang,
           { 'month' => $month_tree,
-            'day' => {'text' => $mday}, 'year' => {'text' => $year} });
+            'day' => {'text' => $mday}, 'year' => {'text' => $year} },
+           $debug);
   } else {
     $tree = {'text' =>
              "$Texinfo::Convert::Utils::month_name[$mon] $mday, $year"};
@@ -394,6 +395,27 @@ sub find_innermost_accent_contents($)
     # we go here if there was no nested accent
     return ({'contents' => $text_contents}, \@accent_commands);
   }
+}
+
+sub translated_command_tree($$$$;$)
+{
+  my $translated_commands = shift;
+  my $cmdname = shift;
+  my $lang = shift;
+  my $debug = shift;
+  my $converter = shift;
+
+  if ($translated_commands
+      and defined($translated_commands->{$cmdname})) {
+    my $to_translate = $translated_commands->{$cmdname};
+    if ($converter) {
+      return $converter->cdt($to_translate);
+    } else {
+      return Texinfo::Translations::gdt($to_translate, $lang, 0,
+                                        $debug);
+    }
+  }
+  return undef;
 }
 
 # $CONVERTER is optional, but without this argument there is no error

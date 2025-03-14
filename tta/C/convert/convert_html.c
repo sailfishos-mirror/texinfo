@@ -53,7 +53,7 @@
 #include "convert_to_text.h"
 /* normalize_transliterate_texinfo_contents */
 #include "node_name_normalization.h"
-/* translated_command_tree converter_encoded_output_file_name
+/* converter_encoded_output_file_name
    output_files_open_out
    output_files_register_closed */
 #include "convert_utils.h"
@@ -64,7 +64,7 @@
 #include "document.h"
 /* txi_paths_info create_destination_directory
    set_global_document_commands clear_tree_added_elements
-   register_normalize_case_filename */
+   register_normalize_case_filename converter_translated_command_tree */
 #include "converter.h"
 #include "html_conversion_state.h"
 #include "format_html.h"
@@ -621,9 +621,9 @@ html_translate_names (CONVERTER *self)
      commands, and the information is kept if it is also used to pass
      translated commands results to Perl */
     {
-      size_t translated_nr = 0;
       COMMAND_ID_LIST *translated_cmds
         = &self->no_arg_formatted_cmd_translated;
+
       /* in general this is done in build_html_translated_names.  Still need
          to do it here if build_html_translated_names is never called */
       if (translated_cmds->number)
@@ -631,6 +631,7 @@ html_translate_names (CONVERTER *self)
           memset (translated_cmds->list, 0, translated_cmds->number
                 * sizeof (enum command_id));
         }
+      translated_cmds->number = 0;
 
       for (j = 0; j < no_arg_formatted_cmd.number; j++)
         {
@@ -639,6 +640,13 @@ html_translate_names (CONVERTER *self)
           int add_cmd = 0;
           for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
             {
+              /* beware that Perl can be called through html_cdt_*
+                 here, possibly in the middle of being called from Perl.
+                 TODO there could be something up with the order of processing
+                 of the translated commands, in link with going through Perl
+                 or not, if translation of @-commands depends on @-commands
+                 also translated
+               */
               HTML_NO_ARG_COMMAND_CONVERSION *format_spec
                 = &self->html_no_arg_command_conversion[cmd][cctx];
               if (format_spec->translated_converted
@@ -661,7 +669,8 @@ html_translate_names (CONVERTER *self)
                                        self, 0, 0);
                     }
                   else
-                    translated_tree = translated_command_tree (self, cmd);
+                    translated_tree = converter_translated_command_tree (self, cmd,
+                                                                    &html_cdt_tree);
 
                   if (translated_tree)
                     {
@@ -676,13 +685,13 @@ html_translate_names (CONVERTER *self)
             }
           if (add_cmd)
             {
-              translated_cmds->list[translated_nr] = cmd;
-              translated_nr++;
+              translated_cmds->list[translated_cmds->number] = cmd;
+              translated_cmds->number++;
             }
         }
 
-      translated_cmds->number = translated_nr;
-      for (j = 0; j < translated_nr; j++)
+
+      for (j = 0; j < translated_cmds->number; j++)
         {
           enum command_id cmd = translated_cmds->list[j];
           html_complete_no_arg_commands_formatting (self, cmd, 1);

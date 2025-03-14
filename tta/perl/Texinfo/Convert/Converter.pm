@@ -1241,17 +1241,14 @@ sub encoded_output_file_name($$)
                  $self->{'document'});
 }
 
-# hides from the caller the 'translated_commands' converter key
-# that is set by Texinfo::Convert::Converter.
-sub translated_command_tree($$)
+sub translated_command_tree($)
 {
-  my $self = shift;
+  my $converter = shift;
   my $cmdname = shift;
-  if ($self->{'translated_commands'}
-      and $self->{'translated_commands'}->{$cmdname}) {
-    return $self->cdt($self->{'translated_commands'}->{$cmdname});
-  }
-  return undef;
+
+  return Texinfo::Convert::Utils::translated_command_tree(
+                                  $converter->{'translated_commands'},
+                                  $cmdname, undef, undef, $converter);
 }
 
 # wrapper around Texinfo::Utils::expand_verbatiminclude.

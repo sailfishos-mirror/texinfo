@@ -294,7 +294,7 @@ $result_texts{'punctuation_sc_accents_disable_encoding'} = 'top section
 
 e\', -- def - in code. in samp aé. , !. ...
 
->= ... AA e\' A. /l. (C). error-->.
+>= ... AA e\' A. /l. (C). error->.
 " in quotes ". ==>
 - (R)
 

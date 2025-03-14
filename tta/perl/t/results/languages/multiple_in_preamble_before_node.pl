@@ -319,7 +319,7 @@ top section
 ******
 
 Instanzvariable of c: BBB CCC
-error-->
+error->
 ';
 
 $result_errors{'multiple_in_preamble_before_node'} = [];

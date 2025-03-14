@@ -742,6 +742,30 @@ clear_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
   translated_commands->number = 0;
 }
 
+void
+free_translated_commands (TRANSLATED_COMMAND_LIST *translated_commands)
+{
+  clear_translated_commands (translated_commands);
+  free (translated_commands->list);
+}
+
+void
+copy_translated_commands (TRANSLATED_COMMAND_LIST *dst_translated_commands,
+                    const TRANSLATED_COMMAND_LIST *translated_commands)
+{
+  size_t i;
+
+  for (i = 0; i < translated_commands->number; i++)
+    {
+      const TRANSLATED_COMMAND *reference_translated_command
+            = &translated_commands->list[i];
+
+      add_translated_command (dst_translated_commands,
+                              reference_translated_command->cmd,
+                              reference_translated_command->translation);
+    }
+}
+
 
 
 /* in Texinfo::Convert::Utils in Perl.  Most of the API is in convert_utils.c,

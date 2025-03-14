@@ -311,7 +311,7 @@ top section
 
 e\', -- def - in code. in samp aé. , !. ...
 
->= ... AA e\' A. /l. (C). error-->.
+>= ... AA e\' A. /l. (C). error->.
 " in quotes ". ==>
 - (R)
 
