@@ -154,10 +154,6 @@ sub _initialize_text_options_encoding($)
        = $text_options->{'OUTPUT_ENCODING_NAME'};
   }
 
-  if (!exists($text_options->{'translated_commands'})) {
-    $text_options->{'translated_commands'} = {'error' => 'error@arrow{}',};
-  }
-
 }
 
 # for a converter inheriting Texinfo::Convert::Converter
@@ -380,7 +376,7 @@ sub text_accents($;$$)
   }
 }
 
-# TODO move to Convert::Utils (and document?)
+# TODO document?
 sub brace_no_arg_command($;$$$$)
 {
   my $element = shift;
@@ -899,8 +895,7 @@ sub convert_to_text($;$)
     return _convert_tree_with_XS($options, $root);
   }
 
-  # needed for converter_document_warn call for verbatiminclude, when
-  # called without a converter, for t/*.t TESTS.
+  # needed for converter_document_warn call for verbatiminclude for t/*.t TESTS.
   bless $options, "Texinfo::Convert::Text";
 
   my $result = _convert($options, $root);
@@ -927,6 +922,10 @@ sub converter($;$)
   if ($conf) {
     %{$converter} = %{$conf};
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
+  }
+
+  if (!exists($converter->{'translated_commands'})) {
+    $converter->{'translated_commands'} = {'error' => 'error@arrow{}',};
   }
 
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
@@ -1275,9 +1274,6 @@ X<C<convert_to_text>>
 Convert a Texinfo tree to simple text.  I<$text_options> is a hash reference of
 options.
 
-If the I<converter> option is set in I<$text_options> error messages
-are merged with the converter error messages.
-
 The C<ASCII_GLYPH>, C<DEBUG>, C<DOC_ENCODING_FOR_INPUT_FILE_NAME>,
 C<NUMBER_SECTIONS>, C<TEST>, C<documentlanguage>, C<INPUT_FILE_NAME_ENCODING>,
 C<LOCALE_ENCODING> and C<INCLUDE_DIRECTORIES> options corresponding to
@@ -1296,11 +1292,12 @@ L<Texinfo::Convert::Converter>.
 =item enabled_encoding
 
 If set, the value is considered to be the encoding name texinfo accented
-letters should be converted to.  This option being set corresponds to the
-C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization
-variable for Info and Plaintext and for some conversion to text in other
-formats.  For file names in HTML and LaTeX, and for DocBook or Texinfo XML,
-this variable should in general be set unless the output encoding is US-ASCII.
+letters should be converted to.  In the default case, this option is set from
+the main program directly or through converters calling conversion to text if
+the C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization
+variable is set.  For file names in HTML and LaTeX, and for DocBook or Texinfo
+XML, this variable should in general be set unless the output encoding is
+US-ASCII.
 
 =item expanded_formats
 

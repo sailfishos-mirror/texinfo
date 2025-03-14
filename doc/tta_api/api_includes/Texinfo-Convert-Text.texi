@@ -55,9 +55,6 @@ and reset afterwards with the corresponding @code{reset_*} functions.
 Convert a Texinfo tree to simple text.  @emph{$text_options} is a hash reference of
 options.
 
-If the @emph{converter} option is set in @emph{$text_options} error messages
-are merged with the converter error messages.
-
 The @code{ASCII_GLYPH}, @code{DEBUG}, @code{DOC_ENCODING_FOR_INPUT_FILE_NAME},
 @code{NUMBER_SECTIONS}, @code{TEST}, @code{documentlanguage}, @code{INPUT_FILE_NAME_ENCODING},
 @code{LOCALE_ENCODING} and @code{INCLUDE_DIRECTORIES} options corresponding to
@@ -77,11 +74,12 @@ messages are passed back to the converter.  See also
 @anchor{Texinfo@asis{::}Convert@asis{::}Text enabled_encoding}
 
 If set, the value is considered to be the encoding name texinfo accented
-letters should be converted to.  This option being set corresponds to the
-@code{--enable-encoding} option, or the @code{ENABLE_ENCODING} customization
-variable for Info and Plaintext and for some conversion to text in other
-formats.  For file names in HTML and LaTeX, and for DocBook or Texinfo XML,
-this variable should in general be set unless the output encoding is US-ASCII.
+letters should be converted to.  In the default case, this option is set from
+the main program directly or through converters calling conversion to text if
+the @code{--enable-encoding} option, or the @code{ENABLE_ENCODING} customization
+variable is set.  For file names in HTML and LaTeX, and for DocBook or Texinfo
+XML, this variable should in general be set unless the output encoding is
+US-ASCII.
 
 @item expanded_formats
 @anchor{Texinfo@asis{::}Convert@asis{::}Text expanded_formats}
