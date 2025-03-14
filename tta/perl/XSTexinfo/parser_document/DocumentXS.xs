@@ -231,9 +231,11 @@ register_document_options (SV *document_in, SV *sv_options_in)
                                              "set_document_options");
         if (document)
           {
-            OPTION **sorted_options;
-            OPTIONS *options = init_copy_sv_options (sv_options_in, 0, 0,
-                                                     &sorted_options);
+            OPTIONS *options = new_options ();
+            OPTION **sorted_options = new_sorted_options (options);
+
+            get_sv_options (sv_options_in, options, sorted_options, 0, 0);
+
             register_document_options (document, options, sorted_options);
           }
 

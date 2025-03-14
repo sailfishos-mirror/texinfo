@@ -1,5 +1,12 @@
 2025-03-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/get_perl_info.c,
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(register_document_options): inline init_copy_sv_options in
+	DocumentXS.xs and remove init_copy_sv_options.
+
+2025-03-14  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/refcard/txivarcheck (read_vars): remove check for
 	OUTPUT_PERL_ENCODING.
 

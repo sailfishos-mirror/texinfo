@@ -521,7 +521,7 @@ get_sv_option (OPTION *option, SV *value, int force,
   return 0;
 }
 
-static void
+void
 get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                 CONVERTER *converter, int force)
 {
@@ -544,24 +544,6 @@ get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
       if (option)
         get_sv_option (option, value, force, options, converter);
     }
-}
-
-/* pass sorted options to SORTED_OPTIONS_OUT, if set */
-OPTIONS *
-init_copy_sv_options (SV *sv_in, CONVERTER *converter, int force,
-                      OPTION ***sorted_options_out)
-{
-  OPTIONS *options = new_options ();
-  OPTION **sorted_options = new_sorted_options (options);
-
-  dTHX;
-
-  get_sv_options (sv_in, options, sorted_options, converter, force);
-  if (sorted_options_out)
-    *sorted_options_out = sorted_options;
-  else
-    non_perl_free (sorted_options);
-  return options;
 }
 
 INDEX_ENTRY *
