@@ -248,16 +248,6 @@ foreach my $category (sort(keys(%option_categories))) {
 
 print CODE "}\n\n";
 
-print CODE "void\nfree_options (OPTIONS *options)\n{\n";
-foreach my $category (sort(keys(%option_categories))) {
-  print CODE "\n/* ${category} */\n\n";
-  foreach my $option_info (@{$option_categories{$category}}) {
-    my ($option, $value, $type) = @$option_info;
-    print CODE "  free_option (&options->$option);\n";
-  }
-}
-print CODE "}\n\n";
-
 my @sorted_options = sort(keys(%options));
 
 # returns an array of options ready to be sorted (and already sorted).

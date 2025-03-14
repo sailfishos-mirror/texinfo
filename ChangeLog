@@ -1,5 +1,11 @@
 2025-03-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/regenerate_C_options_info.pl: do not generate the
+	free_options function, it should be simpler to iterate over
+	sorted_options.
+
+2025-03-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (free_generic_converter),
 	tta/C/main/customization_options.c (free_options_list): free options
 	by iterating over sorted_options.
