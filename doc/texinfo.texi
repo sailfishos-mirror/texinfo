@@ -17779,10 +17779,11 @@ monolithic file @file{@var{manual}.html}, or as a split subdirectory
 Another rule, which only holds for file names, is that base file names
 are truncated to 245 characters to allow for an extension to be
 appended and still comply with the 255-character limit which is common
-to many filesystems.  Although technically this can be changed with the
-@code{BASEFILENAME_LENGTH} customization variable (@pxref{File Names and Links
-Customization for HTML}), doing so would make cross-manual references to such
-nodes invalid.
+to many filesystems.
+@c  Although technically this can be changed with the
+@c @code{BASEFILENAME_LENGTH} customization variable (@pxref{File Names and Links
+@c Customization for HTML}), doing so would make cross-manual references to such
+@c nodes invalid.
 
 Any directory part in the file name argument of the source cross
 reference command is ignored.  Thus, @code{@@xref@{,,,../foo@}} and
@@ -18030,7 +18031,7 @@ entirely of @samp{_@var{xxxx}} notations, which is inconvenient and
 all but unreadable.  To handle such cases, @command{texi2any} offers
 the @option{--transliterate-file-names} command line option.  This
 option enables @dfn{transliteration} of node names into ASCII
-characters for the purposes of file name creation and referencing.
+characters for the purposes of file name creation.
 The transliteration is based on phonetic principles, which makes the
 generated file names more easily understandable.
 See also @ref{ADD_TRANSLITERATED_REDIRECTION_FILES}.
@@ -18567,12 +18568,10 @@ default is @file{index.html}.
 manuals with @code{EXTERNAL_DIR}; in the default case, there is none.
 
 @vindex EXTERNAL_CROSSREF_EXTENSION
-@vindex BASEFILENAME_LENGTH
 @item Similarly, you set the file extension for cross-references to other
-manuals with @code{EXTERNAL_CROSSREF_EXTENSION}, which, if unset, is based on
-@code{EXTENSION}.  You can change the maximum length of a base file name
-by setting @code{BASEFILENAME_LENGTH}; by default, the base file names
-are truncated to 245 characters (@pxref{HTML Xref Link Basics}).
+manuals with @code{EXTERNAL_CROSSREF_EXTENSION}. @c , which, if unset, is based on
+@c @code{EXTENSION}.
+
 @end itemize
 
 @noindent However, in general use of these will make cross-manual
@@ -18580,6 +18579,12 @@ references ``invalid'' in the sense that the generated URL will not link
 to the external manual, unless this manual was itself also produced
 using the corresponding customization. It is therefore, in general,
 better to use HTML Xref Configuration only.
+
+@vindex BASEFILENAME_LENGTH
+You can change the maximum length of a base file name
+for internal cross-references by setting @code{BASEFILENAME_LENGTH}; by
+default, the base file names are truncated to 245 characters.
+@c (@pxref{HTML Xref Link Basics}).
 
 
 
@@ -19133,9 +19138,10 @@ In general, you should set @code{BEFORE_SHORT_TOC_LINES} if
 @code{BEFORE_TOC_LINES} if @code{AFTER_TOC_LINES} is set.
 
 @item BASEFILENAME_LENGTH
-The maximum length of a base file name; default 245.
-Changing this would make cross-manual references to such long node
-names invalid (@pxref{HTML Xref Link Basics}).
+The maximum length of a base file name for internal cross-references;
+default 245.
+@c Changing this would make cross-manual references to such long node
+@c names invalid (@pxref{HTML Xref Link Basics}).
 
 @item BEFORE_SHORT_TOC_LINES
 @itemx BEFORE_TOC_LINES
@@ -19239,8 +19245,8 @@ better to use the general external cross-reference mechanism
 (@pxref{HTML Xref Configuration}) than this variable.
 
 @item EXTERNAL_CROSSREF_EXTENSION
-File extension for cross-references to other manuals.  If unset,
-based on @code{EXTENSION}.
+File extension for cross-references to other manuals.@c  If unset,
+@c based on @code{EXTENSION}.
 
 @item EXTRA_HEAD
 Additional text appearing within @code{<head>}; default unset.

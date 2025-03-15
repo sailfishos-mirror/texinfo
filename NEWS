@@ -36,6 +36,10 @@ See the manual for detailed information.
       . the --transliterate-file-names option is now off by default.
         you can set ADD_TRANSLITERATED_REDIRECTION_FILES to create
         redirection files for links to affected nodes.
+      . BASEFILENAME_LENGTH, EXTENSION and TRANSLITERATE_FILE_NAMES
+        user-defined values are ignored for external nodes and
+        node redirection file names.  They are still used for the file
+        names generated for the converted manual content.
       . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
         is now always on.
   . XML output:
