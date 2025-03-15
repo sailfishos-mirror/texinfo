@@ -2847,11 +2847,14 @@ html_node_redirections (CONVERTER *self,
       const ENCODING_CONVERSION *conversion = 0;
       STRING_LIST redirection_files;
       const char *added_translit_extension = 0;
+      int add_translit_redirection = 0;
 
       memset (&redirection_files, 0, sizeof (STRING_LIST));
 
-      if (self->conf->ADD_TRANSLITERATED_REDIRECTION_FILES.o.integer > 0)
+      if (self->conf->ADD_TRANSLITERATED_REDIRECTION_FILES.o.integer > 0
+          || self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
+          add_translit_redirection = 1;
           added_translit_extension = "";
           if (self->conf->EXTENSION.o.string)
             added_translit_extension = self->conf->EXTENSION.o.string;
@@ -2871,7 +2874,7 @@ html_node_redirections (CONVERTER *self,
           const FILE_NUMBER_NAME *target_filename;
           const ELEMENT *label_element;
           const ELEMENT *target_element;
-          const char *node_filename;
+          char *node_filename;
           LABEL *label = &label_targets->list[i];
           const char *normalized;
           char *node_redirection_filename = 0;
@@ -2898,13 +2901,19 @@ html_node_redirections (CONVERTER *self,
           if (normalized && !strcmp (normalized, "Top")
               && self->conf->TOP_NODE_FILE_TARGET.o.string)
             {
-              node_filename = self->conf->TOP_NODE_FILE_TARGET.o.string;
+              node_filename = strdup (self->conf->TOP_NODE_FILE_TARGET.o.string);
             }
           else
             {
-              const HTML_TARGET *node_target
-                = html_get_target (self, target_element);
-              node_filename = node_target->node_filename;
+              TARGET_FILENAME *target_filename
+                = html_standard_label_id_file (self, normalized, label_element,
+            html_default_options->options->EXTERNAL_CROSSREF_EXTENSION.o.string,
+            html_default_options->options->EXTENSION.o.string);
+              free (target_filename->target);
+              xasprintf (&node_filename, "%s.%s", target_filename->filename,
+                                         target_filename->extension);
+              free (target_filename->filename);
+              free (target_filename);
             }
 
           if (strcmp (target_filename->filename, node_filename))
@@ -3032,7 +3041,7 @@ html_node_redirections (CONVERTER *self,
                 }
             }
 
-          if (added_translit_extension && strcmp (normalized, "Top"))
+          if (add_translit_redirection && strcmp (normalized, "Top"))
             {
               /* based on converter.c node_information_filename */
               int in_test = (self->conf->TEST.o.integer > 0);
@@ -3086,6 +3095,8 @@ html_node_redirections (CONVERTER *self,
                 }
               free (translit_filename);
             }
+
+          free (node_filename);
 
           for (j = 0; j < redirection_files.number; j++)
             {

@@ -2463,7 +2463,7 @@ new_target_filename (void)
   TARGET_FILENAME *result
     = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
 
-  result->filename = 0;
+  memset (result, 0, sizeof (TARGET_FILENAME));
 
   return result;
 }

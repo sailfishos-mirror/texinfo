@@ -1,3 +1,32 @@
+2025-03-15  Patrice Dumas  <pertusus@free.fr>
+
+	External node and redirection file names independent of customization
+
+	* tta/C/convert/converter.c (normalized_sectioning_command_filename),
+	tta/C/convert/format_html.c (html_normalized_label_id_file):
+	initialize TARGET_FILENAME with new_target_filename.
+
+	* tta/C/main/converter_types.h (TARGET_FILENAME), tta/C/main/utils.c
+	(new_target_filename): add extension field to TARGET_FILENAME, and
+	initialize the whole structure to 0 in new_target_filename.
+
+	* tta/C/convert/format_html.c (html_standard_label_id_file),
+	tta/perl/Texinfo/Convert/HTML.pm (standard_label_id_file): add
+	function to setup node filename, target and extension based on default
+	customizaiton values and arguments for extension.
+
+	* tta/C/convert/convert_html.c (html_node_redirections),
+	tta/C/convert/format_html.c (external_node_href),
+	tta/perl/Texinfo/Convert/HTML.pm (_external_node_href)
+	(_node_redirections): call html_standard_label_id_file to determine
+	node redirection file name and external node file name instead of
+	using the node file names used for local nodes.
+
+	* tta/C/convert/convert_html.c (html_node_redirections),
+	tta/perl/Texinfo/Convert/HTML.pm (_node_redirections): add
+	transliterated file names nodes redirection files if
+	TRANSLITERATE_FILE_NAMES is set.
+
 2025-03-14  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/maintain/regenerate_C_options_info.pl: do not generate the

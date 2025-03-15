@@ -964,6 +964,7 @@ typedef struct TRANSLATED_SUI_ASSOCIATION {
 typedef struct TARGET_FILENAME {
     char *target;
     char *filename;
+    const char *extension;
 } TARGET_FILENAME;
 
 typedef struct TARGET_CONTENTS_FILENAME {

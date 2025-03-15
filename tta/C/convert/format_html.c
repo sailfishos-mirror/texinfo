@@ -661,8 +661,7 @@ html_normalized_label_id_file (CONVERTER *self, const char *normalized,
   char *target = 0;
   char *target_customized;
   char *normalized_label = 0;
-  TARGET_FILENAME *target_filename
-    = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+  TARGET_FILENAME *target_filename = new_target_filename ();
 
   if (normalized)
     {
@@ -700,6 +699,81 @@ html_normalized_label_id_file (CONVERTER *self, const char *normalized,
   return target_filename;
 }
 
+/* avoid including html_conversion_api.h */
+extern OPTIONS_LIST *html_default_options;
+
+TARGET_FILENAME *
+html_standard_label_id_file (CONVERTER *self, const char *normalized,
+                             const ELEMENT *label_element,
+                             const char *crossref_extension,
+                             const char *extension)
+{
+  TARGET_FILENAME *target_filename = new_target_filename ();
+  int called;
+  char *normalized_label = 0;
+  char *target = 0;
+  char *filename = 0;
+  const char *file_extension = 0;
+  char *target_customized;
+  const char *external_extension = 0;
+
+  if (normalized)
+    {
+      normalized_label = strdup (normalized);
+    }
+  else if (label_element)
+    {
+      normalized_label
+       = convert_contents_to_identifier (label_element);
+    }
+
+  if (normalized_label)
+    {
+      /* use default, not user-defined value */
+      int basefilename_length
+        = html_default_options->options->BASEFILENAME_LENGTH.o.integer;
+      target = html_normalized_to_id (normalized_label);
+      filename = strdup (normalized_label);
+      if (strlen (filename) > (size_t) basefilename_length)
+        {
+          filename[basefilename_length] = '\0';
+        }
+    }
+  else
+    {
+      target = strdup ("");
+      filename = strdup ("");
+    }
+
+  /* to find out the Top node, one could check $normalized */
+  target_customized = call_file_id_setting_label_target_name (self,
+                                  normalized_label, label_element, target,
+                                  &called);
+
+  free (normalized_label);
+
+  if (target_customized)
+    {
+      free (target);
+      target = target_customized;
+    }
+
+  target_filename->target = target;
+  target_filename->filename = filename;
+
+  if (crossref_extension)
+    external_extension = crossref_extension;
+  else if (extension)
+    external_extension = extension;
+
+  if (external_extension && strlen (external_extension))
+    file_extension = external_extension;
+
+  target_filename->extension = file_extension;
+
+  return target_filename;
+}
+
 char *
 external_node_href (CONVERTER *self, const ELEMENT *external_node,
                     const ELEMENT *source_command) /* for messages only */
@@ -711,7 +785,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
   char *file = 0;
   /* used if target_split */
   char *directory = 0;
-  const char *extension = 0;
+  const char *extension;
   int target_split = 0;
   char *normalized = lookup_extra_string (external_node, AI_key_normalized);
   const ELEMENT *node_contents = lookup_extra_container (external_node,
@@ -720,23 +794,21 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
                                                   AI_key_manual_content);
 
   TARGET_FILENAME *target_filename =
-    html_normalized_label_id_file (self, normalized, node_contents);
+    html_standard_label_id_file (self, normalized, node_contents,
+        html_default_options->options->EXTERNAL_CROSSREF_EXTENSION.o.string,
+        html_default_options->options->EXTENSION.o.string);
+
+  extension = target_filename->extension;
+  /* to be freed before return */
+  target = target_filename->target;
+  target_filebase = target_filename->filename;
+  free (target_filename);
 
   /* always undef if conversion is called through convert() */
   if (self->conf->EXTERNAL_CROSSREF_SPLIT.o.string
       && strlen (self->conf->EXTERNAL_CROSSREF_SPLIT.o.string))
     /* initialize to EXTERNAL_CROSSREF_SPLIT */
     target_split = 1;
-
-  if (self->conf->EXTERNAL_CROSSREF_EXTENSION.o.string)
-    extension = self->conf->EXTERNAL_CROSSREF_EXTENSION.o.string;
-  else if (self->conf->EXTENSION.o.string)
-    extension = self->conf->EXTENSION.o.string;
-
-  /* both to be freed before return */
-  target = target_filename->target;
-  target_filebase = target_filename->filename;
-  free (target_filename);
 
   if (manual_content)
     {

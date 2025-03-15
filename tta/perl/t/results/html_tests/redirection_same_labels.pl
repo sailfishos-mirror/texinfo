@@ -393,38 +393,4 @@ $result_texts{'redirection_same_labels'} = 'the top
 $result_errors{'redirection_same_labels'} = [];
 
 
-$result_converted_errors{'file_html'}->{'redirection_same_labels'} = [
-  {
-    'error_line' => 'warning: @node `@~{@dotless{i}}\' file i.html for redirection exists
-',
-    'line_nr' => 22,
-    'text' => '@node `@~{@dotless{i}}\' file i.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `@"i\' redirection file
-',
-    'line_nr' => 20,
-    'text' => 'conflict with @node `@"i\' redirection file',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node `@^i\' file i.html for redirection exists
-',
-    'line_nr' => 31,
-    'text' => '@node `@^i\' file i.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `@"i\' redirection file
-',
-    'line_nr' => 20,
-    'text' => 'conflict with @node `@"i\' redirection file',
-    'type' => 'warning'
-  }
-];
-
-
 1;

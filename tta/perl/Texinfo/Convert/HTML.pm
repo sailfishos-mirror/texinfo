@@ -10991,6 +10991,53 @@ sub _check_htmlxref_already_warned($$$)
   }
 }
 
+# returns file base name, extension and anchor associated to node
+# (anchor, float...) command adhering strictly to the HTML Xref specification.
+# The $CROSSREF_EXTENSION argument should be the external crossreference
+# filename extension, if undef, the $EXTENSION argument is used.
+sub standard_label_id_file($$$$$)
+{
+  my $self = shift;
+  my $normalized = shift;
+  my $label_element = shift;
+  my $crossref_extension = shift;
+  my $extension = shift;
+
+  my $target;
+  my $filename;
+  if (!defined($normalized) and defined($label_element)) {
+    $normalized
+      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+        $label_element);
+  }
+  my $options = \%Texinfo::Options::converter_customization_options;
+
+  if (defined($normalized)) {
+    $target = _normalized_to_id($normalized);
+
+    # use default, not user-defined value
+    my $basefilename_length = $options->{'BASEFILENAME_LENGTH'};
+    $filename = substr($normalized, 0, $basefilename_length);
+  } else {
+    $target = '';
+    $filename = '';
+  }
+  # to find out the Top node, one could check $normalized
+  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
+    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
+                             $normalized, $label_element, $target);
+  }
+
+  my $file_extension = '';
+  my $external_extension = $crossref_extension;
+  $external_extension = $extension
+    if (not defined($external_extension));
+  $file_extension = '.' . $external_extension
+    if (defined($external_extension) and $external_extension ne '');
+
+  return ($filename, $file_extension, $target);
+}
+
 sub _external_node_href($$$)
 {
   my $self = shift;
@@ -11001,18 +11048,13 @@ sub _external_node_href($$$)
   my $normalized = $external_node->{'extra'}->{'normalized'};
   my $node_contents = $external_node->{'extra'}->{'node_content'};
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
-  my ($target_filebase, $target)
-      = $self->_normalized_label_id_file($normalized, $node_contents);
+  my ($target_filebase, $external_file_extension, $target)
+     = $self->standard_label_id_file($normalized, $node_contents,
+                                     $defaults{'EXTERNAL_CROSSREF_EXTENSION'},
+                                     $defaults{'EXTENSION'});
 
   # always undef if conversion is called through convert()
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
-
-  my $external_file_extension = '';
-  my $external_extension = $self->get_conf('EXTERNAL_CROSSREF_EXTENSION');
-  $external_extension = $self->get_conf('EXTENSION')
-    if (not defined($external_extension));
-  $external_file_extension = '.' . $external_extension
-    if (defined($external_extension) and $external_extension ne '');
 
   # initialize to $default_target_split
   my $target_split;
@@ -13307,8 +13349,12 @@ sub _node_redirections($$$$)
   if ($self->get_conf('NODE_FILES')
       and $labels_list and $output_file ne '') {
 
+    my $add_translit_redirection = 0;
+
     my $added_translit_extension;
-    if ($self->get_conf('ADD_TRANSLITERATED_REDIRECTION_FILES')) {
+    if ($self->get_conf('ADD_TRANSLITERATED_REDIRECTION_FILES')
+        or $self->get_conf('TRANSLITERATE_FILE_NAMES')) {
+      $add_translit_redirection = 1;
       $added_translit_extension = '';
       $added_translit_extension = '.'.$self->get_conf('EXTENSION')
                 if (defined($self->get_conf('EXTENSION'))
@@ -13335,8 +13381,11 @@ sub _node_redirections($$$$)
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
-        my $target = $self->_get_target($target_element);
-        $node_filename = $target->{'node_filename'};
+        my ($target_filebase, $external_file_extension, $id)
+          = $self->standard_label_id_file($normalized, $label_element,
+                                     $defaults{'EXTERNAL_CROSSREF_EXTENSION'},
+                                     $defaults{'EXTENSION'});
+        $node_filename = $target_filebase.$external_file_extension;
       }
 
       my @redirection_files;
@@ -13429,7 +13478,7 @@ sub _node_redirections($$$$)
         }
       }
 
-      if (defined($added_translit_extension) and $normalized ne 'Top') {
+      if ($add_translit_redirection and $normalized ne 'Top') {
         # based on Texinfo::Convert::Converter node_information_filename
         my $no_unidecode;
         $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))

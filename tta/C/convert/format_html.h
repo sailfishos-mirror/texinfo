@@ -44,6 +44,11 @@ char *html_normalized_to_id (const char *id);
 TARGET_FILENAME *html_normalized_label_id_file (CONVERTER *self,
                                                 const char *normalized,
                                                 const ELEMENT* label_element);
+TARGET_FILENAME *html_standard_label_id_file (CONVERTER *self,
+                             const char *normalized,
+                             const ELEMENT *label_element,
+                             const char *crossref_extension,
+                             const char *extension);
 
 int html_special_unit_variety_direction_index (const CONVERTER *self,
                                         const char *special_unit_variety);

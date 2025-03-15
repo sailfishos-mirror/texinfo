@@ -1159,8 +1159,7 @@ id_to_filename (CONVERTER *self, char **id_ref)
 TARGET_FILENAME *
 normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
 {
-  TARGET_FILENAME *result
-     = (TARGET_FILENAME *) malloc (sizeof (TARGET_FILENAME));
+  TARGET_FILENAME *result = new_target_filename ();
   TEXT filename;
   char *normalized_file_name;
   char *normalized_name;
