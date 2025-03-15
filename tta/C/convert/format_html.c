@@ -795,7 +795,7 @@ external_node_href (CONVERTER *self, const ELEMENT *external_node,
 
   TARGET_FILENAME *target_filename =
     html_standard_label_id_file (self, normalized, node_contents,
-        html_default_options->options->EXTERNAL_CROSSREF_EXTENSION.o.string,
+                 self->conf->EXTERNAL_CROSSREF_EXTENSION.o.string,
         html_default_options->options->EXTENSION.o.string);
 
   extension = target_filename->extension;

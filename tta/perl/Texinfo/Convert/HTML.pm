@@ -11050,7 +11050,7 @@ sub _external_node_href($$$)
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $external_file_extension, $target)
      = $self->standard_label_id_file($normalized, $node_contents,
-                                     $defaults{'EXTERNAL_CROSSREF_EXTENSION'},
+                               $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
                                      $defaults{'EXTENSION'});
 
   # always undef if conversion is called through convert()
@@ -13383,7 +13383,7 @@ sub _node_redirections($$$$)
       } else {
         my ($target_filebase, $external_file_extension, $id)
           = $self->standard_label_id_file($normalized, $label_element,
-                                     $defaults{'EXTERNAL_CROSSREF_EXTENSION'},
+                               $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
                                      $defaults{'EXTENSION'});
         $node_filename = $target_filebase.$external_file_extension;
       }

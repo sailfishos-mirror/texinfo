@@ -2907,7 +2907,7 @@ html_node_redirections (CONVERTER *self,
             {
               TARGET_FILENAME *target_filename
                 = html_standard_label_id_file (self, normalized, label_element,
-            html_default_options->options->EXTERNAL_CROSSREF_EXTENSION.o.string,
+                              self->conf->EXTERNAL_CROSSREF_EXTENSION.o.string,
             html_default_options->options->EXTENSION.o.string);
               free (target_filename->target);
               xasprintf (&node_filename, "%s.%s", target_filename->filename,
