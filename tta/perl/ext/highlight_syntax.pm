@@ -443,7 +443,7 @@ sub highlight_process($$)
     if (defined($self->get_conf('OUTPUT_ENCODING_NAME'))) {
       my $encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
       $output_encoding
-        = Texinfo::Common::processing_output_encoding($output_encoding);
+        = Texinfo::Common::processing_output_encoding($encoding_name);
       binmode(HIGHLIGHT_LANG_IN, ":encoding($output_encoding)");
     }
 
