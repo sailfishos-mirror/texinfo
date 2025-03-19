@@ -1,5 +1,13 @@
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/document.c (destroy_document_information_except_tree),
+	tta/C/main/document_types.h (DOCUMENT), tta/C/parsetexi/parser.c
+	(parser_float_records, parse_texi), tta/C/parsetexi/end_line.c
+	(end_line_starting_block): remove floats field from DOCUMENT, add
+	parser_float_records as a global variable in parser instead.
+
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c: remove build_float_types_list, it is
 	not used anymore.
 

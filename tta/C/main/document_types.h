@@ -261,8 +261,6 @@ typedef struct DOCUMENT {
     ELEMENT *tree;
     INDEX_LIST indices_info;
     MERGED_INDICES *merged_indices;
-  /* Array of recorded @float's. */
-    FLOAT_RECORD_LIST floats;
     LISTOFFLOATS_TYPE_LIST listoffloats;
     ELEMENT_LIST internal_references;
     LABEL_LIST labels_list;

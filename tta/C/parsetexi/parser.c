@@ -75,6 +75,8 @@ const char *linecommand_expansion_delimiters = WHITESPACE_CHARS_EXCEPT_NEWLINE
 
 DOCUMENT *parsed_document = 0;
 
+FLOAT_RECORD_LIST parser_float_records;
+
 
 /* Check if the contents of S2 appear at S1). */
 int
@@ -2806,7 +2808,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
   document->tree = current;
 
-  float_list_to_listoffloats_list (&document->floats,
+  float_list_to_listoffloats_list (&parser_float_records,
                                    &document->listoffloats);
 
   parsed_document = 0;

@@ -111,6 +111,8 @@ extern const char *linecommand_expansion_delimiters;
 
 extern DOCUMENT *parsed_document;
 
+extern FLOAT_RECORD_LIST parser_float_records;
+
 extern ELEMENT *current_node;
 extern const ELEMENT *current_section;
 extern ELEMENT *current_part;

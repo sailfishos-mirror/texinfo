@@ -531,7 +531,6 @@ destroy_document_information_except_tree (DOCUMENT *document)
   delete_global_info (&document->global_info);
   delete_global_commands (&document->global_commands);
   free (document->internal_references.list);
-  free (document->floats.list);
   free_listoffloats_list (&document->listoffloats);
   free (document->labels_list.list);
   free (document->identifiers_target.list);
