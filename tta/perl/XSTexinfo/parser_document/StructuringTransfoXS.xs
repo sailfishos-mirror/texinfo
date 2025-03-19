@@ -72,7 +72,7 @@ fill_gaps_in_sectioning_in_document (SV *document_in, ...)
 # This is only used in tests, and not for all the tests, copy_treeNonXS is
 # more generally used because the C tree element cannot be found in general.
 SV *
-copy_tree (SV *tree_in)
+copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
     PREINIT:
         DOCUMENT *document;
      CODE:
@@ -98,6 +98,17 @@ copy_tree (SV *tree_in)
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
             RETVAL = newRV_inc ((SV *) hv);
+            if (added_root_elements_sv && SvOK (added_root_elements_sv))
+              {
+                size_t i;
+                AV *av = (AV *)SvRV (added_root_elements_sv);
+                for (i = 0; i < added_root_elements->number; i++)
+                  {
+                    ELEMENT *element = added_root_elements->list[i];
+                    SV *sv = newRV_inc ((SV *)element->hv);
+                    av_push (av, sv);
+                  }
+              }
             destroy_list (added_root_elements);
           }
         else

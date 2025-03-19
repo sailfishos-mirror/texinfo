@@ -1,5 +1,11 @@
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(copy_tree): add added_root_elements argument, and pass
+	added_root_elements elements references from C to the Perl array.
+
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	Do not copy extra elements except for full document trees
 
 	* tta/C/main/manipulate_tree.c (copy_associated_info)
