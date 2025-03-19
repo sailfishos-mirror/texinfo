@@ -1,5 +1,12 @@
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers): free
+	debug_str.
+
+	Update TODO and comments.
+
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
 	(copy_tree): add added_root_elements argument, and pass
 	added_root_elements elements references from C to the Perl array.

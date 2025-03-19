@@ -417,22 +417,25 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
    the copied tree if the copied tree is not a tree root.  In that case,
    destroying the copied tree won't destroy the extra elements copied
    that are not among the children of the copied element.
-   ADDED_ROOT_ELEMENTS argument is supposed to help with this
-   but the support is not fully implemented, currently the added trees
-   can be returned, but they can still refer to other trees.
+   ADDED_ROOT_ELEMENTS argument is supposed to help with this, but
+   it does not allow to solve the issue as currently the added trees
+   returned can still refer to other trees.
    The other_trees argument to copy_tree_internal could be used
-   to force a larger tree to be copied to hanadle that situation,
-   but for now it is not used like that, if 0 extra elements
-   that could point outside of the tree are not gathered.
-   This work because for now the function is only called on complete
-   trees with ADDED_ROOT_ELEMENTS and thus other_trees set.
+   to force a larger tree to be copied to handle that situation.
+   For now it is not used like that, if 0 extra elements
+   that could point outside of the tree are not copied.
+
+   The current setup should work as long as the function is only
+   called on complete trees when ADDED_ROOT_ELEMENTS is set and thus
+   other_trees is set.  It is the caller responsibility to call
+   copy_tree with ADDED_ROOT_ELEMENTS set only for complete
+   self-contained trees.
  */
 ELEMENT *
 copy_tree (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 {
   size_t i;
   ELEMENT_LIST *other_trees = 0;
-  /* For now the function is only called on complete trees */
   if (added_root_elements)
     {
       other_trees = new_list ();
@@ -936,8 +939,8 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
             fprintf (stderr, "WARNING: already numbered: %p E%" 
                                  PRIuPTR " '%s'\n", element,
                    (uintptr_t) element->elt_info[elt_info_nr], debug_str);
-          free (debug_str);
            */
+          free (debug_str);
         }
       else
         {

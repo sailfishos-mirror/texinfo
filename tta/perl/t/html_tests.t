@@ -631,18 +631,19 @@ in <b>html</b> in copying ``
 @top top
 
 '],
-# Demonstrates a memory leak with C.
+# Demonstrated a memory leak with C when the extra elements were
+# copied too.
 # The @anchor on the chapter line has an extra menu direction up pointing
 # to the node associated to the chapter because it appears in the @menu.
 # When formatting the @chapter as an internal reference for the navigation
 # header, the chapter line is copied to be combined with the chapter
 # sectioning number through a translation.  When the anchor on the chapter
-# line is copied, the extra menu direction up is also copied.
-# When the added tree elements are destroyed, the element destroyed is
-# the copied line argument, and only its children are destroyed.
-# The elements that were copied that are not on the copied chapter command
-# line therefore won't be destroyed.  For instance the @node the anchor
-# extra menu direction up points to won't be destroyed.
+# line is copied, the extra menu direction up was also copied.
+# When the added tree elements were destroyed, the element destroyed was
+# the copied line argument, and only its children were destroyed.
+# The elements that were copied that were not on the copied chapter command
+# line therefore were not destroyed.  For instance the @node the anchor
+# extra menu direction up points to were not destroyed.
 ['anchor_in_menu_on_sectioning_command_line',
 '@node chap
 @chapter chapter @anchor{ggg} after
