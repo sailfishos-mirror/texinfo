@@ -1,3 +1,10 @@
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/build_perl_info.c (build_listoffloats_list)
+	(fill_document_hv, document_floats_information): add
+	build_listoffloats_list that builds a list of floats that appeared in
+	the file.  Use it instead of build_float_types_list.
+
 2025-03-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/highlight_syntax.pm (highlight_process): fix output

@@ -1383,6 +1383,36 @@ build_float_types_list (const FLOAT_RECORD_LIST *floats)
   return float_hash;
 }
 
+/* Return hash for list of @float's that appeared in the file. */
+static HV *
+build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
+{
+  HV *float_hash;
+  SV *sv;
+  size_t i;
+
+  dTHX;
+
+  float_hash = newHV ();
+
+  for (i = 0; i < listoffloats->number; i++)
+    {
+      size_t j;
+      LISTOFFLOATS_TYPE *listoffloat = &listoffloats->float_types[i];
+      ELEMENT_LIST *float_list = &listoffloat->float_list;
+      SV *float_type = newSVpv_utf8 (listoffloat->type, 0);
+      AV *av = newAV ();
+      hv_store_ent (float_hash, float_type,
+                    newRV_noinc ((SV *)av), 0);
+      for (j = 0; j < float_list->number; j++)
+        {
+          sv = newRV_inc ((SV *)float_list->list[j]->hv);
+          av_push (av, sv);
+        }
+    }
+  return float_hash;
+}
+
 /* returns a hash for a single entry in $self->{'index_names'}, containing
    information about a single index. */
 static HV *
@@ -1739,13 +1769,8 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 
   hv_index_names = build_index_data (&document->indices_info);
 
-  /* NOTE there is also a document->listoffloats which structure
-     is more like the hv_listoffloats_list, so it could be
-     possible to replace build_float_types_list by a new function,
-     for example build_listoffloats_list that would create the
-     hv_listoffloats_list based on document->listoffloats. */
   hv_listoffloats_list
-         = build_float_types_list (&document->floats);
+         = build_listoffloats_list (&document->listoffloats);
 
   av_internal_xref = build_internal_xref_list (&document->internal_references);
 
@@ -2388,7 +2413,7 @@ funcname (SV *document_in) \
 BUILD_PERL_DOCUMENT_LIST(funcname,fieldname,keyname,flagname,buildname,HVAV)
 */
 
-BUILD_PERL_DOCUMENT_LIST(document_floats_information,floats,"listoffloats_list",F_DOCM_floats,build_float_types_list,HV)
+BUILD_PERL_DOCUMENT_LIST(document_floats_information,listoffloats,"listoffloats_list",F_DOCM_floats,build_listoffloats_list,HV)
 
 BUILD_PERL_DOCUMENT_LIST(document_internal_references_information,internal_references,"internal_references",F_DOCM_internal_references,build_internal_xref_list,AV)
 
