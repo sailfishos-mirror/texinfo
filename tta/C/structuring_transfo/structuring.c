@@ -1786,7 +1786,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
       else
         name_element = node_name_element; /* shouldn't happen */
 
-      menu_entry_name = copy_contents (name_element, ET_menu_entry_name);
+      menu_entry_name = copy_contents (name_element, 0, ET_menu_entry_name);
       for (i = 0; i < menu_entry_name->e.c->contents.number; i++)
         {
           ELEMENT *content = menu_entry_name->e.c->contents.list[i];
@@ -1802,7 +1802,7 @@ new_node_menu_entry (const ELEMENT *node, int use_sections)
   entry = new_element (ET_menu_entry);
   entry->e.c->source_info = node->e.c->source_info;
 
-  menu_entry_node = copy_contents (node_name_element, ET_menu_entry_node);
+  menu_entry_node = copy_contents (node_name_element, 0, ET_menu_entry_node);
   for (i = 0; i < menu_entry_node->e.c->contents.number; i++)
     {
       ELEMENT *content = menu_entry_node->e.c->contents.list[i];
@@ -1973,7 +1973,7 @@ new_complete_node_menu (const ELEMENT *node, DOCUMENT *document,
                       const ELEMENT *part_line_arg
                         = part_arguments_line->e.c->contents.list[0];
                       ELEMENT *part_title_copy
-                       = copy_contents (part_line_arg, ET_NONE);
+                       = copy_contents (part_line_arg, 0, ET_NONE);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                       ELEMENT *part_title;
@@ -2065,7 +2065,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           ELEMENT *entry = menu->e.c->contents.list[j];
           if (entry->type == ET_menu_entry)
             {
-              ELEMENT *entry_copy = copy_tree (entry);
+              ELEMENT *entry_copy = copy_tree (entry, 0);
               ELEMENT *node;
               add_to_element_list (master_menu_contents, entry_copy);
               /* gather node children to recursively print their menus */
@@ -2102,7 +2102,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           node_name_element = arguments_line->e.c->contents.list[0];
         }
 
-      node_title_copy = copy_contents (node_name_element, ET_NONE);
+      node_title_copy = copy_contents (node_name_element, 0, ET_NONE);
 
       insert_menu_comment_content (master_menu_contents,
                                    0, node_title_copy, 0);

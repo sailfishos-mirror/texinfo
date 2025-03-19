@@ -56,7 +56,8 @@ ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
-ELEMENT *definition_category_tree (const ELEMENT *current, const char *lang,
+ELEMENT *definition_category_tree (const ELEMENT *current,
+                          const char *lang,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

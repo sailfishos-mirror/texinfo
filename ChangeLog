@@ -1,5 +1,30 @@
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	Do not copy extra elements except for full document trees
+
+	* tta/C/main/manipulate_tree.c (copy_associated_info)
+	(copy_tree_internal, remove_associated_copy_info)
+	(remove_element_copy_info, copy_tree, copy_contents),
+	tta/perl/Texinfo/ManipulateTree.pm (_copy_tree)
+	(_remove_element_copy_info, copy_tree, copy_treeNonXS),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(copy_tree), tta/perl/t/z_misc/test_tree_copy.t: add other_trees
+	argument to copy_associated_info and copy_tree_internal and
+	_copy_tree.  If not set, do not follow extra elements except for
+	node_content and node_manual.  Add added_root_elements argument to
+	copy_tree, copy_contents and remove_associated_copy_info.  If set, set
+	other_trees and also gather the copied tree elements that are root
+	elements (without parent) and are not the the copied element.  Update
+	callers such that added_root_elements is not set, except in the XS
+	interface and in test_tree_copy.t.
+
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers): add a
+	warning when EF_copy or EF_numbered is already set and an element
+	should be numbered.  Comment out the warning about EF_numbered as it
+	already happens.
+
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/api.c (initialize_parsing): reset
 	parser_float_records.
 

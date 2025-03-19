@@ -764,7 +764,7 @@ end_line_def_line (ELEMENT *current)
             }
           else
             {
-              ELEMENT *element_copy = copy_tree (index_entry);
+              ELEMENT *element_copy = copy_tree (index_entry, 0);
               add_extra_element_oot (current, AI_key_def_index_element,
                                      element_copy);
             }

@@ -626,7 +626,8 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 /* the CONVERTER and CDT_TREE_FN arguments allow to use the HTML converter
    specific translation function */
 ELEMENT *
-definition_category_tree (const ELEMENT *current, const char *lang,
+definition_category_tree (const ELEMENT *current,
+                          const char *lang,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -662,14 +663,14 @@ definition_category_tree (const ELEMENT *current, const char *lang,
     {
       if (arg_category)
         {
-          ELEMENT *category_copy = copy_tree (arg_category);
+          ELEMENT *category_copy = copy_tree (arg_category, 0);
           return category_copy;
         }
       else
        return 0;
     }
 
-  class_copy = copy_tree (arg_class);
+  class_copy = copy_tree (arg_class, 0);
 
   def_command = lookup_extra_string (current, AI_key_def_command);
 
@@ -679,7 +680,7 @@ definition_category_tree (const ELEMENT *current, const char *lang,
       || !strcmp (def_command, "defmethod")
       || !strcmp (def_command, "deftypemethod"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category);
+      ELEMENT *category_copy = copy_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,
@@ -712,7 +713,7 @@ definition_category_tree (const ELEMENT *current, const char *lang,
       || !strcmp (def_command, "defcv")
       || !strcmp (def_command, "deftypecv"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category);
+      ELEMENT *category_copy = copy_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,

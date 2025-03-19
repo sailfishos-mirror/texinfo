@@ -117,10 +117,14 @@ foreach my $type ('menu', 'node', 'section', 'toplevel') {
   $extra_directions{$type.'_directions'} = 1;
 }
 
-sub _copy_tree($);
-sub _copy_tree($)
+# $OTHER_TREES sould be used to put subtree roots, for instance to make sure
+# that all the references are within one tree.  For now, if undef, the extra
+# references are not followed.
+sub _copy_tree($;$);
+sub _copy_tree($;$)
 {
   my $current = shift;
+  my $other_trees = shift;
 
   # either a duplicate in a tree (should be rare/avoided) or an
   # element referred to in extra/info, either directly or
@@ -170,7 +174,7 @@ sub _copy_tree($)
       }
       $new->{$key} = [];
       foreach my $child (@{$current->{$key}}) {
-        my $added = _copy_tree($child);
+        my $added = _copy_tree($child, $other_trees);
         $added->{'parent'} = $new;
         push @{$new->{$key}}, $added;
       }
@@ -187,9 +191,12 @@ sub _copy_tree($)
         # authors menus
         if (ref($value->[0]) eq 'HASH') {
           #print STDERR "II ARRAY $key $value\n";
-          $new->{$info_type}->{$key} = [];
-          foreach my $target (@{$value}) {
-            push @{$new->{$info_type}->{$key}}, _copy_tree($target);
+          if ($other_trees) {
+            $new->{$info_type}->{$key} = [];
+            foreach my $target (@{$value}) {
+              push @{$new->{$info_type}->{$key}},
+                   _copy_tree($target, $other_trees);
+            }
           }
         } elsif (ref($value->[0]) eq '') {
         # misc_args index_entry
@@ -200,11 +207,17 @@ sub _copy_tree($)
         }
       } elsif (ref($value) eq 'HASH') {
         #print STDERR "II HASH $key $value\n";
+        if (not $other_trees
+            and ($info_type eq 'extra' and $key ne 'node_content'
+                 and $key ne 'node_manual')) {
+          next;
+        }
         if ($extra_directions{$key}) {
           $new->{$info_type}->{$key} = {};
           foreach my $direction (sort (keys(%$value))) {
             my $target = $value->{$direction};
-            $new->{$info_type}->{$key}->{$direction} = _copy_tree($target);
+            $new->{$info_type}->{$key}->{$direction}
+              = _copy_tree($target, $other_trees);
           }
         } else {
           if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
@@ -213,7 +226,7 @@ sub _copy_tree($)
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
-          $new->{$info_type}->{$key} = _copy_tree($value);
+          $new->{$info_type}->{$key} = _copy_tree($value, $other_trees);
         }
       } else {
         print STDERR "Unexpected $info_type [$command_or_type]{$key}: "
@@ -224,11 +237,12 @@ sub _copy_tree($)
   return $new;
 }
 
-sub _remove_element_copy_info($;$);
-sub _remove_element_copy_info($;$)
+sub _remove_element_copy_info($;$$);
+sub _remove_element_copy_info($;$$)
 {
   my $current = shift;
   my $level = shift;
+  my $added_root_elements = shift;
 
   my $command_or_type = '';
   if ($current->{'cmdname'}) {
@@ -244,6 +258,12 @@ sub _remove_element_copy_info($;$)
     return;
   }
 
+  if (!defined($current->{'text'} and !$current->{'_copy'}->{'parent'})) {
+    if ($added_root_elements) {
+      push @$added_root_elements, $current->{'_copy'};
+    }
+  }
+
   delete $current->{'_copy'};
 
   $level++;
@@ -254,7 +274,7 @@ sub _remove_element_copy_info($;$)
     if ($current->{$key}) {
       my $index = 0;
       foreach my $child (@{$current->{$key}}) {
-        _remove_element_copy_info($child, $level);
+        _remove_element_copy_info($child, $level, $added_root_elements);
         $index++;
       }
     }
@@ -272,7 +292,8 @@ sub _remove_element_copy_info($;$)
           # authors manual_content menus node_content
           for (my $index = 0; $index < scalar(@{$value}); $index++) {
             #my $context = "$info_type [$command_or_type]{$key} [$index]";
-            _remove_element_copy_info($value->[$index], $level);
+            _remove_element_copy_info($value->[$index], $level,
+                                      $added_root_elements);
           }
         }
       } elsif (ref($value) eq 'HASH') {
@@ -281,7 +302,8 @@ sub _remove_element_copy_info($;$)
         if ($extra_directions{$key}) {
           foreach my $direction (sort(keys(%$value))) {
             #my $context = "$info_type [$command_or_type]{$key} {$direction}";
-            _remove_element_copy_info($value->{$direction}, $level);
+            _remove_element_copy_info($value->{$direction}, $level,
+                                      $added_root_elements);
           }
         } else {
           if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
@@ -290,7 +312,7 @@ sub _remove_element_copy_info($;$)
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
-          _remove_element_copy_info($value, $level);
+          _remove_element_copy_info($value, $level, $added_root_elements);
         }
       }
     }
@@ -300,20 +322,46 @@ sub _remove_element_copy_info($;$)
 # The functions called in Perl code outside of tests are the copy_*NonXS
 # functions.
 # TODO document?
-sub copy_tree($)
+# If $ADDED_ROOT_ELEMENTS is set, links in extra to other subtrees are
+# followed and subtree roots should be put in there.
+sub copy_tree($;$)
 {
   my $current = shift;
-  my $copy = _copy_tree($current);
-  _remove_element_copy_info($current, $copy);
+  my $added_root_elements = shift;
+
+  my $other_trees;
+  if ($added_root_elements) {
+    $other_trees = {};
+  }
+
+  my $copy = _copy_tree($current, $other_trees);
+  _remove_element_copy_info($current, $copy, $added_root_elements);
+
+  if ($added_root_elements) {
+    $added_root_elements = [ grep {$_ ne $current} @$added_root_elements ];
+  }
+
   return $copy;
 }
 
 # Never overriden by XS version
-sub copy_treeNonXS($)
+sub copy_treeNonXS($;$)
 {
   my $current = shift;
-  my $copy = _copy_tree($current);
-  _remove_element_copy_info($current, $copy);
+  my $added_root_elements = shift;
+
+  my $other_trees;
+  if ($added_root_elements) {
+    $other_trees = {};
+  }
+
+  my $copy = _copy_tree($current, $other_trees);
+  _remove_element_copy_info($current, $copy, $added_root_elements);
+
+  if ($added_root_elements) {
+    $added_root_elements = [ grep {$_ ne $current} @$added_root_elements ];
+  }
+
   return $copy;
 }
 

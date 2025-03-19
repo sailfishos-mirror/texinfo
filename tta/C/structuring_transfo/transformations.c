@@ -275,7 +275,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
 
               if (commands_heading_content)
                 {
-                  line_content = copy_contents (commands_heading_content,
+                  line_content = copy_contents (commands_heading_content, 0,
                                                 commands_heading_content->type);
                 }
               else
@@ -848,7 +848,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                     = content->e.c->contents.list[0];
                   const ELEMENT *line_arg
                     = arguments_line->e.c->contents.list[0];
-                  new_node_tree = copy_contents (line_arg, ET_NONE);
+                  new_node_tree = copy_contents (line_arg, 0, ET_NONE);
                 }
               added_node = new_node (&document->error_messages, new_node_tree,
                                      document);

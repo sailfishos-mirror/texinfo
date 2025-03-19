@@ -1255,7 +1255,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
 
   if (type_element)
     {
-      ELEMENT *type_element_copy = copy_tree (type_element);
+      ELEMENT *type_element_copy = copy_tree (type_element, 0);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_type", type_element_copy);
       if (float_number)
@@ -1304,7 +1304,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
   if (type_element)
     {
-      ELEMENT *type_element_copy = copy_tree (type_element);
+      ELEMENT *type_element_copy = copy_tree (type_element, 0);
       add_element_to_named_string_element_list (replaced_substrings,
                                      "float_type", type_element_copy);
       if (caption_element)

@@ -1930,7 +1930,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                       NAMED_STRING_ELEMENT_LIST *replaced_substrings
                         = new_named_string_element_list ();
                       ELEMENT *e_number = new_text_element (ET_normal_text);
-                      ELEMENT *section_title_copy = copy_tree (line_arg);
+                      ELEMENT *section_title_copy = copy_tree (line_arg, 0);
 
                       add_element_to_named_string_element_list (
                                   replaced_substrings, "section_title",
@@ -3919,7 +3919,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
           char *context_str;
           NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
-          ELEMENT *title_tree_copy = copy_tree (self->title_tree);
+          ELEMENT *title_tree_copy = copy_tree (self->title_tree, 0);
           ELEMENT *element_tree_copy;
           ELEMENT *title_tree;
           ELEMENT *command_tree = 0;
@@ -3947,7 +3947,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
               command_tree = element_tree->tree;
             }
 
-          element_tree_copy = copy_tree (command_tree);
+          element_tree_copy = copy_tree (command_tree, 0);
 
           add_element_to_named_string_element_list (substrings, "title",
                                                     title_tree_copy);
@@ -4937,7 +4937,7 @@ html_default_format_element_header (CONVERTER *self,
       TEXT debug_txt;
       char *output_unit_text;
       text_init (&debug_txt);
-      text_append (&debug_txt, "FORMAT elt header (");
+      text_append (&debug_txt, "C|FORMAT elt header (");
       for (i = 0; i < output_unit->unit_contents.number; i++)
         {
           char *elt_str
@@ -8770,7 +8770,7 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
               NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
               ELEMENT *author_arg_copy
-                = copy_tree (author->e.c->contents.list[0]);
+                = copy_tree (author->e.c->contents.list[0], 0);
               add_element_to_named_string_element_list (substrings,
                                       "author", author_arg_copy);
 
@@ -10264,7 +10264,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                                             ->e.c->contents.number > 0)
                 {
                   ELEMENT *referred_copy
-                    = copy_tree (referred_entry->e.c->contents.list[0]);
+                    = copy_tree (referred_entry->e.c->contents.list[0], 0);
                   add_to_contents_as_array (referred_tree, referred_copy);
                 }
 
@@ -10272,7 +10272,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 {
                   char *convert_info;
                   ELEMENT *result_tree;
-                  ELEMENT *entry_tree_copy = copy_tree (entry_tree);
+                  ELEMENT *entry_tree_copy = copy_tree (entry_tree, 0);
                   add_element_to_named_string_element_list (substrings,
                                     "main_index_entry", entry_tree_copy);
                   add_element_to_named_string_element_list (substrings,
@@ -11077,7 +11077,7 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
       char *explanation;
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-      ELEMENT *quotation_arg_copy = copy_tree (block_line_args);
+      ELEMENT *quotation_arg_copy = copy_tree (block_line_args, 0);
       add_element_to_named_string_element_list (substrings,
                           "quotation_arg", quotation_arg_copy);
       tree = html_cdt_tree ("@b{{quotation_arg}:} ",
@@ -12432,13 +12432,13 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       ELEMENT *e_category_tree = 0;
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
-      ELEMENT *category_copy = copy_tree (parsed_def->category);
+      ELEMENT *category_copy = copy_tree (parsed_def->category, 0);
 
       add_element_to_named_string_element_list (substrings,
                                             "category", category_copy);
       if (parsed_def->class)
         {
-          ELEMENT *class_copy = copy_tree (parsed_def->class);
+          ELEMENT *class_copy = copy_tree (parsed_def->class, 0);
           add_element_to_named_string_element_list (substrings,
                                             "class", class_copy);
 

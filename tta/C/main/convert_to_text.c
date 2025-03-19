@@ -442,8 +442,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
                           TEXT *result);
 
 static void
-convert_def_line(const ELEMENT *element, TEXT_OPTIONS *text_options,
-                 TEXT *result)
+convert_def_line (const ELEMENT *element, TEXT_OPTIONS *text_options,
+                  TEXT *result)
 {
   PARSED_DEF *parsed_def = definition_arguments_content (element);
   ELEMENT *parsed_definition_category

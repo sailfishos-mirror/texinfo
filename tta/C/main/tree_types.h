@@ -349,7 +349,7 @@ typedef struct {
 } LISTOFFLOATS_TYPE_LIST;
 
 /* element is a reference to the tree, but it is not const because it is
-   use to set the listoffloats list elements list */
+   used to set the listoffloats list elements list */
 typedef struct {
     const char *type;
     ELEMENT *element;

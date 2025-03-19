@@ -79,7 +79,13 @@ copy_tree (SV *tree_in)
         document = get_sv_tree_document (tree_in, "copy_tree");
         if (document)
           {
-            ELEMENT *result = copy_tree (document->tree);
+            ELEMENT_LIST *added_root_elements = new_list ();
+            /* we set added_root_elements such that extra elements references
+               are gathered, but it should not return any added subtree with a
+               different root because of extra elements pointing to other
+               subtrees, since we copy a whole tree.
+             */
+            ELEMENT *result = copy_tree (document->tree, added_root_elements);
             DOCUMENT *copy_document = new_document ();
           /* document additional information, global info, labels, indices...
              is not setup with copy_tree, so we only have the tree to store.
@@ -92,6 +98,7 @@ copy_tree (SV *tree_in)
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
             RETVAL = newRV_inc ((SV *) hv);
+            destroy_list (added_root_elements);
           }
         else
           RETVAL = newSV(0);

@@ -50,10 +50,11 @@
  */
 
 ELEMENT *
-copy_tree_internal (ELEMENT* current);
+copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees);
 
 void
-copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
+copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
+                      ELEMENT_LIST *other_trees)
 {
   size_t i;
 
@@ -70,18 +71,21 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
         {
         case extra_element:
           {
-            /* cast const off */
-            ELEMENT *f = (ELEMENT *)k_ref->k.const_element;
-            ELEMENT *copy = copy_tree_internal (f);
-            KEY_PAIR *k
-              = get_associated_info_key (new_info, key, k_ref->type);
-            k->k.const_element = copy;
+            if (other_trees)
+              {
+                /* cast const off */
+                ELEMENT *f = (ELEMENT *)k_ref->k.const_element;
+                ELEMENT *copy = copy_tree_internal (f, other_trees);
+                KEY_PAIR *k
+                  = get_associated_info_key (new_info, key, k_ref->type);
+                k->k.const_element = copy;
+              }
           }
           break;
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;
-            ELEMENT *copy = copy_tree_internal (f);
+            ELEMENT *copy = copy_tree_internal (f, other_trees);
             KEY_PAIR *k
               = get_associated_info_key (new_info, key, k_ref->type);
             k->k.element = copy;
@@ -89,48 +93,62 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
           break;
         case extra_contents:
           {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          CONST_ELEMENT_LIST *new_extra_contents = new_const_element_list ();
-          k->k.const_list = new_extra_contents;
-          for (j = 0; j < k_ref->k.const_list->number; j++)
+          if (other_trees)
             {
+              KEY_PAIR *k
+                = get_associated_info_key (new_info, key, k_ref->type);
+              CONST_ELEMENT_LIST *new_extra_contents
+                = new_const_element_list ();
+              k->k.const_list = new_extra_contents;
+              for (j = 0; j < k_ref->k.const_list->number; j++)
+                {
               /* cast to discard const, as the element needs to be modified
                  transiently for copy */
-              ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
-              ELEMENT *copy = copy_tree_internal (e);
-              add_to_const_element_list (new_extra_contents, copy);
+                  ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
+                  ELEMENT *copy = copy_tree_internal (e, other_trees);
+                  add_to_const_element_list (new_extra_contents, copy);
+                }
             }
           break;
           }
         case extra_directions:
           {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          const ELEMENT **new_d = new_directions ();
-          k->k.directions = new_d;
-          for (j = 0; j < directions_length; j++)
+          if (other_trees)
             {
-              /* cast const off */
-              ELEMENT *e = (ELEMENT *)k_ref->k.directions[j];
-              if (e)
+              KEY_PAIR *k
+                = get_associated_info_key (new_info, key, k_ref->type);
+              const ELEMENT **new_d = new_directions ();
+              k->k.directions = new_d;
+              for (j = 0; j < directions_length; j++)
                 {
-                  const ELEMENT *copy = copy_tree_internal (e);
-                  new_d[j] = copy;
+                  /* cast const off */
+                  ELEMENT *e = (ELEMENT *)k_ref->k.directions[j];
+                  if (e)
+                    {
+                      const ELEMENT *copy
+                        = copy_tree_internal (e, other_trees);
+                      new_d[j] = copy;
+                    }
                 }
             }
           break;
           }
         case extra_container:
-          {
-          ELEMENT *f = k_ref->k.element;
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
-          ELEMENT *new_extra_element = new_element (ET_NONE);
-          k->k.element = new_extra_element;
-          for (j = 0; j < f->e.c->contents.number; j++)
-            {
-              ELEMENT *e = f->e.c->contents.list[j];
-              ELEMENT *copy = copy_tree_internal (e);
-              add_to_contents_as_array (new_extra_element, copy);
-            }
+          { /* node_content and node_manual
+               Keep them in the tree in any case as they are used in
+               output and should be in the elements they refer to
+             */
+            ELEMENT *f = k_ref->k.element;
+            KEY_PAIR *k
+              = get_associated_info_key (new_info, key, k_ref->type);
+            ELEMENT *new_extra_element = new_element (ET_NONE);
+            k->k.element = new_extra_element;
+            for (j = 0; j < f->e.c->contents.number; j++)
+              {
+                ELEMENT *e = f->e.c->contents.list[j];
+                ELEMENT *copy = copy_tree_internal (e, other_trees);
+                add_to_contents_as_array (new_extra_element, copy);
+              }
             break;
           }
         case extra_string:
@@ -170,7 +188,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info)
 }
 
 ELEMENT *
-copy_tree_internal (ELEMENT* current)
+copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
 {
   ELEMENT *new;
   size_t i;
@@ -215,7 +233,8 @@ copy_tree_internal (ELEMENT* current)
   /* the parent of new is set in add_to_element* */
   for (i = 0; i < current->e.c->contents.number; i++)
     {
-      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i]);
+      ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i],
+                                           other_trees);
       add_to_element_contents (new, added);
     }
 
@@ -225,7 +244,8 @@ copy_tree_internal (ELEMENT* current)
       for (j = 0; j < elt_info_nr; j++)
         if (current->elt_info[j])
           {
-            ELEMENT *copy = copy_tree_internal (current->elt_info[j]);
+            ELEMENT *copy = copy_tree_internal (current->elt_info[j],
+                                                other_trees);
             new->elt_info[j] = copy;
           }
     }
@@ -244,15 +264,17 @@ copy_tree_internal (ELEMENT* current)
           new->e.c->string_info[j] = strdup (current->e.c->string_info[j]);
     }
 
-  copy_associated_info (&current->e.c->extra_info, &new->e.c->extra_info);
+  copy_associated_info (&current->e.c->extra_info, &new->e.c->extra_info,
+                        other_trees);
   return new;
 }
 
 void
-remove_element_copy_info (ELEMENT *current);
+remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements);
 
 void
-remove_associated_copy_info (ASSOCIATED_INFO *info)
+remove_associated_copy_info (ASSOCIATED_INFO *info,
+                             ELEMENT_LIST *added_root_elements)
 {
   size_t i;
 
@@ -271,13 +293,13 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
             /* cast to discard const, as the element needs to be modified
                transiently for copy */
             ELEMENT *f = (ELEMENT *)k_ref->k.element;
-            remove_element_copy_info (f);
+            remove_element_copy_info (f, added_root_elements);
             break;
           }
         case extra_element_oot:
           {
             ELEMENT *f = k_ref->k.element;
-            remove_element_copy_info (f);
+            remove_element_copy_info (f, added_root_elements);
             break;
           }
         case extra_contents:
@@ -287,7 +309,7 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
               /* cast to discard const, as the element needs to be modified
                  transiently for copy */
                 ELEMENT *e = (ELEMENT *)k_ref->k.const_list->list[j];
-                remove_element_copy_info (e);
+                remove_element_copy_info (e, added_root_elements);
               }
             break;
           }
@@ -299,7 +321,7 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
                 ELEMENT *e = (ELEMENT *) k_ref->k.directions[j];
                 if (e)
                   {
-                    remove_element_copy_info (e);
+                    remove_element_copy_info (e, added_root_elements);
                   }
               }
             break;
@@ -310,7 +332,7 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
             for (j = 0; j < f->e.c->contents.number; j++)
               {
                 ELEMENT *e = f->e.c->contents.list[j];
-                remove_element_copy_info (e);
+                remove_element_copy_info (e, added_root_elements);
               }
             break;
           }
@@ -321,16 +343,38 @@ remove_associated_copy_info (ASSOCIATED_INFO *info)
 }
 
 void
-remove_element_copy_info (ELEMENT *current)
+remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 {
   size_t i;
   int elt_info_nr;
+  ELEMENT *new_elt;
 
   if (! (current->flags & EF_copy))
-    /* already done */
+    /* already done or extra element not copied */
     return;
 
   elt_info_nr = type_data[current->type].elt_info_number;
+  new_elt = current->elt_info[elt_info_nr];
+  if (!new_elt->parent && !(type_data[new_elt->type].flags & TF_text))
+    {
+      if (added_root_elements)
+        {
+           /*
+          fprintf (stderr, "CCADDED %p %s\n", new_elt,
+                   print_element_debug (new_elt, 0));
+            */
+          add_to_element_list (added_root_elements, new_elt);
+        }
+     /*
+      else
+        {
+          fprintf (stderr, "CCNOP %p %p %s\n", current, new_elt, 
+                           print_element_debug (current, 0));
+           abort ();
+         }
+      */
+    }
+
   /* mark as copied by unsetting the flag and deallocate pointer to the copy */
   current->flags &= ~EF_copy;
   if (elt_info_nr > 0)
@@ -349,7 +393,8 @@ remove_element_copy_info (ELEMENT *current)
   if (! (type_data[current->type].flags & TF_text))
     {
       for (i = 0; i < current->e.c->contents.number; i++)
-        remove_element_copy_info (current->e.c->contents.list[i]);
+        remove_element_copy_info (current->e.c->contents.list[i],
+                                  added_root_elements);
 
       if (type_data[current->type].elt_info_number > 0)
         {
@@ -359,34 +404,64 @@ remove_element_copy_info (ELEMENT *current)
               if (current->elt_info[j])
                 {
                   ELEMENT *f = current->elt_info[j];
-                  remove_element_copy_info (f);
+                  remove_element_copy_info (f, added_root_elements);
                 }
             }
         }
-      remove_associated_copy_info (&current->e.c->extra_info);
+      remove_associated_copy_info (&current->e.c->extra_info,
+                                   added_root_elements);
     }
 }
 
-/* FIXME the extra elements references can be out of the children of
+/* TODO the extra elements references can be out of the children of
    the copied tree if the copied tree is not a tree root.  In that case,
    destroying the copied tree won't destroy the extra elements copied
-   that are not among the children of the copied element */
+   that are not among the children of the copied element.
+   ADDED_ROOT_ELEMENTS argument is supposed to help with this
+   but the support is not fully implemented, currently the added trees
+   can be returned, but they can still refer to other trees.
+   The other_trees argument to copy_tree_internal could be used
+   to force a larger tree to be copied to hanadle that situation,
+   but for now it is not used like that, if 0 extra elements
+   that could point outside of the tree are not gathered.
+   This work because for now the function is only called on complete
+   trees with ADDED_ROOT_ELEMENTS and thus other_trees set.
+ */
 ELEMENT *
-copy_tree (ELEMENT *current)
+copy_tree (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 {
-  ELEMENT *copy = copy_tree_internal (current);
-  remove_element_copy_info (current);
+  size_t i;
+  ELEMENT_LIST *other_trees = 0;
+  /* For now the function is only called on complete trees */
+  if (added_root_elements)
+    {
+      other_trees = new_list ();
+    }
+
+  ELEMENT *copy = copy_tree_internal (current, other_trees);
+  remove_element_copy_info (current, added_root_elements);
+  if (added_root_elements)
+    {
+      for (i = added_root_elements->number; i > 0; i--)
+        {
+          if (added_root_elements->list[i-1] == copy)
+            remove_from_element_list (added_root_elements, i-1);
+        }
+    }
+  if (other_trees)
+    destroy_list (other_trees);
   return copy;
 }
 
 ELEMENT *
-copy_contents (const ELEMENT *element, enum element_type type)
+copy_contents (const ELEMENT *element, ELEMENT_LIST *added_root_elements,
+               enum element_type type)
 {
   ELEMENT *tmp = new_element (type);
   ELEMENT *result;
   tmp->e.c->contents = element->e.c->contents;
 
-  result = copy_tree (tmp);
+  result = copy_tree (tmp, added_root_elements);
 
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);
@@ -846,22 +921,37 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
        || data_cmd == CM_columnfractions
        || (builtin_command_data[data_cmd].other_flags & CF_in_index)
        || data_cmd == CM_xrefname
-       || data_cmd == CM_author)
-  /* no reason for this to happen, but if it does, avoid clobbering
-     elt_info_nr + 1 */
-      && !(element->flags & EF_copy || element->flags & EF_numbered))
+       || data_cmd == CM_author))
     {
 
+       /* Avoid clobbering elt_info_nr + 1 */
+      if (element->flags & EF_copy || element->flags & EF_numbered)
+        {
+          char *debug_str = print_element_debug (element, 1);
+          if (element->flags & EF_copy)
+            fprintf (stderr, "WARNING: can't number, copy is set: %p '%s'\n",
+                             element, debug_str);
+          /* TODO this happens in tests.  Is it ok?
+          else
+            fprintf (stderr, "WARNING: already numbered: %p E%" 
+                                 PRIuPTR " '%s'\n", element,
+                   (uintptr_t) element->elt_info[elt_info_nr], debug_str);
+          free (debug_str);
+           */
+        }
+      else
+        {
       /* put number at the end of elt_info after the regular information */
-      element->elt_info = (ELEMENT **) realloc (element->elt_info,
+          element->elt_info = (ELEMENT **) realloc (element->elt_info,
                                    sizeof (ELEMENT *) * (elt_info_nr + 1));
 
       /* set that flag to mark that a number is stored */
-      element->flags |= EF_numbered;
+        element->flags |= EF_numbered;
 
-      element->elt_info[elt_info_nr] = (ELEMENT *)current_nr;
+        element->elt_info[elt_info_nr] = (ELEMENT *)current_nr;
 
-      current_nr++;
+        current_nr++;
+      }
     }
 
   for (i = 0; i < element->e.c->contents.number; i++)
