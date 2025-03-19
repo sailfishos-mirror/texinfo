@@ -87,6 +87,7 @@ initialize_parsing (enum context root_ct)
 
   parser_reset_encoding_list ();
   set_input_encoding ("utf-8");
+  parser_float_records.number = 0;
 
   /* initialize parsing state */
   reset_context_stack ();

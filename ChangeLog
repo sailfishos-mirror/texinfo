@@ -1,5 +1,10 @@
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/api.c (initialize_parsing): reset
+	parser_float_records.
+
+2025-03-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.c (destroy_document_information_except_tree),
 	tta/C/main/document_types.h (DOCUMENT), tta/C/parsetexi/parser.c
 	(parser_float_records, parse_texi), tta/C/parsetexi/end_line.c
