@@ -1341,50 +1341,6 @@ build_internal_xref_list (const ELEMENT_LIST *internal_xref_list)
 
 /* Return hash for list of @float's that appeared in the file. */
 static HV *
-build_float_types_list (const FLOAT_RECORD_LIST *floats)
-{
-  HV *float_hash;
-  SV *sv;
-  size_t i;
-
-  dTHX;
-
-  float_hash = newHV ();
-
-  for (i = 0; i < floats->number; i++)
-    {
-      AV *av = 0;
-      SV *float_type = newSVpv_utf8 (floats->list[i].type, 0);
-      /* use hv_fetch_ent to be able to pass a SV string for the key and
-         not a char to be able to signal that it is UTF-8 encoded.  In recent
-         perlapi, it is said that a negative len can be used to specify
-         that the key is UTF-8 encoded, but it is not clear in which
-         perl version this was added, it does not seem to be documented
-         in 5.10.0.
-      */
-      HE *type_array_entry = hv_fetch_ent (float_hash,
-                                           float_type, 0, 0);
-      if (type_array_entry)
-        {
-          SV *type_array_value = HeVAL (type_array_entry);
-          if (type_array_value)
-            av = (AV *) SvRV (type_array_value);
-        }
-      if (!av)
-        {
-          av = newAV ();
-          hv_store_ent (float_hash, float_type,
-                        newRV_noinc ((SV *)av), 0);
-        }
-      sv = newRV_inc ((SV *)floats->list[i].element->hv);
-      av_push (av, sv);
-    }
-
-  return float_hash;
-}
-
-/* Return hash for list of @float's that appeared in the file. */
-static HV *
 build_listoffloats_list (LISTOFFLOATS_TYPE_LIST *listoffloats)
 {
   HV *float_hash;
