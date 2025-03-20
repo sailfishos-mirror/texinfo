@@ -257,10 +257,8 @@ typedef struct OUTPUT_UNIT_LISTS {
 } OUTPUT_UNIT_LISTS;
 
 typedef struct DOCUMENT {
-    size_t descriptor;
     ELEMENT *tree;
     INDEX_LIST indices_info;
-    MERGED_INDICES *merged_indices;
     LISTOFFLOATS_TYPE_LIST listoffloats;
     ELEMENT_LIST internal_references;
     LABEL_LIST labels_list;
@@ -270,18 +268,23 @@ typedef struct DOCUMENT {
    for example document language and encoding. */
     GLOBAL_INFO global_info;
     GLOBAL_COMMANDS global_commands;
+
+    CONST_ELEMENT_LIST *nodes_list;
+    CONST_ELEMENT_LIST *sections_list;
+
+    MERGED_INDICES *merged_indices;
+    INDICES_SORT_STRINGS *indices_sort_strings;
+    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
+    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
+
+    size_t descriptor;
     STRING_LIST *small_strings;
     ERROR_MESSAGE_LIST error_messages;
     ERROR_MESSAGE_LIST parser_error_messages;
-    CONST_ELEMENT_LIST *nodes_list;
-    CONST_ELEMENT_LIST *sections_list;
     struct OPTIONS *options; /* for options used in structuring */
     OPTION **sorted_options;
     struct TEXT_OPTIONS *convert_index_text_options; /* for index
                                        sorting without converter */
-    INDICES_SORT_STRINGS *indices_sort_strings;
-    COLLATIONS_INDICES_SORTED_BY_INDEX *sorted_indices_by_index;
-    COLLATIONS_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter;
     /* Used to hold output unit lists, such that they may be created,
        retrieved  and freed.  An output units list should only be accessed
        through the handler returned when created.

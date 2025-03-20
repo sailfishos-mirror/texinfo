@@ -27,13 +27,13 @@ void configure_output_strings_translations (const char *localesdir,
 
 char *translate_string (const char * string, const char *lang,
                         const char *translation_context);
-size_t replace_convert_substrings (char *translated_string,
+DOCUMENT *replace_convert_substrings (char *translated_string,
                           NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                           int debug_level);
 char *replace_substrings (const char *string,
                     const NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 
-size_t gdt (const char *string, const char *lang,
+DOCUMENT *gdt (const char *string, const char *lang,
             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
             int debug_level, const char *translation_context);
 

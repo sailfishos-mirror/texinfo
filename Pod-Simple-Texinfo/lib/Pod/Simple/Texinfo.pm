@@ -27,7 +27,7 @@
 #   PullParser tokens.
 # * The code could also be used directly as a Pod::Simple subclass by renaming
 #   _texinfo_handle_element_start and the two other similar functions as
-#   _handle_element_start ad similar.
+#   _handle_element_start and similar.
 # * The code can also be used as a Pod::Simple::SimpleTree subclass, by
 #   using _convert_pod_simple_tree.  The possibility to convert SimpleTree
 #   is actually used in the code for L<> formatting.

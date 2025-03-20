@@ -1227,10 +1227,9 @@ new_texinfo_report (void)
 }
 
 void
-pass_document_parser_errors_to_registrar (size_t document_descriptor,
+pass_document_parser_errors_to_registrar (DOCUMENT *document,
                                           SV *parser_sv)
 {
-  DOCUMENT *document;
   SV *registrar_sv;
   SV *errors_warnings_sv = 0;
   SV *error_nrs_sv = 0;
@@ -1240,8 +1239,6 @@ pass_document_parser_errors_to_registrar (size_t document_descriptor,
   dTHX;
 
   parser_hv = (HV *) SvRV (parser_sv);
-
-  document = retrieve_document (document_descriptor);
 
   /* This cannot happen, the function is called on a document that
      was just registered
@@ -1630,18 +1627,15 @@ build_global_commands (const GLOBAL_COMMANDS *global_commands_ref)
    with the document descriptor information, errors and information that do
    not refer directly to tree elements */
 SV *
-build_minimal_document (size_t document_descriptor)
+build_minimal_document (DOCUMENT *document)
 {
   HV *hv_stash;
   HV *hv;
-  DOCUMENT *document;
   SV *sv;
   HV *hv_info;
   SV *registrar_sv;
 
   dTHX;
-
-  document = retrieve_document (document_descriptor);
 
   /* We do not attempt to reuse a pre-existing C document hv, as
      build_minimal_document is only called on documents that were just
@@ -1660,7 +1654,7 @@ build_minimal_document (size_t document_descriptor)
 
       hv_store (hv_tree, "tree_document_descriptor",
                 strlen ("tree_document_descriptor"),
-                newSViv (document_descriptor), 0);
+                newSViv (document->descriptor), 0);
     }
 
   STORE("global_info", hv_info);
@@ -1669,7 +1663,7 @@ build_minimal_document (size_t document_descriptor)
 #undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-            newSViv (document_descriptor), 0);
+            newSViv (document->descriptor), 0);
 
   /* New error registrar for document to be used after parsing, for
      structuring and tree modifications */
@@ -1686,7 +1680,7 @@ build_minimal_document (size_t document_descriptor)
     {
       fprintf (stderr,
        "BUG: build_minimal_document: %zu: already %p and new %p document hv\n",
-               document_descriptor, document->hv, hv);
+               document->descriptor, document->hv, hv);
     }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
@@ -1696,9 +1690,8 @@ build_minimal_document (size_t document_descriptor)
 }
 
 static void
-fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
+fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 {
-  DOCUMENT *document;
   HV *hv_tree = 0;
   HV *hv_info;
   HV *hv_commands_info;
@@ -1712,8 +1705,6 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
   AV *av_sections_list = 0;
 
   dTHX;
-
-  document = retrieve_document (document_descriptor);
 
   if (document->tree)
     hv_tree = build_texinfo_tree (document->tree, 0);
@@ -1787,16 +1778,16 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
 #undef STORE
 
   if (no_store)
-    remove_document_descriptor (document_descriptor);
+    remove_document (document);
   else
     {
       hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-                newSViv (document_descriptor), 0);
+                newSViv (document->descriptor), 0);
 
       if (hv_tree)
         hv_store (hv_tree, "tree_document_descriptor",
                   strlen ("tree_document_descriptor"),
-                  newSViv (document_descriptor), 0);
+                  newSViv (document->descriptor), 0);
 
       if (!document->hv)
         {
@@ -1807,7 +1798,7 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
         {
           fprintf (stderr,
            "BUG: fill_document_hv: %zu: %p and new %p document hv differ\n",
-                     document_descriptor, document->hv, hv);
+                     document->descriptor, document->hv, hv);
         }
     }
 }
@@ -1817,17 +1808,14 @@ fill_document_hv (HV *hv, size_t document_descriptor, int no_store)
    If NO_STORE is set, destroy the C document.
  */
 SV *
-build_document (size_t document_descriptor, int no_store)
+build_document (DOCUMENT *document, int no_store)
 {
   HV *hv;
   SV *sv;
   HV *hv_stash;
   SV *registrar_sv;
-  DOCUMENT *document;
 
   dTHX;
-
-  document = retrieve_document (document_descriptor);
 
   if (document->hv)
     {
@@ -1845,7 +1833,7 @@ build_document (size_t document_descriptor, int no_store)
       hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
     }
 
-  fill_document_hv (hv, document_descriptor, no_store);
+  fill_document_hv (hv, document, no_store);
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);

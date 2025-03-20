@@ -84,17 +84,17 @@ register_parser_conf (SV *parser_sv)
 SV *
 parse_texi_file (SV *parser_sv, input_file_path)
         const char *input_file_path = (const char *)SvPVbyte_nolen ($arg);
-    PREINIT:
-        size_t document_descriptor = 0;
       CODE:
         if (!SvOK(parser_sv))
           RETVAL = newSV (0);
         else
           {
             int status;
+            DOCUMENT *document;
+
             apply_sv_parser_conf (parser_sv);
-            document_descriptor = parse_file (input_file_path, &status);
-            RETVAL = build_minimal_document (document_descriptor);
+            document = parse_file (input_file_path, &status);
+            RETVAL = build_minimal_document (document);
           }
       OUTPUT:
         RETVAL
@@ -103,7 +103,6 @@ parse_texi_file (SV *parser_sv, input_file_path)
 SV *
 parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
-        size_t document_descriptor = 0;
         int line_nr = 1;
       CODE:
         if (!SvOK(string_sv) || !SvOK(parser_sv))
@@ -111,11 +110,13 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
         else
           {
             const char *string = (char *)SvPVutf8_nolen (string_sv);
+            DOCUMENT *document;
+
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
             apply_sv_parser_conf (parser_sv);
-            document_descriptor = parse_piece (string, line_nr);
-            RETVAL = build_minimal_document (document_descriptor);
+            document = parse_piece (string, line_nr);
+            RETVAL = build_minimal_document (document);
           }
       OUTPUT:
         RETVAL
@@ -125,7 +126,7 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
 SV *
 parse_texi_line (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
-        size_t document_descriptor = 0;
+        DOCUMENT *document = 0;
         int no_store = 0;
         int line_nr = 1;
       CODE:
@@ -140,7 +141,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
             if (items > 3 && SvOK(ST(3)))
               no_store = SvIV (ST(3));
             apply_sv_parser_conf (parser_sv);
-            document_descriptor = parse_string (string, line_nr);
+            document = parse_string (string, line_nr);
 
        /* get hold of errors before calling build_document, as they will be
           destroyed if no_store is set.
@@ -148,12 +149,12 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           add the errors to the Parser registrar as there is no document
           returned to get the errors from.
         */
-            pass_document_parser_errors_to_registrar (document_descriptor,
+            pass_document_parser_errors_to_registrar (document,
                                                       parser_sv);
             if (!no_store)
-              document_sv = build_minimal_document (document_descriptor);
+              document_sv = build_minimal_document (document);
             else
-              document_sv = build_document (document_descriptor, 1);
+              document_sv = build_document (document, 1);
             RETVAL = document_tree (document_sv, 0);
           }
       OUTPUT:
@@ -163,7 +164,6 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
 SV *
 parse_texi_text (SV *parser_sv, SV *string_sv, ...)
     PREINIT:
-        size_t document_descriptor = 0;
         int line_nr = 1;
       CODE:
         if (!SvOK(string_sv) || !SvOK(parser_sv))
@@ -171,11 +171,13 @@ parse_texi_text (SV *parser_sv, SV *string_sv, ...)
         else
           {
             const char *string = (char *)SvPVutf8_nolen (string_sv);
+            DOCUMENT *document;
+
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
             apply_sv_parser_conf (parser_sv);
-            document_descriptor = parse_text (string, line_nr);
-            RETVAL = build_minimal_document (document_descriptor);
+            document = parse_text (string, line_nr);
+            RETVAL = build_minimal_document (document);
           }
       OUTPUT:
         RETVAL

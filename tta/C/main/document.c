@@ -598,15 +598,9 @@ destroy_document_information_except_tree (DOCUMENT *document)
 }
 
 void
-remove_document_descriptor (size_t document_descriptor)
+remove_document (DOCUMENT *document)
 {
-  DOCUMENT *document = 0;
-
-  /* error? */
-  if (document_descriptor > document_number)
-    return;
-
-  document = document_list[document_descriptor -1];
+  size_t document_descriptor = document->descriptor;
 
   destroy_document_information_except_tree (document);
 
@@ -634,14 +628,16 @@ remove_document_descriptor (size_t document_descriptor)
 /* destroy everything except for the tree and merge small string to
    DOCUMENT */
 ELEMENT *
-unregister_document_merge_with_document (size_t document_descriptor,
+unregister_document_merge_with_document (DOCUMENT *removed_document,
                                          DOCUMENT *document)
 {
-  DOCUMENT *removed_document = retrieve_document (document_descriptor);
+  size_t document_descriptor;
   ELEMENT *tree;
 
   if (!removed_document)
     return 0;
+
+  document_descriptor = removed_document->descriptor;
 
   destroy_document_information_except_tree (removed_document);
 
@@ -697,19 +693,17 @@ add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
   other_global_info->info[i].string = strdup (value);
 }
 
-/* does not seems to be used */
+/* unused */
 void
-wipe_document_errors (size_t document_descriptor)
+wipe_document_errors (DOCUMENT *document)
 {
-  DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
     wipe_error_message_list (&document->error_messages);
 }
 
 void
-wipe_document_parser_errors (size_t document_descriptor)
+wipe_document_parser_errors (DOCUMENT *document)
 {
-  DOCUMENT *document = retrieve_document (document_descriptor);
   if (document)
     wipe_error_message_list (&document->parser_error_messages);
 }

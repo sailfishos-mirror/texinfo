@@ -35,13 +35,13 @@ void setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
                  const char *t2a_builddir, const char *t2a_srcdir);
 
-
-DOCUMENT *retrieve_document (size_t document_descriptor);
 DOCUMENT *new_document (void);
 void register_document_options (DOCUMENT *document, OPTIONS *options,
                                 OPTION **sorted_options);
 void register_document_convert_index_text_options (DOCUMENT *document,
                                          struct TEXT_OPTIONS *text_options);
+
+DOCUMENT *retrieve_document (size_t document_descriptor);
 
 void set_document_options (DOCUMENT *document,
                       const OPTIONS_LIST *program_options,
@@ -67,8 +67,8 @@ COLLATION_INDICES_SORTED_BY_LETTER *sorted_indices_by_letter (
                           const char *collation_language,
                           const char *collation_locale);
 
-void remove_document_descriptor (size_t document_descriptor);
-ELEMENT *unregister_document_merge_with_document (size_t document_descriptor,
+void remove_document (DOCUMENT *document);
+ELEMENT *unregister_document_merge_with_document (DOCUMENT *removed_document,
                                                   DOCUMENT *document);
 
 void add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
@@ -77,8 +77,7 @@ void add_other_global_info_string (OTHER_GLOBAL_INFO *other_global_info,
 void set_output_encoding (OPTIONS *customization_information,
                           DOCUMENT *document);
 
-void wipe_document_parser_errors (size_t document_descriptor);
-void wipe_document_errors (size_t document_descriptor);
+void wipe_document_parser_errors (DOCUMENT *document);
 
 char *print_document_listoffloats (DOCUMENT *document);
 char *print_document_indices_information (DOCUMENT *document);

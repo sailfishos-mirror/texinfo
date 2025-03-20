@@ -23,6 +23,7 @@
 
 #include "global_commands_types.h"
 #include "tree_types.h"
+#include "document_types.h"
 /* new_element */
 #include "tree.h"
 /* for wipe_values ... */
@@ -47,7 +48,7 @@
 #include "indices.h"
 #include "api.h"
 
-static size_t
+static DOCUMENT *
 initialize_parsing (enum context root_ct)
 {
   parsed_document = new_document ();
@@ -99,7 +100,7 @@ initialize_parsing (enum context root_ct)
   memset (&nesting_context, 0, sizeof (nesting_context));
   reset_parser_counters ();
 
-  return parsed_document->descriptor;
+  return parsed_document;
 }
 
 void
@@ -127,10 +128,10 @@ reset_parser (int local_debug_output)
    messages and destroy the document.
 
    Used for parse_texi_file. */
-size_t
+DOCUMENT *
 parse_file (const char *input_file_path, int *status)
 {
-  size_t document_descriptor = initialize_parsing (ct_base);
+  DOCUMENT *document = initialize_parsing (ct_base);
   GLOBAL_INFO *global_info;
   char *input_file_name_and_directory[2];
   int input_error;
@@ -165,47 +166,46 @@ parse_file (const char *input_file_path, int *status)
                                    decoded_file_path, strerror (input_error));
       free (decoded_file_path);
       *status = 1;
-      return document_descriptor;
+      return document;
     }
 
   parse_texi_document ();
 
   *status = 0;
-  return document_descriptor;
+  return document;
 }
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
-size_t
+DOCUMENT *
 parse_text (const char *string, int line_nr)
 {
-  size_t document_descriptor = initialize_parsing (ct_base);
+  DOCUMENT *document = initialize_parsing (ct_base);
 
   input_push_text (strdup (string), line_nr, 0, 0);
   parse_texi_document ();
-  return document_descriptor;
+  return document;
 }
 
-/* Set DOCUMENT_DESCRIPTOR to the value corresponding to the tree
-   obtained by parsing the Texinfo code in STRING.
+/* Return the DOCUMENT obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
-size_t
+DOCUMENT *
 parse_string (const char *string, int line_nr)
 {
   ELEMENT *root_elt;
-  size_t document_descriptor = initialize_parsing (ct_line);
+  DOCUMENT *document = initialize_parsing (ct_line);
 
   root_elt = new_element (ET_root_line);
 
   input_push_text (strdup (string), line_nr, 0, 0);
   parse_texi (root_elt, root_elt);
-  return document_descriptor;
+  return document;
 }
 
 /* Used for parse_texi_piece.  STRING should be a UTF-8 buffer. */
-size_t
+DOCUMENT *
 parse_piece (const char *string, int line_nr)
 {
-  size_t document_descriptor = initialize_parsing (ct_base);
+  DOCUMENT *document = initialize_parsing (ct_base);
   ELEMENT *before_node_section, *document_root;
 
   before_node_section = setup_document_root_and_before_node_section ();
@@ -213,7 +213,7 @@ parse_piece (const char *string, int line_nr)
 
   input_push_text (strdup (string), line_nr, 0, 0);
   parse_texi (document_root, before_node_section);
-  return document_descriptor;
+  return document;
 }
 
 void

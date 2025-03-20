@@ -1,3 +1,24 @@
+2025-03-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (html_gdt),
+	tta/C/convert/html_prepare_converter.c
+	(html_prepare_output_units_global_targets),
+	tta/C/main/build_perl_info.c
+	(pass_document_parser_errors_to_registrar, build_minimal_document)
+	(fill_document_hv, build_document), tta/C/main/document.c
+	(remove_document, unregister_document_merge_with_document),
+	(wipe_document_errors, wipe_document_parser_errors),
+	tta/C/main/translations.c (replace_convert_substrings, gdt),
+	tta/C/parsetexi/api.c (initialize_parsing, parse_file, parse_text)
+	(parse_string, parse_piece),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs: use DOCUMENT in input
+	and output for C functions instead of document descriptor when
+	possible to simplify code and hide the document descriptor when
+	possible.  Rename remove_document_descriptor as remove_document.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs: remove
+	remove_document_descriptor with XS override since long.
+
 2025-03-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/manipulate_tree.c (set_element_tree_numbers): free

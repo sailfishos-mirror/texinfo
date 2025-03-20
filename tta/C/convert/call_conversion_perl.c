@@ -218,7 +218,7 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
      from C texi2any.  If called by other codes it may become relevant to
      check if there is already a document->hv and reuse it.
    */
-  document_sv = build_minimal_document (document->descriptor);
+  document_sv = build_minimal_document (document);
   SvREFCNT_inc (document_sv);
 
   converter_sv = (SV *) self->sv;
@@ -315,7 +315,7 @@ call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
     }
   else
     {
-      document_sv = build_minimal_document (document->descriptor);
+      document_sv = build_minimal_document (document);
       SvREFCNT_inc (document_sv);
     }
 

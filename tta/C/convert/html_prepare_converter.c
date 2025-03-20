@@ -5101,7 +5101,6 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           const DIRECTION_NODE_NAME *direction_node_name
             = &self->customized_global_units_directions.list[l];
           size_t global_directions_idx;
-          size_t label_document_descriptor;
           DOCUMENT *label_document;
           ELEMENT *label_tree;
 
@@ -5124,9 +5123,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           parser_conf_set_NO_INDEX (1);
           parser_conf_set_NO_USER_COMMANDS (1);
 
-          label_document_descriptor
+          label_document
             = parse_string (direction_node_name->node_name, 1);
-          label_document = retrieve_document (label_document_descriptor);
           if (label_document->parser_error_messages.number > 0)
             {
               const ERROR_MESSAGE_LIST *error_messages
@@ -5141,9 +5139,9 @@ html_prepare_output_units_global_targets (CONVERTER *self)
               for (j = 0; j < error_messages->number; j++)
                 fprintf (stderr, "%s", error_messages->list[j].error_line);
             }
-          wipe_document_parser_errors (label_document_descriptor);
+          wipe_document_parser_errors (label_document);
           label_tree = unregister_document_merge_with_document (
-                              label_document_descriptor, self->document);
+                                   label_document, self->document);
 
           if (label_tree)
             {

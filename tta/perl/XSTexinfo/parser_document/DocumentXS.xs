@@ -110,7 +110,7 @@ build_tree (SV *tree_in, ...)
         document = get_sv_tree_document (tree_in, "build_tree");
         if (document)
           {
-            SV *document_sv = build_document (document->descriptor, no_store);
+            SV *document_sv = build_document (document, no_store);
             if (!no_store)
               {
                 if (document->tree)
@@ -134,9 +134,6 @@ build_tree (SV *tree_in, ...)
         RETVAL
 
 void
-remove_document_descriptor (size_t document_descriptor)
-
-void
 remove_document (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
@@ -145,7 +142,7 @@ remove_document (SV *document_in)
            document descriptor */
         document = get_sv_document_document (document_in, 0);
         if (document)
-          remove_document_descriptor (document->descriptor);
+          remove_document (document);
 
 void
 document_errors (SV *document_in)

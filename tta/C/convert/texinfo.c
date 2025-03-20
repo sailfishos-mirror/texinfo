@@ -557,8 +557,7 @@ txi_converter_setup (const char *external_module,
 DOCUMENT *
 txi_parse_texi_file (const char *input_file_path, int *status)
 {
-  size_t document_descriptor = parse_file (input_file_path, status);
-  return retrieve_document (document_descriptor);
+  return parse_file (input_file_path, status);
 }
 
 /* similar to Texinfo::Convert::XXX->output */
@@ -660,7 +659,7 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 void
 txi_document_remove (DOCUMENT *document)
 {
-  remove_document_descriptor (document->descriptor);
+  remove_document (document);
 }
 
 void

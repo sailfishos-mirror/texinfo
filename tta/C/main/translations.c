@@ -510,14 +510,13 @@ substitute (ELEMENT *tree, NAMED_STRING_ELEMENT_LIST *replaced_substrings)
 
 /* the caller should have made sure that the
    inserted elements do not appear elsewhere in the tree. */
-size_t
+DOCUMENT *
 replace_convert_substrings (char *translated_string,
                             NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                             int debug_level)
 {
   size_t i;
   char *texinfo_line;
-  size_t document_descriptor;
   int parser_debug_level = 0;
   DOCUMENT *document;
 
@@ -567,12 +566,11 @@ replace_convert_substrings (char *translated_string,
   parser_conf_set_NO_INDEX (1);
   parser_conf_set_NO_USER_COMMANDS (1);
 
-  document_descriptor = parse_string (texinfo_line, 1);
+  document = parse_string (texinfo_line, 1);
 
   if (debug_level > 0)
     fprintf (stderr, "C|IN TR PARSER '%s'\n", texinfo_line);
 
-  document = retrieve_document (document_descriptor);
   if (document->parser_error_messages.number > 0)
     {
       ERROR_MESSAGE_LIST *error_messages = &document->parser_error_messages;
@@ -583,7 +581,7 @@ replace_convert_substrings (char *translated_string,
       for (i = 0; i < error_messages->number; i++)
         fprintf (stderr, "%s", error_messages->list[i].error_line);
     }
-  wipe_document_parser_errors (document_descriptor);
+  wipe_document_parser_errors (document);
 
   if (replaced_substrings)
     {
@@ -600,27 +598,27 @@ replace_convert_substrings (char *translated_string,
     }
 /*
   if (debug_level > 0)
-    fprintf (stderr, "GDT doc descriptor: %d\n", document_descriptor);
+    fprintf (stderr, "GDT doc descriptor: %d\n", document->descriptor);
 */
 
-  return document_descriptor;
+  return document;
 }
 
-/* returns a document descriptor. */
-size_t
+/* returns a document. */
+DOCUMENT *
 gdt (const char *string, const char *lang,
      NAMED_STRING_ELEMENT_LIST *replaced_substrings,
      int debug_level, const char *translation_context)
 {
-  size_t document_descriptor;
+  DOCUMENT *document;
 
   char *translated_string = translate_string (string, lang,
                                               translation_context);
 
-  document_descriptor = replace_convert_substrings (translated_string,
+  document = replace_convert_substrings (translated_string,
                                   replaced_substrings, debug_level);
   free (translated_string);
-  return document_descriptor;
+  return document;
 }
 
 /* Return a tree translated by gdt.  The document associated to the tree is
@@ -632,10 +630,10 @@ gdt_tree (const char *string, DOCUMENT *document,
           const char *lang, NAMED_STRING_ELEMENT_LIST *replaced_substrings,
           int debug_level, const char *translation_context)
 {
-  size_t gdt_document_descriptor = gdt (string, lang, replaced_substrings,
+  DOCUMENT *gdt_document = gdt (string, lang, replaced_substrings,
                                         debug_level, translation_context);
   ELEMENT *tree
-    = unregister_document_merge_with_document (gdt_document_descriptor,
+    = unregister_document_merge_with_document (gdt_document,
                                                document);
 
   return tree;

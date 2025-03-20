@@ -34,14 +34,14 @@ void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
 
 AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
-void pass_document_parser_errors_to_registrar (size_t document_descriptor,
+void pass_document_parser_errors_to_registrar (DOCUMENT *document,
                                                SV *parser_sv);
 SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
                               SV *object_sv,
                               SV **errors_warnings_out, SV **error_nrs_out);
 
-SV *build_document (size_t document_descriptor, int no_store);
-SV *build_minimal_document (size_t document_descriptor);
+SV *build_document (DOCUMENT *document, int no_store);
+SV *build_minimal_document (DOCUMENT *document);
 
 SV *store_document_texinfo_tree (DOCUMENT *document);
 SV *store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
