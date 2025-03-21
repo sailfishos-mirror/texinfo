@@ -162,7 +162,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
   for (i = 0; i < a->info_number; i++)
     {
       KEY_PAIR *k_pair = &a->info[i];
-      switch (k_pair->type)
+      switch (ai_key_types[k_pair->key])
         {
         case extra_string:
           free (k_pair->k.string);

@@ -136,8 +136,10 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
   for (i = 0; i < info->info_number; i++)
     {
       KEY_PAIR *k = &info->info[i];
+      enum extra_type k_type = ai_key_types[k->key];
+
       text_printf (&text, "  %s|", ai_key_names[k->key]);
-      switch (info->info[i].type)
+      switch (k_type)
         {
         case extra_none:
           text_append (&text, "none");
@@ -153,7 +155,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
           {
             char *element_str = print_element_debug (k->k.element, 0);
             const ELEMENT *e;
-            if (k->type == extra_element_oot)
+            if (k_type == extra_element_oot)
               {
                 text_append (&text, "oot ");
                 e = k->k.element;
@@ -229,7 +231,7 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
             break;
           }
         default:
-          text_printf (&text, "UNKNOWN (%d)", info->info[i].type);
+          text_printf (&text, "UNKNOWN (%d)", k_type);
           break;
         }
       text_append (&text, "\n");

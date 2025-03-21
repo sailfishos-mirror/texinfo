@@ -1484,7 +1484,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
 {
   HTML_TARGET *target_info;
 
-  const ELEMENT *manual_content = lookup_extra_element (command,
+  const ELEMENT *manual_content = lookup_extra_container (command,
                                                   AI_key_manual_content);
   if (manual_content)
     return 0;

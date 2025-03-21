@@ -62,12 +62,13 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
     {
       const KEY_PAIR *k_ref = &info->info[i];
       enum ai_key_name key = k_ref->key;
+      enum extra_type k_type = ai_key_types[key];
       size_t j;
 
-      if (k_ref->type == extra_none)
+      if (k_type == extra_none)
         continue;
 
-      switch (k_ref->type)
+      switch (k_type)
         {
         case extra_element:
           {
@@ -77,7 +78,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
                 ELEMENT *f = (ELEMENT *)k_ref->k.const_element;
                 ELEMENT *copy = copy_tree_internal (f, other_trees);
                 KEY_PAIR *k
-                  = get_associated_info_key (new_info, key, k_ref->type);
+                  = get_associated_info_key (new_info, key);
                 k->k.const_element = copy;
               }
           }
@@ -87,7 +88,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
             ELEMENT *f = k_ref->k.element;
             ELEMENT *copy = copy_tree_internal (f, other_trees);
             KEY_PAIR *k
-              = get_associated_info_key (new_info, key, k_ref->type);
+              = get_associated_info_key (new_info, key);
             k->k.element = copy;
           }
           break;
@@ -96,7 +97,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
           if (other_trees)
             {
               KEY_PAIR *k
-                = get_associated_info_key (new_info, key, k_ref->type);
+                = get_associated_info_key (new_info, key);
               CONST_ELEMENT_LIST *new_extra_contents
                 = new_const_element_list ();
               k->k.const_list = new_extra_contents;
@@ -116,7 +117,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
           if (other_trees)
             {
               KEY_PAIR *k
-                = get_associated_info_key (new_info, key, k_ref->type);
+                = get_associated_info_key (new_info, key);
               const ELEMENT **new_d = new_directions ();
               k->k.directions = new_d;
               for (j = 0; j < directions_length; j++)
@@ -140,7 +141,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
              */
             ELEMENT *f = k_ref->k.element;
             KEY_PAIR *k
-              = get_associated_info_key (new_info, key, k_ref->type);
+              = get_associated_info_key (new_info, key);
             ELEMENT *new_extra_element = new_element (ET_NONE);
             k->k.element = new_extra_element;
             for (j = 0; j < f->e.c->contents.number; j++)
@@ -154,26 +155,26 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
         case extra_string:
           { /* A simple string. */
             char *value = k_ref->k.string;
-            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            KEY_PAIR *k = get_associated_info_key (new_info, key);
             k->k.string = strdup (value);
             break;
           }
         case extra_integer:
           { /* A simple integer. */
-            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            KEY_PAIR *k = get_associated_info_key (new_info, key);
             k->k.integer = k_ref->k.integer;
             break;
           }
         case extra_misc_args:
           {
-          KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+          KEY_PAIR *k = get_associated_info_key (new_info, key);
           k->k.strings_list = new_string_list();
           copy_strings (k->k.strings_list, k_ref->k.strings_list);
           break;
           }
         case extra_index_entry:
           {
-            KEY_PAIR *k = get_associated_info_key (new_info, key, k_ref->type);
+            KEY_PAIR *k = get_associated_info_key (new_info, key);
             k->k.index_entry = (INDEX_ENTRY_LOCATION *)
                              malloc (sizeof (INDEX_ENTRY_LOCATION));
             memcpy (k->k.index_entry, k_ref->k.index_entry,
@@ -281,12 +282,14 @@ remove_associated_copy_info (ASSOCIATED_INFO *info,
   for (i = 0; i < info->info_number; i++)
     {
       const KEY_PAIR *k_ref = &info->info[i];
+      enum extra_type k_type = ai_key_types[k_ref->key];
+
       size_t j;
 
-      if (k_ref->type == extra_none)
+      if (k_type == extra_none)
         continue;
 
-      switch (k_ref->type)
+      switch (k_type)
         {
         case extra_element:
           {
@@ -368,7 +371,7 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
      /*
       else
         {
-          fprintf (stderr, "CCNOP %p %p %s\n", current, new_elt, 
+          fprintf (stderr, "CCNOP %p %p %s\n", current, new_elt,
                            print_element_debug (current, 0));
            abort ();
          }
@@ -936,7 +939,7 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
                              element, debug_str);
           /* TODO this happens in tests.  Is it ok?
           else
-            fprintf (stderr, "WARNING: already numbered: %p E%" 
+            fprintf (stderr, "WARNING: already numbered: %p E%"
                                  PRIuPTR " '%s'\n", element,
                    (uintptr_t) element->elt_info[elt_info_nr], debug_str);
            */
@@ -1180,7 +1183,7 @@ add_info_name_string_value (ADDITIONAL_INFO_NAME_VAL_LIST *info_strings,
 static uintptr_t
 print_element_add_prepend_info (ELEMENT *element, int level,
                                 const char *prepended, uintptr_t current_nr,
-                                TEXT *result, const char *fname_encoding, 
+                                TEXT *result, const char *fname_encoding,
                                 int use_filename)
 {
   char *info_prepended;
@@ -1338,7 +1341,7 @@ print_element_extra (ELEMENT *element, int level,
       int need_free = 1;
       int is_string = 0;
       char *value;
-      switch (k_pair->type)
+      switch (ai_key_types[k_pair->key])
         {
         case extra_string:
           value = k_pair->k.string;
@@ -1653,7 +1656,7 @@ remove_element_tree_numbers (ELEMENT *element)
   for (i = 0; i < a->info_number; i++)
     {
       const KEY_PAIR *k_pair = &a->info[i];
-      switch (k_pair->type)
+      switch (ai_key_types[k_pair->key])
         {
         case extra_element_oot:
           remove_element_tree_numbers (k_pair->k.element);

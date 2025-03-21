@@ -187,7 +187,6 @@ typedef struct STRING_LIST {
 
 typedef struct KEY_PAIR {
     enum ai_key_name key;
-    enum extra_type type;
     union {
       /* for extra_element_oot and extra_container */
       struct ELEMENT *element;

@@ -760,7 +760,6 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
                 {
                   KEY_PAIR *k = lookup_extra (previous_node, AI_key_menus);
                   k->key = AI_key_none;
-                  k->type = extra_none;
                   destroy_const_element_list (menus);
                 }
             }

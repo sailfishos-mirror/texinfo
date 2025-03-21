@@ -845,7 +845,6 @@ end_line_starting_block (ELEMENT *current)
         {
           add_extra_integer (multitable, AI_key_max_columns, 0);
           k->key = AI_key_none;
-          k->type = extra_none;
         }
     }
   else if (command == CM_multitable)
@@ -991,7 +990,6 @@ end_line_starting_block (ELEMENT *current)
                                  command_name(e->e.c->cmd),
                                  command_name(command));
                   k_command_as_arg->key = AI_key_none;
-                  k_command_as_arg->type = extra_none;
                 }
             }
         }
@@ -1034,7 +1032,6 @@ end_line_starting_block (ELEMENT *current)
                   if (not_command_as_arg)
                     {
                       k_command_as_arg->key = AI_key_none;
-                      k_command_as_arg->type = extra_none;
                       k_command_as_arg = 0;
                       break;
                     }
@@ -1069,7 +1066,6 @@ end_line_starting_block (ELEMENT *current)
                             command_name(as_argument_cmd),
                             command_name(command));
               k->key = AI_key_none;
-              k->type = extra_none;
             }
         }
       /* if no command_as_argument given, default to @bullet for
