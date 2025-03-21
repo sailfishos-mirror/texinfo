@@ -54,6 +54,25 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key)
   return &a->info[i];
 }
 
+static int
+check_key_type_or_abort (enum ai_key_name key, enum extra_type type,
+                         const char *error_string)
+{
+  enum extra_type k_type = ai_key_types[key];
+
+  if (k_type != type)
+    {
+      char *msg;
+      xasprintf (&msg, "Bad type for %s: %s: %d", error_string,
+                ai_key_names[key], k_type);
+      fatal (msg);
+      free (msg);
+      return 0;
+    }
+  else
+    return 1;
+}
+
 /* Add an extra key that is a reference to another element (for example,
    'associated_section' on a node command element. */
 /* The extra element is marked as const because, as a general rule, an
@@ -73,17 +92,7 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key)
 void
 add_extra_element (ELEMENT *e, enum ai_key_name key, const ELEMENT *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_element)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_element: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_element, "add_extra_element"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.const_element = value;
@@ -96,17 +105,8 @@ add_extra_element (ELEMENT *e, enum ai_key_name key, const ELEMENT *value)
 void
 add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_element_oot)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_element_oot: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_element_oot,
+                               "add_extra_element_oot"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.element = value;
@@ -122,17 +122,7 @@ add_extra_element_oot (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 void
 add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_container)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_container: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_container, "add_extra_container"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.element = value;
@@ -153,17 +143,7 @@ add_extra_container (ELEMENT *e, enum ai_key_name key, ELEMENT *value)
 CONST_ELEMENT_LIST *
 add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_contents)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_contents: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_contents, "add_extra_contents"))
     {
       CONST_ELEMENT_LIST *n_list;
       if (!no_lookup)
@@ -194,17 +174,7 @@ add_extra_contents (ELEMENT *e, enum ai_key_name key, int no_lookup)
 const ELEMENT **
 add_extra_directions (ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_directions)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_directions: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_directions, "add_extra_directions"))
     {
       const ELEMENT **e_list = lookup_extra_directions (e, key);
       if (e_list)
@@ -224,18 +194,9 @@ add_extra_directions (ELEMENT *e, enum ai_key_name key)
 void
 add_extra_misc_args (ELEMENT *e, enum ai_key_name key, STRING_LIST *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
   if (!value) return;
-  if (k_type != extra_misc_args)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_misc_args: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+
+  if (check_key_type_or_abort (key, extra_misc_args, "add_extra_misc_args"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.strings_list = value;
@@ -246,19 +207,9 @@ void
 add_extra_index_entry (ELEMENT *e, enum ai_key_name key,
                        INDEX_ENTRY_LOCATION *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
   if (!value) return;
 
-  if (k_type != extra_index_entry)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_index_entry: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_index_entry, "add_extra_index_entry"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.index_entry = value;
@@ -268,17 +219,7 @@ add_extra_index_entry (ELEMENT *e, enum ai_key_name key,
 void
 add_extra_string (ELEMENT *e, enum ai_key_name key, char *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_string)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_string: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_string, "add_extra_string"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.string = value;
@@ -288,17 +229,7 @@ add_extra_string (ELEMENT *e, enum ai_key_name key, char *value)
 void
 add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_string)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_string: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_string, "add_extra_string"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.string = strdup (value);
@@ -308,17 +239,7 @@ add_extra_string_dup (ELEMENT *e, enum ai_key_name key, const char *value)
 void
 add_extra_integer (ELEMENT *e, enum ai_key_name key, int value)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_integer)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for add_extra_integer: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_integer, "add_extra_integer"))
     {
       KEY_PAIR *k = get_associated_info_key (&e->e.c->extra_info, key);
       k->k.integer = value;
@@ -343,17 +264,7 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
 const ELEMENT *
 lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_element)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_element: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_element, "lookup_extra_element"))
     {
       const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
       if (k)
@@ -365,17 +276,8 @@ lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 ELEMENT *
 lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_element_oot)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_element_oot: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_element_oot,
+                               "lookup_extra_element_oot"))
     {
       const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
       if (k)
@@ -389,15 +291,7 @@ lookup_extra_container (const ELEMENT *e, enum ai_key_name key)
 {
   enum extra_type k_type = ai_key_types[key];
 
-  if (k_type != extra_container)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_container: %s: %d",
-                ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_container, "lookup_extra_container"))
     {
       const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
       if (k)
@@ -409,17 +303,7 @@ lookup_extra_container (const ELEMENT *e, enum ai_key_name key)
 char *
 lookup_extra_string (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_string)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_string: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
+  if (check_key_type_or_abort (key, extra_string, "lookup_extra_string"))
     {
       const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
       if (k)
@@ -438,18 +322,7 @@ lookup_extra (const ELEMENT *e, enum ai_key_name key)
 int
 lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_integer)
-    {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_integer: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-      *ret = -2;
-    }
-  else
+  if (check_key_type_or_abort (key, extra_integer, "lookup_extra_integer"))
     {
       const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
       if (!k)
@@ -460,25 +333,18 @@ lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
       *ret = 0;
       return k->k.integer;
     }
+  else
+    *ret = -2;
+
   return 0;
 }
 
 CONST_ELEMENT_LIST *
 lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_contents)
+  if (check_key_type_or_abort (key, extra_contents, "lookup_extra_contents"))
     {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_contents: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
-    {
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.const_list;
     }
@@ -489,19 +355,10 @@ lookup_extra_contents (const ELEMENT *e, enum ai_key_name key)
 const ELEMENT **
 lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
 {
-  KEY_PAIR *k = lookup_extra (e, key);
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_directions)
+  if (check_key_type_or_abort (key, extra_directions,
+                               "lookup_extra_directions"))
     {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_directions: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
-    {
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.directions;
     }
@@ -511,19 +368,9 @@ lookup_extra_directions (const ELEMENT *e, enum ai_key_name key)
 const STRING_LIST *
 lookup_extra_misc_args (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_misc_args)
+  if (check_key_type_or_abort (key, extra_misc_args, "lookup_extra_misc_args"))
     {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_misc_args: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
-    {
-      KEY_PAIR *k = lookup_extra (e, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.strings_list;
     }
@@ -533,19 +380,10 @@ lookup_extra_misc_args (const ELEMENT *e, enum ai_key_name key)
 const INDEX_ENTRY_LOCATION *
 lookup_extra_index_entry (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
-  if (k_type != extra_index_entry)
+  if (check_key_type_or_abort (key, extra_index_entry,
+                               "lookup_extra_index_entry"))
     {
-      char *msg;
-      xasprintf (&msg, "Bad type for lookup_extra_index_entry: %s: %d",
-                 ai_key_names[key], k_type);
-      fatal (msg);
-      free (msg);
-    }
-  else
-    {
-      KEY_PAIR *k = lookup_extra (e, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.index_entry;
     }
