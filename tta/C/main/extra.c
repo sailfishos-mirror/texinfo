@@ -261,12 +261,18 @@ lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
   return 0;
 }
 
+KEY_PAIR *
+lookup_extra (const ELEMENT *e, enum ai_key_name key)
+{
+  return lookup_associated_info (&e->e.c->extra_info, key);
+}
+
 const ELEMENT *
 lookup_extra_element (const ELEMENT *e, enum ai_key_name key)
 {
   if (check_key_type_or_abort (key, extra_element, "lookup_extra_element"))
     {
-      const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.element;
     }
@@ -279,7 +285,7 @@ lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key)
   if (check_key_type_or_abort (key, extra_element_oot,
                                "lookup_extra_element_oot"))
     {
-      const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.element;
     }
@@ -293,7 +299,7 @@ lookup_extra_container (const ELEMENT *e, enum ai_key_name key)
 
   if (check_key_type_or_abort (key, extra_container, "lookup_extra_container"))
     {
-      const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.element;
     }
@@ -305,17 +311,11 @@ lookup_extra_string (const ELEMENT *e, enum ai_key_name key)
 {
   if (check_key_type_or_abort (key, extra_string, "lookup_extra_string"))
     {
-      const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (k)
         return k->k.string;
     }
   return 0;
-}
-
-KEY_PAIR *
-lookup_extra (const ELEMENT *e, enum ai_key_name key)
-{
-  return lookup_associated_info (&e->e.c->extra_info, key);
 }
 
 /* *ret is negative if not found or not an integer */
@@ -324,7 +324,7 @@ lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret)
 {
   if (check_key_type_or_abort (key, extra_integer, "lookup_extra_integer"))
     {
-      const KEY_PAIR *k = lookup_associated_info (&e->e.c->extra_info, key);
+      const KEY_PAIR *k = lookup_extra (e, key);
       if (!k)
         {
           *ret = -1;

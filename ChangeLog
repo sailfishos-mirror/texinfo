@@ -1,5 +1,11 @@
 2025-03-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/extra.c (lookup_extra_*): always use lookup_extra.
+
+	* tta/C/main/manipulate_tree.c: change in spacing, reindent.
+
+2025-03-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/extra.c (check_key_type_or_abort, add_extra_*)
 	(lookup_extra_*): add check_key_type_or_abort for the check of
 	matching of type and key.

@@ -53,7 +53,7 @@ ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees);
 
 void
-copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
+copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
                       ELEMENT_LIST *other_trees)
 {
   size_t i;
@@ -77,8 +77,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
                 /* cast const off */
                 ELEMENT *f = (ELEMENT *)k_ref->k.const_element;
                 ELEMENT *copy = copy_tree_internal (f, other_trees);
-                KEY_PAIR *k
-                  = get_associated_info_key (new_info, key);
+                KEY_PAIR *k = get_associated_info_key (new_info, key);
                 k->k.const_element = copy;
               }
           }
@@ -87,8 +86,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
           {
             ELEMENT *f = k_ref->k.element;
             ELEMENT *copy = copy_tree_internal (f, other_trees);
-            KEY_PAIR *k
-              = get_associated_info_key (new_info, key);
+            KEY_PAIR *k = get_associated_info_key (new_info, key);
             k->k.element = copy;
           }
           break;
@@ -96,8 +94,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
           {
           if (other_trees)
             {
-              KEY_PAIR *k
-                = get_associated_info_key (new_info, key);
+              KEY_PAIR *k = get_associated_info_key (new_info, key);
               CONST_ELEMENT_LIST *new_extra_contents
                 = new_const_element_list ();
               k->k.const_list = new_extra_contents;
@@ -116,8 +113,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
           {
           if (other_trees)
             {
-              KEY_PAIR *k
-                = get_associated_info_key (new_info, key);
+              KEY_PAIR *k = get_associated_info_key (new_info, key);
               const ELEMENT **new_d = new_directions ();
               k->k.directions = new_d;
               for (j = 0; j < directions_length; j++)
@@ -140,8 +136,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
                output and should be in the elements they refer to
              */
             ELEMENT *f = k_ref->k.element;
-            KEY_PAIR *k
-              = get_associated_info_key (new_info, key);
+            KEY_PAIR *k = get_associated_info_key (new_info, key);
             ELEMENT *new_extra_element = new_element (ET_NONE);
             k->k.element = new_extra_element;
             for (j = 0; j < f->e.c->contents.number; j++)
