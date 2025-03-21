@@ -325,15 +325,15 @@ add_extra_integer (ELEMENT *e, enum ai_key_name key, int value)
     }
 }
 
-KEY_PAIR *
+static KEY_PAIR *
 lookup_associated_info (const ASSOCIATED_INFO *a, enum ai_key_name key)
 {
   size_t i;
   for (i = 0; i < a->info_number; i++)
     {
-      /* We could reuse extra_deleted slots by keeping the extra_deleted
+      /* We could reuse extra_none slots by keeping the extra_none
          key and checking here the type, but in the current code the
-         extra_deleted keys will never be set again */
+         extra_none keys will never be set again */
       if (a->info[i].key == key)
         return &a->info[i];
     }
@@ -552,23 +552,3 @@ lookup_extra_index_entry (const ELEMENT *e, enum ai_key_name key)
   return 0;
 }
 
-/* called in tree copy to optimize for speed in the past, not used
-   for now */
-KEY_PAIR *
-lookup_associated_info_by_index (const ASSOCIATED_INFO *a,
-                                 enum ai_key_name key, size_t index)
-{
-  if (index >= a->info_number)
-    return 0;
-
-  if (a->info[index].key == key)
-    return &a->info[index];
-
-  return 0;
-}
-
-KEY_PAIR *
-lookup_extra_by_index (const ELEMENT *e, enum ai_key_name key, int index)
-{
-  return lookup_associated_info_by_index (&e->e.c->extra_info, key, index);
-}

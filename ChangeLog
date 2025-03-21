@@ -1,5 +1,11 @@
 2025-03-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/extra.c: remove lookup_extra_by_index and
+	lookup_associated_info_by_index, which have been unused for a long
+	time.
+
+2025-03-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/extra.c (lookup_extra_integer): inline
 	lookup_key_pair_integer in lookup_extra_integer and remove.
 

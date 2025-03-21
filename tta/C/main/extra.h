@@ -46,12 +46,5 @@ const ELEMENT **lookup_extra_directions (const ELEMENT *e,
 int lookup_extra_integer (const ELEMENT *e, enum ai_key_name key, int *ret);
 char *lookup_extra_string (const ELEMENT *e, enum ai_key_name key);
 
-KEY_PAIR *lookup_associated_info (const ASSOCIATED_INFO *a,
-                                  enum ai_key_name key);
-
-/* not to be used in general, only when using associated info
-   as a temporary holder of information, for speed */
 KEY_PAIR *get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key);
-KEY_PAIR *lookup_extra_by_index (const ELEMENT *e, enum ai_key_name key,
-                                 int index);
 #endif
