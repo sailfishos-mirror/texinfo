@@ -344,10 +344,13 @@ build_additional_info (HV *extra, const ASSOCIATED_INFO *a,
           const KEY_PAIR *k = &a->info[i];
 #define STORE(sv) hv_store (extra, key_name, strlen (key_name), sv, 0)
           enum ai_key_name key = k->key;
-          const char *key_name = ai_key_names[key];
+          const char *key_name;
 
-          if (k->type == extra_deleted)
+          if (k->type == extra_none)
             continue;
+
+          key_name = ai_key_names[key];
+
           (*nr_info)++;
 
           switch (k->type)

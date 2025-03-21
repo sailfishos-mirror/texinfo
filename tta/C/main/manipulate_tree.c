@@ -64,7 +64,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO* new_info,
       enum ai_key_name key = k_ref->key;
       size_t j;
 
-      if (k_ref->type == extra_deleted)
+      if (k_ref->type == extra_none)
         continue;
 
       switch (k_ref->type)
@@ -283,7 +283,7 @@ remove_associated_copy_info (ASSOCIATED_INFO *info,
       const KEY_PAIR *k_ref = &info->info[i];
       size_t j;
 
-      if (k_ref->type == extra_deleted)
+      if (k_ref->type == extra_none)
         continue;
 
       switch (k_ref->type)
@@ -1443,12 +1443,12 @@ print_element_extra (ELEMENT *element, int level,
             free (joined_values);
             break;
           }
-        case extra_deleted:
+        case extra_none:
           continue;
           break;
         default:
           need_free = 0;
-          value = "TODO";
+          value = "UNKNOWN";
           break;
         }
 

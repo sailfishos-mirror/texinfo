@@ -1,3 +1,18 @@
+2025-03-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/tree.c (ai_key_types), tta/C/main/tree_types.h
+	(AI_KEYS_LIST): add the type of each associated info key in
+	AI_KEYS_LIST and setup an array associating key an type.
+
+	* tta/C/main/extra.c (get_associated_info_key): add a check, commented
+	out, that the type match the associated info key.
+
+	* tta/C/main/tree_types.h (enum extra_type): rename extra_deleted as
+	extra_none and put it first.  update users.
+
+	* tta/C/main/tree_types.h (KEY_PAIR): remove list member in union k as
+	it is not used.
+
 2025-03-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/convert_html.c (html_gdt),

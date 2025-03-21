@@ -24,6 +24,8 @@
 #include "text.h"
 
 enum extra_type {
+ /* mainly used for deleted association info key pairs */
+   extra_none,
    extra_element,
    extra_element_oot,
    extra_contents,
@@ -32,8 +34,7 @@ enum extra_type {
    extra_misc_args,
    extra_index_entry, /* index name and position in index */
    extra_string,
-   extra_integer,
-   extra_deleted
+   extra_integer
 };
 
 /* the *_none enums are not necessarily used, they may also
@@ -72,84 +73,86 @@ enum directions {
 };
 
 #define AI_KEYS_LIST \
-  ai_key(cell_number) \
-  ai_key(item_number) \
-  ai_key(global_command_number) \
-  ai_key(expand_index) \
-  ai_key(level_modifier) \
-  ai_key(max_columns) \
-  ai_key(row_number) \
-  ai_key(section_level) \
-  ai_key(subentry_level) \
+  ai_key(cell_number, integer) \
+  ai_key(item_number, integer) \
+  ai_key(global_command_number, integer) \
+  ai_key(expand_index, integer) \
+  ai_key(level_modifier, integer) \
+  ai_key(max_columns, integer) \
+  ai_key(row_number, integer) \
+  ai_key(section_level, integer) \
+  ai_key(subentry_level, integer) \
   \
-  ai_key(begin) \
-  ai_key(clickstyle) \
-  ai_key(def_command) \
-  ai_key(documentlanguage) \
-  ai_key(element_region) \
-  ai_key(end) \
-  ai_key(enumerate_specification) \
-  ai_key(float_number) \
-  ai_key(float_type) \
-  ai_key(format) \
-  ai_key(index_ignore_chars) \
-  ai_key(input_encoding_name) \
-  ai_key(macro_name) \
-  ai_key(normalized) \
-  ai_key(original_def_cmdname) \
-  ai_key(section_number) \
-  ai_key(sortas) \
-  ai_key(text_arg) \
-  ai_key(translation_context) \
+  ai_key(begin, string) \
+  ai_key(clickstyle, string) \
+  ai_key(def_command, string) \
+  ai_key(documentlanguage, string) \
+  ai_key(element_region, string) \
+  ai_key(end, string) \
+  ai_key(enumerate_specification, string) \
+  ai_key(float_number, string) \
+  ai_key(float_type, string) \
+  ai_key(format, string) \
+  ai_key(index_ignore_chars, string) \
+  ai_key(input_encoding_name, string) \
+  ai_key(macro_name, string) \
+  ai_key(normalized, string) \
+  ai_key(original_def_cmdname, string) \
+  ai_key(section_number, string) \
+  ai_key(sortas, string) \
+  ai_key(text_arg, string) \
+  ai_key(translation_context, string) \
   \
-  ai_key(associated_anchor_command)\
-  ai_key(associated_node) \
-  ai_key(associated_part) \
-  ai_key(associated_section) \
-  ai_key(associated_title_command) \
-  ai_key(caption) \
-  ai_key(columnfractions) \
-  ai_key(command_as_argument) \
-  ai_key(def_index_element) \
-  ai_key(def_index_ref_element) \
-  ai_key(element_node) \
-  ai_key(float) \
-  ai_key(float_section) \
-  ai_key(manual_content) \
-  ai_key(node_content) \
-  ai_key(node_description) \
-  ai_key(node_long_description) \
-  ai_key(node_preceding_part) \
-  ai_key(part_associated_section) \
-  ai_key(part_following_node) \
-  ai_key(quotation) \
-  ai_key(sectioning_root) \
-  ai_key(shortcaption) \
-  ai_key(seealso) \
-  ai_key(seeentry) \
-  ai_key(subentry) \
-  ai_key(subentry_parent) \
-  ai_key(titlepage) \
+  ai_key(associated_anchor_command, element)\
+  ai_key(associated_node, element) \
+  ai_key(associated_part, element) \
+  ai_key(associated_section, element) \
+  ai_key(associated_title_command, element) \
+  ai_key(caption, element) \
+  ai_key(columnfractions, element) \
+  ai_key(command_as_argument, element) \
+  ai_key(element_node, element) \
+  ai_key(float, element) \
+  ai_key(float_section, element) \
+  ai_key(node_description, element) \
+  ai_key(node_long_description, element) \
+  ai_key(node_preceding_part, element) \
+  ai_key(part_associated_section, element) \
+  ai_key(part_following_node, element) \
+  ai_key(quotation, element) \
+  ai_key(shortcaption, element) \
+  ai_key(seealso, element) \
+  ai_key(seeentry, element) \
+  ai_key(subentry, element) \
+  ai_key(subentry_parent, element) \
+  ai_key(titlepage, element) \
   \
-  ai_key(authors) \
-  ai_key(menus) \
-  ai_key(section_childs) \
+  ai_key(def_index_element, element_oot) \
+  ai_key(def_index_ref_element, element_oot) \
+  ai_key(sectioning_root, element_oot) \
   \
-  ai_key(menu_directions) \
-  ai_key(node_directions) \
-  ai_key(section_directions) \
-  ai_key(toplevel_directions) \
+  ai_key(manual_content, container) \
+  ai_key(node_content, container) \
   \
-  ai_key(misc_args) \
+  ai_key(authors, contents) \
+  ai_key(menus, contents) \
+  ai_key(section_childs, contents) \
   \
-  ai_key(index_entry) \
-  ai_key(associated_index_entry) \
+  ai_key(menu_directions, directions) \
+  ai_key(node_directions, directions) \
+  ai_key(section_directions, directions) \
+  ai_key(toplevel_directions, directions) \
+  \
+  ai_key(misc_args, misc_args) \
+  \
+  ai_key(index_entry, index_entry) \
+  ai_key(associated_index_entry, index_entry) \
 
 
 /* Keys used in ASSOCIATED_INFO structure. */
 enum ai_key_name {
    AI_key_none,
-  #define ai_key(name) AI_key_ ## name,
+  #define ai_key(name, type) AI_key_ ## name,
    AI_KEYS_LIST
   #undef ai_key
 };
@@ -185,13 +188,19 @@ typedef struct KEY_PAIR {
     enum ai_key_name key;
     enum extra_type type;
     union {
+      /* for extra_element_oot and extra_container */
       struct ELEMENT *element;
+      /* for extra_element */
       const struct ELEMENT *const_element;
+    /*
       ELEMENT_LIST *list;
+     */
+      /* for extra_contents */
       CONST_ELEMENT_LIST *const_list;
       char *string;
       int integer;
       INDEX_ENTRY_LOCATION *index_entry;
+      /* for extra_misc_args */
       STRING_LIST *strings_list;
       const struct ELEMENT **directions;
     } k;

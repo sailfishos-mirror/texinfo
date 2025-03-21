@@ -33,6 +33,16 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key,
                          const enum extra_type type)
 {
   size_t i;
+  /* could be checked from time to time, but should be unlikely as there
+     are already some checks in lookup functions
+  if (ai_key_types[key] != type)
+    {
+      char *msg;
+      xasprintf (&msg, "%s type should be %d, not %d", ai_key_names[key],
+                       ai_key_types[key], type);
+      bug (msg);
+    }
+   */
   for (i = 0; i < a->info_number; i++)
     {
       if (a->info[i].key == key)

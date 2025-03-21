@@ -139,8 +139,8 @@ print_associate_info_debug (const ASSOCIATED_INFO *info)
       text_printf (&text, "  %s|", ai_key_names[k->key]);
       switch (info->info[i].type)
         {
-        case extra_deleted:
-          text_append (&text, "deleted");
+        case extra_none:
+          text_append (&text, "none");
           break;
         case extra_integer:
           text_printf (&text, "integer: %d", k->k.integer);
