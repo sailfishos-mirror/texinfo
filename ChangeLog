@@ -1,5 +1,10 @@
 2025-03-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/tree_types.h (AI_KEYS_LIST): incorporate none directly in
+	AI_KEYS_LIST.  Update users.
+
+2025-03-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree.c (ai_key_types), tta/C/main/tree_types.h
 	(AI_KEYS_LIST): add the type of each associated info key in
 	AI_KEYS_LIST and setup an array associating key an type.

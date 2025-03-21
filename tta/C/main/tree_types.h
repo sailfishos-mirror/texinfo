@@ -24,7 +24,7 @@
 #include "text.h"
 
 enum extra_type {
- /* mainly used for deleted association info key pairs */
+ /* mainly used for deleted associated info */
    extra_none,
    extra_element,
    extra_element_oot,
@@ -73,6 +73,8 @@ enum directions {
 };
 
 #define AI_KEYS_LIST \
+  ai_key(none, none) \
+  \
   ai_key(cell_number, integer) \
   ai_key(item_number, integer) \
   ai_key(global_command_number, integer) \
@@ -151,7 +153,6 @@ enum directions {
 
 /* Keys used in ASSOCIATED_INFO structure. */
 enum ai_key_name {
-   AI_key_none,
   #define ai_key(name, type) AI_key_ ## name,
    AI_KEYS_LIST
   #undef ai_key

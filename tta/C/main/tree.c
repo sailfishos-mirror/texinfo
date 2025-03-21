@@ -41,14 +41,12 @@ const char *elt_info_names[] = {
 
 
 const char *ai_key_names[] = {
-  0,
   #define ai_key(name, type) #name,
    AI_KEYS_LIST
   #undef ai_key
 };
 
 enum extra_type ai_key_types[] = {
-  extra_none,
   #define ai_key(name, type) extra_##type,
    AI_KEYS_LIST
   #undef ai_key
