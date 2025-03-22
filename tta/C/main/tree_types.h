@@ -269,21 +269,22 @@ enum string_info_type {
 };
 
 typedef struct ELEMENT {
-    /* Used when building Perl tree only. This should be HV *hv,
-       but we don't want to include the Perl headers everywhere; */
-    void *hv;
-
     enum element_type type;
-    uint16_t flags; /* can hold up to 16 flags, could use uint32_t for more */
     struct ELEMENT *parent;
-    /* depends on the element, can be space elements, comments */
-    struct ELEMENT **elt_info;
     SOURCE_MARK_LIST *source_mark_list;
 
     union {
       TEXT *text;
       CONTAINER *c;
     } e;
+
+    uint16_t flags; /* can hold up to 16 flags, could use uint32_t for more */
+    /* depends on the element, can be space elements, comments */
+    struct ELEMENT **elt_info;
+
+    /* Used when building Perl tree only. This should be HV *hv,
+       but we don't want to include the Perl headers everywhere; */
+    void *hv;
 
 } ELEMENT;
 

@@ -83,6 +83,36 @@ multiple_at_command_options, converter_cmdline_options,
 converter_customization_options, unique_at_command_options.
 
 
+Texinfo tree reader
+===================
+
+for index entries, go through index line argument and subentries as if they
+were children of the index command.
+
+Go through misc_args extra as if going through regular arguments and not
+as if it was an attribute.
+
+Treat spaces in info as tree elements, not as attributes.  With ignorable
+as a category.  Maybe treat verb delimiter the same.  And also braces
+of types with implicit braces.
+
+Categories:
+ignorable text
+text
+element begin
+element end
+
+accessors for all:
+ * parent
+ * source marks
+ * type?
+
+accessors for elements:
+ * command_name/and or enum
+ * attributes (extra/some string info)
+ * associated_unit?
+
+
 Delayed bugs/features
 =====================
 

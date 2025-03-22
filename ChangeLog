@@ -1,3 +1,21 @@
+2025-03-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/DocBook.pm
+	(%docbook_ignored_nobrace_commands): rename %docbook_nobrace_commands
+	as %docbook_ignored_nobrace_commands.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert): use $e_type variable
+	for the element type.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (%ignored_text_types)
+	(%ignored_types, _convert): separate ignored text types and ignored
+	other types.  Handle text before other types of elements.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line): reorganize the code for
+	readability.
+
+	* tta/C/main/tree_types.h (ELEMENT): reorder fields.
+
 2025-03-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\nolig): Fix \ifluatex conditional which

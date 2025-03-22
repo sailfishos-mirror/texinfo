@@ -4825,17 +4825,21 @@ sub _end_line($$$)
 sub _start_empty_line_after_command($$$$) {
   my ($self, $line, $current, $command) = @_;
 
+  my $type;
+  if (defined($command)) {
+    $type = 'internal_spaces_after_command';
+    $self->{'internal_space_holder'} = $command;
+  } else {
+    $type = 'ignorable_spaces_after_command';
+  }
+
   # based on whitespace_chars_except_newline in XS parser
   $line =~ s/^([ \t\cK\f]*)//;
-  my $spaces_after_command = { 'type' => 'ignorable_spaces_after_command',
+  my $spaces_after_command = { 'type' => $type,
                                'text' => $1,
                                'parent' => $current,
                              };
   push @{$current->{'contents'}}, $spaces_after_command;
-  if (defined($command)) {
-    $spaces_after_command->{'type'} = 'internal_spaces_after_command';
-    $self->{'internal_space_holder'} = $command;
-  }
   return $line;
 }
 

@@ -174,10 +174,10 @@ my %docbook_line_elements_with_arg_map = (
   'center' => 'simpara role="center"',
 );
 
-my %docbook_nobrace_commands = %Texinfo::Commands::nobrace_commands;
+my %docbook_ignored_nobrace_commands = %Texinfo::Commands::nobrace_commands;
 foreach my $command ('item', 'headitem', 'tab',
    keys(%docbook_no_arg_commands_formatting)) {
-  delete $docbook_nobrace_commands{$command};
+  delete $docbook_ignored_nobrace_commands{$command};
 }
 
 my %docbook_line_commands = %Texinfo::Commands::line_commands;
@@ -222,17 +222,24 @@ foreach my $block_command ('copying', 'titlepage', 'documentdescription',
   $ignored_block_commands{$block_command} = 1;
 }
 
-my %ignored_types;
-foreach my $type (
+my %ignored_text_types;
+foreach my $text_type (
             'ignorable_spaces_after_command',
             'spaces_after_close_brace',
             'spaces_before_paragraph',
+            'spaces_at_end',
+  ) {
+  $ignored_text_types{$text_type} = 1;
+}
+
+my %ignored_types;
+foreach my $type (
             'menu_entry_leading_text',
             'menu_entry_separator',
             'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
-            'spaces_at_end', 'arguments_line',
+            'arguments_line',
   ) {
   $ignored_types{$type} = 1;
 }
@@ -795,13 +802,15 @@ sub _convert($$;$)
   my $self = shift;
   my $element = shift;
 
+  my $e_type = $element->{'type'};
+
   my $debug_element_nr;
   #if (1) {
   if (0) { # verbose even for debugging
     $debug_element_nr = $debug_global_element_nr++;
     print STDERR "element $debug_element_nr";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
-    print STDERR " type: $element->{'type'}" if ($element->{'type'});
+    print STDERR " type: $e_type" if (defined($e_type));
     my $text = $element->{'text'};
     if (defined($text)) {
       $text =~ s/\n/\\n/;
@@ -810,33 +819,38 @@ sub _convert($$;$)
     print STDERR "\n";
   }
 
-  return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
-  my $result = '';
   if (defined($element->{'text'})) {
-    if (defined($element->{'type'}) and $element->{'type'} eq '_converted') {
-      return $element->{'text'};
+    return ''
+      if (defined($e_type) and $ignored_text_types{$e_type});
+
+    my $text = $element->{'text'};
+    if (defined($e_type) and $e_type eq '_converted') {
+      return $text;
     } elsif ($self->{'document_context'}->[-1]->{'raw'}) {
-      return $element->{'text'};
+      return $text;
     }
-    $result = $element->{'text'};
+
+    my $result_text = $text;
     if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]) {
-      $result = uc($result);
+      $result_text = uc($result_text);
     }
     if ($self->{'document_context'}->[-1]->{'no_break'}->[-1]) {
-      $result =~ s/\n/ /g;
-      $result =~ s/ +/$nbsp/g;
+      $result_text =~ s/\n/ /g;
+      $result_text =~ s/ +/$nbsp/g;
     }
-    $result = _protect_text($self, $result);
-    if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
-      if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
-        $result = $self->xml_format_text_with_numeric_entities($result);
-      }
+    $result_text = _protect_text($self, $result_text);
+    if (!(defined($e_type) and $e_type eq 'raw')
+        and !$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
+      $result_text
+        = $self->xml_format_text_with_numeric_entities($result_text);
     }
-    #warn "had text `$element->{'text'}', returning $result\n";
-    return $result;
+    #warn "had text `$text', returning $result_text\n";
+    return $result_text;
   }
 
+  return '' if ($e_type and $ignored_types{$e_type});
   #warn " onto main conditional\n";
+  my $result = '';
   my $cmdname;
   my @close_format_elements;
   if (defined($element->{'cmdname'})) {
@@ -916,8 +930,8 @@ sub _convert($$;$)
         $result .= "<entry>";
         push @close_format_elements, 'entry';
       }
-    } elsif ($element->{'type'}
-             and $element->{'type'} eq 'index_entry_command') {
+    } elsif ($e_type
+             and $e_type eq 'index_entry_command') {
       my $end_line;
       if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
         $end_line = $self->format_comment_or_return_end_line($element);
@@ -928,7 +942,7 @@ sub _convert($$;$)
         $end_line = '';
       }
       return _index_entry($self, $element).${end_line};
-    } elsif (exists($docbook_nobrace_commands{$cmdname})) {
+    } elsif (exists($docbook_ignored_nobrace_commands{$cmdname})) {
       return '';
     } elsif (exists($docbook_line_commands{$cmdname})) {
       #warn "  is dbk line command\n";
@@ -1070,7 +1084,7 @@ sub _convert($$;$)
         next if (!defined($def_line_result));
         $result .= $def_line_result;
         return $result;
-      } elsif (exists ($docbook_line_elements_with_arg_map{$cmdname})) {
+      } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
         my ($docbook_element, $attribute_text)
           = _parse_attribute($docbook_line_elements_with_arg_map{$cmdname});
         my ($arg, $end_line)
@@ -1117,8 +1131,8 @@ sub _convert($$;$)
         # ignore all the other line commands
         return '';
       }
-    } elsif ($element->{'type'}
-             and $element->{'type'} eq 'definfoenclose_command') {
+    } elsif ($e_type
+             and $e_type eq 'definfoenclose_command') {
       if ($element->{'contents'}) {
         my $arg_text = _convert($self, $element->{'contents'}->[0]);
         $result .= $arg_text;
@@ -1755,29 +1769,29 @@ sub _convert($$;$)
   #warn " end of cmdname\n";
 
 
-  if ($element->{'type'}) {
+  if ($e_type) {
 
-    if ($container_ignored_if_empty{$element->{'type'}}
+    if ($container_ignored_if_empty{$e_type}
         and !$element->{'contents'}) {
       return $result;
     }
 
-    #warn " have type $element->{'type'}\n";
-    if (exists($docbook_preformatted_formats{$element->{'type'}})) {
+    #warn " have type $e_type\n";
+    if (exists($docbook_preformatted_formats{$e_type})) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}},
-         $docbook_preformatted_formats{$element->{'type'}};
+         $docbook_preformatted_formats{$e_type};
     }
-    if (defined($type_elements{$element->{'type'}})) {
-      $result .= "<$type_elements{$element->{'type'}}>";
-    } elsif ($element->{'type'} eq 'preformatted') {
+    if (defined($type_elements{$e_type})) {
+      $result .= "<$type_elements{$e_type}>";
+    } elsif ($e_type eq 'preformatted') {
       $result .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
       $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
-    } elsif ($element->{'type'} eq 'def_line') {
+    } elsif ($e_type eq 'def_line') {
       my $def_line_result = _convert_def_line($self, $element);
       next if (!defined($def_line_result));
       $result .= $def_line_result;
       return $result;
-    } elsif ($element->{'type'} eq 'table_term') {
+    } elsif ($e_type eq 'table_term') {
       # should be closed by the @item.  Allows to have the index entries in
       # term, which is better than out.
       $result .= "<term>";
@@ -1800,9 +1814,9 @@ sub _convert($$;$)
     if (defined($self->{'pending_prepend'})
         # not restricted enough, includes line_args, for instance
         #and Texinfo::Common::element_is_inline($element, 1)) {
-        and $element->{'type'}
-        and ($element->{'type'} eq 'paragraph'
-             or $element->{'type'} eq 'preformatted')) {
+        and $e_type
+        and ($e_type eq 'paragraph'
+             or $e_type eq 'preformatted')) {
       $result .= $self->{'pending_prepend'};
       delete $self->{'pending_prepend'};
     }
@@ -1817,10 +1831,10 @@ sub _convert($$;$)
       if ($in_code);
   }
 
-  if ($element->{'type'}) {
-    if (defined($type_elements{$element->{'type'}})) {
-      $result .= "</$type_elements{$element->{'type'}}>";
-    } elsif ($element->{'type'} eq 'preformatted') {
+  if ($e_type) {
+    if (defined($type_elements{$e_type})) {
+      $result .= "</$type_elements{$e_type}>";
+    } elsif ($e_type eq 'preformatted') {
       $result .= "</$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
       delete $self->{'document_context'}->[-1]->{'in_preformatted'};
     }
@@ -1844,11 +1858,11 @@ sub _convert($$;$)
       pop @{$self->{'document_context'}};
     }
 
-  } elsif ($element->{'type'}
-           and exists($docbook_preformatted_formats{$element->{'type'}})) {
+  } elsif ($e_type
+           and exists($docbook_preformatted_formats{$e_type})) {
     my $format = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
-    die "BUG $format ne $docbook_preformatted_formats{$element->{'type'}}"
-      if ($format ne $docbook_preformatted_formats{$element->{'type'}});
+    die "BUG $format ne $docbook_preformatted_formats{$e_type}"
+      if ($format ne $docbook_preformatted_formats{$e_type});
   # close sectioning command
   } elsif ($cmdname and $cmdname ne 'node'
            and $Texinfo::Commands::root_commands{$cmdname}) {
@@ -1882,7 +1896,7 @@ sub _convert($$;$)
         pop @{$self->{'lang_stack'}};
       }
     }
-  } elsif ($element->{'type'} and $element->{'type'} eq 'before_node_section'
+  } elsif ($e_type and $e_type eq 'before_node_section'
            and !$self->get_conf('_DOCBOOK_PIECE')) {
     # ignore text before the first @node or sectioning command
     # as DocBook does not allow content not within some semantic
