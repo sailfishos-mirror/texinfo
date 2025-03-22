@@ -1,3 +1,8 @@
+2025-03-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\nolig): Fix \ifluatex conditional which
+	was the wrong way around.  Report from Werner.
+
 2025-03-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/extra.c (lookup_extra_*): always use lookup_extra.

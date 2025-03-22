@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-03-02.20}
+\def\texinfoversion{2025-03-22.08}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -10766,12 +10766,12 @@ directory should work if nowhere else does.}
 
 % Suppress ligature creation from adjacent characters.
 \ifluatex
-  \def\nolig{{}}
-\else
   % Braces do not suppress ligature creation in LuaTeX, e.g. in of{}fice
   % to suppress the "ff" ligature.  Using a kern appears to be the only
   % workaround.
   \def\nolig{\kern0pt{}}
+\else
+  \def\nolig{{}}
 \fi
 
 % https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_M
