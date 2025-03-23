@@ -837,7 +837,7 @@ sub multitable_columnfractions($)
   my $arguments_line = $multitable->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
   my $columnfractions;
-  if ($block_line_arg->{'contents'} and $block_line_arg->{'contents'}->[0]
+  if ($block_line_arg->{'contents'}
       and $block_line_arg->{'contents'}->[0]->{'cmdname'}
       and $block_line_arg->{'contents'}->[0]->{'cmdname'}
                                               eq 'columnfractions') {

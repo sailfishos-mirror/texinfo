@@ -3555,7 +3555,10 @@ sub _convert($$)
               } elsif ($section_command) {
                 # arguments_line type element
                 my $arguments_line = $section_command->{'contents'}->[0];
-                $name = $arguments_line->{'contents'}->[0];
+                # there may not be any argument at all for xrefname
+                if ($arguments_line->{'contents'}) {
+                  $name = $arguments_line->{'contents'}->[0];
+                }
               }
             }
             if (!defined($name)) {

@@ -4224,6 +4224,7 @@ sub _end_line_starting_block($$$)
       $max_column = scalar(@{$columnfractions->{'extra'}->{'misc_args'}});
     }
 
+    $multitable->{'extra'} = {} if (!$multitable->{'extra'});
     $multitable->{'extra'}->{'max_columns'} = $max_column;
   } elsif ($command eq 'multitable') {
     my $multitable = $current->{'parent'}->{'parent'};

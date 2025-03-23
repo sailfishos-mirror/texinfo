@@ -268,8 +268,9 @@ sub translate_string($$;$)
     $translation_cache_context{$string} = {}
       if !defined($translation_cache_context{$string});
     $translation_cache_context{$string}->{$translation_context} = {}
-      if !defined($translation_cache{$string}->{$translation_context});
-    $translation_cache{$string}->{$translation_context}->{$lang} = $translated_string;
+      if !defined($translation_cache_context{$string}->{$translation_context});
+    $translation_cache_context{$string}->{$translation_context}->{$lang}
+      = $translated_string;
   }
   #print STDERR "_GDT '$string' '$translated_string'\n";
   return $translated_string;

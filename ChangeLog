@@ -1,5 +1,17 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Translations.pm (translate_string): use
+	translation_cache_context hash.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block): avoid
+	spurious autovivification.
+
+	* tta/perl/Texinfo/Common.pm (multitable_columnfractions): remove
+	useless condition.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	Get columnfractions from the tree, remove from extra information
 
 	* tta/C/parsetexi/end_line.c (end_line_starting_block),
