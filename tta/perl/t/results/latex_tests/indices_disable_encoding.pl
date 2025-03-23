@@ -190,7 +190,6 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
-  |seealso:[E22]
   |subentry:[E17]
    *line_arg C7
    |INFO

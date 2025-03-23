@@ -6658,28 +6658,15 @@ sub _handle_close_brace($$$)
                           "command \@%s does not accept arguments"),
                                $closed_cmdname), $source_info);
       }
-    } elsif ($in_index_commands{$closed_cmdname}) {
-
+    } elsif ($closed_cmdname eq 'sortas') {
       my $subindex_element = $brace_command->{'parent'}->{'parent'};
       if ($subindex_element
           and _is_index_element($self, $subindex_element)) {
-        if ($closed_cmdname eq 'sortas') {
-          my ($arg, $superfluous_arg) = _text_contents_to_plain_text($current);
-          if (defined($arg)) {
-            $subindex_element->{'extra'} = {}
-              if (!defined($subindex_element->{'extra'}));
-            $subindex_element->{'extra'}->{$closed_cmdname} = $arg;
-          }
-        } else {
-          my $index_element = $subindex_element;
-          while ($index_element->{'cmdname'} eq 'subentry'
-                 and $index_element->{'extra'}
-                 and $index_element->{'extra'}->{'subentry_parent'}) {
-            $index_element = $index_element->{'extra'}->{'subentry_parent'};
-          }
-          $index_element->{'extra'} = {}
-            if (!defined($index_element->{'extra'}));
-          $index_element->{'extra'}->{$closed_cmdname} = $brace_command;
+        my ($arg, $superfluous_arg) = _text_contents_to_plain_text($current);
+        if (defined($arg)) {
+          $subindex_element->{'extra'} = {}
+            if (!defined($subindex_element->{'extra'}));
+          $subindex_element->{'extra'}->{$closed_cmdname} = $arg;
         }
       }
     }

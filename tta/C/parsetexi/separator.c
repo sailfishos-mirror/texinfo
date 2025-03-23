@@ -534,9 +534,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
             line_warn ("command @%s does not accept arguments",
                        command_name(closed_cmd));
         }
-      else if (closed_cmd == CM_sortas
-               || closed_cmd == CM_seeentry
-               || closed_cmd == CM_seealso)
+      else if (closed_cmd == CM_sortas)
         {
           ELEMENT *subindex_elt;
           if (current->parent->parent
@@ -545,38 +543,13 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                     & CF_index_entry_command)
                   || current->parent->parent->parent->e.c->cmd == CM_subentry))
             {
+              int superfluous_arg;
+              char *arg = text_contents_to_plain_text (current,
+                                                       &superfluous_arg);
               subindex_elt = current->parent->parent->parent;
-              if (closed_cmd == CM_sortas)
+              if (arg && *arg)
                 {
-                  int superfluous_arg;
-                  char *arg = text_contents_to_plain_text (current,
-                                                           &superfluous_arg);
-                  if (arg && *arg)
-                    {
-                      add_extra_string (subindex_elt, AI_key_sortas, arg);
-                    }
-                }
-              else
-                {
-                  ELEMENT *index_elt = subindex_elt;
-                  while (index_elt->e.c->cmd == CM_subentry)
-                    {
-            /* cast to remove const, as the element is modified, since an extra
-               element is added */
-                      ELEMENT *subentry_parent
-                        = (ELEMENT *) lookup_extra_element (index_elt,
-                                                AI_key_subentry_parent);
-                      if (!subentry_parent)
-                        break;
-                      else
-                        index_elt = subentry_parent;
-                    }
-                  if (closed_cmd == CM_seeentry)
-                    add_extra_element (index_elt, AI_key_seeentry,
-                                       brace_command);
-                  else
-                    add_extra_element (index_elt, AI_key_seealso,
-                                       brace_command);
+                  add_extra_string (subindex_elt, AI_key_sortas, arg);
                 }
             }
         }

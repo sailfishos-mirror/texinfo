@@ -1,5 +1,15 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	Remove seeentry and seealso extra information
+
+	* tta/C/parsetexi/separator.c (handle_close_brace),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_close_brace): do not set
+	seealso and seeentry extra information for index entry nor subentry.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST): remove seealso and seeentry.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	Get seeentry and seealso from the tree and not from extra information
 
 	* tta/C/main/utils.c (index_entry_referred_entry),

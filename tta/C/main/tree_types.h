@@ -121,8 +121,6 @@ enum directions {
   ai_key(part_associated_section, element) \
   ai_key(part_following_node, element) \
   ai_key(shortcaption, element) \
-  ai_key(seealso, element) \
-  ai_key(seeentry, element) \
   ai_key(subentry, element) \
   ai_key(subentry_parent, element) \
   \
