@@ -121,13 +121,11 @@ enum directions {
   ai_key(node_preceding_part, element) \
   ai_key(part_associated_section, element) \
   ai_key(part_following_node, element) \
-  ai_key(quotation, element) \
   ai_key(shortcaption, element) \
   ai_key(seealso, element) \
   ai_key(seeentry, element) \
   ai_key(subentry, element) \
   ai_key(subentry_parent, element) \
-  ai_key(titlepage, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \
@@ -136,7 +134,6 @@ enum directions {
   ai_key(manual_content, container) \
   ai_key(node_content, container) \
   \
-  ai_key(authors, contents) \
   ai_key(menus, contents) \
   ai_key(section_childs, contents) \
   \

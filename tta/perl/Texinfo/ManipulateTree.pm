@@ -188,7 +188,7 @@ sub _copy_tree($;$)
       if (ref($value) eq '') {
         $new->{$info_type}->{$key} = $value;
       } elsif (ref($value) eq 'ARRAY') {
-        # authors menus
+        # menus
         if (ref($value->[0]) eq 'HASH') {
           #print STDERR "II ARRAY $key $value\n";
           if ($other_trees) {
@@ -289,7 +289,7 @@ sub _remove_element_copy_info($;$$)
         if (ref($value->[0]) eq 'HASH') {
         #print STDERR (' ' x $level) .
         #           "Array $command_or_type $info_type -> $key\n";
-          # authors manual_content menus node_content
+          # manual_content menus node_content
           for (my $index = 0; $index < scalar(@{$value}); $index++) {
             #my $context = "$info_type [$command_or_type]{$key} [$index]";
             _remove_element_copy_info($value->[$index], $level,
@@ -670,7 +670,7 @@ sub _print_element_associated_info($$$$$;$$)
   #'misc_args' array of strings
   #'node_content' 'node_manual' special
   #'index_entry'} = [$index_name, $number]
-  #'authors' 'menus' array of elements
+  #'menus' array of elements
   return ($current_nr, $result);
 }
 

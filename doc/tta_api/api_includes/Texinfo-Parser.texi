@@ -33,9 +33,8 @@ Texinfo to other formats.  There is no promise of API stability.
 @code{Texinfo::Parser} will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @@-commands, conditionals (@code{@@ifset}, @code{@@ifinfo}...)
 and @code{@@value} and constructs the tree.  Some extra information is gathered
-while doing the tree: for example, the @code{@@quotation} associated to an @code{@@author}
-command, the number of columns in a multitable, or the node associated with a
-section.
+while doing the tree: for example the number of columns in a multitable,
+or the node associated with a section.
 
 @node Texinfo@asis{::}Parser METHODS
 @section Texinfo::Parser METHODS
@@ -1174,16 +1173,6 @@ The first argument normalized is in @emph{normalized}.
 the normalized label, built as specified in the Texinfo documentation in the
 @emph{HTML Xref} node.  There is also a @emph{node_content} key for an element holding
 the corresponding content.
-
-@item @code{@@author}
-@anchor{Texinfo@asis{::}Parser @code{@@author}}
-
-If in a @code{@@titlepage}, the titlepage is in @emph{titlepage}, if in
-@code{@@quotation} or @code{@@smallquotation}, the corresponding tree element
-is in @emph{quotation}.
-
-The author tree element is in the @emph{authors} array of the @code{@@titlepage}
-or the @code{@@quotation} or @code{@@smallquotation} it is associated with.
 
 @item @code{@@click}
 @anchor{Texinfo@asis{::}Parser @code{@@click}}

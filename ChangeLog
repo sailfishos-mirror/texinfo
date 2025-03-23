@@ -1,5 +1,12 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/tree_types.h (AI_KEYS_LIST): remove quotation, titlepage
+	and authors.
+
+	Update Pod documentation.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	Remove extra titlepage, quotation and authors information
 
 	* tta/C/parsetexi/handle_commands.c (handle_line_command),

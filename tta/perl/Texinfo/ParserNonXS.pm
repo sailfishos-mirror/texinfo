@@ -8387,9 +8387,8 @@ Texinfo to other formats.  There is no promise of API stability.
 C<Texinfo::Parser> will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @-commands, conditionals (C<@ifset>, C<@ifinfo>...)
 and C<@value> and constructs the tree.  Some extra information is gathered
-while doing the tree: for example, the C<@quotation> associated to an C<@author>
-command, the number of columns in a multitable, or the node associated with a
-section.
+while doing the tree: for example the number of columns in a multitable,
+or the node associated with a section.
 
 =head1 METHODS
 
@@ -9380,15 +9379,6 @@ The first argument normalized is in I<normalized>.
 the normalized label, built as specified in the Texinfo documentation in the
 I<HTML Xref> node.  There is also a I<node_content> key for an element holding
 the corresponding content.
-
-=item C<@author>
-
-If in a C<@titlepage>, the titlepage is in I<titlepage>, if in
-C<@quotation> or C<@smallquotation>, the corresponding tree element
-is in I<quotation>.
-
-The author tree element is in the I<authors> array of the C<@titlepage>
-or the C<@quotation> or C<@smallquotation> it is associated with.
 
 =item C<@click>
 
