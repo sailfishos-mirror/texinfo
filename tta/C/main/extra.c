@@ -295,8 +295,6 @@ lookup_extra_element_oot (const ELEMENT *e, enum ai_key_name key)
 ELEMENT *
 lookup_extra_container (const ELEMENT *e, enum ai_key_name key)
 {
-  enum extra_type k_type = ai_key_types[key];
-
   if (check_key_type_or_abort (key, extra_container, "lookup_extra_container"))
     {
       const KEY_PAIR *k = lookup_extra (e, key);

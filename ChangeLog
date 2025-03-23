@@ -1,3 +1,7 @@
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/extra.c (lookup_extra_container): remove unused variable.
+
 2025-03-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/DocBook.pm
