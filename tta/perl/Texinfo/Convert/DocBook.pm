@@ -648,8 +648,10 @@ sub _index_entry($$)
     $result .= _convert($self, Texinfo::Common::index_content_element($element));
     $result .= "</primary>";
 
+    my $entry_element = $index_entry->{'entry_element'};
+
     # Add any index subentries.
-    my $tmp = $index_entry->{'entry_element'};
+    my $tmp = $entry_element;
     my $level = "secondary";
     while ($tmp->{'extra'}->{'subentry'}) {
       $result .= "<$level>";
@@ -658,17 +660,20 @@ sub _index_entry($$)
       $result .= "</$level>";
       $level = "tertiary";
     }
-    if ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}) {
+    my $seeentry
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                    'seeentry');
+    if ($seeentry) {
       $result .= "<see>";
-      # args is set as the extra information is added when closing braces
-      $result .= _convert($self, $index_entry->{'entry_element'}
-                               ->{'extra'}->{'seeentry'}->{'contents'}->[0]);
+      $result .= _convert($self, $seeentry->{'contents'}->[0]);
       $result .= "</see>";
     }
-    if ($index_entry->{'entry_element'}->{'extra'}->{'seealso'}) {
+    my $seealso
+      = Texinfo::Common::index_entry_referred_entry($entry_element,
+                                                    'seealso');
+    if ($seealso) {
       $result .= "<seealso>";
-      $result .= _convert($self, $index_entry->{'entry_element'}
-                           ->{'extra'}->{'seealso'}->{'contents'}->[0]);
+      $result .= _convert($self, $seealso->{'contents'}->[0]);
       $result .= "</seealso>";
     }
 

@@ -1,5 +1,25 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	Get seeentry and seealso from the tree and not from extra information
+
+	* tta/C/main/utils.c (index_entry_referred_entry),
+	tta/perl/Texinfo/Common.pm (index_entry_referred_entry): add to find
+	seeentry or seealso associated to an index element.
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command)
+	(html_output_internal_links), tta/C/convert/html_prepare_converter.c
+	(prepare_index_entries_targets), tta/perl/Texinfo/Convert/DocBook.pm
+	(_index_entry), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_printindex_command, _prepare_index_entries_targets)
+	(output_internal_links), tta/perl/Texinfo/Convert/LaTeX.pm
+	(_index_entry), tta/perl/Texinfo/Convert/Plaintext.pm
+	(process_printindex), tta/perl/init/chm.pm (chm_init): use
+	index_entry_referred_entry to find seeentry and seealso instead of
+	extra information.  Update code to be more similar in C and Perl and
+	in different functions.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (translate_string): use
 	translation_cache_context hash.
 

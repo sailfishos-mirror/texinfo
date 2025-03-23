@@ -1833,9 +1833,18 @@ sub process_printindex($$;$)
   foreach my $entry (@{$index_entries->{$index_name}}) {
     my $main_entry_element = $entry->{'entry_element'};
 
-    if ($main_entry_element->{'extra'}
-         and ($main_entry_element->{'extra'}->{'seeentry'}
-              or $main_entry_element->{'extra'}->{'seealso'})) {
+    my $seeentry
+     = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                   'seeentry');
+    if ($seeentry) {
+      $reference_entries_nr++;
+      next;
+    }
+
+    my $seealso
+     = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                   'seealso');
+    if ($seealso) {
       $reference_entries_nr++;
       next;
     }
@@ -1939,19 +1948,20 @@ sub process_printindex($$;$)
 
     next if ($entry_text !~ /\S/);
 
-    if ($main_entry_element->{'extra'}
-         and ($main_entry_element->{'extra'}->{'seeentry'}
-              or $main_entry_element->{'extra'}->{'seealso'})) {
-      my $line_width = 0;
-      my $referred_entry;
-      my $seeentry = 1;
-      if ($main_entry_element->{'extra'}->{'seeentry'}) {
-        $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
-      } else {
-        $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
-        $seeentry = 0;
-      }
+    my $referred_entry;
+    my $seeentry
+     = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                   'seeentry');
+    if ($seeentry) {
+      $referred_entry = $seeentry;
+    } else {
+      $referred_entry
+        = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                      'seealso');
+    }
 
+    if ($referred_entry) {
+      my $line_width = 0;
       my $referred_tree = {};
       $referred_tree->{'type'} = '_code'
         if ($indices_information->{$entry_index_name}->{'in_code'});

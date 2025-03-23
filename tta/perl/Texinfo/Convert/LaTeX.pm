@@ -2578,13 +2578,15 @@ sub _index_entry($$)
     }
     my $seeresult = '';
     foreach my $seecommand (('seeentry', 'seealso')) {
-      if ($element->{'extra'}->{$seecommand}
-          and $element->{'extra'}->{$seecommand}->{'contents'}->[0]) {
-        my $seeconverted = _convert($self,
-                 $element->{'extra'}->{$seecommand}->{'contents'}->[0]);
+      my $referred_element
+        = Texinfo::Common::index_entry_referred_entry($element,
+                                                      $seecommand);
+      if ($referred_element) {
+        my $seeconverted
+          = _convert($self, $referred_element->{'contents'}->[0]);
         $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
-                   .$seeconverted.'}';
-         last;
+                        .$seeconverted.'}';
+        last;
       }
     }
     _pop_context($self);

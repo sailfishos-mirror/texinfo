@@ -1808,6 +1808,32 @@ multitable_columnfractions (const ELEMENT *multitable)
   return columnfractions;
 }
 
+const ELEMENT *
+index_entry_referred_entry (const ELEMENT *element, enum command_id cmd)
+{
+  const ELEMENT *line_arg = element->e.c->contents.list[0];
+  const ELEMENT *subentry;
+
+  if (line_arg->e.c->contents.number)
+    {
+      size_t i;
+      for (i = 0; i < line_arg->e.c->contents.number; i++)
+        {
+          const ELEMENT *content = line_arg->e.c->contents.list[i];
+          if (!(type_data[content->type].flags & TF_text)
+              && content->e.c->cmd == cmd
+              && content->e.c->contents.number > 0)
+            return content;
+        }
+    }
+
+  subentry = lookup_extra_element (element, AI_key_subentry);
+  if (subentry)
+    return index_entry_referred_entry (subentry, cmd);
+
+  return 0;
+}
+
 
 
 /* code related to values used in files not in parsetexi */

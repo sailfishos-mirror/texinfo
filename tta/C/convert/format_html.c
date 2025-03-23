@@ -10078,8 +10078,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           char *multiple_pass_str;
           size_t entry_index_nr;
           const INDEX *entry_index;
+          const ELEMENT *referred_entry;
           const ELEMENT *seeentry;
-          const ELEMENT *seealso;
           char *new_normalized_entry_levels[SUBENTRIES_MAX_LEVEL +1];
           ELEMENT *entry_trees[SUBENTRIES_MAX_LEVEL +1];
           int last_entry_level;
@@ -10147,8 +10147,13 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           add_to_contents_as_array (entry_ref_tree, entry_content_element);
 
           /* index entry with @seeentry or @seealso */
-          seeentry = lookup_extra_element (main_entry_element, AI_key_seeentry);
-          seealso = lookup_extra_element (main_entry_element, AI_key_seealso);
+          seeentry
+            = index_entry_referred_entry (main_entry_element, CM_seeentry);
+          if (seeentry)
+            referred_entry = seeentry;
+          else
+            referred_entry
+              = index_entry_referred_entry (main_entry_element, CM_seealso);
 
           memset (entry_trees, 0, sizeof (ELEMENT *) * SUBENTRIES_MAX_LEVEL);
 
@@ -10294,19 +10299,13 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
          with an hyperlink or to seeentry/seealso */
           entry_tree = entry_trees[last_entry_level];
 
-          if (seeentry || seealso)
+          if (referred_entry)
             {
               NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
               ELEMENT *referred_tree;
-              const ELEMENT *referred_entry;
               char *entry;
               char *reference = 0;
-
-              if (seeentry)
-                referred_entry = seeentry;
-              else
-                referred_entry = seealso;
 
               if (in_code)
                 referred_tree = new_element (ET__code);
@@ -13332,12 +13331,12 @@ html_output_internal_links (CONVERTER *self)
                   ELEMENT *entry_ref_tree;
                   ELEMENT_LIST *subentries_tree;
 
-                  seeentry = lookup_extra_element (main_entry_element,
-                                               AI_key_seeentry);
+                  seeentry = index_entry_referred_entry (main_entry_element,
+                                                         CM_seeentry);
                   if (seeentry)
                     continue;
-                  seealso = lookup_extra_element (main_entry_element,
-                                              AI_key_seealso);
+                  seealso = index_entry_referred_entry (main_entry_element,
+                                                        CM_seealso);
                   if (seealso)
                     continue;
 

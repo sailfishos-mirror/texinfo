@@ -4661,12 +4661,12 @@ prepare_index_entries_targets (CONVERTER *self)
 
               index_entry = &idx->index_entries[j];
               main_entry_element = index_entry->entry_element;
-              seeentry = lookup_extra_element (main_entry_element,
-                                               AI_key_seeentry);
+              seeentry = index_entry_referred_entry (main_entry_element,
+                                                     CM_seeentry);
               if (seeentry)
                 continue;
-              seealso = lookup_extra_element (main_entry_element,
-                                              AI_key_seealso);
+              seealso = index_entry_referred_entry (main_entry_element,
+                                                    CM_seealso);
               if (seealso)
                 continue;
 

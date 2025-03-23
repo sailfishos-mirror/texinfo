@@ -218,6 +218,8 @@ char *locate_file_in_dirs (const char *filename,
                      DEPRECATED_DIRS_LIST *deprecated_dirs_used);
 
 ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
+const ELEMENT *index_entry_referred_entry (const ELEMENT *element,
+                                           enum command_id cmd);
 
 DEPRECATED_DIR_INFO *find_deprecated_dir_info (
                           const DEPRECATED_DIRS_LIST *deprecated_dirs,

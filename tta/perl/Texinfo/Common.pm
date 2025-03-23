@@ -847,6 +847,33 @@ sub multitable_columnfractions($)
   return $columnfractions;
 }
 
+sub index_entry_referred_entry($$);
+
+# TODO document
+# Used in converters
+sub index_entry_referred_entry($$)
+{
+  my $element = shift;
+  my $referred_cmdname = shift;
+
+  my $line_arg = $element->{'contents'}->[0];
+
+  if ($line_arg->{'contents'}) {
+    foreach my $content (@{$line_arg->{'contents'}}) {
+      if ($content->{'cmdname'}
+          and $content->{'cmdname'} eq $referred_cmdname
+          and $content->{'contents'}) {
+        return $content;
+      }
+    }
+  }
+  if ($element->{'extra'} and $element->{'extra'}->{'subentry'}) {
+    return index_entry_referred_entry($element->{'extra'}->{'subentry'},
+                                      $referred_cmdname);
+  }
+  return undef;
+}
+
 # Used in main program, tests and HTML Converter.
 # TODO document?
 #

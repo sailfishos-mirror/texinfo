@@ -6513,18 +6513,20 @@ sub _convert_printindex_command($$$$)
       # with an hyperlink or to seeentry/seealso
       my $entry_tree = $entry_trees[$last_entry_level];
 
+      my $referred_entry;
+      my $seeentry
+        = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                      'seeentry');
+      if ($seeentry) {
+        $referred_entry = $seeentry;
+      } else {
+        $referred_entry
+          = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                        'seealso');
+      }
+
       # index entry with @seeentry or @seealso
-      if ($main_entry_element->{'extra'}
-            and ($main_entry_element->{'extra'}->{'seeentry'}
-              or $main_entry_element->{'extra'}->{'seealso'})) {
-        my $referred_entry;
-        my $seeentry = 1;
-        if ($main_entry_element->{'extra'}->{'seeentry'}) {
-          $referred_entry = $main_entry_element->{'extra'}->{'seeentry'};
-        } else {
-          $referred_entry = $main_entry_element->{'extra'}->{'seealso'};
-          $seeentry = 0;
-        }
+      if ($referred_entry) {
         my $referred_tree = {};
         $referred_tree->{'type'} = '_code' if ($in_code);
         if ($referred_entry->{'contents'}
@@ -10950,9 +10952,15 @@ sub _prepare_index_entries_targets($)
                                                     ->{'index_entries'}}) {
         my $main_entry_element = $index_entry->{'entry_element'};
         # does not refer to the document
-        next if ($main_entry_element->{'extra'}
-                 and ($main_entry_element->{'extra'}->{'seeentry'}
-                      or $main_entry_element->{'extra'}->{'seealso'}));
+        my $seeentry
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seeentry');
+        next if ($seeentry);
+        my $seealso
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seealso');
+        next if ($seealso);
+
         my $region = '';
         $region = "$main_entry_element->{'extra'}->{'element_region'}-"
           if (defined($main_entry_element->{'extra'}->{'element_region'}));
@@ -12937,9 +12945,15 @@ sub output_internal_links($)
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $main_entry_element = $index_entry->{'entry_element'};
           # does not refer to the document
-          next if ($main_entry_element->{'extra'}
-                   and ($main_entry_element->{'extra'}->{'seeentry'}
-                        or $main_entry_element->{'extra'}->{'seealso'}));
+          my $seeentry
+            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                          'seeentry');
+          next if ($seeentry);
+          my $seealso
+            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                          'seealso');
+          next if ($seealso);
+
           my $href;
           $href = $self->command_href($main_entry_element, '');
           # Obtain term by converting to text

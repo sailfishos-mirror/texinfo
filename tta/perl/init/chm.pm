@@ -259,9 +259,15 @@ sub chm_init($)
         my $main_entry_element = $index_entry_ref->{'entry_element'};
         my $entry_index_name = $index_entry_ref->{'index_name'};
         # do not register index entries that do not point to the document
-        next if ($main_entry_element->{'extra'}
-                 and ($main_entry_element->{'extra'}->{'seeentry'}
-                      or $main_entry_element->{'extra'}->{'seealso'}));
+        my $seeentry
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seeentry');
+        next if ($seeentry);
+        my $seealso
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seealso');
+        next if ($seealso);
+
         my $origin_href = $self->command_href($main_entry_element, '');
         my $entry_content_element
               = Texinfo::Common::index_content_element($main_entry_element);
