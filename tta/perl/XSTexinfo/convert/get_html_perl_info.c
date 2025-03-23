@@ -57,9 +57,11 @@
 /* html_set_main_units_direction_names */
 #include "html_conversion_api.h"
 /* html_special_unit_variety_direction_index html_get_target
-   find_footnote_id_number
+   find_footnote_id_number open_quotation_titlepage_stack
  */
 #include "format_html.h"
+/* destroy_element_reference_stack */
+#include "command_stack.h"
 #include "get_perl_info.h"
 /* for newSVpv_utf8 */
 #include "build_perl_info.h"
@@ -1839,6 +1841,37 @@ find_node_target_info_nodedescription_sv (CONVERTER *converter,
   return 0;
 }
 
+static ELEMENT_REFERENCE_STACK *
+get_authors_list (CONVERTER *converter, SV *sv_in, int warn)
+{
+  size_t quotation_titlepage_nr;
+  ELEMENT_REFERENCE_STACK_STACK *elements_authors;
+
+  dTHX;
+
+  quotation_titlepage_nr = (size_t) SvIV (sv_in);
+  elements_authors
+    = &converter->shared_conversion_state.elements_authors;
+  if (quotation_titlepage_nr != elements_authors->top)
+    {
+      fprintf (stderr,
+        "BUG: quotation_titlepage_nr %zu != elements_authors->top %zu\n",
+               quotation_titlepage_nr, elements_authors->top);
+    }
+  else
+    {
+      ELEMENT_REFERENCE_STACK *authors
+        = elements_authors->stack[elements_authors->top -1];
+      if (!authors && warn)
+        fprintf (stderr,
+          "BUG: quotation_titlepage_nr %zu NULL authors list\n",
+               quotation_titlepage_nr);
+      else
+        return authors;
+    }
+  return 0;
+}
+
 /* This function could be in a build* file as it builds perl data.
    However, since it has a lot of code and logic in common with the
    associated get function below, it is kept here. */
@@ -1929,6 +1962,87 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
             }
         }
     }
+  else if (!strcmp (state_name, "quotation_titlepage_stack"))
+    {
+      size_t quotation_titlepage_nr = (size_t) SvIV (args_sv[0]);
+      ELEMENT_REFERENCE_STACK_STACK *elements_authors
+        = &converter->shared_conversion_state.elements_authors;
+
+      /* difference should only be 1 */
+      while (quotation_titlepage_nr < elements_authors->top)
+        {
+          ELEMENT_REFERENCE_STACK *authors
+            = elements_authors->stack[elements_authors->top -1];
+          if (authors)
+            {
+              destroy_element_reference_stack (authors);
+              elements_authors->stack[elements_authors->top -1] = 0;
+            }
+          elements_authors->top--;
+        }
+      while (quotation_titlepage_nr > elements_authors->top)
+        open_quotation_titlepage_stack (converter, 0);
+    }
+  else if (!strcmp (state_name, "element_authors_number"))
+    {
+      ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
+                                                      args_sv[0], 0);
+      int author_nr = SvIV (args_sv[1]);
+
+      if (author_nr < 0)
+        {
+          if (authors)
+            fprintf (stderr, "BUG: negative element_authors_number"
+                              " unexpected authors list\n");
+        }
+      else
+        {
+          if (author_nr == 0)
+            {
+              if (authors)
+                fprintf (stderr, "BUG: 0 element_authors_number"
+                              " unexpected authors list\n");
+              else
+                {
+                  ELEMENT_REFERENCE_STACK_STACK *elements_authors
+                    = &converter->shared_conversion_state.elements_authors;
+                  elements_authors->stack[elements_authors->top -1]
+                    = new_element_reference_stack ();
+                }
+            }
+          else
+            {
+              /* do not do anything, there should have been
+                 elements_authors set just before */
+              /* unlikely integer overflow */
+              if ((size_t) author_nr != authors->top)
+                fprintf (stderr, "BUG: unexpected element_authors_number"
+                                 "%d != %zu\n", author_nr, authors->top);
+
+            }
+        }
+    }
+  else if (!strcmp (state_name, "elements_authors"))
+    {
+      ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
+                                                      args_sv[0], 1);
+      if (authors)
+        {
+          size_t author_idx = (size_t) SvIV (args_sv[1]);
+          if (author_idx != authors->top)
+            {
+              fprintf (stderr, "BUG: unexpected elements_authors number"
+                                 "%zu != %zu\n", author_idx, authors->top);
+
+            }
+          else
+            {
+              HV *element_hv = (HV *)SvRV (args_sv[2]);
+              push_element_reference_stack_element (authors, 0,
+                                                    (void *) element_hv);
+            }
+        }
+    }
   else if (!strcmp (state_name, "in_skipped_node_top"))
     {
       int in_skipped_node_top = SvIV (args_sv[0]);
@@ -2012,6 +2126,34 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                   else
                     return newSV (0);
                 }
+            }
+        }
+    }
+  else if (!strcmp (state_name, "quotation_titlepage_stack"))
+    return newSViv (converter->shared_conversion_state.elements_authors.top);
+  else if (!strcmp (state_name, "element_authors_number"))
+    {
+      ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
+                                                      args_sv[0], 0);
+      if (!authors)
+        return newSViv (-1);
+      else
+        return newSViv (authors->top);
+    }
+  else if (!strcmp (state_name, "elements_authors"))
+    {
+      ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
+                                                      args_sv[0], 1);
+      if (authors)
+        {
+          size_t author_idx = (size_t) SvIV (args_sv[1]);
+          if (author_idx < authors->top)
+            {
+              ELEMENT_REFERENCE *author = &authors->stack[author_idx];
+              if (author->element)
+                return newRV_inc ((SV *)author->element->hv);
+              else
+                return newRV_inc ((SV *)(HV *)author->hv);
             }
         }
     }

@@ -1934,7 +1934,7 @@ sub _push_new_context($$;$$)
        'context_name' => $context_name,
        'dot_not_end_sentence' => 0,
        'embrac' => [],
-       'in_quotation' => 0,
+       'quotations_authors' => [],
        'in_sectioning_command_heading' => 0,
        'in_skipped_node_top' => 0,
        'in_custom_heading' => 0,
@@ -3911,9 +3911,8 @@ sub _convert($$)
                 $description_command_format;
       }
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
-        # this is only used to avoid @author converted as
-        # a @titlepage author, for a @quotation in @titlepage @author
-        $self->{'formatting_context'}->[-1]->{'in_quotation'} += 1;
+        # to collect quotation authors elements
+        push @{$self->{'formatting_context'}->[-1]->{'quotations_authors'}}, [];
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
@@ -4256,7 +4255,9 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'author') {
-      if (not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
+      my $quotations_authors
+        = $self->{'formatting_context'}->[-1]->{'quotations_authors'};
+      if (not scalar(@$quotations_authors)) {
         if ($element->{'contents'}->[0]->{'contents'}) {
           my $author_name = _convert($self,
               {'contents' => $element->{'contents'}->[0]->{'contents'}});
@@ -4276,6 +4277,8 @@ sub _convert($$)
             $result .= "{\\bfseries $author_name}%\n";
           }
         }
+      } else {
+        push @{$quotations_authors->[-1]}, $element;
       }
       return $result;
     } elsif ($cmdname eq 'vskip') {
@@ -4540,12 +4543,14 @@ sub _convert($$)
       }
     } elsif ($cmdname eq 'quotation'
              or $cmdname eq 'smallquotation') {
-      if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {
+      my $authors
+        = pop @{$self->{'formatting_context'}->[-1]->{'quotations_authors'}};
+      if (scalar(@$authors)) {
         # NOTE when @quotation is in a preformatted environment (@example...),
         # we are not in a preformatted type here, such that the conversion
         # does not take into account the preformatted environment.
         # Probably best.
-        foreach my $author (@{$element->{'extra'}->{'authors'}}) {
+        foreach my $author (@$authors) {
           if ($author->{'contents'}->[0]->{'contents'}) {
             $result .= _convert($self,
                  # TRANSLATORS: quotation author
@@ -4554,7 +4559,6 @@ sub _convert($$)
           }
         }
       }
-      $self->{'formatting_context'}->[-1]->{'in_quotation'} -= 1;
     } elsif ($cmdname eq 'multitable') {
       $result .= '\end{tabular}%'."\n";
     }

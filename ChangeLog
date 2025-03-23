@@ -1,5 +1,48 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	Find author commands in quotation and titlepage in conversion
+
+	* tta/C/main/command_stack.c (new_element_reference_stack)
+	(destroy_element_reference_stack): add.
+
+	* tta/C/convert/format_html.c (open_quotation_titlepage_stack)
+	(html_default_format_titlepage, html_convert_quotation_command)
+	(html_convert_author_command, html_open_quotation_command),
+	tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/main/converter_types.h
+	(ELEMENT_REFERENCE_STACK_STACK, HTML_SHARED_CONVERSION_STATE),
+	tta/perl/Texinfo/Convert/HTML.pm (%default_shared_conversion_states)
+	(_convert_author_command, _convert_quotation_command)
+	(_open_quotation_titlepage_stack, _open_quotation_command)
+	(_default_format_titlepage),
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c (get_authors_list)
+	(html_set_shared_conversion_state, html_get_shared_conversion_state):
+	add shared conversion states to gather authors in quotations or
+	determine that @author is in title page, with a
+	ELEMENT_REFERENCE_STACK_STACK in C and a quotation or titlepage stack
+	index, authors list number and author element in Perl.  Use them in
+	quotation, titlepage and author formatting.  Update XS interface for
+	shared_conversion_state.
+
+	* tta/perl/Texinfo/Convert/Utils.pm (find_element_authors_internal)
+	(find_element_authors): add function to find authors in element body.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (_convert): get
+	quotation_authors by calling
+	Texinfo::Convert::Utils::find_element_authors.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_push_new_context, _convert):
+	replace in_quotation in formatting_context by an array reference,
+	quotations_authors, for quotations, and put an array for authors
+	in quotations_authors to gather quotation authors.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%formatted_line_commands)
+	(push_top_formatter, _convert) : add quotations_authors array
+	reference to document_context to put an arary of author command
+	elements appearing in quotation.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/extra.c (lookup_extra_container): remove unused variable.
 
 2025-03-22  Patrice Dumas  <pertusus@free.fr>

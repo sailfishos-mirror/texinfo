@@ -21,6 +21,7 @@
 #include "tree_types.h"
 /* ELEMENT_STACK */
 #include "document_types.h"
+/* HTML_FORMATTING_CONTEXT HTML_DOCUMENT_CONTEXT */
 #include "converter_types.h"
 /* fatal */
 #include "base_utils.h"
@@ -281,6 +282,22 @@ command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
         }
     }
   return 0;
+}
+
+ELEMENT_REFERENCE_STACK *
+new_element_reference_stack (void)
+{
+  ELEMENT_REFERENCE_STACK *stack = (ELEMENT_REFERENCE_STACK *)
+                   malloc (sizeof (ELEMENT_REFERENCE_STACK));
+  memset (stack, 0, sizeof (ELEMENT_REFERENCE_STACK));
+  return stack;
+}
+
+void
+destroy_element_reference_stack (ELEMENT_REFERENCE_STACK *stack)
+{
+  free (stack->stack);
+  free (stack);
 }
 
 

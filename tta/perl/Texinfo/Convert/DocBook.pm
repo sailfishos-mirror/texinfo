@@ -1708,18 +1708,17 @@ sub _convert($$;$)
         push @format_elements, 'informalequation';
         push @format_elements, 'mathphrase';
       } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
-        my $format_element;
-        if ($element->{'extra'}) {
-          if ($element->{'extra'}->{'authors'}) {
-            foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-              if ($author->{'contents'}->[0]->{'contents'}) {
-                $appended .= '<attribution>'.
-                       _convert($self, $author->{'contents'}->[0])
-                           ."</attribution>\n";
-              }
-            }
+        my $quotation_authors = [];
+        Texinfo::Convert::Utils::find_element_authors($element,
+                                                    $quotation_authors);
+        foreach my $author (@$quotation_authors) {
+          if ($author->{'contents'}->[0]->{'contents'}) {
+            $appended .= '<attribution>'.
+                   _convert($self, $author->{'contents'}->[0])
+                       ."</attribution>\n";
           }
         }
+        my $format_element;
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];

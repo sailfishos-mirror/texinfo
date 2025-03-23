@@ -5652,6 +5652,27 @@ contents_shortcontents_in_title (CONVERTER *self, TEXT *result)
     }
 }
 
+void
+open_quotation_titlepage_stack (CONVERTER *self, int do_authors_list)
+{
+  ELEMENT_REFERENCE_STACK_STACK *stack
+    = &self->shared_conversion_state.elements_authors;
+
+  if (stack->top >= stack->space)
+    {
+      stack->stack
+        = realloc (stack->stack,
+                   (stack->space += 5) * sizeof (ELEMENT_REFERENCE_STACK *));
+    }
+
+  if (do_authors_list)
+    stack->stack[stack->top] = new_element_reference_stack ();
+  else
+    stack->stack[stack->top] = 0;
+
+  stack->top++;
+}
+
 /* Convert @titlepage.  Falls back to simpletitle. */
 static char *
 html_default_format_titlepage (CONVERTER *self)
@@ -5662,12 +5683,14 @@ html_default_format_titlepage (CONVERTER *self)
   text_append (&result, "");
   if (self->document->global_commands.titlepage)
     {
+      open_quotation_titlepage_stack (self, 0);
       ELEMENT *tmp = new_element (ET_NONE);
       tmp->e.c->contents = self->document->global_commands.titlepage->e.c->contents;
       html_convert_tree_append (self, tmp, &result, "convert titlepage");
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
       titlepage_text = 1;
+      self->shared_conversion_state.elements_authors.top--;
     }
   else if (self->simpletitle_tree)
     {
@@ -8715,7 +8738,8 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                                 const HTML_ARGS_FORMATTED *args_formatted,
                                 const char *content, TEXT *result)
 {
-  const CONST_ELEMENT_LIST *authors;
+  ELEMENT_REFERENCE_STACK_STACK *elements_authors
+    = &self->shared_conversion_state.elements_authors;
 
   char *cancelled = html_cancel_pending_formatted_inline_content (self,
                                             builtin_command_name (cmd));
@@ -8758,30 +8782,48 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
         text_append (result, content);
     }
 
-  authors = lookup_extra_contents (element, AI_key_authors);
-  if (authors)
+  if (elements_authors->top > 0)
     {
       size_t i;
-      for (i = 0; i < authors->number; i++)
-        {
-          const ELEMENT *author = authors->list[i];
-          if (author->e.c->contents.list[0]->e.c->contents.number > 0)
-            {
-              NAMED_STRING_ELEMENT_LIST *substrings
-                                       = new_named_string_element_list ();
-              ELEMENT *author_arg_copy
-                = copy_tree (author->e.c->contents.list[0], 0);
-              add_element_to_named_string_element_list (substrings,
-                                      "author", author_arg_copy);
+      ELEMENT_REFERENCE_STACK *authors
+        = elements_authors->stack[elements_authors->top -1];
 
-              /* TRANSLATORS: quotation author */
-              html_translate_convert_tree_append (
-                             "@center --- @emph{{author}}",
-                             self, substrings, 0, result,
-                             "convert quotation author");
-              destroy_named_string_element_list (substrings);
-            }
+      if (!authors)
+        {
+          fprintf (stderr, "BUG: unexpected unset elements_authors "
+                        "in convert_quotation_command\n");
         }
+      else
+        {
+          for (i = 0; i < authors->top; i++)
+            {
+              const ELEMENT *author = authors->stack[i].element;
+              if (author->e.c->contents.list[0]->e.c->contents.number > 0)
+                {
+                  NAMED_STRING_ELEMENT_LIST *substrings
+                                       = new_named_string_element_list ();
+                  ELEMENT *author_arg_copy
+                    = copy_tree (author->e.c->contents.list[0], 0);
+                  add_element_to_named_string_element_list (substrings,
+                                          "author", author_arg_copy);
+
+                  /* TRANSLATORS: quotation author */
+                  html_translate_convert_tree_append (
+                                 "@center --- @emph{{author}}",
+                                 self, substrings, 0, result,
+                                 "convert quotation author");
+                  destroy_named_string_element_list (substrings);
+                }
+            }
+          destroy_element_reference_stack (authors);
+          elements_authors->stack[elements_authors->top -1] = 0;
+          elements_authors->top--;
+        }
+    }
+  else
+    {
+      fprintf (stderr, "BUG: unexpected unset quotation_titlepage_stack"
+                 "in convert_quotation_command\n");
     }
 }
 
@@ -9261,40 +9303,52 @@ html_convert_author_command (CONVERTER *self, const enum command_id cmd,
   const char *arg = 0;
   char *attribute_class;
   STRING_LIST *classes;
+  ELEMENT_REFERENCE_STACK *authors_list;
 
-  const ELEMENT *titlepage = lookup_extra_element (element, AI_key_titlepage);
+  ELEMENT_REFERENCE_STACK_STACK *elements_authors
+    = &self->shared_conversion_state.elements_authors;
 
-  if (!titlepage)
+  if (elements_authors->top == 0)
     return;
 
-  if (args_formatted->number > 0
-      && args_formatted->args[0].formatted[AFT_type_normal]
-      && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
-    arg = args_formatted->args[0].formatted[AFT_type_normal];
-  else
-    return;
+  authors_list = elements_authors->stack[elements_authors->top -1];
 
-  if (html_in_string (self))
-    {
+  if (!authors_list)
+    {/* in titlepage */
+      if (args_formatted->number > 0
+          && args_formatted->args[0].formatted[AFT_type_normal]
+          && strlen (args_formatted->args[0].formatted[AFT_type_normal]))
+        arg = args_formatted->args[0].formatted[AFT_type_normal];
+      else
+        return;
+
+      if (html_in_string (self))
+        {
+          text_append (result, arg);
+          text_append_n (result, "\n", 1);
+          return;
+        }
+
+      classes = new_string_list ();
+      add_string (builtin_command_name (cmd), classes);
+
+      attribute_class = html_attribute_class (self, "strong", classes);
+      text_append (result, attribute_class);
+      text_append_n (result, ">", 1);
       text_append (result, arg);
+      text_append_n (result, "</strong>", 9);
+      text_append_n (result, self->line_break_element.string,
+                             self->line_break_element.len);
       text_append_n (result, "\n", 1);
-      return;
+
+      free (attribute_class);
+      destroy_strings_list (classes);
     }
-
-  classes = new_string_list ();
-  add_string (builtin_command_name (cmd), classes);
-
-  attribute_class = html_attribute_class (self, "strong", classes);
-  text_append (result, attribute_class);
-  text_append_n (result, ">", 1);
-  text_append (result, arg);
-  text_append_n (result, "</strong>", 9);
-  text_append_n (result, self->line_break_element.string,
-                         self->line_break_element.len);
-  text_append_n (result, "\n", 1);
-
-  free (attribute_class);
-  destroy_strings_list (classes);
+  else
+    {/* in quotation */
+      push_element_reference_stack_element (authors_list, element,
+                                            element->hv);
+    }
 }
 
 void
@@ -11094,6 +11148,8 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
   html_register_pending_formatted_inline_content (self, cmdname,
                                   formatted_quotation_arg_to_prepend);
   free (formatted_quotation_arg_to_prepend);
+
+  open_quotation_titlepage_stack (self, 1);
 }
 
 

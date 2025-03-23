@@ -128,7 +128,7 @@ foreach my $kept_command (keys (%informative_commands), @contents_commands,
 
 # formatted/formattable @-commands not formatted in Plaintext/Info
 foreach my $non_formatted_line_command ('page', 'need', 'vskip',
-   'author', 'subtitle', 'title') {
+   'subtitle', 'title') {
   delete $formatted_line_commands{$non_formatted_line_command};
 }
 
@@ -161,7 +161,8 @@ foreach my $def_command (keys(%def_commands)) {
 #            counting some converted text, but it is also set when it has
 #            to be modified afterwards, for aligned commands or multitable
 #            cells for example.
-# document_context: Used to keep track if we are in a multitable.
+# document_context: Used to keep track if we are in a multitable and gather
+#                   authors elements in quotations.
 
 # formatters have their own stack
 # in container
@@ -388,7 +389,8 @@ sub push_top_formatter($$)
                                      'max' => $self->{'fillcolumn'}
                                    };
   push @{$self->{'document_context'}}, {
-                                     'in_multitable' => 0
+                                     'in_multitable' => 0,
+                                     'quotations_authors' => []
                                    };
 
   # This is not really meant to be used, as contents should open
@@ -3549,6 +3551,7 @@ sub _convert($$)
         }
       }
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
+        push @{$self->{'document_context'}->[-1]->{'quotations_authors'}}, [];
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
@@ -3947,6 +3950,13 @@ sub _convert($$)
         my $sectioning_root = $sections_list->[0]
                                 ->{'extra'}->{'sectioning_root'};
         $self->format_contents($sectioning_root, 'shortcontents');
+      }
+      return;
+    } elsif ($cmdname eq 'author') {
+      my $quotations_authors
+        = $self->{'document_context'}->[-1]->{'quotations_authors'};
+      if (scalar(@$quotations_authors)) {
+        push @{$quotations_authors->[-1]}, $element;
       }
       return;
     # all the @-commands that have an information for the formatting, like
@@ -4473,9 +4483,10 @@ sub _convert($$)
           _convert($self, $tree);
         }
       }
-    } elsif (($cmdname eq 'quotation' or $cmdname eq 'smallquotation')
-             and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
-      foreach my $author (@{$element->{'extra'}->{'authors'}}) {
+    } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
+      my $authors
+        = pop @{$self->{'document_context'}->[-1]->{'quotations_authors'}};
+      foreach my $author (@$authors) {
         if ($author->{'contents'}->[0]->{'contents'}) {
           _convert($self,
             # TRANSLATORS: quotation author

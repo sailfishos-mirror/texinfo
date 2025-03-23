@@ -204,6 +204,8 @@ COMMAND_OPEN_FUNCTION(node_part_command)
 
 #undef COMMAND_OPEN_FUNCTION
 
+void open_quotation_titlepage_stack (CONVERTER *self, int do_authors_list);
+
 
 
 void html_type_conversion_external (CONVERTER *self,

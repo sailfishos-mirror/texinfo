@@ -52,6 +52,8 @@ void push_element_reference_stack_element (ELEMENT_REFERENCE_STACK *stack,
 void pop_element_reference_stack (ELEMENT_REFERENCE_STACK *stack);
 int command_is_in_referred_command_stack (const ELEMENT_REFERENCE_STACK *stack,
                                       const ELEMENT *e, const void *hv);
+ELEMENT_REFERENCE_STACK *new_element_reference_stack (void);
+void destroy_element_reference_stack (ELEMENT_REFERENCE_STACK *stack);
 
 HTML_DOCUMENT_CONTEXT *html_top_document_context (const CONVERTER *self);
 

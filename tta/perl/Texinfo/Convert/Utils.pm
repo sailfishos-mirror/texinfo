@@ -540,6 +540,53 @@ sub add_heading_number($$;$$)
   return $result;
 }
 
+sub find_element_authors_internal($$);
+
+sub find_element_authors_internal($$)
+{
+  my $element = shift;
+  my $quotation_authors = shift;
+
+  return if (defined($element->{'text'}));
+
+  if (defined($element->{'cmdname'})) {
+    my $cmdname = $element->{'cmdname'};
+    if ($cmdname eq 'author') {
+      push @$quotation_authors, $element;
+      return;
+    }
+    if ($cmdname eq 'quotation'
+        or $cmdname eq 'smallquotation'
+        or $cmdname eq 'titlepage'
+        or $cmdname eq 'menu'
+        or ($Texinfo::Commands::brace_commands{$cmdname}
+            and $Texinfo::Commands::brace_commands{$cmdname} eq 'context')
+        or exists($Texinfo::Commands::line_commands{$cmdname})) {
+      return;
+    }
+  } elsif (defined($element->{'type'})
+           and $element->{'type'} eq 'arguments_line') {
+    return;
+  }
+  if ($element->{'contents'}) {
+    foreach my $content (@{$element->{'contents'}}) {
+      find_element_authors_internal($content, $quotation_authors);
+    }
+  }
+}
+
+# TODO document.
+# Find authors in element body.
+sub find_element_authors($$)
+{
+  my $element = shift;
+  my $quotation_authors = shift;
+
+  foreach my $content (@{$element->{'contents'}}) {
+    find_element_authors_internal($content, $quotation_authors);
+  }
+}
+
 # Similar to Texinfo::Common::is_content_empty
 # Unused
 sub find_root_command_next_heading_command($$;$$)

@@ -197,6 +197,17 @@ html_reset_converter (CONVERTER *self)
       free (self->shared_conversion_state.formatted_index_entries);
     }
 
+  /* change to 0 in releases? */
+  if (1)
+    {
+      if (self->shared_conversion_state.elements_authors.top > 0)
+        {
+          fprintf (stderr,
+              "BUG: shared_conversion_state.elements_authors.top: %zu\n",
+              self->shared_conversion_state.elements_authors.top);
+        }
+    }
+
   free (self->sorted_index_names.list);
   memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
 
@@ -631,6 +642,8 @@ html_free_converter (CONVERTER *self)
   free (self->multiple_pass.stack);
 
   free (self->html_document_context.stack);
+
+  free (self->shared_conversion_state.elements_authors.stack);
 
   free (type_explanations->list);
 

@@ -2328,6 +2328,10 @@ my %default_shared_conversion_states = (
   'menu' => {'html_menu_entry_index' => ['integer']},
   'printindex' => {'formatted_index_entries' => ['index_entry', 'integer']},
   'nodedescription' => {'formatted_nodedescriptions' => ['element', 'integer']},
+  # also used for titlepage
+  'quotation' => {'quotation_titlepage_stack' => ['integer'],
+                  'elements_authors' => ['integer', 'integer', 'element'],
+                  'element_authors_number' => ['integer', 'integer']},
 );
 
 sub define_shared_conversion_state($$$$)
@@ -5302,15 +5306,34 @@ sub _convert_author_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return '' if (!$args or !$args->[0] or !$command->{'extra'}
-                or !$command->{'extra'}->{'titlepage'});
-  if (!in_string($self)) {
-    return $self->html_attribute_class('strong', [$cmdname])
-                .">$args->[0]->{'normal'}</strong>"
-                .$self->get_info('line_break_element')."\n";
-  } else {
-    return $args->[0]->{'normal'} . "\n";
+  my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
+                                                  'quotation_titlepage_stack');
+  if (defined($quotation_titlepage_nr) and $quotation_titlepage_nr > 0) {
+    my $authors_nr
+      = $self->get_shared_conversion_state('quotation', 'element_authors_number',
+                                           $quotation_titlepage_nr);
+
+    if ($authors_nr < 0) {
+      # in titlepage
+      if (!in_string($self)) {
+        return $self->html_attribute_class('strong', [$cmdname])
+                    .">$args->[0]->{'normal'}</strong>"
+                    .$self->get_info('line_break_element')."\n";
+      } else {
+        return $args->[0]->{'normal'} . "\n";
+      }
+    } else {
+      # in quotation
+      $self->set_shared_conversion_state('quotation', 'elements_authors',
+                                          $quotation_titlepage_nr, $authors_nr,
+                                          $command);
+
+      $authors_nr++;
+      $self->set_shared_conversion_state('quotation', 'element_authors_number',
+                                         $quotation_titlepage_nr, $authors_nr);
+    }
   }
+  return '';
 }
 
 $default_commands_conversion{'author'} = \&_convert_author_command;
@@ -5594,18 +5617,44 @@ sub _convert_quotation_command($$$$$)
     $result = $content;
   }
 
-  if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
-    # TODO there is no easy way to mark with a class the @author
-    # @-command.  Add a span or a div (@center is in a div)?
-    foreach my $author (@{$command->{'extra'}->{'authors'}}) {
-      if ($author->{'contents'}->[0]->{'contents'}) {
-        # TRANSLATORS: quotation author
-        my $centered_author = $self->cdt("\@center --- \@emph{{author}}",
-           {'author' => $author->{'contents'}->[0]});
-        $centered_author->{'parent'} = $command;
-        $result .= $self->convert_tree($centered_author,
-                                            'convert quotation author');
-      }
+  my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
+                                                'quotation_titlepage_stack');
+  my $quotation_authors = [];
+  if (defined($quotation_titlepage_nr) and $quotation_titlepage_nr > 0) {
+    my $authors_nr
+     = $self->get_shared_conversion_state('quotation', 'element_authors_number',
+                                          $quotation_titlepage_nr);
+
+    if ($authors_nr < 0) {
+      print STDERR "BUG: unexpected negative element_authors_number"
+                ." $authors_nr in convert_quotation_command\n";
+      $authors_nr = 0;
+    }
+    for (my $i = 0; $i < $authors_nr; $i++) {
+      my $author = $self->get_shared_conversion_state('quotation',
+                     'elements_authors', $quotation_titlepage_nr, $i);
+
+      push @$quotation_authors, $author;
+    }
+    $quotation_titlepage_nr--;
+    $self->set_shared_conversion_state('quotation',
+                                       'quotation_titlepage_stack',
+                                       $quotation_titlepage_nr);
+  } else {
+    print STDERR "BUG: unexpected unset quotation_titlepage_stack"
+                  ."in convert_quotation_command\n";
+  }
+
+  # TODO there is no easy way to mark with a class the @author
+  # @-command.  Add a span or a div (@center is in a div)?
+  foreach my $author (@$quotation_authors) {
+    if ($author->{'contents'}->[0]->{'contents'}) {
+      # TRANSLATORS: quotation author
+      my $centered_author = $self->cdt("\@center --- \@emph{{author}}",
+         {'author' => $author->{'contents'}->[0]});
+      $centered_author->{'parent'} = $command;
+      $result .= $self->convert_tree($centered_author,
+                                          'convert quotation author');
     }
   }
 
@@ -6955,6 +7004,25 @@ sub _open_node_part_command($$$)
 $default_commands_open{'node'} = \&_open_node_part_command;
 $default_commands_open{'part'} = \&_open_node_part_command;
 
+sub _open_quotation_titlepage_stack($$)
+{
+  my $self = shift;
+  my $element_authors_number = shift;
+
+  my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
+                                           'quotation_titlepage_stack');
+  $quotation_titlepage_nr = 0 if (!defined($quotation_titlepage_nr));
+
+  $quotation_titlepage_nr++;
+
+  $self->set_shared_conversion_state('quotation', 'quotation_titlepage_stack',
+                                     $quotation_titlepage_nr);
+
+
+  $self->set_shared_conversion_state('quotation', 'element_authors_number',
+                           $quotation_titlepage_nr, $element_authors_number);
+}
+
 sub _open_quotation_command($$$)
 {
   my $self = shift;
@@ -6974,6 +7042,8 @@ sub _open_quotation_command($$$)
   }
   $self->register_pending_formatted_inline_content($cmdname,
                                  $formatted_quotation_arg_to_prepend);
+  _open_quotation_titlepage_stack($self, 0);
+
   return '';
 }
 
@@ -8161,9 +8231,19 @@ sub _default_format_titlepage($)
   }
 
   if ($global_commands and $global_commands->{'titlepage'}) {
+    # we do not need to collect the author commands in titlepage, so
+    # we use a little trick to initialize the authors number to -1
+    # to mean that we are in titlepage
+    _open_quotation_titlepage_stack($self, -1);
     $titlepage_text = $self->convert_tree({'contents'
                => $global_commands->{'titlepage'}->{'contents'}},
                                           'convert titlepage');
+    my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
+                                                  'quotation_titlepage_stack');
+    $quotation_titlepage_nr--;
+    $self->set_shared_conversion_state('quotation',
+                                       'quotation_titlepage_stack',
+                                       $quotation_titlepage_nr);
   } else {
     my $simpletitle_tree = $self->get_info('simpletitle_tree');
     if ($simpletitle_tree) {

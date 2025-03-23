@@ -296,6 +296,12 @@ typedef struct FOOTNOTE_ID_NUMBER {
     int number;
 } FOOTNOTE_ID_NUMBER;
 
+typedef struct ELEMENT_REFERENCE_STACK_STACK {
+    ELEMENT_REFERENCE_STACK **stack;
+    size_t top;
+    size_t space;
+} ELEMENT_REFERENCE_STACK_STACK;
+
 typedef struct HTML_SHARED_CONVERSION_STATE {
     int in_skipped_node_top;
     EXPLAINED_COMMAND_TYPE_LIST explained_commands;
@@ -308,6 +314,7 @@ typedef struct HTML_SHARED_CONVERSION_STATE {
     int *formatted_listoffloats_nr;
     /* stored in HTML_TARGET formatted_nodedescription_nr */
     /* formatted_nodedescriptions */
+    ELEMENT_REFERENCE_STACK_STACK elements_authors;
 } HTML_SHARED_CONVERSION_STATE;
 
 typedef struct HTML_NO_ARG_COMMAND_CONVERSION {
