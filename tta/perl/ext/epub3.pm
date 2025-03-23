@@ -681,10 +681,7 @@ EOT
   my $nav_file_path_name;
   my $title = _epub_convert_tree_to_text($self, $self->get_info('title_tree'));
 
-  my $sections_list;
-  if ($self->{'document'}) {
-    $sections_list = $self->{'document'}->sections_list();
-  }
+  my $sections_list = $document->sections_list();
 
   if ($sections_list) {
     $nav_file_path_name
@@ -845,24 +842,33 @@ EOT
     print $opf_fh "      <meta property=\"dcterms:modified\">"
                     .$dcterms_modified_str."</meta>\n";
   }
-  my @relevant_commands = ('author', 'documentlanguage');
-  my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-                                        $document_root, \@relevant_commands);
+
+  my $global_commands_information = $document->global_commands_information();
+
   my @authors = ();
   my @languages = ();
-  if (scalar(@{$collected_commands})) {
-    foreach my $element (@{$collected_commands}) {
-      my $command = $element->{'cmdname'};
-      if ($command eq 'author') {
-        if ($element->{'extra'}->{'titlepage'}
-             and $element->{'contents'}->[0]->{'contents'}) {
+
+  if ($global_commands_information) {
+    if ($global_commands_information->{'titlepage'}) {
+      my $titlepage = $global_commands_information->{'titlepage'};
+      my @authors_commands = ();
+
+      Texinfo::Convert::Utils::find_element_authors($titlepage,
+                                                  \@authors_commands);
+
+      foreach my $element (@authors_commands) {
+        if ($element->{'contents'}->[0]->{'contents'}) {
           my $author_str = _epub_convert_tree_to_text($self,
                                       $element->{'contents'}->[0]);
           if ($author_str =~ /\S/) {
             push @authors, $author_str;
           }
         }
-      } else {
+      }
+    }
+    if ($global_commands_information->{'documentlanguage'}) {
+      foreach my $element (
+                 @{$global_commands_information->{'documentlanguage'}}) {
         if (defined($element->{'extra'}->{'text_arg'})) {
           # TODO the EPUB specification describes specific language
           # tags.  Not sure there is not a need for some mapping here.
@@ -871,6 +877,7 @@ EOT
       }
     }
   }
+
   # the standard mandates at least one language specifier
   if (scalar(@languages) == 0) {
     @languages = ('en');

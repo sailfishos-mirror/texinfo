@@ -1,5 +1,17 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/epub3.pm (epub_finish): use $document argument,
+	not document associated to converter.
+
+	* tta/perl/ext/epub3.pm (epub_finish): find authors in titlepage by
+	calling Texinfo::Convert::Utils::find_element_authors on the titlepage
+	element.
+
+	* tta/perl/ext/epub3.pm (epub_finish): find documentlanguage elements
+	by using global_commands_information.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	Find author commands in quotation and titlepage in conversion
 
 	* tta/C/main/command_stack.c (new_element_reference_stack)
