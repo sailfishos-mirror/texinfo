@@ -111,7 +111,6 @@ enum directions {
   ai_key(associated_section, element) \
   ai_key(associated_title_command, element) \
   ai_key(caption, element) \
-  ai_key(columnfractions, element) \
   ai_key(command_as_argument, element) \
   ai_key(element_node, element) \
   ai_key(float, element) \

@@ -11,8 +11,7 @@ $result_tree_text{'something_before_columnfractions'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |columnfractions:[E1]
-  |max_columns:{2}
+  |max_columns:{0}
    *arguments_line C1
     *block_line_arg C2
      {aaa }
@@ -44,18 +43,35 @@ $result_texis{'something_before_columnfractions'} = '@multitable aaa @columnfrac
 
 $result_texts{'something_before_columnfractions'} = '';
 
-$result_errors{'something_before_columnfractions'} = [];
+$result_errors{'something_before_columnfractions'} = [
+  {
+    'error_line' => 'warning: unexpected argument on @multitable line: @columnfractions 0.3 0.7
+
+',
+    'line_nr' => 1,
+    'text' => 'unexpected argument on @multitable line: @columnfractions 0.3 0.7
+',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: empty multitable
+',
+    'line_nr' => 1,
+    'text' => 'empty multitable',
+    'type' => 'warning'
+  }
+];
 
 
 
 $result_converted{'html_text'}->{'something_before_columnfractions'} = '';
 
 
-$result_converted{'xml'}->{'something_before_columnfractions'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.3 0.7"><columnfraction value="0.3"></columnfraction><columnfraction value="0.7"></columnfraction></columnfractions>
-</multitable>';
+$result_converted{'xml'}->{'something_before_columnfractions'} = '<multitable spaces=" " endspaces=" "><columnprototypes>aaa <columnfractions spaces=" " line="0.3 0.7"><columnfraction value="0.3"></columnfraction><columnfraction value="0.7"></columnfraction></columnfractions>
+</columnprototypes></multitable>';
 
 
-$result_converted{'latex_text'}->{'something_before_columnfractions'} = '\\begin{tabular}{m{0.3\\textwidth} m{0.7\\textwidth}}%
+$result_converted{'latex_text'}->{'something_before_columnfractions'} = '\\begin{tabular}{}%
 \\end{tabular}%
 ';
 

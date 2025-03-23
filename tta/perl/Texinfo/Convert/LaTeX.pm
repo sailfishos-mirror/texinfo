@@ -3927,9 +3927,14 @@ sub _convert($$)
         $self->{'packages'}->{'array'} = 1;
         $result .= '\begin{tabular}{';
         my @fractions;
-        if ($element->{'extra'}->{'columnfractions'}) {
-          @fractions
-      = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
+        my $columnfractions
+          = Texinfo::Common::multitable_columnfractions($element);
+        if ($columnfractions) {
+          if ($columnfractions->{'extra'}
+              and $columnfractions->{'extra'}->{'misc_args'}) {
+            @fractions
+              = @{$columnfractions->{'extra'}->{'misc_args'}};
+          }
         } else {
           # arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];

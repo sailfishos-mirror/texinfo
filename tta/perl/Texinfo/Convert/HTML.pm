@@ -5948,13 +5948,14 @@ sub _convert_tab_command($$$$$)
   my $row = $command->{'parent'};
   my $row_cmdname = $row->{'contents'}->[0]->{'cmdname'};
   my $multitable = $row->{'parent'}->{'parent'};
+  my $columnfractions
+    = Texinfo::Common::multitable_columnfractions($multitable);
 
   my $fractions = '';
-  my $cf = $multitable->{'extra'}->{'columnfractions'};
-  if ($cf) {
-    if (exists($cf->{'extra'}->{'misc_args'}->[$cell_nr-1])) {
+  if ($columnfractions) {
+    if (exists($columnfractions->{'extra'}->{'misc_args'}->[$cell_nr-1])) {
       my $percent = sprintf('%.0f',
-                            100. * $cf->{'extra'}->{'misc_args'}->[$cell_nr-1]);
+             100. * $columnfractions->{'extra'}->{'misc_args'}->[$cell_nr-1]);
       my $width = "$percent%";
       if ($self->get_conf('_INLINE_STYLE_WIDTH')) {
         $fractions = " style=\"width: $width\"";

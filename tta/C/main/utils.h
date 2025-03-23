@@ -217,6 +217,8 @@ char *locate_file_in_dirs (const char *filename,
                      DEPRECATED_DIRS_LIST *deprecated_dirs,
                      DEPRECATED_DIRS_LIST *deprecated_dirs_used);
 
+ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
+
 DEPRECATED_DIR_INFO *find_deprecated_dir_info (
                           const DEPRECATED_DIRS_LIST *deprecated_dirs,
                           const char *directory_name);

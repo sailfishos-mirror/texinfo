@@ -9613,13 +9613,13 @@ html_convert_tab_command (CONVERTER *self, const enum command_id cmd,
   cell_nr = (size_t) lookup_extra_integer (element, AI_key_cell_number, &status);
   multitable = row->parent->parent;
 
-  columnfractions = lookup_extra_element (multitable, AI_key_columnfractions);
+  columnfractions = multitable_columnfractions (multitable);
 
   if (columnfractions)
     {
       const STRING_LIST *cf_misc_args
          = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
-      if (cf_misc_args->number >= cell_nr)
+      if (cf_misc_args && cf_misc_args->number >= cell_nr)
         {
           const char *fraction_str
             = cf_misc_args->list[cell_nr -1];

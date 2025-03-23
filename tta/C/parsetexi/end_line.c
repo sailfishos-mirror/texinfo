@@ -797,7 +797,6 @@ end_line_def_line (ELEMENT *current)
 ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
-  KEY_PAIR *k;
   const ELEMENT *arguments_line;
   ELEMENT *block_line_arg;
 
@@ -829,23 +828,20 @@ end_line_starting_block (ELEMENT *current)
 
   /* @multitable args */
   if (command == CM_multitable
-      && (k = lookup_extra (current->parent->parent, AI_key_columnfractions)))
+      && current->e.c->contents.number > 0
+      && !(type_data[current->e.c->contents.list[0]->type].flags & TF_text)
+      && current->e.c->contents.list[0]->e.c->cmd == CM_columnfractions)
     {
-      const ELEMENT *misc_cmd = k->k.const_element;
+      const ELEMENT *columnfractions = current->e.c->contents.list[0];
       const STRING_LIST *misc_args
-          = lookup_extra_misc_args (misc_cmd, AI_key_misc_args);
+          = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
       ELEMENT *multitable = current->parent->parent;
+      int max_columns = 0;
 
       if (misc_args)
-        {
-          add_extra_integer (multitable, AI_key_max_columns,
-                             misc_args->number);
-        }
-      else
-        {
-          add_extra_integer (multitable, AI_key_max_columns, 0);
-          k->key = AI_key_none;
-        }
+        max_columns = misc_args->number;
+
+      add_extra_integer (multitable, AI_key_max_columns, max_columns);
     }
   else if (command == CM_multitable)
     {
@@ -1805,11 +1801,6 @@ end_line_misc_line (ELEMENT *current)
           || current->parent->parent->e.c->cmd != CM_multitable)
         {
           line_error ("@columnfractions only meaningful on a @multitable line");
-        }
-      else
-        {
-          add_extra_element (current->parent->parent,
-                             AI_key_columnfractions, misc_cmd);
         }
     }
   else if (command_data(data_cmd).flags & CF_root)

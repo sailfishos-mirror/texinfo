@@ -1,5 +1,34 @@
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
+	Get columnfractions from the tree, remove from extra information
+
+	* tta/C/parsetexi/end_line.c (end_line_starting_block),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block): determine
+	if there is a columnfractions element by looking at the first element
+	only in the block line argument element contents.
+
+	* tta/C/main/utils.c (multitable_columnfractions),
+	tta/perl/Texinfo/Common.pm (multitable_columnfractions): add function
+	to get columnfraction element associated to multitable element.
+
+	* tta/C/convert/format_html.c (html_convert_tab_command),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_tab_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_convert),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): use
+	multitable_columnfractions to find multitable columnfractions instead
+	of extra information.
+
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): do not set
+	extra multitable columnfraction information.  Update Pod tree
+	documentation.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST): remove columnfractions.
+
+2025-03-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree_types.h (AI_KEYS_LIST): remove quotation, titlepage
 	and authors.
 

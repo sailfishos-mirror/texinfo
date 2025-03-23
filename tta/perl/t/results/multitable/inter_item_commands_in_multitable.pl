@@ -75,7 +75,6 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |columnfractions:[E3]
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1

@@ -24,7 +24,6 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |columnfractions:[E2]
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1

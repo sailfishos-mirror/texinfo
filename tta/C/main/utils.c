@@ -1790,6 +1790,26 @@ locate_file_in_dirs (const char *filename,
 
 
 
+ELEMENT *
+multitable_columnfractions (const ELEMENT *multitable)
+{
+  const ELEMENT *arguments_line = multitable->e.c->contents.list[0];
+  const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
+  ELEMENT *columnfractions = 0;
+
+  if (block_line_arg->e.c->contents.number > 0
+      && !(type_data[block_line_arg->e.c->contents.list[0]->type].flags
+           & TF_text)
+      && block_line_arg->e.c->contents.list[0]->e.c->cmd == CM_columnfractions)
+    {
+      columnfractions = block_line_arg->e.c->contents.list[0];
+    }
+
+  return columnfractions;
+}
+
+
+
 /* code related to values used in files not in parsetexi */
 void
 store_value (VALUE_LIST *values, const char *name, const char *value)

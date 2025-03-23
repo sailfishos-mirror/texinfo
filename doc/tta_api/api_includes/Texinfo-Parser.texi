@@ -1325,9 +1325,7 @@ appearing in the @code{@@node} @emph{line_arg} explicit directions arguments
 @item @code{@@multitable}
 @anchor{Texinfo@asis{::}Parser @code{@@multitable}}
 
-The key @emph{max_columns} holds the maximal number of columns.  If there is a
-@code{@@columnfractions} as argument, then the @emph{columnfractions} key is associated
-with the element for the @@columnfractions command.
+The key @emph{max_columns} holds the maximal number of columns.
 
 @item @code{@@node}
 @anchor{Texinfo@asis{::}Parser @code{@@node}}

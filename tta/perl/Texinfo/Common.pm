@@ -824,9 +824,28 @@ sub parse_node_manual($;$)
   return $result;
 }
 
-
 
+
 # misc functions used in diverse contexts and useful in converters
+
+# TODO document
+# Used in converters
+sub multitable_columnfractions($)
+{
+  my $multitable = shift;
+
+  my $arguments_line = $multitable->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+  my $columnfractions;
+  if ($block_line_arg->{'contents'} and $block_line_arg->{'contents'}->[0]
+      and $block_line_arg->{'contents'}->[0]->{'cmdname'}
+      and $block_line_arg->{'contents'}->[0]->{'cmdname'}
+                                              eq 'columnfractions') {
+    $columnfractions = $block_line_arg->{'contents'}->[0];
+  }
+
+  return $columnfractions;
+}
 
 # Used in main program, tests and HTML Converter.
 # TODO document?

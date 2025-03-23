@@ -4033,11 +4033,6 @@ sub _end_line_misc_line($$$)
       $self->_line_error(
           sprintf(__("\@%s only meaningful on a \@multitable line"),
              $command), $source_info);
-    } else {
-      my $command_element = $current->{'parent'}->{'parent'};
-      $command_element->{'extra'} = {}
-        if (!defined($command_element->{'extra'}));
-      $command_element->{'extra'}->{'columnfractions'} = $misc_cmd;
     }
   } elsif ($root_commands{$data_cmdname}) {
     $current = $current->{'contents'}->[-1];
@@ -4217,20 +4212,19 @@ sub _end_line_starting_block($$$)
 
   # @multitable args
   if ($command eq 'multitable'
-      and $current->{'parent'}->{'parent'}
-      and $current->{'parent'}->{'parent'}->{'extra'}
-      and defined($current->{'parent'}->{'parent'}->{'extra'}->{'columnfractions'})) {
+      and $current->{'contents'} and $current->{'contents'}->[0]
+      and $current->{'contents'}->[0]->{'cmdname'}
+      and $current->{'contents'}->[0]->{'cmdname'} eq 'columnfractions') {
     my $multitable = $current->{'parent'}->{'parent'};
-    my $misc_cmd = $multitable->{'extra'}->{'columnfractions'};
+    my $columnfractions = $current->{'contents'}->[0];
+    my $max_column = 0;
 
-    if ($misc_cmd->{'extra'}
-        and defined($misc_cmd->{'extra'}->{'misc_args'})) {
-      $multitable->{'extra'}->{'max_columns'}
-          = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
-    } else {
-      $multitable->{'extra'}->{'max_columns'} = 0;
-      delete $multitable->{'extra'}->{'columnfractions'};
+    if ($columnfractions->{'extra'}
+        and defined($columnfractions->{'extra'}->{'misc_args'})) {
+      $max_column = scalar(@{$columnfractions->{'extra'}->{'misc_args'}});
     }
+
+    $multitable->{'extra'}->{'max_columns'} = $max_column;
   } elsif ($command eq 'multitable') {
     my $multitable = $current->{'parent'}->{'parent'};
     # determine max columns based on prototypes
@@ -9506,9 +9500,7 @@ C<extra> hash labels information.
 
 =item C<@multitable>
 
-The key I<max_columns> holds the maximal number of columns.  If there is a
-C<@columnfractions> as argument, then the I<columnfractions> key is associated
-with the element for the @columnfractions command.
+The key I<max_columns> holds the maximal number of columns.
 
 =item C<@node>
 

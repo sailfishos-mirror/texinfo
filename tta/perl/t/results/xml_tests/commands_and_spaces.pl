@@ -257,7 +257,6 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |spaces_before_argument:
    |{  }
   |EXTRA
-  |columnfractions:[E8]
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1

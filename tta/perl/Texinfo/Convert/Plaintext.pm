@@ -3571,12 +3571,17 @@ sub _convert($$)
         _menu($self, $element);
       } elsif ($cmdname eq 'multitable') {
         my $columnsize = [];
-        if ($element->{'extra'}->{'columnfractions'}) {
-          foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
-                                       ->{'extra'}->{'misc_args'}}) {
-            push @$columnsize,
+        my $columnfractions
+          = Texinfo::Common::multitable_columnfractions($element);
+        if ($columnfractions) {
+          if ($columnfractions->{'extra'}
+              and $columnfractions->{'extra'}->{'misc_args'}) {
+            foreach my $fraction (
+                            @{$columnfractions->{'extra'}->{'misc_args'}}) {
+              push @$columnsize,
                    int($fraction
                        * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
+            }
           }
         } else {
           # arguments_line type element

@@ -11,7 +11,6 @@ $result_tree_text{'multitable_with_empty_item_tab'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |columnfractions:[E1]
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1

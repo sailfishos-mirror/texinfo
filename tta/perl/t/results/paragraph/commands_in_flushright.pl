@@ -145,7 +145,6 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |columnfractions:[E7]
    |max_columns:{2}
     *arguments_line C1
      *block_line_arg C1

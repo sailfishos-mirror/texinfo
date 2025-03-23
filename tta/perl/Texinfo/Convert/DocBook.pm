@@ -1661,43 +1661,45 @@ sub _convert($$;$)
         }
         push @format_elements, 'tgroup';
         push @attributes, " cols=\"$columns_count\"";
-        if ($element->{'extra'}) {
-          my @fractions;
-          my $multiply;
-          if ($element->{'extra'}->{'columnfractions'}) {
-            @fractions = @{$element->{'extra'}->{'columnfractions'}
-                                                  ->{'extra'}->{'misc_args'}};
+        my @fractions;
+        my $multiply;
+        my $columnfractions
+          = Texinfo::Common::multitable_columnfractions($element);
+        if ($columnfractions) {
+          if ($columnfractions->{'extra'}
+              and $columnfractions->{'extra'}->{'misc_args'}) {
+            @fractions = @{$columnfractions->{'extra'}->{'misc_args'}};
             $multiply = 100;
-          } else {
-            # @multitable line arguments_line type element
-            my $arguments_line = $element->{'contents'}->[0];
-            my $block_line_arg = $arguments_line->{'contents'}->[0];
-            if ($block_line_arg->{'contents'}) {
-              $multiply = 1;
-              foreach my $content (@{$block_line_arg->{'contents'}}) {
-                if ($content->{'type'}
-                    and $content->{'type'} eq 'bracketed_arg') {
-                  my $prototype_text = '';
-                  if ($content->{'contents'}) {
-                    Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
-                                    $self, $self->{'convert_text_options'});
-                    $prototype_text
-                      = Texinfo::Convert::Text::convert_to_text(
-                                       $content,
-                                       $self->{'convert_text_options'});
-                    Texinfo::Convert::Text::reset_options_encoding(
-                                       $self->{'convert_text_options'});
-                  }
-                  push @fractions,
-                    Texinfo::Convert::Unicode::string_width($prototype_text);
+          }
+        } else {
+          # @multitable line arguments_line type element
+          my $arguments_line = $element->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
+          if ($block_line_arg->{'contents'}) {
+            $multiply = 1;
+            foreach my $content (@{$block_line_arg->{'contents'}}) {
+              if ($content->{'type'}
+                  and $content->{'type'} eq 'bracketed_arg') {
+                my $prototype_text = '';
+                if ($content->{'contents'}) {
+                  Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
+                                  $self, $self->{'convert_text_options'});
+                  $prototype_text
+                    = Texinfo::Convert::Text::convert_to_text(
+                                     $content,
+                                     $self->{'convert_text_options'});
+                  Texinfo::Convert::Text::reset_options_encoding(
+                                     $self->{'convert_text_options'});
                 }
+                push @fractions,
+                  Texinfo::Convert::Unicode::string_width($prototype_text);
               }
             }
           }
-          foreach my $fraction (@fractions) {
-            $appended .= '<colspec colwidth="'.($fraction*$multiply)
-                         .'*"></colspec>';
-          }
+        }
+        foreach my $fraction (@fractions) {
+          $appended .= '<colspec colwidth="'.($fraction*$multiply)
+                       .'*"></colspec>';
         }
       } elsif ($cmdname eq 'float') {
         my $anchor = _output_anchor($element);

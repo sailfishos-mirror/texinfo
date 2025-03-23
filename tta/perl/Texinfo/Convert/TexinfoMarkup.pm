@@ -1528,45 +1528,35 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
-              # arguments_line type element
-              my $arguments_line = $element->{'contents'}->[0];
-              my $block_line_arg = $arguments_line->{'contents'}->[0];
-              if ($block_line_arg->{'contents'}
-                  and (($element->{'extra'}
-                        and $element->{'extra'}->{'columnfractions'})
-                        # case of bogus/empty @columnfractions
-                        or (scalar(@{$block_line_arg->{'contents'}}) > 0
-                            and $block_line_arg->{'contents'}->[0]->{'cmdname'}
-                            and $block_line_arg->{'contents'}
-                                   ->[0]->{'cmdname'} eq 'columnfractions'))) {
-                my $columnfractions_element;
-                foreach my $content (@{$block_line_arg->{'contents'}}) {
-                  if ($content->{'cmdname'}
-                      and $content->{'cmdname'} eq 'columnfractions') {
-                    $columnfractions_element = $content;
-                    last;
-                  }
-                }
+              my $columnfractions_element
+               = Texinfo::Common::multitable_columnfractions($element);
+
+              if ($columnfractions_element) {
                 $result
                  .= _format_columnfractions($self, $columnfractions_element);
-              } elsif ($block_line_arg->{'contents'}) {
-                $result .= $self->txi_markup_open_element('columnprototypes');
-                foreach my $arg (@{$block_line_arg->{'contents'}}) {
-                  if ($arg->{'type'}
-                      and $arg->{'type'} eq 'bracketed_arg') {
-                    my $attributes = [];
-                    push @$attributes, ['bracketed', 'on'];
-                    push @$attributes,
+              } else {
+                # arguments_line type element
+                my $arguments_line = $element->{'contents'}->[0];
+                my $block_line_arg = $arguments_line->{'contents'}->[0];
+                if ($block_line_arg->{'contents'}) {
+                  $result .= $self->txi_markup_open_element('columnprototypes');
+                  foreach my $arg (@{$block_line_arg->{'contents'}}) {
+                    if ($arg->{'type'}
+                        and $arg->{'type'} eq 'bracketed_arg') {
+                      my $attributes = [];
+                      push @$attributes, ['bracketed', 'on'];
+                      push @$attributes,
                                   _leading_spaces_arg($arg);
-                    $result .= $self->txi_markup_open_element('columnprototype',
+                      $result .= $self->txi_markup_open_element('columnprototype',
                                                               $attributes)
                            .$self->_convert($arg)
                            .$self->txi_markup_close_element('columnprototype');
-                  } else {
-                    $result .= $self->_convert($arg);
+                    } else {
+                      $result .= $self->_convert($arg);
+                    }
                   }
+                  $result .= $self->txi_markup_close_element('columnprototypes');
                 }
-                $result .= $self->txi_markup_close_element('columnprototypes');
                 my $end_space
                   = _end_line_spaces($self, $element);
                 $result .= $end_space
@@ -1574,8 +1564,6 @@ sub _convert($$;$)
                 # happens for multitable line with prototypes interrupted
                 # by another @-command
                 $result .= "\n" unless ($result =~ /\n/);
-              } else { # bogus multitable
-                $result .= "\n";
               }
             } else {
               # get end of lines from @*table and block @-commands that

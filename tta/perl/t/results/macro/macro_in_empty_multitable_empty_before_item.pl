@@ -29,7 +29,6 @@ $result_tree_text{'macro_in_empty_multitable_empty_before_item'} = '*document_ro
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |columnfractions:[E2]
   |max_columns:{3}
    *arguments_line C1
     *block_line_arg C1
