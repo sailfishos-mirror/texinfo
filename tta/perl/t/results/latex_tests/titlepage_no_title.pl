@@ -26,7 +26,6 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
      |{ }
     |EXTRA
     |global_command_number:{1}
-    |titlepage:[E0]
      *line_arg C1
      |INFO
      |spaces_after_argument:

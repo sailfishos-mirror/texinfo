@@ -10,8 +10,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
    {Text before quotation\\n}
   {empty_line:\\n}
   *0 @quotation C4 l3
-  |EXTRA
-  |authors:EC[E1]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -23,7 +21,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     |{ }
    |EXTRA
    |global_command_number:{1}
-   |quotation:[E0]
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -47,8 +44,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
    {Text between quotation and smallquotation\\n}
   {empty_line:\\n}
   *2 @smallquotation C4 l10
-  |EXTRA
-  |authors:EC[E3]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -60,7 +55,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     |{ }
    |EXTRA
    |global_command_number:{2}
-   |quotation:[E2]
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -84,8 +78,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{ }
-  |EXTRA
-  |authors:EC[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -98,7 +90,6 @@ $result_tree_text{'quotation_and_author'} = '*document_root C1
     |{ }
    |EXTRA
    |global_command_number:{3}
-   |quotation:[E4]
     *line_arg C1
     |INFO
     |spaces_after_argument:

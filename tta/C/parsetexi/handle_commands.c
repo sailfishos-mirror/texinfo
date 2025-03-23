@@ -955,20 +955,13 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           while (parent->parent)
             {
               parent = parent->parent;
+              enum command_id parent_cmd = parent->e.c->cmd;
               if (parent->type == ET_brace_command_context)
                 break;
-              if (parent->e.c->cmd == CM_titlepage)
+              if (parent_cmd == CM_titlepage
+                  || parent_cmd == CM_quotation
+                  || parent_cmd == CM_smallquotation)
                 {
-                  add_extra_element (current, AI_key_titlepage, parent);
-                  found = 1; break;
-                }
-              else if (parent->e.c->cmd == CM_quotation
-                       || parent->e.c->cmd == CM_smallquotation)
-                {
-                  CONST_ELEMENT_LIST *l = add_extra_contents (parent,
-                                                        AI_key_authors, 0);
-                  add_to_const_element_list (l, current);
-                  add_extra_element (current, AI_key_quotation, parent);
                   found = 1; break;
                 }
             }

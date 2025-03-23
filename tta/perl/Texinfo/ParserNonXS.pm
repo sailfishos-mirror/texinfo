@@ -6018,20 +6018,13 @@ sub _handle_line_command($$$$$$)
         $parent = $parent->{'parent'};
         last if ($parent->{'type'}
                 and $parent->{'type'} eq 'brace_command_context');
-        if ($parent->{'cmdname'}) {
-          if ($parent->{'cmdname'} eq 'titlepage') {
-            $current->{'extra'} = {} if (!$current->{'extra'});
-            $current->{'extra'}->{'titlepage'} = $parent;
-            $found = 1;
-          } elsif ($parent->{'cmdname'} eq 'quotation' or
-              $parent->{'cmdname'} eq 'smallquotation') {
-            $parent->{'extra'} = {} if (!$parent->{'extra'});
-            push @{$parent->{'extra'}->{'authors'}}, $current;
-            $current->{'extra'} = {} if (!$current->{'extra'});
-            $current->{'extra'}->{'quotation'} = $parent;
-            $found = 1;
-          }
-          last if ($found);
+        my $parent_cmdname = $parent->{'cmdname'};
+        if ($parent_cmdname
+            and ($parent_cmdname eq 'titlepage'
+                 or $parent_cmdname eq 'quotation'
+                 or $parent_cmdname eq 'smallquotation')) {
+          $found = 1;
+          last;
         }
       }
       if (!$found) {

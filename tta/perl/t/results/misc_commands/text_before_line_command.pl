@@ -66,8 +66,6 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
    {rawline_arg:\\n}
   {empty_line:\\n}
   *2 @quotation C3 l8
-  |EXTRA
-  |authors:EC[E3]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -81,7 +79,6 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
      |{ }
     |EXTRA
     |global_command_number:{1}
-    |quotation:[E2]
      *line_arg C1
      |INFO
      |spaces_after_argument:

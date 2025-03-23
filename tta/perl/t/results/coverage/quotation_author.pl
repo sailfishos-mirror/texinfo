@@ -7,8 +7,6 @@ use utf8;
 $result_tree_text{'quotation_author'} = '*document_root C1
  *before_node_section C1
   *0 @quotation C6 l1
-  |EXTRA
-  |authors:EC[E1|E2]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -21,7 +19,6 @@ $result_tree_text{'quotation_author'} = '*document_root C1
     |{ }
    |EXTRA
    |global_command_number:{1}
-   |quotation:[E0]
     *line_arg C1
     |INFO
     |spaces_after_argument:
@@ -35,7 +32,6 @@ $result_tree_text{'quotation_author'} = '*document_root C1
      |{ }
     |EXTRA
     |global_command_number:{2}
-    |quotation:[E0]
      *line_arg C3
      |INFO
      |spaces_after_argument:

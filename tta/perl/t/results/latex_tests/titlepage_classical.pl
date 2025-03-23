@@ -70,7 +70,6 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |{ }
     |EXTRA
     |global_command_number:{1}
-    |titlepage:[E1]
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -82,7 +81,6 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |{ }
     |EXTRA
     |global_command_number:{2}
-    |titlepage:[E1]
      *line_arg C1
      |INFO
      |spaces_after_argument:

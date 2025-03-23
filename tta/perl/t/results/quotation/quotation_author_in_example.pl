@@ -13,8 +13,6 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
    *1 @quotation C3 l2
-   |EXTRA
-   |authors:EC[E2]
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -27,7 +25,6 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
       |{ }
      |EXTRA
      |global_command_number:{1}
-     |quotation:[E1]
       *line_arg C1
       |INFO
       |spaces_after_argument:

@@ -145,8 +145,6 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
      |INFO
      |spaces_before_argument:
       |{ }
-     |EXTRA
-     |authors:EC[E10]
       *arguments_line C1
        *block_line_arg C1
        |INFO
@@ -159,7 +157,6 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        |{ }
       |EXTRA
       |global_command_number:{1}
-      |quotation:[E9]
        *line_arg C1
        |INFO
        |spaces_after_argument:
