@@ -70,7 +70,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *3 @chapter C23 l8 {Index}
+ *3 @chapter C22 l8 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -191,10 +191,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
   |subentry:[E17]
-   *line_arg C7
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C9
     *14 @math C1 l17
      *brace_command_context C3
       {a!"}
@@ -210,58 +207,59 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
     *16 @" C1 l17
      *brace_container C1
       {o}
-  *17 @subentry C1 l17
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |sortas:{a!"@b}
-  |subentry_level:{1}
-  |subentry_parent:[E13]
-   *line_arg C12
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    *18 @sortas C1 l17
-     *brace_arg C3
-      {a!"}
-      *@@
-      {b}
-    {spaces_after_close_brace: }
-    {sub}
-    *19 @math C1 l17
-     *brace_command_context C3
-      {a!"}
-      *@@
-      {b}
-    { sub "!}
-    *@@
-    { }
-    *20 @" C1 l17
-     *following_arg C1
-      {a}
-    { }
-    *21 @" C1 l17
-     *brace_container C1
-      {o}
-    {spaces_at_end: }
-    *22 @seealso C1 l17
-     *brace_arg C7
-      *23 @math C1 l17
+    {ignorable_spaces_before_command: }
+    *17 @subentry C1 l17
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |sortas:{a!"@b}
+    |subentry_level:{1}
+    |subentry_parent:[E13]
+     *line_arg C12
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      *18 @sortas C1 l17
+       *brace_arg C3
+        {a!"}
+        *@@
+        {b}
+      {spaces_after_close_brace: }
+      {sub}
+      *19 @math C1 l17
        *brace_command_context C3
         {a!"}
         *@@
         {b}
-      { "!}
+      { sub "!}
       *@@
       { }
-      *24 @" C1 l17
+      *20 @" C1 l17
        *following_arg C1
         {a}
       { }
-      *25 @" C1 l17
+      *21 @" C1 l17
        *brace_container C1
         {o}
+      {spaces_at_end: }
+      *22 @seealso C1 l17
+       *brace_arg C7
+        *23 @math C1 l17
+         *brace_command_context C3
+          {a!"}
+          *@@
+          {b}
+        { "!}
+        *@@
+        { }
+        *24 @" C1 l17
+         *following_arg C1
+          {a}
+        { }
+        *25 @" C1 l17
+         *brace_container C1
+          {o}
   *26 index_entry_command@cindex C1 l18
   |INFO
   |command_name:{cindex}

@@ -18,6 +18,7 @@ TYPE_DATA type_data[] = {
 {"empty_line", TF_text | TF_leading_space, 0},
 {"raw", TF_text, 0},
 {"ignorable_spaces_after_command", TF_text | TF_leading_space, 0},
+{"ignorable_spaces_before_command", TF_text | TF_trailing_space, 0},
 {"spaces_at_end", TF_text, 0},
 {"spaces_after_close_brace", TF_text | TF_leading_space, 0},
 {"spaces_before_paragraph", TF_text, 0},

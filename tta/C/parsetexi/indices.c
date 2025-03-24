@@ -342,6 +342,7 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
         {
           if (! (!(type_data[e->type].flags & TF_text)
                  && (e->e.c->cmd == CM_sortas
+                     || e->e.c->cmd == CM_subentry
                      || e->e.c->cmd == CM_seeentry
                      || e->e.c->cmd == CM_seealso))
               && (! check_space_element (e)))
@@ -349,6 +350,13 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
               pending_spaces_element->type = ET_normal_text;
               pending_spaces_element = 0;
             }
+        }
+      if (!(type_data[e->type].flags & TF_text)
+          && e->e.c->cmd == CM_subentry
+          && e->e.c->contents.number > 0)
+        {
+          set_non_ignored_space_in_index_before_command(
+                                                  e->e.c->contents.list[0]);
         }
     }
 }

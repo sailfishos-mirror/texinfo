@@ -76,6 +76,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
   if (type_data[e->type].flags & TF_text)
     {
       if (e->type != ET_ignorable_spaces_after_command
+          && e->type != ET_ignorable_spaces_before_command
           && e->type != ET_spaces_at_end
           && e->type != ET_spaces_before_paragraph
           && e->type != ET_space_at_end_menu_node

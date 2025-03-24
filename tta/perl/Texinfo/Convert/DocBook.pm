@@ -225,6 +225,7 @@ foreach my $block_command ('copying', 'titlepage', 'documentdescription',
 my %ignored_text_types;
 foreach my $text_type (
             'ignorable_spaces_after_command',
+            'ignorable_spaces_before_command',
             'spaces_after_close_brace',
             'spaces_before_paragraph',
             'spaces_at_end',

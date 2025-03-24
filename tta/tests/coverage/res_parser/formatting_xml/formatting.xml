@@ -5957,23 +5957,23 @@ Various deff lines
 <findex index="fn" spaces=" "><indexterm index="fn" number="213">a</indexterm></findex>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="34">a&textmdash;a</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="35">b&textmdash;b</indexterm></cindex> <subentry spaces=" ">c&textmdash;c</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="36">d&textmdash;dd</indexterm></cindex> <subentry spaces=" ">e&textmdash;ee </subentry><subentry spaces=" ">f&textmdash;ff</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="35">b&textmdash;b <subentry spaces=" ">c&textmdash;c</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="36">d&textmdash;dd <subentry spaces=" ">e&textmdash;ee <subentry spaces=" ">f&textmdash;ff</subentry>
+</subentry></indexterm></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="214">f---aa</indexterm></findex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="215">f---bb</indexterm></findex> <subentry spaces=" ">f&textmdash;cc</subentry>
-<findex index="fn" spaces=" "><indexterm index="fn" number="216">f---ddd</indexterm></findex> <subentry spaces=" ">f&textmdash;eee </subentry><subentry spaces=" ">ffff</subentry>
-
+<findex index="fn" spaces=" "><indexterm index="fn" number="215">f---bb <subentry spaces=" ">f---cc</subentry>
+</indexterm></findex><findex index="fn" spaces=" "><indexterm index="fn" number="216">f---ddd <subentry spaces=" ">f---eee <subentry spaces=" ">ffff</subentry>
+</subentry></indexterm></findex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="37">aaa <seeentry>bbb</seeentry></indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="38">ddd <seealso>ccc</seealso></indexterm></cindex>
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="217">f---aaa <seeentry>f---bbb</seeentry></indexterm></findex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="218">f---ddd <seealso>f---ccc</seealso></indexterm></findex>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="39">aaa <sortas>A&textmdash;S</sortas></indexterm></cindex> <subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>
-
-<findex index="fn" spaces=" "><indexterm index="fn" number="219">xxx <sortas>X---S</sortas></indexterm></findex> <subentry spaces=" "><sortas>X&textmdash;S1</sortas> zzz</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="39">aaa <sortas>A&textmdash;S</sortas> <subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>
+</indexterm></cindex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="219">xxx <sortas>X---S</sortas> <subentry spaces=" "><sortas>X---S1</sortas> zzz</subentry>
+</indexterm></findex>
 <cindex></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="220"><w></w></indexterm></findex>
 
@@ -5982,10 +5982,10 @@ Various deff lines
 <indexcommand command="trucindex" index="truc" spaces=" "><indexterm index="truc" number="1" incode="0">truc</indexterm></indexcommand>
 
 <!-- c error with texindex: Bad entry; expected 3 to 5 fields, not 6 -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="40">g&textmdash;gg</indexterm></cindex> <subentry spaces=" ">h&textmdash;hh jjj </subentry><subentry spaces=" ">k&textmdash;kk </subentry><subentry spaces=" ">l&textmdash;ll</subentry>
-
-<findex index="fn" spaces=" "><indexterm index="fn" number="221">f---ggg</indexterm></findex> <subentry spaces=" ">f&textmdash;hhh fjjj </subentry><subentry spaces=" ">f&textmdash;kkk </subentry><subentry spaces=" ">f&textmdash;lll</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="40">g&textmdash;gg <subentry spaces=" ">h&textmdash;hh jjj <subentry spaces=" ">k&textmdash;kk <subentry spaces=" ">l&textmdash;ll</subentry>
+</subentry></subentry></indexterm></cindex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="221">f---ggg <subentry spaces=" ">f---hhh fjjj <subentry spaces=" ">f---kkk <subentry spaces=" ">f---lll</subentry>
+</subentry></subentry></indexterm></findex>
 <!-- c incorrect order.  Cryptic error in TeX -->
 <!-- c  File ended while scanning use of @initialx. -->
 <cindex index="cp" spaces=" "><indexterm index="cp" number="41"><seealso>ccc</seealso> ddd</indexterm></cindex>

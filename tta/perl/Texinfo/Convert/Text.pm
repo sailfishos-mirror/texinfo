@@ -133,6 +133,7 @@ foreach my $type ('postamble_after_end',
 
 my %ignored_text_types;
 foreach my $type ('ignorable_spaces_after_command',
+            'ignorable_spaces_before_command',
             'spaces_at_end',
             'spaces_before_paragraph',
             'spaces_after_close_brace') {

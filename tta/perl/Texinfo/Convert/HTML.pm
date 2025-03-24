@@ -7106,7 +7106,10 @@ sub default_type_open($$)
 
 
 # Ignored commands
-foreach my $type ('ignorable_spaces_after_command', 'postamble_after_end',
+foreach my $type (
+            'ignorable_spaces_after_command',
+            'ignorable_spaces_before_command',
+            'postamble_after_end',
             'preamble_before_beginning',
             'preamble_before_setfilename',
             'spaces_at_end',

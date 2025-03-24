@@ -10,6 +10,8 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Change DTD for the new tree for subentry
+
 update libintl-perl before the release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?

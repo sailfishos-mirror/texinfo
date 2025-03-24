@@ -57,7 +57,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter one}
- *3 @chapter C27 l5 {one}
+ *3 @chapter C15 l5 {one}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -84,23 +84,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,1}
   |subentry:[E5]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {aa}
-  *5 @subentry C1 l7
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E4]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {bb}
+    {ignorable_spaces_before_command: }
+    *5 @subentry C1 l7
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E4]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {bb}
   *6 index_entry_command@cindex C1 l8
   |INFO
   |command_name:{cindex}
@@ -110,23 +108,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,2}
   |subentry:[E7]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {ab}
-  *7 @subentry C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E6]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {cc}
+    {ignorable_spaces_before_command: }
+    *7 @subentry C1 l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E6]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {cc}
   *8 index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
@@ -136,23 +132,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,3}
   |subentry:[E9]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {aa}
-  *9 @subentry C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E8]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {dd}
+    {ignorable_spaces_before_command: }
+    *9 @subentry C1 l9
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E8]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {dd}
   *10 index_entry_command@cindex C1 l10
   |INFO
   |command_name:{cindex}
@@ -162,23 +156,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,4}
   |subentry:[E11]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {bb}
-  *11 @subentry C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E10]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {cc}
+    {ignorable_spaces_before_command: }
+    *11 @subentry C1 l10
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E10]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {cc}
   {empty_line:\\n}
   *12 index_entry_command@cindex C1 l12
   |INFO
@@ -189,36 +181,32 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,5}
   |subentry:[E13]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *13 @subentry C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E14]
-  |subentry_level:{1}
-  |subentry_parent:[E12]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {jjj}
-  *14 @subentry C1 l12
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E13]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {lll}
+    {ignorable_spaces_before_command: }
+    *13 @subentry C1 l12
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E14]
+    |subentry_level:{1}
+    |subentry_parent:[E12]
+     *line_arg C3
+      {jjj}
+      {ignorable_spaces_before_command: }
+      *14 @subentry C1 l12
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E13]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {lll}
   *15 index_entry_command@cindex C1 l13
   |INFO
   |command_name:{cindex}
@@ -228,23 +216,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,6}
   |subentry:[E16]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *16 @subentry C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E15]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {jjj}
+    {ignorable_spaces_before_command: }
+    *16 @subentry C1 l13
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E15]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {jjj}
   *17 index_entry_command@cindex C1 l14
   |INFO
   |command_name:{cindex}
@@ -267,23 +253,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,8}
   |subentry:[E19]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *19 @subentry C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E18]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {k}
+    {ignorable_spaces_before_command: }
+    *19 @subentry C1 l15
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E18]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {k}
   *20 index_entry_command@cindex C1 l16
   |INFO
   |command_name:{cindex}
@@ -293,19 +277,17 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,9}
   |subentry:[E21]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *21 @subentry C1 l16
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E20]
-   *line_arg
-   |INFO
-   |spaces_after_argument:
-    |{ \\n}
+    {ignorable_spaces_before_command: }
+    *21 @subentry C1 l16
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E20]
+     *line_arg
+     |INFO
+     |spaces_after_argument:
+      |{ \\n}
   *22 index_entry_command@cindex C1 l17
   |INFO
   |command_name:{cindex}
@@ -328,49 +310,43 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E2]
   |index_entry:I{cp,11}
   |subentry:[E24]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *24 @subentry C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E25]
-  |subentry_level:{1}
-  |subentry_parent:[E23]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {jjj}
-  *25 @subentry C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E26]
-  |subentry_level:{2}
-  |subentry_parent:[E24]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {lll}
-  *26 @subentry C1 l18
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{3}
-  |subentry_parent:[E25]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {ppp}
+    {ignorable_spaces_before_command: }
+    *24 @subentry C1 l18
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E25]
+    |subentry_level:{1}
+    |subentry_parent:[E23]
+     *line_arg C3
+      {jjj}
+      {ignorable_spaces_before_command: }
+      *25 @subentry C1 l18
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry:[E26]
+      |subentry_level:{2}
+      |subentry_parent:[E24]
+       *line_arg C3
+        {lll}
+        {ignorable_spaces_before_command: }
+        *26 @subentry C1 l18
+        |INFO
+        |spaces_before_argument:
+         |{ }
+        |EXTRA
+        |subentry_level:{3}
+        |subentry_parent:[E25]
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{\\n}
+          {ppp}
   {empty_line:\\n}
  *27 @node C1 l20 {chapter second}
  |INFO
@@ -389,7 +365,7 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {chapter second}
- *28 @chapter C23 l21 {second}
+ *28 @chapter C11 l21 {second}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -415,36 +391,32 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E27]
   |index_entry:I{cp,12}
   |subentry:[E30]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {hhh}
-  *30 @subentry C1 l22
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E31]
-  |subentry_level:{1}
-  |subentry_parent:[E29]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {jjj}
-  *31 @subentry C1 l22
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E30]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {lll}
+    {ignorable_spaces_before_command: }
+    *30 @subentry C1 l22
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E31]
+    |subentry_level:{1}
+    |subentry_parent:[E29]
+     *line_arg C3
+      {jjj}
+      {ignorable_spaces_before_command: }
+      *31 @subentry C1 l22
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E30]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {lll}
   *32 index_entry_command@cindex C1 l23
   |INFO
   |command_name:{cindex}
@@ -467,25 +439,23 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E27]
   |index_entry:I{cp,14}
   |subentry:[E35]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     *34 @samp C1 l24
      *brace_container C1
       {hhh}
-  *35 @subentry C1 l24
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E33]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {jjj}
+    {ignorable_spaces_before_command: }
+    *35 @subentry C1 l24
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E33]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {jjj}
   *36 index_entry_command@cindex C1 l25
   |INFO
   |command_name:{cindex}
@@ -495,65 +465,41 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |element_node:[E27]
   |index_entry:I{cp,15}
   |subentry:[E38]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     *37 @kbd C1 l25
      *brace_container C1
       {hhh}
-  *38 @subentry C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E40]
-  |subentry_level:{1}
-  |subentry_parent:[E36]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    *39 @sc C1 l25
-     *brace_container C1
-      {jjj}
-  *40 @subentry C1 l25
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E38]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    *41 @email C2 l25
-     *brace_arg C1
-      {jjj}
-     *brace_arg C1
-      {mymail}
+    {ignorable_spaces_before_command: }
+    *38 @subentry C1 l25
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E40]
+    |subentry_level:{1}
+    |subentry_parent:[E36]
+     *line_arg C3
+      *39 @sc C1 l25
+       *brace_container C1
+        {jjj}
+      {ignorable_spaces_before_command: }
+      *40 @subentry C1 l25
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E38]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        *41 @email C2 l25
+         *brace_arg C1
+          {jjj}
+         *brace_arg C1
+          {mymail}
   *42 index_entry_command@cindex C1 l26
-  |INFO
-  |command_name:{cindex}
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E43]
-   *line_arg
-  *43 @subentry C1 l26
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E42]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {aa}
-  *44 index_entry_command@cindex C1 l27
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -561,43 +507,21 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |EXTRA
   |element_node:[E27]
   |index_entry:I{cp,16}
-  |subentry:[E45]
+  |subentry:[E43]
    *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {hhh}
-  *45 @subentry C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E46]
-  |subentry_level:{1}
-  |subentry_parent:[E44]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {jjj}
-  *46 @subentry C1 l27
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |sortas:{A}
-  |subentry_level:{2}
-  |subentry_parent:[E45]
-   *line_arg C3
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {lll}
-    {spaces_at_end: }
-    *47 @sortas C1 l27
-     *brace_arg C1
-      {A}
-  *48 index_entry_command@cindex C1 l28
+    *43 @subentry C1 l26
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E42]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {aa}
+  *44 index_entry_command@cindex C1 l27
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -605,38 +529,39 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |EXTRA
   |element_node:[E27]
   |index_entry:I{cp,17}
-  |subentry:[E49]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+  |subentry:[E45]
+   *line_arg C3
     {hhh}
-  *49 @subentry C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E50]
-  |subentry_level:{1}
-  |subentry_parent:[E48]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {k}
-  *50 @subentry C1 l28
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E49]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {nnn}
-  *51 index_entry_command@cindex C1 l29
+    {ignorable_spaces_before_command: }
+    *45 @subentry C1 l27
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E46]
+    |subentry_level:{1}
+    |subentry_parent:[E44]
+     *line_arg C3
+      {jjj}
+      {ignorable_spaces_before_command: }
+      *46 @subentry C1 l27
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |sortas:{A}
+      |subentry_level:{2}
+      |subentry_parent:[E45]
+       *line_arg C3
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {lll}
+        {spaces_at_end: }
+        *47 @sortas C1 l27
+         *brace_arg C1
+          {A}
+  *48 index_entry_command@cindex C1 l28
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -644,37 +569,68 @@ $result_tree_text{'sorted_subentries'} = '*document_root C7
   |EXTRA
   |element_node:[E27]
   |index_entry:I{cp,18}
-  |subentry:[E52]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+  |subentry:[E49]
+   *line_arg C3
     {hhh}
-  *52 @subentry C1 l29
+    {ignorable_spaces_before_command: }
+    *49 @subentry C1 l28
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E50]
+    |subentry_level:{1}
+    |subentry_parent:[E48]
+     *line_arg C3
+      {k}
+      {ignorable_spaces_before_command: }
+      *50 @subentry C1 l28
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E49]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {nnn}
+  *51 index_entry_command@cindex C1 l29
   |INFO
+  |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |subentry:[E53]
-  |subentry_level:{1}
-  |subentry_parent:[E51]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {l}
-  *53 @subentry C1 l29
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E52]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {third}
+  |element_node:[E27]
+  |index_entry:I{cp,19}
+  |subentry:[E52]
+   *line_arg C3
+    {hhh}
+    {ignorable_spaces_before_command: }
+    *52 @subentry C1 l29
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E53]
+    |subentry_level:{1}
+    |subentry_parent:[E51]
+     *line_arg C3
+      {l}
+      {ignorable_spaces_before_command: }
+      *53 @subentry C1 l29
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E52]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {third}
   {empty_line:\\n}
   *@printindex C1 l31
   |INFO
@@ -752,23 +708,24 @@ $result_errors{'sorted_subentries'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: @cindex missing argument
-',
-    'line_nr' => 26,
-    'text' => '@cindex missing argument',
-    'type' => 'warning'
-  },
-  {
     'error_line' => 'warning: empty index sub entry 1 key in @cindex
 ',
     'line_nr' => 16,
     'text' => 'empty index sub entry 1 key in @cindex',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'line_nr' => 26,
+    'text' => 'empty index key in @cindex',
     'type' => 'warning'
   }
 ];
 
 
 $result_indices_sort_strings{'sorted_subentries'} = 'cp:
+ , aa
  aa, bb
  aa, dd
  ab, cc
@@ -815,6 +772,7 @@ File: ,  Node: chapter second,  Prev: chapter one,  Up: Top
  [index ]
 * Menu:
 
+* , aa:                                  chapter second.        (line 6)
 * aa, bb:                                chapter one.           (line 5)
 * aa, dd:                                chapter one.           (line 5)
 * ab, cc:                                chapter one.           (line 5)
@@ -857,6 +815,7 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 
 * Menu:
 
+* , aa:                                  chapter second.        (line 6)
 * aa, bb:                                chapter one.           (line 2)
 * aa, dd:                                chapter one.           (line 2)
 * ab, cc:                                chapter one.           (line 2)
@@ -922,12 +881,16 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <a class="index-entry-id" id="index-hhh-1"></a>
 <a class="index-entry-id" id="index-hhh-jjj-2"></a>
 <a class="index-entry-id" id="index-hhh-jjj-jjj"></a>
+<a class="index-entry-id" id="index--aa"></a>
 <a class="index-entry-id" id="index-hhh-jjj-lll-2"></a>
 <a class="index-entry-id" id="index-hhh-k-nnn"></a>
 <a class="index-entry-id" id="index-hhh-l-third"></a>
 
 <div class="printindex cp-printindex">
-<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_symbol-1"><b></b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-second_cp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -935,6 +898,9 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-second_cp_symbol-1"></th></tr>
+<tr><td class="printindex-index-entry"></td><td></td></tr>
+<tr><td class="printindex-index-entry index-entry-level-1"><a href="#index--aa">aa</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter-second_cp_letter-A">A</th></tr>
 <tr><td class="printindex-index-entry">aa</td><td></td></tr>
 <tr><td class="printindex-index-entry index-entry-level-1"><a href="#index-aa-bb">bb</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
@@ -961,7 +927,10 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <tr><td class="printindex-index-entry index-entry-level-2"><a href="#index-hhh-l-third">third</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-hhh-jjj-1">hhh jjj</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 </table>
-<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-second_cp_symbol-1"><b></b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#chapter-second_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter-second_cp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -981,31 +950,31 @@ $result_converted{'xml'}->{'sorted_subentries'} = '<node identifier="Top" spaces
 <node identifier="chapter-one" spaces=" "><nodename>chapter one</nodename><nodenext automatic="on">chapter second</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>one</sectiontitle>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aa</indexterm></cindex> <subentry spaces=" ">bb</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">ab</indexterm></cindex> <subentry spaces=" ">cc</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">aa</indexterm></cindex> <subentry spaces=" ">dd</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="4">bb</indexterm></cindex> <subentry spaces=" ">cc</subentry>
-
-<cindex index="cp" spaces=" "><indexterm index="cp" number="5">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="6">hhh</indexterm></cindex> <subentry spaces=" ">jjj</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="7">hhh jjj</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="8">hhh</indexterm></cindex> <subentry spaces=" ">k</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="9">hhh</indexterm></cindex> <subentry> </subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="10">hhh</indexterm></cindex> 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="11">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll </subentry><subentry spaces=" ">ppp</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aa <subentry spaces=" ">bb</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="2">ab <subentry spaces=" ">cc</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="3">aa <subentry spaces=" ">dd</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="4">bb <subentry spaces=" ">cc</subentry>
+</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="5">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll</subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="6">hhh <subentry spaces=" ">jjj</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="7">hhh jjj</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="8">hhh <subentry spaces=" ">k</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="9">hhh <subentry> </subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="10">hhh</indexterm></cindex> 
+<cindex index="cp" spaces=" "><indexterm index="cp" number="11">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll <subentry spaces=" ">ppp</subentry>
+</subentry></subentry></indexterm></cindex>
 </chapter>
 <node identifier="chapter-second" spaces=" "><nodename>chapter second</nodename><nodeprev automatic="on">chapter one</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>second</sectiontitle>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="12">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="13">hhh</indexterm></cindex> 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="14"><samp>hhh</samp></indexterm></cindex> <subentry spaces=" ">jjj</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="15"><kbd>hhh</kbd></indexterm></cindex> <subentry spaces=" "><sc>jjj</sc> </subentry><subentry spaces=" "><email><emailaddress>jjj</emailaddress><emailname>mymail</emailname></email></subentry>
-<cindex spaces=" "></cindex><subentry spaces=" ">aa</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="16">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll <sortas>A</sortas></subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="17">hhh</indexterm></cindex> <subentry spaces=" ">k </subentry><subentry spaces=" ">nnn</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="18">hhh</indexterm></cindex> <subentry spaces=" ">l </subentry><subentry spaces=" ">third</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="12">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll</subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="13">hhh</indexterm></cindex> 
+<cindex index="cp" spaces=" "><indexterm index="cp" number="14"><samp>hhh</samp> <subentry spaces=" ">jjj</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="15"><kbd>hhh</kbd> <subentry spaces=" "><sc>jjj</sc> <subentry spaces=" "><email><emailaddress>jjj</emailaddress><emailname>mymail</emailname></email></subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="16"><subentry spaces=" ">aa</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="17">hhh <subentry spaces=" ">jjj <subentry spaces=" ">lll <sortas>A</sortas></subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="18">hhh <subentry spaces=" ">k <subentry spaces=" ">nnn</subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="19">hhh <subentry spaces=" ">l <subentry spaces=" ">third</subentry>
+</subentry></indexterm></cindex>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 </chapter>
 ';

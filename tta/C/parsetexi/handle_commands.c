@@ -827,11 +827,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   line_error
                     ("no more than two levels of index subentry are allowed");
                 }
-
-              /* Do not make the @subentry element a child of the index
-                 command.  This means that spaces are preserved properly
-                 when converting back to Texinfo. */
-              current = end_line (current);
             }
 
           add_to_element_contents (current, command_e);

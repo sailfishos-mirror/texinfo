@@ -154,7 +154,8 @@ foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
 #print STDERR join(', ', map {"'$_'"} @entries)."\n";
 
 # the entry @cindex @subentry aa does not appear, has a missing argument
-@entries_ref = ('hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj', 'hhh, jjj, A',
+@entries_ref = (', aa', 'hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj',
+ 'hhh, jjj, A',
  'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, JJJ, mymail', 'hhh, k', 'hhh jjj');
 
 cmp_deeply(\@entries, \@entries_ref, 'subentry sorted');

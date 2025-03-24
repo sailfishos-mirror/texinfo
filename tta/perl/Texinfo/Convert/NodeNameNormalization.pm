@@ -86,6 +86,7 @@ foreach my $ignored_brace_command ('anchor', 'namedanchor', 'footnote',
 my %ignored_text_types;
 foreach my $type (
             'ignorable_spaces_after_command',
+            'ignorable_spaces_before_command',
             'spaces_at_end',
             'spaces_before_paragraph',
             'space_at_end_menu_node',

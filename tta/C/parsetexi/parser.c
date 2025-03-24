@@ -1062,11 +1062,26 @@ isolate_last_space (ELEMENT *current)
       if (spaces_element == last_elt)
       /* If text all whitespace */
         {
-          /* e is last_elt */
-          ELEMENT *e = pop_element_from_contents (current);
-          e->parent = 0;
-          e->type = ET_other_text;
-          current->elt_info[eit_spaces_after_argument] = e;
+          if (!(type_data[last_elt->type].flags & TF_trailing_space))
+            {
+              /* e is last_elt */
+              ELEMENT *e = pop_element_from_contents (current);
+              e->parent = 0;
+              e->type = ET_other_text;
+              current->elt_info[eit_spaces_after_argument] = e;
+            }
+          else
+            {
+              if (global_parser_conf.debug)
+                {
+                  debug_nonl ("NOT ISOLATING SPACES ONLY ");
+                  debug_parser_print_element (current, 1);
+                  debug_nonl ("; c ");
+                  debug_parser_print_element (last_elt, 0);
+                  debug ("");
+                }
+              return;
+            }
         }
     /* a new element with traling spaces transferred from last_elt */
       else if (spaces_element)
@@ -1080,7 +1095,7 @@ isolate_last_space (ELEMENT *current)
   if (global_parser_conf.debug)
     {
       debug_nonl ("ISOLATE SPACE p ");
-      debug_parser_print_element (current, 0);
+      debug_parser_print_element (current, 1);
       debug_nonl ("; c ");
       debug_parser_print_element (last_elt, 0); debug ("");
     }
@@ -1090,7 +1105,7 @@ isolate_last_space (ELEMENT *current)
   if (global_parser_conf.debug)
     {
       debug_nonl ("NOT ISOLATING p ");
-      debug_parser_print_element (current, 0);
+      debug_parser_print_element (current, 1);
       debug_nonl ("; c ");
       if (last_elt)
         debug_parser_print_element (last_elt, 0);
@@ -2425,7 +2440,8 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                || current->parent->e.c->cmd == CM_subentry))
         {
           if (cmd == CM_subentry)
-            isolate_trailing_space (current, ET_spaces_at_end);
+            isolate_trailing_space (current,
+                                    ET_ignorable_spaces_before_command);
           else
                /* an internal and temporary space type that is converted to
                   a normal space if followed by text or a

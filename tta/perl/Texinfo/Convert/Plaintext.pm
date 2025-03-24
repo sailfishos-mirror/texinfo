@@ -289,6 +289,7 @@ my %upper_case_commands = (
 
 my %ignorable_space_types;
 foreach my $type ('ignorable_spaces_after_command',
+            'ignorable_spaces_before_command',
             'spaces_at_end',
             'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;

@@ -394,6 +394,12 @@ foreach my $type ('empty_line', 'ignorable_spaces_after_command',
   $leading_space_types{$type} = 1;
 }
 
+# To keep in sync with XS main/element_types.txt trailing_space flag
+my %trailing_space_types;
+foreach my $type ('ignorable_spaces_before_command') {
+  $trailing_space_types{$type} = 1;
+}
+
 my %command_ignore_space_after;
 foreach my $command ('anchor', 'hyphenation', 'caption', 'namedanchor',
                      'shortcaption', 'sortas', 'seeentry', 'seealso') {
@@ -2980,6 +2986,8 @@ sub _expand_macro_body($$$$) {
   return $result;
 }
 
+sub _set_non_ignored_space_in_index_before_command($);
+
 # turn spaces that are ignored before @-commands like @sortas{} and
 # @seeentry{} back to regular spaces if there is content after the @-command
 sub _set_non_ignored_space_in_index_before_command($)
@@ -2994,13 +3002,18 @@ sub _set_non_ignored_space_in_index_before_command($)
       $pending_spaces_element = $element;
     } elsif ($pending_spaces_element
              and not (($element->{'cmdname'}
-                       and $in_index_commands{$element->{'cmdname'}}
-                       and defined($brace_commands{$element->{'cmdname'}}))
+                       and $in_index_commands{$element->{'cmdname'}})
                       or ($element->{'type'}
                    and $element->{'type'} eq 'spaces_after_close_brace'))
              and (! _check_empty_expansion([$element]))) {
       delete $pending_spaces_element->{'type'};
       $pending_spaces_element = 0;
+    }
+    if ($element->{'cmdname'}
+        and $element->{'cmdname'} eq 'subentry'
+        and $element->{'contents'}) {
+      _set_non_ignored_space_in_index_before_command(
+                                        $element->{'contents'}->[0]);
     }
   }
 }
@@ -3157,7 +3170,7 @@ sub _isolate_last_space
 
   my $debug_str;
   if ($self->{'conf'}->{'DEBUG'}) {
-    $debug_str = 'p '.Texinfo::Common::debug_print_element($current).'; c ';
+    $debug_str = 'p '.Texinfo::Common::debug_print_element($current, 1).'; c ';
     if ($current->{'contents'}) {
       $debug_str .=
          Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
@@ -3170,12 +3183,19 @@ sub _isolate_last_space
         and $last_element->{'text'} ne '') {
       # Store final spaces in 'spaces_after_argument'.
       if ($last_element->{'text'} !~ /\S/) {
-        my $spaces_after_argument = _pop_element_from_contents($self, $current);
-        delete $spaces_after_argument->{'parent'};
-        delete $spaces_after_argument->{'type'};
-        $current->{'info'} = {} if (!exists($current->{'info'}));
-        $current->{'info'}->{'spaces_after_argument'}
+        my $e_type = $last_element->{'type'};
+        if (!$e_type or !$trailing_space_types{$e_type}) {
+          my $spaces_after_argument = _pop_element_from_contents($self, $current);
+          delete $spaces_after_argument->{'parent'};
+          delete $spaces_after_argument->{'type'};
+          $current->{'info'} = {} if (!exists($current->{'info'}));
+          $current->{'info'}->{'spaces_after_argument'}
                = $spaces_after_argument;
+        } else {
+          print STDERR "NOT ISOLATING SPACES ONLY $debug_str\n"
+            if ($self->{'conf'}->{'DEBUG'});
+          return;
+        }
       } else {
         my $new_space_element = _isolate_trailing_spaces_element($last_element);
         if ($new_space_element) {
@@ -5932,10 +5952,6 @@ sub _handle_line_command($$$$$$)
       "no more than two levels of index subentry are allowed"),
                    $source_info);
         }
-        # Do not make the @subentry element a child of the index
-        # command.  This means that spaces are preserved properly
-        # when converting back to Texinfo.
-        $current = _end_line($self, $current, $source_info);
       } elsif ($sectioning_heading_commands{$data_cmdname}) {
         if ($self->{'sections_level_modifier'}) {
           $command_e->{'extra'}
@@ -7517,7 +7533,7 @@ sub _process_remaining_on_line($$$$)
         # the final tree.
         and _is_index_element($self, $current->{'parent'})) {
       if ($command eq 'subentry') {
-        _isolate_trailing_space($current, 'spaces_at_end');
+        _isolate_trailing_space($current, 'ignorable_spaces_before_command');
       } else {
         # an internal and temporary space type that is converted to
         # a normal space without type if followed by text or a

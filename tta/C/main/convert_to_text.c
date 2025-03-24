@@ -517,6 +517,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
   if (type_data[element->type].flags & TF_text)
     {
       if (element->type == ET_ignorable_spaces_after_command
+          || element->type == ET_ignorable_spaces_before_command
           || element->type == ET_spaces_at_end
           || element->type == ET_spaces_before_paragraph
           || element->type == ET_spaces_after_close_brace)

@@ -1,3 +1,36 @@
+2025-03-24  Patrice Dumas  <pertusus@free.fr>
+
+	Let subentry be a child of index entry and other subentries
+
+	* tta/C/main/element_types.txt, tta/C/main/node_name_normalization.c
+	(convert_to_normalized_internal), tta/perl/Texinfo/Convert/*.pm
+	(%ignored_*types) : add ignorable_spaces_before_command type of text
+	for spaces to be ignored before a command.  For spaces before
+	@subentry.
+
+	* tta/C/parsetexi/parser.c (isolate_last_space),
+	tta/C/main/types_data.h (TF_trailing_space),
+	tta/perl/Texinfo/ParserNonXS.pm (%trailing_space_types): add
+	trailing_space type.  For such a type, do not replace its type when
+	calling isolate_last_space as it is a trailing space that should be
+	kept as is.  Set trailing_space for ignorable_spaces_before_command.
+
+	* tta/C/parsetexi/parser.c (process_remaining_on_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_process_remaining_on_line): call
+	isolate_trailing_space with ignorable_spaces_before_command for
+	subentry.
+
+	* tta/C/parsetexi/handle_commands.c (handle_line_command),
+	tta/C/parsetexi/indices.c
+	(set_non_ignored_space_in_index_before_command),
+	tta/perl/Texinfo/ParserNonXS.pm
+	(_set_non_ignored_space_in_index_before_command)
+	(_handle_line_command): do not call end_line for subentry, such as to
+	keep it a child of index entry or of another subentry.  Add subentry
+	to commands that do not turn a internal_spaces_before_brace_in_index
+	to a regular space.  Have
+	set_non_ignored_space_in_index_before_command recurse in subentry.
+
 2025-03-23  Patrice Dumas  <pertusus@free.fr>
 
 	Remove seeentry and seealso extra information

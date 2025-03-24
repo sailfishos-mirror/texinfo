@@ -58,7 +58,7 @@ $result_tree_text{'subentries'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter index}
- *3 @chapter C26 l5 {Index}
+ *3 @chapter C14 l5 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -98,23 +98,21 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{cp,2}
   |subentry:[E6]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {b---b}
-  *6 @subentry C1 l8
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E5]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {c---c}
+    {ignorable_spaces_before_command: }
+    *6 @subentry C1 l8
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E5]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {c---c}
   *7 index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
@@ -124,36 +122,32 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{cp,3}
   |subentry:[E8]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {d---dd}
-  *8 @subentry C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E9]
-  |subentry_level:{1}
-  |subentry_parent:[E7]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {e---ee}
-  *9 @subentry C1 l9
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E8]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {f---ff}
+    {ignorable_spaces_before_command: }
+    *8 @subentry C1 l9
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E9]
+    |subentry_level:{1}
+    |subentry_parent:[E7]
+     *line_arg C3
+      {e---ee}
+      {ignorable_spaces_before_command: }
+      *9 @subentry C1 l9
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E8]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {f---ff}
   *10 index_entry_command@cindex C1 l10
   |INFO
   |command_name:{cindex}
@@ -163,49 +157,43 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{cp,4}
   |subentry:[E11]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {g---gg}
-  *11 @subentry C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E12]
-  |subentry_level:{1}
-  |subentry_parent:[E10]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {h---hh jjj}
-  *12 @subentry C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E13]
-  |subentry_level:{2}
-  |subentry_parent:[E11]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {k---kk}
-  *13 @subentry C1 l10
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{3}
-  |subentry_parent:[E12]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {l---ll}
+    {ignorable_spaces_before_command: }
+    *11 @subentry C1 l10
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E12]
+    |subentry_level:{1}
+    |subentry_parent:[E10]
+     *line_arg C3
+      {h---hh jjj}
+      {ignorable_spaces_before_command: }
+      *12 @subentry C1 l10
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry:[E13]
+      |subentry_level:{2}
+      |subentry_parent:[E11]
+       *line_arg C3
+        {k---kk}
+        {ignorable_spaces_before_command: }
+        *13 @subentry C1 l10
+        |INFO
+        |spaces_before_argument:
+         |{ }
+        |EXTRA
+        |subentry_level:{3}
+        |subentry_parent:[E12]
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{\\n}
+          {l---ll}
   {empty_line:\\n}
   *14 index_entry_command@findex C1 l12
   |INFO
@@ -229,23 +217,21 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{fn,2}
   |subentry:[E16]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {f---bb}
-  *16 @subentry C1 l13
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{1}
-  |subentry_parent:[E15]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {f---cc}
+    {ignorable_spaces_before_command: }
+    *16 @subentry C1 l13
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry_level:{1}
+    |subentry_parent:[E15]
+     *line_arg C1
+     |INFO
+     |spaces_after_argument:
+      |{\\n}
+      {f---cc}
   *17 index_entry_command@findex C1 l14
   |INFO
   |command_name:{findex}
@@ -255,36 +241,32 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{fn,3}
   |subentry:[E18]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {f---ddd}
-  *18 @subentry C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E19]
-  |subentry_level:{1}
-  |subentry_parent:[E17]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {f---eee}
-  *19 @subentry C1 l14
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{2}
-  |subentry_parent:[E18]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {ffff}
+    {ignorable_spaces_before_command: }
+    *18 @subentry C1 l14
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E19]
+    |subentry_level:{1}
+    |subentry_parent:[E17]
+     *line_arg C3
+      {f---eee}
+      {ignorable_spaces_before_command: }
+      *19 @subentry C1 l14
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry_level:{2}
+      |subentry_parent:[E18]
+       *line_arg C1
+       |INFO
+       |spaces_after_argument:
+        |{\\n}
+        {ffff}
   *20 index_entry_command@findex C1 l15
   |INFO
   |command_name:{findex}
@@ -294,49 +276,43 @@ $result_tree_text{'subentries'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{fn,4}
   |subentry:[E21]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
+   *line_arg C3
     {f---ggg}
-  *21 @subentry C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E22]
-  |subentry_level:{1}
-  |subentry_parent:[E20]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {f---hhh fjjj}
-  *22 @subentry C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry:[E23]
-  |subentry_level:{2}
-  |subentry_parent:[E21]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{ }
-    {f---kkk}
-  *23 @subentry C1 l15
-  |INFO
-  |spaces_before_argument:
-   |{ }
-  |EXTRA
-  |subentry_level:{3}
-  |subentry_parent:[E22]
-   *line_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{\\n}
-    {f---lll}
+    {ignorable_spaces_before_command: }
+    *21 @subentry C1 l15
+    |INFO
+    |spaces_before_argument:
+     |{ }
+    |EXTRA
+    |subentry:[E22]
+    |subentry_level:{1}
+    |subentry_parent:[E20]
+     *line_arg C3
+      {f---hhh fjjj}
+      {ignorable_spaces_before_command: }
+      *22 @subentry C1 l15
+      |INFO
+      |spaces_before_argument:
+       |{ }
+      |EXTRA
+      |subentry:[E23]
+      |subentry_level:{2}
+      |subentry_parent:[E21]
+       *line_arg C3
+        {f---kkk}
+        {ignorable_spaces_before_command: }
+        *23 @subentry C1 l15
+        |INFO
+        |spaces_before_argument:
+         |{ }
+        |EXTRA
+        |subentry_level:{3}
+        |subentry_parent:[E22]
+         *line_arg C1
+         |INFO
+         |spaces_after_argument:
+          |{\\n}
+          {f---lll}
   {empty_line:\\n}
   *@printindex C1 l17
   |INFO
@@ -592,15 +568,15 @@ $result_converted{'xml'}->{'subentries'} = '<node identifier="Top" spaces=" "><n
 <chapter spaces=" "><sectiontitle>Index</sectiontitle>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">a&textmdash;a</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">b&textmdash;b</indexterm></cindex> <subentry spaces=" ">c&textmdash;c</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="3">d&textmdash;dd</indexterm></cindex> <subentry spaces=" ">e&textmdash;ee </subentry><subentry spaces=" ">f&textmdash;ff</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="4">g&textmdash;gg</indexterm></cindex> <subentry spaces=" ">h&textmdash;hh jjj </subentry><subentry spaces=" ">k&textmdash;kk </subentry><subentry spaces=" ">l&textmdash;ll</subentry>
-
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">b&textmdash;b <subentry spaces=" ">c&textmdash;c</subentry>
+</indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="3">d&textmdash;dd <subentry spaces=" ">e&textmdash;ee <subentry spaces=" ">f&textmdash;ff</subentry>
+</subentry></indexterm></cindex><cindex index="cp" spaces=" "><indexterm index="cp" number="4">g&textmdash;gg <subentry spaces=" ">h&textmdash;hh jjj <subentry spaces=" ">k&textmdash;kk <subentry spaces=" ">l&textmdash;ll</subentry>
+</subentry></subentry></indexterm></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">f---aa</indexterm></findex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="2">f---bb</indexterm></findex> <subentry spaces=" ">f&textmdash;cc</subentry>
-<findex index="fn" spaces=" "><indexterm index="fn" number="3">f---ddd</indexterm></findex> <subentry spaces=" ">f&textmdash;eee </subentry><subentry spaces=" ">ffff</subentry>
-<findex index="fn" spaces=" "><indexterm index="fn" number="4">f---ggg</indexterm></findex> <subentry spaces=" ">f&textmdash;hhh fjjj </subentry><subentry spaces=" ">f&textmdash;kkk </subentry><subentry spaces=" ">f&textmdash;lll</subentry>
-
+<findex index="fn" spaces=" "><indexterm index="fn" number="2">f---bb <subentry spaces=" ">f---cc</subentry>
+</indexterm></findex><findex index="fn" spaces=" "><indexterm index="fn" number="3">f---ddd <subentry spaces=" ">f---eee <subentry spaces=" ">ffff</subentry>
+</subentry></indexterm></findex><findex index="fn" spaces=" "><indexterm index="fn" number="4">f---ggg <subentry spaces=" ">f---hhh fjjj <subentry spaces=" ">f---kkk <subentry spaces=" ">f---lll</subentry>
+</subentry></subentry></indexterm></findex>
 <printindex spaces=" " value="cp" line="cp"></printindex>
 <printindex spaces=" " value="fn" line="fn"></printindex>
 </chapter>

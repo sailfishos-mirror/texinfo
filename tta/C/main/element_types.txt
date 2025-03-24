@@ -67,6 +67,7 @@ context_brace_command                  braces,spaces_before,c_only
 empty_line                                text,leading_space
 raw                                       text
 ignorable_spaces_after_command            text,leading_space
+ignorable_spaces_before_command           text,trailing_space
 spaces_at_end                             text
 spaces_after_close_brace                  text,leading_space
 spaces_before_paragraph                   text
