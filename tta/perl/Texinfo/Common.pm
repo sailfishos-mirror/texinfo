@@ -847,6 +847,23 @@ sub multitable_columnfractions($)
   return $columnfractions;
 }
 
+# TODO document
+# used in Texinfo::Indices and converters
+sub collect_subentries($$);
+sub collect_subentries($$)
+{
+  my $current = shift;
+  my $subentries = shift;
+
+  my $line_arg = $current->{'contents'}->[0];
+  foreach my $content (@{$line_arg->{'contents'}}) {
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+      push @$subentries, $content;
+      collect_subentries($content, $subentries);
+    }
+  }
+}
+
 sub index_entry_referred_entry($$);
 
 # TODO document
@@ -860,16 +877,14 @@ sub index_entry_referred_entry($$)
 
   if ($line_arg->{'contents'}) {
     foreach my $content (@{$line_arg->{'contents'}}) {
-      if ($content->{'cmdname'}
-          and $content->{'cmdname'} eq $referred_cmdname
-          and $content->{'contents'}) {
-        return $content;
+      if ($content->{'cmdname'}) {
+        if ($content->{'cmdname'} eq $referred_cmdname) {
+          return $content if ($content->{'contents'});
+        } elsif ($content->{'cmdname'} eq 'subentry') {
+          return index_entry_referred_entry($content, $referred_cmdname);
+        }
       }
     }
-  }
-  if ($element->{'extra'} and $element->{'extra'}->{'subentry'}) {
-    return index_entry_referred_entry($element->{'extra'}->{'subentry'},
-                                      $referred_cmdname);
   }
   return undef;
 }

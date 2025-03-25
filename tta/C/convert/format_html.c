@@ -9900,6 +9900,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   const char *index_name;
   const INDEX_SORTED_BY_LETTER *idx;
   const INDEX_SORTED_BY_LETTER *index_sorted = 0;
+  CONST_ELEMENT_LIST subentries_list;
   const char *index_element_id = 0;
   char **letter_id;
   char **alpha;
@@ -9952,6 +9953,8 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
     }
   if (!index_sorted || !index_sorted->letter_number)
     return;
+
+  memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
   if (self->current_output_unit
       && self->current_output_unit->uc.unit_command)
@@ -10072,6 +10075,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
 
       for (j = 0; j < letter_entry->entries_number; j++)
         {
+          size_t l;
           int level;
           int in_code;
           int *formatted_index_entry_nr;
@@ -10088,7 +10092,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           const ELEMENT *associated_command = 0;
           char *entry_href;
           ELEMENT *entry_tree;
-          const ELEMENT *subentry;
           ELEMENT_LIST *other_subentries_tree = 0;
           int subentry_level = 1;
           ELEMENT *entry_content_element;
@@ -10164,27 +10167,36 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           new_normalized_entry_levels[0]
             = normalized_upper_case (entry_ref_tree);
           entry_trees[0] = entry_ref_tree;
-          subentry = index_entry_ref->entry_element;
+          collect_subentries (index_entry_ref->entry_element, &subentries_list);
 
-          while (subentry_level <= SUBENTRIES_MAX_LEVEL)
+          for (l = 0; l < subentries_list.number; l++)
             {
-              const ELEMENT *new_subentry = lookup_extra_element (subentry,
-                                                            AI_key_subentry);
+              const ELEMENT *subentry = subentries_list.list[l];
               ELEMENT *subentry_tree = 0;
-              if (!new_subentry)
+              const ELEMENT *line_arg;
+
+              if (!subentry)
                 break;
 
-              subentry = new_subentry;
+              line_arg = subentry->e.c->contents.list[0];
 
-              if (subentry->e.c->contents.list[0]->e.c->contents.number > 0)
+              if (line_arg->e.c->contents.number > 0)
                 {
+                  size_t k;
                   if (in_code)
                     subentry_tree = new_element (ET__code);
                   else
                     subentry_tree = new_element (ET_NONE);
 
-                  add_to_contents_as_array (subentry_tree,
-                                            subentry->e.c->contents.list[0]);
+                  for (k = 0; k < line_arg->e.c->contents.number; k++)
+                    {
+                      ELEMENT *content = line_arg->e.c->contents.list[k];
+                      if ((type_data[content->type].flags & TF_text)
+                          || content->e.c->cmd != CM_subentry)
+                        {
+                          add_to_contents_as_array (subentry_tree, content);
+                        }
+                    }
                 }
 
               if (subentry_level >= SUBENTRIES_MAX_LEVEL)
@@ -10215,7 +10227,10 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
               entry_trees[subentry_level] = subentry_tree;
               subentry_level++;
+              if (subentry_level > SUBENTRIES_MAX_LEVEL)
+                break;
             }
+          subentries_list.number = 0;
           /* level/index of the last entry */
           last_entry_level = subentry_level - 1;
 
@@ -10760,6 +10775,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           formatted_letters[i] = 0;
         }
     }
+  free (subentries_list.list);
 
   add_string (summary_letter_cmd, entry_classes);
   attribute_class = html_attribute_class (self, "a", entry_classes);

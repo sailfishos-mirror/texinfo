@@ -220,7 +220,7 @@ char *convert_accents (CONVERTER *self, const ELEMENT *accent,
   int output_encoded_characters,
   int set_case);
 
-ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current_entry,
+ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current,
                                            char *separator);
 void free_comma_index_subentries_tree (ELEMENT_LIST *element);
 

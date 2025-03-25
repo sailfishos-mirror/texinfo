@@ -2528,12 +2528,8 @@ sub _index_entry($$)
       $in_code = 1;
     }
     my @subindex_commands = ($element);
-    my $current_element = $element;
-    while ($current_element->{'extra'}
-      and $current_element->{'extra'}->{'subentry'}) {
-      $current_element = $current_element->{'extra'}->{'subentry'};
-      push @subindex_commands, $current_element;
-    }
+    Texinfo::Common::collect_subentries($element,
+                                        \@subindex_commands);
     _push_new_context($self, 'index_entry');
     $self->{'formatting_context'}->[-1]->{'index'} = 1;
     my @result;

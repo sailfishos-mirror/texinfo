@@ -1808,11 +1808,28 @@ multitable_columnfractions (const ELEMENT *multitable)
   return columnfractions;
 }
 
+void
+collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list)
+{
+  size_t i;
+  const ELEMENT *line_arg = current->e.c->contents.list[0];
+
+  for (i = 0; i < line_arg->e.c->contents.number; i++)
+    {
+      ELEMENT *content = line_arg->e.c->contents.list[i];
+      if (!(type_data[content->type].flags & TF_text)
+          && content->e.c->cmd == CM_subentry)
+        {
+          add_to_const_element_list (e_list, content);
+          collect_subentries (content, e_list);
+        }
+    }
+}
+
 const ELEMENT *
 index_entry_referred_entry (const ELEMENT *element, enum command_id cmd)
 {
   const ELEMENT *line_arg = element->e.c->contents.list[0];
-  const ELEMENT *subentry;
 
   if (line_arg->e.c->contents.number)
     {
@@ -1820,16 +1837,18 @@ index_entry_referred_entry (const ELEMENT *element, enum command_id cmd)
       for (i = 0; i < line_arg->e.c->contents.number; i++)
         {
           const ELEMENT *content = line_arg->e.c->contents.list[i];
-          if (!(type_data[content->type].flags & TF_text)
-              && content->e.c->cmd == cmd
-              && content->e.c->contents.number > 0)
-            return content;
+          if (!(type_data[content->type].flags & TF_text))
+            {
+              if (content->e.c->cmd == cmd)
+                {
+                  if (content->e.c->contents.number > 0)
+                    return content;
+                }
+              else if (content->e.c->cmd == CM_subentry)
+                return index_entry_referred_entry (content, cmd);
+            }
         }
     }
-
-  subentry = lookup_extra_element (element, AI_key_subentry);
-  if (subentry)
-    return index_entry_referred_entry (subentry, cmd);
 
   return 0;
 }

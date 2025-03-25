@@ -342,10 +342,11 @@ sub setup_index_entries_sort_strings($$$$;$)
         $non_empty_index_subentries++;
       }
       my $subentry_nr = 0;
-      my $subentry = $main_entry_element;
-      while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}) {
+      my @subentries;
+      Texinfo::Common::collect_subentries($main_entry_element,
+                                          \@subentries);
+      foreach my $subentry (@subentries) {
         $subentry_nr ++;
-        $subentry = $subentry->{'extra'}->{'subentry'};
         my $subentry_sort_string
               = index_entry_element_sort_string($customization_information,
                              $index_entry, $subentry, $convert_text_options);

@@ -1,3 +1,27 @@
+2025-03-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/converter.c (comma_index_subentries_tree_internal)
+	(comma_index_subentries_tree, free_comma_index_subentries_tree),
+	tta/perl/Texinfo/Convert/Converter.pm (_comma_index_subentries_tree)
+	(comma_index_subentries_tree): update comma_index_subentries_tree to
+	use the tree instead of extra information.
+
+	* tta/C/main/utils.c (index_entry_referred_entry),
+	tta/perl/Texinfo/Common.pm (index_entry_referred_entry): use the tree
+	to go through subentries.
+
+	* tta/C/main/utils.c (collect_subentries), tta/perl/Texinfo/Common.pm
+	(collect_subentries): add, to simplify getting the list of subentries
+	from the tree.
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command),
+	tta/perl/Texinfo/Convert/DocBook.pm (_index_entry),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_index_entry),
+	tta/perl/Texinfo/Indices.pm (setup_index_entries_sort_strings): use
+	the tree information through collect_subentries to get the subentries
+	list.
+
 2025-03-24  Patrice Dumas  <pertusus@free.fr>
 
 	Let subentry be a child of index entry and other subentries

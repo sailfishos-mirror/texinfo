@@ -32,6 +32,7 @@
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
+#include "types_data.h"
 #include "tree_types.h"
 #include "option_types.h"
 #include "options_data.h"
@@ -1568,30 +1569,55 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
   return result;
 }
 
+static void
+comma_index_subentries_tree_internal (const ELEMENT *current,
+                                      const char *separator,
+                                      ELEMENT_LIST *result)
+{
+  size_t i;
+  const ELEMENT *line_arg = current->e.c->contents.list[0];
+
+  for (i = 0; i < line_arg->e.c->contents.number; i++)
+    {
+      ELEMENT *content = line_arg->e.c->contents.list[i];
+      if (!(type_data[content->type].flags & TF_text)
+          && content->e.c->cmd == CM_subentry)
+        {
+          ELEMENT *e_separator = new_text_element (ET_other_text);
+          text_append (e_separator->e.text, separator);
+          add_to_element_list (result, e_separator);
+          comma_index_subentries_tree_internal (content, separator, result);
+        }
+      else
+        add_to_element_list (result, content);
+    }
+}
+
 ELEMENT_LIST *
-comma_index_subentries_tree (const ELEMENT *current_entry,
+comma_index_subentries_tree (const ELEMENT *current,
                              char *separator)
 {
+  size_t i;
   ELEMENT_LIST *result = new_list ();
+  const ELEMENT *line_arg = current->e.c->contents.list[0];
   char *subentry_separator = separator;
   if (!separator)
     subentry_separator = ", ";
 
-  while (1)
+  for (i = 0; i < line_arg->e.c->contents.number; i++)
     {
-      const ELEMENT *subentry
-        = lookup_extra_element (current_entry, AI_key_subentry);
-      if (subentry)
+      const ELEMENT *content = line_arg->e.c->contents.list[i];
+      if (!(type_data[content->type].flags & TF_text)
+          && content->e.c->cmd == CM_subentry)
         {
-          ELEMENT *separator = new_text_element (ET_normal_text);
-          text_append (separator->e.text, subentry_separator);
-          current_entry = subentry;
-          add_to_element_list (result, separator);
-          add_to_element_list (result, current_entry->e.c->contents.list[0]);
+          ELEMENT *e_separator = new_text_element (ET_other_text);
+          text_append (e_separator->e.text, subentry_separator);
+          add_to_element_list (result, e_separator);
+          comma_index_subentries_tree_internal (content,
+                                                subentry_separator, result);
         }
-      else
-        break;
     }
+
   if (result->number > 0)
     return result;
   else
@@ -1609,7 +1635,7 @@ free_comma_index_subentries_tree (ELEMENT_LIST *element_list)
   for (i = 0; i < element_list->number; i++)
     {
       ELEMENT *content = element_list->list[i];
-      if (content->type == ET_normal_text)
+      if (content->type == ET_other_text)
         destroy_element (content);
     }
   destroy_list (element_list);

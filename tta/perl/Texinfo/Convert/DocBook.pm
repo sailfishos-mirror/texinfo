@@ -652,14 +652,18 @@ sub _index_entry($$)
     my $entry_element = $index_entry->{'entry_element'};
 
     # Add any index subentries.
-    my $tmp = $entry_element;
-    my $level = "secondary";
-    while ($tmp->{'extra'}->{'subentry'}) {
+    my @subentries;
+    Texinfo::Common::collect_subentries($entry_element,
+                                        \@subentries);
+    my $level = 'secondary';
+    my @levels = ('tertiary');
+    foreach my $subentry (@subentries) {
       $result .= "<$level>";
-      $tmp = $tmp->{'extra'}->{'subentry'};
-      $result .= _convert($self, $tmp->{'contents'}->[0]);
+      $result .= _convert($self, $subentry->{'contents'}->[0]);
       $result .= "</$level>";
-      $level = "tertiary";
+      if (scalar(@levels)) {
+        $level = shift @levels;
+      }
     }
     my $seeentry
       = Texinfo::Common::index_entry_referred_entry($entry_element,

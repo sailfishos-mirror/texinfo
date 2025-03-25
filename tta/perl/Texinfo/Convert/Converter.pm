@@ -1666,17 +1666,41 @@ sub convert_accents($$$;$$)
   return $result;
 }
 
+sub _comma_index_subentries_tree($$$$);
+sub _comma_index_subentries_tree($$$$)
+{
+  my ($self, $current, $separator, $results) = @_;
+
+  my $line_arg = $current->{'contents'}->[0];
+  foreach my $content (@{$line_arg->{'contents'}}) {
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+      push @$results, {'text' => $separator};
+      _comma_index_subentries_tree($self, $content, $separator, $results);
+    } else {
+      push @$results, $content;
+    }
+  }
+}
+
 # index sub-entries specified with @subentry, separated by commas, or by
 # $SEPARATOR, if set
-sub comma_index_subentries_tree {
-  my ($self, $current_entry, $separator) = @_;
+# TODO remove self.  Put in Convert::Utils?
+sub comma_index_subentries_tree($$;$)
+{
+  my ($self, $current, $separator) = @_;
 
   $separator = ', ' if (!defined($separator));
+
   my @contents;
-  while ($current_entry->{'extra'} and $current_entry->{'extra'}->{'subentry'}) {
-    $current_entry = $current_entry->{'extra'}->{'subentry'};
-    push @contents, {'text' => $separator}, $current_entry->{'contents'}->[0];
+  # start with the first subentry in the index entry
+  my $line_arg = $current->{'contents'}->[0];
+  foreach my $content (@{$line_arg->{'contents'}}) {
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+      push @contents, {'text' => $separator};
+      _comma_index_subentries_tree($self, $content, $separator, \@contents);
+    }
   }
+
   if (scalar(@contents)) {
     return {'contents' => \@contents};
   }

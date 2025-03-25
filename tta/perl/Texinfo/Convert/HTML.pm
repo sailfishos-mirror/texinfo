@@ -6428,42 +6428,52 @@ sub _convert_printindex_command($$$$)
       # what levels should be added.  The last level is always formatted.
       my @new_normalized_entry_levels;
       my @entry_trees;
+      # NOTE it seems that subentry is not followed in convert_to_normalized
       $new_normalized_entry_levels[0]
         = uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
              $entry_ref_tree));
       $entry_trees[0] = $entry_ref_tree;
-      my $subentry = $index_entry_ref->{'entry_element'};
       my $subentry_level = 1;
       my $subentries_max_level = 2;
-      while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}
-             and $subentry_level <= $subentries_max_level) {
-        $subentry = $subentry->{'extra'}->{'subentry'};
-        my $subentry_tree;
-        if ($subentry->{'contents'}->[0]->{'contents'}) {
-          $subentry_tree = {'contents' => [$subentry->{'contents'}->[0]]};
-          $subentry_tree->{'type'} = '_code' if ($in_code);
-        }
-        if ($subentry_level >= $subentries_max_level) {
-          # at the max, concatenate the remaining subentries
-          my $other_subentries_tree
-            = $self->comma_index_subentries_tree($subentry);
-          if ($other_subentries_tree) {
-            if ($subentry_tree) {
-              push @{$subentry_tree->{'contents'}},
-                @{$other_subentries_tree->{'contents'}};
-            } else {
-              $subentry_tree
-                = {'contents' => [@{$other_subentries_tree->{'contents'}}]};
-              $subentry_tree->{'type'} = '_code' if ($in_code);
+      my @subentries_list;
+      Texinfo::Common::collect_subentries($main_entry_element,
+                                          \@subentries_list);
+      if (scalar(@subentries_list)) {
+        foreach my $subentry (@subentries_list) {
+          my $subentry_tree;
+          my $line_arg = $subentry->{'contents'}->[0];
+          if ($line_arg->{'contents'} and scalar(@{$line_arg->{'contents'}})) {
+            my @contents;
+            foreach my $content (@{$line_arg->{'contents'}}) {
+              push @contents, $content unless ($content->{'cmdname'}
+                                  and $content->{'cmdname'} eq 'subentry');
             }
+            $subentry_tree = {'contents' => \@contents};
+            $subentry_tree->{'type'} = '_code' if ($in_code);
           }
-        } elsif ($subentry_tree) {
-          push @new_normalized_entry_levels,
-            uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
-              $subentry_tree));
+          if ($subentry_level >= $subentries_max_level) {
+            # at the max, concatenate the remaining subentries
+            my $other_subentries_tree
+              = $self->comma_index_subentries_tree($subentry);
+            if ($other_subentries_tree) {
+              if ($subentry_tree) {
+                push @{$subentry_tree->{'contents'}},
+                  @{$other_subentries_tree->{'contents'}};
+              } else {
+                $subentry_tree
+                  = {'contents' => [@{$other_subentries_tree->{'contents'}}]};
+                $subentry_tree->{'type'} = '_code' if ($in_code);
+              }
+            }
+          } elsif ($subentry_tree) {
+            push @new_normalized_entry_levels,
+              uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                $subentry_tree));
+          }
+          push @entry_trees, $subentry_tree;
+          $subentry_level++;
+          last if ($subentry_level > $subentries_max_level);
         }
-        push @entry_trees, $subentry_tree;
-        $subentry_level ++;
       }
       #print STDERR join('|', @new_normalized_entry_levels)."\n";
       # level/index of the last entry
