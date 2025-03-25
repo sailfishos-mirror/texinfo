@@ -1446,8 +1446,12 @@ TREE_ADDED_ELEMENTS *
 table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 {
   const ELEMENT *table_command = element->parent->parent->parent;
-  const ELEMENT *command_as_argument = lookup_extra_element (table_command,
-                                               AI_key_command_as_argument);
+  /* arguments_line type element */
+  const ELEMENT *arguments_line = table_command->e.c->contents.list[0];
+  const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
+
+  const ELEMENT *command_as_argument
+    = block_line_argument_command (block_line_arg);
 
   if (command_as_argument)
     {

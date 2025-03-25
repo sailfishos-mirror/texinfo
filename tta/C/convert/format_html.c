@@ -8919,12 +8919,13 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
                               const HTML_ARGS_FORMATTED *args_formatted,
                               const char *content, TEXT *result)
 {
-  const ELEMENT *command_as_argument;
   const char *command_as_argument_name = 0;
   const char *mark_class_name = 0;
   STRING_LIST *classes;
   char *attribute_class;
   const CSS_SELECTOR_STYLE *selector_style = 0;
+  const ELEMENT *arguments_line;
+  const ELEMENT *block_line_arg;
 
   if (html_in_string (self))
     {
@@ -8933,18 +8934,15 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  command_as_argument = lookup_extra_element (element,
-                                              AI_key_command_as_argument);
-  if (command_as_argument)
-    {
-      if (command_as_argument->e.c->cmd == CM_click)
-        {
-          command_as_argument_name = lookup_extra_string (command_as_argument,
-                                                          AI_key_clickstyle);
-        }
-      if (!command_as_argument_name)
-        command_as_argument_name = element_command_name (command_as_argument);
+  /* arguments_line type element */
+  arguments_line = element->e.c->contents.list[0];
+  block_line_arg = arguments_line->e.c->contents.list[0];
 
+  command_as_argument_name
+    = itemize_block_line_argument_command (block_line_arg);
+
+  if (command_as_argument_name)
+    {
       if (!strcmp (command_as_argument_name, "w"))
         mark_class_name = "none";
       else
@@ -8978,9 +8976,6 @@ html_convert_itemize_command (CONVERTER *self, const enum command_id cmd,
 
   if (!selector_style && self->conf->NO_CSS.o.integer <= 0)
     {
-      /* arguments_line type element */
-      const ELEMENT *arguments_line = element->e.c->contents.list[0];
-      const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
       char *css_string
         = html_convert_css_string_for_list_mark (self, block_line_arg,
                                                  "itemize arg");

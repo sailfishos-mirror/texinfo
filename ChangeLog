@@ -1,5 +1,27 @@
 2025-03-25  Patrice Dumas  <pertusus@free.fr>
 
+	Get command as argument from the tree, not from extra information
+
+	* tta/C/main/utils.c (block_line_argument_command)
+	(itemize_block_line_argument_command), tta/perl/Texinfo/Common.pm
+	(block_line_argument_command, itemize_block_line_argument_command)
+	(item_line_block_line_argument_command): add functions that find
+	command as argument for @itemize, @table, @vtable... by looking at the
+	tree.
+
+	* tta/C/convert/converter.c (table_item_content_tree),
+	tta/C/convert/format_html.c (html_convert_itemize_command),
+	tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_itemize_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_set_environment_options)
+	(_xtable_description_command_format, _convert),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/init/html32.pm (html32_convert_item_command): find
+	command as argument with the tree, not with extra information.
+
+2025-03-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (set_element_tree_numbers),
 	tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers): do not
 	set numbers for elements that are not in extra information anymore.

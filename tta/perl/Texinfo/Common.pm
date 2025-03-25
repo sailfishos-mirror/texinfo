@@ -847,6 +847,61 @@ sub multitable_columnfractions($)
   return $columnfractions;
 }
 
+# there is a command as argument for a block command (@itemize or
+# @table, @vtable...) if there is only one argument on the line,
+# it is a brace command but not an accent command and it is empty.
+sub block_line_argument_command($)
+{
+  my $block_line_arg = shift;
+
+  if ($block_line_arg->{'contents'}
+      and scalar(@{$block_line_arg->{'contents'}}) == 1) {
+    my $arg = $block_line_arg->{'contents'}->[0];
+    if ($arg->{'cmdname'}
+        and (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})
+             or (scalar(@{$arg->{'contents'}}) == 1
+                 and !$arg->{'contents'}->[0]->{'contents'}))) {
+      my $cmdname = $arg->{'cmdname'};
+      if (($Texinfo::Commands::brace_commands{$cmdname}
+           and !$Texinfo::Commands::accent_commands{$cmdname})
+          or ($arg->{'type'} and $arg->{'type'} eq 'definfoenclose_command')) {
+        return $arg;
+      }
+    }
+  }
+  return undef;
+}
+
+sub itemize_block_line_argument_command($)
+{
+  my $block_line_arg = shift;
+
+  my $arg = block_line_argument_command($block_line_arg);
+  if ($arg) {
+    my $cmdname = $arg->{'cmdname'};
+    if ($cmdname eq 'click'
+        and $arg->{'extra'}
+        and $arg->{'extra'}->{'clickstyle'}) {
+      return $arg->{'extra'}->{'clickstyle'};
+    } else {
+      return $cmdname;
+    }
+  }
+  return undef;
+}
+
+# always return something
+sub item_line_block_line_argument_command($)
+{
+  my $block_line_arg = shift;
+
+  my $arg = block_line_argument_command($block_line_arg);
+  if (!$arg) {
+    $arg = {'cmdname' => 'asis', 'info' => {'inserted' => 1}};
+  }
+  return $arg;
+}
+
 # TODO document
 # used in Texinfo::Indices and converters
 sub collect_subentries($$);

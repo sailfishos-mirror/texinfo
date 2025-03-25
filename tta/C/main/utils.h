@@ -217,6 +217,8 @@ char *locate_file_in_dirs (const char *filename,
                      DEPRECATED_DIRS_LIST *deprecated_dirs,
                      DEPRECATED_DIRS_LIST *deprecated_dirs_used);
 
+const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
+const char *itemize_block_line_argument_command (const ELEMENT *block_line_arg);
 ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
 void collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list);
 const ELEMENT *index_entry_referred_entry (const ELEMENT *element,

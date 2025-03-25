@@ -783,13 +783,21 @@ sub _convert($$;$)
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         my $format_item_command;
         my $attribute = [];
-        if ($table_command->{'extra'}
-            and $table_command->{'extra'}->{'command_as_argument'}) {
-          $format_item_command
-            = $table_command->{'extra'}->{'command_as_argument'}->{'cmdname'};
-          $attribute
-           = [$self->_infoenclose_attribute(
-                $table_command->{'extra'}->{'command_as_argument'})];
+        if ($table_command->{'cmdname'}
+            and $Texinfo::Commands::block_commands{$table_command->{'cmdname'}}
+                                                              eq 'item_line') {
+          # arguments_line type element
+          my $arguments_line = $table_command->{'contents'}->[0];
+          my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+          my $command_as_argument
+            = Texinfo::Common::item_line_block_line_argument_command(
+                                                         $block_line_arg);
+
+          if ($command_as_argument) {
+            $format_item_command = $command_as_argument->{'cmdname'};
+            $attribute = [$self->_infoenclose_attribute($command_as_argument)];
+          }
         }
         my $line_item_result
           = $self->txi_markup_open_element($element->{'cmdname'},
@@ -1360,17 +1368,34 @@ sub _convert($$;$)
       }
       my $prepended_elements = '';
       my $attribute = [];
-      if ($element->{'extra'} and $element->{'extra'}->{'command_as_argument'}) {
-        my $command_as_arg = $element->{'extra'}->{'command_as_argument'};
+      if ($element->{'cmdname'} eq 'itemize'
+          or $Texinfo::Commands::block_commands{$element->{'cmdname'}}
+                                                        eq 'item_line') {
+        # arguments_line type element
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+        my $command_as_argument;
         if ($element->{'cmdname'} eq 'itemize') {
-          $self->{'itemize_command_as_argument'} = $command_as_arg;
+          $command_as_argument
+            = Texinfo::Common::block_line_argument_command($block_line_arg);
+        } else {
+          $command_as_argument
+            = Texinfo::Common::item_line_block_line_argument_command(
+                                                         $block_line_arg);
         }
-        push @$attribute,
-         (['commandarg', $command_as_arg->{'cmdname'}],
-             $self->_infoenclose_attribute($command_as_arg));
-        if ($command_as_arg->{'info'}
-            and $command_as_arg->{'info'}->{'inserted'}) {
-          push @$attribute, ['automaticcommandarg', 'on'];
+
+        if ($command_as_argument) {
+          if ($element->{'cmdname'} eq 'itemize') {
+            $self->{'itemize_command_as_argument'} = $command_as_argument;
+          }
+          push @$attribute,
+           (['commandarg', $command_as_argument->{'cmdname'}],
+             $self->_infoenclose_attribute($command_as_argument));
+          if ($command_as_argument->{'info'}
+              and $command_as_argument->{'info'}->{'inserted'}) {
+            push @$attribute, ['automaticcommandarg', 'on'];
+          }
         }
       } elsif ($element->{'extra'}
                and $element->{'extra'}->{'enumerate_specification'}) {

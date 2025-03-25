@@ -1579,10 +1579,15 @@ sub table_item_content_tree($$)
   my $element = shift;
 
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
-  if ($table_command->{'extra'}
-      and $table_command->{'extra'}->{'command_as_argument'}) {
-    my $command_as_argument
-      = $table_command->{'extra'}->{'command_as_argument'};
+
+  # arguments_line type element
+  my $arguments_line = $table_command->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  my $command_as_argument
+    = Texinfo::Common::block_line_argument_command($block_line_arg);
+
+  if ($command_as_argument) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
     my $command = {'cmdname' => $command_as_argument_cmdname,
                    'source_info' => $element->{'source_info'},};

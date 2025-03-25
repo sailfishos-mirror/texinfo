@@ -5705,18 +5705,16 @@ sub _convert_itemize_command($$$$$)
   if (in_string($self)) {
     return $content;
   }
-  my $command_as_argument_name;
-  my $mark_class_name;
-  if (defined($command->{'extra'})
-      and defined($command->{'extra'}->{'command_as_argument'})) {
-    my $command_as_argument = $command->{'extra'}->{'command_as_argument'};
-    if ($command_as_argument->{'cmdname'} eq 'click'
-        and $command_as_argument->{'extra'}->{'clickstyle'}) {
-      $command_as_argument_name = $command_as_argument->{'extra'}->{'clickstyle'};
-    } else {
-      $command_as_argument_name = $command_as_argument->{'cmdname'};
-    }
 
+  # arguments_line type element
+  my $arguments_line = $command->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  my $command_as_argument_name
+    = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
+  my $mark_class_name;
+
+  if (defined($command_as_argument_name)) {
     if ($command_as_argument_name eq 'w') {
       $mark_class_name = 'none';
     } else {
@@ -5733,9 +5731,6 @@ sub _convert_itemize_command($$$$$)
     return $self->html_attribute_class('ul', [$cmdname])
          .">\n" . $content. "</ul>\n";
   } else {
-    # arguments_line type element
-    my $arguments_line = $command->{'contents'}->[0];
-    my $block_line_arg = $arguments_line->{'contents'}->[0];
     my $css_string
       = $self->html_convert_css_string_for_list_mark($block_line_arg,
                                                      'itemize arg');

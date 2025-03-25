@@ -307,14 +307,15 @@ sub html32_convert_item_command($$$$$)
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     my $prepend ;
     my $itemize = $command->{'parent'};
-    if ($itemize->{'extra'} and $itemize->{'extra'}->{'command_as_argument'}
-       and $itemize->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet') {
+    my $arguments_line = $itemize->{'contents'}->[0];
+    my $block_line_arg = $arguments_line->{'contents'}->[0];
+    my $command_as_argument_name
+      = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
+    if ($command_as_argument_name and $command_as_argument_name eq 'bullet') {
       $prepend = '';
     } else {
       # Setting multiple expansion should not be needed, except in
       # case of invalid constructs
-      my $arguments_line = $itemize->{'contents'}->[0];
-      my $block_line_arg = $arguments_line->{'contents'}->[0];
       $prepend = $self->convert_tree_new_formatting_context(
                                  $block_line_arg,
                                  $command->{'cmdname'}, 'item_prepended');

@@ -2405,16 +2405,18 @@ sub _set_environment_options($$$)
       }
     }
   } elsif ($command eq 'itemize') {
+    # arguments_line type element
     my $environment = $LaTeX_environment_commands{$command}[0];
-    if ($element->{'extra'} and $element->{'extra'}->{'command_as_argument'}
-        and $element->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'w') {
+    my $arguments_line = $element->{'contents'}->[0];
+    my $block_line_arg = $arguments_line->{'contents'}->[0];
+    my $command_as_argument_name
+      = Texinfo::Common::itemize_block_line_argument_command($block_line_arg);
+    if ($command_as_argument_name and $command_as_argument_name eq 'w') {
       # the result with \hbox{} would probably have been the same,
       # but using an empty label is more consistent with the Texinfo manual
       return {$environment => 'label={}'};
     } else {
       # arguments_line type element
-      my $arguments_line = $element->{'contents'}->[0];
-      my $block_line_arg = $arguments_line->{'contents'}->[0];
       my $label_element = $block_line_arg->{'contents'}->[0];
       # NOTE when @itemize is in a preformatted environment (@example...),
       # we are not in a preformatted type here, such that the conversion
@@ -2436,23 +2438,28 @@ sub _xtable_description_command_format($$)
   my $self = shift;
   my $element = shift;
 
-  if ($element->{'extra'}
-      and $element->{'extra'}->{'command_as_argument'}) {
-    my $command_as_argument
-      = $element->{'extra'}->{'command_as_argument'}->{'cmdname'};
-    $command_as_argument = 'code' if ($command_as_argument eq 'kbd'
+  # arguments_line type element
+  my $arguments_line = $element->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  my $command_as_argument
+    = Texinfo::Common::block_line_argument_command($block_line_arg);
+
+  if ($command_as_argument) {
+    my $command_as_arg_name = $command_as_argument->{'cmdname'};
+    $command_as_arg_name = 'code' if ($command_as_arg_name eq 'kbd'
                                       and _kbd_code_style($self));
-    if (exists($description_command_format{$command_as_argument})
-        and $description_command_format{$command_as_argument} ne '') {
+    if (exists($description_command_format{$command_as_arg_name})
+        and $description_command_format{$command_as_arg_name} ne '') {
       # gather for outputting in the preamble if associated to a new command
-      if (exists($description_command_new_commands{$command_as_argument})) {
-        $self->{'description_format_commands'}->{$command_as_argument} = 1;
+      if (exists($description_command_new_commands{$command_as_arg_name})) {
+        $self->{'description_format_commands'}->{$command_as_arg_name} = 1;
       } elsif ($style_brace_format_command_new_commands{'cmd_text'}
-                                                     ->{$command_as_argument}) {
+                                                     ->{$command_as_arg_name}) {
         $self->{'style_brace_format_commands'}->{'cmd_text'}
-                                                 ->{$command_as_argument} = 1;
+                                                 ->{$command_as_arg_name} = 1;
       }
-      return $description_command_format{$command_as_argument}
+      return $description_command_format{$command_as_arg_name}
     }
   }
   return undef;
@@ -4079,11 +4086,16 @@ sub _convert($$)
       if ($element->{'contents'}->[0]->{'contents'}) {
         my $code_style = 0;
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
-        if ($table_command->{'extra'}
-            and $table_command->{'extra'}->{'command_as_argument'}) {
-          my $command_as_argument
-            = $table_command->{'extra'}->{'command_as_argument'}->{'cmdname'};
-          if ($brace_code_commands{$command_as_argument}) {
+        # arguments_line type element
+        my $arguments_line = $table_command->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+        my $command_as_argument
+           = Texinfo::Common::block_line_argument_command($block_line_arg);
+
+        if ($command_as_argument) {
+          my $command_as_arg_name = $command_as_argument->{'cmdname'};
+          if ($brace_code_commands{$command_as_arg_name}) {
             $code_style = 1;
           }
         }
