@@ -176,7 +176,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *9 @columnfractions C1 l24
+     *@columnfractions C1 l24
      |INFO
      |spaces_before_argument:
       |{ }
@@ -218,7 +218,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {multitable}
   {empty_line:\\n}
-  *10 @float C3 l28
+  *9 @float C3 l28
   |INFO
   |spaces_before_argument:
    |{ }
@@ -253,7 +253,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{  }
      {float}
   {empty_line:\\n}
-  *11 @flushright C3 l32
+  *10 @flushright C3 l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -276,7 +276,7 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      |{ }
      {flushright}
   {empty_line:\\n}
-  *12 @raggedright C3 l36
+  *11 @raggedright C3 l36
    *arguments_line C1
     *block_line_arg
     |INFO

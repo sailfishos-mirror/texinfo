@@ -23,7 +23,7 @@ $result_tree_text{'multitable_item_in_index'} = '*document_root C1
      *bracketed_arg C1 l1
       {bbb}
    *before_item C1
-    *1 index_entry_command@vindex C1 l2
+    *index_entry_command@vindex C1 l2
     |INFO
     |command_name:{vindex}
     |spaces_before_argument:

@@ -107,7 +107,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
      {truc}
    {after\\n}
   {empty_line:\\n}
-  *4 index_entry_command@trucindex C1 l13
+  *index_entry_command@trucindex C1 l13
   |INFO
   |command_name:{trucindex}
   |spaces_before_argument:
@@ -133,7 +133,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     |{\\n}
     {codeidx}
   {empty_line:\\n}
-  *5 index_entry_command@codeidxindex C1 l17
+  *index_entry_command@codeidxindex C1 l17
   |INFO
   |command_name:{codeidxindex}
   |spaces_before_argument:
@@ -146,21 +146,21 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {a }
-    *6 @var C1 l17
+    *4 @var C1 l17
      *brace_container C1
       {index entry}
     { t}
-    *7 @~ C1 l17
+    *5 @~ C1 l17
      *following_arg C1
       {e}
     { }
-    *8 @^ C1 l17
+    *6 @^ C1 l17
      *brace_container C1
-      *9 @dotless C1 l17
+      *7 @dotless C1 l17
        *brace_container C1
         {i}
   {empty_line:\\n}
-  *10 index_entry_command@cindex C1 l19
+  *index_entry_command@cindex C1 l19
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -186,7 +186,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     |{\\n}
     {ky pg}
   {empty_line:\\n}
-  *11 index_entry_command@kindex C1 l23
+  *index_entry_command@kindex C1 l23
   |INFO
   |command_name:{kindex}
   |spaces_before_argument:
@@ -199,7 +199,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {truc kindex}
-  *12 index_entry_command@pindex C1 l24
+  *index_entry_command@pindex C1 l24
   |INFO
   |command_name:{pindex}
   |spaces_before_argument:
@@ -271,7 +271,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     |{\\n}
     {defg ky}
   {empty_line:\\n}
-  *13 index_entry_command@defgindex C1 l34
+  *index_entry_command@defgindex C1 l34
   |INFO
   |command_name:{defgindex}
   |spaces_before_argument:
@@ -285,7 +285,7 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     |{\\n}
     {defg index entry}
   {empty_line:\\n}
-  *14 index_entry_command@abcindex C1 l36
+  *index_entry_command@abcindex C1 l36
   |INFO
   |command_name:{abcindex}
   |spaces_before_argument:

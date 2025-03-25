@@ -129,7 +129,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E5|E7|E9|E11|E18|E20]
+ |section_childs:EC[E5|E7|E9|E11|E17|E19]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -354,7 +354,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |is_target:{1}
  |isindex:{1}
  |menus:EC[E13]
- |node_directions:D[next->E17|prev->E8|up->E2]
+ |node_directions:D[next->E16|prev->E8|up->E2]
  |normalized:{char-latin2-latin2}
   *arguments_line C1
    *line_arg C1
@@ -370,10 +370,10 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |associated_anchor_command:[E10]
  |associated_node:[E10]
  |section_childs:EC[E15]
- |section_directions:D[next->E18|prev->E9|up->E3]
+ |section_directions:D[next->E17|prev->E9|up->E3]
  |section_level:{1}
  |section_number:{4}
- |toplevel_directions:D[next->E18|prev->E9|up->E3]
+ |toplevel_directions:D[next->E17|prev->E9|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -468,7 +468,7 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {Ą ą ˛ Ę ę}
   {empty_line:\\n}
-  *16 index_entry_command@cindex C1 chapter_char_latin2_latin2_in_refs.texi:l18
+  *index_entry_command@cindex C1 chapter_char_latin2_latin2_in_refs.texi:l18
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -512,15 +512,15 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {EUC-CN}
   {empty_line:\\n}
- *17 @node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
+ *16 @node C1 chapter_chinese_mixed_with_en_EUC_CN.texi:l3 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E18]
- |associated_title_command:[E18]
+ |associated_section:[E17]
+ |associated_title_command:[E17]
  |is_target:{1}
- |node_directions:D[next->E19|prev->E10|up->E2]
+ |node_directions:D[next->E18|prev->E10|up->E2]
  |normalized:{Mixed-english-and-chinese-EUC_002dCN}
   *arguments_line C1
    *line_arg C1
@@ -528,17 +528,17 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Mixed english and chinese EUC-CN}
- *18 @chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
+ *17 @chapter C25 chapter_chinese_mixed_with_en_EUC_CN.texi:l4 {Mixed english and chinese EUC-CN}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E17]
- |associated_node:[E17]
- |section_directions:D[next->E20|prev->E11|up->E3]
+ |associated_anchor_command:[E16]
+ |associated_node:[E16]
+ |section_directions:D[next->E19|prev->E11|up->E3]
  |section_level:{1}
  |section_number:{5}
- |toplevel_directions:D[next->E20|prev->E11|up->E3]
+ |toplevel_directions:D[next->E19|prev->E11|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -616,15 +616,15 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
     |{\\n}
     {utf-8}
   {empty_line:\\n}
- *19 @node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
+ *18 @node C1 chapter_chinese_mixed_with_en.texi:l3 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E20]
- |associated_title_command:[E20]
+ |associated_section:[E19]
+ |associated_title_command:[E19]
  |is_target:{1}
- |node_directions:D[prev->E17|up->E2]
+ |node_directions:D[prev->E16|up->E2]
  |normalized:{Mixed-chinese-and-english-utf_002d8}
   *arguments_line C1
    *line_arg C1
@@ -632,17 +632,17 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
    |spaces_after_argument:
     |{\\n}
     {Mixed chinese and english utf-8}
- *20 @chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
+ *19 @chapter C21 chapter_chinese_mixed_with_en.texi:l4 {Mixed chinese and english utf-8}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E19]
- |associated_node:[E19]
- |section_directions:D[prev->E18|up->E3]
+ |associated_anchor_command:[E18]
+ |associated_node:[E18]
+ |section_directions:D[prev->E17|up->E3]
  |section_level:{1}
  |section_number:{6}
- |toplevel_directions:D[prev->E18|up->E3]
+ |toplevel_directions:D[prev->E17|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO

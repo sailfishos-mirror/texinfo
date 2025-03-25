@@ -17,8 +17,8 @@ $result_tree_text{'index_nodes'} = '*document_root C7
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E2]
- |node_directions:D[next->E3]
+ |menus:EC[E1]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -26,7 +26,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Top}
-  *1 index_entry_command@cindex C1 index_nodes.texi:l4
+  *index_entry_command@cindex C1 index_nodes.texi:l4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -82,7 +82,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *2 @menu C3 index_nodes.texi:l14
+  *1 @menu C3 index_nodes.texi:l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -111,7 +111,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C7 index_nodes.texi:l18 {chap first}
+ *2 @node C7 index_nodes.texi:l18 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -119,7 +119,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E0]
- |menus:EC[E8]
+ |menus:EC[E3]
  |node_directions:D[prev->E0|up->E0]
  |normalized:{chap-first}
   *arguments_line C4
@@ -143,52 +143,52 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {Top}
   *paragraph C5
    {Text and then index entries\\n}
-   *4 index_entry_command@cindex C1 index_nodes.texi:l20
+   *index_entry_command@cindex C1 index_nodes.texi:l20
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:[E2]
    |index_entry:I{cp,2}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {entry in node}
-   *5 index_entry_command@cindex C1 index_nodes.texi:l21
+   *index_entry_command@cindex C1 index_nodes.texi:l21
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:[E2]
    |index_entry:I{cp,3}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {! entry in node}
-   *6 index_entry_command@findex C1 index_nodes.texi:l22
+   *index_entry_command@findex C1 index_nodes.texi:l22
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:[E2]
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {fun in node}
-   *7 index_entry_command@cindex C1 index_nodes.texi:l23
+   *index_entry_command@cindex C1 index_nodes.texi:l23
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E3]
+   |element_node:[E2]
    |index_entry:I{cp,4}
     *line_arg C1
     |INFO
@@ -209,7 +209,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *8 @menu C3 index_nodes.texi:l27
+  *3 @menu C3 index_nodes.texi:l27
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -238,16 +238,16 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C5 index_nodes.texi:l31 {second}
+ *4 @node C5 index_nodes.texi:l31 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E3]
- |menus:EC[E10]
- |node_directions:D[up->E3]
+ |menu_directions:D[up->E2]
+ |menus:EC[E5]
+ |node_directions:D[up->E2]
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -262,7 +262,7 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    |node_content:{chap first}
    |normalized:{chap-first}
     {chap first}
-  *10 @menu C4 index_nodes.texi:l32
+  *5 @menu C4 index_nodes.texi:l32
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -315,14 +315,14 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {fn}
   {empty_line:\\n}
- *11 @node C6 index_nodes.texi:l39 {another}
+ *6 @node C6 index_nodes.texi:l39 {another}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E15|up->E9]
- |node_directions:D[prev->E15|up->E9]
+ |menu_directions:D[prev->E7|up->E4]
+ |node_directions:D[prev->E7|up->E4]
  |normalized:{another}
   *arguments_line C4
    *line_arg C1
@@ -350,39 +350,39 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    |normalized:{second}
     {second}
   {empty_line:\\n}
-  *12 index_entry_command@cindex C1 index_nodes.texi:l41
+  *index_entry_command@cindex C1 index_nodes.texi:l41
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E11]
+  |element_node:[E6]
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {something}
-  *13 index_entry_command@findex C1 index_nodes.texi:l42
+  *index_entry_command@findex C1 index_nodes.texi:l42
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E11]
+  |element_node:[E6]
   |index_entry:I{fn,2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {somewhere}
-  *14 index_entry_command@cindex C1 index_nodes.texi:l43
+  *index_entry_command@cindex C1 index_nodes.texi:l43
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E11]
+  |element_node:[E6]
   |index_entry:I{cp,6}
    *line_arg C1
    |INFO
@@ -390,15 +390,15 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {another}
   {empty_line:\\n}
- *15 @node C10 index_nodes.texi:l45 {a node}
+ *7 @node C10 index_nodes.texi:l45 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E11|up->E9]
- |node_directions:D[next->E11|up->E9]
+ |menu_directions:D[next->E6|up->E4]
+ |node_directions:D[next->E6|up->E4]
  |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
@@ -423,13 +423,13 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    |node_content:{second}
    |normalized:{second}
     {second}
-  *16 index_entry_command@cindex C1 index_nodes.texi:l46
+  *index_entry_command@cindex C1 index_nodes.texi:l46
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E15]
+  |element_node:[E7]
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
@@ -450,26 +450,26 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *17 index_entry_command@findex C1 index_nodes.texi:l50
+  *index_entry_command@findex C1 index_nodes.texi:l50
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E15]
+  |element_node:[E7]
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {a function}
-  *18 index_entry_command@cindex C1 index_nodes.texi:l51
+  *index_entry_command@cindex C1 index_nodes.texi:l51
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E15]
+  |element_node:[E7]
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO

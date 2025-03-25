@@ -48,7 +48,7 @@ $result_tree_text{'empty_added_index_entry'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 index_entry_command@myindex C1 l6
+  *index_entry_command@myindex C1 l6
   |INFO
   |command_name:{myindex}
    *line_arg

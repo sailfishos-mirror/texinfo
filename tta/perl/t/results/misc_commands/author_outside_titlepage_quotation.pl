@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'author_outside_titlepage_quotation'} = '*document_root C1
  *before_node_section C1
-  *0 @author C1 l1
+  *@author C1 l1
   |INFO
   |spaces_before_argument:
    |{ }

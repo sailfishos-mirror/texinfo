@@ -164,7 +164,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    >*@value C1
     >*brace_container C1
      >{trucindex_command}
-  *2 index_entry_command@trucindex C1 l25
+  *index_entry_command@trucindex C1 l25
   |INFO
   |command_name:{trucindex}
   |spaces_before_argument:
@@ -180,7 +180,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     |{\\n}
     {index truc}
   {empty_line:\\n}
-  *3 index_entry_command@codeidxindex C1 l27
+  *index_entry_command@codeidxindex C1 l27
   |INFO
   |command_name:{codeidxindex}
   |spaces_before_argument:
@@ -198,23 +198,23 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {a }
-    *4 @var C1 l27
+    *2 @var C1 l27
      *brace_container C1
       {index entry}
     { t}
-    *5 @\' C1 l27
+    *3 @\' C1 l27
      *following_arg C1
       {e}
     { }
-    *6 @^ C1 l27
+    *4 @^ C1 l27
     >SOURCEMARKS
     >value_expansion<end;7>
      *brace_container C1
-      *7 @dotless C1 l27
+      *5 @dotless C1 l27
        *brace_container C1
         {i}
   {empty_line:\\n}
-  *8 index_entry_command@kindex C1 l29
+  *index_entry_command@kindex C1 l29
   |INFO
   |command_name:{kindex}
   |spaces_before_argument:
@@ -234,7 +234,7 @@ $result_tree_text{'value_in_index_commands'} = '*document_root C3
     {truc kindex}
     >SOURCEMARKS
     >value_expansion<end;8><p:4>
-  *9 index_entry_command@pindex C1 l30
+  *index_entry_command@pindex C1 l30
   |INFO
   |command_name:{pindex}
   |spaces_before_argument:

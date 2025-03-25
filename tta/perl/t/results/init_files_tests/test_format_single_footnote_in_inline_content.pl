@@ -151,7 +151,7 @@ $result_tree_text{'test_format_single_footnote_in_inline_content'} = '*document_
        |spaces_after_argument:
         |{\\n}
         {qtitle}
-      *10 @author C1 l22
+      *@author C1 l22
       |INFO
       |spaces_before_argument:
        |{ }

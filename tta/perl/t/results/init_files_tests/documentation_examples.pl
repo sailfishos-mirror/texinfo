@@ -66,7 +66,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |EXTRA
  |associated_anchor_command:[E4]
  |associated_node:[E4]
- |section_childs:EC[E7|E38|E42|E44]
+ |section_childs:EC[E7|E35|E39|E41]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -89,7 +89,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |associated_section:[E7]
  |associated_title_command:[E7]
  |is_target:{1}
- |node_directions:D[next->E37|prev->E4|up->E4]
+ |node_directions:D[next->E34|prev->E4|up->E4]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -104,10 +104,10 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
  |EXTRA
  |associated_anchor_command:[E6]
  |associated_node:[E6]
- |section_directions:D[next->E38|up->E5]
+ |section_directions:D[next->E35|up->E5]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E38|prev->E5|up->E5]
+ |toplevel_directions:D[next->E35|prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -296,7 +296,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
      |{\\n}
      {displaymath}
   {empty_line:\\n}
-  *31 index_entry_command@cindex C1 l36
+  *index_entry_command@cindex C1 l36
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -308,10 +308,10 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *32 @file C1 l36
+    *31 @file C1 l36
      *brace_container C1
       {e1}
-  *33 index_entry_command@cindex C1 l37
+  *index_entry_command@cindex C1 l37
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -325,7 +325,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     |{\\n}
     {i2}
   {empty_line:\\n}
-  *34 index_entry_command@vindex C1 l39
+  *index_entry_command@vindex C1 l39
   |INFO
   |command_name:{vindex}
    *line_arg
@@ -347,12 +347,12 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     {fr}
   {empty_line:\\n}
   *paragraph C2
-   *35 @error C1 l43
+   *32 @error C1 l43
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *36 @equiv C1 l45
+   *33 @equiv C1 l45
     *brace_container
    {\\n}
   {empty_line:\\n}
@@ -361,15 +361,15 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   |global_command_number:{2}
    {rawline_arg:\\n}
   {empty_line:\\n}
- *37 @node C1 l49 {my node}
+ *34 @node C1 l49 {my node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E38]
- |associated_title_command:[E38]
+ |associated_section:[E35]
+ |associated_title_command:[E35]
  |is_target:{1}
- |node_directions:D[next->E41|prev->E6|up->E4]
+ |node_directions:D[next->E38|prev->E6|up->E4]
  |normalized:{my-node}
   *arguments_line C1
    *line_arg C1
@@ -377,17 +377,17 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {my node}
- *38 @chapter C8 l50 {New node}
+ *35 @chapter C8 l50 {New node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E37]
- |associated_node:[E37]
- |section_directions:D[next->E42|prev->E7|up->E5]
+ |associated_anchor_command:[E34]
+ |associated_node:[E34]
+ |section_directions:D[next->E39|prev->E7|up->E5]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E42|prev->E7|up->E5]
+ |toplevel_directions:D[next->E39|prev->E7|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -409,25 +409,25 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     {pl}
   {empty_line:\\n}
   *paragraph C2
-   *39 @error C1 l54
+   *36 @error C1 l54
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *40 @equiv C1 l56
+   *37 @equiv C1 l56
     *brace_container
    {\\n}
   {empty_line:\\n}
- *41 @node C1 l58 {Index}
+ *38 @node C1 l58 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E42]
- |associated_title_command:[E42]
+ |associated_section:[E39]
+ |associated_title_command:[E39]
  |is_target:{1}
  |isindex:{1}
- |node_directions:D[next->E43|prev->E37|up->E4]
+ |node_directions:D[next->E40|prev->E34|up->E4]
  |normalized:{Index}
   *arguments_line C1
    *line_arg C1
@@ -435,17 +435,17 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Index}
- *42 @appendix C4 l59 {Index}
+ *39 @appendix C4 l59 {Index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E41]
- |associated_node:[E41]
- |section_directions:D[next->E44|prev->E38|up->E5]
+ |associated_anchor_command:[E38]
+ |associated_node:[E38]
+ |section_directions:D[next->E41|prev->E35|up->E5]
  |section_level:{1}
  |section_number:{A}
- |toplevel_directions:D[next->E44|prev->E38|up->E5]
+ |toplevel_directions:D[next->E41|prev->E35|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -466,15 +466,15 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
     |{\\n}
     {cp}
   {empty_line:\\n}
- *43 @node C1 l63 {Second appendix}
+ *40 @node C1 l63 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E44]
- |associated_title_command:[E44]
+ |associated_section:[E41]
+ |associated_title_command:[E41]
  |is_target:{1}
- |node_directions:D[prev->E41|up->E4]
+ |node_directions:D[prev->E38|up->E4]
  |normalized:{Second-appendix}
   *arguments_line C1
    *line_arg C1
@@ -482,17 +482,17 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
    |spaces_after_argument:
     |{\\n}
     {Second appendix}
- *44 @appendix C2 l64 {Second appendix}
+ *41 @appendix C2 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E43]
- |associated_node:[E43]
- |section_directions:D[prev->E42|up->E5]
+ |associated_anchor_command:[E40]
+ |associated_node:[E40]
+ |section_directions:D[prev->E39|up->E5]
  |section_level:{1}
  |section_number:{B}
- |toplevel_directions:D[prev->E42|up->E5]
+ |toplevel_directions:D[prev->E39|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO

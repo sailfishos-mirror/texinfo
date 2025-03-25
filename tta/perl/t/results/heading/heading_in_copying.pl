@@ -29,7 +29,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      *2 @emph C1 l3
       *brace_container C1
        {heading}
-   *3 index_entry_command@cindex C1 l4
+   *index_entry_command@cindex C1 l4
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
@@ -43,7 +43,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      |{\\n}
      {cindex copying}
    {empty_line:\\n}
-   *4 @subheading C1 l6
+   *3 @subheading C1 l6
    |INFO
    |spaces_before_argument:
     |{ }
@@ -56,7 +56,7 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      {second in copying }
      *@@
      { }
-     *5 @emph C1 l6
+     *4 @emph C1 l6
       *brace_container C1
        {subheading}
    *@end C1 l7
@@ -71,13 +71,13 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
      |{\\n}
      {copying}
   {empty_line:\\n}
- *6 @node C1 l9 {Top}
+ *5 @node C1 l9 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[next->E7]
+ |node_directions:D[next->E6]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -85,13 +85,13 @@ $result_tree_text{'heading_in_copying'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {Top}
- *7 @node C3 l10 {chap}
+ *6 @node C3 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |node_directions:D[prev->E6]
+ |node_directions:D[prev->E5]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1

@@ -65,7 +65,7 @@ $result_tree_text{'commands'} = '*document_root C1
      {small caps}
    {.\\n}
   {empty_line:\\n}
-  *11 index_entry_command@cindex C1 l8
+  *index_entry_command@cindex C1 l8
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -77,10 +77,10 @@ $result_tree_text{'commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {index entry ``in text\'\' }
-    *12 @LaTeX C1 l8
+    *11 @LaTeX C1 l8
      *brace_container
   {empty_line:\\n}
-  *13 @majorheading C1 l10
+  *12 @majorheading C1 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -91,7 +91,7 @@ $result_tree_text{'commands'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {majorheading }
-    *14 @b C1 l10
+    *13 @b C1 l10
      *brace_container C1
       {in b}
 ';

@@ -92,7 +92,7 @@ $result_tree_text{'seeentry_no_braces'} = '*document_root C5
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 l9
+  *index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -103,7 +103,7 @@ $result_tree_text{'seeentry_no_braces'} = '*document_root C5
    *line_arg C3
     {aa}
     {spaces_at_end: }
-    *5 @seeentry l9
+    *4 @seeentry l9
 ';
 
 

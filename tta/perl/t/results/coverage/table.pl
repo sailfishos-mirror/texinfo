@@ -71,7 +71,7 @@ $result_tree_text{'table'} = '*document_root C1
    *before_item C3
     *@c C1
      {rawline_arg: after vtable\\n}
-    *4 index_entry_command@cindex C1 l11
+    *index_entry_command@cindex C1 l11
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -100,7 +100,7 @@ $result_tree_text{'table'} = '*document_root C1
      *inter_item C1
       *@c C1
        {rawline_arg: after item\\n}
-     *5 index_entry_command@kindex C1 l15
+     *index_entry_command@kindex C1 l15
      |INFO
      |command_name:{kindex}
      |spaces_before_argument:
@@ -140,18 +140,18 @@ $result_tree_text{'table'} = '*document_root C1
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *6 @table C3 l20
+  *4 @table C3 l20
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E7]
+  |command_as_argument:[E5]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *7 @strong l20
+     *5 @strong l20
    *table_entry C1
     *table_term C1
      *@item C1 l21

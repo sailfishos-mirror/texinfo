@@ -32,7 +32,7 @@ $result_tree_text{'macro_in_empty_multitable_empty_before_item'} = '*document_ro
   |max_columns:{3}
    *arguments_line C1
     *block_line_arg C1
-     *2 @columnfractions C1 l4
+     *@columnfractions C1 l4
      |INFO
      |spaces_before_argument:
       |{ }

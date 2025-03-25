@@ -236,7 +236,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     |normalized:{anchor-in-tex}
      {anchor in tex}
    {.\\n}
-   *15 index_entry_command@findex C1 l72
+   *index_entry_command@findex C1 l72
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
@@ -293,7 +293,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     {Figs}
   {empty_line:\\n}
   *paragraph C2
-   *16 @acronym C1 l81
+   *15 @acronym C1 l81
     *brace_arg C1
      {FF}
    {.\\n}

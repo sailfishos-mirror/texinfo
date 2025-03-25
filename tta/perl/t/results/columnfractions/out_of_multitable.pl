@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'out_of_multitable'} = '*document_root C1
  *before_node_section C1
-  *0 @columnfractions C1 l1
+  *@columnfractions C1 l1
   |INFO
   |spaces_before_argument:
    |{ }

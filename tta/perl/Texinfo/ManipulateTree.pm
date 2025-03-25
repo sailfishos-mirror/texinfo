@@ -413,17 +413,13 @@ sub set_element_tree_numbers($$)
     $builtin_cmdname = $cmdname;
   }
 
-  if ((($type and $type eq 'index_entry_command')
-       or ($builtin_cmdname
-           and ($builtin_cmdname eq 'node'
-                or $Texinfo::Commands::brace_commands{$builtin_cmdname}
+  if (($builtin_cmdname
+       and ($builtin_cmdname eq 'node'
+            or $Texinfo::Commands::brace_commands{$builtin_cmdname}
          or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname}
-                or $Texinfo::Commands::block_commands{$builtin_cmdname}
-                or $builtin_cmdname eq 'nodedescription'
-                or $builtin_cmdname eq 'columnfractions'
-                or $Texinfo::Commands::in_index_commands{$builtin_cmdname}
-                or $builtin_cmdname eq 'xrefname'
-                or $builtin_cmdname eq 'author')))
+            or $Texinfo::Commands::block_commands{$builtin_cmdname}
+            or $builtin_cmdname eq 'nodedescription'
+            or $builtin_cmdname eq 'xrefname'))
     # no reason for this to happen, but if it does, avoid clobbering
       and not exists($element->{'_number'})) {
     $element->{'_number'} = $current_nr;

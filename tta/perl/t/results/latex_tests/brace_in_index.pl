@@ -37,7 +37,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
      |{\\n}
      {displaymath}
   {empty_line:\\n}
-  *2 index_entry_command@cindex C1 l9
+  *index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -50,7 +50,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
     |{\\n}
     *@{
   {empty_line:\\n}
-  *3 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -61,11 +61,11 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @math C1 l11
+    *2 @math C1 l11
      *brace_command_context C1
       *@{
   {empty_line:\\n}
-  *5 index_entry_command@cindex C1 l13
+  *index_entry_command@cindex C1 l13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -76,11 +76,11 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *6 @samp C1 l13
+    *3 @samp C1 l13
      *brace_container C1
       *@{
   {empty_line:\\n}
-  *7 @defun C3 l15
+  *4 @defun C3 l15
   |INFO
   |spaces_before_argument:
    |{ }

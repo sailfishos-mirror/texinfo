@@ -148,7 +148,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |max_columns:{2}
     *arguments_line C1
      *block_line_arg C1
-      *7 @columnfractions C1 l25
+      *@columnfractions C1 l25
       |INFO
       |spaces_before_argument:
        |{ }
@@ -206,12 +206,12 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {multitable}
    {empty_line:\\n}
-   *8 @float C7 l35
+   *7 @float C7 l35
    |INFO
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E9]
+   |caption:[E8]
    |float_number:{1}
    |float_type:{label}
    |global_command_number:{1}
@@ -231,9 +231,9 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *paragraph C1
      {in float\\n}
     {empty_line:\\n}
-    *9 @caption C1 l39
+    *8 @caption C1 l39
     |EXTRA
-    |float:[E8]
+    |float:[E7]
      *brace_command_context C1
       *paragraph C1
        {in caption}
@@ -264,7 +264,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      |{\\n}
      {2}
    {empty_line:\\n}
-   *10 @smallexample C3 l45
+   *9 @smallexample C3 l45
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -284,7 +284,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {smallexample}
    {empty_line:\\n}
-   *11 @format C3 l49
+   *10 @format C3 l49
     *arguments_line C1
      *block_line_arg
      |INFO
@@ -304,7 +304,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       |{\\n}
       {format}
    {empty_line:\\n}
-   *12 @flushleft C3 l53
+   *11 @flushleft C3 l53
     *arguments_line C1
      *block_line_arg
      |INFO

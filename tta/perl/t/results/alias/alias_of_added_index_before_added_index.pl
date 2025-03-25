@@ -38,7 +38,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |node_directions:D[next->E3]
+ |node_directions:D[next->E2]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -53,14 +53,14 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4]
+ |section_childs:EC[E3]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E4]
+ |toplevel_directions:D[next->E3]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -68,7 +68,7 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
     |{\\n}
     {top}
   {empty_line:\\n}
-  *2 index_entry_command@sliindex C1 l8
+  *index_entry_command@sliindex C1 l8
   |INFO
   |alias_of:{new}
   |command_name:{sliindex}
@@ -83,13 +83,13 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
     |{\\n}
     {entry}
   {empty_line:\\n}
- *3 @node C1 l10 {chap}
+ *2 @node C1 l10 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E0|up->E0]
@@ -100,13 +100,13 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
    |spaces_after_argument:
     |{\\n}
     {chap}
- *4 @chapter C3 l11 {Chapter}
+ *3 @chapter C3 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}

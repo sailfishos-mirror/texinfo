@@ -101,7 +101,7 @@ $result_tree_text{'at_commands_glued_in_example'} = '*document_root C1
       {anchor}
     {anchor\\n}
     {index}
-    *11 index_entry_command@cindex C1 l15
+    *index_entry_command@cindex C1 l15
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:

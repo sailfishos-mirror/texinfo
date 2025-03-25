@@ -80,7 +80,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E10]
+ |section_childs:EC[E9]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -108,7 +108,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
         {s}
    {\\n}
   {empty_line:\\n}
-  *8 index_entry_command@cindex C1 l12
+  *index_entry_command@cindex C1 l12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -122,13 +122,13 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |{\\n}
     {entry}
   {empty_line:\\n}
- *9 @node C1 l14 {sec}
+ *8 @node C1 l14 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
- |associated_title_command:[E10]
+ |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[up->E2]
@@ -139,13 +139,13 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {sec}
- *10 @section C5 l15 {Section}
+ *9 @section C5 l15 {Section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
- |associated_node:[E9]
+ |associated_anchor_command:[E8]
+ |associated_node:[E8]
  |section_directions:D[up->E4]
  |section_level:{2}
  |section_number:{1.1}
@@ -169,7 +169,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *11 @deftypefn C3 l19
+  *10 @deftypefn C3 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -180,7 +180,7 @@ $result_tree_text{'conversion_with_undef_customization'} = '*document_root C7
     |*def_name C1
      |*def_line_arg C1
       |{name}
-   |element_node:[E9]
+   |element_node:[E8]
    |index_entry:I{fn,1}
    |original_def_cmdname:{deftypefn}
     *block_line_arg C13

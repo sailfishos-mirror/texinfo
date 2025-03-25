@@ -20,7 +20,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
    |max_columns:{2}
     *arguments_line C1
      *block_line_arg C1
-      *2 @columnfractions C1 l2
+      *@columnfractions C1 l2
       |INFO
       |spaces_before_argument:
        |{ }
@@ -55,7 +55,7 @@ $result_tree_text{'verbatim_in_multitable_in_example'} = '*document_root C1
       |cell_number:{1}
        *preformatted C1
         {ignorable_spaces_after_command:\\n}
-       *3 @verbatim C3 l6
+       *2 @verbatim C3 l6
         *arguments_line C1
          *block_line_arg
          |INFO

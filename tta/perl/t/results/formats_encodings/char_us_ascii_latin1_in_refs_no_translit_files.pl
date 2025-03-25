@@ -362,7 +362,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
      {ç}
    {\\n}
   {empty_line:\\n}
-  *18 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l39
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l39
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -375,7 +375,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
    |spaces_after_argument:
     |{\\n}
     {ä ë ï ö ü ÿ}
-  *19 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l40
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l40
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -388,7 +388,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
    |spaces_after_argument:
     |{\\n}
     {Ä Ë Ï Ö Ü}
-  *20 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l41
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l41
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -401,7 +401,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
    |spaces_after_argument:
     |{\\n}
     {é}
-  *21 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l42
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l42
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -414,7 +414,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
    |spaces_after_argument:
     |{\\n}
     {è}
-  *22 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l43
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l43
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -427,7 +427,7 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
    |spaces_after_argument:
     |{\\n}
     {â ê î ô û Â Ê Î Ô Û}
-  *23 index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l44
+  *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l44
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

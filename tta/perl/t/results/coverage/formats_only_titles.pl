@@ -117,7 +117,7 @@ $result_tree_text{'formats_only_titles'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *8 @columnfractions C1 l17
+     *@columnfractions C1 l17
      |INFO
      |spaces_before_argument:
       |{ }

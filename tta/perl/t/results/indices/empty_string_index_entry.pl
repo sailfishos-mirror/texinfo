@@ -37,7 +37,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *2 index_entry_command@findex C1 l4
+  *index_entry_command@findex C1 l4
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
@@ -49,21 +49,21 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *3 @w C1 l4
+    *2 @w C1 l4
      *brace_container
   {empty_line:\\n}
-  *4 @ftable C3 l6
+  *3 @ftable C3 l6
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E5]
+  |command_as_argument:[E4]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @code l6
+     *4 @code l6
    *table_entry C1
     *table_term C1
      *@item C1 l7
@@ -77,7 +77,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *6 @w C1 l7
+       *5 @w C1 l7
         *brace_container
    *@end C1 l8
    |INFO
@@ -91,7 +91,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *7 @defun C3 l10
+  *6 @defun C3 l10
   |INFO
   |spaces_before_argument:
    |{ }
@@ -101,7 +101,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |def_index_element:
     |*def_name C1
      |*bracketed_arg C1
-      |*10 @w C1
+      |*9 @w C1
        |*brace_container
    |element_node:[E1]
    |index_entry:I{fn,3}
@@ -118,7 +118,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      (i){spaces: }
      *def_name C1
       *bracketed_arg C1 l10
-       *8 @w C1 l10
+       *7 @w C1 l10
         *brace_container
      {spaces: }
      *def_arg C1
@@ -135,7 +135,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
    |def_index_element:
     |*def_name C1
      |*bracketed_arg C1
-      |*11 @w C1
+      |*10 @w C1
        |*brace_container
    |element_node:[E1]
    |index_entry:I{fn,4}
@@ -152,7 +152,7 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
      (i){spaces: }
      *def_name C1
       *bracketed_arg C1 l11
-       *9 @w C1 l11
+       *8 @w C1 l11
         *brace_container
      {spaces: }
      *def_arg C1

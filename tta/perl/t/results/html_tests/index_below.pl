@@ -78,7 +78,7 @@ Up: [U1]
     |{\\n}
     {sec}
   {empty_line:\\n}
-  *3 index_entry_command@cindex C1 l7
+  *index_entry_command@cindex C1 l7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

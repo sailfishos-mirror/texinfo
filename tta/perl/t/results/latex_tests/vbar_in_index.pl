@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'vbar_in_index'} = '*document_root C1
  *before_node_section C3
   *preamble_before_content
-  *0 index_entry_command@findex C1 l1
+  *index_entry_command@findex C1 l1
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
@@ -19,7 +19,7 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
    |spaces_after_argument:
     |{\\n}
     {A|B}
-  *1 index_entry_command@cindex C1 l2
+  *index_entry_command@cindex C1 l2
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

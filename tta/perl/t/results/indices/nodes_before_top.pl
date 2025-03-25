@@ -21,8 +21,8 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E2]
- |node_directions:D[next->E6|up->MISSING: (line_arg)[C3]]
+ |menus:EC[E1]
+ |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |normalized:{first-before-top}
   *arguments_line C4
    *line_arg C1
@@ -48,7 +48,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     {(}
     {dir}
     {)}
-  *1 index_entry_command@cindex C1 nodes_before_top.texi:l7
+  *index_entry_command@cindex C1 nodes_before_top.texi:l7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -75,7 +75,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     {cp}
   *paragraph C1
    {in first node\\n}
-  *2 @menu C3 nodes_before_top.texi:l10
+  *1 @menu C3 nodes_before_top.texi:l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -104,7 +104,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C9 nodes_before_top.texi:l14 {node in menu before top}
+ *2 @node C9 nodes_before_top.texi:l14 {node in menu before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -128,13 +128,13 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
    |normalized:{first-before-top}
     {first before top}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 nodes_before_top.texi:l16
+  *index_entry_command@cindex C1 nodes_before_top.texi:l16
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:[E2]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -156,13 +156,13 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
   *paragraph C1
    {node in menu before top text\\n}
   {empty_line:\\n}
-  *5 index_entry_command@cindex C1 nodes_before_top.texi:l20
+  *index_entry_command@cindex C1 nodes_before_top.texi:l20
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:[E2]
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -171,14 +171,14 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     {printindex node in menu before top}
   {empty_line:\\n}
   {empty_line:\\n}
- *6 @node C13 nodes_before_top.texi:l23 {Top}
+ *3 @node C13 nodes_before_top.texi:l23 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E8]
+ |menus:EC[E4]
  |node_directions:D[prev->E0]
  |normalized:{Top}
   *arguments_line C3
@@ -196,13 +196,13 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
    |node_content:{first before top}
    |normalized:{first-before-top}
     {first before top}
-  *7 index_entry_command@cindex C1 nodes_before_top.texi:l24
+  *index_entry_command@cindex C1 nodes_before_top.texi:l24
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:[E3]
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -252,7 +252,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *8 @menu C3 nodes_before_top.texi:l34
+  *4 @menu C3 nodes_before_top.texi:l34
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -281,16 +281,16 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *9 @node C7 nodes_before_top.texi:l38 {chap first}
+ *5 @node C7 nodes_before_top.texi:l38 {chap first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E6]
- |menus:EC[E13]
- |node_directions:D[prev->E6|up->E6]
+ |menu_directions:D[up->E3]
+ |menus:EC[E6]
+ |node_directions:D[prev->E3|up->E3]
  |normalized:{chap-first}
   *arguments_line C4
    *line_arg C1
@@ -313,39 +313,39 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     {Top}
   *paragraph C4
    {Text and then index entries\\n}
-   *10 index_entry_command@cindex C1 nodes_before_top.texi:l40
+   *index_entry_command@cindex C1 nodes_before_top.texi:l40
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E9]
+   |element_node:[E5]
    |index_entry:I{cp,5}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {! entry in node}
-   *11 index_entry_command@findex C1 nodes_before_top.texi:l41
+   *index_entry_command@findex C1 nodes_before_top.texi:l41
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E9]
+   |element_node:[E5]
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {fun in node}
-   *12 index_entry_command@cindex C1 nodes_before_top.texi:l42
+   *index_entry_command@cindex C1 nodes_before_top.texi:l42
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E9]
+   |element_node:[E5]
    |index_entry:I{cp,6}
     *line_arg C1
     |INFO
@@ -366,7 +366,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *13 @menu C3 nodes_before_top.texi:l46
+  *6 @menu C3 nodes_before_top.texi:l46
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -395,16 +395,16 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
      |{\\n}
      {menu}
   {empty_line:\\n}
- *14 @node C5 nodes_before_top.texi:l50 {second}
+ *7 @node C5 nodes_before_top.texi:l50 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E9]
- |menus:EC[E15]
- |node_directions:D[up->E9]
+ |menu_directions:D[up->E5]
+ |menus:EC[E8]
+ |node_directions:D[up->E5]
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -419,7 +419,7 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
    |node_content:{chap first}
    |normalized:{chap-first}
     {chap first}
-  *15 @menu C4 nodes_before_top.texi:l51
+  *8 @menu C4 nodes_before_top.texi:l51
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -472,14 +472,14 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |{\\n}
     {fn}
   {empty_line:\\n}
- *16 @node C6 nodes_before_top.texi:l58 {another}
+ *9 @node C6 nodes_before_top.texi:l58 {another}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E20|up->E14]
- |node_directions:D[prev->E20|up->E14]
+ |menu_directions:D[prev->E10|up->E7]
+ |node_directions:D[prev->E10|up->E7]
  |normalized:{another}
   *arguments_line C4
    *line_arg C1
@@ -507,39 +507,39 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
    |normalized:{second}
     {second}
   {empty_line:\\n}
-  *17 index_entry_command@cindex C1 nodes_before_top.texi:l60
+  *index_entry_command@cindex C1 nodes_before_top.texi:l60
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E16]
+  |element_node:[E9]
   |index_entry:I{cp,7}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {something}
-  *18 index_entry_command@findex C1 nodes_before_top.texi:l61
+  *index_entry_command@findex C1 nodes_before_top.texi:l61
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E16]
+  |element_node:[E9]
   |index_entry:I{fn,2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {somewhere}
-  *19 index_entry_command@cindex C1 nodes_before_top.texi:l62
+  *index_entry_command@cindex C1 nodes_before_top.texi:l62
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E16]
+  |element_node:[E9]
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO
@@ -547,15 +547,15 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |{\\n}
     {another}
   {empty_line:\\n}
- *20 @node C10 nodes_before_top.texi:l64 {a node}
+ *10 @node C10 nodes_before_top.texi:l64 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E16|up->E14]
- |node_directions:D[next->E16|up->E14]
+ |menu_directions:D[next->E9|up->E7]
+ |node_directions:D[next->E9|up->E7]
  |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
@@ -580,13 +580,13 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
    |node_content:{second}
    |normalized:{second}
     {second}
-  *21 index_entry_command@cindex C1 nodes_before_top.texi:l65
+  *index_entry_command@cindex C1 nodes_before_top.texi:l65
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E20]
+  |element_node:[E10]
   |index_entry:I{cp,9}
    *line_arg C1
    |INFO
@@ -607,26 +607,26 @@ $result_tree_text{'nodes_before_top'} = '*document_root C9
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *22 index_entry_command@findex C1 nodes_before_top.texi:l69
+  *index_entry_command@findex C1 nodes_before_top.texi:l69
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E20]
+  |element_node:[E10]
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {a function}
-  *23 index_entry_command@cindex C1 nodes_before_top.texi:l70
+  *index_entry_command@cindex C1 nodes_before_top.texi:l70
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E20]
+  |element_node:[E10]
   |index_entry:I{cp,10}
    *line_arg C1
    |INFO

@@ -153,7 +153,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:1>
    *def_item C1
-    *4 index_entry_command@cindex C1 l13:@outside
+    *index_entry_command@cindex C1 l13:@outside
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:

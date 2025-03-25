@@ -35,7 +35,7 @@ $result_tree_text{'empty_cindex_entry'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {chap}
-  *2 index_entry_command@cindex C1 l3
+  *index_entry_command@cindex C1 l3
   |INFO
   |command_name:{cindex}
    *line_arg

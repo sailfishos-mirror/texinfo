@@ -33,7 +33,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E61]
+ |section_childs:EC[E3|E39]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -56,7 +56,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E60|prev->E0|up->E0]
+ |node_directions:D[next->E38|prev->E0|up->E0]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -71,10 +71,10 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E61|up->E1]
+ |section_directions:D[next->E39|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E61|prev->E1|up->E1]
+ |toplevel_directions:D[next->E39|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,7 +101,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *6 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l11
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l11
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -128,24 +128,24 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *7 @itemize C5 indices_in_begin_tables_lists.texi:l15
+  *6 @itemize C5 indices_in_begin_tables_lists.texi:l15
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E8]
+  |command_as_argument:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *8 @bullet indices_in_begin_tables_lists.texi:l15
+     *7 @bullet indices_in_begin_tables_lists.texi:l15
    *before_item
    *@item C3 indices_in_begin_tables_lists.texi:l17
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *9 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l16
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l16
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -164,7 +164,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{2}
     {ignorable_spaces_after_command: }
-    *10 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l18
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l18
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -193,15 +193,15 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *11 @itemize C4 indices_in_begin_tables_lists.texi:l22
+  *8 @itemize C4 indices_in_begin_tables_lists.texi:l22
   |EXTRA
-  |command_as_argument:[E12]
+  |command_as_argument:[E9]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *12 @bullet
+     *9 @bullet
      |INFO
      |inserted:{1}
    *before_item C2
@@ -213,7 +213,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *13 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l25
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l25
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -240,7 +240,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {itemize}
   {empty_line:\\n}
-  *14 @enumerate C4 indices_in_begin_tables_lists.texi:l29
+  *10 @enumerate C4 indices_in_begin_tables_lists.texi:l29
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -270,7 +270,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *15 @enumerate C4 indices_in_begin_tables_lists.texi:l35
+  *11 @enumerate C4 indices_in_begin_tables_lists.texi:l35
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -280,7 +280,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
    *before_item C3
     {empty_line:\\n}
-    *16 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l37
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l37
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -312,7 +312,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *17 @enumerate C4 indices_in_begin_tables_lists.texi:l42
+  *12 @enumerate C4 indices_in_begin_tables_lists.texi:l42
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -326,7 +326,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *18 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l44
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l44
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -353,7 +353,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *19 @enumerate C4 indices_in_begin_tables_lists.texi:l48
+  *13 @enumerate C4 indices_in_begin_tables_lists.texi:l48
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -362,7 +362,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
     |spaces_after_argument:
      |{\\n}
    *before_item C2
-    *20 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l49
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l49
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -394,7 +394,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *21 @enumerate C4 indices_in_begin_tables_lists.texi:l54
+  *14 @enumerate C4 indices_in_begin_tables_lists.texi:l54
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -409,7 +409,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *22 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l56
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l56
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -436,7 +436,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *23 @enumerate C4 indices_in_begin_tables_lists.texi:l60
+  *15 @enumerate C4 indices_in_begin_tables_lists.texi:l60
   |EXTRA
   |enumerate_specification:{1}
    *arguments_line C1
@@ -449,7 +449,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |EXTRA
    |item_number:{1}
     {ignorable_spaces_after_command: \\n}
-    *24 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l61
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l61
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -464,7 +464,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
       {first idx}
     *@comment C1
      {rawline_arg: comment\\n}
-    *25 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l63
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l63
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -477,7 +477,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |spaces_after_argument:
       |{\\n}
       {sedond idx}
-    *26 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l64
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l64
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -504,18 +504,18 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {enumerate}
   {empty_line:\\n}
-  *27 @vtable C3 indices_in_begin_tables_lists.texi:l68
+  *16 @vtable C3 indices_in_begin_tables_lists.texi:l68
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E28]
+  |command_as_argument:[E17]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *28 @code indices_in_begin_tables_lists.texi:l68
+     *17 @code indices_in_begin_tables_lists.texi:l68
    *table_entry C2
     *table_term C2
      *@c C1
@@ -547,18 +547,18 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *29 @vtable C3 indices_in_begin_tables_lists.texi:l74
+  *18 @vtable C3 indices_in_begin_tables_lists.texi:l74
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E30]
+  |command_as_argument:[E19]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *30 @asis indices_in_begin_tables_lists.texi:l74
+     *19 @asis indices_in_begin_tables_lists.texi:l74
    *table_entry C2
     *table_term C3
      *@item C1 indices_in_begin_tables_lists.texi:l75
@@ -603,18 +603,18 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {vtable}
   {empty_line:\\n}
-  *31 @ftable C4 indices_in_begin_tables_lists.texi:l81
+  *20 @ftable C4 indices_in_begin_tables_lists.texi:l81
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E32]
+  |command_as_argument:[E21]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *32 @var indices_in_begin_tables_lists.texi:l81
+     *21 @var indices_in_begin_tables_lists.texi:l81
    *table_entry C2
     *table_term C3
      *@item C1 indices_in_begin_tables_lists.texi:l82
@@ -630,7 +630,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        |{\\n}
        {avar--b}
      *inter_item C3
-      *33 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l83
+      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l83
       |INFO
       |command_name:{cindex}
       |spaces_before_argument:
@@ -709,21 +709,21 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {ftable}
   {empty_line:\\n}
-  *34 @table C3 indices_in_begin_tables_lists.texi:l97
+  *22 @table C3 indices_in_begin_tables_lists.texi:l97
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E35]
+  |command_as_argument:[E23]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *35 @code indices_in_begin_tables_lists.texi:l97
+     *23 @code indices_in_begin_tables_lists.texi:l97
    *table_entry C2
     *table_term C3
-     *36 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l98
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l98
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -762,20 +762,20 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *37 @table C4 indices_in_begin_tables_lists.texi:l104
+  *24 @table C4 indices_in_begin_tables_lists.texi:l104
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E38]
+  |command_as_argument:[E25]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *38 @code indices_in_begin_tables_lists.texi:l104
+     *25 @code indices_in_begin_tables_lists.texi:l104
    *before_item C2
-    *39 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l105
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l105
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -813,21 +813,21 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *40 @table C3 indices_in_begin_tables_lists.texi:l110
+  *26 @table C3 indices_in_begin_tables_lists.texi:l110
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E41]
+  |command_as_argument:[E27]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *41 @samp indices_in_begin_tables_lists.texi:l110
+     *27 @samp indices_in_begin_tables_lists.texi:l110
    *table_entry C2
     *table_term C3
-     *42 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l111
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l111
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -866,20 +866,20 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *43 @table C4 indices_in_begin_tables_lists.texi:l117
+  *28 @table C4 indices_in_begin_tables_lists.texi:l117
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E44]
+  |command_as_argument:[E29]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *44 @samp indices_in_begin_tables_lists.texi:l117
+     *29 @samp indices_in_begin_tables_lists.texi:l117
    *before_item C2
-    *45 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l118
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l118
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -917,21 +917,21 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *46 @table C4 indices_in_begin_tables_lists.texi:l123
+  *30 @table C4 indices_in_begin_tables_lists.texi:l123
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E47]
+  |command_as_argument:[E31]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *47 @samp indices_in_begin_tables_lists.texi:l123
+     *31 @samp indices_in_begin_tables_lists.texi:l123
    *before_item C3
     {empty_line:\\n}
-    *48 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l125
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l125
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -968,20 +968,20 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *49 @table C4 indices_in_begin_tables_lists.texi:l130
+  *32 @table C4 indices_in_begin_tables_lists.texi:l130
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E50]
+  |command_as_argument:[E33]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *50 @samp indices_in_begin_tables_lists.texi:l130
+     *33 @samp indices_in_begin_tables_lists.texi:l130
    *before_item C2
-    *51 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l131
+    *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l131
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -1018,23 +1018,23 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *52 @table C4 indices_in_begin_tables_lists.texi:l136
+  *34 @table C4 indices_in_begin_tables_lists.texi:l136
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E53]
+  |command_as_argument:[E35]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *53 @samp indices_in_begin_tables_lists.texi:l136
+     *35 @samp indices_in_begin_tables_lists.texi:l136
    *before_item C1
     {empty_line:\\n}
    *table_entry C1
     *table_term C2
-     *54 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l138
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l138
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -1068,21 +1068,21 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
-  *55 @table C3 indices_in_begin_tables_lists.texi:l142
+  *36 @table C3 indices_in_begin_tables_lists.texi:l142
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E56]
+  |command_as_argument:[E37]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *56 @samp indices_in_begin_tables_lists.texi:l142
+     *37 @samp indices_in_begin_tables_lists.texi:l142
    *table_entry C1
     *table_term C5
-     *57 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l143
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l143
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -1097,7 +1097,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
        {cindex first}
      *@c C1
       {rawline_arg: commant\\n}
-     *58 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l145
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l145
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -1110,7 +1110,7 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
       |spaces_after_argument:
        |{\\n}
        {second}
-     *59 index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l146
+     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l146
      |INFO
      |command_name:{cindex}
      |spaces_before_argument:
@@ -1144,13 +1144,13 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
      |{\\n}
      {table}
   {empty_line:\\n}
- *60 @node C1 indices_in_begin_tables_lists.texi:l150 {printindex}
+ *38 @node C1 indices_in_begin_tables_lists.texi:l150 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E61]
- |associated_title_command:[E61]
+ |associated_section:[E39]
+ |associated_title_command:[E39]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -1161,13 +1161,13 @@ $result_tree_text{'indices_in_begin_tables_lists_entries_after_item'} = '*docume
    |spaces_after_argument:
     |{\\n}
     {printindex}
- *61 @chapter C8 indices_in_begin_tables_lists.texi:l151 {printindex}
+ *39 @chapter C8 indices_in_begin_tables_lists.texi:l151 {printindex}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E60]
- |associated_node:[E60]
+ |associated_anchor_command:[E38]
+ |associated_node:[E38]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}

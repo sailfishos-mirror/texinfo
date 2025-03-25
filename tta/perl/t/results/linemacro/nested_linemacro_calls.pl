@@ -126,7 +126,7 @@ $result_tree_text{'nested_linemacro_calls'} = '*document_root C1
      >SOURCEMARKS
      >linemacro_expansion<end;2><p:1>
    *def_item C1
-    *3 index_entry_command@cindex C1 l11:@outside
+    *index_entry_command@cindex C1 l11:@outside
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:

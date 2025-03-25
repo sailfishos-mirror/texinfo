@@ -14,7 +14,7 @@ $result_tree_text{'wrong_command'} = '*document_root C1
   |max_columns:{0}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }
@@ -22,7 +22,7 @@ $result_tree_text{'wrong_command'} = '*document_root C1
       |INFO
       |spaces_after_argument:
        |{ \\n}
-       *2 @b C1 l1
+       *1 @b C1 l1
         *brace_container C1
          {3.4}
    *@end C1 l2

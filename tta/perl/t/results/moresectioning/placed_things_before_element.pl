@@ -133,7 +133,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
      |{\\n}
      {menu}
   {empty_line:\\n}
-  *9 index_entry_command@cindex C1 l28
+  *index_entry_command@cindex C1 l28
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -146,7 +146,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
     |{\\n}
     {index entry}
   {empty_line:\\n}
- *10 @section C5 l30 {section}
+ *9 @section C5 l30 {section}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -156,7 +156,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E10]
+  ||section_childs:EC[E9]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1
@@ -167,7 +167,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *11 @ref C1 l33
+   *10 @ref C1 l33
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -177,7 +177,7 @@ $result_tree_text{'placed_things_before_element'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *12 @ref C1 l36
+   *11 @ref C1 l36
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

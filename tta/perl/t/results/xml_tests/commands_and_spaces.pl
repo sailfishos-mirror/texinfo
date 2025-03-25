@@ -260,7 +260,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *8 @columnfractions C1 l36
+     *@columnfractions C1 l36
      |INFO
      |spaces_before_argument:
       |{  }
@@ -283,7 +283,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *9 @multitable C2 l39
+  *8 @multitable C2 l39
   |INFO
   |spaces_before_argument:
    |{  }
@@ -303,7 +303,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       |{ }
       {r }
      {  }
-     *10 @var C1 l39
+     *9 @var C1 l39
       *brace_container C1
        {cmd}
      {gg hh j}
@@ -319,7 +319,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *11 @verbatim C3 l42
+  *10 @verbatim C3 l42
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -338,7 +338,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{ \\n}
      {verbatim}
   {empty_line:\\n}
-  *12 @tex C3 l46
+  *11 @tex C3 l46
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -358,7 +358,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{  \\n}
      {tex}
   {empty_line:\\n}
-  *13 @example C3 l50
+  *12 @example C3 l50
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -378,18 +378,18 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      |{  \\n}
      {example}
   {empty_line:\\n}
-  *14 @table C3 l54
+  *13 @table C3 l54
   |INFO
   |spaces_before_argument:
    |{  }
   |EXTRA
-  |command_as_argument:[E15]
+  |command_as_argument:[E14]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{  \\n}
-     *15 @strong l54
+     *14 @strong l54
    *table_entry C1
     *table_term C1
      *@item C1 l55
@@ -415,7 +415,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {T}
-   *16 @footnote C1 l58
+   *15 @footnote C1 l58
    |INFO
    |spaces_before_argument:
     |{  }
@@ -428,7 +428,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   {empty_line:\\n}
   *paragraph C3
    {Math }
-   *17 @math C1 l60
+   *16 @math C1 l60
    |INFO
    |spaces_before_argument:
     |{ }
@@ -440,12 +440,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *18 @indicateurl C1 l62
+   *17 @indicateurl C1 l62
     *brace_container C1
      { http://ggg }
    {\\n}
   {empty_line:\\n}
-  *19 @deffn C3 l64
+  *18 @deffn C3 l64
   |INFO
   |spaces_before_argument:
    |{ }

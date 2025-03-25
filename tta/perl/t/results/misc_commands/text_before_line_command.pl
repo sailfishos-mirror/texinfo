@@ -73,7 +73,7 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
      |{\\n}
    *paragraph C3
     {aaa }
-    *3 @author C1 l9
+    *@author C1 l9
     |INFO
     |spaces_before_argument:
      |{ }

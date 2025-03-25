@@ -13,7 +13,7 @@ $result_tree_text{'quotation_author'} = '*document_root C1
     |spaces_after_argument:
      |{\\n}
    {empty_line:\\n}
-   *1 @author C1 l3
+   *@author C1 l3
    |INFO
    |spaces_before_argument:
     |{ }
@@ -26,7 +26,7 @@ $result_tree_text{'quotation_author'} = '*document_root C1
      {First Author}
    *paragraph C3
     {quotation\\n}
-    *2 @author C1 l5
+    *@author C1 l5
     |INFO
     |spaces_before_argument:
      |{ }
@@ -37,7 +37,7 @@ $result_tree_text{'quotation_author'} = '*document_root C1
      |spaces_after_argument:
       |{\\n}
       {S}
-      *3 @~ C1 l5
+      *1 @~ C1 l5
        *following_arg C1
         {e}
       {cond author}

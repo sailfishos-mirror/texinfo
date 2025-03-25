@@ -14,7 +14,7 @@ $result_tree_text{'good_comment'} = '*document_root C1
   |max_columns:{3}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }

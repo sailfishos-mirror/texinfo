@@ -268,7 +268,7 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
      *inter_item C1
       *@c C1
        {rawline_arg: comment\\n}
-     *11 index_entry_command@vindex C1 l37
+     *index_entry_command@vindex C1 l37
      |INFO
      |command_name:{vindex}
      |spaces_before_argument:
@@ -308,18 +308,18 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
     |spaces_after_argument:
      |{\\n}
      {vtable}
-  *12 @vtable C3 l42
+  *11 @vtable C3 l42
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E13]
+  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *13 @r l42
+     *12 @r l42
    *table_entry C2
     *table_term C3
      *@item C1 l43
@@ -367,18 +367,18 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C1
    {Something.\\n}
-  *14 @table C4 l52
+  *13 @table C4 l52
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E15]
+  |command_as_argument:[E14]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *15 @emph l52
+     *14 @emph l52
    *table_entry C2
     *table_term C1
      *@item C1 l53

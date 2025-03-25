@@ -76,8 +76,8 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[next->E14|up->E0]
- |node_directions:D[next->E14|prev->E0|up->E0]
+ |menu_directions:D[next->E8|up->E0]
+ |node_directions:D[next->E8|prev->E0|up->E0]
  |normalized:{One_003a_003anode_002c-with-entries_002e}
   *arguments_line C1
    *line_arg C5
@@ -93,7 +93,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
      *brace_container
     { with entries.}
   {empty_line:\\n}
-  *7 index_entry_command@cindex C1 l10
+  *index_entry_command@cindex C1 l10
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -106,7 +106,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {:}
-  *8 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -119,7 +119,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {:a}
-  *9 index_entry_command@cindex C1 l12
+  *index_entry_command@cindex C1 l12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -133,7 +133,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
     |{\\n}
     {b:c}
   {empty_line:\\n}
-  *10 @example C3 l14
+  *7 @example C3 l14
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -153,7 +153,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
      |{\\n}
      {example}
   {empty_line:\\n}
-  *11 index_entry_command@cindex C1 l18
+  *index_entry_command@cindex C1 l18
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -166,7 +166,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {d::e}
-  *12 index_entry_command@cindex C1 l19
+  *index_entry_command@cindex C1 l19
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -179,7 +179,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
    |spaces_after_argument:
     |{\\n}
     {f :d}
-  *13 index_entry_command@cindex C1 l20
+  *index_entry_command@cindex C1 l20
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -196,7 +196,7 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
   *paragraph C1
    {node one\\n}
   {empty_line:\\n}
- *14 @node C4 l24 {Concept Index}
+ *8 @node C4 l24 {Concept Index}
  |INFO
  |spaces_before_argument:
   |{ }

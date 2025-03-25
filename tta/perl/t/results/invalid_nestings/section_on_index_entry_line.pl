@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
  *before_node_section C1
-  *0 index_entry_command@cindex C1 l1
+  *index_entry_command@cindex C1 l1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -18,7 +18,7 @@ $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
    |spaces_after_argument:
     |{ }
     {a}
- *1 @section C3 l1 {b}
+ *0 @section C3 l1 {b}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -28,7 +28,7 @@ $result_tree_text{'section_on_index_entry_line'} = '*document_root C2
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E1]
+  ||section_childs:EC[E0]
   ||section_level:{1}
   *arguments_line C1
    *line_arg C1

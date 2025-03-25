@@ -913,16 +913,12 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
-  if ((data_cmd == CM_node
+  if (data_cmd == CM_node
        || (builtin_command_data[data_cmd].flags & CF_brace)
        || (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
        || (builtin_command_data[data_cmd].flags & CF_block)
        || data_cmd == CM_nodedescription
-       || element->type == ET_index_entry_command
-       || data_cmd == CM_columnfractions
-       || (builtin_command_data[data_cmd].other_flags & CF_in_index)
-       || data_cmd == CM_xrefname
-       || data_cmd == CM_author))
+       || data_cmd == CM_xrefname)
     {
 
        /* Avoid clobbering elt_info_nr + 1 */

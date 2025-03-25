@@ -86,7 +86,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *3 index_entry_command@cindex C1 l9
+  *index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -98,14 +98,14 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *4 @\' C1 l9
+    *3 @\' C1 l9
      *following_arg C1
       {e}
     { }
-    *5 @\' C1 l9
+    *4 @\' C1 l9
      *following_arg C1
       {e}
-  *6 index_entry_command@cindex C1 l10
+  *index_entry_command@cindex C1 l10
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -117,20 +117,20 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @" C1 l10
+    *5 @" C1 l10
      *brace_container C1
       {i}
     { }
+    *6 @" C1 l10
+     *brace_container C1
+      {i}
+    *7 @" C1 l10
+     *brace_container C1
+      {i}
     *8 @" C1 l10
      *brace_container C1
       {i}
-    *9 @" C1 l10
-     *brace_container C1
-      {i}
-    *10 @" C1 l10
-     *brace_container C1
-      {i}
-  *11 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -142,23 +142,23 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *12 @^ C1 l11
+    *9 @^ C1 l11
      *following_arg C1
       {i}
     { }
+    *10 @^ C1 l11
+     *following_arg C1
+      {i}
+    *11 @^ C1 l11
+     *following_arg C1
+      {i}
+    *12 @^ C1 l11
+     *following_arg C1
+      {i}
     *13 @^ C1 l11
      *following_arg C1
       {i}
-    *14 @^ C1 l11
-     *following_arg C1
-      {i}
-    *15 @^ C1 l11
-     *following_arg C1
-      {i}
-    *16 @^ C1 l11
-     *following_arg C1
-      {i}
-  *17 index_entry_command@cindex C1 l12
+  *index_entry_command@cindex C1 l12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -171,7 +171,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {a}
-  *18 index_entry_command@cindex C1 l13
+  *index_entry_command@cindex C1 l13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -184,7 +184,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {b}
-  *19 index_entry_command@cindex C1 l14
+  *index_entry_command@cindex C1 l14
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -197,7 +197,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {c}
-  *20 index_entry_command@cindex C1 l15
+  *index_entry_command@cindex C1 l15
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -210,7 +210,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {d}
-  *21 index_entry_command@cindex C1 l16
+  *index_entry_command@cindex C1 l16
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -223,7 +223,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {e}
-  *22 index_entry_command@cindex C1 l17
+  *index_entry_command@cindex C1 l17
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -236,7 +236,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {f}
-  *23 index_entry_command@cindex C1 l18
+  *index_entry_command@cindex C1 l18
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -249,7 +249,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {g}
-  *24 index_entry_command@cindex C1 l19
+  *index_entry_command@cindex C1 l19
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -262,7 +262,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {h}
-  *25 index_entry_command@cindex C1 l20
+  *index_entry_command@cindex C1 l20
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -275,7 +275,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {i}
-  *26 index_entry_command@cindex C1 l21
+  *index_entry_command@cindex C1 l21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -288,7 +288,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {j}
-  *27 index_entry_command@cindex C1 l22
+  *index_entry_command@cindex C1 l22
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -301,7 +301,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {k}
-  *28 index_entry_command@cindex C1 l23
+  *index_entry_command@cindex C1 l23
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -314,7 +314,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {l}
-  *29 index_entry_command@cindex C1 l24
+  *index_entry_command@cindex C1 l24
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -327,7 +327,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {m}
-  *30 index_entry_command@cindex C1 l25
+  *index_entry_command@cindex C1 l25
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -340,7 +340,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {n}
-  *31 index_entry_command@cindex C1 l26
+  *index_entry_command@cindex C1 l26
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -353,7 +353,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {o}
-  *32 index_entry_command@cindex C1 l27
+  *index_entry_command@cindex C1 l27
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -366,7 +366,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {p}
-  *33 index_entry_command@cindex C1 l28
+  *index_entry_command@cindex C1 l28
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -379,7 +379,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {q}
-  *34 index_entry_command@cindex C1 l29
+  *index_entry_command@cindex C1 l29
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -392,7 +392,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {r}
-  *35 index_entry_command@cindex C1 l30
+  *index_entry_command@cindex C1 l30
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -405,7 +405,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {s}
-  *36 index_entry_command@cindex C1 l31
+  *index_entry_command@cindex C1 l31
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -418,7 +418,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {t}
-  *37 index_entry_command@cindex C1 l32
+  *index_entry_command@cindex C1 l32
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -431,7 +431,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {u}
-  *38 index_entry_command@cindex C1 l33
+  *index_entry_command@cindex C1 l33
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -444,7 +444,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {v}
-  *39 index_entry_command@cindex C1 l34
+  *index_entry_command@cindex C1 l34
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -457,7 +457,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {w}
-  *40 index_entry_command@cindex C1 l35
+  *index_entry_command@cindex C1 l35
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -470,7 +470,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {x}
-  *41 index_entry_command@cindex C1 l36
+  *index_entry_command@cindex C1 l36
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -483,7 +483,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {y}
-  *42 index_entry_command@cindex C1 l37
+  *index_entry_command@cindex C1 l37
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -496,7 +496,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {z}
-  *43 index_entry_command@cindex C1 l38
+  *index_entry_command@cindex C1 l38
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -509,7 +509,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {A}
-  *44 index_entry_command@cindex C1 l39
+  *index_entry_command@cindex C1 l39
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -522,7 +522,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {B}
-  *45 index_entry_command@cindex C1 l40
+  *index_entry_command@cindex C1 l40
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -534,9 +534,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *46 @l C1 l40
+    *14 @l C1 l40
      *brace_container
-  *47 index_entry_command@cindex C1 l41
+  *index_entry_command@cindex C1 l41
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -548,9 +548,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *48 @L C1 l41
+    *15 @L C1 l41
      *brace_container
-  *49 index_entry_command@cindex C1 l42
+  *index_entry_command@cindex C1 l42
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -562,15 +562,15 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *50 @dotless C1 l42
+    *16 @dotless C1 l42
      *brace_container C1
       {i}
     { }
-    *51 @dotless C1 l42
+    *17 @dotless C1 l42
      *brace_container C1
       {i}
     { (dotless)}
-  *52 index_entry_command@cindex C1 l43
+  *index_entry_command@cindex C1 l43
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -582,19 +582,19 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *53 @^ C1 l43
+    *18 @^ C1 l43
      *brace_container C1
-      *54 @dotless C1 l43
+      *19 @dotless C1 l43
        *brace_container C1
         {i}
     { }
-    *55 @^ C1 l43
+    *20 @^ C1 l43
      *brace_container C1
-      *56 @dotless C1 l43
+      *21 @dotless C1 l43
        *brace_container C1
         {i}
     { (dotless)}
-  *57 index_entry_command@cindex C1 l44
+  *index_entry_command@cindex C1 l44
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -606,9 +606,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *58 @ss C1 l44
+    *22 @ss C1 l44
      *brace_container
-  *59 index_entry_command@cindex C1 l45
+  *index_entry_command@cindex C1 l45
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -620,9 +620,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *60 @euro C1 l45
+    *23 @euro C1 l45
      *brace_container
-  *61 index_entry_command@cindex C1 l46
+  *index_entry_command@cindex C1 l46
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -634,9 +634,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *62 @AE C1 l46
+    *24 @AE C1 l46
      *brace_container
-  *63 index_entry_command@cindex C1 l47
+  *index_entry_command@cindex C1 l47
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -648,9 +648,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *64 @exclamdown C1 l47
+    *25 @exclamdown C1 l47
      *brace_container
-  *65 index_entry_command@cindex C1 l48
+  *index_entry_command@cindex C1 l48
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -662,9 +662,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *66 @TH C1 l48
+    *26 @TH C1 l48
      *brace_container
-  *67 index_entry_command@cindex C1 l49
+  *index_entry_command@cindex C1 l49
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -676,9 +676,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *68 @DH C1 l49
+    *27 @DH C1 l49
      *brace_container
-  *69 index_entry_command@cindex C1 l50
+  *index_entry_command@cindex C1 l50
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -690,9 +690,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *70 @ordf C1 l50
+    *28 @ordf C1 l50
      *brace_container
-  *71 index_entry_command@cindex C1 l51
+  *index_entry_command@cindex C1 l51
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -704,9 +704,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *72 @ordm C1 l51
+    *29 @ordm C1 l51
      *brace_container
-  *73 index_entry_command@cindex C1 l52
+  *index_entry_command@cindex C1 l52
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -718,9 +718,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *74 @textdegree C1 l52
+    *30 @textdegree C1 l52
      *brace_container
-  *75 index_entry_command@cindex C1 l53
+  *index_entry_command@cindex C1 l53
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -733,7 +733,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {0}
-  *76 index_entry_command@cindex C1 l54
+  *index_entry_command@cindex C1 l54
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -746,7 +746,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {9}
-  *77 index_entry_command@cindex C1 l55
+  *index_entry_command@cindex C1 l55
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -758,9 +758,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *78 @quotedblleft C1 l55
+    *31 @quotedblleft C1 l55
      *brace_container
-  *79 index_entry_command@cindex C1 l56
+  *index_entry_command@cindex C1 l56
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -772,9 +772,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *80 @geq C1 l56
+    *32 @geq C1 l56
      *brace_container
-  *81 index_entry_command@cindex C1 l57
+  *index_entry_command@cindex C1 l57
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -786,9 +786,9 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *82 @comma C1 l57
+    *33 @comma C1 l57
      *brace_container
-  *83 index_entry_command@cindex C1 l58
+  *index_entry_command@cindex C1 l58
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -801,7 +801,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {``}
-  *84 index_entry_command@cindex C1 l59
+  *index_entry_command@cindex C1 l59
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -814,7 +814,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {`}
-  *85 index_entry_command@cindex C1 l60
+  *index_entry_command@cindex C1 l60
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -827,7 +827,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {\'}
-  *86 index_entry_command@cindex C1 l61
+  *index_entry_command@cindex C1 l61
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -840,7 +840,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {\'\'}
-  *87 index_entry_command@cindex C1 l62
+  *index_entry_command@cindex C1 l62
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -853,7 +853,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {"}
-  *88 index_entry_command@cindex C1 l63
+  *index_entry_command@cindex C1 l63
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -866,7 +866,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     *@@
-  *89 index_entry_command@cindex C1 l64
+  *index_entry_command@cindex C1 l64
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -879,7 +879,7 @@ $result_tree_text{'encoding_index_ascii'} = '*document_root C4
    |spaces_after_argument:
     |{\\n}
     {--}
-  *90 index_entry_command@cindex C1 l65
+  *index_entry_command@cindex C1 l65
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

@@ -14,7 +14,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
   |max_columns:{1}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }
@@ -69,7 +69,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *2 @multitable C3 l9
+  *1 @multitable C3 l9
   |INFO
   |spaces_before_argument:
    |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'empty_item_tab'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *3 @columnfractions C1 l9
+     *@columnfractions C1 l9
      |INFO
      |spaces_before_argument:
       |{ }

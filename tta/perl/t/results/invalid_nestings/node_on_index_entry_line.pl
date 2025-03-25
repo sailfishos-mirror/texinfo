@@ -7,7 +7,7 @@ use utf8;
 $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
  *before_node_section C2
   {empty_line:\\n}
-  *0 index_entry_command@cindex C1 l2
+  *index_entry_command@cindex C1 l2
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -19,7 +19,7 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
    |spaces_after_argument:
     |{ }
     {entry}
- *1 @node C3 l2 {a}
+ *0 @node C3 l2 {a}
  |INFO
  |spaces_before_argument:
   |{ }

@@ -210,7 +210,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {float type! After punc}
   {empty_line:\\n}
-  *9 index_entry_command@cindex C1 l26
+  *index_entry_command@cindex C1 l26
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -224,7 +224,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {index! After punc}
   {empty_line:\\n}
-  *10 @heading C1 l28
+  *9 @heading C1 l28
   |INFO
   |spaces_before_argument:
    |{ }
@@ -236,7 +236,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {heading! After punc}
   {empty_line:\\n}
-  *11 @titlefont C1 l30
+  *10 @titlefont C1 l30
   |EXTRA
   |global_command_number:{1}
    *brace_container C1

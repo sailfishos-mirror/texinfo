@@ -70,7 +70,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       {Subtitle 2 manual }
       *@*
       { tested}
-    *2 @author C1 l9
+    *@author C1 l9
     |INFO
     |spaces_before_argument:
      |{ }
@@ -83,7 +83,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       {First }
       *@*
       { author}
-    *3 @author C1 l10
+    *@author C1 l10
     |INFO
     |spaces_before_argument:
      |{ }
@@ -96,7 +96,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       {Second }
       *@*
       { author}
-      *4 @footnote C1 l10
+      *2 @footnote C1 l10
       |EXTRA
       |global_command_number:{1}
        *brace_command_context C4
@@ -106,7 +106,7 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
         {empty_line:\\n}
         *paragraph C1
          {Something about the life. \\n}
-        *5 @displaymath C6 l14
+        *3 @displaymath C6 l14
          *arguments_line C1
           *block_line_arg
           |INFO
@@ -153,15 +153,15 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *6 @node C1 l25 {Top}
+ *4 @node C1 l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[next->E8]
+ |node_directions:D[next->E6]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -169,21 +169,21 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *7 @top C2 l26 {section top}
+ *5 @top C2 l26 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
- |section_childs:EC[E9]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_childs:EC[E7]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E7]
+  ||section_childs:EC[E5]
   ||section_level:{-1}
- |toplevel_directions:D[next->E9]
+ |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -191,15 +191,15 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *8 @node C1 l28 {chapter}
+ *6 @node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
- |node_directions:D[prev->E6|up->E6]
+ |node_directions:D[prev->E4|up->E4]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -207,17 +207,17 @@ $result_tree_text{'titlepage_with_commands_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C4 l29 {Chapter}
+ *7 @chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[up->E7]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[up->E5]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E7|up->E7]
+ |toplevel_directions:D[prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO

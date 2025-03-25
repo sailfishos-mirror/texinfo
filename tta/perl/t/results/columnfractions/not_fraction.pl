@@ -14,7 +14,7 @@ $result_tree_text{'not_fraction'} = '*document_root C1
   |max_columns:{0}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }

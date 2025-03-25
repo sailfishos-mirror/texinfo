@@ -75,7 +75,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *3 index_entry_command@cindex C1 encoding_index_utf8.texi:l9
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l9
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {é é}
-  *4 index_entry_command@cindex C1 encoding_index_utf8.texi:l10
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l10
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -100,20 +100,20 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @" C1 encoding_index_utf8.texi:l10
+    *3 @" C1 encoding_index_utf8.texi:l10
      *brace_container C1
       {i}
     { }
+    *4 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
+    *5 @" C1 encoding_index_utf8.texi:l10
+     *brace_container C1
+      {i}
     *6 @" C1 encoding_index_utf8.texi:l10
      *brace_container C1
       {i}
-    *7 @" C1 encoding_index_utf8.texi:l10
-     *brace_container C1
-      {i}
-    *8 @" C1 encoding_index_utf8.texi:l10
-     *brace_container C1
-      {i}
-  *9 index_entry_command@cindex C1 encoding_index_utf8.texi:l11
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -125,23 +125,23 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *10 @^ C1 encoding_index_utf8.texi:l11
+    *7 @^ C1 encoding_index_utf8.texi:l11
      *following_arg C1
       {i}
     { }
+    *8 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    *9 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
+    *10 @^ C1 encoding_index_utf8.texi:l11
+     *following_arg C1
+      {i}
     *11 @^ C1 encoding_index_utf8.texi:l11
      *following_arg C1
       {i}
-    *12 @^ C1 encoding_index_utf8.texi:l11
-     *following_arg C1
-      {i}
-    *13 @^ C1 encoding_index_utf8.texi:l11
-     *following_arg C1
-      {i}
-    *14 @^ C1 encoding_index_utf8.texi:l11
-     *following_arg C1
-      {i}
-  *15 index_entry_command@cindex C1 encoding_index_utf8.texi:l12
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l12
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -154,7 +154,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {a}
-  *16 index_entry_command@cindex C1 encoding_index_utf8.texi:l13
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -167,7 +167,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {b}
-  *17 index_entry_command@cindex C1 encoding_index_utf8.texi:l14
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l14
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -180,7 +180,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {c}
-  *18 index_entry_command@cindex C1 encoding_index_utf8.texi:l15
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l15
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -193,7 +193,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {d}
-  *19 index_entry_command@cindex C1 encoding_index_utf8.texi:l16
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l16
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -206,7 +206,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {e}
-  *20 index_entry_command@cindex C1 encoding_index_utf8.texi:l17
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l17
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -219,7 +219,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {f}
-  *21 index_entry_command@cindex C1 encoding_index_utf8.texi:l18
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l18
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -232,7 +232,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {g}
-  *22 index_entry_command@cindex C1 encoding_index_utf8.texi:l19
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l19
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -245,7 +245,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {h}
-  *23 index_entry_command@cindex C1 encoding_index_utf8.texi:l20
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l20
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -258,7 +258,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {i}
-  *24 index_entry_command@cindex C1 encoding_index_utf8.texi:l21
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l21
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -271,7 +271,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {j}
-  *25 index_entry_command@cindex C1 encoding_index_utf8.texi:l22
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l22
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -284,7 +284,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {k}
-  *26 index_entry_command@cindex C1 encoding_index_utf8.texi:l23
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l23
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -297,7 +297,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {l}
-  *27 index_entry_command@cindex C1 encoding_index_utf8.texi:l24
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l24
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -310,7 +310,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {m}
-  *28 index_entry_command@cindex C1 encoding_index_utf8.texi:l25
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l25
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -323,7 +323,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {n}
-  *29 index_entry_command@cindex C1 encoding_index_utf8.texi:l26
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l26
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -336,7 +336,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {o}
-  *30 index_entry_command@cindex C1 encoding_index_utf8.texi:l27
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l27
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -349,7 +349,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {p}
-  *31 index_entry_command@cindex C1 encoding_index_utf8.texi:l28
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l28
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -362,7 +362,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {q}
-  *32 index_entry_command@cindex C1 encoding_index_utf8.texi:l29
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l29
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -375,7 +375,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {r}
-  *33 index_entry_command@cindex C1 encoding_index_utf8.texi:l30
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l30
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -388,7 +388,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {s}
-  *34 index_entry_command@cindex C1 encoding_index_utf8.texi:l31
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l31
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -401,7 +401,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {t}
-  *35 index_entry_command@cindex C1 encoding_index_utf8.texi:l32
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l32
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -414,7 +414,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {u}
-  *36 index_entry_command@cindex C1 encoding_index_utf8.texi:l33
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l33
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -427,7 +427,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {v}
-  *37 index_entry_command@cindex C1 encoding_index_utf8.texi:l34
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l34
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -440,7 +440,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {w}
-  *38 index_entry_command@cindex C1 encoding_index_utf8.texi:l35
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l35
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -453,7 +453,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {x}
-  *39 index_entry_command@cindex C1 encoding_index_utf8.texi:l36
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l36
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -466,7 +466,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {y}
-  *40 index_entry_command@cindex C1 encoding_index_utf8.texi:l37
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l37
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -479,7 +479,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {z}
-  *41 index_entry_command@cindex C1 encoding_index_utf8.texi:l38
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l38
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -492,7 +492,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {A}
-  *42 index_entry_command@cindex C1 encoding_index_utf8.texi:l39
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l39
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -505,7 +505,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {B}
-  *43 index_entry_command@cindex C1 encoding_index_utf8.texi:l40
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l40
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -517,9 +517,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *44 @l C1 encoding_index_utf8.texi:l40
+    *12 @l C1 encoding_index_utf8.texi:l40
      *brace_container
-  *45 index_entry_command@cindex C1 encoding_index_utf8.texi:l41
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l41
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -531,9 +531,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *46 @L C1 encoding_index_utf8.texi:l41
+    *13 @L C1 encoding_index_utf8.texi:l41
      *brace_container
-  *47 index_entry_command@cindex C1 encoding_index_utf8.texi:l42
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l42
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -545,15 +545,15 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *48 @dotless C1 encoding_index_utf8.texi:l42
+    *14 @dotless C1 encoding_index_utf8.texi:l42
      *brace_container C1
       {i}
     { }
-    *49 @dotless C1 encoding_index_utf8.texi:l42
+    *15 @dotless C1 encoding_index_utf8.texi:l42
      *brace_container C1
       {i}
     { (dotless)}
-  *50 index_entry_command@cindex C1 encoding_index_utf8.texi:l43
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l43
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -565,19 +565,19 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *51 @^ C1 encoding_index_utf8.texi:l43
+    *16 @^ C1 encoding_index_utf8.texi:l43
      *brace_container C1
-      *52 @dotless C1 encoding_index_utf8.texi:l43
+      *17 @dotless C1 encoding_index_utf8.texi:l43
        *brace_container C1
         {i}
     { }
-    *53 @^ C1 encoding_index_utf8.texi:l43
+    *18 @^ C1 encoding_index_utf8.texi:l43
      *brace_container C1
-      *54 @dotless C1 encoding_index_utf8.texi:l43
+      *19 @dotless C1 encoding_index_utf8.texi:l43
        *brace_container C1
         {i}
     { (dotless)}
-  *55 index_entry_command@cindex C1 encoding_index_utf8.texi:l44
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l44
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -589,9 +589,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *56 @ss C1 encoding_index_utf8.texi:l44
+    *20 @ss C1 encoding_index_utf8.texi:l44
      *brace_container
-  *57 index_entry_command@cindex C1 encoding_index_utf8.texi:l45
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l45
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -603,9 +603,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *58 @euro C1 encoding_index_utf8.texi:l45
+    *21 @euro C1 encoding_index_utf8.texi:l45
      *brace_container
-  *59 index_entry_command@cindex C1 encoding_index_utf8.texi:l46
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l46
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -617,9 +617,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *60 @AE C1 encoding_index_utf8.texi:l46
+    *22 @AE C1 encoding_index_utf8.texi:l46
      *brace_container
-  *61 index_entry_command@cindex C1 encoding_index_utf8.texi:l47
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l47
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -631,9 +631,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *62 @exclamdown C1 encoding_index_utf8.texi:l47
+    *23 @exclamdown C1 encoding_index_utf8.texi:l47
      *brace_container
-  *63 index_entry_command@cindex C1 encoding_index_utf8.texi:l48
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l48
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -645,9 +645,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *64 @TH C1 encoding_index_utf8.texi:l48
+    *24 @TH C1 encoding_index_utf8.texi:l48
      *brace_container
-  *65 index_entry_command@cindex C1 encoding_index_utf8.texi:l49
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l49
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -659,9 +659,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *66 @DH C1 encoding_index_utf8.texi:l49
+    *25 @DH C1 encoding_index_utf8.texi:l49
      *brace_container
-  *67 index_entry_command@cindex C1 encoding_index_utf8.texi:l50
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l50
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -673,9 +673,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *68 @textdegree C1 encoding_index_utf8.texi:l50
+    *26 @textdegree C1 encoding_index_utf8.texi:l50
      *brace_container
-  *69 index_entry_command@cindex C1 encoding_index_utf8.texi:l51
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l51
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -688,7 +688,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {0}
-  *70 index_entry_command@cindex C1 encoding_index_utf8.texi:l52
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l52
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -701,7 +701,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {9}
-  *71 index_entry_command@cindex C1 encoding_index_utf8.texi:l53
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l53
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -713,9 +713,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *72 @quotedblleft C1 encoding_index_utf8.texi:l53
+    *27 @quotedblleft C1 encoding_index_utf8.texi:l53
      *brace_container
-  *73 index_entry_command@cindex C1 encoding_index_utf8.texi:l54
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l54
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -727,9 +727,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *74 @geq C1 encoding_index_utf8.texi:l54
+    *28 @geq C1 encoding_index_utf8.texi:l54
      *brace_container
-  *75 index_entry_command@cindex C1 encoding_index_utf8.texi:l55
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l55
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -741,9 +741,9 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *76 @comma C1 encoding_index_utf8.texi:l55
+    *29 @comma C1 encoding_index_utf8.texi:l55
      *brace_container
-  *77 index_entry_command@cindex C1 encoding_index_utf8.texi:l56
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l56
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -756,7 +756,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {``}
-  *78 index_entry_command@cindex C1 encoding_index_utf8.texi:l57
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l57
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -769,7 +769,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {`}
-  *79 index_entry_command@cindex C1 encoding_index_utf8.texi:l58
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l58
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -782,7 +782,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {\'}
-  *80 index_entry_command@cindex C1 encoding_index_utf8.texi:l59
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l59
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -795,7 +795,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {\'\'}
-  *81 index_entry_command@cindex C1 encoding_index_utf8.texi:l60
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l60
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -808,7 +808,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {"}
-  *82 index_entry_command@cindex C1 encoding_index_utf8.texi:l61
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l61
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -821,7 +821,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     *@@
-  *83 index_entry_command@cindex C1 encoding_index_utf8.texi:l62
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l62
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -834,7 +834,7 @@ $result_tree_text{'encoding_index_utf8_no_use_unicode'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {--}
-  *84 index_entry_command@cindex C1 encoding_index_utf8.texi:l63
+  *index_entry_command@cindex C1 encoding_index_utf8.texi:l63
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

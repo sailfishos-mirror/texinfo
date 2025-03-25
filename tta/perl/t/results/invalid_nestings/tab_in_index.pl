@@ -38,7 +38,7 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C2
        {aaa\\n}
-       *1 index_entry_command@vindex C1 l3
+       *index_entry_command@vindex C1 l3
        |INFO
        |command_name:{vindex}
        |spaces_before_argument:

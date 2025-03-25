@@ -185,7 +185,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
       |{\\n}
       {menu}
    {empty_line:\\n}
-   *11 index_entry_command@cindex C1 things_before_setfilename_no_element.texi:l38
+   *index_entry_command@cindex C1 things_before_setfilename_no_element.texi:l38
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
@@ -239,7 +239,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *12 @ref C1 things_before_setfilename_no_element.texi:l47
+   *11 @ref C1 things_before_setfilename_no_element.texi:l47
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -249,7 +249,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *13 @ref C1 things_before_setfilename_no_element.texi:l50
+   *12 @ref C1 things_before_setfilename_no_element.texi:l50
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

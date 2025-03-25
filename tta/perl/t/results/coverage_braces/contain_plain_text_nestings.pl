@@ -104,7 +104,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {code in key}
      { text}
    {\\n}
-   *10 index_entry_command@cindex C1 l10
+   *index_entry_command@cindex C1 l10
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
@@ -119,9 +119,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
      |{\\n}
      {ii}
      {spaces_at_end: }
-     *11 @sortas C1 l10
+     *10 @sortas C1 l10
       *brace_arg C2
-       *12 @code C1 l10
+       *11 @code C1 l10
         *brace_container C1
          {code in sortas}
        { text}
@@ -130,9 +130,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    {rawline_arg: no warning for @ref in @w\\n}
   *paragraph C8
    {Text }
-   *13 @w C1 l13
+   *12 @w C1 l13
     *brace_container C2
-     *14 @ref C2 l13
+     *13 @ref C2 l13
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -145,11 +145,11 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {cross in w}
      { text}
    {.\\n}
-   *15 @hyphenation C1 l14
+   *14 @hyphenation C1 l14
    |EXTRA
    |global_command_number:{2}
     *brace_arg C2
-     *16 @ref C2 l14
+     *15 @ref C2 l14
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -162,9 +162,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {cross in hyphenation}
      { text}
    {spaces_after_close_brace:\\n}
-   *17 @key C1 l15
+   *16 @key C1 l15
     *brace_container C2
-     *18 @ref C2 l15
+     *17 @ref C2 l15
       *brace_arg C1
       |EXTRA
       |node_content:{Top}
@@ -177,7 +177,7 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
        {cross in key}
      { text}
    {\\n}
-   *19 index_entry_command@cindex C1 l16
+   *index_entry_command@cindex C1 l16
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
@@ -192,9 +192,9 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
      |{\\n}
      {ii}
      {spaces_at_end: }
-     *20 @sortas C1 l16
+     *18 @sortas C1 l16
       *brace_arg C2
-       *21 @ref C2 l16
+       *19 @ref C2 l16
         *brace_arg C1
         |EXTRA
         |node_content:{Top}

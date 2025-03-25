@@ -130,7 +130,7 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *8 @columnfractions C1 l20
+     *@columnfractions C1 l20
      |INFO
      |spaces_before_argument:
       |{ }

@@ -185,7 +185,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
       |{\\n}
       {menu}
    {empty_line:\\n}
-   *11 index_entry_command@cindex C1 things_before_setfilename.texi:l38
+   *index_entry_command@cindex C1 things_before_setfilename.texi:l38
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
@@ -237,15 +237,15 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
      |{ \\n}
      {things_before_setfilename.info}
    {empty_line:\\n}
- *12 @node C1 things_before_setfilename.texi:l46 {Top}
+ *11 @node C1 things_before_setfilename.texi:l46 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E13]
- |associated_title_command:[E13]
+ |associated_section:[E12]
+ |associated_title_command:[E12]
  |is_target:{1}
- |node_directions:D[next->E14]
+ |node_directions:D[next->E13]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -253,21 +253,21 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *13 @top C2 things_before_setfilename.texi:l47 {top section}
+ *12 @top C2 things_before_setfilename.texi:l47 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E12]
- |associated_node:[E12]
- |section_childs:EC[E15]
+ |associated_anchor_command:[E11]
+ |associated_node:[E11]
+ |section_childs:EC[E14]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E13]
+  ||section_childs:EC[E12]
   ||section_level:{-1}
- |toplevel_directions:D[next->E15]
+ |toplevel_directions:D[next->E14]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -275,15 +275,15 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
     |{\\n}
     {top section}
   {empty_line:\\n}
- *14 @node C1 things_before_setfilename.texi:l49 {chap}
+ *13 @node C1 things_before_setfilename.texi:l49 {chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E15]
- |associated_title_command:[E15]
+ |associated_section:[E14]
+ |associated_title_command:[E14]
  |is_target:{1}
- |node_directions:D[prev->E12|up->E12]
+ |node_directions:D[prev->E11|up->E11]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -291,17 +291,17 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chap}
- *15 @chapter C6 things_before_setfilename.texi:l50 {Chapter}
+ *14 @chapter C6 things_before_setfilename.texi:l50 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E14]
- |associated_node:[E14]
- |section_directions:D[up->E13]
+ |associated_anchor_command:[E13]
+ |associated_node:[E13]
+ |section_directions:D[up->E12]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E13|up->E13]
+ |toplevel_directions:D[prev->E12|up->E12]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -311,7 +311,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to anchor\\n}
-   *16 @ref C1 things_before_setfilename.texi:l53
+   *15 @ref C1 things_before_setfilename.texi:l53
     *brace_arg C1
     |EXTRA
     |node_content:{An anchor}
@@ -321,7 +321,7 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C3
    {Ref to footnote anchor\\n}
-   *17 @ref C1 things_before_setfilename.texi:l56
+   *16 @ref C1 things_before_setfilename.texi:l56
     *brace_arg C1
     |EXTRA
     |node_content:{Anchor in footnote}

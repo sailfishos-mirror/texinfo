@@ -59,7 +59,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E13]
+ |node_directions:D[next->E12]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -74,14 +74,14 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E14]
+ |section_childs:EC[E13]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E14]
+ |toplevel_directions:D[next->E13]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -186,7 +186,7 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
-  *12 index_entry_command@cindex C1 l28
+  *index_entry_command@cindex C1 l28
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -203,13 +203,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   *paragraph C1
    {End of Top\\n}
   {empty_line:\\n}
- *13 @node C1 l32 {chapter}
+ *12 @node C1 l32 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E14]
- |associated_title_command:[E14]
+ |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E2]
@@ -220,13 +220,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *14 @chapter C11 l33 {Chap}
+ *13 @chapter C11 l33 {Chap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E13]
- |associated_node:[E13]
+ |associated_anchor_command:[E12]
+ |associated_node:[E12]
  |section_directions:D[up->E3]
  |section_level:{1}
  |section_number:{1}
@@ -239,42 +239,42 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     {Chap}
   {empty_line:\\n}
   *paragraph C12
-   *15 @pxref C1 l35
+   *14 @pxref C1 l35
     *brace_arg C1
     |EXTRA
     |node_content:{a in copying}
     |normalized:{a-in-copying}
      {a in copying}
    {.\\n}
-   *16 @pxref C1 l36
+   *15 @pxref C1 l36
     *brace_arg C1
     |EXTRA
     |node_content:{a in top}
     |normalized:{a-in-top}
      {a in top}
    {\\n}
-   *17 @pxref C1 l37
+   *16 @pxref C1 l37
     *brace_arg C1
     |EXTRA
     |node_content:{a in footnote}
     |normalized:{a-in-footnote}
      {a in footnote}
    {\\n}
-   *18 @pxref C1 l38
+   *17 @pxref C1 l38
     *brace_arg C1
     |EXTRA
     |node_content:{a in float}
     |normalized:{a-in-float}
      {a in float}
    {\\n}
-   *19 @pxref C1 l39
+   *18 @pxref C1 l39
     *brace_arg C1
     |EXTRA
     |node_content:{a in caption}
     |normalized:{a-in-caption}
      {a in caption}
    {\\n}
-   *20 @pxref C1 l40
+   *19 @pxref C1 l40
     *brace_arg C1
     |EXTRA
     |node_content:{a in paragraph in top}
@@ -282,13 +282,13 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      {a in paragraph in top}
    {\\n}
   {empty_line:\\n}
-  *21 index_entry_command@cindex C1 l42
+  *index_entry_command@cindex C1 l42
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E13]
+  |element_node:[E12]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -309,14 +309,14 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *22 @float C5 l46
+  *20 @float C5 l46
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E23]
+  |caption:[E21]
   |float_number:{1.1}
-  |float_section:[E14]
+  |float_section:[E13]
   |float_type:{list}
   |global_command_number:{2}
   |is_target:{1}
@@ -333,9 +333,9 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      {Main Flist}
    *paragraph C1
     {In Main\\n}
-   *23 @caption C1 l48
+   *21 @caption C1 l48
    |EXTRA
-   |float:[E22]
+   |float:[E20]
     *brace_command_context C1
      *paragraph C1
       {Caption Main}

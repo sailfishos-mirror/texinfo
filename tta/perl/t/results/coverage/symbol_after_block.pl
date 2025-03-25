@@ -245,7 +245,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *13 @columnfractions C1 l43
+     *@columnfractions C1 l43
      |INFO
      |spaces_before_argument:
       |{ }
@@ -300,7 +300,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {multitable^}
   {empty_line:\\n}
-  *14 @multitable C4 l48
+  *13 @multitable C4 l48
   |INFO
   |spaces_before_argument:
    |{ }
@@ -308,7 +308,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *15 @columnfractions C1 l48
+     *@columnfractions C1 l48
      |INFO
      |spaces_before_argument:
       |{ }
@@ -367,7 +367,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Flushleft:\\n}
   {empty_line:\\n}
-  *16 @flushleft C3 l55
+  *14 @flushleft C3 l55
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -387,7 +387,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {flushleft!}
   {empty_line:\\n}
-  *17 @flushleft C3 l59
+  *15 @flushleft C3 l59
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -411,7 +411,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
   *paragraph C1
    {Copying:\\n}
   {empty_line:\\n}
-  *18 @copying C3 l65
+  *16 @copying C3 l65
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -431,7 +431,7 @@ $result_tree_text{'symbol_after_block'} = '*document_root C1
      |{\\n}
      {copying*}
   {empty_line:\\n}
-  *19 @copying C3 l69
+  *17 @copying C3 l69
    *arguments_line C1
     *block_line_arg
     |INFO

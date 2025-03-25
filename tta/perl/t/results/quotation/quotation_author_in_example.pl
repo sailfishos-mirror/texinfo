@@ -19,7 +19,7 @@ $result_tree_text{'quotation_author_in_example'} = '*document_root C1
      |spaces_after_argument:
       |{ \\n}
     *preformatted C2
-     *2 @author C1 l3
+     *@author C1 l3
      |INFO
      |spaces_before_argument:
       |{ }

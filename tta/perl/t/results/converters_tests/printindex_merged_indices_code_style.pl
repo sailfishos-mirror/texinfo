@@ -104,7 +104,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
     |{\\n}
     {vr fn}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -118,7 +118,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
     |{\\n}
     {c``b}
   {empty_line:\\n}
-  *5 index_entry_command@vindex C1 l13
+  *index_entry_command@vindex C1 l13
   |INFO
   |command_name:{vindex}
   |spaces_before_argument:
@@ -132,7 +132,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
     |{\\n}
     {v``j}
   {empty_line:\\n}
-  *6 index_entry_command@findex C1 l15
+  *index_entry_command@findex C1 l15
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
@@ -170,7 +170,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
     |{\\n}
     {cdi fn}
   {empty_line:\\n}
-  *7 index_entry_command@cdiindex C1 l21
+  *index_entry_command@cdiindex C1 l21
   |INFO
   |command_name:{cdiindex}
   |spaces_before_argument:
@@ -208,7 +208,7 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
     |{\\n}
     {ddi cp}
   {empty_line:\\n}
-  *8 index_entry_command@ddiindex C1 l27
+  *index_entry_command@ddiindex C1 l27
   |INFO
   |command_name:{ddiindex}
   |spaces_before_argument:

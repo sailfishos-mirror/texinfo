@@ -157,7 +157,7 @@ $result_tree_text{'no_element'} = '*document_root C1
      |{\\n}
      {menu}
   {empty_line:\\n}
-  *9 index_entry_command@cindex C1 l32
+  *index_entry_command@cindex C1 l32
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

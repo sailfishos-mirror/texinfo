@@ -79,7 +79,7 @@ $result_tree_text{'U_in_index'} = '*document_root C5
     |{\\n}
     {Chapter}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 l7
+  *index_entry_command@cindex C1 l7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -91,12 +91,12 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *5 @U C1 l7
+    *4 @U C1 l7
      *brace_arg C1
       {0131}
     { dotless i}
   {empty_line:\\n}
-  *6 index_entry_command@cindex C1 l9
+  *index_entry_command@cindex C1 l9
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -108,12 +108,12 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *7 @U C1 l9
+    *5 @U C1 l9
      *brace_arg C1
       {0074}
     { letter t}
   {empty_line:\\n}
-  *8 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -125,7 +125,7 @@ $result_tree_text{'U_in_index'} = '*document_root C5
    |INFO
    |spaces_after_argument:
     |{\\n}
-    *9 @U C1 l11
+    *6 @U C1 l11
      *brace_arg C1
       {00B5}
     { greek letter mu}

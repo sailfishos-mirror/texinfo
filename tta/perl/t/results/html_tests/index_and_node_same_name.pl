@@ -38,7 +38,7 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
     |{\\n}
     {index node}
   {empty_line:\\n}
-  *2 index_entry_command@cindex C1 l4
+  *index_entry_command@cindex C1 l4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:

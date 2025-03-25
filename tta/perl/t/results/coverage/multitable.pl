@@ -15,7 +15,7 @@ $result_tree_text{'multitable'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l2
+     *@columnfractions C1 l2
      |INFO
      |spaces_before_argument:
       |{ }
@@ -75,7 +75,7 @@ $result_tree_text{'multitable'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C2
        {multitable tab 2\\n}
-       *2 index_entry_command@cindex C1 l7
+       *index_entry_command@cindex C1 l7
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
@@ -108,7 +108,7 @@ $result_tree_text{'multitable'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *3 @multitable C3 l11
+  *1 @multitable C3 l11
   |INFO
   |spaces_before_argument:
    |{ }

@@ -18,8 +18,8 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
  |associated_section:[E1]
  |associated_title_command:[E1]
  |is_target:{1}
- |menus:EC[E4]
- |node_directions:D[next->E5]
+ |menus:EC[E3]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -34,14 +34,14 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E6]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -59,7 +59,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
       {my footnote}
    {.\\n}
   {empty_line:\\n}
-  *3 index_entry_command@cindex C1 no_monolithic.texi:l8
+  *index_entry_command@cindex C1 no_monolithic.texi:l8
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -73,7 +73,7 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
     |{\\n}
     {top}
   {empty_line:\\n}
-  *4 @menu C3 no_monolithic.texi:l10
+  *3 @menu C3 no_monolithic.texi:l10
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -102,13 +102,13 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *5 @node C1 no_monolithic.texi:l14 {chapter}
+ *4 @node C1 no_monolithic.texi:l14 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[up->E0]
@@ -120,13 +120,13 @@ $result_tree_text{'no_monolithic'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C8 no_monolithic.texi:l15 {Chapter}
+ *5 @chapter C8 no_monolithic.texi:l15 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}

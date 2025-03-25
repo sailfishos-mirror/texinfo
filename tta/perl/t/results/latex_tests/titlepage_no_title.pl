@@ -20,7 +20,7 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
       {Some manual tested}
     {\\n}
     {empty_line:\\n}
-    *2 @author C1 l4
+    *@author C1 l4
     |INFO
     |spaces_before_argument:
      |{ }
@@ -43,15 +43,15 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *3 @node C1 l7 {Top}
+ *2 @node C1 l7 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E4]
- |associated_title_command:[E4]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E5]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -59,21 +59,21 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *4 @top C2 l8 {section top}
+ *3 @top C2 l8 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E3]
- |associated_node:[E3]
- |section_childs:EC[E6]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E4]
+  ||section_childs:EC[E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E6]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -81,15 +81,15 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *5 @node C1 l10 {chapter}
+ *4 @node C1 l10 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[prev->E3|up->E3]
+ |node_directions:D[prev->E2|up->E2]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -97,17 +97,17 @@ $result_tree_text{'titlepage_no_title'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *6 @chapter C3 l11 {Chapter}
+ *5 @chapter C3 l11 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
- |section_directions:D[up->E4]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_directions:D[up->E3]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E4|up->E4]
+ |toplevel_directions:D[prev->E3|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO

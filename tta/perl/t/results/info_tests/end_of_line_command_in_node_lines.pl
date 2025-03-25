@@ -31,7 +31,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E8]
+ |section_childs:EC[E4|E7]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -99,8 +99,8 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E7|up->E0]
- |node_directions:D[next->E7|prev->E0|up->E0]
+ |menu_directions:D[next->E6|up->E0]
+ |node_directions:D[next->E6|prev->E0|up->E0]
  |normalized:{chap-f-nl-Something_003f-After-punct}
   *arguments_line C1
    *line_arg C5
@@ -119,10 +119,10 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E8|up->E1]
+ |section_directions:D[next->E7|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
+ |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -133,7 +133,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   *5 @anchor C1 l12
   |EXTRA
   |is_target:{1}
-  |menu_directions:D[next->E5|prev->E5|up->E7]
+  |menu_directions:D[next->E5|prev->E5|up->E6]
   |normalized:{ankh-p}
    *brace_arg C3
     {ankh }
@@ -148,7 +148,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    *@*
    { After punct\\n}
   {empty_line:\\n}
-  *6 index_entry_command@cindex C1 l16
+  *index_entry_command@cindex C1 l16
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -177,16 +177,16 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     |{\\n}
     {cp}
   {empty_line:\\n}
- *7 @node C1 l20 {new n}
+ *6 @node C1 l20 {new n}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E12]
+ |menus:EC[E11]
  |node_directions:D[prev->E3|up->E0]
  |normalized:{new-n}
   *arguments_line C1
@@ -195,13 +195,13 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {new n}
- *8 @chapter C9 l21 {Ochap}
+ *7 @chapter C9 l21 {Ochap}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -214,7 +214,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
     {Ochap}
   {empty_line:\\n}
   *paragraph C2
-   *9 @xref C1 l23
+   *8 @xref C1 l23
     *brace_arg C5
     |EXTRA
     |node_content:{chap @* f     nl Something? @* After punct}
@@ -227,7 +227,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *10 @xref C1 l25
+   *9 @xref C1 l25
     *brace_arg C3
     |EXTRA
     |node_content:{ankh @* p}
@@ -238,7 +238,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *11 @xref C2 l27
+   *10 @xref C2 l27
     *brace_arg C3
     |EXTRA
     |node_content:{ankh @* p}
@@ -255,7 +255,7 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
      {gg}
    {.\\n}
   {empty_line:\\n}
-  *12 @menu C5 l29
+  *11 @menu C5 l29
    *arguments_line C1
     *block_line_arg
     |INFO

@@ -27,7 +27,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *2 @columnfractions C1 l6
+     *@columnfractions C1 l6
      |INFO
      |spaces_before_argument:
       |{ }
@@ -54,7 +54,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C3
        {See }
-       *3 @ref C1 l8
+       *2 @ref C1 l8
         *brace_arg C1
         |EXTRA
         |node_content:{RRR RRR RRR RRR RRR RRR RRR RRR RRR RRRR}
@@ -76,7 +76,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C3
        {See }
-       *4 @ref C1 l10
+       *3 @ref C1 l10
         *brace_arg C1
         |EXTRA
         |node_content:{SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSS SSSSS}
@@ -92,12 +92,12 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
       {ignorable_spaces_after_command: }
       *paragraph C3
        {adsf}
-       *5 @footnote C1 l11
+       *4 @footnote C1 l11
        |EXTRA
        |global_command_number:{1}
         *brace_command_context C1
          *paragraph C1
-          *6 @ref C1 l11
+          *5 @ref C1 l11
            *brace_arg C2
            |EXTRA
            |node_content:{XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX \\nXXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX}
@@ -124,7 +124,7 @@ $result_tree_text{'ref_in_multitable'} = '*document_root C1
      {multitable}
   {empty_line:\\n}
   *paragraph C2
-   *7 @ref C1 l16
+   *6 @ref C1 l16
     *brace_arg C2
     |EXTRA
     |node_content:{XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX \\nXXX XXX XXX XXX XXX XXX XXX XXX XX}

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'on_index_entry_line'} = '*document_root C1
  *before_node_section C1
-  *0 index_entry_command@cindex C1 l1
+  *index_entry_command@cindex C1 l1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -16,19 +16,19 @@ $result_tree_text{'on_index_entry_line'} = '*document_root C1
    *line_arg C8
     *@indent l1
     {ignorable_spaces_after_command: }
-    *1 @titlefont C1 l1
+    *0 @titlefont C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_container C1
       {in titlefont}
     { }
-    *2 @anchor C1 l1
+    *1 @anchor C1 l1
     |EXTRA
     |is_target:{1}
     |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
-    *3 @footnote C1 l1
+    *2 @footnote C1 l1
     |EXTRA
     |global_command_number:{1}
      *brace_command_context C1

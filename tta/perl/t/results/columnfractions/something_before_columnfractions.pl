@@ -15,7 +15,7 @@ $result_tree_text{'something_before_columnfractions'} = '*document_root C1
    *arguments_line C1
     *block_line_arg C2
      {aaa }
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }

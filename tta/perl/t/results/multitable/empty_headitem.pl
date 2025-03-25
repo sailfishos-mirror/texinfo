@@ -14,7 +14,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
   |max_columns:{3}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }
@@ -58,7 +58,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
      |cell_number:{2}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *2 @code C1 l3
+       *1 @code C1 l3
         *brace_container C1
          {3}
        { }
@@ -67,7 +67,7 @@ $result_tree_text{'empty_headitem'} = '*document_root C1
      |cell_number:{3}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *3 @code C1 l3
+       *2 @code C1 l3
         *brace_container C1
          {30}
        {\\n}

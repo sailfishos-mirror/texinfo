@@ -14,7 +14,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |spaces_after_argument:
       |{\\n}
     {empty_line:\\n}
-    *1 index_entry_command@findex C1 l3
+    *index_entry_command@findex C1 l3
     |INFO
     |command_name:{findex}
     |spaces_before_argument:
@@ -28,7 +28,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |{\\n}
       {Copying this document}
     {empty_line:\\n}
-    *2 @defun C4 l5
+    *1 @defun C4 l5
     |INFO
     |spaces_before_argument:
      |{ }
@@ -104,18 +104,18 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
        |{\\n}
        {defun}
     {empty_line:\\n}
-    *3 @ftable C3 l10
+    *2 @ftable C3 l10
     |INFO
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |command_as_argument:[E4]
+    |command_as_argument:[E3]
      *arguments_line C1
       *block_line_arg C1
       |INFO
       |spaces_after_argument:
        |{\\n}
-       *4 @asis l10
+       *3 @asis l10
      *table_entry C1
       *table_term C2
        *@item C1 l11
@@ -179,16 +179,16 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
       |{\\n}
       {copying}
    {empty_line:\\n}
- *5 @node C1 l19 {Top}
+ *4 @node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |menus:EC[E7]
- |node_directions:D[next->E8]
+ |menus:EC[E6]
+ |node_directions:D[next->E7]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -196,21 +196,21 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {Top}
- *6 @top C6 l20 {top}
+ *5 @top C6 l20 {top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
- |section_childs:EC[E9]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_childs:EC[E8]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E6]
+  ||section_childs:EC[E5]
   ||section_level:{-1}
- |toplevel_directions:D[next->E9]
+ |toplevel_directions:D[next->E8]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,7 +221,7 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
   *paragraph C1
    {Top.\\n}
   {empty_line:\\n}
-  *7 @menu C3 l24
+  *6 @menu C3 l24
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -250,16 +250,16 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
      |{\\n}
      {menu}
   {empty_line:\\n}
- *8 @node C1 l28 {chapter}
+ *7 @node C1 l28 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E9]
- |associated_title_command:[E9]
+ |associated_section:[E8]
+ |associated_title_command:[E8]
  |is_target:{1}
- |menu_directions:D[up->E5]
- |node_directions:D[prev->E5|up->E5]
+ |menu_directions:D[up->E4]
+ |node_directions:D[prev->E4|up->E4]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -267,17 +267,17 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *9 @chapter C4 l29 {Chapter}
+ *8 @chapter C4 l29 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E8]
- |associated_node:[E8]
- |section_directions:D[up->E6]
+ |associated_anchor_command:[E7]
+ |associated_node:[E7]
+ |section_directions:D[up->E5]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E6|up->E6]
+ |toplevel_directions:D[prev->E5|up->E5]
   *arguments_line C1
    *line_arg C1
    |INFO

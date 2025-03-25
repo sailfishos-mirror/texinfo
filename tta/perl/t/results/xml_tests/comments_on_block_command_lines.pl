@@ -478,7 +478,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |max_columns:{2}
    *arguments_line C1
     *block_line_arg C1
-     *21 @columnfractions C1 l61
+     *@columnfractions C1 l61
      |INFO
      |spaces_before_argument:
       |{ }
@@ -520,7 +520,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *22 @multitable C3 l65
+  *21 @multitable C3 l65
   |INFO
   |spaces_before_argument:
    |{ }
@@ -567,7 +567,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {multitable}
   {empty_line:\\n}
-  *23 @float C3 l69
+  *22 @float C3 l69
   |INFO
   |spaces_before_argument:
    |{ }
@@ -602,7 +602,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *24 @flushright C3 l73
+  *23 @flushright C3 l73
   |INFO
   |spaces_before_argument:
    |{ }
@@ -626,7 +626,7 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
      |{\\n}
      {flushright}
   {empty_line:\\n}
-  *25 @raggedright C3 l77
+  *24 @raggedright C3 l77
   |INFO
   |spaces_before_argument:
    |{ }

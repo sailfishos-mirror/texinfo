@@ -162,7 +162,7 @@ $result_tree_text{'in_table'} = '*document_root C3
      |spaces_before_argument:
       |{ }
       *line_arg C1
-       *11 index_entry_command@cindex C1 l14
+       *index_entry_command@cindex C1 l14
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
@@ -187,18 +187,18 @@ $result_tree_text{'in_table'} = '*document_root C3
      |{\\n}
      {table}
   {empty_line:\\n}
-  *12 @vtable C4 l17
+  *11 @vtable C4 l17
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |command_as_argument:[E13]
+  |command_as_argument:[E12]
    *arguments_line C1
     *block_line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *13 @asis l17
+     *12 @asis l17
    *table_entry C2
     *table_term C1
      *@item C1 l18
@@ -209,7 +209,7 @@ $result_tree_text{'in_table'} = '*document_root C3
      |element_node:[E1]
      |index_entry:I{vr,1}
       *line_arg C1
-       *14 index_entry_command@cindex C1 l18
+       *index_entry_command@cindex C1 l18
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
@@ -224,7 +224,7 @@ $result_tree_text{'in_table'} = '*document_root C3
          {index}
     *table_definition C1
      *paragraph C3
-      *15 @option C1 l19
+      *13 @option C1 l19
        *brace_container C1
         {opt}
       {\\n}
@@ -239,7 +239,7 @@ $result_tree_text{'in_table'} = '*document_root C3
      |element_node:[E1]
      |index_entry:I{vr,2}
       *line_arg C1
-       *16 index_entry_command@cindex C1 l21
+       *index_entry_command@cindex C1 l21
        |INFO
        |command_name:{cindex}
        |spaces_before_argument:
@@ -254,7 +254,7 @@ $result_tree_text{'in_table'} = '*document_root C3
          {2 index}
     *table_definition C1
      *paragraph C3
-      *17 @option C1 l22
+      *14 @option C1 l22
        *brace_container C1
         {nopt}
       {\\n}

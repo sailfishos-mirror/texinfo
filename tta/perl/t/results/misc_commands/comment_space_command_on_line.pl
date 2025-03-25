@@ -135,7 +135,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
      |{rawline_arg: comment microtype\\n}
     {off}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 l13
+  *index_entry_command@cindex C1 l13
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -153,7 +153,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     {index entry }
     *@ 
   {empty_line:\\n}
-  *5 @heading C1 l15
+  *4 @heading C1 l15
   |INFO
   |spaces_before_argument:
    |{ }
@@ -185,7 +185,7 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
     |{ }
     {cp}
   {empty_line:\\n}
-  *6 @float C3 l19
+  *5 @float C3 l19
   |INFO
   |spaces_before_argument:
    |{ }

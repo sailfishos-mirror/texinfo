@@ -64,7 +64,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |spaces_after_argument:
       |{\\n}
       {Subtitle 2 manual tested}
-    *2 @author C1 l9
+    *@author C1 l9
     |INFO
     |spaces_before_argument:
      |{ }
@@ -75,7 +75,7 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
      |spaces_after_argument:
       |{\\n}
       {First author}
-    *3 @author C1 l10
+    *@author C1 l10
     |INFO
     |spaces_before_argument:
      |{ }
@@ -111,15 +111,15 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
       |{\\n}
       {titlepage}
    {empty_line:\\n}
- *4 @node C1 l19 {Top}
+ *2 @node C1 l19 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E3]
+ |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E6]
+ |node_directions:D[next->E4]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -127,21 +127,21 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C2 l20 {section top}
+ *3 @top C2 l20 {section top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E7]
+ |associated_anchor_command:[E2]
+ |associated_node:[E2]
+ |section_childs:EC[E5]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E3]
   ||section_level:{-1}
- |toplevel_directions:D[next->E7]
+ |toplevel_directions:D[next->E5]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -149,15 +149,15 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
     |{\\n}
     {section top}
   {empty_line:\\n}
- *6 @node C1 l22 {chapter}
+ *4 @node C1 l22 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
- |node_directions:D[prev->E4|up->E4]
+ |node_directions:D[prev->E2|up->E2]
  |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
@@ -165,17 +165,17 @@ $result_tree_text{'titlepage_classical'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *7 @chapter C4 l23 {Chapter}
+ *5 @chapter C4 l23 {Chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
- |section_directions:D[up->E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
+ |section_directions:D[up->E3]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E5|up->E5]
+ |toplevel_directions:D[prev->E3|up->E3]
   *arguments_line C1
    *line_arg C1
    |INFO

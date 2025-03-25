@@ -14,7 +14,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
   |max_columns:{4}
    *arguments_line C1
     *block_line_arg C1
-     *1 @columnfractions C1 l1
+     *@columnfractions C1 l1
      |INFO
      |spaces_before_argument:
       |{ }
@@ -61,7 +61,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{1}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *2 @code C1 l3
+       *1 @code C1 l3
         *brace_container C2
          *@@
          {chapter}
@@ -71,7 +71,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{2}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *3 @code C1 l3
+       *2 @code C1 l3
         *brace_container C2
          *@@
          {unnumbered}
@@ -81,7 +81,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{3}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *4 @code C1 l3
+       *3 @code C1 l3
         *brace_container C2
          *@@
          {appendix}
@@ -91,7 +91,7 @@ $result_tree_text{'fractions_rounding'} = '*document_root C1
      |cell_number:{4}
       {ignorable_spaces_after_command: }
       *paragraph C2
-       *5 @code C1 l3
+       *4 @code C1 l3
         *brace_container C2
          *@@
          {chapheading}

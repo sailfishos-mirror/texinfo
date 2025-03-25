@@ -1,5 +1,11 @@
 2025-03-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers),
+	tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers): do not
+	set numbers for elements that are not in extra information anymore.
+
+2025-03-25  Patrice Dumas  <pertusus@free.fr>
+
 	Remove subentry subentry_parent extra information
 
 	* tta/C/main/get_perl_info.c (find_index_entry_subentry)

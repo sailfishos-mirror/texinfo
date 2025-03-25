@@ -17,8 +17,8 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E2]
- |node_directions:D[next->E6|up->MISSING: (line_arg)[C3]]
+ |menus:EC[E1]
+ |node_directions:D[next->E3|up->MISSING: (line_arg)[C3]]
  |normalized:{first-before-top}
   *arguments_line C4
    *line_arg C1
@@ -44,7 +44,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     {(}
     {dir}
     {)}
-  *1 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l4
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l4
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -88,7 +88,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     {cp}
   *paragraph C1
    {after second printindex in first node\\n}
-  *2 @menu C3 nodes_before_top_and_sections.texi:l11
+  *1 @menu C3 nodes_before_top_and_sections.texi:l11
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -117,7 +117,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
      |{\\n}
      {menu}
   {empty_line:\\n}
- *3 @node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
+ *2 @node C10 nodes_before_top_and_sections.texi:l15 {node in menu before top}
  |INFO
  |spaces_before_argument:
   |{ }
@@ -141,13 +141,13 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |normalized:{first-before-top}
     {first before top}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l17
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l17
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:[E2]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
@@ -171,13 +171,13 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
   *paragraph C1
    {node in menu before top text after printindex\\n}
   {empty_line:\\n}
-  *5 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l22
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l22
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E3]
+  |element_node:[E2]
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -186,16 +186,16 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     {printindex node in menu before top}
   {empty_line:\\n}
   {empty_line:\\n}
- *6 @node C11 nodes_before_top_and_sections.texi:l25 {Top}
+ *3 @node C11 nodes_before_top_and_sections.texi:l25 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
  |isindex:{1}
- |menus:EC[E10]
+ |menus:EC[E5]
  |node_directions:D[prev->E0]
  |normalized:{Top}
   *arguments_line C3
@@ -213,13 +213,13 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |node_content:{first before top}
    |normalized:{first-before-top}
     {first before top}
-  *7 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l26
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l26
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:[E3]
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -270,34 +270,34 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {cp}
   {empty_line:\\n}
- *8 @top C7 nodes_before_top_and_sections.texi:l36 {top section}
+ *4 @top C7 nodes_before_top_and_sections.texi:l36 {top section}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
- |section_childs:EC[E27]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_childs:EC[E13]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E8]
+  ||section_childs:EC[E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E27]
+ |toplevel_directions:D[next->E13]
   *arguments_line C1
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {top section}
-  *9 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l37
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l37
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E6]
+  |element_node:[E3]
   |index_entry:I{cp,5}
    *line_arg C1
    |INFO
@@ -308,7 +308,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
   *paragraph C1
    {in top section\\n}
   {empty_line:\\n}
-  *10 @menu C5 nodes_before_top_and_sections.texi:l41
+  *5 @menu C5 nodes_before_top_and_sections.texi:l41
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -359,16 +359,16 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
      |{\\n}
      {menu}
   {empty_line:\\n}
- *11 @node C7 nodes_before_top_and_sections.texi:l47 {first}
+ *6 @node C7 nodes_before_top_and_sections.texi:l47 {first}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E26|up->E6]
- |menus:EC[E15]
- |node_directions:D[prev->E6|up->E6]
+ |menu_directions:D[next->E12|up->E3]
+ |menus:EC[E7]
+ |node_directions:D[prev->E3|up->E3]
  |normalized:{first}
   *arguments_line C4
    *line_arg C1
@@ -391,39 +391,39 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     {Top}
   *paragraph C4
    {Text and then index entries\\n}
-   *12 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l49
+   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l49
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E11]
+   |element_node:[E6]
    |index_entry:I{cp,6}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {! entry in node}
-   *13 index_entry_command@findex C1 nodes_before_top_and_sections.texi:l50
+   *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l50
    |INFO
    |command_name:{findex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E11]
+   |element_node:[E6]
    |index_entry:I{fn,1}
     *line_arg C1
     |INFO
     |spaces_after_argument:
      |{\\n}
      {fun in node}
-   *14 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l51
+   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l51
    |INFO
    |command_name:{cindex}
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |element_node:[E11]
+   |element_node:[E6]
    |index_entry:I{cp,7}
     *line_arg C1
     |INFO
@@ -444,7 +444,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *15 @menu C3 nodes_before_top_and_sections.texi:l55
+  *7 @menu C3 nodes_before_top_and_sections.texi:l55
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -473,16 +473,16 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
      |{\\n}
      {menu}
   {empty_line:\\n}
- *16 @node C5 nodes_before_top_and_sections.texi:l59 {second}
+ *8 @node C5 nodes_before_top_and_sections.texi:l59 {second}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E11]
- |menus:EC[E17]
- |node_directions:D[up->E11]
+ |menu_directions:D[up->E6]
+ |menus:EC[E9]
+ |node_directions:D[up->E6]
  |normalized:{second}
   *arguments_line C4
    *line_arg C1
@@ -497,7 +497,7 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |node_content:{first}
    |normalized:{first}
     {first}
-  *17 @menu C4 nodes_before_top_and_sections.texi:l60
+  *9 @menu C4 nodes_before_top_and_sections.texi:l60
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -550,14 +550,14 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {fn}
   {empty_line:\\n}
- *18 @node C6 nodes_before_top_and_sections.texi:l67 {another}
+ *10 @node C6 nodes_before_top_and_sections.texi:l67 {another}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E22|up->E16]
- |node_directions:D[prev->E22|up->E16]
+ |menu_directions:D[prev->E11|up->E8]
+ |node_directions:D[prev->E11|up->E8]
  |normalized:{another}
   *arguments_line C4
    *line_arg C1
@@ -585,39 +585,39 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |normalized:{second}
     {second}
   {empty_line:\\n}
-  *19 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l69
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l69
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E18]
+  |element_node:[E10]
   |index_entry:I{cp,8}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {something}
-  *20 index_entry_command@findex C1 nodes_before_top_and_sections.texi:l70
+  *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l70
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E18]
+  |element_node:[E10]
   |index_entry:I{fn,2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {somewhere}
-  *21 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l71
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l71
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E18]
+  |element_node:[E10]
   |index_entry:I{cp,9}
    *line_arg C1
    |INFO
@@ -625,15 +625,15 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {another}
   {empty_line:\\n}
- *22 @node C10 nodes_before_top_and_sections.texi:l73 {a node}
+ *11 @node C10 nodes_before_top_and_sections.texi:l73 {a node}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E18|up->E16]
- |node_directions:D[next->E18|up->E16]
+ |menu_directions:D[next->E10|up->E8]
+ |node_directions:D[next->E10|up->E8]
  |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
@@ -658,13 +658,13 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |node_content:{second}
    |normalized:{second}
     {second}
-  *23 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l74
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l74
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E11]
   |index_entry:I{cp,10}
    *line_arg C1
    |INFO
@@ -685,26 +685,26 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {cp}
   {empty_line:\\n}
-  *24 index_entry_command@findex C1 nodes_before_top_and_sections.texi:l78
+  *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l78
   |INFO
   |command_name:{findex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E11]
   |index_entry:I{fn,3}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {a function}
-  *25 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l79
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l79
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E22]
+  |element_node:[E11]
   |index_entry:I{cp,11}
    *line_arg C1
    |INFO
@@ -725,17 +725,17 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {cp}
   {empty_line:\\n}
- *26 @node C1 nodes_before_top_and_sections.texi:l83 {chapter}
+ *12 @node C1 nodes_before_top_and_sections.texi:l83 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E27]
- |associated_title_command:[E27]
+ |associated_section:[E13]
+ |associated_title_command:[E13]
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[next->E28|prev->E11|up->E6]
- |node_directions:D[next->E28|up->E6]
+ |menu_directions:D[next->E14|prev->E6|up->E3]
+ |node_directions:D[next->E14|up->E3]
  |normalized:{chapter}
   *arguments_line C4
    *line_arg C1
@@ -754,17 +754,17 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |node_content:{Top}
    |normalized:{Top}
     {Top}
- *27 @chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
+ *13 @chapter C4 nodes_before_top_and_sections.texi:l84 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E26]
- |associated_node:[E26]
- |section_directions:D[up->E8]
+ |associated_anchor_command:[E12]
+ |associated_node:[E12]
+ |section_directions:D[up->E4]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[prev->E8|up->E8]
+ |toplevel_directions:D[prev->E4|up->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -785,14 +785,14 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
     |{\\n}
     {cp}
   {empty_line:\\n}
- *28 @node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
+ *14 @node C4 nodes_before_top_and_sections.texi:l88 {node in chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
  |is_target:{1}
- |menu_directions:D[prev->E26|up->E6]
- |node_directions:D[prev->E26|up->E6]
+ |menu_directions:D[prev->E12|up->E3]
+ |node_directions:D[prev->E12|up->E3]
  |normalized:{node-in-chapter}
   *arguments_line C4
    *line_arg C1
@@ -815,13 +815,13 @@ $result_tree_text{'nodes_before_top_and_sections_unsplit_no_nodes'} = '*document
    |normalized:{Top}
     {Top}
   {empty_line:\\n}
-  *29 index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l90
+  *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l90
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E28]
+  |element_node:[E14]
   |index_entry:I{cp,12}
    *line_arg C1
    |INFO

@@ -16,7 +16,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*6 @var C1
+      |*4 @var C1
        |*brace_container C1
         |{i}
    |index_entry:I{fn,1}
@@ -79,7 +79,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      *def_arg C1
       *bracketed_arg l4
    *inter_def_item C1
-    *2 index_entry_command@cindex C1 l5
+    *index_entry_command@cindex C1 l5
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:
@@ -100,10 +100,10 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    |def_index_element:
     |*def_name C1
      |*def_line_arg C1
-      |*7 @b C1
+      |*5 @b C1
        |*brace_container C3
         |{id }
-        |*8 @samp C1
+        |*6 @samp C1
          |*brace_container C1
           |{i}
         |{ ule}
@@ -119,10 +119,10 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
      {spaces: }
      *def_name C1
       *def_line_arg C1
-       *3 @b C1 l6
+       *2 @b C1 l6
         *brace_container C3
          {id }
-         *4 @samp C1 l6
+         *3 @samp C1 l6
           *brace_container C1
            {i}
          { ule}
@@ -131,7 +131,7 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
       *def_line_arg C1
        {truc}
    *def_item C3
-    *5 index_entry_command@cindex C1 l7
+    *index_entry_command@cindex C1 l7
     |INFO
     |command_name:{cindex}
     |spaces_before_argument:

@@ -6,7 +6,7 @@ use utf8;
 
 $result_tree_text{'raw_block_on_line'} = '*document_root C1
  *before_node_section C1
-  *0 index_entry_command@cindex C1 l1
+  *index_entry_command@cindex C1 l1
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -14,7 +14,7 @@ $result_tree_text{'raw_block_on_line'} = '*document_root C1
   |EXTRA
   |index_entry:I{cp,1}
    *line_arg C1
-    *1 @tex C1 l1
+    *0 @tex C1 l1
      *arguments_line C1
       *block_line_arg
       |INFO

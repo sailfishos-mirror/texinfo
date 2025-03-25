@@ -29,7 +29,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E8]
+ |section_childs:EC[E3|E6]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -67,11 +67,11 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_childs:EC[E6]
- |section_directions:D[next->E8|up->E1]
+ |section_childs:EC[E5]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E8|prev->E1|up->E1]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -79,7 +79,7 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
     |{\\n}
     {chap}
   {empty_line:\\n}
-  *4 index_entry_command@cindex C1 l7
+  *index_entry_command@cindex C1 l7
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
@@ -92,13 +92,13 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {entry1}
- *5 @node C1 l8 {sec}
+ *4 @node C1 l8 {sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E6]
- |associated_title_command:[E6]
+ |associated_section:[E5]
+ |associated_title_command:[E5]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[up->E2]
@@ -109,13 +109,13 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
    |spaces_after_argument:
     |{\\n}
     {sec}
- *6 @section C3 l9 {Sec}
+ *5 @section C3 l9 {Sec}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E5]
- |associated_node:[E5]
+ |associated_anchor_command:[E4]
+ |associated_node:[E4]
  |section_directions:D[up->E3]
  |section_level:{2}
  |section_number:{1.1}
@@ -126,20 +126,20 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
     |{\\n}
     {Sec}
   {empty_line:\\n}
-  *7 index_entry_command@cindex C1 l11
+  *index_entry_command@cindex C1 l11
   |INFO
   |command_name:{cindex}
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E5]
+  |element_node:[E4]
   |index_entry:I{cp,2}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{\\n}
     {entry2}
- *8 @appendix C4 l12 {App}
+ *6 @appendix C4 l12 {App}
  |INFO
  |spaces_before_argument:
   |{ }

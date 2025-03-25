@@ -261,7 +261,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    >|INFO
    >|command_name:{trucindexcommand}
     >*brace_arg
-  *9 index_entry_command@trucindex C1 l39:@trucindexcommand
+  *index_entry_command@trucindex C1 l39:@trucindexcommand
   |INFO
   |command_name:{trucindex}
   |spaces_before_argument:
@@ -277,7 +277,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     |{\\n}
     {index truc}
   {empty_line:\\n}
-  *10 index_entry_command@codeidxindex C1 l41
+  *index_entry_command@codeidxindex C1 l41
   |INFO
   |command_name:{codeidxindex}
   |spaces_before_argument:
@@ -296,23 +296,23 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {a }
-    *11 @var C1 l41:@defcodeindexentry
+    *9 @var C1 l41:@defcodeindexentry
      *brace_container C1
       {index entry}
     { t}
-    *12 @\' C1 l41:@defcodeindexentry
+    *10 @\' C1 l41:@defcodeindexentry
      *following_arg C1
       {e}
     { }
-    *13 @^ C1 l41:@defcodeindexentry
+    *11 @^ C1 l41:@defcodeindexentry
     >SOURCEMARKS
     >macro_expansion<end;7>
      *brace_container C1
-      *14 @dotless C1 l41:@defcodeindexentry
+      *12 @dotless C1 l41:@defcodeindexentry
        *brace_container C1
         {i}
   {empty_line:\\n}
-  *15 index_entry_command@kindex C1 l43
+  *index_entry_command@kindex C1 l43
   |INFO
   |command_name:{kindex}
   |spaces_before_argument:
@@ -333,7 +333,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     {truc kindex}
     >SOURCEMARKS
     >macro_expansion<end;8><p:4>
-  *16 index_entry_command@pindex C1 l44
+  *index_entry_command@pindex C1 l44
   |INFO
   |command_name:{pindex}
   |spaces_before_argument:

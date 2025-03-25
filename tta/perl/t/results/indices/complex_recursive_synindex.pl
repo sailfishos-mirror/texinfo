@@ -135,7 +135,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {ddd bbb}
-  *2 index_entry_command@eeeindex C1 l15
+  *index_entry_command@eeeindex C1 l15
   |INFO
   |command_name:{eeeindex}
   |spaces_before_argument:
@@ -170,7 +170,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
     |{\\n}
     {bbb eee}
   {empty_line:\\n}
-  *3 index_entry_command@cccindex C1 l20
+  *index_entry_command@cccindex C1 l20
   |INFO
   |command_name:{cccindex}
   |spaces_before_argument:
@@ -183,7 +183,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {c index}
-  *4 index_entry_command@bbbindex C1 l21
+  *index_entry_command@bbbindex C1 l21
   |INFO
   |command_name:{bbbindex}
   |spaces_before_argument:
@@ -196,7 +196,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {b entry}
-  *5 index_entry_command@aaaindex C1 l22
+  *index_entry_command@aaaindex C1 l22
   |INFO
   |command_name:{aaaindex}
   |spaces_before_argument:
@@ -209,7 +209,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {a entry}
-  *6 index_entry_command@dddindex C1 l23
+  *index_entry_command@dddindex C1 l23
   |INFO
   |command_name:{dddindex}
   |spaces_before_argument:
@@ -222,7 +222,7 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
    |spaces_after_argument:
     |{\\n}
     {d index}
-  *7 index_entry_command@eeeindex C1 l24
+  *index_entry_command@eeeindex C1 l24
   |INFO
   |command_name:{eeeindex}
   |spaces_before_argument:
