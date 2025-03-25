@@ -807,8 +807,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   line_warn ("@subentry should only occur in an index entry");
                 }
 
-              add_extra_element (parent, AI_key_subentry, command_e);
-
               if (parent->e.c->cmd == CM_subentry)
                 {
                   int status;
@@ -821,7 +819,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                     fatal ("No subentry parent level or level 0");
                 }
               add_extra_integer (command_e, AI_key_subentry_level, level);
-              add_extra_element (command_e, AI_key_subentry_parent, parent);
               if (level > 2)
                 {
                   line_error

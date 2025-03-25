@@ -1028,74 +1028,69 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
 static const ELEMENT *
 find_index_entry_subentry (const ELEMENT *index_element, HV *element_hv)
 {
-  const ELEMENT *current_element = index_element;
+  size_t l;
+  CONST_ELEMENT_LIST subentries_list;
 
-  while (1)
+  memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
+
+  collect_subentries (index_element, &subentries_list);
+
+  for (l = 0; l < subentries_list.number; l++)
     {
-      const ELEMENT *subentry = lookup_extra_element (current_element,
-                                                      AI_key_subentry);
-      if (subentry)
+      const ELEMENT *subentry = subentries_list.list[l];
+      if (subentry && subentry->hv == element_hv)
         {
-          if (subentry->hv == element_hv)
-            return subentry;
-          current_element = subentry;
-        }
-      else
-        return 0;
-    }
-}
-
-#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen (#key), 0);
-
-/* returns the subentry direct parent based on "subentry_parent" */
-static SV *
-subentry_hv_parent (HV *element_hv)
-{
-  SV **extra_sv;
-
-  dTHX;
-
-  FETCH(extra)
-
-  if (extra_sv)
-    {
-      SV **subentry_parent_sv;
-      HV *extra_hv = (HV *) SvRV (*extra_sv);
-
-      EXTRA(subentry_parent)
-      if (subentry_parent_sv)
-        {
-          return *subentry_parent_sv;
+          free (subentries_list.list);
+          return subentry;
         }
     }
+  free (subentries_list.list);
   return 0;
 }
 
 /* Find the index entry parent of a subentry going through
-   "subentry_parent" until finding the index element hash */
+   "parent" until finding the index element hash */
 const ELEMENT *
-find_subentry_index_command_sv (const DOCUMENT *document, HV *element_hv)
+find_subentry_index_command_sv (const DOCUMENT *document, HV *subentry_hv)
 {
-  HV *current_parent = element_hv;
-  const SV *current_sv = 0;
+  SV **parent_sv;
+  HV *element_hv;
 
   dTHX;
 
+  element_hv = subentry_hv;
+
   while (1)
     {
-      const SV *subentry_parent_sv = subentry_hv_parent (current_parent);
-      if (subentry_parent_sv)
+      FETCH(parent)
+
+      if (parent_sv)
         {
-          current_parent = (HV *) SvRV (subentry_parent_sv);
-          current_sv = subentry_parent_sv;
+          element_hv = (HV *) SvRV (*parent_sv);
+          FETCH(parent)
+          if (parent_sv)
+            {
+              SV **cmdname_sv;
+
+              element_hv = (HV *) SvRV (*parent_sv);
+
+              FETCH(cmdname);
+
+              if (cmdname_sv)
+                {
+                  char *cmdname = SvPVutf8_nolen (*cmdname_sv);
+                  enum command_id cmd = lookup_builtin_command (cmdname);
+                  if (!cmd || cmd != CM_subentry)
+                    return find_element_from_sv (0, document, *parent_sv, 0);
+                }
+            }
+          else
+            return 0;
         }
       else
-        {
-          if (!current_sv)
-            return 0;
-          return find_element_from_sv (0, document, current_sv, 0);
-        }
+        return 0;
     }
+  return 0;
 }
 
 /* find the INDEX_ENTRY associated element matching ELEMENT_HV.
@@ -1129,6 +1124,8 @@ find_index_entry_associated_hv (const INDEX_ENTRY *index_entry,
 
   return 0;
 }
+
+#define EXTRA(key) key##_sv = hv_fetch (extra_hv, #key, strlen (#key), 0);
 
 /* find C Texinfo tree element based on element_sv perl tree element.
    Both DOCUMENT_IN and CONVERTER are optional, but if there is no

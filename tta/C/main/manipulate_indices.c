@@ -389,9 +389,12 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 {
   size_t i;
   TEXT_OPTIONS *convert_text_options;
+  CONST_ELEMENT_LIST subentries_list;
 
   if (merged_indices->number <= 0)
     return 0;
+
+  memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
   /* convert index entries to sort string using unicode when possible
      independently of input and output encodings */
@@ -430,6 +433,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
           for (j = 0; j < index->entries_number; j++)
             {
+              size_t l;
               int non_empty_index_subentries = 0;
               char *sort_string;
               INDEX_SUBENTRY_SORT_STRING *subentry_sort_string;
@@ -437,7 +441,6 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
               INDEX_ENTRY_SORT_STRING entry_sort_string;
 
               ELEMENT *main_entry_element = index_entry->entry_element;
-              const ELEMENT *subentry = main_entry_element;
 
               INDEX *entry_index
                 = indices_info_index_by_name (indices_information,
@@ -445,7 +448,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
 
               sort_string
                = index_entry_element_sort_string (index_entry,
-                                     subentry, convert_text_options,
+                                     main_entry_element, convert_text_options,
                                      entry_index->in_code,
                                      prefer_reference_element);
 
@@ -484,15 +487,11 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                   non_empty_index_subentries++;
                 }
 
-              while (1)
+              collect_subentries (main_entry_element, &subentries_list);
+              for (l = 0; l < subentries_list.number; l++)
                 {
-                  const ELEMENT *next_subentry
-                           = lookup_extra_element (subentry,
-                                                        AI_key_subentry);
-                  if (!next_subentry)
-                    break;
+                  const ELEMENT *subentry = subentries_list.list[l];
 
-                  subentry = next_subentry;
                   entry_sort_string.subentries_number++;
 
                   entry_sort_string.sort_string_subentries
@@ -541,6 +540,7 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
                       non_empty_index_subentries++;
                     }
                 }
+              subentries_list.number = 0;
               if (non_empty_index_subentries > 0)
                 {
                   size_t k;
@@ -587,6 +587,8 @@ setup_index_entries_sort_strings (ERROR_MESSAGE_LIST *error_messages,
     }
 
   destroy_text_options (convert_text_options);
+
+  free (subentries_list.list);
 
   return indices_sort_strings;
 }

@@ -190,7 +190,6 @@ $result_tree_text{'indices'} = '*document_root C5
   |element_node:[E2]
   |index_entry:I{cp,7}
   |index_ignore_chars:{\\}
-  |subentry:[E17]
    *line_arg C9
     *14 @math C1 l17
      *brace_command_context C3
@@ -215,7 +214,6 @@ $result_tree_text{'indices'} = '*document_root C5
     |EXTRA
     |sortas:{a!"@b}
     |subentry_level:{1}
-    |subentry_parent:[E13]
      *line_arg C12
      |INFO
      |spaces_after_argument:

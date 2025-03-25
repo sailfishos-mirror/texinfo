@@ -5939,14 +5939,13 @@ sub _handle_line_command($$$$$$)
             sprintf(__("\@%s should only appear in an index entry"),
                     $command), $source_info);
         }
-        $parent->{'extra'} = {} if (!defined($parent->{'extra'}));
-        $parent->{'extra'}->{'subentry'} = $command_e;
+        # TODO subentry_level is only used here, it would make sense to
+        # remove it completly
         my $subentry_level = 1;
         if ($parent->{'cmdname'} eq 'subentry') {
           $subentry_level = $parent->{'extra'}->{'subentry_level'} + 1;
         }
-        $command_e->{'extra'} = {'subentry_level' => $subentry_level,
-                                 'subentry_parent' => $parent};
+        $command_e->{'extra'} = {'subentry_level' => $subentry_level};
         if ($subentry_level > 2) {
           $self->_line_error(__(
       "no more than two levels of index subentry are allowed"),
@@ -9439,12 +9438,6 @@ float tree element stored in I<float>.
 If an index entry @-command, such as C<@cindex>, or a C<@subentry> contains
 a C<@sortas> command, I<sortas> holds the C<@sortas> command content
 formatted as plain text.
-
-I<subentry> links to the next level C<@subentry> element.  I<subentry_parent>
-links to the previous level element.
-
-Index entry @-command (but not C<@subentry>) can also have I<seentry>
-and I<seealso> keys that link to the corresponding @-commands elements.
 
 =item C<@inlinefmt>
 

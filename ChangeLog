@@ -1,5 +1,25 @@
 2025-03-25  Patrice Dumas  <pertusus@free.fr>
 
+	Remove subentry subentry_parent extra information
+
+	* tta/C/main/get_perl_info.c (find_index_entry_subentry)
+	(find_subentry_index_command_sv): use tree instead of extra
+	information to find subentries or index command of subentry.  Remove
+	subentry_hv_parent.
+
+	* tta/C/main/manipulate_indices.c (setup_index_entries_sort_strings):
+	use collect_subentries to get subentries.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST),
+	tta/C/parsetexi/handle_commands.c (handle_line_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): do not set
+	extra subentry and subentry_parent information.  Update Pod.
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command):
+	remove check for an impossible case.
+
+2025-03-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (comma_index_subentries_tree_internal)
 	(comma_index_subentries_tree, free_comma_index_subentries_tree),
 	tta/perl/Texinfo/Convert/Converter.pm (_comma_index_subentries_tree)

@@ -1246,12 +1246,6 @@ If an index entry @@-command, such as @code{@@cindex}, or a @code{@@subentry} co
 a @code{@@sortas} command, @emph{sortas} holds the @code{@@sortas} command content
 formatted as plain text.
 
-@emph{subentry} links to the next level @code{@@subentry} element.  @emph{subentry_parent}
-links to the previous level element.
-
-Index entry @@-command (but not @code{@@subentry}) can also have @emph{seentry}
-and @emph{seealso} keys that link to the corresponding @@-commands elements.
-
 @item @code{@@inlinefmt}
 @anchor{Texinfo@asis{::}Parser @code{@@inlinefmt}}
 

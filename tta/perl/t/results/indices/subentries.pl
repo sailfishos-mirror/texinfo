@@ -97,7 +97,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{cp,2}
-  |subentry:[E6]
    *line_arg C3
     {b---b}
     {ignorable_spaces_before_command: }
@@ -107,7 +106,6 @@ $result_tree_text{'subentries'} = '*document_root C5
      |{ }
     |EXTRA
     |subentry_level:{1}
-    |subentry_parent:[E5]
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -121,7 +119,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{cp,3}
-  |subentry:[E8]
    *line_arg C3
     {d---dd}
     {ignorable_spaces_before_command: }
@@ -130,9 +127,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |subentry:[E9]
     |subentry_level:{1}
-    |subentry_parent:[E7]
      *line_arg C3
       {e---ee}
       {ignorable_spaces_before_command: }
@@ -142,7 +137,6 @@ $result_tree_text{'subentries'} = '*document_root C5
        |{ }
       |EXTRA
       |subentry_level:{2}
-      |subentry_parent:[E8]
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -156,7 +150,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{cp,4}
-  |subentry:[E11]
    *line_arg C3
     {g---gg}
     {ignorable_spaces_before_command: }
@@ -165,9 +158,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |subentry:[E12]
     |subentry_level:{1}
-    |subentry_parent:[E10]
      *line_arg C3
       {h---hh jjj}
       {ignorable_spaces_before_command: }
@@ -176,9 +167,7 @@ $result_tree_text{'subentries'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |subentry:[E13]
       |subentry_level:{2}
-      |subentry_parent:[E11]
        *line_arg C3
         {k---kk}
         {ignorable_spaces_before_command: }
@@ -188,7 +177,6 @@ $result_tree_text{'subentries'} = '*document_root C5
          |{ }
         |EXTRA
         |subentry_level:{3}
-        |subentry_parent:[E12]
          *line_arg C1
          |INFO
          |spaces_after_argument:
@@ -216,7 +204,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{fn,2}
-  |subentry:[E16]
    *line_arg C3
     {f---bb}
     {ignorable_spaces_before_command: }
@@ -226,7 +213,6 @@ $result_tree_text{'subentries'} = '*document_root C5
      |{ }
     |EXTRA
     |subentry_level:{1}
-    |subentry_parent:[E15]
      *line_arg C1
      |INFO
      |spaces_after_argument:
@@ -240,7 +226,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{fn,3}
-  |subentry:[E18]
    *line_arg C3
     {f---ddd}
     {ignorable_spaces_before_command: }
@@ -249,9 +234,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |subentry:[E19]
     |subentry_level:{1}
-    |subentry_parent:[E17]
      *line_arg C3
       {f---eee}
       {ignorable_spaces_before_command: }
@@ -261,7 +244,6 @@ $result_tree_text{'subentries'} = '*document_root C5
        |{ }
       |EXTRA
       |subentry_level:{2}
-      |subentry_parent:[E18]
        *line_arg C1
        |INFO
        |spaces_after_argument:
@@ -275,7 +257,6 @@ $result_tree_text{'subentries'} = '*document_root C5
   |EXTRA
   |element_node:[E2]
   |index_entry:I{fn,4}
-  |subentry:[E21]
    *line_arg C3
     {f---ggg}
     {ignorable_spaces_before_command: }
@@ -284,9 +265,7 @@ $result_tree_text{'subentries'} = '*document_root C5
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |subentry:[E22]
     |subentry_level:{1}
-    |subentry_parent:[E20]
      *line_arg C3
       {f---hhh fjjj}
       {ignorable_spaces_before_command: }
@@ -295,9 +274,7 @@ $result_tree_text{'subentries'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |subentry:[E23]
       |subentry_level:{2}
-      |subentry_parent:[E21]
        *line_arg C3
         {f---kkk}
         {ignorable_spaces_before_command: }
@@ -307,7 +284,6 @@ $result_tree_text{'subentries'} = '*document_root C5
          |{ }
         |EXTRA
         |subentry_level:{3}
-        |subentry_parent:[E22]
          *line_arg C1
          |INFO
          |spaces_after_argument:

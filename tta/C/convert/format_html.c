@@ -10175,9 +10175,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               ELEMENT *subentry_tree = 0;
               const ELEMENT *line_arg;
 
-              if (!subentry)
-                break;
-
               line_arg = subentry->e.c->contents.list[0];
 
               if (line_arg->e.c->contents.number > 0)
