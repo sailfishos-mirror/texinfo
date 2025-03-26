@@ -6301,16 +6301,15 @@ sub _handle_open_brace($$$$)
         if (!$current->{'parent'}->{'parent'}
             or !$current->{'parent'}->{'parent'}->{'cmdname'}
             or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'float') {
-          $float = $current->{'parent'};
-          while ($float->{'parent'} and !($float->{'cmdname'}
-                                          and $float->{'cmdname'} eq 'float')) {
-            $float = $float->{'parent'};
+          my $float_e = $current->{'parent'};
+          while ($float_e->{'parent'} and !($float_e->{'cmdname'}
+                                      and $float_e->{'cmdname'} eq 'float')) {
+            $float_e = $float_e->{'parent'};
           }
-          if (!($float->{'cmdname'} and $float->{'cmdname'} eq 'float')) {
+          if (!($float_e->{'cmdname'} and $float_e->{'cmdname'} eq 'float')) {
             $self->_line_error(sprintf(__(
                "\@%s is not meaningful outside `\@float' environment"),
                                        $command), $source_info);
-            $float = undef;
           } else {
             $self->_line_warn(sprintf(__(
                                "\@%s should be right below `\@float'"),

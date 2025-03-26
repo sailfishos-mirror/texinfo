@@ -103,21 +103,20 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (cmd == CM_caption || cmd == CM_shortcaption)
             {
 #define float floatxx
-              ELEMENT *float;
+              ELEMENT *float = 0;
               const char *caption_cmdname = command_name(cmd);
               nesting_context.caption++;
               if (!current->parent->parent
                   || current->parent->parent->e.c->cmd != CM_float)
                 {
-                  float = current->parent;
-                  while (float->parent && float->e.c->cmd != CM_float)
-                    float = float->parent;
-                  if (float->e.c->cmd != CM_float)
+                  const ELEMENT *float_e = current->parent;
+                  while (float_e->parent && float_e->e.c->cmd != CM_float)
+                    float_e = float_e->parent;
+                  if (float_e->e.c->cmd != CM_float)
                     {
                       line_error ("@%s is not meaningful outside "
                                   "`@float' environment",
                                   caption_cmdname);
-                      float = 0;
                     }
                   else
                     line_warn ("@%s should be right below `@float'",

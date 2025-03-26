@@ -11,7 +11,6 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E1]
   |float_type:{float}
   |global_command_number:{1}
    *arguments_line C1
@@ -31,8 +30,6 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
      {in example \\n}
      {empty_line:\\n}
     *1 @caption C1 l6
-    |EXTRA
-    |float:[E0]
      *brace_command_context C1
       *paragraph C1
        {caption}
@@ -101,7 +98,6 @@ $result_errors{'caption_in_example'} = [
 
 $result_floats{'caption_in_example'} = 'float: 1
  F
-  C: caption
 ';
 
 
@@ -111,7 +107,7 @@ $result_converted{'plaintext'}->{'caption_in_example'} = '     in example
 
      After caption
 
-float: caption
+float
 ';
 
 
@@ -148,7 +144,7 @@ div.example {margin-left: 3.2em}
 
 After caption
 </pre></div>
-<div class="caption"><p><strong class="strong">float: </strong>caption</p></div></div>
+<div class="type-number-float"><p><strong class="strong">float</strong></p></div></div>
 
 
 </body>
@@ -195,7 +191,6 @@ $result_converted{'latex_text'}->{'caption_in_example'} = '\\begin{TexinfoFloatf
 \\ttfamily in example 
 
 \\end{Texinfopreformatted}
-\\caption{caption}
 \\begin{Texinfopreformatted}%
 \\ttfamily 
 
