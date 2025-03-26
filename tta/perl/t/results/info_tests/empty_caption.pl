@@ -41,7 +41,7 @@ $result_tree_text{'empty_caption'} = '*document_root C2
      {b}
    *paragraph C1
     {aa\\n}
-   *2 @caption C1 l6
+   *@caption C1 l6
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l7

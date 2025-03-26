@@ -1,5 +1,11 @@
 2025-03-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers),
+	tta/perl/Texinfo/ManipulateTree.pm (set_element_tree_numbers): remove
+	caption and shortcaption from numbered elements.
+
+2025-03-26  Patrice Dumas  <pertusus@free.fr>
+
 	Remove float, caption and shortcaption extra information
 
 	* tta/C/main/floats.c (print_caption_shortcaption),

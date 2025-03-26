@@ -628,7 +628,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     >SOURCEMARKS
     >macro_expansion<end;4><p:1>
    {empty_line:\\n}
-   *3 @caption C1 l27
+   *@caption C1 l27
     *brace_command_context C5
      {}
      >SOURCEMARKS

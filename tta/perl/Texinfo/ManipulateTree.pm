@@ -415,7 +415,6 @@ sub set_element_tree_numbers($$)
 
   if (($builtin_cmdname
        and ($builtin_cmdname eq 'node'
-            or $builtin_cmdname eq 'caption' or $builtin_cmdname eq 'shortcaption'
             or $builtin_cmdname eq 'anchor' or $builtin_cmdname eq 'namedanchor'
          or $Texinfo::Commands::sectioning_heading_commands{$builtin_cmdname}
             or $builtin_cmdname eq 'float'

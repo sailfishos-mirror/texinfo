@@ -50,7 +50,7 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
      *following_arg C1
       {e}
     {e.\\n}
-   *1 @caption C1 l4
+   *@caption C1 l4
     *brace_command_context C1
      *paragraph C5
       {La premi}

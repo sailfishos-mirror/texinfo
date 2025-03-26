@@ -218,7 +218,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
      {b}
    *paragraph C1
     {f\\n}
-   *2 @caption C1 l32
+   *@caption C1 l32
    |INFO
    |spaces_before_argument:
     |{ }
@@ -227,7 +227,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       {In caption }
    *paragraph C1
     {j.\\n}
-   *3 @shortcaption C1 l33
+   *@shortcaption C1 l33
     *brace_command_context C1
      *paragraph C1
       {Short}

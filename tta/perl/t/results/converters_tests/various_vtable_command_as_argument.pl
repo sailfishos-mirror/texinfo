@@ -29,7 +29,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E7]
+ |section_childs:EC[E3|E6]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -52,7 +52,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  |associated_section:[E3]
  |associated_title_command:[E3]
  |is_target:{1}
- |node_directions:D[next->E6|prev->E0|up->E0]
+ |node_directions:D[next->E5|prev->E0|up->E0]
  |normalized:{chap}
   *arguments_line C1
    *line_arg C1
@@ -67,10 +67,10 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E7|up->E1]
+ |section_directions:D[next->E6|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E7|prev->E1|up->E1]
+ |toplevel_directions:D[next->E6|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -247,7 +247,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @caption l23
+     *@caption l23
    *table_entry C1
     *table_term C2
      *@item C1 l24
@@ -348,7 +348,7 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @anchor l33
+     *4 @anchor l33
    *table_entry C1
     *table_term C2
      *@item C1 l34
@@ -435,13 +435,13 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
      |{\\n}
      {vtable}
   {empty_line:\\n}
- *6 @node C1 l43 {Indices}
+ *5 @node C1 l43 {Indices}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E7]
- |associated_title_command:[E7]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |isindex:{1}
  |node_directions:D[prev->E2|up->E0]
@@ -452,13 +452,13 @@ $result_tree_text{'various_vtable_command_as_argument'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {Indices}
- *7 @appendix C3 l44 {Print the index}
+ *6 @appendix C3 l44 {Print the index}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E6]
- |associated_node:[E6]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
  |section_directions:D[prev->E3|up->E1]
  |section_level:{1}
  |section_number:{A}

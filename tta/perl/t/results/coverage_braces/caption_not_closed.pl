@@ -20,7 +20,7 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
      |{\\n}
      {Text}
    {empty_line:\\n}
-   *1 @caption C1 l3
+   *@caption C1 l3
     *brace_command_context C4
      *paragraph C1
       {Not closed caption\\n}

@@ -328,7 +328,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{\\n}
    *paragraph C1
     {a float\\n}
-   *4 @caption C1 l38
+   *@caption C1 l38
    |INFO
    |spaces_before_argument:
     |{\\f }
@@ -343,7 +343,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    {spaces_after_close_brace: \\f }
    *paragraph C1
     {Toto\\n}
-   *5 @shortcaption C1 l39
+   *@shortcaption C1 l39
    |INFO
    |spaces_before_argument:
     |{\\f }
@@ -370,7 +370,7 @@ $result_tree_text{'form_feeds'} = '*document_root C3
      |{ \\f\\n}
      {float}
   {empty_line:\\n}
-  *6 @float C3 l42
+  *4 @float C3 l42
   |INFO
   |spaces_before_argument:
    |{ }

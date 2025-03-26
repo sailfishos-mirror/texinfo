@@ -16,7 +16,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |associated_title_command:[E1]
  |is_target:{1}
  |menus:EC[E2]
- |node_directions:D[next->E7]
+ |node_directions:D[next->E5]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -31,14 +31,14 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E8]
+ |section_childs:EC[E6]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
   ||section_childs:EC[E1]
   ||section_level:{-1}
- |toplevel_directions:D[next->E8]
+ |toplevel_directions:D[next->E6]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -302,7 +302,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
      *brace_container
     {.\\n}
    {empty_line:\\n}
-   *4 @caption C1 l51
+   *@caption C1 l51
    |INFO
    |spaces_before_argument:
     |{ }
@@ -333,7 +333,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {example}
      {empty_line:\\n}
-     *5 @anchor C1 l57
+     *4 @anchor C1 l57
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption}
@@ -549,7 +549,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {.\\n}
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
-   *6 @shortcaption C1 l87
+   *@shortcaption C1 l87
     *brace_command_context C1
      *paragraph C17
       *@TeX C1 l87
@@ -606,13 +606,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
- *7 @node C1 l91 {chapter}
+ *5 @node C1 l91 {chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E6]
+ |associated_title_command:[E6]
  |is_target:{1}
  |menu_directions:D[up->E0]
  |node_directions:D[prev->E0|up->E0]
@@ -623,13 +623,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |spaces_after_argument:
     |{\\n}
     {chapter}
- *8 @chapter C6 l92 {A chapter}
+ *6 @chapter C6 l92 {A chapter}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
+ |associated_anchor_command:[E5]
+ |associated_node:[E5]
  |section_directions:D[up->E1]
  |section_level:{1}
  |section_number:{1}
@@ -641,13 +641,13 @@ $result_tree_text{'complex_float'} = '*document_root C5
     |{\\n}
     {A chapter}
   {empty_line:\\n}
-  *9 @float C8 l94
+  *7 @float C8 l94
   |INFO
   |spaces_before_argument:
    |{ }
   |EXTRA
   |float_number:{1.1}
-  |float_section:[E8]
+  |float_section:[E6]
   |float_type:{Text}
   |global_command_number:{2}
   |is_target:{1}
@@ -666,7 +666,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
    *paragraph C1
     {Float text of a float with a lot of features.\\n}
    {empty_line:\\n}
-   *10 @caption C1 l98
+   *@caption C1 l98
    |INFO
    |spaces_before_argument:
     |{ }
@@ -803,7 +803,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
       |spaces_before_argument:
        |{ }
       |EXTRA
-      |element_node:[E7]
+      |element_node:[E5]
       |index_entry:I{cp,3}
        *line_arg C1
        |INFO
@@ -842,7 +842,7 @@ $result_tree_text{'complex_float'} = '*document_root C5
         |{\\n}
         {itemize}
      {empty_line:\\n}
-     *11 @anchor C1 l124
+     *8 @anchor C1 l124
      |EXTRA
      |is_target:{1}
      |normalized:{Anchor-in-caption-2}

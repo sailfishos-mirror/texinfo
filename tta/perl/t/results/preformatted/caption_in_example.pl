@@ -29,7 +29,7 @@ $result_tree_text{'caption_in_example'} = '*document_root C1
     *preformatted C2
      {in example \\n}
      {empty_line:\\n}
-    *1 @caption C1 l6
+    *@caption C1 l6
      *brace_command_context C1
       *paragraph C1
        {caption}

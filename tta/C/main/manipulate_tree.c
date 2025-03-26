@@ -914,7 +914,6 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
   enum command_id data_cmd = element_builtin_data_cmd (element);
 
   if (data_cmd == CM_node
-       || data_cmd == CM_caption || data_cmd == CM_shortcaption
        || data_cmd == CM_anchor || data_cmd == CM_namedanchor
        || (builtin_command_data[data_cmd].flags & CF_sectioning_heading)
        || data_cmd == CM_float

@@ -55,7 +55,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
       {Public domain is not really a licence, as it means than \\n}
       {the author abandon his copyright.\\n}
      {empty_line:\\n}
-     *1 @caption C1 float_copying.texi:l12
+     *@caption C1 float_copying.texi:l12
       *brace_command_context C6
        *paragraph C3
         {The Public Domain notice}
@@ -68,7 +68,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
          *brace_command_context C7
           *paragraph C3
            {The caption copying footnote\\n}
-           *2 @anchor C1 float_copying.texi:l14
+           *1 @anchor C1 float_copying.texi:l14
            |EXTRA
            |is_target:{1}
            |normalized:{caption-copying-footnote-anchor}
@@ -117,7 +117,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
           {empty_line:\\n}
         {\\n}
        {empty_line:\\n}
-       *3 @anchor C1 float_copying.texi:l23
+       *2 @anchor C1 float_copying.texi:l23
        |EXTRA
        |is_target:{1}
        |normalized:{public-domain-anchor}
@@ -176,16 +176,16 @@ $result_tree_text{'float_copying'} = '*document_root C6
       |{\\n}
       {copying}
    {empty_line:\\n}
- *4 @node C1 float_copying.texi:l30 {Top}
+ *3 @node C1 float_copying.texi:l30 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E5]
- |associated_title_command:[E5]
+ |associated_section:[E4]
+ |associated_title_command:[E4]
  |is_target:{1}
- |menus:EC[E6]
- |node_directions:D[next->E7]
+ |menus:EC[E5]
+ |node_directions:D[next->E6]
  |normalized:{Top}
   *arguments_line C1
    *line_arg C1
@@ -193,21 +193,21 @@ $result_tree_text{'float_copying'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Top}
- *5 @top C12 float_copying.texi:l31 {Top}
+ *4 @top C12 float_copying.texi:l31 {Top}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E4]
- |associated_node:[E4]
- |section_childs:EC[E8]
+ |associated_anchor_command:[E3]
+ |associated_node:[E3]
+ |section_childs:EC[E7]
  |section_level:{0}
  |sectioning_root:
   |*
   ||EXTRA
-  ||section_childs:EC[E5]
+  ||section_childs:EC[E4]
   ||section_level:{-1}
- |toplevel_directions:D[next->E8]
+ |toplevel_directions:D[next->E7]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,7 +221,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E4]
+  |element_node:[E3]
   |index_entry:I{cp,3}
    *line_arg C1
    |INFO
@@ -254,7 +254,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |global_command_number:{1}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *6 @menu C3 float_copying.texi:l41
+  *5 @menu C3 float_copying.texi:l41
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -283,17 +283,17 @@ $result_tree_text{'float_copying'} = '*document_root C6
      |{\\n}
      {menu}
   {empty_line:\\n}
- *7 @node C1 float_copying.texi:l45 {Copying and floats}
+ *6 @node C1 float_copying.texi:l45 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E8]
- |associated_title_command:[E8]
+ |associated_section:[E7]
+ |associated_title_command:[E7]
  |is_target:{1}
  |isindex:{1}
- |menu_directions:D[up->E4]
- |node_directions:D[prev->E4|up->E4]
+ |menu_directions:D[up->E3]
+ |node_directions:D[prev->E3|up->E3]
  |normalized:{Copying-and-floats}
   *arguments_line C1
    *line_arg C1
@@ -301,17 +301,17 @@ $result_tree_text{'float_copying'} = '*document_root C6
    |spaces_after_argument:
     |{\\n}
     {Copying and floats}
- *8 @appendix C20 float_copying.texi:l46 {Copying and floats}
+ *7 @appendix C20 float_copying.texi:l46 {Copying and floats}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E7]
- |associated_node:[E7]
- |section_directions:D[up->E5]
+ |associated_anchor_command:[E6]
+ |associated_node:[E6]
+ |section_directions:D[up->E4]
  |section_level:{1}
  |section_number:{A}
- |toplevel_directions:D[prev->E5|up->E5]
+ |toplevel_directions:D[prev->E4|up->E4]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -349,7 +349,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |element_node:[E7]
+  |element_node:[E6]
   |index_entry:I{cp,4}
    *line_arg C1
    |INFO
@@ -366,7 +366,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
   |global_command_number:{3}
    {rawline_arg:\\n}
   {empty_line:\\n}
-  *9 @subheading C1 float_copying.texi:l60
+  *8 @subheading C1 float_copying.texi:l60
   |INFO
   |spaces_before_argument:
    |{ }
@@ -390,7 +390,7 @@ $result_tree_text{'float_copying'} = '*document_root C6
     |{\\n}
     {Copyright notice}
   {empty_line:\\n}
-  *10 @subheading C1 float_copying.texi:l63
+  *9 @subheading C1 float_copying.texi:l63
   |INFO
   |spaces_before_argument:
    |{ }

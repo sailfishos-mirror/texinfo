@@ -132,7 +132,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      {float label! After punc}
    *paragraph C1
     {In float\\n}
-   *3 @shortcaption C1 l16
+   *@shortcaption C1 l16
     *brace_command_context C1
      *paragraph C1
       {shortcaption! After punc}
@@ -149,7 +149,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      |{\\n}
      {float}
   {empty_line:\\n}
-  *4 @float C5 l19
+  *3 @float C5 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -172,7 +172,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
      {label with caption}
    *paragraph C1
     {In float with caption.\\n}
-   *5 @caption C1 l21
+   *@caption C1 l21
     *brace_command_context C1
      *paragraph C1
       {caption! After punc}
@@ -216,7 +216,7 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
     |{\\n}
     {index! After punc}
   {empty_line:\\n}
-  *6 @heading C1 l28
+  *4 @heading C1 l28
   |INFO
   |spaces_before_argument:
    |{ }

@@ -30,7 +30,7 @@ $result_tree_text{'simple'} = '*document_root C1
    {empty_line:\\n}
    *paragraph C1
     {In float.\\n}
-   *1 @caption C1 l4
+   *@caption C1 l4
     *brace_command_context C1
      *paragraph C1
       {Caption.}

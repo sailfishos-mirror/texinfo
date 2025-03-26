@@ -32,7 +32,7 @@ $result_tree_text{'float_in_style_command'} = '*document_root C1
      {B}
    *paragraph C1
     {in float\\n}
-   *1 @caption C1 l4
+   *@caption C1 l4
     *brace_command_context C1
      *paragraph C1
       {Caption}

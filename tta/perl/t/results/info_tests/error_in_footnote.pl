@@ -45,7 +45,7 @@ $result_tree_text{'error_in_footnote'} = '*document_root C2
    *paragraph C1
     {Float text1\\n}
    {empty_line:\\n}
-   *2 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C8
       {Caption. }

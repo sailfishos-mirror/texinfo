@@ -71,7 +71,7 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
      {label}
    *paragraph C1
     {In float.\\n}
-   *3 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C2
       {in caption}

@@ -131,7 +131,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
     *paragraph C1
      {In float\\n}
     {empty_line:\\n}
-    *4 @caption C1 things_before_setfilename_no_element.texi:l29
+    *@caption C1 things_before_setfilename_no_element.texi:l29
      *brace_command_context C1
       *paragraph C1
        {ta caption}
@@ -153,7 +153,7 @@ $result_tree_text{'things_before_setfilename_no_element'} = '*document_root C1
    |global_command_number:{1}
     {rawline_arg:\\n}
    {empty_line:\\n}
-   *5 @menu C3 things_before_setfilename_no_element.texi:l34
+   *4 @menu C3 things_before_setfilename_no_element.texi:l34
     *arguments_line C1
      *block_line_arg
      |INFO

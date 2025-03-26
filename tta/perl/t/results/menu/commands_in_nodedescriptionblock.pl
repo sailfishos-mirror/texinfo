@@ -30,7 +30,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E4|E10]
+ |section_childs:EC[E4|E9]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -109,9 +109,9 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |associated_section:[E4]
  |associated_title_command:[E4]
  |is_target:{1}
- |menu_directions:D[next->E9|up->E9]
+ |menu_directions:D[next->E8|up->E8]
  |node_description:[E5]
- |node_directions:D[next->E9|prev->E0|up->E0]
+ |node_directions:D[next->E8|prev->E0|up->E0]
  |node_long_description:[E5]
  |normalized:{node1}
   *arguments_line C1
@@ -127,10 +127,10 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E3]
  |associated_node:[E3]
- |section_directions:D[next->E10|up->E1]
+ |section_directions:D[next->E9|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E10|prev->E1|up->E1]
+ |toplevel_directions:D[next->E9|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -215,7 +215,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      *brace_arg C1
       {float_image}
     {\\n}
-    *8 @caption C1 l23
+    *@caption C1 l23
      *brace_command_context C1
       *paragraph C1
        {Cap1}
@@ -245,17 +245,17 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      |{\\n}
      {nodedescriptionblock}
   {empty_line:\\n}
- *9 @node C1 l29 {node2}
+ *8 @node C1 l29 {node2}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_section:[E10]
- |associated_title_command:[E10]
+ |associated_section:[E9]
+ |associated_title_command:[E9]
  |is_target:{1}
  |isindex:{1}
  |menu_directions:D[prev->E3|up->E0]
- |menus:EC[E11]
+ |menus:EC[E10]
  |node_directions:D[prev->E3|up->E0]
  |normalized:{node2}
   *arguments_line C1
@@ -264,13 +264,13 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_after_argument:
     |{\\n}
     {node2}
- *10 @chapter C11 l30 {chap2}
+ *9 @chapter C11 l30 {chap2}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |associated_anchor_command:[E9]
- |associated_node:[E9]
+ |associated_anchor_command:[E8]
+ |associated_node:[E8]
  |section_directions:D[prev->E4|up->E1]
  |section_level:{1}
  |section_number:{2}
@@ -300,7 +300,7 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
   {empty_line:\\n}
   *@c C1
    {rawline_arg: node1 again to test two nodescription expansions\\n}
-  *11 @menu C3 l35
+  *10 @menu C3 l35
    *arguments_line C1
     *block_line_arg
     |INFO

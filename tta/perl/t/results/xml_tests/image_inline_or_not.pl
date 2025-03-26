@@ -385,7 +385,7 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
      {in_float}
    {\\n}
    {empty_line:\\n}
-   *6 @caption C1 l59
+   *@caption C1 l59
     *brace_command_context C2
      *@image C1 l59
      |EXTRA

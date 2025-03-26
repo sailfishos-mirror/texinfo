@@ -30,7 +30,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E0]
  |associated_node:[E0]
- |section_childs:EC[E3|E13|E14]
+ |section_childs:EC[E3|E7|E8]
  |section_level:{0}
  |sectioning_root:
   |*
@@ -68,10 +68,10 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |EXTRA
  |associated_anchor_command:[E2]
  |associated_node:[E2]
- |section_directions:D[next->E13|up->E1]
+ |section_directions:D[next->E7|up->E1]
  |section_level:{1}
  |section_number:{1}
- |toplevel_directions:D[next->E13|prev->E1|up->E1]
+ |toplevel_directions:D[next->E7|prev->E1|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,12 +101,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      {no type}
    *paragraph C1
     {no type\\n}
-   *5 @caption C1 l9
+   *@caption C1 l9
     *brace_command_context C1
      *paragraph C1
       {no type float}
    {spaces_after_close_brace:\\n}
-   *6 @shortcaption C1 l10
+   *@shortcaption C1 l10
     *brace_command_context C1
      *paragraph C1
       {short no type float}
@@ -123,7 +123,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
-  *7 @float C7 l13
+  *5 @float C7 l13
   |INFO
   |spaces_before_argument:
    |{ }
@@ -146,12 +146,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      {with type}
    *paragraph C1
     {Something with\\n}
-   *8 @caption C1 l15
+   *@caption C1 l15
     *brace_command_context C1
      *paragraph C1
       {with type float}
    {spaces_after_close_brace:\\n}
-   *9 @shortcaption C1 l16
+   *@shortcaption C1 l16
     *brace_command_context C1
      *paragraph C1
       {short with type float}
@@ -168,7 +168,7 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
-  *10 @float C7 l19
+  *6 @float C7 l19
   |INFO
   |spaces_before_argument:
    |{ }
@@ -191,12 +191,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      {my figure}
    *paragraph C1
     {In figure\\n}
-   *11 @caption C1 l21
+   *@caption C1 l21
     *brace_command_context C1
      *paragraph C1
       {caption for figure}
    {spaces_after_close_brace:\\n}
-   *12 @shortcaption C1 l22
+   *@shortcaption C1 l22
     *brace_command_context C1
      *paragraph C1
       {short caption for figure}
@@ -213,15 +213,15 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      |{\\n}
      {float}
   {empty_line:\\n}
- *13 @chapter C8 l25 {refs}
+ *7 @chapter C8 l25 {refs}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[next->E14|prev->E3|up->E1]
+ |section_directions:D[next->E8|prev->E3|up->E1]
  |section_level:{1}
  |section_number:{2}
- |toplevel_directions:D[next->E14|prev->E3|up->E1]
+ |toplevel_directions:D[next->E8|prev->E3|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -484,15 +484,15 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
      {five}
    {.\\n}
   {empty_line:\\n}
- *14 @chapter C6 l45 {lists}
+ *8 @chapter C6 l45 {lists}
  |INFO
  |spaces_before_argument:
   |{ }
  |EXTRA
- |section_directions:D[prev->E13|up->E1]
+ |section_directions:D[prev->E7|up->E1]
  |section_level:{1}
  |section_number:{3}
- |toplevel_directions:D[prev->E13|up->E1]
+ |toplevel_directions:D[prev->E7|up->E1]
   *arguments_line C1
    *line_arg C1
    |INFO

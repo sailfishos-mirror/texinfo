@@ -112,7 +112,7 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
        {in var}
    *paragraph C1
     {F\\n}
-   *5 @caption C1 l9
+   *@caption C1 l9
     *brace_command_context C1
      *paragraph C4
       {float A < " `` ` \' \' \\aaa }

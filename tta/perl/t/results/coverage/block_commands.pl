@@ -75,7 +75,7 @@ $result_tree_text{'block_commands'} = '*document_root C1
     {In float\\n}
    {empty_line:\\n}
    {empty_line:\\n}
-   *1 @caption C1 l14
+   *@caption C1 l14
     *brace_command_context C3
      *paragraph C1
       {in caption\\n}

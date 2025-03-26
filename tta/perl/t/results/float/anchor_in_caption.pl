@@ -71,11 +71,11 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
      {label}
    *paragraph C1
     {In float.\\n}
-   *3 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C2
       {in caption}
-      *4 @anchor C1 l8
+      *3 @anchor C1 l8
       |EXTRA
       |is_target:{1}
       |normalized:{in-anchor}

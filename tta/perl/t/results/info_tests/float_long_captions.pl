@@ -40,7 +40,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {text1}
-   *2 @caption C1 l4
+   *@caption C1 l4
     *brace_command_context C1
      *paragraph C1
       {AAAAAAAAAAAAAAAA BBBBB CCCCCCCCCCC}
@@ -57,7 +57,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
      |{\\n}
      {float}
   {empty_line:\\n}
-  *3 @float C4 l7
+  *2 @float C4 l7
   |INFO
   |spaces_before_argument:
    |{ }
@@ -77,7 +77,7 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
     |spaces_before_argument:
      |{ }
      {text2}
-   *4 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C1
       {AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC}

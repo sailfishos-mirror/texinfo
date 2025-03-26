@@ -228,7 +228,7 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
     *paragraph C1
      {in float\\n}
     {empty_line:\\n}
-    *1 @caption C1 l39
+    *@caption C1 l39
      *brace_command_context C1
       *paragraph C1
        {in caption}

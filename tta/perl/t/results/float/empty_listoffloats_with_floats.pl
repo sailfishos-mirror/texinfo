@@ -63,7 +63,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      {label2}
    *paragraph C1
     {Label and caption.\\n}
-   *2 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C1
       {caption with label}
@@ -80,7 +80,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *3 @float C3 l11
+  *2 @float C3 l11
   |EXTRA
   |float_type:{}
   |global_command_number:{3}
@@ -103,7 +103,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
      {float}
   {empty_line:\\n}
-  *4 @float C5 l15
+  *3 @float C5 l15
   |EXTRA
   |float_type:{}
   |global_command_number:{4}
@@ -114,7 +114,7 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
      |{\\n}
    *paragraph C1
     {no label caption\\n}
-   *5 @caption C1 l17
+   *@caption C1 l17
     *brace_command_context C1
      *paragraph C1
       {caption no label}

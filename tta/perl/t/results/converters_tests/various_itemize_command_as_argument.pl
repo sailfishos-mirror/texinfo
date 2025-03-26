@@ -188,7 +188,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *4 @caption l25
+     *@caption l25
    *@item C2 l26
    |EXTRA
    |item_number:{1}
@@ -258,7 +258,7 @@ $result_tree_text{'various_itemize_command_as_argument'} = '*document_root C5
     |INFO
     |spaces_after_argument:
      |{\\n}
-     *5 @anchor l37
+     *4 @anchor l37
    *@item C2 l38
    |EXTRA
    |item_number:{1}

@@ -28,7 +28,7 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
      {B}
    *paragraph C1
     {My float.\\n}
-   *1 @caption C1 l3
+   *@caption C1 l3
    |INFO
    |spaces_before_argument:
     |{\\n}

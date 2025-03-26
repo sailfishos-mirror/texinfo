@@ -100,12 +100,12 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
     |spaces_before_argument:
      |{ }
      {b}
-   *5 @caption C1 l8
+   *@caption C1 l8
     *brace_command_context C1
      *paragraph C1
       {caption 1}
    {spaces_after_close_brace:\\n}
-   *6 @caption C1 l9
+   *@caption C1 l9
     *brace_command_context C1
      *paragraph C1
       {multiple}
@@ -122,7 +122,7 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
      |{\\n}
      {float}
   {empty_line:\\n}
-  *7 @float C11 l12
+  *5 @float C11 l12
   |INFO
   |spaces_before_argument:
    |{ }
@@ -143,12 +143,12 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
     |spaces_before_argument:
      |{ }
      {d}
-   *8 @shortcaption C1 l13
+   *@shortcaption C1 l13
     *brace_command_context C1
      *paragraph C1
       {shortcaption 1}
    {spaces_after_close_brace:\\n}
-   *9 @shortcaption C1 l14
+   *@shortcaption C1 l14
     *brace_command_context C1
      *paragraph C1
       {multiple shortc 1}
@@ -157,7 +157,7 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
    *paragraph C1
     {Something.\\n}
    {empty_line:\\n}
-   *10 @shortcaption C1 l18
+   *@shortcaption C1 l18
     *brace_command_context C1
      *paragraph C1
       {another}
