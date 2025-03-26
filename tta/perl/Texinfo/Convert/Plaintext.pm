@@ -3885,17 +3885,21 @@ sub _convert($$)
                          ' ' x ($listoffloat_entry_length - $line_width));
           }
 
-          my $caption;
-          if ($float->{'extra'}->{'shortcaption'}) {
-            $caption = $float->{'extra'}->{'shortcaption'};
-          } elsif ($float->{'extra'}->{'caption'}) {
-            $caption = $float->{'extra'}->{'caption'};
+          my ($caption, $shortcaption)
+           = Texinfo::Common::find_float_caption_shortcaption($float);
+
+          my $caption_element;
+          if ($shortcaption) {
+            $caption_element = $shortcaption;
+          } elsif ($caption) {
+            $caption_element = $caption;
           }
-          if ($caption and $caption->{'contents'}
-              and $caption->{'contents'}->[0]->{'contents'}) {
+
+          if ($caption_element and $caption_element->{'contents'}
+              and $caption_element->{'contents'}->[0]->{'contents'}) {
             push @{$self->{'context'}}, 'listoffloats';
             $self->{'multiple_pass'} = 1;
-            my $caption_arg = $caption->{'contents'}->[0];
+            my $caption_arg = $caption_element->{'contents'}->[0];
 
             # we do not want to start a new paragraph formatter so
             # we iterate over the contents of a paragraph rather than

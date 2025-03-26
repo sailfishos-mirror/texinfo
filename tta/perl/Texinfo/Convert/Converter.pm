@@ -1520,10 +1520,13 @@ sub float_name_caption($$)
   my $element = shift;
 
   my $caption_element;
-  if ($element->{'extra'} and $element->{'extra'}->{'caption'}) {
-    $caption_element = $element->{'extra'}->{'caption'};
-  } elsif ($element->{'extra'} and $element->{'extra'}->{'shortcaption'}) {
-    $caption_element = $element->{'extra'}->{'shortcaption'};
+  my ($caption, $shortcaption)
+    = Texinfo::Common::find_float_caption_shortcaption($element);
+
+  if ($caption) {
+    $caption_element = $caption;
+  } elsif ($shortcaption) {
+    $caption_element = $shortcaption;
   }
   #if ($self->get_conf('DEBUG')) {
   #  my $caption_texi =

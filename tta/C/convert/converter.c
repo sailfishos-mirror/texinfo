@@ -1276,6 +1276,7 @@ float_type_number (CONVERTER *self, const ELEMENT *float_e)
 FLOAT_CAPTION_PREPENDED_ELEMENT *
 float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 {
+  const ELEMENT *caption_element;
   ELEMENT *prepended = 0;
   ELEMENT *type_element = 0;
   FLOAT_CAPTION_PREPENDED_ELEMENT *result = (FLOAT_CAPTION_PREPENDED_ELEMENT *)
@@ -1286,10 +1287,12 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
   const char *float_type = lookup_extra_string (float_e, AI_key_float_type);
   const char *float_number = lookup_extra_string (float_e, AI_key_float_number);
 
-  const ELEMENT *caption_element = lookup_extra_element (float_e,
-                                                         AI_key_caption);
+  const ELEMENT *caption_shortcaption[2];
+
+  find_float_caption_shortcaption(float_e, caption_shortcaption);
+  caption_element = caption_shortcaption[0];
   if (!caption_element)
-    caption_element = lookup_extra_element (float_e, AI_key_shortcaption);
+    caption_element = caption_shortcaption[1];
 
   if (float_type && strlen (float_type))
     /* first content of arguments_line type element */

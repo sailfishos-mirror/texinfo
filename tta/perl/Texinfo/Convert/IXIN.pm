@@ -850,10 +850,19 @@ sub output_ixin($$)
         } else {
           $float_text .= $self->ixin_none_element('floatname');
         }
-        if ($float->{'extra'}->{'shortcaption'}) {
-          $float_text .= $self->convert_tree($float->{'extra'}->{'shortcaption'});
-        } elsif ($float->{'extra'}->{'caption'}) {
-          $float_text .= $self->convert_tree($float->{'extra'}->{'caption'});
+
+        my ($caption, $shortcaption)
+          = Texinfo::Common::find_float_caption_shortcaption($float);
+
+        my $caption_element;
+        if ($shortcaption) {
+          $caption_element = $shortcaption;
+        } elsif ($caption) {
+          $caption_element = $caption;
+        }
+
+        if ($caption_element) {
+          $float_text .= $self->convert_tree($caption_element);
         } else {
           $float_text .= $self->ixin_none_element('caption');
         }

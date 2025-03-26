@@ -23,6 +23,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
+#include "utils.h"
 #include "node_name_normalization.h"
 #include "convert_to_texinfo.h"
 #include "floats.h"
@@ -220,10 +221,9 @@ print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
       for (j = 0; j < listoffloats_type->float_list.number; j++)
         {
           const ELEMENT *float_e = listoffloats_type->float_list.list[j];
-          const ELEMENT *caption
-            = lookup_extra_element (float_e, AI_key_caption);
-          const ELEMENT *shortcaption
-            = lookup_extra_element (float_e, AI_key_shortcaption);
+          const ELEMENT *caption_shortcaption[2];
+          const ELEMENT *caption;
+          const ELEMENT *shortcaption;
           const char *float_number
             = lookup_extra_string (float_e, AI_key_float_number);
           const char *float_normalized
@@ -239,6 +239,12 @@ print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
                        float_number);
               continue;
             }
+
+          find_float_caption_shortcaption(float_e, caption_shortcaption);
+
+          caption = caption_shortcaption[0];
+          shortcaption = caption_shortcaption[1];
+
           text_append_n (&result, " F", 2);
           if (float_number)
             text_printf (&result, "%s:", float_number);

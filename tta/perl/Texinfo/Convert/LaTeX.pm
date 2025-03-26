@@ -3781,22 +3781,28 @@ sub _convert($$)
         }
       }
     } elsif ($cmdname eq 'caption' or $cmdname eq 'shortcaption') {
-      if (not defined($element->{'extra'})
-          or not defined($element->{'extra'}->{'float'})) {
+      my $float;
+      if ($element->{'parent'}
+          and $element->{'parent'}->{'cmdname'}
+          and $element->{'parent'}->{'cmdname'} eq 'float') {
+        $float = $element->{'parent'};
+      }
+      if (not defined($float)) {
         return $result;
       }
-      my $float = $element->{'extra'}->{'float'};
       my $shortcaption;
+      my ($float_caption, $float_shortcaption)
+        =Texinfo::Common::find_float_caption_shortcaption($float);
       if ($cmdname eq 'shortcaption') {
-        if ($float->{'extra'}->{'caption'}) {
+        if ($float_caption) {
           # nothing to do, will use @shortcaption when converting @caption
           return $result;
         } else {
           # shortcaption used as caption;
         }
       } else {
-        if ($float->{'extra'}->{'shortcaption'}) {
-          $shortcaption = $float->{'extra'}->{'shortcaption'};
+        if ($float_shortcaption) {
+          $shortcaption = $float_shortcaption;
         }
       }
       my $caption_text = '';

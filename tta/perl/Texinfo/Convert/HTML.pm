@@ -5436,11 +5436,14 @@ sub _convert_listoffloats_command($$$$)
       $result .= '</dt>';
       my $caption_element;
       my $caption_cmdname;
-      if ($float->{'extra'} and $float->{'extra'}->{'shortcaption'}) {
-        $caption_element = $float->{'extra'}->{'shortcaption'};
+      my ($caption, $shortcaption)
+        = Texinfo::Common::find_float_caption_shortcaption($float);
+
+      if ($shortcaption) {
+        $caption_element = $shortcaption;
         $caption_cmdname = 'shortcaption';
-      } elsif ($float->{'extra'} and $float->{'extra'}->{'caption'}) {
-        $caption_element = $float->{'extra'}->{'caption'};
+      } elsif ($caption) {
+        $caption_element = $caption;
         $caption_cmdname = 'caption';
       }
 

@@ -902,6 +902,27 @@ sub item_line_block_line_argument_command($)
   return $arg;
 }
 
+sub find_float_caption_shortcaption($)
+{
+  my $float = shift;
+
+  my $caption;
+  my $shortcaption;
+
+  foreach my $content (@{$float->{'contents'}}) {
+    if ($content->{'cmdname'}) {
+      if ($content->{'cmdname'} eq 'caption') {
+        $caption = $content unless($caption);
+        last if $shortcaption;
+      } elsif ($content->{'cmdname'} eq 'shortcaption') {
+        $shortcaption = $content unless($shortcaption);
+        last if $caption;
+      }
+    }
+  }
+  return ($caption, $shortcaption);
+}
+
 # TODO document
 # used in Texinfo::Indices and converters
 sub collect_subentries($$);

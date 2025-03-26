@@ -9711,6 +9711,7 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
             {
               char *caption_attribute_class;
               const ELEMENT *caption_element;
+              const ELEMENT *caption_shortcaption[2];
               const STRING_LIST *caption_classes = 0;
               const ELEMENT *float_elt = float_types->float_list.list[j];
               char *float_href = html_command_href (self, float_elt, 0, 0, 0);
@@ -9739,14 +9740,13 @@ html_convert_listoffloats_command (CONVERTER *self, const enum command_id cmd,
               free (float_text);
               free (float_href);
 
-              caption_element = lookup_extra_element (float_elt,
-                                                      AI_key_shortcaption);
+              find_float_caption_shortcaption(float_elt, caption_shortcaption);
+              caption_element = caption_shortcaption[1];
               if (caption_element)
                 caption_classes = &shortcaption_in_listoffloats_classes;
               else
                 {
-                  caption_element = lookup_extra_element (float_elt,
-                                                          AI_key_caption);
+                  caption_element = caption_shortcaption[0];
                   if (caption_element)
                     caption_classes = &caption_in_listoffloats_classes;
                 }

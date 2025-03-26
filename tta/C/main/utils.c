@@ -1832,6 +1832,41 @@ itemize_block_line_argument_command (const ELEMENT *block_line_arg)
   return command_as_argument_name;
 }
 
+/* the caller should allocate a two element table for results */
+void
+find_float_caption_shortcaption(const ELEMENT *float_e, const ELEMENT **result)
+{
+  size_t i;
+
+  const ELEMENT **caption = &result[0];
+  const ELEMENT **shortcaption = &result[1];
+
+  *caption = 0;
+  *shortcaption = 0;
+
+  for (i = 0; i < float_e->e.c->contents.number; i++)
+    {
+      const ELEMENT *content = float_e->e.c->contents.list[i];
+      if (!(type_data[content->type].flags & TF_text))
+        {
+          if (content->e.c->cmd == CM_caption)
+            {
+              if (!(*caption))
+                *caption = content;
+              if (*shortcaption)
+                return;
+            }
+          else if (content->e.c->cmd == CM_shortcaption)
+            {
+              if (!(*shortcaption))
+                *shortcaption = content;
+              if (*caption)
+                return;
+            }
+        }
+    }
+}
+
 ELEMENT *
 multitable_columnfractions (const ELEMENT *multitable)
 {
@@ -1858,7 +1893,7 @@ collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list)
 
   for (i = 0; i < line_arg->e.c->contents.number; i++)
     {
-      ELEMENT *content = line_arg->e.c->contents.list[i];
+      const ELEMENT *content = line_arg->e.c->contents.list[i];
       if (!(type_data[content->type].flags & TF_text)
           && content->e.c->cmd == CM_subentry)
         {

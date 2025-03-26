@@ -1482,8 +1482,8 @@ sub print_listoffloats_types($)
             ."'$float_type' ($float_normalized;$float_number)\n";
         next;
       }
-      my $caption = $float->{'extra'}->{'caption'};
-      my $shortcaption = $float->{'extra'}->{'shortcaption'};
+      my ($caption, $shortcaption)
+        = Texinfo::Common::find_float_caption_shortcaption($float);
 
       $result .= ' F';
       $result .= "${float_number}:" if (defined($float_number));

@@ -219,6 +219,8 @@ char *locate_file_in_dirs (const char *filename,
 
 const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
 const char *itemize_block_line_argument_command (const ELEMENT *block_line_arg);
+void find_float_caption_shortcaption(const ELEMENT *float_e,
+                                     const ELEMENT **result);
 ELEMENT *multitable_columnfractions (const ELEMENT *multitable);
 void collect_subentries (const ELEMENT *current, CONST_ELEMENT_LIST *e_list);
 const ELEMENT *index_entry_referred_entry (const ELEMENT *element,
