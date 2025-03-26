@@ -1,5 +1,28 @@
 2025-03-26  Patrice Dumas  <pertusus@free.fr>
 
+	Remove float, caption and shortcaption extra information
+
+	* tta/C/main/floats.c (print_caption_shortcaption),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_caption_shortcaption):
+	determine float, caption and shortcaption based on the tree
+	information, not on extra information.
+
+	* tta/C/parsetexi/end_line.c (end_line_misc_line),
+	tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line): check if there
+	are multiple caption/shortcaptions in end_line_misc_line when reaching
+	end float.
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/separator.c
+	(handle_open_brace), tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_open_brace): do not set float, caption and shortcaption extra
+	information.
+
+	* tta/perl/Makefile.tres, tta/perl/t/27float.t (multiple_captions):
+	add a test with multiple caption and shortcaption.
+
+2025-03-26  Patrice Dumas  <pertusus@free.fr>
+
 	Use tree to find float and caption information
 
 	* tta/C/main/utils.c (find_float_caption_shortcaption),

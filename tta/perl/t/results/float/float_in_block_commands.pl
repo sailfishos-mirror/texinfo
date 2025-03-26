@@ -18,7 +18,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E1]
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{1}
@@ -35,8 +34,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
       |{ }
       {in example}
     *1 @caption C1 l3
-    |EXTRA
-    |float:[E0]
      *brace_command_context C1
       *paragraph C1
        {float in example}
@@ -77,7 +74,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E3]
    |float_number:{2}
    |float_type:{Text}
    |global_command_number:{2}
@@ -94,8 +90,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
       |{ }
       {in quotation}
     *3 @caption C1 l9
-    |EXTRA
-    |float:[E2]
      *brace_command_context C1
       *paragraph C1
        {float in quotation}
@@ -134,7 +128,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E5]
    |float_number:{3}
    |float_type:{Text}
    |global_command_number:{3}
@@ -151,8 +144,6 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
       |{ }
       {in cartouche}
     *5 @caption C1 l15
-    |EXTRA
-    |float:[E4]
      *brace_command_context C1
       *paragraph C1
        {float in cartouche}

@@ -486,7 +486,6 @@ $result_tree_text{'test_image'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E3]
   |float_number:{1}
   |float_type:{Image}
   |global_command_number:{1}
@@ -630,8 +629,6 @@ $result_tree_text{'test_image'} = '*document_root C3
     >macro_expansion<end;4><p:1>
    {empty_line:\\n}
    *3 @caption C1 l27
-   |EXTRA
-   |float:[E2]
     *brace_command_context C5
      {}
      >SOURCEMARKS

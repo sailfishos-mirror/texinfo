@@ -1688,6 +1688,40 @@ end_line_misc_line (ELEMENT *current)
                   add_to_element_contents (current, e);
                   current = e;
                 }
+              else if (closed_command->e.c->cmd == CM_float)
+                {
+                  const ELEMENT *caption = 0;
+                  const ELEMENT *shortcaption = 0;
+                  size_t i;
+
+                  for (i = 0; i < closed_command->e.c->contents.number; i++)
+                    {
+                      const ELEMENT *content
+                       = closed_command->e.c->contents.list[i];
+
+                      if (!(type_data[content->type].flags & TF_text))
+                        {
+                          if (content->e.c->cmd == CM_caption)
+                            {
+                              if (caption)
+                                command_warn (content,
+                                              "ignoring multiple @%s",
+                                             command_name(content->e.c->cmd));
+                              else
+                                caption = content;
+                            }
+                          else if (content->e.c->cmd == CM_shortcaption)
+                            {
+                              if (shortcaption)
+                                command_warn (content,
+                                              "ignoring multiple @%s",
+                                             command_name(content->e.c->cmd));
+                              else
+                                shortcaption = content;
+                            }
+                        }
+                    }
+                }
             }
           if (close_preformatted_command (end_id))
             current = begin_preformatted (current);

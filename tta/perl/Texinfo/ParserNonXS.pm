@@ -3997,6 +3997,28 @@ sub _end_line_misc_line($$$)
                                          'parent' => $current,
                                          'contents' => [] };
         $current = $current->{'contents'}->[-1];
+      } elsif ($closed_command and $closed_command->{'cmdname'} eq 'float') {
+        my $caption;
+        my $shortcaption;
+        foreach my $content (@{$closed_command->{'contents'}}) {
+          if ($content->{'cmdname'}) {
+            if ($content->{'cmdname'} eq 'caption') {
+              if ($caption) {
+                $self->_command_warn($content,
+                           __("ignoring multiple \@%s"), $content->{'cmdname'});
+              } else {
+                $caption = $content;
+              }
+            } elsif ($content->{'cmdname'} eq 'shortcaption') {
+              if ($shortcaption) {
+                $self->_command_warn($content,
+                           __("ignoring multiple \@%s"), $content->{'cmdname'});
+              } else {
+                $shortcaption = $content;
+              }
+            }
+          }
+        }
       }
 
       $current = _begin_preformatted($self, $current)
@@ -6296,7 +6318,6 @@ sub _handle_open_brace($$$$)
     } elsif ($self->{'brace_commands'}->{$command} eq 'context') {
       $current->{'type'} = 'brace_command_context';
       if ($command eq 'caption' or $command eq 'shortcaption') {
-        my $float;
         $self->{'nesting_context'}->{'caption'} += 1;
         if (!$current->{'parent'}->{'parent'}
             or !$current->{'parent'}->{'parent'}->{'cmdname'}
@@ -6314,20 +6335,6 @@ sub _handle_open_brace($$$$)
             $self->_line_warn(sprintf(__(
                                "\@%s should be right below `\@float'"),
                                        $command), $source_info);
-          }
-        } else {
-          $float = $current->{'parent'}->{'parent'};
-        }
-        if ($float) {
-          if ($float->{'extra'} and $float->{'extra'}->{$command}) {
-            $self->_line_warn(sprintf(__("ignoring multiple \@%s"),
-                                      $command), $source_info);
-          } else {
-            $current->{'parent'}->{'extra'} = {}
-                if (!$current->{'parent'}->{'extra'});
-            $current->{'parent'}->{'extra'}->{'float'} = $float;
-            $float->{'extra'} = {} if (!defined($float->{'extra'}));
-            $float->{'extra'}->{$command} = $current->{'parent'};
           }
         }
       } elsif ($command eq 'footnote') {
@@ -8660,7 +8667,7 @@ element of all the block commands C<contents>.
 
 =head3 Paragraphs and preformatted
 
-I<paragraph> and I<preformatted> container C<contents> are 
+I<paragraph> and I<preformatted> container C<contents> are
 text elements, elements of @-commands without arguments, such as C<@}>, with
 empty braces, such as C<@equiv> and with braces such as C<@code> or C<@ref>.
 They may also contain elements corresponding to the few line commands that do
@@ -9391,10 +9398,6 @@ The I<enumerate_specification> C<extra> key contains the enumerate argument.
 
 If C<@float> has a first argument, and for C<@listoffloats> argument there
 is a I<float_type> key with the normalized float type.
-
-I<caption> and I<shortcaption> hold the corresponding tree elements
-associated to a C<@float>.  The C<@caption> or C<@shortcaption> have the
-float tree element stored in I<float>.
 
 =item index entry @-command
 

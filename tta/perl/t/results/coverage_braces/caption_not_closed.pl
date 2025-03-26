@@ -11,7 +11,6 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E1]
   |float_type:{Text}
   |global_command_number:{1}
    *arguments_line C1
@@ -22,8 +21,6 @@ $result_tree_text{'caption_not_closed'} = '*document_root C2
      {Text}
    {empty_line:\\n}
    *1 @caption C1 l3
-   |EXTRA
-   |float:[E0]
     *brace_command_context C4
      *paragraph C1
       {Not closed caption\\n}

@@ -97,14 +97,12 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E4]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{text-with-a-lot-of-features}
-  |shortcaption:[E6]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -308,8 +306,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |float:[E3]
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}
@@ -554,8 +550,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    {spaces_after_close_brace:\\n}
    {empty_line:\\n}
    *6 @shortcaption C1 l87
-   |EXTRA
-   |float:[E3]
     *brace_command_context C1
      *paragraph C17
       *@TeX C1 l87
@@ -652,7 +646,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E10]
   |float_number:{1.1}
   |float_section:[E8]
   |float_type:{Text}
@@ -677,8 +670,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |float:[E9]
     *brace_command_context C19
      *paragraph C4
       {An example of float caption}

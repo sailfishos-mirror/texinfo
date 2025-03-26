@@ -26,7 +26,6 @@ $result_tree_text{'empty_caption'} = '*document_root C2
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E2]
   |float_number:{1}
   |float_type:{a}
   |global_command_number:{1}
@@ -43,8 +42,6 @@ $result_tree_text{'empty_caption'} = '*document_root C2
    *paragraph C1
     {aa\\n}
    *2 @caption C1 l6
-   |EXTRA
-   |float:[E1]
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l7

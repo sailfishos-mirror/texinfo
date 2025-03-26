@@ -594,6 +594,27 @@ F
 
 @listoffloats A < " `` ` \' \' \\aaa @. --- @var{in var}
 '],
+['multiple_captions',
+'@node Top
+@top top
+
+@node chap
+@chapter chap
+
+@float a, b
+@caption{caption 1}
+@caption{multiple}
+@end float
+
+@float c, d
+@shortcaption{shortcaption 1}
+@shortcaption{multiple shortc 1}
+
+Something.
+
+@shortcaption{another}
+@end float
+']
 );
 
 my %info_tests = (

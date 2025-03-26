@@ -35,7 +35,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
     |spaces_before_argument:
      |{ }
     |EXTRA
-    |caption:[E1]
     |float_number:{1}
     |float_type:{Copyright notice}
     |global_command_number:{1}
@@ -57,8 +56,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
       {the author abandon his copyright.\\n}
      {empty_line:\\n}
      *1 @caption C1 float_copying.texi:l12
-     |EXTRA
-     |float:[E0]
       *brace_command_context C6
        *paragraph C3
         {The Public Domain notice}

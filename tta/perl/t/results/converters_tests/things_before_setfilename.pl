@@ -113,7 +113,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E4]
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{2}
@@ -133,8 +132,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
      {In float\\n}
     {empty_line:\\n}
     *4 @caption C1 things_before_setfilename.texi:l29
-    |EXTRA
-    |float:[E3]
      *brace_command_context C1
       *paragraph C1
        {ta caption}

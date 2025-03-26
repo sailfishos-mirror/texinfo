@@ -209,7 +209,6 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E1]
    |float_number:{1}
    |float_type:{label}
    |global_command_number:{1}
@@ -230,8 +229,6 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
      {in float\\n}
     {empty_line:\\n}
     *1 @caption C1 l39
-    |EXTRA
-    |float:[E0]
      *brace_command_context C1
       *paragraph C1
        {in caption}

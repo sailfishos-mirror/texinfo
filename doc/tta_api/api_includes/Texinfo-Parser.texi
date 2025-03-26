@@ -367,7 +367,7 @@ element of all the block commands @code{contents}.
 @node Texinfo@asis{::}Parser Paragraphs and preformatted
 @subsubsection Paragraphs and preformatted
 
-@emph{paragraph} and @emph{preformatted} container @code{contents} are 
+@emph{paragraph} and @emph{preformatted} container @code{contents} are
 text elements, elements of @@-commands without arguments, such as @code{@@@}}, with
 empty braces, such as @code{@@equiv} and with braces such as @code{@@code} or @code{@@ref}.
 They may also contain elements corresponding to the few line commands that do
@@ -1231,10 +1231,6 @@ The @emph{enumerate_specification} @code{extra} key contains the enumerate argum
 
 If @code{@@float} has a first argument, and for @code{@@listoffloats} argument there
 is a @emph{float_type} key with the normalized float type.
-
-@emph{caption} and @emph{shortcaption} hold the corresponding tree elements
-associated to a @code{@@float}.  The @code{@@caption} or @code{@@shortcaption} have the
-float tree element stored in @emph{float}.
 
 @item index entry @@-command
 @anchor{Texinfo@asis{::}Parser index entry @@-command}

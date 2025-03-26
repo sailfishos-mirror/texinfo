@@ -319,10 +319,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   {empty_line:\\n}
   *3 @float C9 l36
   |EXTRA
-  |caption:[E4]
   |float_type:{}
   |global_command_number:{1}
-  |shortcaption:[E5]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -334,8 +332,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |INFO
    |spaces_before_argument:
     |{\\f }
-   |EXTRA
-   |float:[E3]
     *brace_command_context C5
      *paragraph C1
       {within }
@@ -351,8 +347,6 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |INFO
    |spaces_before_argument:
     |{\\f }
-   |EXTRA
-   |float:[E3]
     *brace_command_context C5
      *paragraph C1
       {shc within }

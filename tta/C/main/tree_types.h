@@ -110,16 +110,13 @@ enum directions {
   ai_key(associated_part, element) \
   ai_key(associated_section, element) \
   ai_key(associated_title_command, element) \
-  ai_key(caption, element) \
   ai_key(element_node, element) \
-  ai_key(float, element) \
   ai_key(float_section, element) \
   ai_key(node_description, element) \
   ai_key(node_long_description, element) \
   ai_key(node_preceding_part, element) \
   ai_key(part_associated_section, element) \
   ai_key(part_following_node, element) \
-  ai_key(shortcaption, element) \
   \
   ai_key(def_index_element, element_oot) \
   ai_key(def_index_ref_element, element_oot) \

@@ -54,7 +54,6 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E3]
   |float_number:{1}
   |float_type:{fl}
   |global_command_number:{1}
@@ -73,8 +72,6 @@ $result_tree_text{'footnote_in_caption_and_error'} = '*document_root C3
    *paragraph C1
     {In float.\\n}
    *3 @caption C1 l8
-   |EXTRA
-   |float:[E2]
     *brace_command_context C1
      *paragraph C2
       {in caption}

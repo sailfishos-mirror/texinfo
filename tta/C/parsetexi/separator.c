@@ -102,8 +102,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           current = arg;
           if (cmd == CM_caption || cmd == CM_shortcaption)
             {
-#define float floatxx
-              ELEMENT *float = 0;
               const char *caption_cmdname = command_name(cmd);
               nesting_context.caption++;
               if (!current->parent->parent
@@ -122,28 +120,6 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                     line_warn ("@%s should be right below `@float'",
                                caption_cmdname);
                 }
-              else
-                float = current->parent->parent;
-              if (float)
-                {
-                  if ((cmd == CM_caption
-                       && lookup_extra_element (float, AI_key_caption))
-                      || (cmd == CM_shortcaption
-                          && lookup_extra_element (float, AI_key_shortcaption)))
-                    line_warn ("ignoring multiple @%s",
-                               caption_cmdname);
-                  else
-                    {
-                      add_extra_element (current->parent, AI_key_float, float);
-                      if (cmd == CM_caption)
-                        add_extra_element (float, AI_key_caption,
-                                           current->parent);
-                      else
-                        add_extra_element (float, AI_key_shortcaption,
-                                           current->parent);
-                    }
-                }
-#undef float
             }
           else if (cmd == CM_footnote)
             {

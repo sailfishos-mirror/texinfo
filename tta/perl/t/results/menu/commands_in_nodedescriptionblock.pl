@@ -193,7 +193,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |spaces_before_argument:
     |{ }
    |EXTRA
-   |caption:[E8]
    |float_number:{1.1}
    |float_section:[E4]
    |float_type:{tfloat}
@@ -217,8 +216,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
       {float_image}
     {\\n}
     *8 @caption C1 l23
-    |EXTRA
-    |float:[E7]
      *brace_command_context C1
       *paragraph C1
        {Cap1}

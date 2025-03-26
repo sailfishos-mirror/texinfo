@@ -12,7 +12,6 @@ $result_tree_text{'simple'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E1]
   |float_number:{1}
   |float_type:{Type}
   |global_command_number:{1}
@@ -32,8 +31,6 @@ $result_tree_text{'simple'} = '*document_root C1
    *paragraph C1
     {In float.\\n}
    *1 @caption C1 l4
-   |EXTRA
-   |float:[E0]
     *brace_command_context C1
      *paragraph C1
       {Caption.}

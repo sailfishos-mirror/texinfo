@@ -51,14 +51,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E3]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{text-with-a-lot-of-features}
-  |shortcaption:[E4]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -74,8 +72,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |float:[E2]
     *brace_command_context C1
      *paragraph C2
       {An example of float caption}
@@ -83,8 +79,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
        *brace_container
    {spaces_after_close_brace:\\n}
    *4 @shortcaption C1 l7
-   |EXTRA
-   |float:[E2]
     *brace_command_context C1
      *paragraph C2
       *@TeX C1 l7
@@ -108,11 +102,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E6]
   |float_section:[E1]
   |float_type:{Text}
   |global_command_number:{2}
-  |shortcaption:[E7]
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -123,15 +115,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {No label but caption and shortcaption.\\n}
    {empty_line:\\n}
    *6 @caption C1 l13
-   |EXTRA
-   |float:[E5]
     *brace_command_context C1
      *paragraph C1
       {C No label}
    {spaces_after_close_brace:\\n}
    *7 @shortcaption C1 l14
-   |EXTRA
-   |float:[E5]
     *brace_command_context C1
      *paragraph C1
       {SC No label}
@@ -153,14 +141,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E9]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{3}
   |is_target:{1}
   |normalized:{label-but-no-type}
-  |shortcaption:[E10]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -172,15 +158,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {No type but caption and shortcaption.\\n}
    {empty_line:\\n}
    *9 @caption C1 l20
-   |EXTRA
-   |float:[E8]
     *brace_command_context C1
      *paragraph C1
       {C No type}
    {spaces_after_close_brace:\\n}
    *10 @shortcaption C1 l21
-   |EXTRA
-   |float:[E8]
     *brace_command_context C1
      *paragraph C1
       {SC No type}
@@ -259,11 +241,9 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   {empty_line:\\n}
   *13 @float C7 l36
   |EXTRA
-  |caption:[E14]
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{6}
-  |shortcaption:[E15]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -272,15 +252,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {No label, no type, but caption and shortcaption.\\n}
    *14 @caption C1 l38
-   |EXTRA
-   |float:[E13]
     *brace_command_context C1
      *paragraph C1
       {C No label, no type, but caption and shortcaption.}
    {spaces_after_close_brace:\\n}
    *15 @shortcaption C1 l39
-   |EXTRA
-   |float:[E13]
     *brace_command_context C1
      *paragraph C1
       {SC No label, no type, but caption and shortcaption.}
@@ -302,14 +278,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E17]
   |float_number:{3}
   |float_section:[E1]
   |float_type:{}
   |global_command_number:{7}
   |is_target:{1}
   |normalized:{label-but-no-type-2}
-  |shortcaption:[E18]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -321,15 +295,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {Second float with no type.\\n}
    {empty_line:\\n}
    *17 @caption C1 l45
-   |EXTRA
-   |float:[E16]
     *brace_command_context C1
      *paragraph C1
       {C No type 2}
    {spaces_after_close_brace:\\n}
    *18 @shortcaption C1 l46
-   |EXTRA
-   |float:[E16]
     *brace_command_context C1
      *paragraph C1
       {SC No type 2}
@@ -351,14 +321,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E20]
   |float_number:{1}
   |float_section:[E1]
   |float_type:{Warning}
   |global_command_number:{8}
   |is_target:{1}
   |normalized:{warning-in-top}
-  |shortcaption:[E21]
    *arguments_line C2
     *block_line_arg C1
      {Warning}
@@ -373,15 +341,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {A warning\\n}
    {empty_line:\\n}
    *20 @caption C1 l52
-   |EXTRA
-   |float:[E19]
     *brace_command_context C1
      *paragraph C1
       {C A warning}
    {spaces_after_close_brace:\\n}
    *21 @shortcaption C1 l53
-   |EXTRA
-   |float:[E19]
     *brace_command_context C1
      *paragraph C1
       {SC A warning}
@@ -513,7 +477,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E26]
   |float_number:{1.1}
   |float_section:[E24]
   |float_type:{Text}
@@ -534,8 +497,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {Text in chapter\\n}
    {empty_line:\\n}
    *26 @caption C1 l70
-   |EXTRA
-   |float:[E25]
     *brace_command_context C1
      *paragraph C1
       {C Text in chapter}
@@ -557,7 +518,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E28]
   |float_number:{1.2}
   |float_section:[E24]
   |float_type:{Text}
@@ -578,8 +538,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |float:[E27]
     *brace_command_context C1
      *paragraph C2
       {An example of float caption, no shortcaption}
@@ -603,7 +561,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E30]
   |float_number:{1.1}
   |float_section:[E24]
   |float_type:{théorème}
@@ -640,8 +597,6 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {me\\n}
    {empty_line:\\n}
    *30 @caption C1 l80
-   |EXTRA
-   |float:[E29]
     *brace_command_context C1
      *paragraph C5
       {C A th}
@@ -671,14 +626,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E32]
   |float_number:{1.1}
   |float_section:[E24]
   |float_type:{}
   |global_command_number:{12}
   |is_target:{1}
   |normalized:{label-but-no-type-in-chapter}
-  |shortcaption:[E33]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -690,15 +643,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {float with no type.\\n}
    {empty_line:\\n}
    *32 @caption C1 l86
-   |EXTRA
-   |float:[E31]
     *brace_command_context C1
      *paragraph C1
       {C No type in chapter}
    {spaces_after_close_brace:\\n}
    *33 @shortcaption C1 l87
-   |EXTRA
-   |float:[E31]
     *brace_command_context C1
      *paragraph C1
       {SC No type in chapter}
@@ -720,14 +669,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E35]
   |float_number:{1.1}
   |float_section:[E24]
   |float_type:{Warning}
   |global_command_number:{13}
   |is_target:{1}
   |normalized:{warning-in-chapter}
-  |shortcaption:[E36]
    *arguments_line C2
     *block_line_arg C1
      {Warning}
@@ -742,15 +689,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {A warning\\n}
    {empty_line:\\n}
    *35 @caption C1 l93
-   |EXTRA
-   |float:[E34]
     *brace_command_context C1
      *paragraph C1
       {C A warning in chapter}
    {spaces_after_close_brace:\\n}
    *36 @shortcaption C1 l94
-   |EXTRA
-   |float:[E34]
     *brace_command_context C1
      *paragraph C1
       {SC A warning in chapter}
@@ -936,14 +879,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E46]
   |float_number:{5}
   |float_section:[E42]
   |float_type:{Text}
   |global_command_number:{15}
   |is_target:{1}
   |normalized:{unnumbered-float}
-  |shortcaption:[E45]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -957,15 +898,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {unnum\\n}
    *45 @shortcaption C1 l118
-   |EXTRA
-   |float:[E44]
     *brace_command_context C1
      *paragraph C1
       {SC unnumbered float}
    {spaces_after_close_brace:\\n}
    *46 @caption C1 l119
-   |EXTRA
-   |float:[E44]
     *brace_command_context C1
      *paragraph C1
       {C unnumbered float}
@@ -986,14 +923,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E48]
   |float_number:{5}
   |float_section:[E42]
   |float_type:{}
   |global_command_number:{16}
   |is_target:{1}
   |normalized:{label-but-no-type-in-unnumbered}
-  |shortcaption:[E49]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -1005,15 +940,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {float with no type.\\n}
    {empty_line:\\n}
    *48 @caption C1 l124
-   |EXTRA
-   |float:[E47]
     *brace_command_context C1
      *paragraph C1
       {C No type in unnumbered}
    {spaces_after_close_brace:\\n}
    *49 @shortcaption C1 l125
-   |EXTRA
-   |float:[E47]
     *brace_command_context C1
      *paragraph C1
       {SC No type in unnumbered}
@@ -1070,14 +1001,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E54]
   |float_number:{6}
   |float_section:[E51]
   |float_type:{Text}
   |global_command_number:{17}
   |is_target:{1}
   |normalized:{Section-within-unnumbered-float}
-  |shortcaption:[E53]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1091,15 +1020,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Section within unnumbered\\n}
    *53 @shortcaption C1 l135
-   |EXTRA
-   |float:[E52]
     *brace_command_context C1
      *paragraph C1
       {SC Section within unnumbered}
    {spaces_after_close_brace:\\n}
    *54 @caption C1 l136
-   |EXTRA
-   |float:[E52]
     *brace_command_context C1
      *paragraph C1
       {C Section within unnumbered}
@@ -1186,14 +1111,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E60]
   |float_number:{2.1}
   |float_section:[E56]
   |float_type:{Text}
   |global_command_number:{18}
   |is_target:{1}
   |normalized:{Chapter-with-subsec-float}
-  |shortcaption:[E59]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1207,15 +1130,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Chap\\n}
    *59 @shortcaption C1 l147
-   |EXTRA
-   |float:[E58]
     *brace_command_context C1
      *paragraph C1
       {SC Chapter with subsec}
    {spaces_after_close_brace:\\n}
    *60 @caption C1 l148
-   |EXTRA
-   |float:[E58]
     *brace_command_context C1
      *paragraph C1
       {C Chapter with subsec}
@@ -1270,14 +1189,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E65]
   |float_number:{2.2}
   |float_section:[E62]
   |float_type:{Text}
   |global_command_number:{19}
   |is_target:{1}
   |normalized:{unnumbered-sec-float}
-  |shortcaption:[E64]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1291,15 +1208,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Chap\\n}
    *64 @shortcaption C1 l156
-   |EXTRA
-   |float:[E63]
     *brace_command_context C1
      *paragraph C1
       {SC unnumbered sec float}
    {spaces_after_close_brace:\\n}
    *65 @caption C1 l157
-   |EXTRA
-   |float:[E63]
     *brace_command_context C1
      *paragraph C1
       {C unnumbered sec float}
@@ -1321,14 +1234,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E67]
   |float_number:{2.1}
   |float_section:[E62]
   |float_type:{}
   |global_command_number:{20}
   |is_target:{1}
   |normalized:{label-but-no-type-in-unnumbered-subsec-in-chapter}
-  |shortcaption:[E68]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -1340,15 +1251,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     {float with no type.\\n}
    {empty_line:\\n}
    *67 @caption C1 l163
-   |EXTRA
-   |float:[E66]
     *brace_command_context C1
      *paragraph C1
       {C No type in unnumbered subsec in chapter}
    {spaces_after_close_brace:\\n}
    *68 @shortcaption C1 l164
-   |EXTRA
-   |float:[E66]
     *brace_command_context C1
      *paragraph C1
       {SC No type in unnumbered subsec in chapter}
@@ -1405,14 +1312,12 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E73]
   |float_number:{A.1}
   |float_section:[E70]
   |float_type:{Text}
   |global_command_number:{21}
   |is_target:{1}
   |normalized:{appendix-sec-float}
-  |shortcaption:[E72]
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -1427,15 +1332,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
    *paragraph C1
     {Appendix\\n}
    *72 @shortcaption C1 l173
-   |EXTRA
-   |float:[E71]
     *brace_command_context C1
      *paragraph C1
       {SC appendix sec float}
    {spaces_after_close_brace:\\n}
    *73 @caption C1 l174
-   |EXTRA
-   |float:[E71]
     *brace_command_context C1
      *paragraph C1
       {C appendix sec float}

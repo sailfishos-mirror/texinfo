@@ -12,7 +12,6 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E1]
   |float_number:{1}
   |float_type:{a}
   |global_command_number:{1}
@@ -31,8 +30,6 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *paragraph C1
     {In float A, B\\n}
    *1 @caption C1 l3
-   |EXTRA
-   |float:[E0]
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l4
@@ -57,7 +54,6 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |global_command_number:{2}
   |is_target:{1}
   |normalized:{c}
-  |shortcaption:[E3]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -70,8 +66,6 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *paragraph C1
     {In float , C\\n}
    *3 @shortcaption C1 l8
-   |EXTRA
-   |float:[E2]
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l9
@@ -88,10 +82,8 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   {empty_line:\\n}
   *4 @float C7 l11
   |EXTRA
-  |caption:[E6]
   |float_type:{}
   |global_command_number:{3}
-  |shortcaption:[E5]
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -100,13 +92,9 @@ $result_tree_text{'empty_caption'} = '*document_root C1
    *paragraph C1
     {In float\\n}
    *5 @shortcaption C1 l13
-   |EXTRA
-   |float:[E4]
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *6 @caption C1 l14
-   |EXTRA
-   |float:[E4]
     *brace_command_context
    {spaces_after_close_brace:\\n}
    *@end C1 l15

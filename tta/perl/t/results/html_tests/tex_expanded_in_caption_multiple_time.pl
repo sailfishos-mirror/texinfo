@@ -11,7 +11,6 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E1]
   |float_number:{1}
   |float_type:{A}
   |global_command_number:{1}
@@ -33,8 +32,6 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
    |INFO
    |spaces_before_argument:
     |{\\n}
-   |EXTRA
-   |float:[E0]
     *brace_command_context C1
      *@tex C3 l4
       *arguments_line C1

@@ -135,7 +135,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E8]
   |float_number:{1}
   |float_section:[E2]
   |float_type:{list}
@@ -162,8 +161,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       {a in float}
     {.\\n}
    *8 @caption C1 l25
-   |EXTRA
-   |float:[E6]
     *brace_command_context C1
      *paragraph C2
       {Caption Flist. }
@@ -314,7 +311,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E13]
   |float_number:{1.1}
   |float_section:[E11]
   |float_type:{list}
@@ -334,8 +330,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    *paragraph C1
     {In Main\\n}
    *13 @caption C1 l48
-   |EXTRA
-   |float:[E12]
     *brace_command_context C1
      *paragraph C1
       {Caption Main}

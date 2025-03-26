@@ -1425,10 +1425,9 @@ sub _print_caption_shortcaption($$$$$)
   }
 
   my $caption_float;
-  if (!$element->{'extra'} or !$element->{'extra'}->{'float'}
-      or $element->{'extra'}->{'float'} ne $float) {
+  if ($element->{'parent'} ne $float) {
     $float_number = 'UNDEF' unless(defined($float_number));
-    print STDERR "BUG: \@${element}->{'cmdname'} $type; $float_number: "
+    print STDERR "BUG: \@".${element}->{'cmdname'}." $type; $float_number: "
        . "caption_float != float_e: $caption_texi\n";
   }
 

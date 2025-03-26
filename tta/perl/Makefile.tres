@@ -542,6 +542,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/float/footnote_in_caption.pl \
   t/results/float/footnote_in_caption_and_error.pl \
   t/results/float/listoffloats_with_commands.pl \
+  t/results/float/multiple_captions.pl \
   t/results/float/multiple_spaces_in_float_type.pl \
   t/results/float/numbering_captions_listoffloats.pl \
   t/results/float/ref_to_float.pl \

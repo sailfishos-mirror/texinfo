@@ -47,7 +47,6 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E2]
   |float_number:{2}
   |float_type:{}
   |global_command_number:{2}
@@ -65,8 +64,6 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *paragraph C1
     {Label and caption.\\n}
    *2 @caption C1 l8
-   |EXTRA
-   |float:[E1]
     *brace_command_context C1
      *paragraph C1
       {caption with label}
@@ -108,7 +105,6 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   {empty_line:\\n}
   *4 @float C5 l15
   |EXTRA
-  |caption:[E5]
   |float_type:{}
   |global_command_number:{4}
    *arguments_line C1
@@ -119,8 +115,6 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
    *paragraph C1
     {no label caption\\n}
    *5 @caption C1 l17
-   |EXTRA
-   |float:[E4]
     *brace_command_context C1
      *paragraph C1
       {caption no label}

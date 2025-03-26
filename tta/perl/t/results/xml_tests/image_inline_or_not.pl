@@ -363,7 +363,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E6]
   |float_number:{1.1}
   |float_section:[E4]
   |float_type:{F}
@@ -387,8 +386,6 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
    {\\n}
    {empty_line:\\n}
    *6 @caption C1 l59
-   |EXTRA
-   |float:[E5]
     *brace_command_context C2
      *@image C1 l59
      |EXTRA

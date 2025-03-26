@@ -84,14 +84,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E5]
   |float_number:{1.1}
   |float_section:[E3]
   |float_type:{}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{no-type}
-  |shortcaption:[E6]
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -104,15 +102,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *paragraph C1
     {no type\\n}
    *5 @caption C1 l9
-   |EXTRA
-   |float:[E4]
     *brace_command_context C1
      *paragraph C1
       {no type float}
    {spaces_after_close_brace:\\n}
    *6 @shortcaption C1 l10
-   |EXTRA
-   |float:[E4]
     *brace_command_context C1
      *paragraph C1
       {short no type float}
@@ -134,14 +128,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E8]
   |float_number:{1.1}
   |float_section:[E3]
   |float_type:{Thing}
   |global_command_number:{2}
   |is_target:{1}
   |normalized:{with-type}
-  |shortcaption:[E9]
    *arguments_line C2
     *block_line_arg C1
      {Thing}
@@ -155,15 +147,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *paragraph C1
     {Something with\\n}
    *8 @caption C1 l15
-   |EXTRA
-   |float:[E7]
     *brace_command_context C1
      *paragraph C1
       {with type float}
    {spaces_after_close_brace:\\n}
    *9 @shortcaption C1 l16
-   |EXTRA
-   |float:[E7]
     *brace_command_context C1
      *paragraph C1
       {short with type float}
@@ -185,14 +173,12 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |spaces_before_argument:
    |{ }
   |EXTRA
-  |caption:[E11]
   |float_number:{1.1}
   |float_section:[E3]
   |float_type:{Figure}
   |global_command_number:{3}
   |is_target:{1}
   |normalized:{my-figure}
-  |shortcaption:[E12]
    *arguments_line C2
     *block_line_arg C1
      {Figure}
@@ -206,15 +192,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
    *paragraph C1
     {In figure\\n}
    *11 @caption C1 l21
-   |EXTRA
-   |float:[E10]
     *brace_command_context C1
      *paragraph C1
       {caption for figure}
    {spaces_after_close_brace:\\n}
    *12 @shortcaption C1 l22
-   |EXTRA
-   |float:[E10]
     *brace_command_context C1
      *paragraph C1
       {short caption for figure}

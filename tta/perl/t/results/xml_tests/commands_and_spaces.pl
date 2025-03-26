@@ -198,13 +198,11 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |spaces_before_argument:
    |{  }
   |EXTRA
-  |caption:[E2]
   |float_number:{1}
   |float_type:{ff}
   |global_command_number:{1}
   |is_target:{1}
   |normalized:{b}
-  |shortcaption:[E3]
    *arguments_line C2
     *block_line_arg C1
     |INFO
@@ -224,16 +222,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    |INFO
    |spaces_before_argument:
     |{ }
-   |EXTRA
-   |float:[E1]
     *brace_command_context C1
      *paragraph C1
       {In caption }
    *paragraph C1
     {j.\\n}
    *3 @shortcaption C1 l33
-   |EXTRA
-   |float:[E1]
     *brace_command_context C1
      *paragraph C1
       {Short}
